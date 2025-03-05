@@ -1,38 +1,55 @@
 import { GitGraphProps } from './types.ts'
+import styles from './GitGraph.module.scss'
+import { useEffect, useRef, useState } from 'react'
 
 export const GitGraph = ({ commits }: GitGraphProps) => {
-  const rowHeight = 30
-  const colWidth = 20
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerWidth, setContainerWidth] = useState(400) // Default width
 
-  // Assign x positions for branches dynamically
+  useEffect(() => {
+    if (containerRef.current) {
+      setContainerWidth(containerRef.current.clientWidth)
+    }
+
+    const handleResize = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.clientWidth)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const rowHeight = 30
+  const maxBranches = new Set<string>()
+
   const branchMap = new Map<string, number>()
-  let nextBranchX = 0
+  let nextBranchIndex = 0
 
   const positionedCommits = commits.map((commit, index) => {
-    const x = branchMap.get(commit.hash) ?? nextBranchX
+    const branchIndex = branchMap.get(commit.hash) ?? nextBranchIndex
     if (!branchMap.has(commit.hash)) {
-      branchMap.set(commit.hash, x)
-      nextBranchX += 1
+      branchMap.set(commit.hash, branchIndex)
+      maxBranches.add(commit.hash)
+      nextBranchIndex++
     }
 
     commit.parents.forEach((parent) => {
       if (!branchMap.has(parent)) {
-        branchMap.set(parent, nextBranchX++)
+        branchMap.set(parent, nextBranchIndex++)
+        maxBranches.add(parent)
       }
     })
 
-    return { ...commit, x: x * colWidth, y: index * rowHeight }
+    return { ...commit, x: branchIndex, y: index * rowHeight }
   })
 
+  const colWidth = containerWidth / Math.max(1, maxBranches.size)
+
   return (
-    <div style={{ position: 'relative', display: 'flex' }}>
-      {/* SVG Overlay for Graph */}
-      <svg
-        width={nextBranchX * colWidth}
-        height={commits.length * rowHeight}
-        style={{ position: 'absolute', left: 0 }}
-      >
-        {/* Draw Connections */}
+    <div ref={containerRef} style={{ position: 'relative', width: '100%', minHeight: '400px' }}>
+      <svg width="100%" height={commits.length * rowHeight}>
         {positionedCommits.map((commit) =>
           commit.parents.map((parent) => {
             const parentNode = positionedCommits.find((c) => c.hash === parent)
@@ -40,39 +57,26 @@ export const GitGraph = ({ commits }: GitGraphProps) => {
             return (
               <line
                 key={`${commit.hash}-${parent}`}
-                x1={commit.x + 5}
-                y1={commit.y + 5}
-                x2={parentNode.x + 5}
-                y2={parentNode.y + 5}
+                x1={commit.x * colWidth + colWidth / 2}
+                y1={commit.y + rowHeight / 2}
+                x2={parentNode.x * colWidth + colWidth / 2}
+                y2={parentNode.y + rowHeight / 2}
                 stroke="black"
               />
             )
           })
         )}
 
-        {/* Draw Commit Nodes */}
         {positionedCommits.map((commit) => (
           <circle
             key={commit.hash}
-            cx={commit.x + 5}
-            cy={commit.y + 5}
+            cx={commit.x * colWidth + colWidth / 2}
+            cy={commit.y + rowHeight / 2}
             r={5}
             fill="black"
           />
         ))}
       </svg>
-
-      {/* Table for Commit Info */}
-      <table style={{ marginLeft: nextBranchX * colWidth + 20 }}>
-        <tbody>
-        {commits.map((commit) => (
-          <tr key={commit.hash}>
-            <td>{commit.hash}</td>
-            <td>{commit.message}</td>
-          </tr>
-        ))}
-        </tbody>
-      </table>
     </div>
   )
 }

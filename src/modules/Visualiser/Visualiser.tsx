@@ -3,8 +3,6 @@ import { GitGraph } from './components/GitGraph'
 
 export const Visualiser = ({ entries }: VisualiserProps) => {
   return (
-    <>
      <GitGraph commits={entries} />
-    </>
   )
 }

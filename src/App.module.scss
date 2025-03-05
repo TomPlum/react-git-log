@@ -1,3 +1,33 @@
 .app {
+  width: 100%;
+  height: 100%;
 
+  .content {
+    height: 100%;
+    display: flex;
+
+    .graphContainer {
+      border: 1px solid red;
+      border-right: none;
+      height: 100%;
+      position: relative;
+
+      .dragHandle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: grey;
+
+        &:hover {
+          cursor: grab;
+        }
+      }
+    }
+
+    .table {
+      color: black;
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import styles from './App.module.scss'
-import { Visualiser } from './modules/Visualiser'
-import { parseGitLogOutput } from './modules/Visualiser/utils/gitLogParser.ts'
+import { Visualiser } from 'modules/Visualiser'
+import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
 import { useEffect, useState } from 'react'
 
 const App = () => {

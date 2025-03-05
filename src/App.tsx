@@ -1,9 +1,9 @@
-import './App.css'
+import styles from './App.module.scss'
 import { Visualiser } from './modules/Visualiser'
 import { parseGitLogOutput } from './modules/Visualiser/utils/gitLogParser.ts'
 import { useEffect, useState } from 'react'
 
-function App() {
+const App = () => {
   const [file, setFile] = useState<string>()
 
   useEffect(() => {
@@ -16,15 +16,15 @@ function App() {
       setFile(result)
     })
   }, [])
-  
+
   return (
-    <>
+    <div className={styles.app}>
       {file && (
         <Visualiser
           entries={parseGitLogOutput(file)}
         />
       )}
-    </>
+    </div>
   )
 }
 

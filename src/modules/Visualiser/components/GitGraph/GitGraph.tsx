@@ -21,46 +21,65 @@ export const GitGraph = ({ commits }: GitGraphProps) => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const rowHeight = 30
+  const rowHeight = 48
 
-  const { entries, maxBranches } = useMemo(() => {
+  const { entries } = useMemo(() => {
     return buildGraph(commits, rowHeight)
   }, [commits, rowHeight])
 
   console.log('positionedCommits', entries)
 
-  const colWidth = containerWidth / Math.max(1, maxBranches.size)
+  const uniqueXValues = [...new Set(entries.map((c) => c.x))].length
+  const nodeSpacingX = containerWidth / Math.max(uniqueXValues, 1) // Prevent division by zero
+  console.log('nodeSpacingX', nodeSpacingX)
+  console.log('Unique Xs', new Set(entries.map((c) => c.x)))
+  console.log('Unique Branches', new Set(entries.map((c) => c.branch)))
+
+  const colours: Record<number, string> = {
+    0: 'red',
+    1: 'green',
+    2: 'blue',
+    3: 'yellow',
+    4: 'orange',
+    5: 'pink',
+    6: 'purple'
+  }
 
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%', minHeight: '400px' }}>
-      <svg width="100%" height={commits.length * rowHeight}>
-        {entries.map((commit) =>
-          commit.parents.map((parent) => {
-            const parentNode = entries.find((c) => c.hash === parent)
-            if (!parentNode) return null
+      <svg width="100%" height={commits.length * rowHeight} style={{ background: 'white', marginTop: 25 }}>
+        {/** Render branch lines first to keep nodes on top */}
+        {entries.flatMap((commit) =>
+          commit.parents.map((parentHash) => {
+            const parent = entries.find((c) => c.hash === parentHash)
+            if (!parent) return null
+
             return (
               <line
-                key={`${commit.hash}-${parent}`}
-                x1={commit.x * colWidth + colWidth / 2}
-                y1={commit.y + rowHeight / 2}
-                x2={parentNode.x * colWidth + colWidth / 2}
-                y2={parentNode.y + rowHeight / 2}
-                stroke="black"
+                key={`${commit.hash}-${parentHash}`}
+                x1={commit.x * 30}
+                y1={commit.y}
+                x2={parent.x * nodeSpacingX}
+                y2={parent.y}
+                stroke={colours[commit.x] ?? 'black'}
+                strokeWidth="2"
               />
             )
           })
         )}
 
+        {/** Render nodes on top */}
         {entries.map((commit) => (
           <circle
             key={commit.hash}
-            cx={commit.x * colWidth + colWidth / 2}
-            cy={commit.y + rowHeight / 2}
+            cx={commit.x * 30}
+            cy={commit.y}
             r={5}
-            fill="black"
+            fill={colours[commit.x] ?? 'black'}
+            stroke="black"
           />
         ))}
-      </svg>
+    </svg>
     </div>
   )
 }

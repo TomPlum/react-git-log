@@ -40,7 +40,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchFile = async () => {
-      const response = await fetch('/git-log.txt')
+      const response = await fetch('/git-log-all.txt')
       return response.text()
     }
 
@@ -68,6 +68,7 @@ const App = () => {
             <tbody>
               {entries.map((commit) => (
                 <tr key={commit.hash}>
+                  <td>{commit.branch.replace('refs/remotes', '').replace('refs/heads/', '').replace('/origin/', '')}</td>
                   <td>{commit.hash}</td>
                   <td>{commit.message}</td>
                 </tr>

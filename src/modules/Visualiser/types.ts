@@ -13,6 +13,7 @@ export interface CommitNode {
 
 export interface GitLogEntry {
   hash: string
+  branch: string
   parents: string[]
   refs: string
   message: string

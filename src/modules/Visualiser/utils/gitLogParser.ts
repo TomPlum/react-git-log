@@ -2,7 +2,7 @@ import { GitLogEntry } from '../types.ts'
 
 export const parseGitLogOutput = (output: string): GitLogEntry[] => {
   const commits = output.split('\n')
-  const logRegex = /^hash:(\S+),parents:(.*?),refs:(.*?),msg:(.+)$/
+  const logRegex = /^hash:(\S+),parents:(.*?),branch:(\S*),refs:(.*?),msg:(.+)/
 
   return commits.map(commit => {
     const match = commit.match(logRegex)
@@ -11,8 +11,9 @@ export const parseGitLogOutput = (output: string): GitLogEntry[] => {
       return {
         hash: match[1],
         parents: match[2] ? match[2].split(' ') : [],
-        refs: match[3].trim(),
-        message: match[4]
+        branch: match[3].trim(),
+        refs: match[4].trim(),
+        message: match[5]
       }
     }
 

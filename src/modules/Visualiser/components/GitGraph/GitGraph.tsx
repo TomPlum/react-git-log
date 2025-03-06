@@ -1,6 +1,6 @@
 import { GitGraphProps } from './types.ts'
-import styles from './GitGraph.module.scss'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 
 export const GitGraph = ({ commits }: GitGraphProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -24,26 +24,11 @@ export const GitGraph = ({ commits }: GitGraphProps) => {
   const rowHeight = 30
   const maxBranches = new Set<string>()
 
-  const branchMap = new Map<string, number>()
-  let nextBranchIndex = 0
+  const positionedCommits = useMemo(() => {
+    return buildGraph(commits, rowHeight)
+  }, [commits, rowHeight])
 
-  const positionedCommits = commits.map((commit, index) => {
-    const branchIndex = branchMap.get(commit.hash) ?? nextBranchIndex
-    if (!branchMap.has(commit.hash)) {
-      branchMap.set(commit.hash, branchIndex)
-      maxBranches.add(commit.hash)
-      nextBranchIndex++
-    }
-
-    commit.parents.forEach((parent) => {
-      if (!branchMap.has(parent)) {
-        branchMap.set(parent, nextBranchIndex++)
-        maxBranches.add(parent)
-      }
-    })
-
-    return { ...commit, x: branchIndex, y: index * rowHeight }
-  })
+  console.log('positionedCommits', positionedCommits)
 
   const colWidth = containerWidth / Math.max(1, maxBranches.size)
 

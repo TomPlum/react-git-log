@@ -2,4 +2,4 @@ Git Log Visualiser
 
 # Git Commands
 
-`git log --all --pretty=format:'hash:%h,parents:%p,refs:%d,msg:%s' --date=iso`
+`git log develop --pretty=format:'hash:%h,parents:%p,refs:%d,msg:%s' --date=iso`

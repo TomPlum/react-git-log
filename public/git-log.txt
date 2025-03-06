@@ -20,11 +20,9 @@ hash:52aa9dd,parents:18088d2,refs:,msg:feat(styling): adjustments to moon
 hash:18088d2,parents:0c202af,refs:,msg:feat(styling): added generated stars to background scene
 hash:0c202af,parents:cf56b70,refs:,msg:feat(styling): making scene more responsive and full screen
 hash:cf56b70,parents:b61aeed,refs:,msg:feat(styling): experimenting with highlights landing styling
-hash:5a67c90,parents:e059c28,refs: (origin/renovate/major-react-monorepo, renovate/major-react-monorepo),msg:fix(deps): update react monorepo to v19
 hash:b61aeed,parents:2d173ca,refs:,msg:fix(styling): fixed dart sass 3.0 deprecation warnings
-hash:81ce807,parents:f2d49cf,refs: (origin/gh-pages),msg:Deploying to gh-pages from @ TomPlum/sleep@e059c28b8fa1668ec033daca1648f00a78126bc5 🚀
 hash:2d173ca,parents:51ba1e7 e059c28,refs:,msg:Merge branch 'release' into develop
-hash:e059c28,parents:0b78e07 867c511,refs: (origin/release, release),msg:Merge pull request #39 from TomPlum/renovate/vite-6.x
+hash:e059c28,parents:0b78e07 867c511,refs: (release),msg:Merge pull request #39 from TomPlum/renovate/vite-6.x
 hash:51ba1e7,parents:675127e,refs:,msg:feat(page): playing with highlights landing page styling
 hash:675127e,parents:017e506,refs:,msg:feat(page): moved colours, added sleeping animation
 hash:017e506,parents:ff018dd,refs:,msg:feat(page): progress on highlights page
@@ -32,7 +30,6 @@ hash:ff018dd,parents:f28088d,refs:,msg:feat(page): initial pass of best session 
 hash:f28088d,parents:f7cd757,refs:,msg:feat(page): initial highlights page work for showcases
 hash:f7cd757,parents:ea5a998,refs:,msg:chore(docs): added tsdoc to NestedProgressCircle props interface
 hash:ea5a998,parents:efe3dd6,refs:,msg:feat(routing): added highlights page and made query param routing only for sleep page
-hash:f2d49cf,parents:30ee0ba,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@0b78e0746d5a183a5be7879a9726815df474e857 🚀
 hash:0b78e07,parents:7355361 efe3dd6,refs: (tag: v2.4.0),msg:Merge pull request #52 from TomPlum/develop
 hash:efe3dd6,parents:d524100,refs:,msg:feat(chart): moved session highlights card
 hash:d524100,parents:50250a9,refs:,msg:feat(chart): Re-added locale toggle as ascii checkbox
@@ -45,13 +42,11 @@ hash:6beb2d1,parents:2bc6652,refs:,msg:feat(chart): Extracted NestedProgressCirc
 hash:2bc6652,parents:ab51db5,refs:,msg:feat(chart): Added formatDuration util and added details to highlight card
 hash:ab51db5,parents:165b754,refs:,msg:feat(chart): added nested progress circle to session highlight
 hash:165b754,parents:eff7491,refs:,msg:feat(chart): starting new session highlight component
-hash:30ee0ba,parents:aa2c148,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@7355361e6e85ef1159cfe61f676044dc71d5f2fd 🚀
 hash:7355361,parents:515eaa9 eff7491,refs: (tag: v2.3.1),msg:Merge pull request #51 from TomPlum/develop
 hash:eff7491,parents:127dd9c,refs:,msg:chore(docs): updated web worker loading image for docs
 hash:127dd9c,parents:0964b7d,refs:,msg:fix(styling): fixed positioning issue in starry background
 hash:0964b7d,parents:f4ef8e9,refs:,msg:fix(params): date range params now default to last 2 months if they are not present on page load
 hash:f4ef8e9,parents:5510915,refs:,msg:feat(loading): added starry background to data loading page
-hash:aa2c148,parents:afdb263,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@88a3ca2bc032b0ddf44eff0d272abf71052fbbe5 🚀
 hash:515eaa9,parents:88a3ca2 575887a,refs:,msg:Merge pull request #49 from TomPlum/renovate/major-eslint-stylistic-monorepo
 hash:88a3ca2,parents:fd93615 932be3a,refs:,msg:Merge pull request #48 from TomPlum/renovate/all-minor-patch
 hash:fd93615,parents:3d4d017 f687c53,refs:,msg:Merge pull request #50 from TomPlum/renovate/globals-16.x
@@ -63,15 +58,12 @@ hash:932be3a,parents:3d4d017,refs:,msg:fix(deps): update all non-major dependenc
 hash:4be118d,parents:a338942,refs:,msg:chore(docs): added missing ToC entry in readme
 hash:a338942,parents:f17afd7,refs:,msg:chore(docs): more docs additions in readme
 hash:f17afd7,parents:3d4d017,refs:,msg:chore(docs): updated readme images and docs
-hash:afdb263,parents:a829a48,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@3d4d017bf91addfc357a9bfcc88ccfc4eceae78c 🚀
 hash:3d4d017,parents:5525ed5 f157195,refs: (tag: v2.3.0),msg:Merge pull request #47 from TomPlum/renovate/all-minor-patch
 hash:867c511,parents:5525ed5,refs:,msg:chore(deps): update dependency vite to v6
-hash:a829a48,parents:8ddccd2,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@5525ed5d3a90dca5f4930426d8f6367f67587575 🚀
 hash:f157195,parents:5525ed5,refs:,msg:fix(deps): update all non-major dependencies
 hash:5525ed5,parents:5862498 081b2d3,refs:,msg:Merge pull request #38 from TomPlum/develop
 hash:081b2d3,parents:a10ab03,refs:,msg:chore(data): added latest pillow data 16/02/2025
 hash:a10ab03,parents:55ec23e 5862498,refs:,msg:Merge branch 'release' into develop
-hash:8ddccd2,parents:5db47c6,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@58624987661cae7503ac110e7ec054e47e62cd2c 🚀
 hash:5862498,parents:27d7e9e eeeb1f2,refs:,msg:Merge pull request #46 from TomPlum/renovate/all-minor-patch
 hash:eeeb1f2,parents:27d7e9e,refs:,msg:fix(deps): update all non-major dependencies
 hash:55ec23e,parents:75fea53,refs:,msg:fix(deps): npm install to fix lockfile issues
@@ -80,8 +72,6 @@ hash:27d7e9e,parents:338b505 0577e9d,refs:,msg:Merge pull request #45 from TomPl
 hash:338b505,parents:988bf8d ca136bf,refs:,msg:Merge pull request #43 from TomPlum/renovate/jsdom-26.x
 hash:988bf8d,parents:b35728b 648f6e9,refs:,msg:Merge pull request #44 from TomPlum/renovate/major-vitest-monorepo
 hash:e11674d,parents:72a5dbb b35728b,refs:,msg:Merge branch 'release' into develop
-hash:5db47c6,parents:d26bcc7,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@b35728b6da106abb0f2c82c143ae0b4a6e31f668 🚀
-hash:92c8167,parents:b35728b,refs: (origin/renovate/major-react-router-monorepo),msg:fix(deps): update dependency react-router-dom to v7
 hash:0577e9d,parents:b35728b,refs:,msg:chore(deps): update dependency @stylistic/eslint-plugin to v3
 hash:b35728b,parents:09e615d 0f5ae74,refs:,msg:Merge pull request #42 from TomPlum/renovate/all-minor-patch
 hash:0f5ae74,parents:09e615d,refs:,msg:fix(deps): update all non-major dependencies
@@ -90,7 +80,6 @@ hash:ca136bf,parents:09e615d,refs:,msg:chore(deps): update dependency jsdom to v
 hash:09e615d,parents:b7ec825 2b85a9e,refs:,msg:Merge pull request #41 from TomPlum/renovate/react-error-boundary-5.x
 hash:72a5dbb,parents:5281010,refs:,msg:fix(deps): removed redundant package-lock.json entries
 hash:5281010,parents:000b3aa b7ec825,refs:,msg:Merge branch 'release' into develop
-hash:d26bcc7,parents:74885fc,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@b7ec8259f761ea82faf75ed4da7502589769e1a7 🚀
 hash:b7ec825,parents:810a868 3d680fd,refs:,msg:Merge pull request #35 from TomPlum/renovate/all-minor-patch
 hash:3d680fd,parents:810a868,refs:,msg:fix(deps): update all non-major dependencies
 hash:2b85a9e,parents:810a868,refs:,msg:fix(deps): update dependency react-error-boundary to v5
@@ -114,7 +103,6 @@ hash:115846d,parents:71869c4,refs:,msg:feat(graph): added fps and network stats 
 hash:71869c4,parents:a3476a8,refs:,msg:fix(config): vite config css preproccessor options now use modern-compiler to fix dart scss warnings
 hash:a3476a8,parents:deba6b5,refs:,msg:fix(graph): fixed is3D default query param value and line chart missing opacity keyframes
 hash:deba6b5,parents:d8e279c,refs:,msg:feat(graph): added experimental 3d button and re-instated 3d graph behind it
-hash:74885fc,parents:ecb5b57,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@810a868f1f691c458fa0354a5122d8fe166d84ed 🚀
 hash:810a868,parents:c31b3a8 3a78717,refs: (tag: v2.2.0),msg:Merge pull request #37 from TomPlum/develop
 hash:d8e279c,parents:3a78717,refs:,msg:chore(graph): removed locale toggle from graph controls ui
 hash:3a78717,parents:d89f085,refs:,msg:fix(graph): active session info colour gradients now support all new chart view types
@@ -129,7 +117,6 @@ hash:17d9d64,parents:b516162,refs:,msg:feat(graph): added graph metric selector 
 hash:b516162,parents:33b5d79,refs:,msg:feat(graph): started refactor for adding multiple metric lines on the chart at once
 hash:33b5d79,parents:97b060f,refs:,msg:chore(graph): renamed line chart component to be consistent
 hash:97b060f,parents:e6318eb,refs:,msg:feat(graph): refactored stacked view toggle into a chart view selector dropdown
-hash:ecb5b57,parents:60698cc,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@c31b3a86b361a8a207d838498ce16125a5c93b54 🚀
 hash:c31b3a8,parents:0b903cc e6318eb,refs: (tag: v2.1.1),msg:Merge pull request #36 from TomPlum/develop
 hash:e6318eb,parents:2d1025f,refs:,msg:test(data): fixed bad file path reference which was breaking a test mock
 hash:2d1025f,parents:1321e4d,refs:,msg:chore(data): added tsdoc and supporting comments to useSleepStageData
@@ -151,7 +138,6 @@ hash:8e4f92b,parents:47d542c,refs:,msg:feat(graph): removed active dot from slee
 hash:47d542c,parents:9248e1f,refs:,msg:feat(graph): added stage instance duration to graph tooltip
 hash:9248e1f,parents:38190b2,refs:,msg:chore(graph): added custom interface for sleep session graph y-axis meta
 hash:38190b2,parents:f8ddbd4,refs:,msg:chore(deps): upgraded i18next to major version 24
-hash:60698cc,parents:05bec69,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@0b903cc93b1fd0fed264ae1f4d746f1414235fc9 🚀
 hash:f8ddbd4,parents:4ebf726 0b903cc,refs:,msg:Merge branch 'release' into develop
 hash:0b903cc,parents:6e3df33 dc8936d,refs:,msg:Merge pull request #32 from TomPlum/renovate/all-minor-patch
 hash:4ebf726,parents:9857380,refs:,msg:feat(graph): added close button to selected session display
@@ -167,7 +153,6 @@ hash:be596e4,parents:6ef3091,refs:,msg:feat(graph): sleep stage areas now genera
 hash:dc8936d,parents:6e3df33,refs:,msg:chore(deps): update all non-major dependencies
 hash:6ef3091,parents:f60cdc8,refs:,msg:feat(graph): refactored sleep stage graph to use real areas instead of reference ones
 hash:f60cdc8,parents:b1c9c9b,refs:,msg:feat(graph): extracted useSleepStageData hook from breakdown graph component
-hash:05bec69,parents:0c28eb6,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@6e3df33a8b0bc47270c2cf0e2f45aaa9afe17eaf 🚀
 hash:6e3df33,parents:f396ce1 b1c9c9b,refs: (tag: v2.1.0),msg:Merge pull request #31 from TomPlum/develop
 hash:b1c9c9b,parents:db3687b db3c4f9,refs:,msg:Merge pull request #30 from TomPlum/improve-stage-chart
 hash:db3c4f9,parents:b4e9d3b,refs: (improve-stage-chart),msg:feat(graph): improved stage graph x-domain
@@ -189,7 +174,6 @@ hash:3c495cc,parents:7d91ff0,refs:,msg:feat(graph): extracted legend item compon
 hash:7d91ff0,parents:4be777a,refs:,msg:feat(graph): added duration in sleep session info
 hash:4be777a,parents:0cf76da,refs:,msg:feat(graph): added endTime to graph data and mapped date range to session info
 hash:0cf76da,parents:954670c,refs:,msg:chore(graph): refactored selected session state management (hoisted to context)
-hash:0c28eb6,parents:1482fb7,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@8eda2d7e39053ecf13ee4bd6ce82c4821f3e7ed4 🚀
 hash:8eda2d7,parents:64ae166 954670c,refs:,msg:Merge pull request #29 from TomPlum/develop
 hash:954670c,parents:419257d,refs:,msg:fix(ci): made dates in useLinearRegression.spec.ts UTC for CI
 hash:419257d,parents:52dfc3f,refs:,msg:debug(ci): added date check in develop workflow to check TZ
@@ -227,8 +211,6 @@ hash:a9d6cf6,parents:9cdfa40,refs:,msg:test(data): added unit test for convertTi
 hash:9cdfa40,parents:724f9ef,refs:,msg:fix(data): fixed benchmark delta bug and added unit tests
 hash:724f9ef,parents:8472bb5,refs:,msg:chore(data): added benchmark util to encapsulate timing and delta formatting
 hash:8472bb5,parents:d52b826,refs:,msg:test(data): added unit test suite for convertSleepStage.ts
-hash:1482fb7,parents:7271948,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@d52b826c02b6909059675040789181420beafd52 🚀
-hash:7271948,parents:70437fd,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@744a38879b90beeeddfffebbe9c3ecaca4a4c155 🚀
 hash:d52b826,parents:744a388 328c273,refs:,msg:Merge pull request #24 from TomPlum/renovate/all-minor-patch
 hash:744a388,parents:2888162 4c98b03,refs:,msg:Merge pull request #25 from TomPlum/feature/parse-raw-data
 hash:4c98b03,parents:9b96063,refs: (feature/parse-raw-data),msg:chore(data): moved worker type and shortened imports
@@ -273,7 +255,6 @@ hash:0eeea35,parents:e0fa20a,refs:,msg:feat(data): refactored raw data parser fu
 hash:e0fa20a,parents:6178286,refs:,msg:feat(graph): sleep stage graph improvements
 hash:6178286,parents:3496d41,refs:,msg:feat(graph): first pass of stacked bar chart / gantt of sleep stage breakdown
 hash:3496d41,parents:42f2132,refs:,msg:feat(data): re-integrated worker into raw sleep data hook and added to context
-hash:70437fd,parents:5036be1,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@28881627b2f5288a3a68f9127abc1fdfd966c6d2 🚀
 hash:2888162,parents:732b304 7215477,refs:,msg:Merge pull request #20 from TomPlum/renovate/all-minor-patch
 hash:42f2132,parents:bf551c0,refs:,msg:feat(data): removed redundant props from useRawSleepData hook
 hash:bf551c0,parents:29a7212,refs:,msg:feat(data): fixed sound data parsing and added sleep stage data alongside it
@@ -283,10 +264,8 @@ hash:ffb0337,parents:5e7b005,refs:,msg:feat(data): fixed table searching and dat
 hash:5e7b005,parents:821fe5a,refs:,msg:feat(data): attempting to parse raw data file
 hash:7215477,parents:732b304,refs:,msg:chore(deps): update all non-major dependencies
 hash:821fe5a,parents:732b304,refs:,msg:chore(docs): README ToC
-hash:5036be1,parents:b9196fc,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@732b3044a9b1ea8699908ba4b6c41f593f44d18f 🚀
 hash:732b304,parents:fbca587 b2bf478,refs:,msg:Merge pull request #23 from TomPlum/develop
 hash:b2bf478,parents:4410cd7,refs:,msg:fix(graph): fixed static asset loading in production mode
-hash:b9196fc,parents:0994f81,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@fbca587594c87b5c4d13dbb14387eff3bbd97f0b 🚀
 hash:fbca587,parents:ff20995 4410cd7,refs: (tag: v1.2.1),msg:Merge pull request #22 from TomPlum/develop
 hash:4410cd7,parents:e8c2bfb,refs:,msg:test(data): fixed compilation error in useLinearRegression.spec.ts
 hash:ff20995,parents:529c117 e8c2bfb,refs:,msg:Merge pull request #21 from TomPlum/develop
@@ -296,7 +275,6 @@ hash:69eaadc,parents:c31f162,refs:,msg:chore(data): updated sleep data to most r
 hash:c31f162,parents:98ff75e,refs:,msg:feat(graph): minor styling improvements to active session info and stacked graph placeholder
 hash:98ff75e,parents:7e8868b,refs:,msg:feat(graph): added pillows website link to the active session info component
 hash:7e8868b,parents:51f121d,refs:,msg:feat(graph): added descriptions of sleep metrics upon hover in stacked view
-hash:0994f81,parents:bdaa4e4,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@529c1176ebc495163d44d926469cce22300cb2a9 🚀
 hash:51f121d,parents:21678c9 529c117,refs:,msg:Merge branch 'release' into develop
 hash:529c117,parents:0d12d74 5765026,refs:,msg:Merge pull request #16 from TomPlum/renovate/all-minor-patch
 hash:5765026,parents:0d12d74,refs:,msg:chore(deps): update all non-major dependencies
@@ -307,7 +285,6 @@ hash:87efebe,parents:d638b1e,refs:,msg:fix(graph): duration breakdown pie chart 
 hash:d638b1e,parents:928a7f4,refs:,msg:feat(graph): added mood emoji to the session tooltip
 hash:928a7f4,parents:d401424,refs:,msg:feat(graph): reduced active dot radius for active session counts between 100 and 300
 hash:d401424,parents:2f85544,refs:,msg:fix(graph): fixed stacked view toggle not updating query param when checking
-hash:bdaa4e4,parents:6c77a6b,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@0d12d74a0d49b59240f4071adc56fb9599990905 🚀
 hash:0d12d74,parents:5e1e15c 2f85544,refs: (tag: v1.2.0),msg:Merge pull request #19 from TomPlum/develop
 hash:2f85544,parents:a6ba004 2c5082d,refs:,msg:Merge pull request #18 from TomPlum/feature/stacked-view
 hash:2c5082d,parents:9676781,refs: (feature/stacked-view),msg:feat(graph): stacked toggle now clears stacked metrics when turning on
@@ -333,7 +310,6 @@ hash:6b2dfb3,parents:a6ba004,refs:,msg:feat(graph): first pass of enabling stack
 hash:a6ba004,parents:9de61dd,refs:,msg:chore(graph): renamed old graph to 3D
 hash:9de61dd,parents:e9d14e5 5e1e15c,refs:,msg:Merge branch 'release' into develop
 hash:e9d14e5,parents:61b38d9,refs:,msg:chore(docs): added some TODOs to the README
-hash:6c77a6b,parents:ed89441,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@5e1e15c2d5eada142fbd66cd5b87d015945fd11b 🚀
 hash:5e1e15c,parents:7d545a5 61b38d9,refs: (tag: v1.1.0),msg:Merge pull request #17 from TomPlum/develop
 hash:61b38d9,parents:a2db943,refs:,msg:feat(graph): session count colour now transitions with same animation duration as graph
 hash:a2db943,parents:5a21429,refs:,msg:feat(graph): data source now links to a download of the raw CSV
@@ -348,13 +324,11 @@ hash:cee6402,parents:012ffe9,refs:,msg:chore(graph): hoisted improvement date ca
 hash:012ffe9,parents:bff2088,refs:,msg:feat(graph): improved session and nap filtering
 hash:bff2088,parents:21fecc1,refs:,msg:feat(routing): added language to query parameters
 hash:21fecc1,parents:9136c6b,refs:,msg:feat(graph): show all button now changes to "recent" if all sessions are showing
-hash:ed89441,parents:1b5c868,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@7d545a59464b63d3aaace8e99aa55cf6e0866f97 🚀
 hash:7d545a5,parents:3d3d5a2 e27d91a,refs:,msg:Merge pull request #14 from TomPlum/renovate/all-minor-patch
 hash:9136c6b,parents:7fc3850,refs:,msg:feat(graph): added show all button and extracted date selection hook
 hash:7fc3850,parents:7c9d0e2,refs:,msg:chore(graph): extracted graph controls component
 hash:7c9d0e2,parents:91ab124,refs:,msg:fix(data): filtered out sessions longer than 15 hours
 hash:91ab124,parents:b9e9eaf,refs:,msg:feat(graph): added vertical reference line for the date in which I made improvements
-hash:1b5c868,parents:bff718f,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@3d3d5a2ec3361fa74673968451d4fb7bd9d9bf65 🚀
 hash:3d3d5a2,parents:c9c48c0 b9e9eaf,refs:,msg:Merge pull request #15 from TomPlum/develop
 hash:b9e9eaf,parents:1634ce3,refs:,msg:chore(test): fixed failing unit tests due to bad setup data
 hash:1634ce3,parents:fcc0e1c,refs:,msg:feat(graph): moved locale switch to top right controls and extracted component
@@ -363,7 +337,6 @@ hash:ef2cfc2,parents:76a2a2e,refs:,msg:feat(graph): added nap indicator to sessi
 hash:76a2a2e,parents:3f4402f,refs:,msg:fix(routing): fixed bad query param name for sleep metric
 hash:3f4402f,parents:184b081,refs:,msg:feat(graph): added duration as a percentage of 8 hours as a new metric
 hash:e27d91a,parents:c9c48c0,refs:,msg:chore(deps): update all non-major dependencies
-hash:bff718f,parents:8f95b4a,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@c9c48c01cfc584cfe74ecedbbe63f350b39bbc17 🚀
 hash:c9c48c0,parents:5f4518b 184b081,refs: (tag: v1.0.0),msg:Merge pull request #13 from TomPlum/develop
 hash:184b081,parents:eda1f0d,refs:,msg:chore(test): fixed failing unit tests for useLinearRegression.spec.ts
 hash:eda1f0d,parents:b89ac17,refs:,msg:feat(graph): added github button to top left controls container
@@ -381,7 +354,6 @@ hash:f32e3d4,parents:01068d1,refs:,msg:Revert "chore(data): removed redundant gu
 hash:01068d1,parents:c61415e,refs:,msg:chore(data): removed redundant guarding in linear regression hook
 hash:c61415e,parents:66a1d30,refs:,msg:chore(data): filtered out invalid awake time values
 hash:66a1d30,parents:76baba0,refs:,msg:feat(graph): migrated xAxisInterval to axes hook and added one more level of granularity
-hash:8f95b4a,parents:9f93e5f,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@5f4518bb04c3e9c8fe74c2815da5b0584d1cdbc7 🚀
 hash:5f4518b,parents:34aa1bf 76baba0,refs:,msg:Merge pull request #12 from TomPlum/develop
 hash:76baba0,parents:ae9b6bc,refs:,msg:feat(locale): default locale and switch position is now en
 hash:ae9b6bc,parents:924c8f9,refs:,msg:feat(graph): custom x tick now offsets first/last date strings to fit on screen
@@ -389,13 +361,10 @@ hash:924c8f9,parents:8abcdd6,refs:,msg:chore(data): extracted axes 2d hook
 hash:8abcdd6,parents:d4d645a,refs:,msg:chore(data): hoisted earliest/latest active session dates into context and integrated with x-axis domain
 hash:d4d645a,parents:7a78b8d,refs:,msg:feat(data): reworked linear regression algorithm and x-axis domain to work better with dates and ensure line of best fit is linear
 hash:7a78b8d,parents:827a805,refs:,msg:test(data): added linear regression hook unit tests and shortened english translations
-hash:9f93e5f,parents:9950706,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@34aa1bf564af10c4d3ebeef73542b82385be5163 🚀
 hash:34aa1bf,parents:6a66ec6 827a805,refs:,msg:Merge pull request #11 from TomPlum/develop
 hash:827a805,parents:5ef49a3,refs:,msg:feat(routing): re-added sleep route to app navigation and added dynamic baseUrl based on mode
-hash:9950706,parents:38ff1c2,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@6a66ec6e43d3e2961e869aa07bfed4bcfa369eed 🚀
 hash:6a66ec6,parents:46a65f9 5ef49a3,refs:,msg:Merge pull request #10 from TomPlum/develop
 hash:5ef49a3,parents:3270ffd,refs:,msg:feat(graph): added language toggle button
-hash:38ff1c2,parents:4bebfe5,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@46a65f9bf3c7bf3060a0fccc8b0e5ce4ccdf5310 🚀
 hash:46a65f9,parents:7125412 3270ffd,refs:,msg:Merge pull request #9 from TomPlum/develop
 hash:3270ffd,parents:fb7455a,refs:,msg:feat(graph): added duration to the tooltip
 hash:fb7455a,parents:1606c57,refs:,msg:feat(graph): added healthy data range for sleep quality metric
@@ -412,7 +381,6 @@ hash:7f58f11,parents:b854f35,refs:,msg:chore(graph): moved linear regression lin
 hash:b854f35,parents:ddc31b5,refs:,msg:feat(graph): added typical sleep session reference areas
 hash:ddc31b5,parents:7e82560,refs:,msg:feat(graph): added reference lines to show regression delta
 hash:7e82560,parents:55c405d,refs:,msg:chore(hooks): moved more graph styling logic into a hook
-hash:4bebfe5,parents:7d32883,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@71254127053aea2018fab52895ce039a5bcb607c 🚀
 hash:7125412,parents:3cf1df4 55c405d,refs:,msg:Merge pull request #8 from TomPlum/develop
 hash:55c405d,parents:758174d,refs:,msg:feat(routing): removed internal use of /sleep in favour of / since gh-pages hosts at /sleep anyway
 hash:758174d,parents:b081373,refs:,msg:feat(graph): encapsulated more graph styling into custom hook and added active dot radius value
@@ -421,11 +389,8 @@ hash:e50f872,parents:5b5f0a9,refs:,msg:chore(state): hoisted sleep page state ma
 hash:5b5f0a9,parents:9e6b6d9,refs:,msg:feat(graph): graph config now render translucent and becomes opaque on hover
 hash:9e6b6d9,parents:e544bc3,refs:,msg:feat(graph): lines now start on the left viewport edge and y-ticks have a background
 hash:e544bc3,parents:d683d57,refs:,msg:feat(routing): added 404 not found page
-hash:7d32883,parents:9744f6f,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@3cf1df49c0ef97fd2954882c882f8013d59f6c87 🚀
 hash:3cf1df4,parents:67d24a6 d683d57,refs:,msg:Merge pull request #7 from TomPlum/develop
 hash:d683d57,parents:3a9d56e,refs:,msg:chore(build): added vite base path for gh-pages deployment
-hash:9744f6f,parents:e74f89d,refs:,msg:Deploying to gh-pages from @ TomPlum/sleep@67d24a6224871536699e9ef78e8ac62a61c442f7 🚀
-hash:e74f89d,parents:,refs:,msg:Initial gh-pages commit
 hash:67d24a6,parents:bffed4c 3a9d56e,refs:,msg:Merge pull request #6 from TomPlum/develop
 hash:3a9d56e,parents:17b8e10,refs:,msg:chore(build): fixed build issues for release
 hash:bffed4c,parents:fd2f791 17b8e10,refs:,msg:Merge pull request #5 from TomPlum/develop

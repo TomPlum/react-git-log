@@ -22,22 +22,21 @@ export const GitGraph = ({ commits }: GitGraphProps) => {
   }, [])
 
   const rowHeight = 30
-  const maxBranches = new Set<string>()
 
-  const positionedCommits = useMemo(() => {
+  const { entries, maxBranches } = useMemo(() => {
     return buildGraph(commits, rowHeight)
   }, [commits, rowHeight])
 
-  console.log('positionedCommits', positionedCommits)
+  console.log('positionedCommits', entries)
 
   const colWidth = containerWidth / Math.max(1, maxBranches.size)
 
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%', minHeight: '400px' }}>
       <svg width="100%" height={commits.length * rowHeight}>
-        {positionedCommits.map((commit) =>
+        {entries.map((commit) =>
           commit.parents.map((parent) => {
-            const parentNode = positionedCommits.find((c) => c.hash === parent)
+            const parentNode = entries.find((c) => c.hash === parent)
             if (!parentNode) return null
             return (
               <line
@@ -52,7 +51,7 @@ export const GitGraph = ({ commits }: GitGraphProps) => {
           })
         )}
 
-        {positionedCommits.map((commit) => (
+        {entries.map((commit) => (
           <circle
             key={commit.hash}
             cx={commit.x * colWidth + colWidth / 2}

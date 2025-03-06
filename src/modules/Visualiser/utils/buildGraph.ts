@@ -2,44 +2,33 @@ import { GitLogEntry } from 'modules/Visualiser'
 
 export const buildGraph = (commits: GitLogEntry[], rowHeight: number) => {
   const branchMap = new Map<string, number>() // Maps commit hash -> x position
-  const activeBranches: Map<string, number> = new Map() // Maps parent hash -> x slot
+  const maxBranches = new Set<string>()
   let nextBranchIndex = 0
 
-  return commits.map((commit, index) => {
-    let x: number
+  const entries = commits.map((commit, index) => {
+    const branchIndex = branchMap.get(commit.hash) ?? nextBranchIndex
+    if (!branchMap.has(commit.hash)) {
+      branchMap.set(commit.hash, branchIndex)
+      maxBranches.add(commit.hash)
+      nextBranchIndex++
+    }
 
-    if (commit.parents.length === 0) {
-      // Root commit (first commit in history)
-      x = 0
-    } else {
-      // Try to inherit x-position from the first parent
-      const firstParent = commit.parents[0]
-      if (branchMap.has(firstParent)) {
-        x = branchMap.get(firstParent)!
-      } else {
-        // Find an available branch slot
-        x = [...activeBranches.values()].sort()[0] ?? nextBranchIndex++
+    commit.parents.forEach((parent) => {
+      if (!branchMap.has(parent)) {
+        branchMap.set(parent, nextBranchIndex++)
+        maxBranches.add(parent)
       }
-    }
-
-    // Assign x position
-    branchMap.set(commit.hash, x)
-    activeBranches.set(commit.hash, x)
-
-    // Handle merges
-    if (commit.parents.length > 1) {
-      commit.parents.forEach((parent, i) => {
-        if (i > 0 && branchMap.has(parent)) {
-          // If this is a merge parent, free up its x slot
-          activeBranches.delete(parent)
-        }
-      })
-    }
+    })
 
     return {
       ...commit,
-      x,
+      x: branchIndex,
       y: index * rowHeight,
     }
   })
+
+  return {
+    entries,
+    maxBranches
+  }
 }

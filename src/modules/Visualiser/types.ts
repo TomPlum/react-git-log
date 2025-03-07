@@ -1,4 +1,5 @@
 export interface VisualiserProps {
+  showBranchesTags?: boolean;
   entries: GitLogEntry[]
 }
 
@@ -18,4 +19,5 @@ export interface GitLogEntry {
   refs: string
   message: string
   date: string
+  isBranchTip?: boolean
 }

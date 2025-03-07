@@ -2,7 +2,7 @@ import { GitGraphProps } from './types.ts'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 
-export const GitGraph = ({ commits }: GitGraphProps) => {
+export const GitGraph = ({ commits, showBranchesTags }: GitGraphProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [containerWidth, setContainerWidth] = useState(400) // Default width
 
@@ -45,9 +45,17 @@ export const GitGraph = ({ commits }: GitGraphProps) => {
     6: 'purple'
   }
 
+  console.log('branchTips', entries.filter(it => it.isBranchTip))
+
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%', minHeight: '400px' }}>
       <svg width="100%" height={commits.length * rowHeight} style={{ background: 'white', marginTop: 25 }}>
+        {showBranchesTags && (
+          <div>
+
+          </div>
+        )}
+
         {/** Render branch lines first to keep nodes on top */}
         {entries.flatMap((commit) =>
           commit.parents.map((parentHash) => {
@@ -79,7 +87,7 @@ export const GitGraph = ({ commits }: GitGraphProps) => {
             stroke="black"
           />
         ))}
-    </svg>
+      </svg>
     </div>
   )
 }

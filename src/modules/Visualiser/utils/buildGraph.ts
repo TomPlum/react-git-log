@@ -51,7 +51,18 @@ export const buildGraph = (commits: GitLogEntry[], rowHeight: number) => {
     }
   })
 
+  const entriesWithTips = entries.map(entry => {
+    if (entries.find(it => it.parents.includes(entry.hash))) {
+      return entry
+    }
+
+    return {
+      ...entry,
+      isBranchTip: true
+    }
+  })
+
   return {
-    entries,
+    entries: entriesWithTips,
   }
 }

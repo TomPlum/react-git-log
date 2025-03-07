@@ -1,9 +1,10 @@
+hash:c88f0b9,parents:786b044,branch:refs/heads/develop,refs: (HEAD -> develop, origin/develop),msg:feat(highlights): cleaned up effect function,date:2025-03-07 20:42:31 +0000
 hash:26130ea,parents:81ce807,branch:refs/remotes/origin/gh-pages,refs: (origin/gh-pages),msg:Deploying to gh-pages from @ TomPlum/sleep@1352f4c7814aa2ae660d9bd875870608a32734d1 🚀,date:2025-03-05 17:30:04 +0000
 hash:d5d320b,parents:1352f4c,branch:refs/remotes/origin/renovate/major-react-monorepo,refs: (origin/renovate/major-react-monorepo),msg:fix(deps): update react monorepo to v19,date:2025-03-05 17:29:54 +0000
 hash:6c59bca,parents:1352f4c,branch:refs/remotes/origin/renovate/major-react-router-monorepo,refs: (origin/renovate/major-react-router-monorepo),msg:fix(deps): update dependency react-router-dom to v7,date:2025-03-05 17:29:47 +0000
 hash:1352f4c,parents:e059c28 1d594ea,branch:refs/remotes/origin/release,refs: (origin/release),msg:Merge pull request #54 from TomPlum/renovate/all-minor-patch,date:2025-03-05 17:29:01 +0000
 hash:1d594ea,parents:e059c28,branch:refs/remotes/origin/release,refs:,msg:fix(deps): update all non-major dependencies,date:2025-03-05 10:55:09 +0000
-hash:786b044,parents:0776115,branch:refs/heads/develop,refs: (HEAD -> develop, origin/develop),msg:feat(highlights): Extracted ShowcaseProgressDots component,date:2025-03-04 19:22:11 +0000
+hash:786b044,parents:0776115,branch:refs/heads/develop,refs:,msg:feat(highlights): Extracted ShowcaseProgressDots component,date:2025-03-04 19:22:11 +0000
 hash:0776115,parents:0a0a44d,branch:refs/heads/develop,refs:,msg:feat(highlights): responsive styling improvements to wake up showcase,date:2025-03-04 18:54:59 +0000
 hash:0a0a44d,parents:769e569,branch:refs/heads/develop,refs:,msg:feat(highlights): added active showcase to query params,date:2025-03-04 18:36:14 +0000
 hash:769e569,parents:02af2b4,branch:refs/heads/develop,refs:,msg:feat(highlights): starting adding progress dots to wake up showcase,date:2025-03-04 18:18:59 +0000

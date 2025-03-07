@@ -3,6 +3,20 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import styles from './GitGraph.module.scss'
 
+/**
+ * Number of pixels to offset all nodes and
+ * lines by so that the graph starts a little
+ * from the top of the container.
+ */
+const TOP_OFFSET = 30
+
+/**
+ * Number of pixels to offset all nodes and
+ * lines by so that the graph starts a little
+ * from the left of the container.
+ */
+const LEFT_OFFSET = 30
+
 export const GitGraph = ({ commits, showBranchesTags }: GitGraphProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [containerWidth, setContainerWidth] = useState(400) // Default width
@@ -53,11 +67,23 @@ export const GitGraph = ({ commits, showBranchesTags }: GitGraphProps) => {
     <div ref={containerRef} className={styles.container}>
       {showBranchesTags && (
         <div className={styles.tags}>
-          {entries.filter(it => it.isBranchTip).map((commit, i) => (
-            <div key={`tag_${i}`} className={styles.tag} title={commit.branch}>
-              {commit.branch.replace('refs/heads/', '').replace('refs/remotes/origin/', '')}
-            </div>
-          ))}
+          {entries.map((commit, i) => {
+            if (commit.isBranchTip) {
+              return (
+                <div key={`tag_${i}`} className={styles.tag} title={commit.branch} style={{ height: rowHeight - 5 }}>
+                  {commit.branch.replace('refs/heads/', '').replace('refs/remotes/origin/', '')}
+                </div>
+              )
+            } else {
+              return (
+                <div
+                  key={`empty_tag_${i}`}
+                  className={styles.tag}
+                  style={{ height: rowHeight - 5 }}
+                />
+              )
+            }
+          })}
         </div>
       )}
 
@@ -74,8 +100,8 @@ export const GitGraph = ({ commits, showBranchesTags }: GitGraphProps) => {
                 key={`${commit.hash}-${parentHash}`}
                 className={styles.branchLine}
                 style={{
-                  left: Math.min(commit.x, parent.x) * nodeSpacingX + 12,
-                  top: Math.min(commit.y, parent.y) + rowHeight / 2,
+                  left: Math.min(commit.x, parent.x) * nodeSpacingX + LEFT_OFFSET,
+                  top: Math.min(commit.y, parent.y) + (rowHeight / 2) + TOP_OFFSET - 15,
                   height: Math.abs(commit.y - parent.y),
                 }}
               />
@@ -88,8 +114,8 @@ export const GitGraph = ({ commits, showBranchesTags }: GitGraphProps) => {
             key={commit.hash}
             className={styles.commitNode}
             style={{
-              left: commit.x * nodeSpacingX,
-              top: commit.y,
+              left: commit.x * nodeSpacingX + LEFT_OFFSET,
+              top: commit.y + TOP_OFFSET,
               backgroundColor: colours[commit.x] ?? 'black',
             }}
           >

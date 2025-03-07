@@ -13,7 +13,7 @@ const App = () => {
   const [mouse] = useMouse()
   const [dragging, setDragging] = useState(false)
   const graphContainerRef = useRef<HTMLDivElement>(null)
-  const [graphWidth, setGraphWidth] = useState<number>()
+  const [graphWidth, setGraphWidth] = useState<number>(400)
   const [showTags, setShowTags] = useState(true)
 
   useEffect(() => {
@@ -62,6 +62,10 @@ const App = () => {
 
   return (
     <div className={styles.app}>
+      <button onClick={() => setShowTags(!showTags)} disabled={graphWidth < 300}>
+        {showTags ? 'Hide' : 'Show'} Tags / Branches
+      </button>
+
       {entries && (
         <div className={styles.content}>
           <div className={styles.graphContainer} style={{ width: graphWidth }} ref={graphContainerRef}>

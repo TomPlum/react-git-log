@@ -17,4 +17,5 @@ export interface GitLogEntry {
   parents: string[]
   refs: string
   message: string
+  date: string
 }

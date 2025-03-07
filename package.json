@@ -23,6 +23,8 @@
     "@uidotdev/usehooks": "^2.4.1",
     "@vitejs/plugin-react-swc": "^3.8.0",
     "@vitest/ui": "^3.0.7",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.13",
     "eslint": "^9.21.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react-hooks": "^5.1.0",

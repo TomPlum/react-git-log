@@ -3,6 +3,8 @@ import { GitLogEntry, Visualiser } from 'modules/Visualiser'
 import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useMouse } from '@uidotdev/usehooks'
+import dayjs from 'dayjs'
+import classNames from 'classnames'
 
 const App = () => {
   const [entries, setEntries] = useState<GitLogEntry[]>()
@@ -68,9 +70,21 @@ const App = () => {
             <tbody>
               {entries.map((commit) => (
                 <tr key={commit.hash}>
-                  <td>{commit.branch.replace('refs/remotes', '').replace('refs/heads/', '').replace('/origin/', '')}</td>
-                  <td>{commit.hash}</td>
-                  <td>{commit.message}</td>
+                  <td className={classNames(styles.row, styles.branch)}>
+                    {commit.branch.replace('refs/remotes', '').replace('refs/heads/', '').replace('/origin/', '')}
+                  </td>
+
+                  <td className={classNames(styles.row, styles.hash)}>
+                    {commit.hash}
+                  </td>
+
+                  <td className={classNames(styles.row, styles.message)}>
+                    {commit.message}
+                  </td>
+
+                  <td className={classNames(styles.row, styles.date)}>
+                    {dayjs(commit.date).format('ddd Do MMM YYYY HH:mm')}
+                  </td>
                 </tr>
               ))}
             </tbody>

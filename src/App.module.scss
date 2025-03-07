@@ -28,6 +28,20 @@
 
     .table {
       color: black;
+
+      .message {
+        max-width: 500px;
+      }
+
+      .branch {
+        max-width: 200px;
+      }
+
+      .row {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 }

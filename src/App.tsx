@@ -23,11 +23,11 @@ const App = () => {
 
   return (
     <div className={styles.app}>
-      <button onClick={() => setShowTags(!showTags)}>
+      <button onClick={() => setShowTags(!showTags)} className={styles.button}>
         {showTags ? 'Hide' : 'Show'} Tags / Branches
       </button>
 
-      <button onClick={() => setShowGitLog(!showGitLog)}>
+      <button onClick={() => setShowGitLog(!showGitLog)} className={styles.button}>
         {showGitLog ? 'Hide' : 'Show'} Git Log
       </button>
 

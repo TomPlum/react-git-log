@@ -29,7 +29,7 @@ export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) 
               id={i.toString()}
               branch={commit.branch}
               color={colours[commit.x]}
-              height={ROW_HEIGHT - HEIGHT_OFFSET}
+              height={i === 0 ? (ROW_HEIGHT - HEIGHT_OFFSET) : ROW_HEIGHT}
               lineWidth={(commit.x * commitNodeSpacing) + GRAPH_LEFT_OFFSET}
               lineRight={0 - PADDING - (commit.x * commitNodeSpacing) - GRAPH_LEFT_OFFSET + 10}
             />
@@ -39,7 +39,7 @@ export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) 
             <div
               key={`empty_tag_${i}`}
               className={styles.tag}
-              style={{ height: ROW_HEIGHT - HEIGHT_OFFSET }}
+              style={{ height: ROW_HEIGHT }}
             />
           )
         }

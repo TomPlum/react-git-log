@@ -11,14 +11,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
     padding: 2px 6px;
     border-radius: 6px;
+    width: 100%;
+    max-width: 100px;
   }
 
   .tagLine {
     $size: 1px;
-
     top: 50%;
     opacity: 0.5;
     height: $size;

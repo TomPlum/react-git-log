@@ -1,6 +1,8 @@
 .table {
   color: black;
-  border-spacing: 0 2px;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin-top: -6px;
 
   .message {
     max-width: 500px;
@@ -11,8 +13,7 @@
   }
 
   .row {
-    height: 40px;
-    margin: 5px 0;
+    border-bottom: 4px solid transparent;
 
     &:hover {
       cursor: pointer;
@@ -29,5 +30,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
+    background-clip: content-box;
+    padding: 4px 0;
   }
 }

@@ -17,6 +17,7 @@ export const GitLog = ({ data, selected, onSelect, colour }: GitLogProps) => {
           <tr
             key={commit.hash}
             className={styles.row}
+            style={{ height: 40 }}
             onClick={() => onSelect(commit)}
           >
             <td className={classNames(styles.td, styles.message)} style={getStyles(commit.hash)}>

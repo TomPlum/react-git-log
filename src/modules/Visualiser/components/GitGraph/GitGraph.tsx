@@ -1,4 +1,4 @@
-import { GitGraphProps } from './types.ts'
+import { GitGraphProps, GRAPH_LEFT_OFFSET, GRAPH_TOP_OFFSET, TABLE_TOP_OFFSET } from './types.ts'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import styles from './GitGraph.module.scss'
@@ -10,34 +10,13 @@ import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { useMouse } from '@uidotdev/usehooks'
 import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
 
-/**
- * Number of pixels to offset all nodes and
- * lines by so that the graph starts a little
- * from the top of the container.
- */
-const TOP_OFFSET = 30
-
-/**
- * Number of pixels to offset all nodes and
- * lines by so that the graph starts a little
- * from the left of the container.
- */
-const LEFT_OFFSET = 30
-
-/**
- * Number of pixels to offset the top of the
- * table so that the rows line up with the
- * commit nodes in the graph.
- */
-const TABLE_TOP_OFFSET = 8
-
 export const GitGraph = ({
   entries,
   showBranchesTags = false,
   showGitLog = true,
   padding = {
-    top: TOP_OFFSET,
-    left: LEFT_OFFSET
+    top: GRAPH_TOP_OFFSET,
+    left: GRAPH_LEFT_OFFSET
   }
 }: GitGraphProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -92,12 +71,12 @@ export const GitGraph = ({
 
   const { commits } = useMemo(() => {
     return buildGraph(entries, ROW_HEIGHT)
-  }, [entries, ROW_HEIGHT])
+  }, [entries])
 
   console.log('positionedCommits', commits)
 
   const uniqueXValues = [...new Set(commits.map((c) => c.x))].length
-  const nodeSpacingX = containerWidth / Math.max(uniqueXValues, 1) // Prevent division by zero
+  const nodeSpacingX = containerWidth / Math.max(uniqueXValues, 1)
 
   console.log('nodeSpacingX', nodeSpacingX)
   console.log('Unique Xs', new Set(commits.map((c) => c.x)))
@@ -120,7 +99,10 @@ export const GitGraph = ({
     <div ref={containerRef} className={styles.container}>
       {showBranchesTags && (
         <div className={styles.tags}>
-          <BranchesTags commits={commits} />
+          <BranchesTags
+            commits={commits}
+            commitNodeSpacing={nodeSpacingX}
+          />
         </div>
       )}
 
@@ -152,8 +134,8 @@ export const GitGraph = ({
                 id={`${commit.hash}-${parentHash}`}
                 color={colours[commit.x] ?? 'black'}
                 height={Math.abs(commit.y - parent.y)}
-                x={Math.min(commit.x, parent.x) * nodeSpacingX + LEFT_OFFSET}
-                y={Math.min(commit.y, parent.y) + (ROW_HEIGHT / 2) + TOP_OFFSET - 15}
+                x={Math.min(commit.x, parent.x) * nodeSpacingX + GRAPH_LEFT_OFFSET}
+                y={Math.min(commit.y, parent.y) + (ROW_HEIGHT / 2) + GRAPH_TOP_OFFSET - 15}
               />
             )
           })
@@ -165,9 +147,9 @@ export const GitGraph = ({
             hash={commit.hash}
             onClick={setSelected}
             parents={commit.parents}
-            y={commit.y + TOP_OFFSET}
+            y={commit.y + GRAPH_TOP_OFFSET}
             color={colours[commit.x] ?? 'black'}
-            x={commit.x * nodeSpacingX + LEFT_OFFSET}
+            x={commit.x * nodeSpacingX + GRAPH_LEFT_OFFSET}
           />
         ))}
 
@@ -176,7 +158,7 @@ export const GitGraph = ({
             className={styles.selected}
             style={{
               height: 40,
-              top: selected.y + TOP_OFFSET - 20,
+              top: selected.y + GRAPH_TOP_OFFSET - 20,
               width: `calc(100% - ${(selected.x * nodeSpacingX) + 8}px)`
             }}
           />

@@ -8,14 +8,6 @@
     flex-grow: 1;
     max-width: 100px;
     color: black;
-
-    .tag {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-    }
   }
 
   .graph {

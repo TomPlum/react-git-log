@@ -5,9 +5,10 @@ import styles from './GitGraph.module.scss'
 import { CommitNode } from 'modules/Visualiser/components/CommitNode'
 import { BranchLine } from 'modules/Visualiser/components/BranchLine'
 import { MergeLine } from 'modules/Visualiser/components/MergeLine'
-import { Commit } from 'modules/Visualiser'
+import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { useMouse } from '@uidotdev/usehooks'
+import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
 
 /**
  * Number of pixels to offset all nodes and
@@ -89,11 +90,9 @@ export const GitGraph = ({
 
   const [selected, setSelected] = useState<Commit>()
 
-  const rowHeight = 48
-
   const { commits } = useMemo(() => {
-    return buildGraph(entries, rowHeight)
-  }, [entries, rowHeight])
+    return buildGraph(entries, ROW_HEIGHT)
+  }, [entries, ROW_HEIGHT])
 
   console.log('positionedCommits', commits)
 
@@ -121,23 +120,7 @@ export const GitGraph = ({
     <div ref={containerRef} className={styles.container}>
       {showBranchesTags && (
         <div className={styles.tags}>
-          {commits.map((commit, i) => {
-            if (commit.isBranchTip) {
-              return (
-                <div key={`tag_${i}`} className={styles.tag} title={commit.branch} style={{ height: rowHeight - 5 }}>
-                  {commit.branch.replace('refs/heads/', '').replace('refs/remotes/origin/', '')}
-                </div>
-              )
-            } else {
-              return (
-                <div
-                  key={`empty_tag_${i}`}
-                  className={styles.tag}
-                  style={{ height: rowHeight - 5 }}
-                />
-              )
-            }
-          })}
+          <BranchesTags commits={commits} />
         </div>
       )}
 
@@ -170,7 +153,7 @@ export const GitGraph = ({
                 color={colours[commit.x] ?? 'black'}
                 height={Math.abs(commit.y - parent.y)}
                 x={Math.min(commit.x, parent.x) * nodeSpacingX + LEFT_OFFSET}
-                y={Math.min(commit.y, parent.y) + (rowHeight / 2) + TOP_OFFSET - 15}
+                y={Math.min(commit.y, parent.y) + (ROW_HEIGHT / 2) + TOP_OFFSET - 15}
               />
             )
           })

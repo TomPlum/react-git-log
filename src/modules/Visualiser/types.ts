@@ -23,3 +23,5 @@ export interface GitLogEntry {
   message: string
   date: string
 }
+
+export const ROW_HEIGHT = 48

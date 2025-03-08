@@ -2,6 +2,7 @@ import { GitGraphProps } from './types.ts'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import styles from './GitGraph.module.scss'
+import { CommitNode } from 'modules/Visualiser/components/CommitNode'
 
 /**
  * Number of pixels to offset all nodes and
@@ -119,17 +120,12 @@ export const GitGraph = ({
         )}
 
         {entries.map((commit) => (
-          <div
-            key={commit.hash}
-            className={styles.commitNode}
-            style={{
-              left: commit.x * nodeSpacingX + LEFT_OFFSET,
-              top: commit.y + TOP_OFFSET,
-              backgroundColor: colours[commit.x] ?? 'black',
-            }}
-          >
-            <span className={styles.commitLabel}>{commit.hash}</span>
-          </div>
+          <CommitNode
+            hash={commit.hash}
+            y={commit.y + TOP_OFFSET}
+            color={colours[commit.x] ?? 'black'}
+            x={commit.x * nodeSpacingX + LEFT_OFFSET}
+          />
         ))}
       </div>
     </div>

@@ -3,10 +3,7 @@ import { Commit } from 'modules/Visualiser'
 export interface BranchesTagsProps {
   commits: Commit[]
   commitNodeSpacing: number
-  previewBranch?: {
-    name?: string
-    hash?: string
-  }
+  previewBranchAtHash?: string
 }
 
 export interface BranchTagTooltipProps {

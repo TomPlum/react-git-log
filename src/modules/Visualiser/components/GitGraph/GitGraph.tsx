@@ -39,10 +39,7 @@ export const GitGraph = ({
           <BranchesTags
             commits={commits}
             commitNodeSpacing={nodeSpacingX}
-            previewBranch={{
-              name: hovered?.branch,
-              hash: hovered?.hash
-            }}
+            previewBranchAtHash={hovered?.hash}
           />
         </div>
       )}

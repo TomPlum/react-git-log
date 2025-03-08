@@ -34,7 +34,7 @@ const App = () => {
       {entries && (
         <div className={styles.content}>
           <GitGraph
-            commits={entries}
+            entries={entries}
             showGitLog={showGitLog}
             showBranchesTags={showTags}
           />

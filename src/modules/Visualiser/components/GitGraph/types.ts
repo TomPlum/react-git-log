@@ -5,7 +5,7 @@ export interface GitGraphProps {
    * The git log entries to visualise
    * on the graph.
    */
-  commits: GitLogEntry[]
+  entries: GitLogEntry[]
 
   /**
    * Whether to show labels for the nodes

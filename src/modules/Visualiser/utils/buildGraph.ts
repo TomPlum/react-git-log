@@ -1,6 +1,6 @@
-import { GitLogEntry } from 'modules/Visualiser'
+import { Commit, GitLogEntry } from 'modules/Visualiser'
 
-export const buildGraph = (commits: GitLogEntry[], rowHeight: number) => {
+export const buildGraph = (entries: GitLogEntry[], rowHeight: number) => {
   const branchMap = new Map<string, number>() // Maps commit hash -> x position
   const activeBranches = new Map<number, string>() // Maps x-position -> commit hash
   const branches = new Map<string, number>() // Branch Name -> ID
@@ -8,19 +8,19 @@ export const buildGraph = (commits: GitLogEntry[], rowHeight: number) => {
 
   let nextBranchIndex = 0
 
-  const entries = commits.map((commit, index) => {
+  const commits: Omit<Commit, 'isBranchTip'>[] = entries.map((entry, index) => {
     let x: number
 
-    if (!branches.has(commit.branch)) {
-      branches.set(commit.branch, lastBranchId)
+    if (!branches.has(entry.branch)) {
+      branches.set(entry.branch, lastBranchId)
       lastBranchId++
     }
 
-    if (commit.parents.length === 0) {
+    if (entry.parents.length === 0) {
       // Root commit (first commit in history)
       x = 0
     } else {
-      const firstParent = commit.parents[0]
+      const firstParent = entry.parents[0]
       if (branchMap.has(firstParent)) {
         // Inherit first parent's x position (fixes diagonal issue)
         x = branchMap.get(firstParent)!
@@ -31,12 +31,12 @@ export const buildGraph = (commits: GitLogEntry[], rowHeight: number) => {
     }
 
     // Assign x position to commit
-    branchMap.set(commit.hash, x)
-    activeBranches.set(x, commit.hash)
+    branchMap.set(entry.hash, x)
+    activeBranches.set(x, entry.hash)
 
     // Handle merges: free up x positions when branches merge back
-    if (commit.parents.length > 1) {
-      commit.parents.slice(1).forEach((parent) => {
+    if (entry.parents.length > 1) {
+      entry.parents.slice(1).forEach((parent) => {
         if (branchMap.has(parent)) {
           const parentX = branchMap.get(parent)!
           activeBranches.delete(parentX) // Free this x slot
@@ -45,15 +45,19 @@ export const buildGraph = (commits: GitLogEntry[], rowHeight: number) => {
     }
 
     return {
-      ...commit,
-      x: branches.get(commit.branch)!,
+      ...entry,
+      date: entry.date,
+      x: branches.get(entry.branch)!,
       y: index * rowHeight,
     }
   })
 
-  const entriesWithTips = entries.map(entry => {
+  const commitsWithTips: Commit[] = commits.map(entry => {
     if (entries.find(it => it.parents.includes(entry.hash))) {
-      return entry
+      return {
+        ...entry,
+        isBranchTip: false
+      }
     }
 
     return {
@@ -63,6 +67,6 @@ export const buildGraph = (commits: GitLogEntry[], rowHeight: number) => {
   })
 
   return {
-    entries: entriesWithTips,
+    commits: commitsWithTips
   }
 }

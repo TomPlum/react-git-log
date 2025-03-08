@@ -3,13 +3,14 @@ import classNames from 'classnames'
 import dayjs from 'dayjs'
 import { GitLogProps } from './types'
 
-export const GitLog = ({ data, selected }: GitLogProps) => {
+export const GitLog = ({ data, selected, onSelect }: GitLogProps) => {
   return (
     <table className={styles.table}>
       <tbody>
         {data.map((commit) => (
           <tr
             key={commit.hash}
+            onClick={() => onSelect(commit)}
             className={classNames(
               styles.row,
               { [styles.selected]: selected === commit.hash }

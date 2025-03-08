@@ -2,13 +2,13 @@
   position: absolute;
   width: 2px;
   z-index: 5;
+  opacity: 0.3;
 
   &::before {
     content: "";
     position: absolute;
     width: 2px;
     height: 100%;
-    background: black;
     left: 50%;
     transform: translateX(-50%);
   }

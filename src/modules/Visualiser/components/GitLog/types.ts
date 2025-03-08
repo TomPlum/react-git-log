@@ -1,6 +1,7 @@
-import { GitLogEntry } from 'modules/Visualiser'
+import { Commit } from 'modules/Visualiser'
 
 export interface GitLogProps {
-  data: GitLogEntry[]
+  data: Commit[]
   selected?: string
+  onSelect: (selected: Commit) => void
 }

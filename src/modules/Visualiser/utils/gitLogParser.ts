@@ -14,7 +14,7 @@ export const parseGitLogOutput = (output: string): GitLogEntry[] => {
         branch: match[3].trim(),
         refs: match[4].trim(),
         message: match[5],
-        date: match[6].trim()
+        date: match[6].trim(),
       }
     }
 

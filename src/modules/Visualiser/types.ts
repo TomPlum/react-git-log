@@ -7,9 +7,12 @@ export interface Commit {
   hash: string
   parents: string[]
   refs: string
+  branch: string
   message: string
   x: number
   y: number
+  date: string
+  isBranchTip?: boolean
 }
 
 export interface GitLogEntry {
@@ -19,5 +22,4 @@ export interface GitLogEntry {
   refs: string
   message: string
   date: string
-  isBranchTip?: boolean
 }

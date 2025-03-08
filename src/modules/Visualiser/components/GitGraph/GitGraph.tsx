@@ -31,7 +31,7 @@ const LEFT_OFFSET = 30
 const TABLE_TOP_OFFSET = 8
 
 export const GitGraph = ({
-  commits,
+  entries,
   showBranchesTags = false,
   showGitLog = true,
   padding = {
@@ -91,18 +91,18 @@ export const GitGraph = ({
 
   const rowHeight = 48
 
-  const { entries } = useMemo(() => {
-    return buildGraph(commits, rowHeight)
-  }, [commits, rowHeight])
+  const { commits } = useMemo(() => {
+    return buildGraph(entries, rowHeight)
+  }, [entries, rowHeight])
 
-  console.log('positionedCommits', entries)
+  console.log('positionedCommits', commits)
 
-  const uniqueXValues = [...new Set(entries.map((c) => c.x))].length
+  const uniqueXValues = [...new Set(commits.map((c) => c.x))].length
   const nodeSpacingX = containerWidth / Math.max(uniqueXValues, 1) // Prevent division by zero
 
   console.log('nodeSpacingX', nodeSpacingX)
-  console.log('Unique Xs', new Set(entries.map((c) => c.x)))
-  console.log('Unique Branches', new Set(entries.map((c) => c.branch)))
+  console.log('Unique Xs', new Set(commits.map((c) => c.x)))
+  console.log('Unique Branches', new Set(commits.map((c) => c.branch)))
 
   const colours: Record<number, string> = {
     0: 'red',
@@ -114,14 +114,14 @@ export const GitGraph = ({
     6: 'purple'
   }
 
-  console.log('branchTips', entries.filter(it => it.isBranchTip))
+  console.log('branchTips', commits.filter(it => it.isBranchTip))
   console.log('selectedCommit', selected)
 
   return (
     <div ref={containerRef} className={styles.container}>
       {showBranchesTags && (
         <div className={styles.tags}>
-          {entries.map((commit, i) => {
+          {commits.map((commit, i) => {
             if (commit.isBranchTip) {
               return (
                 <div key={`tag_${i}`} className={styles.tag} title={commit.branch} style={{ height: rowHeight - 5 }}>
@@ -142,9 +142,9 @@ export const GitGraph = ({
       )}
 
       <div className={styles.graph} style={{ width: graphWidth }} ref={graphContainerRef}>
-        {entries.flatMap((commit) =>
+        {commits.flatMap((commit) =>
           commit.parents.map((parentHash, index) => {
-            const parent = entries.find(({ hash }) => hash === parentHash)
+            const parent = commits.find(({ hash }) => hash === parentHash)
 
             if (!parent) {
               return null
@@ -167,8 +167,8 @@ export const GitGraph = ({
             return (
               <BranchLine
                 id={`${commit.hash}-${parentHash}`}
+                color={colours[commit.x] ?? 'black'}
                 height={Math.abs(commit.y - parent.y)}
-                color={`rgba(${colours[commit.x] ?? 'black'}, 0.6)`}
                 x={Math.min(commit.x, parent.x) * nodeSpacingX + LEFT_OFFSET}
                 y={Math.min(commit.y, parent.y) + (rowHeight / 2) + TOP_OFFSET - 15}
               />
@@ -176,7 +176,7 @@ export const GitGraph = ({
           })
         )}
 
-        {entries.map((commit) => (
+        {commits.map((commit) => (
           <CommitNode
             commit={commit}
             hash={commit.hash}
@@ -193,8 +193,8 @@ export const GitGraph = ({
             className={styles.selected}
             style={{
               height: 40,
-              width: `calc(100% - ${(selected.x * nodeSpacingX) + 8}px)`,
-              top: selected.y + TOP_OFFSET - 20
+              top: selected.y + TOP_OFFSET - 20,
+              width: `calc(100% - ${(selected.x * nodeSpacingX) + 8}px)`
             }}
           />
         )}
@@ -208,8 +208,9 @@ export const GitGraph = ({
       {showGitLog && (
         <div className={styles.log} style={{ marginTop: TABLE_TOP_OFFSET }}>
           <GitLog
-            data={entries}
+            data={commits}
             selected={selected?.hash}
+            onSelect={setSelected}
           />
         </div>
       )}

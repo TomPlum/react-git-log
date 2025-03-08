@@ -30,7 +30,7 @@ export const CommitNode = ({ x, y, hash, color, parents, onClick, commit }: Comm
         style={{
           left: x,
           top: y,
-          backgroundColor: color,
+          borderColor: color,
         }}
       >
         <span className={styles.commitLabel}>

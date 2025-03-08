@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { GitGraph, GitGraphProps } from 'modules/Visualiser/components/GitGraph'
+import { GitLogVisualiser, GitLogVisualiserProps } from 'modules/Visualiser'
 
 const meta = {
   title: 'Git Log/Visualiser',
-  component: GitGraph,
+  component: GitLogVisualiser,
   parameters: {
     layout: 'fullscreen',
   }
-} satisfies Meta<GitGraphProps>
+} satisfies Meta<GitLogVisualiserProps>
 
 export default meta
 type Story = StoryObj<typeof meta>;

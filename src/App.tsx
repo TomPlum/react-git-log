@@ -1,8 +1,7 @@
 import styles from './App.module.scss'
-import { GitLogEntry } from 'modules/Visualiser'
+import { GitLogEntry, GitLogVisualiser } from 'modules/Visualiser'
 import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
 import { useEffect, useState } from 'react'
-import { GitGraph } from 'modules/Visualiser/components/GitGraph'
 
 const App = () => {
   const [entries, setEntries] = useState<GitLogEntry[]>()
@@ -33,7 +32,7 @@ const App = () => {
 
       {entries && (
         <div className={styles.content}>
-          <GitGraph
+          <GitLogVisualiser
             entries={entries}
             showGitLog={showGitLog}
             showBranchesTags={showTags}

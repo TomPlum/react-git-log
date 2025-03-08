@@ -1,4 +1,4 @@
-import { GitGraphProps, GRAPH_LEFT_OFFSET, GRAPH_TOP_OFFSET, TABLE_TOP_OFFSET } from './types.ts'
+import { GRAPH_LEFT_OFFSET, GRAPH_TOP_OFFSET, TABLE_TOP_OFFSET } from './types.ts'
 import { useMemo, useState } from 'react'
 import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import styles from './GitGraph.module.scss'
@@ -9,17 +9,10 @@ import { colours, Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
 import { useResize } from 'modules/Visualiser/hooks/useResize'
+import { useGitContext } from 'modules/Visualiser/context'
 
-export const GitGraph = ({
-  entries,
-  showBranchesTags = false,
-  showGitLog = true,
-  showCommitNodeHashes = false,
-  padding = {
-    top: GRAPH_TOP_OFFSET,
-    left: GRAPH_LEFT_OFFSET
-  }
-}: GitGraphProps) => {
+export const GitGraph = () => {
+  const { showBranchesTags, entries, showCommitNodeHashes, showGitLog  } = useGitContext()
   const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
 
   const [selected, setSelected] = useState<Commit>()

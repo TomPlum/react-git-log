@@ -1,2 +1,2 @@
 export * from './types'
-export * from './Visualiser'
+export * from './GitLogVisualiser.tsx'

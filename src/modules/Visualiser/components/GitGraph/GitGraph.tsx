@@ -17,7 +17,14 @@ const TOP_OFFSET = 30
  */
 const LEFT_OFFSET = 30
 
-export const GitGraph = ({ commits, showBranchesTags }: GitGraphProps) => {
+export const GitGraph = ({
+  commits,
+  showBranchesTags = false,
+  padding = {
+    top: TOP_OFFSET,
+    left: LEFT_OFFSET
+  }
+}: GitGraphProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [containerWidth, setContainerWidth] = useState(400) // Default width
 
@@ -88,9 +95,10 @@ export const GitGraph = ({ commits, showBranchesTags }: GitGraphProps) => {
       )}
 
       <div className={styles.graph}>
-        {entries.flatMap((commit) =>
+        {entries.map((commit) =>
           commit.parents.map((parentHash) => {
             const parent = entries.find((c) => c.hash === parentHash)
+
             if (!parent) {
               return null
             }
@@ -103,6 +111,7 @@ export const GitGraph = ({ commits, showBranchesTags }: GitGraphProps) => {
                   left: Math.min(commit.x, parent.x) * nodeSpacingX + LEFT_OFFSET,
                   top: Math.min(commit.y, parent.y) + (rowHeight / 2) + TOP_OFFSET - 15,
                   height: Math.abs(commit.y - parent.y),
+                  background: `rgba(${colours[commit.x] ?? 'black'}, 0.6)`
                 }}
               />
             )

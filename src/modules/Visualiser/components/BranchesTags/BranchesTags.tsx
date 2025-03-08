@@ -16,12 +16,24 @@ const HEIGHT_OFFSET = 5
  */
 const PADDING = 10
 
-export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) => {
-
-
+export const BranchesTags = ({ commits, commitNodeSpacing, previewBranch }: BranchesTagsProps) => {
   return (
     <div className={styles.container} style={{ padding: PADDING }}>
       {commits.map((commit, i) => {
+        if (previewBranch && commit.branch === previewBranch.name && commit.hash === previewBranch.hash) {
+          return (
+            <BranchTag
+              key={i}
+              id={i.toString()}
+              branch={previewBranch.name}
+              color={colours[commit.x]}
+              height={i === 0 ? (ROW_HEIGHT - HEIGHT_OFFSET) : ROW_HEIGHT}
+              lineWidth={(commit.x * commitNodeSpacing) + GRAPH_LEFT_OFFSET}
+              lineRight={0 - PADDING - (commit.x * commitNodeSpacing) - GRAPH_LEFT_OFFSET + 10}
+            />
+          )
+        }
+
         if (commit.isBranchTip) {
           return (
             <BranchTag

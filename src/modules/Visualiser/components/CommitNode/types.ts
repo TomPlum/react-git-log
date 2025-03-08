@@ -8,4 +8,5 @@ export interface CommitNodeProps {
   color?: string
   commit: Commit
   onClick: (commit: Commit) => void
+  showCommitNodeHashes: boolean
 }

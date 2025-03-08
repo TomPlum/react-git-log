@@ -14,6 +14,7 @@ export const GitGraph = ({
   entries,
   showBranchesTags = false,
   showGitLog = true,
+  showCommitNodeHashes = false,
   padding = {
     top: GRAPH_TOP_OFFSET,
     left: GRAPH_LEFT_OFFSET
@@ -89,6 +90,7 @@ export const GitGraph = ({
             parents={commit.parents}
             y={commit.y + GRAPH_TOP_OFFSET}
             color={colours[commit.x] ?? 'black'}
+            showCommitNodeHashes={showCommitNodeHashes}
             x={commit.x * nodeSpacingX + GRAPH_LEFT_OFFSET}
           />
         ))}

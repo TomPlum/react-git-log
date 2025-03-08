@@ -20,7 +20,7 @@ const Tooltip = ({ hash, color, parents, tip }: TooltipProps) => {
   )
 }
 
-export const CommitNode = ({ x, y, hash, color, parents, onClick, commit }: CommitNodeProps) => {
+export const CommitNode = ({ x, y, hash, color, parents, onClick, commit, showCommitNodeHashes }: CommitNodeProps) => {
   const [showTooltip, setShowTooltip] = useState(false)
 
   return (
@@ -41,9 +41,11 @@ export const CommitNode = ({ x, y, hash, color, parents, onClick, commit }: Comm
           borderColor: color,
         }}
       >
-        <span className={styles.commitLabel}>
-          {hash}
-        </span>
+        {showCommitNodeHashes && (
+          <span className={styles.commitLabel}>
+            {hash}
+          </span>
+        )}
       </div>
     </Popover>
   )

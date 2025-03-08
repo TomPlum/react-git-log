@@ -14,7 +14,17 @@ export interface GitGraphProps {
    */
   showBranchesTags?: boolean
 
+  /**
+   * Whether to show a table of commit metadata
+   * on the right-hand side of the graph.
+   */
   showGitLog?: boolean
+
+  /**
+   * Whether to show the commit hash
+   * to the side of the node in the graph.
+   */
+  showCommitNodeHashes?: boolean
 
   /**
    * Optional padding to add to the container

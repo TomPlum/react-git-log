@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import styles from './GitGraph.module.scss'
 import { CommitNode } from 'modules/Visualiser/components/CommitNode'
+import { BranchLine } from 'modules/Visualiser/components/BranchLine'
 
 /**
  * Number of pixels to offset all nodes and
@@ -127,15 +128,12 @@ export const GitGraph = ({
             }
 
             return (
-              <div
-                key={`${commit.hash}-${parentHash}`}
-                className={styles.branchLine}
-                style={{
-                  left: Math.min(commit.x, parent.x) * nodeSpacingX + LEFT_OFFSET,
-                  top: Math.min(commit.y, parent.y) + (rowHeight / 2) + TOP_OFFSET - 15,
-                  height: Math.abs(commit.y - parent.y),
-                  background: `rgba(${colours[commit.x] ?? 'black'}, 0.6)`
-                }}
+              <BranchLine
+                id={`${commit.hash}-${parentHash}`}
+                height={Math.abs(commit.y - parent.y)}
+                color={`rgba(${colours[commit.x] ?? 'black'}, 0.6)`}
+                x={Math.min(commit.x, parent.x) * nodeSpacingX + LEFT_OFFSET}
+                y={Math.min(commit.y, parent.y) + (rowHeight / 2) + TOP_OFFSET - 15}
               />
             )
           })

@@ -1,0 +1,14 @@
+.branchLine {
+  position: absolute;
+  width: 2px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: black;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

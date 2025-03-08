@@ -3,7 +3,7 @@ import { CommitNodeProps } from './types'
 import { Popover } from 'react-tiny-popover'
 import { useState } from 'react'
 
-const Tooltip = ({ x, hash, color, parents }: CommitNodeProps) => {
+const Tooltip = ({ hash, color, parents }: Pick<CommitNodeProps, 'hash' | 'color' | 'parents'>) => {
   return (
     <div style={{ border: `1px solid ${color}`, background: 'white', color: 'black' }}>
       <p>Hash: {hash}</p>
@@ -17,9 +17,9 @@ export const CommitNode = ({ x, y, hash, color, parents }: CommitNodeProps) => {
 
   return (
     <Popover
-      isOpen={showTooltip}
       padding={20}
-      content={<Tooltip x={x} y={y} color={color} hash={hash} parents={parents} />}
+      isOpen={showTooltip}
+      content={<Tooltip color={color} hash={hash} parents={parents} />}
     >
       <div
         key={hash}

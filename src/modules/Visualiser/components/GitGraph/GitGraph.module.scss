@@ -29,6 +29,15 @@
   z-index: 0;
 }
 
+.hovered {
+  position: absolute;
+  $borderRadius: 5px;
+  border-bottom-left-radius: $borderRadius;
+  border-top-left-radius: $borderRadius;
+  right: 0;
+  z-index: 0;
+}
+
 .dragHandle {
   position: absolute;
   right: 0;

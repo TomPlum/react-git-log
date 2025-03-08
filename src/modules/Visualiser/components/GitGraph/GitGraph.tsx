@@ -22,6 +22,7 @@ export const GitGraph = ({
   const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
 
   const [selected, setSelected] = useState<Commit>()
+  const [hovered, setHovered] = useState<Commit>()
 
   const { commits } = useMemo(() => {
     return buildGraph(entries, ROW_HEIGHT)
@@ -59,6 +60,7 @@ export const GitGraph = ({
                   yStart={commit.y + 25}
                   colour={colours[commit.x]}
                   id={`${commit.hash}-${parentHash}`}
+                  key={`${commit.hash}-${parentHash}`}
                   xEnd={parent.x * nodeSpacingX + 30}
                   xStart={commit.x * nodeSpacingX + 12}
                 />
@@ -68,6 +70,7 @@ export const GitGraph = ({
             return (
               <BranchLine
                 id={`${commit.hash}-${parentHash}`}
+                key={`${commit.hash}-${parentHash}`}
                 color={colours[commit.x] ?? 'black'}
                 height={Math.abs(commit.y - parent.y)}
                 x={Math.min(commit.x, parent.x) * nodeSpacingX + GRAPH_LEFT_OFFSET}
@@ -80,6 +83,7 @@ export const GitGraph = ({
         {commits.map((commit) => (
           <CommitNode
             commit={commit}
+            key={commit.hash}
             hash={commit.hash}
             onClick={setSelected}
             parents={commit.parents}
@@ -101,6 +105,18 @@ export const GitGraph = ({
           />
         )}
 
+        {hovered && (
+          <div
+            className={styles.hovered}
+            style={{
+              height: 40,
+              top: hovered.y + GRAPH_TOP_OFFSET - 20,
+              background: 'rgba(231, 231, 231, 0.5)',
+              width: `calc(100% - ${(hovered.x * nodeSpacingX) + 8}px)`
+            }}
+          />
+        )}
+
         <div
           onMouseDown={startResizing}
           className={styles.dragHandle}
@@ -111,7 +127,9 @@ export const GitGraph = ({
         <div className={styles.log} style={{ marginTop: TABLE_TOP_OFFSET }}>
           <GitLog
             data={commits}
+            onHover={setHovered}
             onSelect={setSelected}
+            hovered={hovered?.hash}
             selected={selected?.hash}
             colour={selected ? colours[selected.x] ?? 'black' : undefined}
           />

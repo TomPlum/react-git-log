@@ -7,8 +7,8 @@ import { BranchLine } from 'modules/Visualiser/components/BranchLine'
 import { MergeLine } from 'modules/Visualiser/components/MergeLine'
 import { colours, Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
-import { useMouse } from '@uidotdev/usehooks'
 import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
+import { useResize } from 'modules/Visualiser/hooks/useResize'
 
 export const GitGraph = ({
   entries,
@@ -21,6 +21,8 @@ export const GitGraph = ({
 }: GitGraphProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [containerWidth, setContainerWidth] = useState(400)
+
+  const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
 
   useEffect(() => {
     if (containerRef.current) {
@@ -35,36 +37,6 @@ export const GitGraph = ({
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  const [mouse] = useMouse()
-  const [dragging, setDragging] = useState(false)
-  const graphContainerRef = useRef<HTMLDivElement>(null)
-  const [graphWidth, setGraphWidth] = useState<number>(400)
-
-  useEffect(() => {
-    if (graphContainerRef.current && dragging) {
-      const containerLeft = graphContainerRef.current.getBoundingClientRect().x
-      const containerWidth = graphContainerRef.current.getBoundingClientRect().width
-      const containerRight = containerLeft + containerWidth
-      const newWidth = containerWidth + (mouse.x - containerRight)
-
-      if (newWidth < 800 && newWidth > 200) {
-        setGraphWidth(newWidth)
-      }
-    }
-  }, [dragging, mouse.x])
-
-  useEffect(() => {
-    const stopDragging = () => {
-      setDragging(false)
-    }
-
-    window.addEventListener('mouseup', stopDragging)
-
-    return () => {
-      window.removeEventListener('mouseup', stopDragging)
-    }
   }, [])
 
   const [selected, setSelected] = useState<Commit>()
@@ -96,7 +68,7 @@ export const GitGraph = ({
         </div>
       )}
 
-      <div className={styles.graph} style={{ width: graphWidth }} ref={graphContainerRef}>
+      <div className={styles.graph} style={{ width }} ref={ref}>
         {commits.flatMap((commit) =>
           commit.parents.map((parentHash, index) => {
             const parent = commits.find(({ hash }) => hash === parentHash)
@@ -157,8 +129,8 @@ export const GitGraph = ({
         )}
 
         <div
+          onMouseDown={startResizing}
           className={styles.dragHandle}
-          onMouseDown={() => setDragging(true)}
         />
       </div>
 

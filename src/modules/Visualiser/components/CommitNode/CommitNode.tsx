@@ -8,7 +8,6 @@ const Tooltip = ({ x, hash, color, parents }: CommitNodeProps) => {
     <div style={{ border: `1px solid ${color}`, background: 'white', color: 'black' }}>
       <p>Hash: {hash}</p>
       <p>Parents: {parents.join(', ')}</p>
-      <p>Branch Column: {x + 1}</p>
     </div>
   )
 }

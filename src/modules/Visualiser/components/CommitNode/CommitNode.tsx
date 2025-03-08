@@ -12,7 +12,7 @@ const Tooltip = ({ hash, color, parents }: Pick<CommitNodeProps, 'hash' | 'color
   )
 }
 
-export const CommitNode = ({ x, y, hash, color, parents }: CommitNodeProps) => {
+export const CommitNode = ({ x, y, hash, color, parents, onClick, commit }: CommitNodeProps) => {
   const [showTooltip, setShowTooltip] = useState(false)
 
   return (
@@ -23,6 +23,7 @@ export const CommitNode = ({ x, y, hash, color, parents }: CommitNodeProps) => {
     >
       <div
         key={hash}
+        onClick={() => onClick(commit)}
         className={styles.commitNode}
         onMouseOver={() => setShowTooltip(true)}
         onMouseOut={() => setShowTooltip(false)}

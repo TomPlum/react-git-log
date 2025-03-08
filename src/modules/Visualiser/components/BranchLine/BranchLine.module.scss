@@ -1,6 +1,7 @@
 .branchLine {
   position: absolute;
   width: 2px;
+  z-index: 5;
 
   &::before {
     content: "";

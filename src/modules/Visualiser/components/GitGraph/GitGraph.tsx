@@ -5,6 +5,7 @@ import styles from './GitGraph.module.scss'
 import { CommitNode } from 'modules/Visualiser/components/CommitNode'
 import { BranchLine } from 'modules/Visualiser/components/BranchLine'
 import { MergeLine } from 'modules/Visualiser/components/MergeLine'
+import { Commit } from 'modules/Visualiser'
 
 /**
  * Number of pixels to offset all nodes and
@@ -29,7 +30,7 @@ export const GitGraph = ({
   }
 }: GitGraphProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [containerWidth, setContainerWidth] = useState(400) // Default width
+  const [containerWidth, setContainerWidth] = useState(400)
 
   useEffect(() => {
     if (containerRef.current) {
@@ -45,6 +46,8 @@ export const GitGraph = ({
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
+  const [selected, setSelected] = useState<Commit>()
 
   const rowHeight = 48
 
@@ -72,6 +75,7 @@ export const GitGraph = ({
   }
 
   console.log('branchTips', entries.filter(it => it.isBranchTip))
+  console.log('selectedCommit', selected)
 
   return (
     <div ref={containerRef} className={styles.container}>
@@ -100,7 +104,7 @@ export const GitGraph = ({
       <div className={styles.graph}>
         {entries.flatMap((commit) =>
           commit.parents.map((parentHash, index) => {
-            const parent = entries.find((c) => c.hash === parentHash)
+            const parent = entries.find(({ hash }) => hash === parentHash)
 
             if (!parent) {
               return null
@@ -134,13 +138,26 @@ export const GitGraph = ({
 
         {entries.map((commit) => (
           <CommitNode
+            commit={commit}
             hash={commit.hash}
+            onClick={setSelected}
             parents={commit.parents}
             y={commit.y + TOP_OFFSET}
             color={colours[commit.x] ?? 'black'}
             x={commit.x * nodeSpacingX + LEFT_OFFSET}
           />
         ))}
+
+        {selected && (
+          <div
+            className={styles.selected}
+            style={{
+              height: 40,
+              width: `calc(100% - ${(selected.x * nodeSpacingX) + 8}px)`,
+              top: selected.y + TOP_OFFSET - 20
+            }}
+          />
+        )}
       </div>
     </div>
   )

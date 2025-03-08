@@ -3,7 +3,7 @@ export interface VisualiserProps {
   entries: GitLogEntry[]
 }
 
-export interface CommitNode {
+export interface Commit {
   hash: string
   parents: string[]
   refs: string

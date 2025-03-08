@@ -24,3 +24,13 @@
     border-left: 1px solid black;
   }
 }
+
+.selected {
+  position: absolute;
+  $borderRadius: 5px;
+  border-bottom-left-radius: $borderRadius;
+  border-top-left-radius: $borderRadius;
+  right: 0;
+  background: cyan;
+  z-index: 0;
+}

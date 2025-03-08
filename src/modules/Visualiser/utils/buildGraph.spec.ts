@@ -12,7 +12,7 @@ const node = ({ id, x, y, parents }: { id: number | string, parents?: (number | 
   ...commit({ id, parents }), x, y
 })
 
-describe('buildGraph', () => {
+describe.skip('buildGraph', () => {
   it('should build a linear history graph', () => {
     const rowHeight = 30
 

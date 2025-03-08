@@ -1,6 +1,7 @@
 import styles from './BranchesTags.module.scss'
 import { BranchesTagsProps } from './types'
 import { ROW_HEIGHT } from 'modules/Visualiser'
+import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
 
 export const BranchesTags = ({ commits }: BranchesTagsProps) => {
   return (
@@ -8,8 +9,13 @@ export const BranchesTags = ({ commits }: BranchesTagsProps) => {
       {commits.map((commit, i) => {
         if (commit.isBranchTip) {
           return (
-            <div key={`tag_${i}`} className={styles.tag} title={commit.branch} style={{ height: ROW_HEIGHT - 5 }}>
-              {commit.branch.replace('refs/heads/', '').replace('refs/remotes/origin/', '')}
+            <div
+              key={`tag_${i}`}
+              className={styles.tag}
+              title={commit.branch}
+              style={{ height: ROW_HEIGHT - 5 }}
+            >
+              {formatBranch(commit.branch)}
             </div>
           )
         } else {

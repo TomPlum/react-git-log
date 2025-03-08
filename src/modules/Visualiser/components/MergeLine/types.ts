@@ -4,4 +4,5 @@ export interface MergeLineProps {
   yStart: number
   xEnd: number
   yEnd: number
+  colour?: string
 }

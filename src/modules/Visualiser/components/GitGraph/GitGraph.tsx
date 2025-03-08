@@ -112,6 +112,7 @@ export const GitGraph = ({
                 <MergeLine
                   yEnd={parent.y + 18}
                   yStart={commit.y + 25}
+                  colour={colours[commit.x]}
                   id={`${commit.hash}-${parentHash}`}
                   xEnd={parent.x * nodeSpacingX + 30}
                   xStart={commit.x * nodeSpacingX + 12}

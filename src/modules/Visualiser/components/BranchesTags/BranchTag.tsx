@@ -43,7 +43,7 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth }: B
           style={{
             right: lineRight,
             width: lineWidth,
-            borderTop: `2px dashed ${color ?? 'black'}`,
+            borderTop: `1px dashed ${color ?? 'black'}`,
           }}
         />
       </div>

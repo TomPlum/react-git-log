@@ -1,7 +1,7 @@
 import styles from './MergeLine.module.scss'
 import { MergeLineProps } from './types'
 
-export const MergeLine = ({ id, xStart, yStart, xEnd, yEnd }: MergeLineProps) => {
+export const MergeLine = ({ id, xStart, yStart, xEnd, yEnd, colour }: MergeLineProps) => {
 
   const curvePath = `
     M ${xStart},${yStart} 
@@ -12,7 +12,7 @@ export const MergeLine = ({ id, xStart, yStart, xEnd, yEnd }: MergeLineProps) =>
 
   return (
     <svg key={id} className={styles.mergeLine}>
-      <path d={curvePath} stroke="black" strokeWidth="2" fill="none" />
+      <path d={curvePath} stroke={colour ?? 'black'} strokeWidth="2" fill="none" />
     </svg>
   )
 }

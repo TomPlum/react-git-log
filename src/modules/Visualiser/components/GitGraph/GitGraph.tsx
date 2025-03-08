@@ -4,6 +4,7 @@ import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import styles from './GitGraph.module.scss'
 import { CommitNode } from 'modules/Visualiser/components/CommitNode'
 import { BranchLine } from 'modules/Visualiser/components/BranchLine'
+import { MergeLine } from 'modules/Visualiser/components/MergeLine'
 
 /**
  * Number of pixels to offset all nodes and
@@ -108,22 +109,14 @@ export const GitGraph = ({
             const isMergeCommit = commit.parents.length > 1 && index > 0
 
             if (isMergeCommit) {
-              const startX = commit.x * nodeSpacingX + 12
-              const startY = commit.y + 25
-              const endX = parent.x * nodeSpacingX + 30
-              const endY = parent.y + 18
-
-              const curvePath = `
-                M ${startX},${startY} 
-                C ${startX},${(startY + endY) / 2} 
-                  ${endX},${(startY + endY) / 2} 
-                  ${endX},${endY}
-              `
-
               return (
-                <svg key={`${commit.hash}-${parentHash}`} className={styles.mergeLine}>
-                  <path d={curvePath} stroke="black" strokeWidth="2" fill="none" />
-                </svg>
+                <MergeLine
+                  yEnd={parent.y + 18}
+                  yStart={commit.y + 25}
+                  id={`${commit.hash}-${parentHash}`}
+                  xEnd={parent.x * nodeSpacingX + 30}
+                  xStart={commit.x * nodeSpacingX + 12}
+                />
               )
             }
 

@@ -14,6 +14,8 @@ export interface GitGraphProps {
    */
   showBranchesTags?: boolean
 
+  showGitLog?: boolean
+
   /**
    * Optional padding to add to the container
    * to offset how closely the graph is drawn

@@ -20,8 +20,11 @@
 
   .graph {
     position: relative;
-    flex-grow: 3;
     border-left: 1px solid black;
+  }
+
+  .log {
+    flex-grow: 1
   }
 }
 
@@ -33,4 +36,17 @@
   right: 0;
   background: cyan;
   z-index: 0;
+}
+
+.dragHandle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: grey;
+
+  &:hover {
+    cursor: grab;
+  }
 }

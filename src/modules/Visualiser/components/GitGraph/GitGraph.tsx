@@ -6,6 +6,8 @@ import { CommitNode } from 'modules/Visualiser/components/CommitNode'
 import { BranchLine } from 'modules/Visualiser/components/BranchLine'
 import { MergeLine } from 'modules/Visualiser/components/MergeLine'
 import { Commit } from 'modules/Visualiser'
+import { GitLog } from 'modules/Visualiser/components/GitLog'
+import { useMouse } from '@uidotdev/usehooks'
 
 /**
  * Number of pixels to offset all nodes and
@@ -24,6 +26,7 @@ const LEFT_OFFSET = 30
 export const GitGraph = ({
   commits,
   showBranchesTags = false,
+  showGitLog = true,
   padding = {
     top: TOP_OFFSET,
     left: LEFT_OFFSET
@@ -45,6 +48,36 @@ export const GitGraph = ({
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const [mouse] = useMouse()
+  const [dragging, setDragging] = useState(false)
+  const graphContainerRef = useRef<HTMLDivElement>(null)
+  const [graphWidth, setGraphWidth] = useState<number>(400)
+
+  useEffect(() => {
+    if (graphContainerRef.current && dragging) {
+      const containerLeft = graphContainerRef.current.getBoundingClientRect().x
+      const containerWidth = graphContainerRef.current.getBoundingClientRect().width
+      const containerRight = containerLeft + containerWidth
+      const newWidth = containerWidth + (mouse.x - containerRight)
+
+      if (newWidth < 800 && newWidth > 200) {
+        setGraphWidth(newWidth)
+      }
+    }
+  }, [dragging, mouse.x])
+
+  useEffect(() => {
+    const stopDragging = () => {
+      setDragging(false)
+    }
+
+    window.addEventListener('mouseup', stopDragging)
+
+    return () => {
+      window.removeEventListener('mouseup', stopDragging)
+    }
   }, [])
 
   const [selected, setSelected] = useState<Commit>()
@@ -101,7 +134,7 @@ export const GitGraph = ({
         </div>
       )}
 
-      <div className={styles.graph}>
+      <div className={styles.graph} style={{ width: graphWidth }} ref={graphContainerRef}>
         {entries.flatMap((commit) =>
           commit.parents.map((parentHash, index) => {
             const parent = entries.find(({ hash }) => hash === parentHash)
@@ -158,7 +191,18 @@ export const GitGraph = ({
             }}
           />
         )}
+
+        <div
+          className={styles.dragHandle}
+          onMouseDown={() => setDragging(true)}
+        />
       </div>
+
+      {showGitLog && (
+        <div className={styles.log}>
+          <GitLog data={entries} />
+        </div>
+      )}
     </div>
   )
 }

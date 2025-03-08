@@ -5,42 +5,5 @@
   .content {
     height: 100%;
     display: flex;
-
-    .graphContainer {
-      border-right: none;
-      height: 100%;
-      position: relative;
-
-      .dragHandle {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 3px;
-        height: 100%;
-        background: grey;
-
-        &:hover {
-          cursor: grab;
-        }
-      }
-    }
-
-    .table {
-      color: black;
-
-      .message {
-        max-width: 500px;
-      }
-
-      .branch {
-        max-width: 200px;
-      }
-
-      .row {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-    }
   }
 }

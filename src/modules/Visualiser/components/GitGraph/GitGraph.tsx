@@ -1,5 +1,5 @@
 import { GitGraphProps, GRAPH_LEFT_OFFSET, GRAPH_TOP_OFFSET, TABLE_TOP_OFFSET } from './types.ts'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import styles from './GitGraph.module.scss'
 import { CommitNode } from 'modules/Visualiser/components/CommitNode'
@@ -19,25 +19,7 @@ export const GitGraph = ({
     left: GRAPH_LEFT_OFFSET
   }
 }: GitGraphProps) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [containerWidth, setContainerWidth] = useState(400)
-
   const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
-
-  useEffect(() => {
-    if (containerRef.current) {
-      setContainerWidth(containerRef.current.clientWidth)
-    }
-
-    const handleResize = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.clientWidth)
-      }
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
   const [selected, setSelected] = useState<Commit>()
 
@@ -45,20 +27,11 @@ export const GitGraph = ({
     return buildGraph(entries, ROW_HEIGHT)
   }, [entries])
 
-  console.log('positionedCommits', commits)
-
   const uniqueXValues = [...new Set(commits.map((c) => c.x))].length
-  const nodeSpacingX = containerWidth / Math.max(uniqueXValues, 1)
-
-  console.log('nodeSpacingX', nodeSpacingX)
-  console.log('Unique Xs', new Set(commits.map((c) => c.x)))
-  console.log('Unique Branches', new Set(commits.map((c) => c.branch)))
-
-  console.log('branchTips', commits.filter(it => it.isBranchTip))
-  console.log('selectedCommit', selected)
+  const nodeSpacingX = width / Math.max(uniqueXValues, 1)
 
   return (
-    <div ref={containerRef} className={styles.container}>
+    <div className={styles.container}>
       {showBranchesTags && (
         <div className={styles.tags}>
           <BranchesTags

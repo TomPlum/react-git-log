@@ -1,0 +1,27 @@
+.tagContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .tag {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+
+  .tagLine {
+    $size: 1px;
+
+    top: 50%;
+    opacity: 0.5;
+    height: $size;
+    position: absolute;
+  }
+}

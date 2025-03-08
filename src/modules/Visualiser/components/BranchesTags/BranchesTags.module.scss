@@ -1,25 +1,3 @@
 .container {
   position: relative;
-
-  .tagContainer {
-    position: relative;
-
-    .tag {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .tagLine {
-      $size: 2px;
-
-      top: 50%;
-      height: $size;
-      position: absolute;
-      background: black;
-    }
-  }
 }

@@ -4,3 +4,16 @@ export interface BranchesTagsProps {
   commits: Commit[]
   commitNodeSpacing: number
 }
+
+export interface BranchTagTooltipProps {
+  branch: string
+}
+
+export interface BranchTagProps {
+  id: string
+  branch: string
+  height: number
+  color?: string
+  lineRight: number
+  lineWidth: number
+}

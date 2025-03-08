@@ -5,7 +5,7 @@ import styles from './GitGraph.module.scss'
 import { CommitNode } from 'modules/Visualiser/components/CommitNode'
 import { BranchLine } from 'modules/Visualiser/components/BranchLine'
 import { MergeLine } from 'modules/Visualiser/components/MergeLine'
-import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
+import { colours, Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { useMouse } from '@uidotdev/usehooks'
 import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
@@ -81,16 +81,6 @@ export const GitGraph = ({
   console.log('nodeSpacingX', nodeSpacingX)
   console.log('Unique Xs', new Set(commits.map((c) => c.x)))
   console.log('Unique Branches', new Set(commits.map((c) => c.branch)))
-
-  const colours: Record<number, string> = {
-    0: 'red',
-    1: 'green',
-    2: 'blue',
-    3: 'yellow',
-    4: 'orange',
-    5: 'pink',
-    6: 'purple'
-  }
 
   console.log('branchTips', commits.filter(it => it.isBranchTip))
   console.log('selectedCommit', selected)

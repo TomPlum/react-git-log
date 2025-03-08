@@ -12,7 +12,7 @@ export interface Commit {
   x: number
   y: number
   date: string
-  isBranchTip?: boolean
+  isBranchTip: boolean
 }
 
 export interface GitLogEntry {

@@ -107,10 +107,10 @@ export const GitGraph = ({
             const isMergeCommit = commit.parents.length > 1 && index > 0
 
             if (isMergeCommit) {
-              const startX = commit.x * nodeSpacingX + 10
-              const startY = commit.y
-              const endX = parent.x * nodeSpacingX + 10
-              const endY = parent.y
+              const startX = commit.x * nodeSpacingX + 12
+              const startY = commit.y + 25
+              const endX = parent.x * nodeSpacingX + 30
+              const endY = parent.y + 18
 
               const curvePath = `
                 M ${startX},${startY} 

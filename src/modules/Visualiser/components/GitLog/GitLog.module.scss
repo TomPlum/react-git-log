@@ -1,6 +1,6 @@
 .table {
   color: black;
-  border-spacing: 0 7px;
+  border-spacing: 0 2px;
 
   .message {
     max-width: 500px;
@@ -17,6 +17,11 @@
     &:hover {
       cursor: pointer;
     }
+
+    >td:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
   }
 
   .td {
@@ -24,9 +29,5 @@
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
-  }
-
-  .selected {
-    background-color: cyan;
   }
 }

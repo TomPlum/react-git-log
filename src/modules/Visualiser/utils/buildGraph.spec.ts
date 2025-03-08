@@ -5,7 +5,9 @@ const commit = ({ id, parents }: { id: number | string, parents?: (number | stri
   hash: id.toString(),
   message: `commit-${id}`,
   parents: parents ? parents.map(it => it.toString()) : [],
-  refs: ''
+  refs: '',
+  date: '',
+  branch: 'test'
 })
 
 const node = ({ id, x, y, parents }: { id: number | string, parents?: (number | string)[], x: number, y: number }) => ({

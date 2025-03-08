@@ -150,6 +150,7 @@ export const GitGraph = ({
             style={{
               height: 40,
               top: selected.y + GRAPH_TOP_OFFSET - 20,
+              background: colours[selected.x] ?? 'black',
               width: `calc(100% - ${(selected.x * nodeSpacingX) + 8}px)`
             }}
           />
@@ -165,8 +166,9 @@ export const GitGraph = ({
         <div className={styles.log} style={{ marginTop: TABLE_TOP_OFFSET }}>
           <GitLog
             data={commits}
-            selected={selected?.hash}
             onSelect={setSelected}
+            selected={selected?.hash}
+            colour={selected ? colours[selected.x] ?? 'black' : undefined}
           />
         </div>
       )}

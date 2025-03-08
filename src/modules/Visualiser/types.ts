@@ -27,11 +27,11 @@ export interface GitLogEntry {
 export const ROW_HEIGHT = 48
 
 export const colours: Record<number, string> = {
-  0: 'red',
-  1: 'green',
-  2: 'blue',
-  3: 'yellow',
-  4: 'orange',
-  5: 'pink',
-  6: 'purple'
+  0: 'rgb(242, 94, 53)',
+  1: 'rgb(102, 245, 83)',
+  2: 'rgb(83,183,245)',
+  3: 'rgb(245,237,83)',
+  4: 'rgb(245,159,57)',
+  5: 'rgb(240,83,245)',
+  6: 'rgb(150,56,241)'
 }

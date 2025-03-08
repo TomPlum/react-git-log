@@ -39,3 +39,9 @@
     transform: translateX(-50%);
   }
 }
+
+.mergeLine {
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+}

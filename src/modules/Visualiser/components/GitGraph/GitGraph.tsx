@@ -96,12 +96,34 @@ export const GitGraph = ({
       )}
 
       <div className={styles.graph}>
-        {entries.map((commit) =>
-          commit.parents.map((parentHash) => {
+        {entries.flatMap((commit) =>
+          commit.parents.map((parentHash, index) => {
             const parent = entries.find((c) => c.hash === parentHash)
 
             if (!parent) {
               return null
+            }
+
+            const isMergeCommit = commit.parents.length > 1 && index > 0
+
+            if (isMergeCommit) {
+              const startX = commit.x * nodeSpacingX + 10
+              const startY = commit.y
+              const endX = parent.x * nodeSpacingX + 10
+              const endY = parent.y
+
+              const curvePath = `
+                M ${startX},${startY} 
+                C ${startX},${(startY + endY) / 2} 
+                  ${endX},${(startY + endY) / 2} 
+                  ${endX},${endY}
+              `
+
+              return (
+                <svg key={`${commit.hash}-${parentHash}`} className={styles.mergeLine}>
+                  <path d={curvePath} stroke="black" strokeWidth="2" fill="none" />
+                </svg>
+              )
             }
 
             return (
@@ -122,6 +144,7 @@ export const GitGraph = ({
         {entries.map((commit) => (
           <CommitNode
             hash={commit.hash}
+            parents={commit.parents}
             y={commit.y + TOP_OFFSET}
             color={colours[commit.x] ?? 'black'}
             x={commit.x * nodeSpacingX + LEFT_OFFSET}

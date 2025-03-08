@@ -3,25 +3,27 @@ import classNames from 'classnames'
 import dayjs from 'dayjs'
 import { GitLogProps } from './types'
 
-export const GitLog = ({ data }: GitLogProps) => {
+export const GitLog = ({ data, selected }: GitLogProps) => {
   return (
     <table className={styles.table}>
       <tbody>
-      {data.map((commit) => (
-        <tr key={commit.hash}>
-          <td className={classNames(styles.row, styles.hash)}>
-            {commit.hash}
-          </td>
+        {data.map((commit) => (
+          <tr
+            key={commit.hash}
+            className={classNames(
+              styles.row,
+              { [styles.selected]: selected === commit.hash }
+            )}
+          >
+            <td className={classNames(styles.td, styles.message)}>
+              {commit.message}
+            </td>
 
-          <td className={classNames(styles.row, styles.message)}>
-            {commit.message}
-          </td>
-
-          <td className={classNames(styles.row, styles.date)}>
-            {dayjs(commit.date).format('ddd Do MMM YYYY HH:mm')}
-          </td>
-        </tr>
-      ))}
+            <td className={classNames(styles.td, styles.date)}>
+              {dayjs(commit.date).format('ddd Do MMM YYYY HH:mm')}
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   )

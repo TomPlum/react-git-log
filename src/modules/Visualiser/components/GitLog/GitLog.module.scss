@@ -1,5 +1,6 @@
 .table {
   color: black;
+  border-spacing: 0 7px;
 
   .message {
     max-width: 500px;
@@ -10,8 +11,18 @@
   }
 
   .row {
+    height: 40px;
+    margin: 5px 0;
+  }
+
+  .td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    box-sizing: border-box;
+  }
+
+  .selected {
+    background-color: cyan;
   }
 }

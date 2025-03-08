@@ -23,6 +23,13 @@ const TOP_OFFSET = 30
  */
 const LEFT_OFFSET = 30
 
+/**
+ * Number of pixels to offset the top of the
+ * table so that the rows line up with the
+ * commit nodes in the graph.
+ */
+const TABLE_TOP_OFFSET = 8
+
 export const GitGraph = ({
   commits,
   showBranchesTags = false,
@@ -199,8 +206,11 @@ export const GitGraph = ({
       </div>
 
       {showGitLog && (
-        <div className={styles.log}>
-          <GitLog data={entries} />
+        <div className={styles.log} style={{ marginTop: TABLE_TOP_OFFSET }}>
+          <GitLog
+            data={entries}
+            selected={selected?.hash}
+          />
         </div>
       )}
     </div>

@@ -5,6 +5,7 @@ import { Popover } from 'react-tiny-popover'
 import { useCallback, useState } from 'react'
 import { BranchTagProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import BranchIcon from 'assets/branch.svg?react'
 
 export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth }: BranchTagProps) => {
   const { textColour } = useTheme()
@@ -39,6 +40,13 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth }: B
           }}
         >
           {formatBranch(branch)}
+
+          <BranchIcon
+            className={styles.icon}
+            style={{
+              fill: textColour
+            }}
+          />
         </div>
 
         <div

@@ -1,12 +1,14 @@
 import react from '@vitejs/plugin-react-swc'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import svgr from 'vite-plugin-svgr'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths()],
+  plugins: [react(), tsconfigPaths(), svgr()],
   resolve: {
     alias: {
-      modules: '/src/modules'
+      modules: '/src/modules',
+      assets: '/src/assets'
     }
   },
   css: {

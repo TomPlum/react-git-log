@@ -14,7 +14,7 @@ export interface BranchTagProps {
   id: string
   branch: string
   height: number
-  color?: string
+  color: string
   lineRight: number
   lineWidth: number
 }

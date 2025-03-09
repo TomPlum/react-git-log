@@ -31,7 +31,7 @@ export const BranchesTags = ({ commits, commitNodeSpacing, previewBranchAtHash }
               key={i}
               id={i.toString()}
               branch={commit.branch}
-              color={colours[commit.x]}
+              color={colours[commit.x] ?? 'black'}
               height={i === 0 ? (ROW_HEIGHT - HEIGHT_OFFSET) : ROW_HEIGHT}
               lineWidth={(commit.x * commitNodeSpacing) + GRAPH_LEFT_OFFSET}
               lineRight={0 - PADDING - (commit.x * commitNodeSpacing) - GRAPH_LEFT_OFFSET + 10}

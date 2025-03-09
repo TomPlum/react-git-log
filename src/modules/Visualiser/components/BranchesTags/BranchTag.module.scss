@@ -4,6 +4,10 @@
   align-items: center;
   justify-content: flex-end;
 
+  .tooltip {
+    z-index: 20;
+  }
+
   .tag {
     overflow: hidden;
     text-overflow: ellipsis;

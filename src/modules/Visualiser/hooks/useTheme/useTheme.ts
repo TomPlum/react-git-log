@@ -15,10 +15,18 @@ export const useTheme = (): ThemeColours => {
 
   const textColour = useMemo(() => {
     if (theme === 'dark') {
-      return 'white'
+      return 'rgb(255, 255, 255)'
     }
 
-    return 'black'
+    return 'rgb(0, 0, 0)'
+  }, [theme])
+
+  const tooltipBackground = useMemo(() => {
+    if (theme === 'dark') {
+      return 'rgb(87,87,87)'
+    }
+
+    return 'rgb(213,213,213)'
   }, [theme])
 
   const shiftAlphaChannel = useCallback((rgb: string, opacity: number) => {
@@ -46,6 +54,7 @@ export const useTheme = (): ThemeColours => {
   return {
     hoverColour,
     textColour,
+    tooltipBackground,
     reduceOpacity,
     shiftAlphaChannel
   }

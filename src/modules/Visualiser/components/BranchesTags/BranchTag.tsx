@@ -1,14 +1,14 @@
 import { BranchTagTooltip } from './BranchTagTooltip'
 import styles from './BranchTag.module.scss'
 import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
-import { Popover } from 'react-tiny-popover'
+import { ArrowContainer, Popover } from 'react-tiny-popover'
 import { useCallback, useState } from 'react'
 import { BranchTagProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import BranchIcon from 'assets/branch.svg?react'
 
 export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth }: BranchTagProps) => {
-  const { textColour, shiftAlphaChannel } = useTheme()
+  const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -22,9 +22,21 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth }: B
 
   return (
     <Popover
+      positions='right'
       isOpen={showTooltip}
-      content={<BranchTagTooltip branch={branch} />
-    }>
+      containerClassName={styles.tooltip}
+      content={({ position, childRect, popoverRect }) => (
+        <ArrowContainer
+          arrowSize={6}
+          position={position}
+          childRect={childRect}
+          popoverRect={popoverRect}
+          arrowColor={tooltipBackground}
+        >
+          <BranchTagTooltip branch={branch} />
+        </ArrowContainer>
+      )}
+    >
       <div
         style={{ height }}
         onMouseOut={handleMouseOut}

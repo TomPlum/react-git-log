@@ -1,6 +1,7 @@
 export interface ThemeColours {
   hoverColour: string
   textColour: string
+  tooltipBackground: string
 
   /**
    * Blends an RGB color with a background color to simulate an alpha effect.

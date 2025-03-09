@@ -6,6 +6,5 @@ export interface CommitNodeProps {
   hash: string
   parents: string[]
   commit: Commit
-  onClick: (commit: Commit) => void
   showCommitNodeHashes: boolean
 }

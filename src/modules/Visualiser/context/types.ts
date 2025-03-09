@@ -1,4 +1,4 @@
-import { GitLogEntry } from 'modules/Visualiser'
+import { Commit, GitLogEntry } from 'modules/Visualiser'
 import { CSSProperties } from 'react'
 import { Theme } from 'modules/Visualiser/hooks/useTheme'
 
@@ -10,6 +10,36 @@ export interface GitContextBag {
    * on the graph.
    */
   entries: GitLogEntry[]
+
+  /**
+   * The currently selected commit that
+   * is highlighted in the log.
+   */
+  selectedCommit?: Commit
+
+  /**
+   * Sets the selected commit. Can be
+   * undefined to clear the selection.
+   *
+   * @param commit Details of the selected commit.
+   */
+  setSelectedCommit: (commit?: Commit) => void
+
+  /**
+   * The currently previewed commit that
+   * is temporarily highlighted in the log
+   * while the user is hovering their cursor
+   * over it.
+   */
+  previewedCommit?: Commit
+
+  /**
+   * Sets the previewed commit. Can be
+   * undefined to clear the selection.
+   *
+   * @param commit Details of the selected commit.
+   */
+  setPreviewedCommit: (commit?: Commit) => void
 
   /**
    * Whether to show labels for the nodes

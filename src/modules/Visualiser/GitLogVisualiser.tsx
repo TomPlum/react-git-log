@@ -1,6 +1,6 @@
-import { GitLogVisualiserProps } from './types.ts'
+import { Commit, GitLogVisualiserProps } from './types.ts'
 import { GitGraph } from './components/GitGraph'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'modules/Visualiser/context'
 import { darkThemeColors, lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
 
@@ -15,6 +15,8 @@ export const GitLogVisualiser = ({
    classes,
    timestampFormat = 'YYYY-MM-DD HH:mm:ss'
 }: GitLogVisualiserProps) => {
+  const [selectedCommit, setSelectedCommit] = useState<Commit>()
+  const [previewedCommit, setPreviewedCommit] = useState<Commit>()
 
   const themeColours = useMemo<string[]>(() => {
     if (colours) {
@@ -39,7 +41,11 @@ export const GitLogVisualiser = ({
     entries,
     classes,
     theme,
-    timestampFormat
+    timestampFormat,
+    selectedCommit,
+    setSelectedCommit,
+    previewedCommit,
+    setPreviewedCommit
   }), [
     entries,
     padding,
@@ -49,7 +55,9 @@ export const GitLogVisualiser = ({
     themeColours,
     classes,
     theme,
-    timestampFormat
+    timestampFormat,
+    selectedCommit,
+    previewedCommit
   ])
   
   return (

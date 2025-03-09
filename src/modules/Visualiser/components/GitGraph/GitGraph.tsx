@@ -1,11 +1,11 @@
 import { GRAPH_LEFT_OFFSET, GRAPH_TOP_OFFSET, TABLE_TOP_OFFSET } from './types.ts'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import styles from './GitGraph.module.scss'
 import { CommitNode } from 'modules/Visualiser/components/CommitNode'
 import { BranchLine } from 'modules/Visualiser/components/BranchLine'
 import { MergeLine } from 'modules/Visualiser/components/MergeLine'
-import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
+import { ROW_HEIGHT } from 'modules/Visualiser'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
 import { useResize } from 'modules/Visualiser/hooks/useResize'
@@ -19,6 +19,8 @@ export const GitGraph = () => {
     entries,
     colours,
     showGitLog,
+    selectedCommit,
+    previewedCommit,
     showBranchesTags,
     showCommitNodeHashes
   } = useGitContext()
@@ -26,9 +28,6 @@ export const GitGraph = () => {
   const { hoverColour } = useTheme()
 
   const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
-
-  const [selected, setSelected] = useState<Commit>()
-  const [hovered, setHovered] = useState<Commit>()
 
   const { commits } = useMemo(() => {
     return buildGraph(entries, ROW_HEIGHT)
@@ -47,7 +46,6 @@ export const GitGraph = () => {
           <BranchesTags
             commits={commits}
             commitNodeSpacing={nodeSpacingX}
-            previewBranchAtHash={hovered?.hash}
           />
         </div>
       )}
@@ -95,7 +93,6 @@ export const GitGraph = () => {
             commit={commit}
             key={commit.hash}
             hash={commit.hash}
-            onClick={setSelected}
             parents={commit.parents}
             y={commit.y + GRAPH_TOP_OFFSET}
             showCommitNodeHashes={showCommitNodeHashes}
@@ -103,26 +100,26 @@ export const GitGraph = () => {
           />
         ))}
 
-        {selected && (
+        {selectedCommit && (
           <div
             className={styles.selected}
             style={{
               height: 40,
-              top: selected.y + GRAPH_TOP_OFFSET - 20,
-              background: colours[selected.x] ?? 'black',
-              width: `calc(100% - ${(selected.x * nodeSpacingX) + 8}px)`
+              top: selectedCommit.y + GRAPH_TOP_OFFSET - 20,
+              background: colours[selectedCommit.x] ?? 'black',
+              width: `calc(100% - ${(selectedCommit.x * nodeSpacingX) + 8}px)`
             }}
           />
         )}
 
-        {hovered && (
+        {previewedCommit && (
           <div
             className={styles.hovered}
             style={{
               height: 40,
-              top: hovered.y + GRAPH_TOP_OFFSET - 20,
+              top: previewedCommit.y + GRAPH_TOP_OFFSET - 20,
               background: hoverColour,
-              width: `calc(100% - ${(hovered.x * nodeSpacingX) + 8}px)`
+              width: `calc(100% - ${(previewedCommit.x * nodeSpacingX) + 8}px)`
             }}
           />
         )}
@@ -135,14 +132,7 @@ export const GitGraph = () => {
 
       {showGitLog && (
         <div className={styles.log} style={{ marginTop: TABLE_TOP_OFFSET }}>
-          <GitLog
-            data={commits}
-            onHover={setHovered}
-            onSelect={setSelected}
-            hovered={hovered?.hash}
-            selected={selected?.hash}
-            colour={selected ? colours[selected.x] ?? 'black' : undefined}
-          />
+          <GitLog data={commits}/>
         </div>
       )}
     </div>

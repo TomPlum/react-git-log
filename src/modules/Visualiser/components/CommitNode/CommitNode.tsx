@@ -1,7 +1,7 @@
 import styles from './CommitNode.module.scss'
 import { CommitNodeProps } from './types'
 import { Popover } from 'react-tiny-popover'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { useGitContext } from 'modules/Visualiser/context'
 
@@ -22,12 +22,20 @@ const Tooltip = ({ hash, color, parents, tip }: TooltipProps) => {
   )
 }
 
-export const CommitNode = ({ x, y, hash, parents, onClick, commit, showCommitNodeHashes }: CommitNodeProps) => {
-  const { colours } = useGitContext()
+export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }: CommitNodeProps) => {
   const { textColour, reduceOpacity } = useTheme()
   const [showTooltip, setShowTooltip] = useState(false)
+  const { colours, selectedCommit, setSelectedCommit } = useGitContext()
 
   const nodeColour = colours[commit.x] ?? 'black'
+
+  const handleClickNode = useCallback(() => {
+    if (selectedCommit) {
+      setSelectedCommit(undefined)
+    } else {
+      setSelectedCommit(commit)
+    }
+  }, [commit, selectedCommit, setSelectedCommit])
 
   return (
     <Popover
@@ -37,7 +45,7 @@ export const CommitNode = ({ x, y, hash, parents, onClick, commit, showCommitNod
     >
       <div
         key={hash}
-        onClick={() => onClick(commit)}
+        onClick={handleClickNode}
         className={styles.commitNode}
         onMouseOver={() => setShowTooltip(true)}
         onMouseOut={() => setShowTooltip(false)}

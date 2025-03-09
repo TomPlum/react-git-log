@@ -60,7 +60,7 @@ export const GitLog = ({ data }: GitLogProps) => {
   }, [setPreviewedCommit])
 
   const handleClickRow = useCallback((commit: Commit) => {
-    if (selectedCommit) {
+    if (selectedCommit?.hash === commit.hash) {
       setSelectedCommit(undefined)
     } else {
       setSelectedCommit(commit)

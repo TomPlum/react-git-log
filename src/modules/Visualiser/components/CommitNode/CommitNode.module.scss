@@ -11,6 +11,10 @@
   transform: translate(-50%, -50%);
   z-index: 10;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   .commitLabel {
     position: absolute;
     left: 25px;

@@ -14,7 +14,7 @@ export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }
   const nodeColour = colours[commit.x] ?? 'black'
 
   const handleClickNode = useCallback(() => {
-    if (selectedCommit) {
+    if (selectedCommit?.hash === commit.hash) {
       setSelectedCommit(undefined)
     } else {
       setSelectedCommit(commit)

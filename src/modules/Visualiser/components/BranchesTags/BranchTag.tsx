@@ -2,12 +2,14 @@ import { BranchTagTooltip } from './BranchTagTooltip'
 import styles from './BranchTag.module.scss'
 import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
 import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
-import { cloneElement, useCallback, useState } from 'react'
+import { cloneElement, CSSProperties, useCallback, useMemo, useState } from 'react'
 import { BranchTagProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { motion } from 'framer-motion'
+import { useGitContext } from 'modules/Visualiser/context'
 
-export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth, icon }: BranchTagProps) => {
+export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidth, icon }: BranchTagProps) => {
+  const { selectedCommit, previewedCommit } = useGitContext()
   const { textColour, shiftAlphaChannel, tooltipBackground, hoverTransitionDuration } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
@@ -19,6 +21,20 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth, ico
   const handleMouseOut = useCallback(() => {
     setShowTooltip(false)
   }, [])
+
+  const tagLineStyles = useMemo<CSSProperties>(() => {
+    const tagBelongsToSelectedCommit = selectedCommit?.hash === hash
+    const tagBelongsToPreviewedCommit = previewedCommit?.hash === hash
+    const borderStyle = tagBelongsToSelectedCommit || tagBelongsToPreviewedCommit
+      ? 'dashed'
+      : 'dotted'
+
+    return {
+      right: lineRight,
+      width: lineWidth,
+      borderTop: `2px ${borderStyle} ${color}`,
+    }
+  }, [color, hash, lineRight, lineWidth, previewedCommit?.hash, selectedCommit?.hash])
 
   return (
     <Popover
@@ -52,8 +68,8 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth, ico
           className={styles.tag}
           style={{
             color: textColour,
-            background: shiftAlphaChannel(color, 0.30),
-            border: `2px solid ${color}`
+            border: `2px solid ${color}`,
+            background: shiftAlphaChannel(color, 0.30)
           }}
         >
           {formatBranch(branch)}
@@ -64,13 +80,9 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth, ico
         </div>
 
         <div
+          style={tagLineStyles}
           key={`tag_line_${branch}`}
           className={styles.tagLine}
-          style={{
-            right: lineRight,
-            width: lineWidth,
-            borderTop: `2px dotted ${color ?? 'black'}`,
-          }}
         />
       </motion.div>
     </Popover>

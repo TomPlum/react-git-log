@@ -6,10 +6,12 @@ import { useCallback } from 'react'
 import { Commit } from 'modules/Visualiser'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import { useGitContext } from 'modules/Visualiser/context'
 import { motion } from 'framer-motion'
 
 dayjs.extend(advancedFormat)
+dayjs.extend(relativeTime)
 
 const ROW_HEIGHT = 40
 
@@ -67,6 +69,16 @@ export const GitLog = ({ data }: GitLogProps) => {
     }
   }, [selectedCommit, setSelectedCommit])
 
+  const formatTimestamp = useCallback((dateString: string) => {
+    const commitDate = dayjs(dateString)
+
+    if (dayjs(new Date()).diff(commitDate, 'week') >= 1) {
+      return commitDate.format(timestampFormat)
+    }
+
+    return commitDate.fromNow()
+  }, [timestampFormat])
+
   return (
     <table className={styles.table}>
       <tbody>
@@ -89,6 +101,7 @@ export const GitLog = ({ data }: GitLogProps) => {
                 colSpan={100}
                 className={styles.background}
                 style={getBackgroundStyles(commit)}
+                data-testid={`git-log-table-row-background-${commit.hash}`}
               >
                 <motion.div
                   exit={{ opacity: 0 }}
@@ -106,7 +119,7 @@ export const GitLog = ({ data }: GitLogProps) => {
               </td>
 
               <td className={classNames(styles.td, styles.date)} style={tableDataStyle}>
-                {dayjs(commit.date).format(timestampFormat)}
+                {formatTimestamp(commit.date)}
               </td>
             </tr>
           )

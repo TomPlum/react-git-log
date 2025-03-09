@@ -14,6 +14,7 @@ export interface BranchTagTooltipProps {
 export interface BranchTagProps {
   id: string
   branch: string
+  hash: string
   height: number
   color: string
   lineRight: number

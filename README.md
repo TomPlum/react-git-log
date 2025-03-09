@@ -11,3 +11,12 @@ Extract data from all branches.
 ```bash
 git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,date:%cd' --date=iso
 ```
+
+TODO:
+- Pagination
+- Filtering of branches
+- Filter by commit message search?
+- Filtering of date?
+- Show code in stories
+- Tests
+- Fix graph

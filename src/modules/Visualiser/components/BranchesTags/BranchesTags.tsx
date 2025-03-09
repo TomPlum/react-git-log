@@ -36,6 +36,7 @@ export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) 
             <BranchTag
               key={i}
               id={i.toString()}
+              hash={commit.hash}
               branch={commit.branch}
               color={colours[commit.x] ?? 'black'}
               icon={isTag

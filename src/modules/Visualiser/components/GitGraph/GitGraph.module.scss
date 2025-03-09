@@ -30,10 +30,10 @@
 }
 
 .hovered {
-  position: absolute;
   $borderRadius: 20px;
   border-bottom-left-radius: $borderRadius;
   border-top-left-radius: $borderRadius;
+  position: absolute;
   right: 0;
   z-index: 0;
 }

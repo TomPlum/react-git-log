@@ -7,11 +7,20 @@ import { Commit } from 'modules/Visualiser'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import { useGitContext } from 'modules/Visualiser/context'
+import { motion } from 'framer-motion'
 
 dayjs.extend(advancedFormat)
 
+const ROW_HEIGHT = 40
+
 export const GitLog = ({ data }: GitLogProps) => {
-  const { hoverColour, textColour, reduceOpacity } = useTheme()
+  const {
+    textColour,
+    hoverColour,
+    reduceOpacity,
+    shiftAlphaChannel,
+    hoverTransitionDuration
+  } = useTheme()
 
   const {
     colours,
@@ -22,25 +31,22 @@ export const GitLog = ({ data }: GitLogProps) => {
     setPreviewedCommit
   } = useGitContext()
 
-  const getStyles = useCallback((commit: Commit) => {
+  const getBackgroundStyles = useCallback((commit: Commit) => {
     const colour = colours[commit.x] ?? textColour
 
     if (selectedCommit?.hash === commit.hash) {
       return {
-        color: textColour,
         background: reduceOpacity(colour, 0.15)
       }
     }
 
     if (previewedCommit?.hash === commit.hash) {
       return {
-        color: textColour,
         background: hoverColour
       }
     }
 
     return {
-      color: textColour,
       background: 'transparent'
     }
   }, [colours, textColour, selectedCommit?.hash, previewedCommit?.hash, reduceOpacity, hoverColour])
@@ -65,17 +71,33 @@ export const GitLog = ({ data }: GitLogProps) => {
     <table className={styles.table}>
       <tbody>
         {data.map((commit) => {
-          const tableDataStyle = getStyles(commit)
+          const isMergeCommit = commit.parents.length > 1
+          const tableDataStyle = {
+            color: shiftAlphaChannel(textColour, isMergeCommit ? 0.4 : 1)
+          }
 
           return (
             <tr
               key={commit.hash}
               className={styles.row}
-              style={{ height: 40 }}
               onMouseOut={handleMouseOut}
+              style={{ height: ROW_HEIGHT }}
               onClick={() => handleClickRow(commit)}
               onMouseOver={() => handleMouseOver(commit)}
             >
+              <td
+                colSpan={100}
+                className={styles.background}
+                style={getBackgroundStyles(commit)}
+              >
+                <motion.div
+                  exit={{ opacity: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: hoverTransitionDuration }}
+                />
+              </td>
+
               <td
                 style={tableDataStyle}
                 className={classNames(styles.td, styles.message)}

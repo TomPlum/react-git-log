@@ -56,6 +56,7 @@ export const useTheme = (): ThemeColours => {
     textColour,
     tooltipBackground,
     reduceOpacity,
-    shiftAlphaChannel
+    shiftAlphaChannel,
+    hoverTransitionDuration: 0.3
   }
 }

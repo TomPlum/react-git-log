@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useEffect, useState } from 'react'
-import { GitLogEntry, GitLogVisualiser, GitLogVisualiserProps } from 'modules/Visualiser'
 import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
+import { GitLogEntry, GitLogVisualiserProps } from './types'
+import { GitLogVisualiser } from './GitLogVisualiser'
 
 const fetchEntries = async (): Promise<GitLogEntry[]> => {
   const response = await fetch('/git-log-all.txt')
@@ -9,14 +10,20 @@ const fetchEntries = async (): Promise<GitLogEntry[]> => {
 }
 
 const meta = {
-  title: 'Git Log/Visualiser',
+  title: 'Git Log/GitLogVisualiser',
   component: GitLogVisualiser,
   parameters: {
     layout: 'fullscreen'
   },
   args: {
     showGitLog: true,
-    showBranchesTags: true
+    showBranchesTags: true,
+    showCommitNodeHashes: false,
+    padding: {
+      left: 10,
+      top: 10
+    },
+    entries: []
   }
 } satisfies Meta<GitLogVisualiserProps>
 

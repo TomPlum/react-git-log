@@ -1,7 +1,8 @@
-import { darkThemeColors, GitLogVisualiserProps, lightThemeColors } from './types.ts'
+import { GitLogVisualiserProps } from './types.ts'
 import { GitGraph } from './components/GitGraph'
 import { useMemo } from 'react'
 import { GitContext, GitContextBag } from 'modules/Visualiser/context'
+import { darkThemeColors, lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
 
 export const GitLogVisualiser = ({
    padding,

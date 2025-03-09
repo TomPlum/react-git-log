@@ -1,5 +1,6 @@
-import { GitLogEntry, Theme } from 'modules/Visualiser'
+import { GitLogEntry } from 'modules/Visualiser'
 import { CSSProperties } from 'react'
+import { Theme } from 'modules/Visualiser/hooks/useTheme'
 
 export interface GitContextBag {
   colours: string[]

@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 import { GitContextBag } from 'modules/Visualiser/context/types'
 import { GRAPH_LEFT_OFFSET, GRAPH_TOP_OFFSET } from 'modules/Visualiser/components/GitGraph'
-import { darkThemeColors } from 'modules/Visualiser'
+import { darkThemeColors } from 'modules/Visualiser/hooks/useTheme'
 
 export const GitContext = createContext<GitContextBag>({
   colours: darkThemeColors,

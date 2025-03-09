@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useEffect, useState } from 'react'
 import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
-import { darkThemeColors, GitLogEntry, GitLogVisualiserProps } from './types'
+import { GitLogEntry, GitLogVisualiserProps } from './types'
 import { GitLogVisualiser } from './GitLogVisualiser'
+import { lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
 
 const fetchEntries = async (): Promise<GitLogEntry[]> => {
   const response = await fetch('/git-log-all.txt')
@@ -24,8 +25,8 @@ const meta = {
       top: 10
     },
     entries: [],
-    colours: darkThemeColors,
-    theme: 'dark'
+    colours: lightThemeColors,
+    theme: 'light'
   }
 } satisfies Meta<GitLogVisualiserProps>
 
@@ -50,7 +51,7 @@ export const Default: Story = {
         entries={entries}
         classes={{
           containerStyles: {
-            background: '#1a1a1a'
+            background: args.theme === 'dark' ? '#1a1a1a' : 'white'
           }
         }}
       />

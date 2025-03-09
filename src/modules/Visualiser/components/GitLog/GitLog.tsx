@@ -5,10 +5,15 @@ import { GitLogProps } from './types'
 import { useCallback } from 'react'
 import { Commit } from 'modules/Visualiser'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+import { useGitContext } from 'modules/Visualiser/context'
+
+dayjs.extend(advancedFormat)
 
 export const GitLog = ({ data, selected, hovered, onSelect, onHover, colour }: GitLogProps) => {
+  const { timestampFormat } = useGitContext()
   const { hoverColour, textColour } = useTheme()
-  
+
   const getStyles = useCallback((hash: string) => {
     if (selected === hash) {
       return {
@@ -53,12 +58,15 @@ export const GitLog = ({ data, selected, hovered, onSelect, onHover, colour }: G
               onClick={() => onSelect(commit)}
               onMouseOver={() => handleMouseOver(commit)}
             >
-              <td className={classNames(styles.td, styles.message)} style={tableDataStyle}>
+              <td
+                style={tableDataStyle}
+                className={classNames(styles.td, styles.message)}
+              >
                 {commit.message}
               </td>
 
               <td className={classNames(styles.td, styles.date)} style={tableDataStyle}>
-                {dayjs(commit.date).format('ddd Do MMM YYYY HH:mm')}
+                {dayjs(commit.date).format(timestampFormat)}
               </td>
             </tr>
           )

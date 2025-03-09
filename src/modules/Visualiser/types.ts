@@ -53,6 +53,13 @@ export interface GitLogVisualiserProps {
   }
 
   /**
+   * A timestamp format string passed to DayJS
+   * to format the timestamps of the commits
+   * in the log table.
+   */
+  timestampFormat?: string
+
+  /**
    * CSS Classes to pass to various underlying
    * elements for custom styling.
    */

@@ -13,5 +13,6 @@ export const GitContext = createContext<GitContextBag>({
   },
   showGitLog: true,
   showBranchesTags: true,
-  theme: 'light'
+  theme: 'light',
+  timestampFormat: 'YYYY-MM-DD HH:mm:ss',
 })

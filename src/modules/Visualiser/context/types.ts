@@ -31,6 +31,14 @@ export interface GitContextBag {
   showCommitNodeHashes: boolean
 
   /**
+   * A timestamp format string passed to DayJS
+   * to format the timestamps of the commits
+   * in the log table.
+   */
+  timestampFormat: string
+
+
+  /**
    * Optional padding to add to the container
    * to offset how closely the graph is drawn
    * from the edges.

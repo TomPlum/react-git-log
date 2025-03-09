@@ -12,7 +12,8 @@ export const GitLogVisualiser = ({
    showGitLog = true,
    showBranchesTags = true,
    showCommitNodeHashes = false,
-   classes
+   classes,
+   timestampFormat = 'YYYY-MM-DD HH:mm:ss'
 }: GitLogVisualiserProps) => {
 
   const themeColours = useMemo<string[]>(() => {
@@ -37,8 +38,19 @@ export const GitLogVisualiser = ({
     showCommitNodeHashes,
     entries,
     classes,
-    theme
-  }), [entries, padding, showBranchesTags, showCommitNodeHashes, showGitLog, themeColours, classes, theme])
+    theme,
+    timestampFormat
+  }), [
+    entries,
+    padding,
+    showBranchesTags,
+    showCommitNodeHashes,
+    showGitLog,
+    themeColours,
+    classes,
+    theme,
+    timestampFormat
+  ])
   
   return (
     <GitContext.Provider value={value}>

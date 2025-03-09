@@ -2,6 +2,7 @@ import styles from './CommitNode.module.scss'
 import { CommitNodeProps } from './types'
 import { Popover } from 'react-tiny-popover'
 import { useState } from 'react'
+import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 
 interface TooltipProps {
   hash: string
@@ -21,6 +22,7 @@ const Tooltip = ({ hash, color, parents, tip }: TooltipProps) => {
 }
 
 export const CommitNode = ({ x, y, hash, color, parents, onClick, commit, showCommitNodeHashes }: CommitNodeProps) => {
+  const { textColour } = useTheme()
   const [showTooltip, setShowTooltip] = useState(false)
 
   return (
@@ -42,7 +44,7 @@ export const CommitNode = ({ x, y, hash, color, parents, onClick, commit, showCo
         }}
       >
         {showCommitNodeHashes && (
-          <span className={styles.commitLabel}>
+          <span className={styles.commitLabel} style={{ color: textColour }}>
             {hash}
           </span>
         )}

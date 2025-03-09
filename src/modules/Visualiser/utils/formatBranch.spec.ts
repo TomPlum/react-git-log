@@ -12,4 +12,10 @@ describe('formatBranch', () => {
     const formattedBranch = formatBranch(branchName)
     expect(formattedBranch).toStrictEqual('renovate/major-react-monorepo')
   })
+
+  it('should strip the tags refs', () => {
+    const branchName = 'refs/tags/v2.4.0'
+    const formattedBranch = formatBranch(branchName)
+    expect(formattedBranch).toStrictEqual('v2.4.0')
+  })
 })

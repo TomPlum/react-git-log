@@ -2,12 +2,11 @@ import { BranchTagTooltip } from './BranchTagTooltip'
 import styles from './BranchTag.module.scss'
 import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
 import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
-import { useCallback, useState } from 'react'
+import { cloneElement, useCallback, useState } from 'react'
 import { BranchTagProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-import BranchIcon from 'assets/branch.svg?react'
 
-export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth }: BranchTagProps) => {
+export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth, icon }: BranchTagProps) => {
   const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
@@ -54,12 +53,9 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth }: B
         >
           {formatBranch(branch)}
 
-          <BranchIcon
-            className={styles.icon}
-            style={{
-              fill: textColour
-            }}
-          />
+          {cloneElement(icon, {
+            className: styles.icon
+          })}
         </div>
 
         <div

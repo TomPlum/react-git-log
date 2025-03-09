@@ -1,4 +1,6 @@
 import { Commit } from 'modules/Visualiser'
+import * as React from 'react'
+import { CSSProperties } from 'react'
 
 export interface BranchesTagsProps {
   commits: Commit[]
@@ -16,4 +18,5 @@ export interface BranchTagProps {
   color: string
   lineRight: number
   lineWidth: number
+  icon: React.ReactElement<{ className?: string, style?: CSSProperties }>
 }

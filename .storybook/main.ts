@@ -5,6 +5,9 @@ const config: StorybookConfig = {
     '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'
   ],
+  core: {
+    disableWhatsNewNotifications: true
+  },
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',

@@ -18,14 +18,15 @@ const HEIGHT_OFFSET = 5
 const PADDING = 10
 
 export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) => {
-  const { colours, previewedCommit } = useGitContext()
+  const { colours, previewedCommit, selectedCommit } = useGitContext()
 
   return (
     <div className={styles.container} style={{ padding: PADDING }}>
       {commits.map((commit, i) => {
         const shouldPreviewBranch = previewedCommit && commit.hash === previewedCommit.hash
+        const selectedIsNotTip = selectedCommit && commit.hash === selectedCommit.hash
 
-        if (commit.isBranchTip || shouldPreviewBranch) {
+        if (commit.isBranchTip || shouldPreviewBranch || selectedIsNotTip) {
           return (
             <BranchTag
               key={i}

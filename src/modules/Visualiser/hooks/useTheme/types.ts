@@ -19,7 +19,9 @@ export interface ThemeColours {
    * blendColorWithBackground('rgb(100, 200, 255)', 0.5) // "rgb(178, 228, 255)" (lighter blue)
    * ```
    */
-  reduceOpacity: (rgb: string, opacity: number) => string
+  shiftAlphaChannel: (rgb: string, opacity: number) => string
+
+  reduceOpacity: (rbg: string, opacity: number) => string
 }
 
 export type Theme = 'dark' | 'light'

@@ -8,7 +8,7 @@ import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import BranchIcon from 'assets/branch.svg?react'
 
 export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth }: BranchTagProps) => {
-  const { textColour, reduceOpacity } = useTheme()
+  const { textColour, shiftAlphaChannel } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -36,7 +36,7 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth }: B
           className={styles.tag}
           style={{
             color: textColour,
-            background: reduceOpacity(color, 0.30),
+            background: shiftAlphaChannel(color, 0.30),
             border: `2px solid ${color}`
           }}
         >

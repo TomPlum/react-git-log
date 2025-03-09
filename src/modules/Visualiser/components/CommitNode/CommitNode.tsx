@@ -23,7 +23,7 @@ const Tooltip = ({ hash, color, parents, tip }: TooltipProps) => {
 }
 
 export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }: CommitNodeProps) => {
-  const { textColour, reduceOpacity } = useTheme()
+  const { textColour, shiftAlphaChannel } = useTheme()
   const [showTooltip, setShowTooltip] = useState(false)
   const { colours, selectedCommit, setSelectedCommit } = useGitContext()
 
@@ -52,7 +52,7 @@ export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }
         style={{
           left: x,
           top: y,
-          backgroundColor: reduceOpacity(nodeColour, 0.15),
+          backgroundColor: shiftAlphaChannel(nodeColour, 0.15),
           borderColor: nodeColour,
         }}
       >

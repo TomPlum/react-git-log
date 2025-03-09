@@ -28,7 +28,7 @@ export const GitLog = ({ data }: GitLogProps) => {
     if (selectedCommit?.hash === commit.hash) {
       return {
         color: textColour,
-        background: `rgba(${colour?.replace('rgb(', '').replace(')', '')}, 0.15)`
+        background: reduceOpacity(colour, 0.15)
       }
     }
 
@@ -43,7 +43,7 @@ export const GitLog = ({ data }: GitLogProps) => {
       color: textColour,
       background: 'transparent'
     }
-  }, [colours, hoverColour, previewedCommit?.hash, reduceOpacity, selectedCommit?.hash, textColour])
+  }, [colours, textColour, selectedCommit?.hash, previewedCommit?.hash, reduceOpacity, hoverColour])
 
   const handleMouseOver = useCallback((commit: Commit) => {
     setPreviewedCommit(commit)

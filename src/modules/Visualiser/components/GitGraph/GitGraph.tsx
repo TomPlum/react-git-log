@@ -112,7 +112,7 @@ export const GitGraph = () => {
           />
         )}
 
-        {previewedCommit && (
+        {previewedCommit && selectedCommit?.hash != previewedCommit.hash && (
           <div
             className={styles.hovered}
             style={{
@@ -132,7 +132,7 @@ export const GitGraph = () => {
 
       {showGitLog && (
         <div className={styles.log} style={{ marginTop: TABLE_TOP_OFFSET }}>
-          <GitLog data={commits}/>
+          <GitLog data={commits} />
         </div>
       )}
     </div>

@@ -21,7 +21,7 @@ export const useTheme = (): ThemeColours => {
     return 'black'
   }, [theme])
 
-  const reduceOpacity = useCallback((rgb: string, opacity: number) => {
+  const shiftAlphaChannel = useCallback((rgb: string, opacity: number) => {
     const matches = rgb?.match(/\d+/g)
 
     if (rgb && matches != null) {
@@ -39,9 +39,14 @@ export const useTheme = (): ThemeColours => {
     return rgb
   }, [theme])
 
+  const reduceOpacity = useCallback((rgb: string, opacity: number) => {
+    return `rgba(${rgb?.replace('rgb(', '').replace(')', '')}, ${opacity})`
+  }, [])
+
   return {
     hoverColour,
     textColour,
-    reduceOpacity
+    reduceOpacity,
+    shiftAlphaChannel
   }
 }

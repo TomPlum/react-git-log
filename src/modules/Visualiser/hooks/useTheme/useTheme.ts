@@ -1,6 +1,6 @@
 import { useGitContext } from 'modules/Visualiser/context'
 import { ThemeColours } from './types'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
 export const useTheme = (): ThemeColours => {
   const { theme } = useGitContext()
@@ -21,8 +21,27 @@ export const useTheme = (): ThemeColours => {
     return 'black'
   }, [theme])
 
+  const reduceOpacity = useCallback((rgb: string, opacity: number) => {
+    const matches = rgb?.match(/\d+/g)
+
+    if (rgb && matches != null) {
+      const [r_fg, g_fg, b_fg] = matches.map(Number)
+      const backgroundRgb = theme === 'dark' ? 'rgb(0, 0, 0)' : 'rgb(255, 255, 255)'
+      const [r_bg, g_bg, b_bg] = backgroundRgb.match(/\d+/g)!.map(Number)
+
+      const r_new = Math.round(r_fg * opacity + r_bg * (1 - opacity))
+      const g_new = Math.round(g_fg * opacity + g_bg * (1 - opacity))
+      const b_new = Math.round(b_fg * opacity + b_bg * (1 - opacity))
+
+      return `rgb(${r_new}, ${g_new}, ${b_new})`
+    }
+
+    return rgb
+  }, [theme])
+
   return {
     hoverColour,
-    textColour
+    textColour,
+    reduceOpacity
   }
 }

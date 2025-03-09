@@ -98,7 +98,6 @@ export const GitGraph = () => {
             onClick={setSelected}
             parents={commit.parents}
             y={commit.y + GRAPH_TOP_OFFSET}
-            color={colours[commit.x] ?? 'black'}
             showCommitNodeHashes={showCommitNodeHashes}
             x={commit.x * nodeSpacingX + GRAPH_LEFT_OFFSET}
           />

@@ -27,6 +27,12 @@ const meta = {
     entries: [],
     colours: lightThemeColors,
     theme: 'light'
+  },
+  argTypes: {
+    theme: {
+      control: 'radio',
+      options: ['light', 'dark']
+    }
   }
 } satisfies Meta<GitLogVisualiserProps>
 

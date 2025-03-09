@@ -3,6 +3,7 @@ import { CommitNodeProps } from './types'
 import { Popover } from 'react-tiny-popover'
 import { useState } from 'react'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useGitContext } from 'modules/Visualiser/context'
 
 interface TooltipProps {
   hash: string
@@ -21,15 +22,18 @@ const Tooltip = ({ hash, color, parents, tip }: TooltipProps) => {
   )
 }
 
-export const CommitNode = ({ x, y, hash, color, parents, onClick, commit, showCommitNodeHashes }: CommitNodeProps) => {
-  const { textColour } = useTheme()
+export const CommitNode = ({ x, y, hash, parents, onClick, commit, showCommitNodeHashes }: CommitNodeProps) => {
+  const { colours } = useGitContext()
+  const { textColour, reduceOpacity } = useTheme()
   const [showTooltip, setShowTooltip] = useState(false)
+
+  const nodeColour = colours[commit.x] ?? 'black'
 
   return (
     <Popover
       padding={20}
       isOpen={showTooltip}
-      content={<Tooltip color={color} hash={hash} parents={parents} tip={commit.isBranchTip} />}
+      content={<Tooltip color={nodeColour} hash={hash} parents={parents} tip={commit.isBranchTip} />}
     >
       <div
         key={hash}
@@ -40,7 +44,8 @@ export const CommitNode = ({ x, y, hash, color, parents, onClick, commit, showCo
         style={{
           left: x,
           top: y,
-          borderColor: color,
+          backgroundColor: reduceOpacity(nodeColour, 0.15),
+          borderColor: nodeColour,
         }}
       >
         {showCommitNodeHashes && (

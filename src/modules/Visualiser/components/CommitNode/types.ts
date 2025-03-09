@@ -5,7 +5,6 @@ export interface CommitNodeProps {
   y: number
   hash: string
   parents: string[]
-  color?: string
   commit: Commit
   onClick: (commit: Commit) => void
   showCommitNodeHashes: boolean

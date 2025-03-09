@@ -1,6 +1,25 @@
 export interface ThemeColours {
   hoverColour: string
   textColour: string
+
+  /**
+   * Blends an RGB color with a background color to simulate an alpha effect.
+   *
+   * This function adjusts the given RGB color as if it were semi-transparent over a background,
+   * without actually using an alpha channel. The result is a new solid RGB color that appears
+   * visually similar to an `rgba()` color with transparency.
+   *
+   * @param rgb - The colour to shift in `rgb(r, g, b)` format.
+   * @param opacity - The simulated alpha channel (range: `0` to `1`).
+   * @returns The blended color in `rgb(r, g, b)` format.
+   *
+   * @example
+   * ```ts
+   * blendColorWithBackground('rgb(100, 200, 255)', 0.5) // "rgb(50, 100, 128)" (darker blue)
+   * blendColorWithBackground('rgb(100, 200, 255)', 0.5) // "rgb(178, 228, 255)" (lighter blue)
+   * ```
+   */
+  reduceOpacity: (rgb: string, opacity: number) => string
 }
 
 export type Theme = 'dark' | 'light'

@@ -1,8 +1,9 @@
 import styles from './BranchesTags.module.scss'
 import { BranchesTagsProps } from './types'
-import { colours, ROW_HEIGHT } from 'modules/Visualiser'
+import { ROW_HEIGHT } from 'modules/Visualiser'
 import { BranchTag } from './BranchTag'
 import { GRAPH_LEFT_OFFSET } from 'modules/Visualiser/components/GitGraph'
+import { useGitContext } from 'modules/Visualiser/context'
 
 /**
  * Accounts for the height of the
@@ -17,6 +18,8 @@ const HEIGHT_OFFSET = 5
 const PADDING = 10
 
 export const BranchesTags = ({ commits, commitNodeSpacing, previewBranchAtHash }: BranchesTagsProps) => {
+  const { colours } = useGitContext()
+
   return (
     <div className={styles.container} style={{ padding: PADDING }}>
       {commits.map((commit, i) => {

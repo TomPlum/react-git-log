@@ -23,7 +23,7 @@ const meta = {
       left: 10,
       top: 10
     },
-    entries: []
+    entries: [],
   }
 } satisfies Meta<GitLogVisualiserProps>
 

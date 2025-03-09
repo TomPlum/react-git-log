@@ -1,23 +1,23 @@
-import { GitLogVisualiserProps } from './types.ts'
+import { darkThemeColors, GitLogVisualiserProps } from './types.ts'
 import { GitGraph } from './components/GitGraph'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { GitContext, GitContextBag } from 'modules/Visualiser/context'
 
 export const GitLogVisualiser = ({
    padding,
    entries,
-   showGitLog,
-   showBranchesTags,
-   showCommitNodeHashes
+   colours = darkThemeColors,
+   showGitLog = true,
+   showBranchesTags = true,
+   showCommitNodeHashes = false
 }: GitLogVisualiserProps) => {
-  const [colours] = useState<string[]>([])
 
   const value = useMemo<GitContextBag>(() => ({
     colours,
     padding,
-    showGitLog: showGitLog ?? true,
-    showBranchesTags: showBranchesTags ?? true,
-    showCommitNodeHashes: showCommitNodeHashes ?? false,
+    showGitLog,
+    showBranchesTags,
+    showCommitNodeHashes,
     entries
   }), [colours, entries, padding, showBranchesTags, showCommitNodeHashes, showGitLog])
   

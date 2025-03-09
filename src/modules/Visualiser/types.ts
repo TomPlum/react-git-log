@@ -6,6 +6,12 @@ export interface GitLogVisualiserProps {
   entries: GitLogEntry[]
 
   /**
+   * An array of colours to use for
+   * the branches.
+   */
+  colours?: string[]
+
+  /**
    * Whether to show labels for the nodes
    * that are the tips of branches or
    * tags with the graph.
@@ -58,12 +64,15 @@ export interface GitLogEntry {
 
 export const ROW_HEIGHT = 48
 
-export const colours: Record<number, string> = {
-  0: 'rgb(242, 94, 53)',
-  1: 'rgb(102, 245, 83)',
-  2: 'rgb(83,183,245)',
-  3: 'rgb(245,237,83)',
-  4: 'rgb(245,159,57)',
-  5: 'rgb(240,83,245)',
-  6: 'rgb(150,56,241)'
-}
+export const darkThemeColors = [
+  'rgb(33, 150, 243)',  // Bright blue
+  'rgb(25, 118, 210)',  // Deep blue
+  'rgb(21, 101, 192)',  // Darker blue
+  'rgb(98, 0, 234)',    // Vivid purple
+  'rgb(123, 31, 162)',  // Deep purple
+  'rgb(94, 53, 177)',   // Muted purple
+  'rgb(0, 230, 118)',   // Neon green
+  'rgb(0, 200, 83)',    // Darker neon green
+  'rgb(46, 125, 50)',   // Forest green
+  'rgb(0, 77, 64)'      // Teal green
+]

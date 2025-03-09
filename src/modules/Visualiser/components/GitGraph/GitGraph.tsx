@@ -5,14 +5,14 @@ import styles from './GitGraph.module.scss'
 import { CommitNode } from 'modules/Visualiser/components/CommitNode'
 import { BranchLine } from 'modules/Visualiser/components/BranchLine'
 import { MergeLine } from 'modules/Visualiser/components/MergeLine'
-import { colours, Commit, ROW_HEIGHT } from 'modules/Visualiser'
+import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
 import { useResize } from 'modules/Visualiser/hooks/useResize'
 import { useGitContext } from 'modules/Visualiser/context'
 
 export const GitGraph = () => {
-  const { showBranchesTags, entries, showCommitNodeHashes, showGitLog  } = useGitContext()
+  const { showBranchesTags, entries, showCommitNodeHashes, showGitLog, colours } = useGitContext()
   const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
 
   const [selected, setSelected] = useState<Commit>()

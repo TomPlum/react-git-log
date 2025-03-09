@@ -5,9 +5,10 @@ import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { cloneElement, useCallback, useState } from 'react'
 import { BranchTagProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { motion } from 'framer-motion'
 
 export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth, icon }: BranchTagProps) => {
-  const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
+  const { textColour, shiftAlphaChannel, tooltipBackground, hoverTransitionDuration } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -36,11 +37,15 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth, ico
         </ArrowContainer>
       )}
     >
-      <div
+      <motion.div
         style={{ height }}
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
         className={styles.tagContainer}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: hoverTransitionDuration }}
       >
         <div
           key={`tag_${id}`}
@@ -67,7 +72,7 @@ export const BranchTag = ({ id, branch, height, color, lineRight, lineWidth, ico
             borderTop: `2px dotted ${color ?? 'black'}`,
           }}
         />
-      </div>
+      </motion.div>
     </Popover>
   )
 }

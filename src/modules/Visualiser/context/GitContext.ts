@@ -12,5 +12,6 @@ export const GitContext = createContext<GitContextBag>({
     left: GRAPH_LEFT_OFFSET
   },
   showGitLog: true,
-  showBranchesTags: true
+  showBranchesTags: true,
+  theme: 'light'
 })

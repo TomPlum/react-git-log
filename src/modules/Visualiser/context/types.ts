@@ -1,4 +1,5 @@
-import { GitLogEntry } from 'modules/Visualiser'
+import { GitLogEntry, Theme } from 'modules/Visualiser'
+import { CSSProperties } from 'react'
 
 export interface GitContextBag {
   colours: string[]
@@ -37,4 +38,38 @@ export interface GitContextBag {
     top?: number
     left?: number
   }
+
+  /**
+   * CSS Classes to pass to various underlying
+   * elements for custom styling.
+   */
+  classes?: {
+    /**
+     * A class name passed to the wrapping
+     * container (div) around the visualiser.
+     *
+     * This includes the branches/tags, the
+     * graph and the git log table.
+     */
+    containerClass?: string
+
+    /**
+     * A React CSS styling object passed to
+     * the wrapping container (div) around
+     * the visualiser.
+     *
+     * This includes the branches/tags, the
+     * graph and the git log table.
+     */
+    containerStyles?: CSSProperties
+  }
+
+  /**
+   * The variant of the default colour
+   * them to apply to the visualiser.
+   *
+   * Does not take effect if a custom
+   * array of {@link colours} are passed.
+   */
+  theme: Theme
 }

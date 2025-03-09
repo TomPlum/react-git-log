@@ -1,4 +1,4 @@
-import { darkThemeColors, GitLogVisualiserProps } from './types.ts'
+import { darkThemeColors, GitLogVisualiserProps, lightThemeColors } from './types.ts'
 import { GitGraph } from './components/GitGraph'
 import { useMemo } from 'react'
 import { GitContext, GitContextBag } from 'modules/Visualiser/context'
@@ -6,20 +6,38 @@ import { GitContext, GitContextBag } from 'modules/Visualiser/context'
 export const GitLogVisualiser = ({
    padding,
    entries,
-   colours = darkThemeColors,
+   theme = 'light',
+   colours,
    showGitLog = true,
    showBranchesTags = true,
-   showCommitNodeHashes = false
+   showCommitNodeHashes = false,
+   classes
 }: GitLogVisualiserProps) => {
 
+  const themeColours = useMemo<string[]>(() => {
+    if (colours) {
+      return colours
+    }
+
+    if (theme) {
+      return theme === 'dark'
+        ? darkThemeColors
+        : lightThemeColors
+    }
+
+    return lightThemeColors
+  }, [colours, theme])
+
   const value = useMemo<GitContextBag>(() => ({
-    colours,
+    colours: themeColours,
     padding,
     showGitLog,
     showBranchesTags,
     showCommitNodeHashes,
-    entries
-  }), [colours, entries, padding, showBranchesTags, showCommitNodeHashes, showGitLog])
+    entries,
+    classes,
+    theme
+  }), [entries, padding, showBranchesTags, showCommitNodeHashes, showGitLog, themeColours, classes, theme])
   
   return (
     <GitContext.Provider value={value}>

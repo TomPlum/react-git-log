@@ -10,9 +10,21 @@ import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
 import { useResize } from 'modules/Visualiser/hooks/useResize'
 import { useGitContext } from 'modules/Visualiser/context'
+import classNames from 'classnames'
+import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 
 export const GitGraph = () => {
-  const { showBranchesTags, entries, showCommitNodeHashes, showGitLog, colours } = useGitContext()
+  const {
+    classes,
+    entries,
+    colours,
+    showGitLog,
+    showBranchesTags,
+    showCommitNodeHashes
+  } = useGitContext()
+
+  const { hoverColour } = useTheme()
+
   const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
 
   const [selected, setSelected] = useState<Commit>()
@@ -26,7 +38,10 @@ export const GitGraph = () => {
   const nodeSpacingX = width / Math.max(uniqueXValues, 1)
 
   return (
-    <div className={styles.container}>
+    <div
+      style={classes?.containerStyles}
+      className={classNames(styles.container, classes?.containerClass)}
+    >
       {showBranchesTags && (
         <div className={styles.tags}>
           <BranchesTags
@@ -107,7 +122,7 @@ export const GitGraph = () => {
             style={{
               height: 40,
               top: hovered.y + GRAPH_TOP_OFFSET - 20,
-              background: 'rgba(231, 231, 231, 0.5)',
+              background: hoverColour,
               width: `calc(100% - ${(hovered.x * nodeSpacingX) + 8}px)`
             }}
           />

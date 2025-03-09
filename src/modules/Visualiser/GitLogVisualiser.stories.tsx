@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useEffect, useState } from 'react'
 import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
-import { GitLogEntry, GitLogVisualiserProps } from './types'
+import { darkThemeColors, GitLogEntry, GitLogVisualiserProps } from './types'
 import { GitLogVisualiser } from './GitLogVisualiser'
 
 const fetchEntries = async (): Promise<GitLogEntry[]> => {
@@ -24,6 +24,8 @@ const meta = {
       top: 10
     },
     entries: [],
+    colours: darkThemeColors,
+    theme: 'dark'
   }
 } satisfies Meta<GitLogVisualiserProps>
 
@@ -42,6 +44,16 @@ export const Default: Story = {
       return <div>Loading...</div>
     }
 
-    return <GitLogVisualiser {...args} entries={entries} />
+    return (
+      <GitLogVisualiser
+        {...args}
+        entries={entries}
+        classes={{
+          containerStyles: {
+            background: '#1a1a1a'
+          }
+        }}
+      />
+    )
   }
 }

@@ -1,31 +1,15 @@
 import styles from './CommitNode.module.scss'
 import { CommitNodeProps } from './types'
-import { Popover } from 'react-tiny-popover'
+import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { useCallback, useState } from 'react'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { useGitContext } from 'modules/Visualiser/context'
-
-interface TooltipProps {
-  hash: string
-  color?: string
-  parents: string[]
-  tip: boolean
-}
-
-const Tooltip = ({ hash, color, parents, tip }: TooltipProps) => {
-  return (
-    <div style={{ border: `1px solid ${color}`, background: 'white', color: 'black' }}>
-      <p>Hash: {hash}</p>
-      <p>Parents: {parents.join(', ')}</p>
-      <p>Is Branch Tip?: {tip ? 'Yes' : 'No'}</p>
-    </div>
-  )
-}
+import { CommitNodeTooltip } from './CommitNodeTooltip'
 
 export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }: CommitNodeProps) => {
-  const { textColour, shiftAlphaChannel } = useTheme()
   const [showTooltip, setShowTooltip] = useState(false)
   const { colours, selectedCommit, setSelectedCommit } = useGitContext()
+  const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
 
   const nodeColour = colours[commit.x] ?? 'black'
 
@@ -40,8 +24,24 @@ export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }
   return (
     <Popover
       padding={20}
+      positions='top'
       isOpen={showTooltip}
-      content={<Tooltip color={nodeColour} hash={hash} parents={parents} tip={commit.isBranchTip} />}
+      content={({ position, childRect, popoverRect }: PopoverState) => (
+        <ArrowContainer
+          arrowSize={10}
+          position={position}
+          childRect={childRect}
+          popoverRect={popoverRect}
+          arrowColor={tooltipBackground}
+        >
+          <CommitNodeTooltip
+            hash={hash}
+            parents={parents}
+            color={nodeColour}
+            tip={commit.isBranchTip}
+          />
+        </ArrowContainer>
+      )}
     >
       <div
         key={hash}

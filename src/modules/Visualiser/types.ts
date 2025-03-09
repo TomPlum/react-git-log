@@ -60,6 +60,17 @@ export interface GitLogVisualiserProps {
   timestampFormat?: string
 
   /**
+   * A callback function invoked when a commit
+   * is selected from the graph or log table.
+   *
+   * The commit is undefined if it has been
+   * un-selected.
+   *
+   * @param commit Details of the selected commit.
+   */
+  onSelectCommit?: (commit?: Commit) => void
+
+  /**
    * CSS Classes to pass to various underlying
    * elements for custom styling.
    */

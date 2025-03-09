@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useEffect, useState } from 'react'
 import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
-import { GitLogEntry, GitLogVisualiserProps } from './types'
+import { Commit, GitLogEntry, GitLogVisualiserProps } from './types'
 import { GitLogVisualiser } from './GitLogVisualiser'
 import { lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
 
@@ -26,7 +26,10 @@ const meta = {
     },
     entries: [],
     colours: lightThemeColors,
-    theme: 'light'
+    theme: 'light',
+    onSelectCommit: (commit?: Commit) => {
+      console.info(`Selected commit ${commit?.hash}`)
+    }
   },
   argTypes: {
     theme: {

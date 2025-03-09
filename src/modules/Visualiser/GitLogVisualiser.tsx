@@ -1,6 +1,6 @@
 import { Commit, GitLogVisualiserProps } from './types.ts'
 import { GitGraph } from './components/GitGraph'
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'modules/Visualiser/context'
 import { darkThemeColors, lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
 
@@ -13,7 +13,8 @@ export const GitLogVisualiser = ({
    showBranchesTags = true,
    showCommitNodeHashes = false,
    classes,
-   timestampFormat = 'YYYY-MM-DD HH:mm:ss'
+   timestampFormat = 'YYYY-MM-DD HH:mm:ss',
+   onSelectCommit
 }: GitLogVisualiserProps) => {
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
@@ -32,6 +33,11 @@ export const GitLogVisualiser = ({
     return lightThemeColors
   }, [colours, theme])
 
+  const handleSelectCommit = useCallback((commit?: Commit) => {
+    setSelectedCommit(commit)
+    onSelectCommit?.(commit)
+  }, [onSelectCommit])
+
   const value = useMemo<GitContextBag>(() => ({
     colours: themeColours,
     padding,
@@ -43,7 +49,7 @@ export const GitLogVisualiser = ({
     theme,
     timestampFormat,
     selectedCommit,
-    setSelectedCommit,
+    setSelectedCommit: handleSelectCommit,
     previewedCommit,
     setPreviewedCommit
   }), [
@@ -57,7 +63,8 @@ export const GitLogVisualiser = ({
     theme,
     timestampFormat,
     selectedCommit,
-    previewedCommit
+    previewedCommit,
+    handleSelectCommit
   ])
   
   return (

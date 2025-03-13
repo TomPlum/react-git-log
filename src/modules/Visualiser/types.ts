@@ -75,6 +75,11 @@ export interface GitLogVisualiserProps {
   githubRepositoryUrl?: string
 
   /**
+   * The default width of the graph in pixels.
+   */
+  graphWidth?: number
+
+  /**
    * A timestamp format string passed to DayJS
    * to format the timestamps of the commits
    * in the log table.

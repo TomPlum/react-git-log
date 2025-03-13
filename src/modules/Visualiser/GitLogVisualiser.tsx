@@ -14,6 +14,7 @@ export const GitLogVisualiser = ({
    enableExperimentalAnimation = false,
    showCommitNodeTooltips = false,
    showTableHeaders = false,
+   graphWidth = 400,
    classes,
    timestampFormat = 'YYYY-MM-DD HH:mm:ss',
    onSelectCommit,
@@ -57,7 +58,8 @@ export const GitLogVisualiser = ({
     enableExperimentalAnimation,
     githubRepositoryUrl,
     showCommitNodeTooltips,
-    showTableHeaders
+    showTableHeaders,
+    graphWidth
   }), [
     entries,
     showBranchesTags,
@@ -73,7 +75,8 @@ export const GitLogVisualiser = ({
     enableExperimentalAnimation,
     githubRepositoryUrl,
     showCommitNodeTooltips,
-    showTableHeaders
+    showTableHeaders,
+    graphWidth
   ])
   
   return (

@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useMouse } from '@uidotdev/usehooks'
-import { ResizeProps, ResizeState } from './types'
+import { ResizeState } from './types'
+import { useGitContext } from 'modules/Visualiser/context'
 
-export const useResize = ({ defaultWidth }: ResizeProps): ResizeState => {
+export const useResize = (): ResizeState => {
   const [mouse] = useMouse()
   const [dragging, setDragging] = useState(false)
   const graphContainerRef = useRef<HTMLDivElement>(null)
-  const [graphWidth, setGraphWidth] = useState<number>(defaultWidth)
+
+  const { graphWidth: defaultWidth } = useGitContext()
+  const [graphWidth, setGraphWidth] = useState<number>(defaultWidth ?? 400)
   
   useEffect(() => {
     if (graphContainerRef.current && dragging) {

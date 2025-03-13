@@ -29,7 +29,7 @@ export const GitGraph = () => {
 
   const { hoverColour, textColour } = useTheme()
 
-  const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
+  const { width, ref, startResizing } = useResize()
 
   const { commits } = useMemo(() => {
     return buildGraph(entries, ROW_HEIGHT)

@@ -12,6 +12,12 @@ export interface GitContextBag {
   entries: GitLogEntry[]
 
   /**
+   * The commits from the git log
+   * currently in context.
+   */
+  commits: Commit[]
+
+  /**
    * The currently selected commit that
    * is highlighted in the log.
    */

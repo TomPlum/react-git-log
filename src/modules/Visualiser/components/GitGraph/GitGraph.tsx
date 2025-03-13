@@ -1,6 +1,4 @@
 import { GRAPH_LEFT_OFFSET, GRAPH_TOP_OFFSET, TABLE_TOP_OFFSET } from './types.ts'
-import { useMemo } from 'react'
-import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import styles from './GitGraph.module.scss'
 import { CommitNode } from 'modules/Visualiser/components/CommitNode'
 import { BranchLine } from 'modules/Visualiser/components/BranchLine'
@@ -17,7 +15,7 @@ import { FadingDiv } from 'components/FadingDiv'
 export const GitGraph = () => {
   const {
     classes,
-    entries,
+    commits,
     showGitLog,
     selectedCommit,
     previewedCommit,
@@ -29,10 +27,6 @@ export const GitGraph = () => {
   const { hoverColour, textColour, getCommitColour } = useTheme()
 
   const { width, ref, startResizing } = useResize()
-
-  const { commits } = useMemo(() => {
-    return buildGraph(entries, ROW_HEIGHT)
-  }, [entries])
 
   const uniqueXValues = [...new Set(commits.map((c) => c.x))].length
   const nodeSpacingX = width / Math.max(uniqueXValues, 1)

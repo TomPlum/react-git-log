@@ -1,13 +1,14 @@
-import { Commit, GitLogVisualiserProps } from './types.ts'
+import { Commit, GitLogVisualiserProps, ROW_HEIGHT } from './types.ts'
 import { GitGraph } from './components/GitGraph'
 import { useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'modules/Visualiser/context'
-import { darkThemeColors, lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
+import { lightThemeColors, useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
+import { generateRainbowGradient } from 'modules/Visualiser/hooks/useTheme/createRainbowTheme'
 
 export const GitLogVisualiser = ({
    entries,
    theme = 'light',
-   colours,
    showGitLog = true,
    showBranchesTags = true,
    showCommitNodeHashes = false,
@@ -23,19 +24,29 @@ export const GitLogVisualiser = ({
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
 
+  const { shiftAlphaChannel } = useTheme()
+
+  const { commits } = useMemo(() => {
+    return buildGraph(entries, ROW_HEIGHT)
+  }, [entries])
+
   const themeColours = useMemo<string[]>(() => {
-    if (colours) {
+    // TODO: Are we keeping colours as a prop?
+ /*   if (colours) {
       return colours
-    }
+    }*/
 
     if (theme) {
+      const maxConcurrentActiveBranches = [...new Set(commits.map(({ x }) => x))].length
+      const rainbowColours = generateRainbowGradient(maxConcurrentActiveBranches)
+
       return theme === 'dark'
-        ? darkThemeColors
-        : lightThemeColors
+        ? rainbowColours.map(colour => shiftAlphaChannel(colour, 0.4))
+        : rainbowColours
     }
 
     return lightThemeColors
-  }, [colours, theme])
+  }, [commits, shiftAlphaChannel, theme])
 
   const handleSelectCommit = useCallback((commit?: Commit) => {
     setSelectedCommit(commit)
@@ -59,7 +70,8 @@ export const GitLogVisualiser = ({
     githubRepositoryUrl,
     showCommitNodeTooltips,
     showTableHeaders,
-    graphWidth
+    graphWidth,
+    commits
   }), [
     entries,
     showBranchesTags,
@@ -76,7 +88,8 @@ export const GitLogVisualiser = ({
     githubRepositoryUrl,
     showCommitNodeTooltips,
     showTableHeaders,
-    graphWidth
+    graphWidth,
+    commits
   ])
   
   return (

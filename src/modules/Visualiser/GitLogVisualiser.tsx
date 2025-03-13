@@ -58,7 +58,6 @@ export const GitLogVisualiser = ({
     showGitLog,
     showBranchesTags,
     showCommitNodeHashes,
-    entries,
     classes,
     theme,
     timestampFormat,
@@ -73,7 +72,6 @@ export const GitLogVisualiser = ({
     graphWidth,
     commits
   }), [
-    entries,
     showBranchesTags,
     showCommitNodeHashes,
     showGitLog,

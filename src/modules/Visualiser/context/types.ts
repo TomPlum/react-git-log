@@ -1,15 +1,9 @@
-import { Commit, GitLogEntry } from 'modules/Visualiser'
+import { Commit } from 'modules/Visualiser'
 import { CSSProperties } from 'react'
 import { Theme } from 'modules/Visualiser/hooks/useTheme'
 
 export interface GitContextBag {
   colours: string[]
-  
-  /**
-   * The git log entries to visualise
-   * on the graph.
-   */
-  entries: GitLogEntry[]
 
   /**
    * The commits from the git log

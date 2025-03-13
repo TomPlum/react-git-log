@@ -75,16 +75,6 @@ export interface GitLogVisualiserProps {
   githubRepositoryUrl?: string
 
   /**
-   * Optional padding to add to the container
-   * to offset how closely the graph is drawn
-   * from the edges.
-   */
-  padding?: {
-    top?: number
-    left?: number
-  }
-
-  /**
    * A timestamp format string passed to DayJS
    * to format the timestamps of the commits
    * in the log table.

@@ -5,7 +5,6 @@ import { GitContext, GitContextBag } from 'modules/Visualiser/context'
 import { darkThemeColors, lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
 
 export const GitLogVisualiser = ({
-   padding,
    entries,
    theme = 'light',
    colours,
@@ -44,7 +43,6 @@ export const GitLogVisualiser = ({
 
   const value = useMemo<GitContextBag>(() => ({
     colours: themeColours,
-    padding,
     showGitLog,
     showBranchesTags,
     showCommitNodeHashes,
@@ -62,7 +60,6 @@ export const GitLogVisualiser = ({
     showTableHeaders
   }), [
     entries,
-    padding,
     showBranchesTags,
     showCommitNodeHashes,
     showGitLog,

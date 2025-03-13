@@ -97,17 +97,6 @@ export interface GitContextBag {
    */
   timestampFormat: string
 
-
-  /**
-   * Optional padding to add to the container
-   * to offset how closely the graph is drawn
-   * from the edges.
-   */
-  padding?: {
-    top?: number
-    left?: number
-  }
-
   /**
    * CSS Classes to pass to various underlying
    * elements for custom styling.

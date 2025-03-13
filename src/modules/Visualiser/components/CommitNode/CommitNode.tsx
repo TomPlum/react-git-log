@@ -30,6 +30,7 @@ export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }
     <Popover
       padding={20}
       positions='top'
+      containerStyle={{ zIndex: '20' }}
       isOpen={showCommitNodeTooltips ? showTooltip : false}
       content={({ position, childRect, popoverRect }: PopoverState) => (
         <ArrowContainer

@@ -1,9 +1,9 @@
-import TagIcon from 'assets/tag.svg?react'
 import { useGitContext } from 'modules/Visualiser/context'
 import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
 import { useMemo } from 'react'
 import styles from './TagLabel.module.scss'
 import { Link } from './Link'
+import { TagIcon } from './TagIcon'
 
 export interface TagLabelProps {
   name: string
@@ -30,7 +30,7 @@ export const TagLabel = ({ name }: TagLabelProps) => {
           className={styles.tagName}
         />
 
-        <TagIcon className={styles.icon} />
+        <TagIcon />
       </>
     )
   }
@@ -41,7 +41,7 @@ export const TagLabel = ({ name }: TagLabelProps) => {
         {displayName}
       </span>
 
-      <TagIcon className={styles.icon} />
+      <TagIcon  />
     </>
   )
 }

@@ -5,12 +5,12 @@ import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { cloneElement, CSSProperties, useCallback, useMemo, useState } from 'react'
 import { BranchTagProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-import { motion } from 'framer-motion'
 import { useGitContext } from 'modules/Visualiser/context'
+import { FadingDiv } from 'components/FadingDiv'
 
 export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidth, icon }: BranchTagProps) => {
   const { selectedCommit, previewedCommit } = useGitContext()
-  const { textColour, shiftAlphaChannel, tooltipBackground, hoverTransitionDuration } = useTheme()
+  const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -53,15 +53,11 @@ export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidt
         </ArrowContainer>
       )}
     >
-      <motion.div
+      <FadingDiv
         style={{ height }}
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
         className={styles.tagContainer}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: hoverTransitionDuration }}
       >
         <div
           key={`tag_${id}`}
@@ -86,7 +82,7 @@ export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidt
           key={`tag_line_${branch}`}
           className={styles.tagLine}
         />
-      </motion.div>
+      </FadingDiv>
     </Popover>
   )
 }

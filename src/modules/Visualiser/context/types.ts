@@ -61,6 +61,16 @@ export interface GitContextBag {
   showCommitNodeHashes: boolean
 
   /**
+   * Enables framer motion animation for
+   * simple fading transitions when interacting
+   * with the graph or log.
+   *
+   * This feature is experimental and may
+   * have bugs.
+   */
+  enableExperimentalAnimation?: boolean
+
+  /**
    * A timestamp format string passed to DayJS
    * to format the timestamps of the commits
    * in the log table.

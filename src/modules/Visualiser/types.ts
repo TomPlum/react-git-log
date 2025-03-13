@@ -43,6 +43,16 @@ export interface GitLogVisualiserProps {
   showCommitNodeHashes?: boolean
 
   /**
+   * Enables framer motion animation for
+   * simple fading transitions when interacting
+   * with the graph or log.
+   *
+   * This feature is experimental and may
+   * have bugs.
+   */
+  enableExperimentalAnimation?: boolean
+
+  /**
    * Optional padding to add to the container
    * to offset how closely the graph is drawn
    * from the edges.

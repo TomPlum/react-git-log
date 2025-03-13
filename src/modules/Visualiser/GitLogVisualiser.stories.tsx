@@ -29,7 +29,8 @@ const meta = {
     theme: 'light',
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
-    }
+    },
+    enableExperimentalAnimation: false
   },
   argTypes: {
     theme: {

@@ -12,7 +12,7 @@ import { useResize } from 'modules/Visualiser/hooks/useResize'
 import { useGitContext } from 'modules/Visualiser/context'
 import classNames from 'classnames'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-import { motion } from 'framer-motion'
+import { FadingDiv } from 'components/FadingDiv'
 
 export const GitGraph = () => {
   const {
@@ -26,7 +26,7 @@ export const GitGraph = () => {
     showCommitNodeHashes
   } = useGitContext()
 
-  const { hoverColour, hoverTransitionDuration } = useTheme()
+  const { hoverColour } = useTheme()
 
   const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
 
@@ -114,12 +114,8 @@ export const GitGraph = () => {
         )}
 
         {previewedCommit && selectedCommit?.hash != previewedCommit.hash && (
-          <motion.div
+          <FadingDiv
             className={styles.hovered}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: hoverTransitionDuration }}
             style={{
               height: 40,
               background: hoverColour,

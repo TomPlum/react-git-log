@@ -8,8 +8,8 @@ import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { useGitContext } from 'modules/Visualiser/context'
-import { motion } from 'framer-motion'
 import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
+import { FadingDiv } from 'components/FadingDiv'
 
 dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
@@ -21,8 +21,7 @@ export const GitLog = ({ data }: GitLogProps) => {
     textColour,
     hoverColour,
     reduceOpacity,
-    shiftAlphaChannel,
-    hoverTransitionDuration
+    shiftAlphaChannel
   } = useTheme()
 
   const {
@@ -88,12 +87,7 @@ export const GitLog = ({ data }: GitLogProps) => {
                 style={getBackgroundStyles(commit)}
                 data-testid={`git-log-table-row-background-${commit.hash}`}
               >
-                <motion.div
-                  exit={{ opacity: 0 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: hoverTransitionDuration }}
-                />
+                <FadingDiv />
               </td>
 
               <td

@@ -10,8 +10,9 @@
     justify-content: flex-end;
     padding: 2px 6px;
     border-radius: 6px;
-    width: 100%;
-    max-width: 120px;
+    max-width: 140px;
+    font-size: 0.8rem;
+    height: 22px;
 
     opacity: 0.8;
     transition: all ease-in-out 0.2s;
@@ -28,17 +29,5 @@
     height: $size;
     position: absolute;
     transition: all ease-in-out 0.2s;
-  }
-
-  .branchName {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .icon {
-    width: 18px;
-    flex: 0 0 auto;
-    margin-left: 3px;
   }
 }

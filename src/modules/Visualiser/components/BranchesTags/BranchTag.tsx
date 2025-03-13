@@ -4,13 +4,11 @@ import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { CSSProperties, useCallback, useMemo, useState } from 'react'
 import { BranchTagProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-import { useGitContext } from 'modules/Visualiser/context'
 import { FadingDiv } from 'components/FadingDiv'
 import { BranchLabel } from './BranchLabel'
 import { TagLabel } from './TagLabel'
 
 export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: BranchTagProps) => {
-  const { selectedCommit, previewedCommit } = useGitContext()
   const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
@@ -24,18 +22,12 @@ export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: B
   }, [])
 
   const tagLineStyles = useMemo<CSSProperties>(() => {
-    const tagBelongsToSelectedCommit = selectedCommit?.hash === commit.hash
-    const tagBelongsToPreviewedCommit = previewedCommit?.hash === commit.hash
-    const borderStyle = tagBelongsToSelectedCommit || tagBelongsToPreviewedCommit
-      ? 'dashed'
-      : 'dotted'
-
     return {
       right: lineRight,
       width: lineWidth,
-      borderTop: `2px ${borderStyle} ${color}`,
+      borderTop: `2px dotted ${color}`,
     }
-  }, [color, commit.hash, lineRight, lineWidth, previewedCommit?.hash, selectedCommit?.hash])
+  }, [color, lineRight, lineWidth])
 
   const label = useMemo(() => {
     const isTag = commit.branch.includes('tags/')

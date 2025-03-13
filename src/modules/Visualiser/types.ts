@@ -53,6 +53,15 @@ export interface GitLogVisualiserProps {
   enableExperimentalAnimation?: boolean
 
   /**
+   * A link to the GitHub repository from which
+   * the {@link entries} came from. When passed,
+   * link so commits, tags and PRs will be rendered.
+   *
+   * @example https://github.com/TomPlum/git-log-visualiser
+   */
+  githubRepositoryUrl?: string
+
+  /**
    * Optional padding to add to the container
    * to offset how closely the graph is drawn
    * from the edges.

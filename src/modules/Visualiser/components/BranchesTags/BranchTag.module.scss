@@ -13,20 +13,11 @@
     width: 100%;
     max-width: 120px;
 
+    opacity: 0.8;
+    transition: all ease-in-out 0.2s;
+
     &:hover {
-      cursor: help;
-    }
-
-    .branchName {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .icon {
-      width: 18px;
-      flex: 0 0 auto;
-      margin-left: 3px;
+      opacity: 1;
     }
   }
 
@@ -37,5 +28,17 @@
     height: $size;
     position: absolute;
     transition: all ease-in-out 0.2s;
+  }
+
+  .branchName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .icon {
+    width: 18px;
+    flex: 0 0 auto;
+    margin-left: 3px;
   }
 }

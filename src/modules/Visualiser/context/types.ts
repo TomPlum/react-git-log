@@ -71,6 +71,13 @@ export interface GitContextBag {
   enableExperimentalAnimation?: boolean
 
   /**
+   * A link to the GitHub repository from which
+   * the {@link entries} came from. When passed,
+   * link so commits, tags and PRs will be rendered.
+   */
+  githubRepositoryUrl?: string
+
+  /**
    * A timestamp format string passed to DayJS
    * to format the timestamps of the commits
    * in the log table.

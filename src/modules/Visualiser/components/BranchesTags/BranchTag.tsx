@@ -1,14 +1,15 @@
 import { BranchTagTooltip } from './BranchTagTooltip'
 import styles from './BranchTag.module.scss'
-import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
 import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
-import { cloneElement, CSSProperties, useCallback, useMemo, useState } from 'react'
+import { CSSProperties, useCallback, useMemo, useState } from 'react'
 import { BranchTagProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { useGitContext } from 'modules/Visualiser/context'
 import { FadingDiv } from 'components/FadingDiv'
+import { BranchLabel } from './BranchLabel'
+import { TagLabel } from './TagLabel'
 
-export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidth, icon }: BranchTagProps) => {
+export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: BranchTagProps) => {
   const { selectedCommit, previewedCommit } = useGitContext()
   const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
 
@@ -23,8 +24,8 @@ export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidt
   }, [])
 
   const tagLineStyles = useMemo<CSSProperties>(() => {
-    const tagBelongsToSelectedCommit = selectedCommit?.hash === hash
-    const tagBelongsToPreviewedCommit = previewedCommit?.hash === hash
+    const tagBelongsToSelectedCommit = selectedCommit?.hash === commit.hash
+    const tagBelongsToPreviewedCommit = previewedCommit?.hash === commit.hash
     const borderStyle = tagBelongsToSelectedCommit || tagBelongsToPreviewedCommit
       ? 'dashed'
       : 'dotted'
@@ -34,7 +35,21 @@ export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidt
       width: lineWidth,
       borderTop: `2px ${borderStyle} ${color}`,
     }
-  }, [color, hash, lineRight, lineWidth, previewedCommit?.hash, selectedCommit?.hash])
+  }, [color, commit.hash, lineRight, lineWidth, previewedCommit?.hash, selectedCommit?.hash])
+
+  const label = useMemo(() => {
+    const isTag = commit.branch.includes('tags/')
+
+    if (isTag) {
+      return (
+        <TagLabel name={commit.branch} />
+      )
+    }
+
+    return (
+      <BranchLabel name={commit.branch} />
+    )
+  }, [commit.branch])
 
   return (
     <Popover
@@ -49,7 +64,7 @@ export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidt
           popoverRect={popoverRect}
           arrowColor={tooltipBackground}
         >
-          <BranchTagTooltip branch={branch} />
+          <BranchTagTooltip branch={commit.branch} />
         </ArrowContainer>
       )}
     >
@@ -68,19 +83,13 @@ export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidt
             background: shiftAlphaChannel(color, 0.30)
           }}
         >
-          <span className={styles.branchName}>
-            {formatBranch(branch)}
-          </span>
-
-          {cloneElement(icon, {
-            className: styles.icon
-          })}
+          {label}
         </div>
 
         <div
           style={tagLineStyles}
-          key={`tag_line_${branch}`}
           className={styles.tagLine}
+          key={`tag_line_${commit.branch}`}
         />
       </FadingDiv>
     </Popover>

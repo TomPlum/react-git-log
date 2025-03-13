@@ -1,0 +1,11 @@
+.icon {
+  width: 18px;
+  flex: 0 0 auto;
+  margin-left: 3px;
+}
+
+.tagName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

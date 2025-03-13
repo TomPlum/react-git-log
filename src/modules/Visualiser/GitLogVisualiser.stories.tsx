@@ -30,7 +30,8 @@ const meta = {
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
-    enableExperimentalAnimation: false
+    enableExperimentalAnimation: false,
+    githubRepositoryUrl: 'https://github.com/TomPlum/sleep'
   },
   argTypes: {
     theme: {

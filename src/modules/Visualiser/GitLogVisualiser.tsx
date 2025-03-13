@@ -15,7 +15,8 @@ export const GitLogVisualiser = ({
    enableExperimentalAnimation = false,
    classes,
    timestampFormat = 'YYYY-MM-DD HH:mm:ss',
-   onSelectCommit
+   onSelectCommit,
+   githubRepositoryUrl
 }: GitLogVisualiserProps) => {
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
@@ -53,7 +54,8 @@ export const GitLogVisualiser = ({
     setSelectedCommit: handleSelectCommit,
     previewedCommit,
     setPreviewedCommit,
-    enableExperimentalAnimation
+    enableExperimentalAnimation,
+    githubRepositoryUrl
   }), [
     entries,
     padding,
@@ -67,7 +69,8 @@ export const GitLogVisualiser = ({
     selectedCommit,
     previewedCommit,
     handleSelectCommit,
-    enableExperimentalAnimation
+    enableExperimentalAnimation,
+    githubRepositoryUrl
   ])
   
   return (

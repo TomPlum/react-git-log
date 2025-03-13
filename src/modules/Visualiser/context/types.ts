@@ -67,6 +67,13 @@ export interface GitContextBag {
   showCommitNodeTooltips?: boolean
 
   /**
+   * Whether to show the names of the elements
+   * at the top of the component such as "Graph"
+   * or "Commit message" etc.
+   */
+  showTableHeaders?: boolean
+
+  /**
    * Enables framer motion animation for
    * simple fading transitions when interacting
    * with the graph or log.

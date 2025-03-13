@@ -6,17 +6,26 @@
 
   .tags {
     flex-grow: 1;
-    max-width: 150px;
+    max-width: 175px;
     color: black;
   }
 
-  .graph {
+  .graphContainer {
     position: relative;
+
+    .graph {
+      position: relative;
+    }
   }
 
   .log {
     flex-grow: 1
   }
+}
+
+.title {
+  margin: 12px 0 0 0;
+  line-height: 22px;
 }
 
 .selected {

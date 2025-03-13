@@ -3,14 +3,15 @@ import { BranchTagTooltipProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 
 export const BranchTagTooltip = ({ branch }: BranchTagTooltipProps) => {
-  const { textColour, tooltipBackground } = useTheme()
+  const { textColour, tooltipBackground, shiftAlphaChannel } = useTheme()
 
   return (
     <div
       className={styles.tooltip}
       style={{
         color: textColour,
-        background: tooltipBackground
+        background: tooltipBackground,
+        border: `2px solid ${shiftAlphaChannel(tooltipBackground, 1.2)}`,
       }}
     >
       {branch}

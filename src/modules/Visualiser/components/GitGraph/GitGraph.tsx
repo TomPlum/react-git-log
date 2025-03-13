@@ -23,10 +23,11 @@ export const GitGraph = () => {
     selectedCommit,
     previewedCommit,
     showBranchesTags,
+    showTableHeaders,
     showCommitNodeHashes
   } = useGitContext()
 
-  const { hoverColour } = useTheme()
+  const { hoverColour, textColour } = useTheme()
 
   const { width, ref, startResizing } = useResize({ defaultWidth: 400 })
 
@@ -44,6 +45,12 @@ export const GitGraph = () => {
     >
       {showBranchesTags && (
         <div className={styles.tags}>
+          {showTableHeaders && (
+            <h4 style={{ color: textColour, marginLeft: 10 }} className={styles.title}>
+              Branch / Tag
+            </h4>
+          )}
+
           <BranchesTags
             commits={commits}
             commitNodeSpacing={nodeSpacingX}
@@ -51,84 +58,92 @@ export const GitGraph = () => {
         </div>
       )}
 
-      <div className={styles.graph} style={{ width }} ref={ref}>
-        {commits.flatMap((commit) =>
-          commit.parents.map((parentHash, index) => {
-            const parent = commits.find(({ hash }) => hash === parentHash)
+      <div className={styles.graphContainer} style={{ width }} ref={ref}>
+        {showTableHeaders && (
+          <h4 style={{ color: textColour }} className={styles.title}>
+            Graph
+          </h4>
+        )}
 
-            if (!parent) {
-              return null
-            }
+        <div className={styles.graph}>
+          {commits.flatMap((commit) =>
+            commit.parents.map((parentHash, index) => {
+              const parent = commits.find(({ hash }) => hash === parentHash)
 
-            const isMergeCommit = commit.parents.length > 1 && index > 0
+              if (!parent) {
+                return null
+              }
 
-            if (isMergeCommit) {
+              const isMergeCommit = commit.parents.length > 1 && index > 0
+
+              if (isMergeCommit) {
+                return (
+                  <MergeLine
+                    yEnd={parent.y + 18}
+                    yStart={commit.y + 25}
+                    colour={colours[commit.x]}
+                    id={`${commit.hash}-${parentHash}`}
+                    key={`${commit.hash}-${parentHash}`}
+                    xEnd={parent.x * nodeSpacingX + 30}
+                    xStart={commit.x * nodeSpacingX + 12}
+                  />
+                )
+              }
+
               return (
-                <MergeLine
-                  yEnd={parent.y + 18}
-                  yStart={commit.y + 25}
-                  colour={colours[commit.x]}
+                <BranchLine
                   id={`${commit.hash}-${parentHash}`}
                   key={`${commit.hash}-${parentHash}`}
-                  xEnd={parent.x * nodeSpacingX + 30}
-                  xStart={commit.x * nodeSpacingX + 12}
+                  color={colours[commit.x] ?? 'black'}
+                  height={Math.abs(commit.y - parent.y)}
+                  x={Math.min(commit.x, parent.x) * nodeSpacingX + GRAPH_LEFT_OFFSET}
+                  y={Math.min(commit.y, parent.y) + (ROW_HEIGHT / 2) + GRAPH_TOP_OFFSET - 15}
                 />
               )
-            }
+            })
+          )}
 
-            return (
-              <BranchLine
-                id={`${commit.hash}-${parentHash}`}
-                key={`${commit.hash}-${parentHash}`}
-                color={colours[commit.x] ?? 'black'}
-                height={Math.abs(commit.y - parent.y)}
-                x={Math.min(commit.x, parent.x) * nodeSpacingX + GRAPH_LEFT_OFFSET}
-                y={Math.min(commit.y, parent.y) + (ROW_HEIGHT / 2) + GRAPH_TOP_OFFSET - 15}
-              />
-            )
-          })
-        )}
+          {commits.map((commit) => (
+            <CommitNode
+              commit={commit}
+              key={commit.hash}
+              hash={commit.hash}
+              parents={commit.parents}
+              y={commit.y + GRAPH_TOP_OFFSET}
+              showCommitNodeHashes={showCommitNodeHashes}
+              x={commit.x * nodeSpacingX + GRAPH_LEFT_OFFSET}
+            />
+          ))}
 
-        {commits.map((commit) => (
-          <CommitNode
-            commit={commit}
-            key={commit.hash}
-            hash={commit.hash}
-            parents={commit.parents}
-            y={commit.y + GRAPH_TOP_OFFSET}
-            showCommitNodeHashes={showCommitNodeHashes}
-            x={commit.x * nodeSpacingX + GRAPH_LEFT_OFFSET}
-          />
-        ))}
+          {selectedCommit && (
+            <div
+              className={styles.selected}
+              style={{
+                height: 40,
+                top: selectedCommit.y + GRAPH_TOP_OFFSET - 20,
+                background: colours[selectedCommit.x] ?? 'black',
+                width: `calc(100% - ${(selectedCommit.x * nodeSpacingX) + 8}px)`
+              }}
+            />
+          )}
 
-        {selectedCommit && (
+          {previewedCommit && selectedCommit?.hash != previewedCommit.hash && (
+            <FadingDiv
+              className={styles.hovered}
+              style={{
+                height: 40,
+                background: hoverColour,
+                top: previewedCommit.y + GRAPH_TOP_OFFSET - 20,
+                width: `calc(100% - ${(previewedCommit.x * nodeSpacingX) + 8}px)`
+              }}
+            />
+          )}
+
           <div
-            className={styles.selected}
-            style={{
-              height: 40,
-              top: selectedCommit.y + GRAPH_TOP_OFFSET - 20,
-              background: colours[selectedCommit.x] ?? 'black',
-              width: `calc(100% - ${(selectedCommit.x * nodeSpacingX) + 8}px)`
-            }}
+            onMouseDown={startResizing}
+            className={styles.dragHandle}
           />
-        )}
-
-        {previewedCommit && selectedCommit?.hash != previewedCommit.hash && (
-          <FadingDiv
-            className={styles.hovered}
-            style={{
-              height: 40,
-              background: hoverColour,
-              top: previewedCommit.y + GRAPH_TOP_OFFSET - 20,
-              width: `calc(100% - ${(previewedCommit.x * nodeSpacingX) + 8}px)`
-            }}
-          />
-        )}
-
-        <div
-          onMouseDown={startResizing}
-          className={styles.dragHandle}
-        />
+        </div>
       </div>
 
       {showGitLog && (

@@ -29,6 +29,7 @@ export const GitLog = ({ data }: GitLogProps) => {
     selectedCommit,
     previewedCommit,
     timestampFormat,
+    showTableHeaders
   } = useGitContext()
 
   const { selectCommitHandler } = useSelectCommit()
@@ -65,6 +66,20 @@ export const GitLog = ({ data }: GitLogProps) => {
 
   return (
     <table className={styles.table}>
+      {showTableHeaders && (
+        <thead>
+          <tr>
+            <th style={{ color: textColour }}>
+              Commit message
+            </th>
+            <th style={{ color: textColour }}>
+              Timestamp
+            </th>
+            <th />
+          </tr>
+        </thead>
+      )}
+
       <tbody>
         {data.map((commit) => {
           const isMergeCommit = commit.parents.length > 1
@@ -82,15 +97,6 @@ export const GitLog = ({ data }: GitLogProps) => {
               onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
             >
               <td
-                colSpan={100}
-                className={styles.background}
-                style={getBackgroundStyles(commit)}
-                data-testid={`git-log-table-row-background-${commit.hash}`}
-              >
-                <FadingDiv />
-              </td>
-
-              <td
                 style={tableDataStyle}
                 className={classNames(styles.td, styles.message)}
               >
@@ -99,6 +105,15 @@ export const GitLog = ({ data }: GitLogProps) => {
 
               <td className={classNames(styles.td, styles.date)} style={tableDataStyle}>
                 {formatTimestamp(commit.date)}
+              </td>
+
+              <td
+                colSpan={100}
+                className={styles.background}
+                style={getBackgroundStyles(commit)}
+                data-testid={`git-log-table-row-background-${commit.hash}`}
+              >
+                <FadingDiv />
               </td>
             </tr>
           )

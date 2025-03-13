@@ -20,6 +20,8 @@ const meta = {
     showGitLog: true,
     showBranchesTags: true,
     showCommitNodeHashes: false,
+    showCommitNodeTooltips: false,
+    showTableHeaders: false,
     padding: {
       left: 10,
       top: 10

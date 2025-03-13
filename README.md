@@ -19,5 +19,5 @@ TODO:
 - Filtering of date?
 - Show code in stories
 - Tests
-- Fix graph\
+- Fix graph
 - Expose custom theme object off the Theme type

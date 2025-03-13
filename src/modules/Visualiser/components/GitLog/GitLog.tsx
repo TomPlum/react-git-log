@@ -9,6 +9,7 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { useGitContext } from 'modules/Visualiser/context'
 import { motion } from 'framer-motion'
+import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 
 dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
@@ -29,9 +30,9 @@ export const GitLog = ({ data }: GitLogProps) => {
     selectedCommit,
     previewedCommit,
     timestampFormat,
-    setSelectedCommit ,
-    setPreviewedCommit
   } = useGitContext()
+
+  const { selectCommitHandler } = useSelectCommit()
 
   const getBackgroundStyles = useCallback((commit: Commit) => {
     const colour = colours[commit.x] ?? textColour
@@ -52,22 +53,6 @@ export const GitLog = ({ data }: GitLogProps) => {
       background: 'transparent'
     }
   }, [colours, textColour, selectedCommit?.hash, previewedCommit?.hash, reduceOpacity, hoverColour])
-
-  const handleMouseOver = useCallback((commit: Commit) => {
-    setPreviewedCommit(commit)
-  }, [setPreviewedCommit])
-
-  const handleMouseOut = useCallback(() => {
-    setPreviewedCommit(undefined)
-  }, [setPreviewedCommit])
-
-  const handleClickRow = useCallback((commit: Commit) => {
-    if (selectedCommit?.hash === commit.hash) {
-      setSelectedCommit(undefined)
-    } else {
-      setSelectedCommit(commit)
-    }
-  }, [selectedCommit, setSelectedCommit])
 
   const formatTimestamp = useCallback((dateString: string) => {
     const commitDate = dayjs(dateString)
@@ -92,10 +77,10 @@ export const GitLog = ({ data }: GitLogProps) => {
             <tr
               key={commit.hash}
               className={styles.row}
-              onMouseOut={handleMouseOut}
               style={{ height: ROW_HEIGHT }}
-              onClick={() => handleClickRow(commit)}
-              onMouseOver={() => handleMouseOver(commit)}
+              onMouseOut={selectCommitHandler.onMouseOut}
+              onClick={() => selectCommitHandler.onClick(commit)}
+              onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
             >
               <td
                 colSpan={100}

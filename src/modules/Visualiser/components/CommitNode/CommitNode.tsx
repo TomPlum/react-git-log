@@ -5,21 +5,26 @@ import { useCallback, useState } from 'react'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { useGitContext } from 'modules/Visualiser/context'
 import { CommitNodeTooltip } from './CommitNodeTooltip'
+import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 
 export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }: CommitNodeProps) => {
-  const [showTooltip, setShowTooltip] = useState(false)
-  const { colours, selectedCommit, setSelectedCommit } = useGitContext()
+  const { colours } = useGitContext()
+  const { selectCommitHandler } = useSelectCommit()
   const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
+
+  const [showTooltip, setShowTooltip] = useState(false)
 
   const nodeColour = colours[commit.x] ?? 'black'
 
-  const handleClickNode = useCallback(() => {
-    if (selectedCommit?.hash === commit.hash) {
-      setSelectedCommit(undefined)
-    } else {
-      setSelectedCommit(commit)
-    }
-  }, [commit, selectedCommit, setSelectedCommit])
+  const handleMouseOver = useCallback(() => {
+    setShowTooltip(true)
+    selectCommitHandler.onMouseOver(commit)
+  }, [commit, selectCommitHandler])
+
+  const handleMouseOut = useCallback(() => {
+    setShowTooltip(false)
+    selectCommitHandler.onMouseOut()
+  }, [selectCommitHandler])
 
   return (
     <Popover
@@ -45,10 +50,10 @@ export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }
     >
       <div
         key={hash}
-        onClick={handleClickNode}
+        onMouseOut={handleMouseOut}
+        onMouseOver={handleMouseOver}
         className={styles.commitNode}
-        onMouseOver={() => setShowTooltip(true)}
-        onMouseOut={() => setShowTooltip(false)}
+        onClick={() => selectCommitHandler.onClick(commit)}
         style={{
           left: x,
           top: y,

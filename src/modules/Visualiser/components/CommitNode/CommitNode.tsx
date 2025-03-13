@@ -9,12 +9,12 @@ import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 
 export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
-  const { colours, showCommitNodeTooltips } = useGitContext()
-  const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
+  const { showCommitNodeTooltips } = useGitContext()
+  const { textColour, shiftAlphaChannel, tooltipBackground, getCommitColour } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
 
-  const nodeColour = colours[commit.x] ?? 'black'
+  const nodeColour = getCommitColour(commit)
 
   const handleMouseOver = useCallback(() => {
     setShowTooltip(true)

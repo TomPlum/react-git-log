@@ -22,7 +22,6 @@ export const buildGraph = (entries: GitLogEntry[], rowHeight: number) => {
     } else {
       const firstParent = entry.parents[0]
       if (branchMap.has(firstParent)) {
-        // Inherit first parent's x position (fixes diagonal issue)
         x = branchMap.get(firstParent)!
       } else {
         // Assign a new branch slot

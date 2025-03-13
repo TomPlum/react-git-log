@@ -1,3 +1,5 @@
+import { Commit } from 'modules/Visualiser'
+
 export interface ThemeColours {
   hoverColour: string
   textColour: string
@@ -23,7 +25,15 @@ export interface ThemeColours {
    */
   shiftAlphaChannel: (rgb: string, opacity: number) => string
 
+  /**
+   * Reduces the opacity of the given RGB colour string.
+   *
+   * @param rbg The colour to reduce the opacity of. Must be in rgb(x, y, z) format.
+   * @param opacity The desired opacity value from 0 to 1.
+   */
   reduceOpacity: (rbg: string, opacity: number) => string
+
+  getCommitColour: (commit: Commit) => string
 }
 
 export type Theme = 'dark' | 'light'

@@ -18,7 +18,6 @@ export const GitGraph = () => {
   const {
     classes,
     entries,
-    colours,
     showGitLog,
     selectedCommit,
     previewedCommit,
@@ -27,7 +26,7 @@ export const GitGraph = () => {
     showCommitNodeHashes
   } = useGitContext()
 
-  const { hoverColour, textColour } = useTheme()
+  const { hoverColour, textColour, getCommitColour } = useTheme()
 
   const { width, ref, startResizing } = useResize()
 
@@ -81,7 +80,7 @@ export const GitGraph = () => {
                   <MergeLine
                     yEnd={parent.y + 18}
                     yStart={commit.y + 25}
-                    colour={colours[commit.x]}
+                    colour={getCommitColour(commit)}
                     id={`${commit.hash}-${parentHash}`}
                     key={`${commit.hash}-${parentHash}`}
                     xEnd={parent.x * nodeSpacingX + 30}
@@ -92,9 +91,9 @@ export const GitGraph = () => {
 
               return (
                 <BranchLine
+                  color={getCommitColour(commit)}
                   id={`${commit.hash}-${parentHash}`}
                   key={`${commit.hash}-${parentHash}`}
-                  color={colours[commit.x] ?? 'black'}
                   height={Math.abs(commit.y - parent.y)}
                   x={Math.min(commit.x, parent.x) * nodeSpacingX + GRAPH_LEFT_OFFSET}
                   y={Math.min(commit.y, parent.y) + (ROW_HEIGHT / 2) + GRAPH_TOP_OFFSET - 15}
@@ -120,8 +119,8 @@ export const GitGraph = () => {
               className={styles.selected}
               style={{
                 height: 40,
+                background: getCommitColour(selectedCommit),
                 top: selectedCommit.y + GRAPH_TOP_OFFSET - 20,
-                background: colours[selectedCommit.x] ?? 'black',
                 width: `calc(100% - ${(selectedCommit.x * nodeSpacingX) + 8}px)`
               }}
             />

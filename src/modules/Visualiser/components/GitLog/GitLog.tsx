@@ -21,11 +21,11 @@ export const GitLog = ({ data }: GitLogProps) => {
     textColour,
     hoverColour,
     reduceOpacity,
+    getCommitColour,
     shiftAlphaChannel
   } = useTheme()
 
   const {
-    colours,
     selectedCommit,
     previewedCommit,
     timestampFormat,
@@ -35,7 +35,7 @@ export const GitLog = ({ data }: GitLogProps) => {
   const { selectCommitHandler } = useSelectCommit()
 
   const getBackgroundStyles = useCallback((commit: Commit) => {
-    const colour = colours[commit.x] ?? textColour
+    const colour = getCommitColour(commit)
 
     if (selectedCommit?.hash === commit.hash) {
       return {
@@ -52,7 +52,7 @@ export const GitLog = ({ data }: GitLogProps) => {
     return {
       background: 'transparent'
     }
-  }, [colours, textColour, selectedCommit?.hash, previewedCommit?.hash, reduceOpacity, hoverColour])
+  }, [getCommitColour, selectedCommit?.hash, previewedCommit?.hash, reduceOpacity, hoverColour])
 
   const formatTimestamp = useCallback((dateString: string) => {
     const commitDate = dayjs(dateString)

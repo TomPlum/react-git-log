@@ -1,9 +1,10 @@
 import { useGitContext } from 'modules/Visualiser/context'
 import { ThemeColours } from './types'
 import { useCallback, useMemo } from 'react'
+import { Commit } from 'modules/Visualiser'
 
 export const useTheme = (): ThemeColours => {
-  const { theme } = useGitContext()
+  const { theme, colours } = useGitContext()
 
   const hoverColour = useMemo(() => {
     if (theme === 'dark') {
@@ -51,11 +52,23 @@ export const useTheme = (): ThemeColours => {
     return `rgba(${rgb?.replace('rgb(', '').replace(')', '')}, ${opacity})`
   }, [])
 
+  const getCommitColour = useCallback((commit: Commit) => {
+    const index = commit.x
+    const colour = colours[index]
+
+    if (!colour) {
+      return colours[index % colours.length]
+    }
+
+    return colour
+  }, [colours])
+
   return {
     hoverColour,
     textColour,
     tooltipBackground,
     reduceOpacity,
+    getCommitColour,
     shiftAlphaChannel,
     hoverTransitionDuration: 0.3
   }

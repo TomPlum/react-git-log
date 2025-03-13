@@ -40,7 +40,7 @@ export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidt
     <Popover
       positions='right'
       isOpen={showTooltip}
-      containerClassName={styles.tooltip}
+      containerStyle={{ zIndex: '20' }}
       content={({ position, childRect, popoverRect }: PopoverState) => (
         <ArrowContainer
           arrowSize={6}

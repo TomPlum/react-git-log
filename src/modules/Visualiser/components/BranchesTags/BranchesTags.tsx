@@ -1,6 +1,6 @@
 import styles from './BranchesTags.module.scss'
 import { BranchesTagsProps } from './types'
-import { ROW_HEIGHT } from 'modules/Visualiser'
+import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { BranchTag } from './BranchTag'
 import { GRAPH_LEFT_OFFSET } from 'modules/Visualiser/components/GitGraph'
 import { useGitContext } from 'modules/Visualiser/context'
@@ -18,23 +18,41 @@ const HEIGHT_OFFSET = 5
  */
 const PADDING = 10
 
+const prepareCommits = (commits: Commit[]) => {
+  const tagsSeen = new Map<string, boolean>()
+
+  return commits.map(commit => {
+    const isTag = commit.branch.includes('tags/')
+    const hasBeenRendered = tagsSeen.has(commit.branch)
+
+    const shouldRenderTag = isTag && !hasBeenRendered
+    if (shouldRenderTag) {
+      tagsSeen.set(commit.branch, true)
+    }
+
+    return {
+      ...commit,
+      isMostRecentTagInstance: shouldRenderTag
+    }
+  })
+}
+
 export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) => {
   const { getCommitColour } = useTheme()
   const { previewedCommit, selectedCommit } = useGitContext()
 
   return (
     <div className={styles.container} style={{ padding: PADDING }}>
-      {commits.map((commit, i) => {
+      {prepareCommits(commits).map((commit, i) => {
         const shouldPreviewBranch = previewedCommit && commit.hash === previewedCommit.hash
         const selectedIsNotTip = selectedCommit && commit.hash === selectedCommit.hash
-        const isTag = commit.branch.includes('tags/')
 
-        if (commit.isBranchTip || shouldPreviewBranch || selectedIsNotTip || isTag) {
+        if (commit.isBranchTip || shouldPreviewBranch || selectedIsNotTip || commit.isMostRecentTagInstance) {
           return (
             <BranchTag
-              key={i}
               commit={commit}
               id={i.toString()}
+              key={`tag_${commit.hash}`}
               color={getCommitColour(commit)}
               height={i === 0 ? (ROW_HEIGHT - HEIGHT_OFFSET) : ROW_HEIGHT}
               lineWidth={(commit.x * commitNodeSpacing) + GRAPH_LEFT_OFFSET}
@@ -44,8 +62,8 @@ export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) 
         } else {
           return (
             <div
-              key={`empty_tag_${i}`}
               className={styles.tag}
+              key={`empty_tag_${commit.hash}`}
               style={{ height: ROW_HEIGHT }}
             />
           )

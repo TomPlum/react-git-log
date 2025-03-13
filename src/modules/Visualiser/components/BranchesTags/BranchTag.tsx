@@ -72,7 +72,9 @@ export const BranchTag = ({ id, branch, hash, height, color, lineRight, lineWidt
             background: shiftAlphaChannel(color, 0.30)
           }}
         >
-          {formatBranch(branch)}
+          <span className={styles.branchName}>
+            {formatBranch(branch)}
+          </span>
 
           {cloneElement(icon, {
             className: styles.icon

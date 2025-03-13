@@ -5,9 +5,6 @@
   justify-content: flex-end;
 
   .tag {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -20,8 +17,15 @@
       cursor: help;
     }
 
+    .branchName {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     .icon {
       width: 18px;
+      flex: 0 0 auto;
       margin-left: 3px;
     }
   }

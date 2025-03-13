@@ -4,6 +4,7 @@ import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
 import { Commit, GitLogEntry, GitLogVisualiserProps } from './types'
 import { GitLogVisualiser } from './GitLogVisualiser'
 import { lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
+import dayjs from 'dayjs'
 
 const fetchEntries = async (): Promise<GitLogEntry[]> => {
   const response = await fetch('/git-log-all.txt')
@@ -47,7 +48,23 @@ export const Default: Story = {
     const [entries, setEntries] = useState<GitLogEntry[]>()
 
     useEffect(() => {
-      fetchEntries().then(setEntries)
+      fetchEntries()
+        .then(data => {
+          const headCommit = data[0]
+          const today = dayjs(new Date())
+          const daysSinceHeadCommit = Math.abs(dayjs(headCommit.date).diff(today, 'days'))
+
+          if (daysSinceHeadCommit > 1) {
+            const shiftedData: GitLogEntry[] = data.map(entry => ({
+              ...entry,
+              date: dayjs(entry.date).add(daysSinceHeadCommit, 'days').format()
+            }))
+
+            setEntries(shiftedData)
+          } else {
+            setEntries(data)
+          }
+        })
     }, [])
 
     if (!entries) {

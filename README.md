@@ -21,3 +21,5 @@ TODO:
 - Tests
 - Fix graph
 - Expose custom theme object off the Theme type
+- Selected row background colour is overlapping lines as nodeX spacing is too small by default
+- The first git tag line is not quite central with the node its connecting to

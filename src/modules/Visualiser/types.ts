@@ -43,6 +43,12 @@ export interface GitLogVisualiserProps {
   showCommitNodeHashes?: boolean
 
   /**
+   * Whether to show tooltips when hovering
+   * over a commit node in the graph.
+   */
+  showCommitNodeTooltips?: boolean
+
+  /**
    * Enables framer motion animation for
    * simple fading transitions when interacting
    * with the graph or log.

@@ -8,8 +8,8 @@ import { CommitNodeTooltip } from './CommitNodeTooltip'
 import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 
 export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }: CommitNodeProps) => {
-  const { colours } = useGitContext()
   const { selectCommitHandler } = useSelectCommit()
+  const { colours, showCommitNodeTooltips } = useGitContext()
   const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
@@ -30,7 +30,7 @@ export const CommitNode = ({ x, y, hash, parents, commit, showCommitNodeHashes }
     <Popover
       padding={20}
       positions='top'
-      isOpen={showTooltip}
+      isOpen={showCommitNodeTooltips ? showTooltip : false}
       content={({ position, childRect, popoverRect }: PopoverState) => (
         <ArrowContainer
           arrowSize={10}

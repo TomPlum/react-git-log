@@ -11,8 +11,30 @@ export enum EdgeType {
 
 export type Edge = [[number, number], [number, number], EdgeType];
 
+const computeRelationships = (entries: GitLogEntry[]) => {
+  const children = new Map<string, string[]>()
+  const parents = new Map<string, string[]>()
+
+  entries.forEach(entry => {
+    children.set(entry.hash, [])
+  })
+
+  entries.forEach((entry) => {
+    const commitSha = entry.hash
+    const parentShas = entry.parents
+    parents.set(commitSha, parentShas)
+
+    parentShas.forEach(parentSha => {
+      children.get(parentSha)!.push(commitSha)
+    })
+  })
+
+  return { parents, children }
+}
+
 export const computeNodePositions = (entries: GitLogEntry[]) => {
   const positions: Map<string, Node> = new Map<string, Node>()
+  const { parents, children } = computeRelationships(entries)
 
   let width = 0
   const branches: (string | null)[] = ['index']
@@ -61,24 +83,24 @@ export const computeNodePositions = (entries: GitLogEntry[]) => {
   if (headSha) {
     activeNodesQueue.add([shaToIndex.get(headSha)!, 'index'])
   }
+
   for (const commit of entries) {
+    console.log(`Positions at commit index ${i}`, positions)
     let j = -1
 
     const commitSha = commit.hash
-    const parentHashes = commit.parents
-    const branchChildren = parentHashes.filter((parentHash) => entries.find(it => it.hash === parentHash)!.parents[0] === commitSha)
-    const mergeChildren = parentHashes.filter((parentHash) => entries.find(it => it.hash === parentHash)!.parents[0] !== commitSha)
+    const childrenHashes = children.get(commitSha)!
+    const branchChildren = childrenHashes.filter((childHash) => parents.get(childHash)![0] === commitSha)
+    const mergeChildren = childrenHashes.filter((childHash) => parents.get(childHash)![0] !== commitSha)
 
     // Compute forbidden indices
     let highestChild: string | undefined = undefined
     let iMin = Infinity
     for (const childSha of mergeChildren) {
-      if (positions.has(childSha)) {
-        const iChild = positions.get(childSha)![0]
-        if (iChild < iMin) {
-          iMin = i
-          highestChild = childSha
-        }
+      const iChild = positions.get(childSha)![0]
+      if (iChild < iMin) {
+        iMin = i
+        highestChild = childSha
       }
     }
     const forbiddenIndices = highestChild ? activeNodes.get(highestChild)! : new Set<number>()
@@ -92,12 +114,11 @@ export const computeNodePositions = (entries: GitLogEntry[]) => {
     } else {
       // The commit can only replace a child whose first parent is this commit
       for (const childSha of branchChildren) {
-        if (positions.has(childSha)) {
-          const jChild = positions.get(childSha)![1]
-          if (!forbiddenIndices.has(jChild) && jChild < jCommitToReplace) {
-            commitToReplace = childSha
-            jCommitToReplace = jChild
-          }
+        console.log(`Trying to fetch position for ${childSha} while parsing commit ${commit.hash}`)
+        const jChild = positions.get(childSha)![1]
+        if (!forbiddenIndices.has(jChild) && jChild < jCommitToReplace) {
+          commitToReplace = childSha
+          jCommitToReplace = jChild
         }
       }
     }
@@ -107,14 +128,13 @@ export const computeNodePositions = (entries: GitLogEntry[]) => {
       j = jCommitToReplace
       branches[j] = commitSha
     } else {
-      if (parentHashes.length > 0) {
-        const childSha = parentHashes[0]
-        if (positions.has(childSha)) {
-          const jChild = positions.get(childSha)![1]
-          // Try to insert near a child
-          // We could try to insert near any child instead of arbitrarily choosing the first one
-          j = insertCommit(commitSha, jChild, forbiddenIndices)
-        }
+      if (childrenHashes.length > 0) {
+        const childSha = childrenHashes[0]
+        console.log(`Trying to fetch position for ${childSha} while parsing commit ${commit.hash} - ${commit.message} - ${commit.parents}`)
+        const jChild = positions.get(childSha)![1]
+        // Try to insert near a child
+        // We could try to insert near any child instead of arbitrarily choosing the first one
+        j = insertCommit(commitSha, jChild, forbiddenIndices)
       } else {
         // TODO: Find a better value for j
         j = insertCommit(commitSha, 0, new Set())
@@ -149,11 +169,16 @@ export const computeNodePositions = (entries: GitLogEntry[]) => {
     }
 
     // Finally set the position
+    console.log('Setting position', commitSha, `Index: ${i}, Column: ${j}`)
     positions.set(commitSha, [i, j])
     ++i
   }
+
   width = branches.length
   updateIntervalTree(entries)
 
-  return positions
+  return {
+    positions,
+    width
+  }
 }

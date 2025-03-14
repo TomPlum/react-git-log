@@ -1,6 +1,6 @@
 import IntervalTree from 'node-interval-tree'
 import FastPriorityQueue from 'fastpriorityqueue'
-import { GitLogEntry } from 'modules/Visualiser'
+import { Commit } from 'modules/Visualiser'
 
 export type Node = [number, number];
 
@@ -11,12 +11,14 @@ export enum EdgeType {
 
 export type Edge = [[number, number], [number, number], EdgeType];
 
-const computeRelationships = (entries: GitLogEntry[]) => {
+const computeRelationships = (entries: Commit[]) => {
   const children = new Map<string, string[]>()
   const parents = new Map<string, string[]>()
+  const commits = new Map<string, Commit>()
 
   entries.forEach(entry => {
     children.set(entry.hash, [])
+    commits.set(entry.hash, entry)
   })
 
   entries.forEach((entry) => {
@@ -29,18 +31,18 @@ const computeRelationships = (entries: GitLogEntry[]) => {
     })
   })
 
-  return { parents, children }
+  return { parents, children, commits }
 }
 
-export const computeNodePositions = (entries: GitLogEntry[]) => {
+export const computeNodePositions = (entries: Commit[]) => {
   const positions: Map<string, Node> = new Map<string, Node>()
-  const { parents, children } = computeRelationships(entries)
+  const { parents, children, commits } = computeRelationships(entries)
 
   let width = 0
   const branches: (string | null)[] = ['index']
   let edges = new IntervalTree<Edge>()
 
-  const updateIntervalTree = (entries: GitLogEntry[]) => {
+  const updateIntervalTree = (entries: Commit[]) => {
     edges = new IntervalTree<Edge>()
     for (const [commitSha, [i0, j0]] of positions) {
       const parents = entries.find(it => it.hash === commitSha)!.parents
@@ -180,6 +182,7 @@ export const computeNodePositions = (entries: GitLogEntry[]) => {
   return {
     positions,
     width,
-    edges
+    edges,
+    commits
   }
 }

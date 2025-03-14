@@ -5,6 +5,8 @@ import { GitContext, GitContextBag } from 'modules/Visualiser/context'
 import { lightThemeColors, useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import { generateRainbowGradient } from 'modules/Visualiser/hooks/useTheme/createRainbowTheme'
+import { temporalTopologicalSort } from 'modules/Visualiser/utils/temporalTopologicalSort.ts'
+import { computeNodePositions } from 'modules/Visualiser/utils/computeNodeColumns.ts'
 
 export const GitLogVisualiser = ({
    entries,
@@ -29,6 +31,13 @@ export const GitLogVisualiser = ({
   const { commits } = useMemo(() => {
     return buildGraph(entries, ROW_HEIGHT)
   }, [entries])
+
+  const sorted = temporalTopologicalSort(entries)
+  console.log('sorted', sorted)
+  const { positions, width, edges } = computeNodePositions(entries)
+  console.log('graph positions', positions)
+  console.log('graph width', width)
+  console.log('graph edges', edges)
 
   const themeColours = useMemo<string[]>(() => {
     // TODO: Are we keeping colours as a prop?

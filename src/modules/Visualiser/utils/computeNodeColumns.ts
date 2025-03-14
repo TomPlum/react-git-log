@@ -179,6 +179,7 @@ export const computeNodePositions = (entries: GitLogEntry[]) => {
 
   return {
     positions,
-    width
+    width,
+    edges
   }
 }

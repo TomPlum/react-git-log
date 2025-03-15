@@ -13,16 +13,14 @@ export const GitGraph = () => {
     classes,
     commits,
     showGitLog,
-    selectedCommit,
-    previewedCommit,
     showBranchesTags,
-    showTableHeaders,
-    showCommitNodeHashes
+    showTableHeaders
   } = useGitContext()
 
-  const { hoverColour, textColour, getCommitColour } = useTheme()
+  const { textColour } = useTheme()
 
-  const { width, ref, startResizing } = useResize()
+  // TODO: Re-integrate resizing with the new Graph component
+  const { width, ref } = useResize()
 
   const uniqueXValues = [...new Set(commits.map((c) => c.x))].length
   const nodeSpacingX = width / Math.max(uniqueXValues, 1)

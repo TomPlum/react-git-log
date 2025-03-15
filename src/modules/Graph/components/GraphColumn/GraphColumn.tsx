@@ -54,9 +54,7 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
       {state.isNode && commit && (
         <CommitNode
           commit={commit}
-          hash={commit.hash}
           colour={columnColour}
-          parents={commit.parents}
           showCommitNodeHashes={false}
         />
       )}

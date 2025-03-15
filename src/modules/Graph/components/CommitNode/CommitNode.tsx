@@ -7,7 +7,7 @@ import { useGitContext } from 'modules/Visualiser/context'
 import { CommitNodeTooltip } from './CommitNodeTooltip'
 import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 
-export const CommitNode = ({ hash, parents, commit, colour, showCommitNodeHashes }: CommitNodeProps) => {
+export const CommitNode = ({ commit, colour, showCommitNodeHashes }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { showCommitNodeTooltips } = useGitContext()
   const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
@@ -39,16 +39,14 @@ export const CommitNode = ({ hash, parents, commit, colour, showCommitNodeHashes
           arrowColor={tooltipBackground}
         >
           <CommitNodeTooltip
-            hash={hash}
-            parents={parents}
+            commit={commit}
             color={colour}
-            tip={commit.isBranchTip}
           />
         </ArrowContainer>
       )}
     >
       <div
-        key={hash}
+        key={commit.hash}
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
         className={styles.commitNode}
@@ -60,7 +58,7 @@ export const CommitNode = ({ hash, parents, commit, colour, showCommitNodeHashes
       >
         {showCommitNodeHashes && (
           <span className={styles.commitLabel} style={{ color: textColour }}>
-            {hash}
+            {commit.hash}
           </span>
         )}
       </div>

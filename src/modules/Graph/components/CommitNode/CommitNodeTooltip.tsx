@@ -1,28 +1,35 @@
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import styles from './CommitNodeTooltip.module.scss'
+import { Commit } from 'modules/Visualiser'
 
 export interface CommitNodeTooltipProps {
-  hash: string
+  commit: Commit
   color?: string
-  parents: string[]
-  tip: boolean
 }
 
-export const CommitNodeTooltip = ({ hash, color, parents, tip }: CommitNodeTooltipProps) => {
-  const { textColour, tooltipBackground } = useTheme()
+export const CommitNodeTooltip = ({ commit, color }: CommitNodeTooltipProps) => {
+  const { textColour, getCommitColour, shiftAlphaChannel } = useTheme()
 
   return (
     <div
       className={styles.tooltip}
       style={{
-        border: `1px solid ${color}`,
-        background: tooltipBackground,
+        border: `2px solid ${color}`,
+        background: shiftAlphaChannel(getCommitColour(commit), 0.2),
         color: textColour
       }}
     >
-      <p>Hash: {hash}</p>
-      <p>Parents: {parents.join(', ')}</p>
-      <p>Is Branch Tip?: {tip ? 'Yes' : 'No'}</p>
+      <p className={styles.text}>
+        Hash: {commit.hash}
+      </p>
+
+      <p className={styles.text}>
+        Parents: {commit.parents.join(', ')}
+      </p>
+
+      <p className={styles.text}>
+        Is Branch Tip?: {commit.isBranchTip ? 'Yes' : 'No'}
+      </p>
     </div>
   )
 }

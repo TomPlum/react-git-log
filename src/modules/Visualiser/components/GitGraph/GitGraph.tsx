@@ -1,4 +1,3 @@
-import { TABLE_TOP_OFFSET } from './types.ts'
 import styles from './GitGraph.module.scss'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
@@ -49,7 +48,7 @@ export const GitGraph = () => {
       </div>
 
       {showGitLog && (
-        <div className={styles.log} style={{ marginTop: TABLE_TOP_OFFSET }}>
+        <div className={styles.log}>
           <GitLog />
         </div>
       )}

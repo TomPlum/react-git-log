@@ -23,6 +23,7 @@ export const GraphColumn = ({
 
   const columnColour = getGraphColumnColour(index)
   const isRowCommitIndexNode = commit.hash === 'index'
+  const indexCommitNodeBorder = shiftAlphaChannel(columnColour, 0.5)
 
   const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
     // If the current column is the index pseudo-node
@@ -32,7 +33,7 @@ export const GraphColumn = ({
       return {
         height: '50%',
         top: '50%',
-        borderRight: `2px dotted ${columnColour}`
+        borderRight: `2px dotted ${indexCommitNodeBorder}`
       }
     }
 
@@ -43,7 +44,7 @@ export const GraphColumn = ({
       return {
         height: '50%',
         top: 0,
-        borderRight: `2px dotted ${columnColour}`
+        borderRight: `2px dotted ${indexCommitNodeBorder}`
       }
     }
 
@@ -81,18 +82,9 @@ export const GraphColumn = ({
     return {
       height: '100%',
       top: 0,
-      borderRight: `2px ${borderStyle} ${columnColour}`
+      borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
     }
-  }, [
-    columnColour,
-    commit.hash,
-    commit.isBranchTip,
-    commit.parents.length,
-    headCommit.hash,
-    isRowCommitIndexNode,
-    state.isNode,
-    state.mergeSourceNodeColumnIndex
-  ])
+  }, [columnColour, commit.hash, commit.isBranchTip, commit.parents.length, headCommit.hash, indexCommitNodeBorder, isRowCommitIndexNode, state.isNode, state.mergeSourceNodeColumnIndex])
 
   const horizontalNodeLineStyles = useMemo<CSSProperties>(() => {
     const borderColour = getGraphColumnColour(state.mergeSourceNodeColumnIndex ?? commitNodeIndex)

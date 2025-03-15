@@ -1,7 +1,6 @@
 import styles from './GitLog.module.scss'
 import classNames from 'classnames'
 import dayjs from 'dayjs'
-import { GitLogProps } from './types'
 import { useCallback, useMemo } from 'react'
 import { Commit } from 'modules/Visualiser'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
@@ -16,7 +15,7 @@ dayjs.extend(relativeTime)
 
 const ROW_HEIGHT = 40
 
-export const GitLog = ({ data }: GitLogProps) => {
+export const GitLog = () => {
   const {
     textColour,
     hoverColour,
@@ -31,7 +30,8 @@ export const GitLog = ({ data }: GitLogProps) => {
     timestampFormat,
     showTableHeaders,
     classes,
-    indexCommit
+    indexCommit,
+    graphData
   } = useGitContext()
 
   const { selectCommitHandler } = useSelectCommit()
@@ -69,9 +69,9 @@ export const GitLog = ({ data }: GitLogProps) => {
   const logData = useMemo<Commit[]>(() => {
     return [
       indexCommit,
-      ...data
+      ...graphData.commits
     ]
-  }, [data, indexCommit])
+  }, [graphData.commits, indexCommit])
 
   return (
     <table

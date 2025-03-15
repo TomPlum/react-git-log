@@ -154,13 +154,17 @@ export interface Commit {
   refs: string
   branch: string
   message: string
-  x: number
-  y: number
   committerDate: string
   authorDate: string
   isBranchTip: boolean
 }
 
+/**
+ * A single entry from your repositories
+ * git log.
+ *
+ * TODO: Can we make some fields optional here? Is refs needed?
+ */
 export interface GitLogEntry {
   hash: string
   branch: string

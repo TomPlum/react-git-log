@@ -1,10 +1,13 @@
-import { Commit, GitLogVisualiserProps, ROW_HEIGHT } from './types.ts'
+import { Commit, GitLogVisualiserProps } from './types.ts'
 import { GitGraph } from './components/GitGraph'
 import { useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'modules/Visualiser/context'
 import { lightThemeColors, useTheme } from 'modules/Visualiser/hooks/useTheme'
-import { buildGraph } from 'modules/Visualiser/utils/buildGraph'
 import { generateRainbowGradient } from 'modules/Visualiser/hooks/useTheme/createRainbowTheme'
+import { temporalTopologicalSort } from 'modules/GraphData/temporalTopologicalSort.ts'
+import { computeNodePositions } from 'modules/GraphData/computeNodeColumns.ts'
+import { computeRelationships } from 'modules/GraphData/computeRelationships.ts'
+import { GraphData } from 'modules/GraphData'
 
 export const GitLogVisualiser = ({
    entries,
@@ -27,9 +30,21 @@ export const GitLogVisualiser = ({
 
   const { shiftAlphaChannel } = useTheme()
 
-  const { commits } = useMemo(() => {
-    return buildGraph(entries, ROW_HEIGHT) // TODO: make redundant, replace useGraphData here
-  }, [entries])
+  const graphData = useMemo<GraphData>(() => {
+    const { children, parents, hashToCommit } = computeRelationships(entries)
+    const sortedCommits = temporalTopologicalSort([...hashToCommit.values()], children, hashToCommit)
+    const { graphWidth, positions, edges } = computeNodePositions(sortedCommits, currentBranch, children, parents)
+
+    return {
+      children,
+      parents,
+      hashToCommit,
+      graphWidth,
+      positions,
+      edges,
+      commits: sortedCommits
+    }
+  }, [currentBranch, entries])
 
   const themeColours = useMemo<string[]>(() => {
     // TODO: Are we keeping colours as a prop?
@@ -38,8 +53,7 @@ export const GitLogVisualiser = ({
     }*/
 
     if (theme) {
-      const maxConcurrentActiveBranches = [...new Set(commits.map(({ x }) => x))].length
-      const rainbowColours = generateRainbowGradient(maxConcurrentActiveBranches)
+      const rainbowColours = generateRainbowGradient(graphData.graphWidth)
 
       return theme === 'dark'
         ? rainbowColours.map(colour => shiftAlphaChannel(colour, 0.4))
@@ -47,7 +61,7 @@ export const GitLogVisualiser = ({
     }
 
     return lightThemeColors
-  }, [commits, shiftAlphaChannel, theme])
+  }, [graphData.graphWidth, shiftAlphaChannel, theme])
 
   const handleSelectCommit = useCallback((commit?: Commit) => {
     setSelectedCommit(commit)
@@ -55,8 +69,8 @@ export const GitLogVisualiser = ({
   }, [onSelectCommit])
 
   const headCommit = useMemo<Commit>(() => {
-    return commits.find(it => it.branch.includes(currentBranch))!
-  }, [commits, currentBranch])
+    return graphData.commits.find(it => it.branch.includes(currentBranch))!
+  }, [currentBranch, graphData.commits])
 
   const indexCommit = useMemo<Commit>(() => ({
     hash: 'index',
@@ -88,10 +102,10 @@ export const GitLogVisualiser = ({
     showCommitNodeTooltips,
     showTableHeaders,
     graphWidth,
-    commits,
     currentBranch,
     headCommit,
-    indexCommit
+    indexCommit,
+    graphData
   }), [
     showBranchesTags,
     showCommitNodeHashes,
@@ -108,10 +122,10 @@ export const GitLogVisualiser = ({
     showCommitNodeTooltips,
     showTableHeaders,
     graphWidth,
-    commits,
     currentBranch,
     headCommit,
-    indexCommit
+    indexCommit,
+    graphData
   ])
   
   return (

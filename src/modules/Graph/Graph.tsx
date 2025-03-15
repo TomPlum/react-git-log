@@ -2,10 +2,10 @@ import { useMemo } from 'react'
 import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
-import { useGraphData } from 'modules/GraphData'
+import { useGitContext } from 'modules/Visualiser/context'
 
 export const Graph = () => {
-  const { width, positions, edges, commits } = useGraphData()
+  const { graphData: { graphWidth, positions, edges, commits } } = useGitContext()
 
   // console.log('graph positions', positions)
   // console.log('graph width', width)
@@ -15,12 +15,12 @@ export const Graph = () => {
     const rowToColumnState = new Map<number, GraphColumnState[]>()
     const commitNodePositions = Array.from(positions.values())
 
-    edges.search(0, commits.size).forEach(([[rowStart, colStart], [rowEnd, colEnd], type]) => {
+    edges.search(0, commits.length).forEach(([[rowStart, colStart], [rowEnd, colEnd], type]) => {
       // Are we connecting to nodes in the same column?
       // I.e. drawing a straight merge line between them.
       if (colStart === colEnd) {
         for (let targetRow = rowStart - 1; targetRow <= rowEnd - 1; targetRow++) {
-          const newColumnState: GraphColumnState[] = new Array(width).fill({
+          const newColumnState: GraphColumnState[] = new Array(graphWidth).fill({
             isVerticalMergeLine: false
           })
 
@@ -37,7 +37,7 @@ export const Graph = () => {
         // Are we connecting nodes in different columns?
         // I.e. drawing a line that ultimately curves into another column.
         for (let targetRow = rowStart - 1; targetRow <= rowEnd - 1; targetRow++) {
-          const newColumnState: GraphColumnState[] = new Array<GraphColumnState>(width).fill({})
+          const newColumnState: GraphColumnState[] = new Array<GraphColumnState>(graphWidth).fill({})
 
           const columnState = rowToColumnState.get(targetRow) ?? newColumnState
 
@@ -74,7 +74,7 @@ export const Graph = () => {
 
       commitNodePositions.forEach((position) => {
         const [row, column] = position
-        const columnState = rowToColumnState.get(row) ?? new Array<GraphColumnState>(width).fill({})
+        const columnState = rowToColumnState.get(row) ?? new Array<GraphColumnState>(graphWidth).fill({})
 
         columnState[column] = {
           ...columnState[column],
@@ -87,9 +87,9 @@ export const Graph = () => {
     })
 
     return rowToColumnState
-  }, [commits.size, edges, positions, width])
+  }, [positions, edges, commits.length, graphWidth])
 
-  const indexColumns = new Array<GraphColumnState>(width).fill({})
+  const indexColumns = new Array<GraphColumnState>(graphWidth).fill({})
   indexColumns[0] = {
     isNode: true,
     isVerticalMergeLine: true
@@ -99,13 +99,13 @@ export const Graph = () => {
     <div
       className={styles.graph}
       style={{
-        gridTemplateColumns: `repeat(${width}, 1fr)`
+        gridTemplateColumns: `repeat(${graphWidth}, 1fr)`
       }}
     >
       <GraphRow
         id={-1}
         key={'index'}
-        width={width}
+        width={graphWidth}
         columns={indexColumns}
       />
 
@@ -113,9 +113,9 @@ export const Graph = () => {
         <GraphRow
           id={index}
           key={commit.hash}
-          width={width}
+          width={graphWidth}
           commit={commit}
-          columns={columnData.get(index + 1) ?? new Array(width).fill({})}
+          columns={columnData.get(index + 1) ?? new Array(graphWidth).fill({})}
         />
       ))}
     </div>

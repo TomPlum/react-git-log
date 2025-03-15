@@ -1,14 +1,9 @@
 import { Commit, GitVisualiserStylingProps } from 'modules/Visualiser'
 import { Theme } from 'modules/Visualiser/hooks/useTheme'
+import { GraphData } from 'modules/GraphData'
 
 export interface GitContextBag {
   colours: string[]
-
-  /**
-   * The commits from the git log
-   * currently in context.
-   */
-  commits: Commit[]
 
   /**
    * The name of the branch that is
@@ -113,6 +108,13 @@ export interface GitContextBag {
    * The default width of the graph in pixels.
    */
   graphWidth?: number
+
+  /**
+   * Data used to render the visualiser
+   * components such as the graph, log
+   * and tag/branch labels.
+   */
+  graphData: GraphData
 
   /**
    * A timestamp format string passed to DayJS

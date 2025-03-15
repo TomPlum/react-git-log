@@ -11,7 +11,6 @@ import { Graph } from 'modules/Graph'
 export const GitGraph = () => {
   const {
     classes,
-    commits,
     showGitLog,
     showBranchesTags,
     showTableHeaders
@@ -21,9 +20,6 @@ export const GitGraph = () => {
 
   // TODO: Re-integrate resizing with the new Graph component
   const { width, ref } = useResize()
-
-  const uniqueXValues = [...new Set(commits.map((c) => c.x))].length
-  const nodeSpacingX = width / Math.max(uniqueXValues, 1)
 
   return (
     <div
@@ -38,10 +34,7 @@ export const GitGraph = () => {
             </h4>
           )}
 
-          <BranchesTags
-            commits={commits}
-            commitNodeSpacing={nodeSpacingX}
-          />
+          <BranchesTags />
         </div>
       )}
 
@@ -57,7 +50,7 @@ export const GitGraph = () => {
 
       {showGitLog && (
         <div className={styles.log} style={{ marginTop: TABLE_TOP_OFFSET }}>
-          <GitLog data={commits} />
+          <GitLog />
         </div>
       )}
     </div>

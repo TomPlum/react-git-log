@@ -2,6 +2,7 @@ import { createContext } from 'react'
 import { GitContextBag } from 'modules/Visualiser/context/types'
 import { darkThemeColors } from 'modules/Visualiser/hooks/useTheme'
 import { Commit } from 'modules/Visualiser'
+import DataIntervalTree from 'node-interval-tree'
 
 const defaultCommit: Commit = {
   hash: 'defaultCommit',
@@ -11,15 +12,12 @@ const defaultCommit: Commit = {
   message: 'Working tree index',
   committerDate: new Date().toString(),
   isBranchTip: false,
-  refs: 'index',
-  x: 0,
-  y: 0
+  refs: 'index'
 }
 
 export const GitContext = createContext<GitContextBag>({
   colours: darkThemeColors,
   showCommitNodeHashes: false,
-  commits: [],
   headCommit: defaultCommit,
   indexCommit: defaultCommit,
   currentBranch: 'master',
@@ -35,5 +33,14 @@ export const GitContext = createContext<GitContextBag>({
   setPreviewedCommit: (commit?: Commit) => {
     console.debug(`Tried to invoke setPreviewedCommit(${JSON.stringify(commit)}) before the GitContext was initialised.`)
   },
-  enableExperimentalAnimation: false
+  enableExperimentalAnimation: false,
+  graphData: {
+    children: new Map(),
+    edges: new DataIntervalTree(),
+    graphWidth: 0,
+    commits: [],
+    positions: new Map(),
+    parents: new Map(),
+    hashToCommit: new Map()
+  }
 })

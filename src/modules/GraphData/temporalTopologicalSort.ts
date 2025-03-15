@@ -1,12 +1,12 @@
 import { Commit } from 'modules/Visualiser'
-import { computeRelationships } from 'modules/Visualiser/utils/computeNodeColumns'
 
-export const temporalTopologicalSort = (commits: Commit[]) => {
+export const temporalTopologicalSort = (
+  commits: Commit[],
+  children: Map<string, string[]>,
+  hashToCommit: Map<string, Commit>
+) => {
   const sorted: Commit[] = []
   const seen = new Map<string, boolean>()
-
-  // TODO: Do this just once instead of in here and in the computeNodeColumns.ts
-  const { children, commits: hashToCommit } = computeRelationships(commits)
 
   const depthFirstSearch = (commit: Commit) => {
     if (seen.has(commit.hash)) {

@@ -11,32 +11,13 @@ export enum EdgeType {
 
 export type Edge = [[number, number], [number, number], EdgeType];
 
-export const computeRelationships = (entries: Commit[]) => {
-  const children = new Map<string, string[]>()
-  const parents = new Map<string, string[]>()
-  const commits = new Map<string, Commit>()
-
-  entries.forEach(entry => {
-    children.set(entry.hash, [])
-    commits.set(entry.hash, entry)
-  })
-
-  entries.forEach((entry) => {
-    const commitSha = entry.hash
-    const parentShas = entry.parents
-    parents.set(commitSha, parentShas)
-
-    parentShas.forEach(parentSha => {
-      children.get(parentSha)!.push(commitSha)
-    })
-  })
-
-  return { parents, children, commits }
-}
-
-export const computeNodePositions = (entries: Commit[], currentBranch: string) => {
+export const computeNodePositions = (
+  entries: Commit[],
+  currentBranch: string,
+  children: Map<string, string[]>,
+  parents: Map<string, string[]>
+) => {
   const positions: Map<string, Node> = new Map<string, Node>()
-  const { parents, children, commits } = computeRelationships(entries)
 
   const branches: (string | null)[] = ['index']
   let edges = new IntervalTree<Edge>()
@@ -75,16 +56,15 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
   }
 
   const headSha = entries.find(commit => commit.branch.includes(currentBranch))!.hash
-  let columnIndex = 1
+  let rowIndex = 1
 
   const activeNodes = new Map<string, Set<number>>()
   const activeNodesQueue = new FastPriorityQueue<[number, string]>((lhs, rhs) => lhs[0] < rhs[0])
   activeNodes.set('index', new Set<number>())
   activeNodesQueue.add([shaToIndex.get(headSha)!, 'index'])
-  // positions.set('index', [0, 0])
 
   for (const commit of entries) {
-    let j = -1
+    let columnIndex = -1
 
     const commitSha = commit.hash
     const childrenHashes = children.get(commitSha)!
@@ -97,7 +77,7 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
     for (const childSha of mergeChildren) {
       const iChild = positions.get(childSha)![0]
       if (iChild < iMin) {
-        iMin = columnIndex
+        iMin = rowIndex
         highestChild = childSha
       }
     }
@@ -122,29 +102,29 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
 
     // Insert the commit in the active branches
     if (commitToReplace) {
-      j = jCommitToReplace
-      branches[j] = commitSha
+      columnIndex = jCommitToReplace
+      branches[columnIndex] = commitSha
     } else {
       if (childrenHashes.length > 0) {
         const childSha = childrenHashes[0]
         const jChild = positions.get(childSha)![1]
         // Try to insert near a child
         // We could try to insert near any child instead of arbitrarily choosing the first one
-        j = insertCommit(commitSha, jChild, forbiddenIndices)
+        columnIndex = insertCommit(commitSha, jChild, forbiddenIndices)
       } else {
         // TODO: Find a better value for j
-        j = insertCommit(commitSha, 0, new Set())
+        columnIndex = insertCommit(commitSha, 0, new Set())
       }
     }
 
     // Remove useless active nodes
-    while (!activeNodesQueue.isEmpty() && activeNodesQueue.peek()![0] < columnIndex) {
+    while (!activeNodesQueue.isEmpty() && activeNodesQueue.peek()![0] < rowIndex) {
       const sha = activeNodesQueue.poll()![1]
       activeNodes.delete(sha)
     }
 
     // Update the active nodes
-    const jToAdd = [j, ...branchChildren.map((childSha) => positions.get(childSha)![1])]
+    const jToAdd = [columnIndex, ...branchChildren.map((childSha) => positions.get(childSha)![1])]
     for (const activeNode of activeNodes.values()) {
       jToAdd.forEach((j) => activeNode.add(j))
     }
@@ -161,20 +141,19 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
 
     // If the commit has no parent, remove it from active branches
     if (commit.parents.length === 0) {
-      branches[j] = null
+      branches[columnIndex] = null
     }
 
     // Finally set the position
-    positions.set(commitSha, [columnIndex, j])
-    columnIndex++
+    positions.set(commitSha, [rowIndex, columnIndex])
+    rowIndex++
   }
 
   updateIntervalTree(entries)
 
   return {
     positions,
-    width: branches.length,
-    edges,
-    commits
+    graphWidth: branches.length,
+    edges
   }
 }

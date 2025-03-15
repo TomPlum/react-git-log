@@ -30,7 +30,7 @@ export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: B
     }
   }, [color, lineRight, lineWidth])
 
-  const tagContainerStyles = useMemo<CSSProperties>(() => {
+  const tagLabelContainerStyles = useMemo<CSSProperties>(() => {
     if (commit.hash === 'index') {
       return {
         color: textColour,
@@ -90,7 +90,7 @@ export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: B
         <div
           key={`tag_${id}`}
           className={styles.tag}
-          style={tagContainerStyles}
+          style={tagLabelContainerStyles}
         >
           {label}
         </div>

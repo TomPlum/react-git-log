@@ -1,5 +1,4 @@
 import styles from './BranchesTags.module.scss'
-import { BranchesTagsProps } from './types'
 import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { BranchTag } from './BranchTag'
 import { GRAPH_LEFT_OFFSET } from 'modules/Visualiser/components/GitGraph'
@@ -38,19 +37,18 @@ const prepareCommits = (commits: Commit[]) => {
   })
 }
 
-export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) => {
+export const BranchesTags = () => {
   const { getCommitColour } = useTheme()
-  const { previewedCommit, selectedCommit, indexCommit } = useGitContext()
+  const { previewedCommit, selectedCommit, indexCommit, graphData } = useGitContext()
 
   const preparedCommits = useMemo(() => {
-
     const commitsWithIndex = [
       indexCommit,
-      ...commits
+      ...graphData.commits
     ]
 
     return prepareCommits(commitsWithIndex)
-  }, [commits, indexCommit])
+  }, [graphData.commits, indexCommit])
 
   return (
     <div className={styles.container} style={{ padding: PADDING }}>
@@ -73,8 +71,8 @@ export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) 
               key={`tag_${commit.hash}`}
               color={getCommitColour(commit)}
               height={i === 0 ? (ROW_HEIGHT - HEIGHT_OFFSET) : ROW_HEIGHT}
-              lineWidth={(commit.x * commitNodeSpacing) + GRAPH_LEFT_OFFSET}
-              lineRight={0 - PADDING - (commit.x * commitNodeSpacing) - GRAPH_LEFT_OFFSET + 10}
+              lineWidth={100 + GRAPH_LEFT_OFFSET}
+              lineRight={0 - PADDING - (10 * 100) - GRAPH_LEFT_OFFSET + 10}
             />
           )
         } else {

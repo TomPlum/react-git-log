@@ -124,7 +124,7 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
         />
       )}
 
-      {previewedCommit?.hash === commit.hash && (
+      {previewedCommit?.hash === commit.hash && selectedCommit?.hash != previewedCommit.hash && (
         <FadingDiv
           className={classNames(
             { [styles.selectedBackground]: index > commitNodeIndex },

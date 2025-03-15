@@ -168,7 +168,8 @@ export const GraphColumn = ({
         <div
           style={{
             borderTop: `2px solid ${getGraphColumnColour(state.mergeSourceNodeColumnIndex ?? commitNodeIndex)}`,
-            width: index === 0 ? '50%' : '100%'
+            width: index === 0 ? '50%' : '100%',
+            zIndex: index
         }}
           className={classNames(styles.line, styles.horizontal)}
         />

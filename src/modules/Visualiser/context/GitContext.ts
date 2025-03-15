@@ -8,6 +8,7 @@ const defaultCommit: Commit = {
   hash: 'defaultCommit',
   branch: 'unknown',
   parents: [],
+  children: [],
   authorDate: new Date().toString(),
   message: 'Working tree index',
   committerDate: new Date().toString(),

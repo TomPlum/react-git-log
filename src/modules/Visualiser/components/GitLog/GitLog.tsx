@@ -2,7 +2,7 @@ import styles from './GitLog.module.scss'
 import classNames from 'classnames'
 import dayjs from 'dayjs'
 import { GitLogProps } from './types'
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import { Commit } from 'modules/Visualiser'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
@@ -29,7 +29,8 @@ export const GitLog = ({ data }: GitLogProps) => {
     selectedCommit,
     previewedCommit,
     timestampFormat,
-    showTableHeaders
+    showTableHeaders,
+    headCommit,
   } = useGitContext()
 
   const { selectCommitHandler } = useSelectCommit()
@@ -64,6 +65,26 @@ export const GitLog = ({ data }: GitLogProps) => {
     return commitDate.fromNow()
   }, [timestampFormat])
 
+  const logData = useMemo<Commit[]>(() => {
+    const index: Commit = {
+      hash: 'index',
+      branch: headCommit.branch,
+      parents: [headCommit.hash],
+      authorDate: new Date().toString(),
+      message: 'Working tree index',
+      committerDate: new Date().toString(),
+      isBranchTip: false,
+      refs: 'index',
+      x: 0,
+      y: 0
+    }
+
+    return [
+      index,
+      ...data
+    ]
+  }, [data, headCommit.branch, headCommit.hash])
+
   return (
     <table className={styles.table}>
       {showTableHeaders && (
@@ -81,7 +102,7 @@ export const GitLog = ({ data }: GitLogProps) => {
       )}
 
       <tbody>
-        {data.map((commit) => {
+        {logData.map((commit) => {
           const isMergeCommit = commit.parents.length > 1
           const tableDataStyle = {
             color: shiftAlphaChannel(textColour, isMergeCommit ? 0.4 : 1)

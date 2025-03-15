@@ -16,6 +16,8 @@ export const Graph = () => {
     const rowToColumnState = new Map<number, GraphColumnState[]>()
     const commitNodePositions = Array.from(positions.values())
 
+    // Iterate over all the edges update the graph column state
+    // for each of the respective branch/merge line segments.
     edges.search(0, commits.length).forEach(([[rowStart, colStart], [rowEnd, colEnd], type]) => {
       // Are we connecting to nodes in the same column?
       // I.e. drawing a straight merge line between them.
@@ -115,18 +117,6 @@ export const Graph = () => {
         }
       }
 
-      // Add the commit nodes into their respective rows and columns
-      commitNodePositions.forEach((position) => {
-        const [row, column] = position
-        const columnState = rowToColumnState.get(row) ?? new Array<GraphColumnState>(graphWidth).fill({})
-
-        columnState[column] = {
-          ...columnState[column],
-          isNode: true
-        }
-        rowToColumnState.set(row, columnState)
-      })
-
       // TODO: Remove the below once all working
       const fromHash = [...positions.entries()].find((it) => {
         return it[1][0] === rowStart
@@ -136,6 +126,18 @@ export const Graph = () => {
         return it[1][0] === rowEnd
       })![0]
       console.log('Row', rowStart, 'Column', colStart, 'hash', fromHash, '-->', 'Row', rowEnd, 'Column', colEnd, 'hash', toHash, ' --- type', type)
+    })
+
+    // Add the commit nodes into their respective rows and columns
+    commitNodePositions.forEach((position) => {
+      const [row, column] = position
+      const columnState = rowToColumnState.get(row) ?? new Array<GraphColumnState>(graphWidth).fill({})
+
+      columnState[column] = {
+        ...columnState[column],
+        isNode: true
+      }
+      rowToColumnState.set(row, columnState)
     })
 
     return rowToColumnState

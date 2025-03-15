@@ -18,23 +18,23 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
       return {}
     }
 
-    if (commit.parents.length > 0) {
+    if (commit.isBranchTip) {
       return {
-        height: '100%',
-        top: 0,
+        height: '50%',
+        top: '50%',
         borderRight: `2px solid ${columnColour}`,
       }
     }
 
     return {
-      height: '50%',
-      top: '50%',
+      height: '100%',
+      top: 0,
       borderRight: `2px solid ${columnColour}`,
     }
   }, [columnColour, commit])
 
   return (
-    <div className={styles.column}>
+    <div className={styles.column} id={`graph_column_${index}_${commit?.hash}`}>
       {state.isNode && commit && (
         <CommitNode
           commit={commit}
@@ -72,12 +72,35 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
         />
       )}
 
+      {state.isHorizontalLine && state.isVerticalMergeLine && !state.isNode && (
+        <div
+          className={styles.mergeNode}
+          style={{
+            backgroundColor: columnColour,
+          }}
+        />
+      )}
+
       {state.isLeftDownCurve && (
         <svg width="100%" height={HEIGHT} viewBox={`0 0 100 ${HEIGHT}`} className={styles.curve}>
           <path
             d={`
               M 0,${HEIGHT / 2} 
               C 50,${HEIGHT / 2} 50,${HEIGHT} 50,${HEIGHT}
+            `}
+            stroke={columnColour}
+            fill="transparent"
+            strokeWidth="2"
+          />
+        </svg>
+      )}
+
+      {state.isLeftUpCurve && (
+        <svg width="100%" height={HEIGHT} viewBox={`0 0 100 ${HEIGHT}`} className={styles.curve}>
+          <path
+            d={`
+              M 0,${HEIGHT / 2} 
+              C 50,${HEIGHT / 2} 50,0 100,0
             `}
             stroke={columnColour}
             fill="transparent"

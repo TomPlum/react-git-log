@@ -5,8 +5,8 @@ import { Commit } from 'modules/Visualiser'
 export type Node = [number, number];
 
 export enum EdgeType {
-  Normal,
-  Merge
+  Normal = 'Normal',
+  Merge = 'Merge'
 }
 
 export type Edge = [[number, number], [number, number], EdgeType];

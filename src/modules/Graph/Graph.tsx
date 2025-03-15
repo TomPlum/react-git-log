@@ -19,7 +19,7 @@ export const Graph = () => {
       // Are we connecting to nodes in the same column?
       // I.e. drawing a straight merge line between them.
       if (colStart === colEnd) {
-        for (let targetRow = rowStart - 1; targetRow <= rowEnd - 1; targetRow++) {
+        for (let targetRow = rowStart; targetRow <= rowEnd; targetRow++) {
           const newColumnState: GraphColumnState[] = new Array(graphWidth).fill({
             isVerticalMergeLine: false
           })
@@ -37,28 +37,36 @@ export const Graph = () => {
         // Are we connecting nodes in different columns?
         // I.e. drawing a line that ultimately curves into another column
         // to represent a new branch being created or a branch being merged.
-        for (let targetRow = rowStart - 1; targetRow <= rowEnd - 1; targetRow++) {
-          const newColumnState: GraphColumnState[] = new Array<GraphColumnState>(graphWidth).fill({})
-
-          const columnState = rowToColumnState.get(targetRow) ?? newColumnState
+        for (let targetRow = rowStart; targetRow <= rowEnd; targetRow++) {
+          const emptyColumnState: GraphColumnState[] = new Array<GraphColumnState>(graphWidth).fill({})
+          const columnState = rowToColumnState.get(targetRow) ?? emptyColumnState
 
           // If we're on the first row (the one with the start node)
-          // Then we draw a horizontal line across the row to the target
-          // column of the end node
-          if (targetRow === rowStart - 1) {
-            // Straight lines in all but the target column
-            // since that one will be a curved line
-            for (let columnIndex = colStart; columnIndex < colEnd - 1; columnIndex++) {
-              columnState[columnIndex] = {
-                ...columnState[columnIndex],
-                isHorizontalLine: true
+          if (targetRow === rowStart) {
+            // We're drawing a merge line from the bottom of
+            // one node, down, then to the left.
+            if (rowEnd > rowStart && colEnd < colStart) {
+              // For the first row, just add a vertical merge line
+              // out the bottom of the commit node.
+              columnState[colStart] = {
+                ...columnState[colStart],
+                isVerticalMergeLine: true
               }
-            }
+            } else {
+              // Horizontal straight lines in all but the target column
+              // since that one will be a curved line.
+              for (let columnIndex = colStart; columnIndex < colEnd; columnIndex++) {
+                columnState[columnIndex] = {
+                  ...columnState[columnIndex],
+                  isHorizontalLine: true
+                }
+              }
 
-            // Add in the curved line in the target column where the end node is
-            columnState[colEnd] = {
-              ...columnState[colEnd],
-              isLeftDownCurve: true
+              // Add in the curved line in the target column where the end node is
+              columnState[colEnd] = {
+                ...columnState[colEnd],
+                isLeftDownCurve: true
+              }
             }
           } else {
             // If we're on rows beyond the first one where the start node is,
@@ -84,7 +92,14 @@ export const Graph = () => {
         rowToColumnState.set(row, columnState)
       })
 
-      console.log('Row', rowStart, 'Column', colStart, '-->', 'Row', rowEnd, 'Column', colEnd, 'type', type)
+      const fromHash = [...positions.entries()].find((it) => {
+        return it[1][0] === rowStart
+      })![0]
+
+      const toHash = [...positions.entries()].find((it) => {
+        return it[1][0] === rowEnd
+      })![0]
+      console.log('Row', rowStart, 'Column', colStart, 'hash', fromHash, '-->', 'Row', rowEnd, 'Column', colEnd, 'hash', toHash, ' --- type', type)
     })
 
     return rowToColumnState
@@ -102,7 +117,7 @@ export const Graph = () => {
       style={{
         gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
         gridTemplateRows: 'repeat(auto-fill, 40px)' // TODO: Source high from a prop once exposed
-    }}
+      }}
     >
       <GraphRow
         id={-1}

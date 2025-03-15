@@ -17,6 +17,9 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
   const columnColour = getGraphColumnColour(index)
 
   const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
+    // If the current column is the index pseudo-node
+    // then draw a dotted line underneath it that will
+    // eventually meet with the HEAD commit of the current branch.
     if (commit.hash === 'index') {
       return {
         height: '50%',
@@ -25,8 +28,9 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
       }
     }
 
-    const borderStyle = isIndex ? 'dotted' : 'solid'
-
+    // If this column has the HEAD commit node in it,
+    // just draw a dotted line on top of it which will
+    // ultimately hit the index pseudo-node above.
     if (commit.hash === headCommit.hash && state.isNode) {
       return {
         height: '50%',
@@ -35,6 +39,22 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
       }
     }
 
+    // If this column has a commit node in it, and it
+    // has no parents, then it must be the first commit
+    // in the graph, so just draw a solid line above it.
+    if (state.isNode && commit.parents.length === 0) {
+      return {
+        height: '50%',
+        top: 0,
+        borderRight: `2px solid ${columnColour}`
+      }
+    }
+
+    const borderStyle = isIndex ? 'dotted' : 'solid'
+
+    // If this column contains a commit node, and
+    // it is the tip of its branch, then just draw
+    // a line underneath the node
     if (commit.isBranchTip && state.isNode) {
       return {
         height: '50%',
@@ -43,12 +63,15 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
       }
     }
 
+    // If none of the above conditions are met then
+    // we must be in a column with no commit node, and
+    // so we draw a line the full height of the column.
     return {
       height: '100%',
       top: 0,
       borderRight: `2px ${borderStyle} ${columnColour}`
     }
-  }, [columnColour, commit.hash, commit.isBranchTip, headCommit.hash, state.isNode])
+  }, [columnColour, commit.hash, commit.isBranchTip, commit.parents.length, headCommit.hash, state.isNode])
 
   return (
     <div className={styles.column} id={`graph_column_${index}_${commit.hash}`}>
@@ -135,15 +158,6 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
           }}
         />
       )}
-
-   {/*   {state.isHorizontalLine && state.isVerticalMergeLine && !state.isNode && (
-        <div
-          className={styles.mergeNode}
-          style={{
-            backgroundColor: columnColour,
-          }}
-        />
-      )}*/}
 
       {state.isLeftDownCurve && (
         <svg width="100%" height={HEIGHT} viewBox={`0 0 100 ${HEIGHT}`} className={styles.curve}>

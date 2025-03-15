@@ -5,7 +5,6 @@ import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { CSSProperties, useMemo } from 'react'
 import classNames from 'classnames'
 
-const WIDTH = 40
 const HEIGHT = 40
 
 export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
@@ -21,18 +20,21 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
       return {}
     }
 
+
     if (commit.parents.length > 0) {
       return {
         height: '100%',
-        top: 0
+        top: 0,
+        borderRight: `2px solid ${columnColour}`,
       }
     }
 
     return {
       height: '50%',
-      top: '50%'
+      top: '50%',
+      borderRight: `2px solid ${columnColour}`,
     }
-  }, [commit])
+  }, [columnColour, commit])
 
   return (
     <div style={{ height: HEIGHT }} className={styles.column}>
@@ -58,11 +60,8 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
 
       {state.isVerticalMergeLine && (
         <div
+          style={verticalNodeLineStyles}
           className={classNames(styles.line, styles.vertical)}
-          style={{
-            borderRight: `2px solid ${columnColour}`,
-            ...verticalNodeLineStyles
-          }}
         />
       )}
 

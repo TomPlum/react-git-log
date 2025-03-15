@@ -166,7 +166,7 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
 
     // Finally set the position
     positions.set(commitSha, [columnIndex, j])
-    ++columnIndex
+    columnIndex++
   }
 
   updateIntervalTree(entries)

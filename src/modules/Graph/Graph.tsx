@@ -3,10 +3,8 @@ import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { useGraphData } from 'modules/Graph/hooks/useGraphData'
-import { useGitContext } from 'modules/Visualiser/context'
 
 export const Graph = () => {
-  const { currentBranch, headCommit } = useGitContext()
   const { width, positions, edges, commits } = useGraphData()
 
   // console.log('graph positions', positions)

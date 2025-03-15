@@ -6,12 +6,14 @@ import { CSSProperties, useCallback } from 'react'
 import classNames from 'classnames'
 import { useGitContext } from 'modules/Visualiser/context'
 import { FadingDiv } from 'components/FadingDiv'
+import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 
 // TODO: Source high from a prop once exposed
 const HEIGHT = 40
 
 export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColumnProps) => {
   const { headCommit, selectedCommit, previewedCommit } = useGitContext()
+  const { selectCommitHandler } = useSelectCommit()
   const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity, hoverColour } = useTheme()
 
   const columnColour = getGraphColumnColour(index)
@@ -74,7 +76,13 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
   }, [columnColour, commit.hash, commit.isBranchTip, commit.parents.length, headCommit.hash, state.isNode])
 
   return (
-    <div className={styles.column} id={`graph_column_${index}_${commit.hash}`}>
+    <div
+      className={styles.column}
+      id={`graph_column_${index}_${commit.hash}`}
+      onMouseOut={() => selectCommitHandler.onMouseOut()}
+      onClick={() => selectCommitHandler.onClick(commit)}
+      onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
+    >
       {state.isNode && commit && (
         <CommitNode
           commit={commit}

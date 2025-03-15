@@ -50,8 +50,8 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
         <div
           className={styles.indexNode}
           style={{
-            border: `2px dashed ${columnColour}`,
-            backgroundColor: shiftAlphaChannel(columnColour, 0.15),
+            border: `2px dotted ${shiftAlphaChannel(columnColour, 0.5)}`,
+            backgroundColor: shiftAlphaChannel(columnColour, 0.05),
           }}
         />
       )}

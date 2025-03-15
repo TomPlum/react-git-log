@@ -176,8 +176,8 @@ export const GraphColumn = ({
         <svg width="100%" height={HEIGHT} viewBox={`0 0 100 ${HEIGHT}`} className={styles.curve}>
           <path
             d={`
-              M 0,${(HEIGHT / 2) + 3} 
-              C 50,${HEIGHT / 2} 50,${HEIGHT} 50,${HEIGHT + 20}
+              M 0,${(HEIGHT / 2) + 1} 
+              C 53,${HEIGHT / 2} 53,${HEIGHT} 50,${HEIGHT + 20}
             `}
             stroke={columnColour}
             fill="transparent"
@@ -190,8 +190,8 @@ export const GraphColumn = ({
         <svg width="100%" height={HEIGHT} viewBox={`0 0 100 ${HEIGHT}`} className={styles.curve}>
           <path
             d={`
-              M 0,${(HEIGHT / 2) + 3} 
-              C 50,${HEIGHT / 2} 50,0 50,-20
+              M 0,${(HEIGHT / 2) + 2} 
+              C 46,${HEIGHT / 2} 53,0 50,-50
             `}
             stroke={columnColour}
             fill="transparent"

@@ -3,8 +3,10 @@ import { CommitNode } from 'modules/Graph/components/CommitNode'
 import styles from './GraphColumn.module.scss'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { CSSProperties, useMemo } from 'react'
+import classNames from 'classnames'
 
-const SIZE = 40
+const WIDTH = 40
+const HEIGHT = 40
 
 export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
   const { getGraphColumnColour } = useTheme()
@@ -14,7 +16,7 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
   // console.log('isVerticalMergeLine', verticalMergeLine)
   // console.log('isCommitNode', commitNode)
 
-  const nodeLineStyles = useMemo<CSSProperties>(() => {
+  const verticalNodeLineStyles = useMemo<CSSProperties>(() => {
     if (commit.parents.length > 0) {
       return {
         height: '100%',
@@ -28,9 +30,9 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
     }
   }, [commit.parents.length])
 
-  if (state.isVerticalMergeLine && state.isStartNode) {
-    return (
-      <div style={{ width: SIZE, height: SIZE }} className={styles.column}>
+  return (
+    <div style={{ height: HEIGHT }} className={styles.column}>
+      {state.isNode && (
         <CommitNode
           commit={commit}
           hash={commit.hash}
@@ -38,47 +40,41 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
           parents={commit.parents}
           showCommitNodeHashes={false}
         />
+      )}
 
+      {state.isVerticalMergeLine && (
         <div
-          className={styles.line}
+          className={classNames(styles.line, styles.vertical)}
           style={{
             borderRight: `2px solid ${columnColour}`,
-            ...nodeLineStyles
+            ...verticalNodeLineStyles
           }}
         />
-      </div>
-    )
-  }
+      )}
 
-  if (state.isVerticalMergeLine) {
-    return (
-      <div style={{ width: SIZE, height: SIZE }} className={styles.column}>
+      {state.isHorizontalLine && (
         <div
-          className={styles.singularLine}
-          style={{ borderRight: `2px solid ${columnColour}` }}
+          style={{
+            borderTop: `2px solid ${columnColour}`,
+            width: index === 0 ? '50%' : '100%'
+        }}
+          className={classNames(styles.line, styles.horizontal)}
         />
-      </div>
-    )
-  }
+      )}
 
-  if (state.isStartNode) {
-    return (
-      <div style={{ width: SIZE, height: SIZE }} className={styles.column}>
-        <CommitNode
-          commit={commit}
-          hash={commit.hash}
-          colour={columnColour}
-          parents={commit.parents}
-          showCommitNodeHashes={false}
-        />
-      </div>
-    )
-  }
-
-  return (
-    <div
-      className={styles.column}
-      style={{ width: SIZE, height: SIZE }}
-    />
+      {state.isLeftDownCurve && (
+        <svg width="100%" height={HEIGHT} viewBox={`0 0 100 ${HEIGHT}`} className={styles.curve}>
+          <path
+            d={`
+              M 0,${HEIGHT / 2} 
+              C 50,${HEIGHT / 2} 50,${HEIGHT} 50,${HEIGHT}
+            `}
+            stroke={columnColour}
+            fill="transparent"
+            strokeWidth="2"
+          />
+        </svg>
+      )}
+    </div>
   )
 }

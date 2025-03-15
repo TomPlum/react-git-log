@@ -4,7 +4,7 @@ import styles from './GraphRow.module.scss'
 
 export const GraphRow = ({ id, commit, width, columns }: GraphRowProps) => {
   return (
-    <div className={styles.row} style={{ gridTemplateColumns: `repeat(${width}, 1fr)` }}>
+    <>
       {new Array(width).fill(0).map((_, index) => {
         return (
           <GraphColumn
@@ -15,6 +15,6 @@ export const GraphRow = ({ id, commit, width, columns }: GraphRowProps) => {
           />
         )
       })}
-    </div>
+    </>
   )
 }

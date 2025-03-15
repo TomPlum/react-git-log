@@ -3,10 +3,20 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100%;
 }
 
 .line {
   position: absolute;
+}
+
+.horizontal {
+  top: 50%;
+  right: 0;
+  height: 2px;
+}
+
+.vertical {
   left: calc(50% - 3px);
   width: 2px;
 }
@@ -17,4 +27,8 @@
   top: 0;
   width: 2px;
   height: 100%;
+}
+
+.curve {
+  position: absolute;
 }

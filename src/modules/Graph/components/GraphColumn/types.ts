@@ -22,7 +22,9 @@ export interface GraphColumnProps {
 }
 
 export interface GraphColumnState {
-  isStartNode: boolean
-  isTerminalNode: boolean
-  isVerticalMergeLine: boolean
+  isNode?: boolean
+  isHorizontalLine?: boolean
+  isLeftDownCurve?: boolean
+  isLeftUpCurve?: boolean
+  isVerticalMergeLine?: boolean
 }

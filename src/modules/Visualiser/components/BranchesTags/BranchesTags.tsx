@@ -5,6 +5,7 @@ import { BranchTag } from './BranchTag'
 import { GRAPH_LEFT_OFFSET } from 'modules/Visualiser/components/GitGraph'
 import { useGitContext } from 'modules/Visualiser/context'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useMemo } from 'react'
 
 /**
  * Accounts for the height of the
@@ -39,11 +40,34 @@ const prepareCommits = (commits: Commit[]) => {
 
 export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) => {
   const { getCommitColour } = useTheme()
-  const { previewedCommit, selectedCommit } = useGitContext()
+  const { previewedCommit, selectedCommit, headCommit } = useGitContext()
+
+  const preparedCommits = useMemo(() => {
+    // TODO: Reduce duplication of this index commit obj
+    const index: Commit = {
+      hash: 'index',
+      branch: headCommit.branch,
+      parents: [headCommit.hash],
+      authorDate: new Date().toString(),
+      message: 'Working tree index',
+      committerDate: new Date().toString(),
+      isBranchTip: false,
+      refs: 'index',
+      x: 0,
+      y: 0
+    }
+
+    const commitsWithIndex = [
+      index,
+      ...commits
+    ]
+
+    return prepareCommits(commitsWithIndex)
+  }, [commits, headCommit.branch, headCommit.hash])
 
   return (
     <div className={styles.container} style={{ padding: PADDING }}>
-      {prepareCommits(commits).map((commit, i) => {
+      {preparedCommits.map((commit, i) => {
         const shouldPreviewBranch = previewedCommit && commit.hash === previewedCommit.hash
         const selectedIsNotTip = selectedCommit && commit.hash === selectedCommit.hash
 

@@ -23,3 +23,4 @@ TODO:
 - Expose custom theme object off the Theme type
 - Selected row background colour is overlapping lines as nodeX spacing is too small by default
 - The first git tag line is not quite central with the node its connecting to
+- Index label and node colours look too black in dark mode after shifting their alpha channels

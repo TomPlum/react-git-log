@@ -1,13 +1,6 @@
 /**
  * Number of pixels to offset all nodes and
  * lines by so that the graph starts a little
- * from the top of the container.
- */
-export const GRAPH_TOP_OFFSET = 30
-
-/**
- * Number of pixels to offset all nodes and
- * lines by so that the graph starts a little
  * from the left of the container.
  */
 export const GRAPH_LEFT_OFFSET = 30

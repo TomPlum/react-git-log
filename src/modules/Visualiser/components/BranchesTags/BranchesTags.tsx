@@ -1,10 +1,9 @@
 import styles from './BranchesTags.module.scss'
 import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { BranchTag } from './BranchTag'
-import { GRAPH_LEFT_OFFSET } from 'modules/Visualiser/components/GitGraph'
 import { useGitContext } from 'modules/Visualiser/context'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
 /**
  * Accounts for the height of the
@@ -50,6 +49,19 @@ export const BranchesTags = () => {
     return prepareCommits(commitsWithIndex)
   }, [graphData.commits, indexCommit])
 
+  const tagLineWidth = useCallback((commit: Commit) => {
+    const graphContainerWidth = 400 // TODO: Source dynamically
+    const columnWidth = graphContainerWidth / graphData.graphWidth
+
+    if (commit.hash === 'index') {
+      return columnWidth / 2
+    }
+
+    const columnIndex = graphData.positions.get(commit.hash)![1]
+
+    return  (columnWidth * columnIndex) + (columnWidth / 2)
+  }, [graphData.graphWidth, graphData.positions])
+
   return (
     <div className={styles.container} style={{ padding: PADDING }}>
       {preparedCommits.map((commit, i) => {
@@ -71,8 +83,8 @@ export const BranchesTags = () => {
               key={`tag_${commit.hash}`}
               color={getCommitColour(commit)}
               height={i === 0 ? (ROW_HEIGHT - HEIGHT_OFFSET) : ROW_HEIGHT}
-              lineWidth={100 + GRAPH_LEFT_OFFSET}
-              lineRight={0 - PADDING - (10 * 100) - GRAPH_LEFT_OFFSET + 10}
+              lineWidth={tagLineWidth(commit)}
+              lineRight={-tagLineWidth(commit)}
             />
           )
         } else {

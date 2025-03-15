@@ -96,6 +96,7 @@ export const GitLog = ({ data }: GitLogProps) => {
         {logData.map((commit) => {
           const isMergeCommit = commit.parents.length > 1
           const tableDataStyle = {
+            opacity: commit.hash === 'index' ? 0.2 : 1,
             color: shiftAlphaChannel(textColour, isMergeCommit ? 0.4 : 1)
           }
 
@@ -116,7 +117,7 @@ export const GitLog = ({ data }: GitLogProps) => {
               </td>
 
               <td className={classNames(styles.td, styles.date)} style={tableDataStyle}>
-                {formatTimestamp(commit.committerDate)}
+                {commit.hash === 'index' ? '-' : formatTimestamp(commit.committerDate)}
               </td>
 
               <td

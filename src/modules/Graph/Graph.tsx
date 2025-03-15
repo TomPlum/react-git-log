@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
-import { useGraphData } from 'modules/Graph/hooks/useGraphData'
+import { useGraphData } from 'modules/GraphData'
 
 export const Graph = () => {
   const { width, positions, edges, commits } = useGraphData()

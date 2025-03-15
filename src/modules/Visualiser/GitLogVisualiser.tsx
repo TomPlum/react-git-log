@@ -28,7 +28,7 @@ export const GitLogVisualiser = ({
   const { shiftAlphaChannel } = useTheme()
 
   const { commits } = useMemo(() => {
-    return buildGraph(entries, ROW_HEIGHT)
+    return buildGraph(entries, ROW_HEIGHT) // TODO: make redundant, replace useGraphData here
   }, [entries])
 
   const themeColours = useMemo<string[]>(() => {
@@ -63,7 +63,7 @@ export const GitLogVisualiser = ({
     branch: headCommit.branch,
     parents: [headCommit.hash],
     authorDate: new Date().toString(),
-    message: 'Working tree index',
+    message: '// Work in-progress...',
     committerDate: new Date().toString(),
     isBranchTip: false,
     refs: 'index',

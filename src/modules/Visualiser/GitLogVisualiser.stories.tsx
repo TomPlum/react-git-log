@@ -5,6 +5,7 @@ import { Commit, GitLogEntry, GitLogVisualiserProps } from './types'
 import { GitLogVisualiser } from './GitLogVisualiser'
 import { lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
 import dayjs from 'dayjs'
+import styles from './GitLogVisualiser.stories.module.scss'
 
 const fetchEntries = async (): Promise<GitLogEntry[]> => {
   const response = await fetch('/git-log-all.txt')
@@ -80,7 +81,8 @@ export const Default: Story = {
         classes={{
           containerStyles: {
             background: args.theme === 'dark' ? '#1a1a1a' : 'white'
-          }
+          },
+          logTableClass: styles.table
         }}
       />
     )

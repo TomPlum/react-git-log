@@ -107,25 +107,44 @@ export interface GitLogVisualiserProps {
    * CSS Classes to pass to various underlying
    * elements for custom styling.
    */
-  classes?: {
-    /**
-     * A class name passed to the wrapping
-     * container (div) around the visualiser.
-     *
-     * This includes the branches/tags, the
-     * graph and the git log table.
-     */
-    containerClass?: string
+  classes?: GitVisualiserStylingProps
+}
 
-    /**
-     * A React CSS styling object passed to
-     * the wrapping container (div) around
-     * the visualiser.
-     *
-     * This includes the branches/tags, the
-     * graph and the git log table.
-     */
-    containerStyles?: CSSProperties
+export interface GitVisualiserStylingProps {
+  /**
+   * A class name passed to the wrapping
+   * container (div) around the visualiser.
+   *
+   * This includes the branches/tags, the
+   * graph and the git log table.
+   */
+  containerClass?: string
+
+  /**
+   * A React CSS styling object passed to
+   * the wrapping container (div) around
+   * the visualiser.
+   *
+   * This includes the branches/tags, the
+   * graph and the git log table.
+   */
+  containerStyles?: CSSProperties
+
+  /**
+   * A class name passed to the table
+   * element for the git log.
+   */
+  logTableClass?: string
+
+  /**
+   * A React CSS styling object passed to
+   * the table element for the git log.
+   */
+  logTableStyles?: {
+    table?: CSSProperties
+    thead?: CSSProperties
+    tr?: CSSProperties
+    td?: CSSProperties
   }
 }
 

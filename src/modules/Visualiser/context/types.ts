@@ -1,5 +1,4 @@
-import { Commit } from 'modules/Visualiser'
-import { CSSProperties } from 'react'
+import { Commit, GitVisualiserStylingProps } from 'modules/Visualiser'
 import { Theme } from 'modules/Visualiser/hooks/useTheme'
 
 export interface GitContextBag {
@@ -118,26 +117,7 @@ export interface GitContextBag {
    * CSS Classes to pass to various underlying
    * elements for custom styling.
    */
-  classes?: {
-    /**
-     * A class name passed to the wrapping
-     * container (div) around the visualiser.
-     *
-     * This includes the branches/tags, the
-     * graph and the git log table.
-     */
-    containerClass?: string
-
-    /**
-     * A React CSS styling object passed to
-     * the wrapping container (div) around
-     * the visualiser.
-     *
-     * This includes the branches/tags, the
-     * graph and the git log table.
-     */
-    containerStyles?: CSSProperties
-  }
+  classes?: GitVisualiserStylingProps
 
   /**
    * The variant of the default colour

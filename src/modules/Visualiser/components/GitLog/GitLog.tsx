@@ -31,6 +31,7 @@ export const GitLog = ({ data }: GitLogProps) => {
     timestampFormat,
     showTableHeaders,
     headCommit,
+    classes
   } = useGitContext()
 
   const { selectCommitHandler } = useSelectCommit()
@@ -86,10 +87,13 @@ export const GitLog = ({ data }: GitLogProps) => {
   }, [data, headCommit.branch, headCommit.hash])
 
   return (
-    <table className={styles.table}>
+    <table
+      style={classes?.logTableStyles?.table}
+      className={classNames(styles.table, classes?.logTableClass)}
+    >
       {showTableHeaders && (
-        <thead>
-          <tr>
+        <thead style={classes?.logTableStyles?.thead}>
+          <tr style={classes?.logTableStyles?.tr}>
             <th style={{ color: textColour }}>
               Commit message
             </th>
@@ -112,9 +116,9 @@ export const GitLog = ({ data }: GitLogProps) => {
             <tr
               key={commit.hash}
               className={styles.row}
-              style={{ height: ROW_HEIGHT }}
               onMouseOut={selectCommitHandler.onMouseOut}
               onClick={() => selectCommitHandler.onClick(commit)}
+              style={{ height: ROW_HEIGHT, ...classes?.logTableStyles?.tr }}
               onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
             >
               <td

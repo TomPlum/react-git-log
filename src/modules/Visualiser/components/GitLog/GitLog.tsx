@@ -30,8 +30,8 @@ export const GitLog = ({ data }: GitLogProps) => {
     previewedCommit,
     timestampFormat,
     showTableHeaders,
-    headCommit,
-    classes
+    classes,
+    indexCommit
   } = useGitContext()
 
   const { selectCommitHandler } = useSelectCommit()
@@ -67,24 +67,11 @@ export const GitLog = ({ data }: GitLogProps) => {
   }, [timestampFormat])
 
   const logData = useMemo<Commit[]>(() => {
-    const index: Commit = {
-      hash: 'index',
-      branch: headCommit.branch,
-      parents: [headCommit.hash],
-      authorDate: new Date().toString(),
-      message: 'Working tree index',
-      committerDate: new Date().toString(),
-      isBranchTip: false,
-      refs: 'index',
-      x: 0,
-      y: 0
-    }
-
     return [
-      index,
+      indexCommit,
       ...data
     ]
-  }, [data, headCommit.branch, headCommit.hash])
+  }, [data, indexCommit])
 
   return (
     <table

@@ -40,38 +40,32 @@ const prepareCommits = (commits: Commit[]) => {
 
 export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) => {
   const { getCommitColour } = useTheme()
-  const { previewedCommit, selectedCommit, headCommit } = useGitContext()
+  const { previewedCommit, selectedCommit, indexCommit } = useGitContext()
 
   const preparedCommits = useMemo(() => {
-    // TODO: Reduce duplication of this index commit obj
-    const index: Commit = {
-      hash: 'index',
-      branch: headCommit.branch,
-      parents: [headCommit.hash],
-      authorDate: new Date().toString(),
-      message: 'Working tree index',
-      committerDate: new Date().toString(),
-      isBranchTip: false,
-      refs: 'index',
-      x: 0,
-      y: 0
-    }
 
     const commitsWithIndex = [
-      index,
+      indexCommit,
       ...commits
     ]
 
     return prepareCommits(commitsWithIndex)
-  }, [commits, headCommit.branch, headCommit.hash])
+  }, [commits, indexCommit])
 
   return (
     <div className={styles.container} style={{ padding: PADDING }}>
       {preparedCommits.map((commit, i) => {
         const shouldPreviewBranch = previewedCommit && commit.hash === previewedCommit.hash
         const selectedIsNotTip = selectedCommit && commit.hash === selectedCommit.hash
+        const isIndexCommit = commit.hash === indexCommit.hash
 
-        if (commit.isBranchTip || shouldPreviewBranch || selectedIsNotTip || commit.isMostRecentTagInstance) {
+        const showRenderBranchTag = commit.isBranchTip
+          || shouldPreviewBranch
+          || selectedIsNotTip
+          || commit.isMostRecentTagInstance
+          || isIndexCommit
+
+        if (showRenderBranchTag) {
           return (
             <BranchTag
               commit={commit}

@@ -23,6 +23,14 @@ export interface GitContextBag {
   headCommit: Commit
 
   /**
+   * A pseudo-commit that represents
+   * the Git index. Most details
+   * here are faked so that it can
+   * be rendered nicely on the graph.
+   */
+  indexCommit: Commit
+
+  /**
    * The currently selected commit that
    * is highlighted in the log.
    */

@@ -54,6 +54,23 @@ export const GitLogVisualiser = ({
     onSelectCommit?.(commit)
   }, [onSelectCommit])
 
+  const headCommit = useMemo<Commit>(() => {
+    return commits.find(it => it.branch.includes(currentBranch))!
+  }, [commits, currentBranch])
+
+  const indexCommit = useMemo<Commit>(() => ({
+    hash: 'index',
+    branch: headCommit.branch,
+    parents: [headCommit.hash],
+    authorDate: new Date().toString(),
+    message: 'Working tree index',
+    committerDate: new Date().toString(),
+    isBranchTip: false,
+    refs: 'index',
+    x: 0,
+    y: 0
+  }), [headCommit.branch, headCommit.hash])
+
   const value = useMemo<GitContextBag>(() => ({
     colours: themeColours,
     showGitLog,
@@ -73,7 +90,8 @@ export const GitLogVisualiser = ({
     graphWidth,
     commits,
     currentBranch,
-    headCommit: commits.find(it => it.branch.includes(currentBranch))!
+    headCommit,
+    indexCommit
   }), [
     showBranchesTags,
     showCommitNodeHashes,
@@ -91,7 +109,9 @@ export const GitLogVisualiser = ({
     showTableHeaders,
     graphWidth,
     commits,
-    currentBranch
+    currentBranch,
+    headCommit,
+    indexCommit
   ])
   
   return (

@@ -88,7 +88,7 @@ export const Graph = () => {
 
               if (targetRow === rowEnd) {
                 // Add the curved line into the column that we're starting
-                // from (the commit nodes), and raw to the left towards our
+                // from (the commit nodes), and draw to the left towards our
                 // target node.
                 columnState[colStart] = {
                   ...columnState[colStart],
@@ -103,6 +103,10 @@ export const Graph = () => {
                     isHorizontalLine: true,
                     mergeSourceNodeColumnIndex: colStart
                   }
+                }
+
+                columnState[colEnd] = {
+                  ...columnState[colEnd]
                 }
               }
             } else {
@@ -144,7 +148,8 @@ export const Graph = () => {
 
     // Add the vertical branch lines in from the current branches
     // HEAD commit up to the index pseudo commit node.
-    for (let rowIndex = 0; rowIndex <= positions.get(headCommit.hash)![0]; rowIndex++) {
+    const headCommitRowIndex = positions.get(headCommit.hash)![0]
+    for (let rowIndex = 0; rowIndex <= headCommitRowIndex; rowIndex++) {
       const columnState = rowToColumnState.get(rowIndex) ?? getEmptyColumnState()
 
       columnState[0] = {

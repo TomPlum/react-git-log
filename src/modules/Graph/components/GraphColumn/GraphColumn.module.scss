@@ -2,4 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.line {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  width: 2px;
+  height: 50%;
+}
+
+.singularLine {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  width: 2px;
+  height: 100%;
 }

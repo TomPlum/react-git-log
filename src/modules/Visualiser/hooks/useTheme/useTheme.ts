@@ -63,6 +63,16 @@ export const useTheme = (): ThemeColours => {
     return colour
   }, [colours])
 
+  const getGraphColumnColour = useCallback((columnIndex: number) => {
+    const colour = colours[columnIndex]
+
+    if (!colour) {
+      return colours[columnIndex % colours.length]
+    }
+
+    return colour
+  }, [colours])
+
   return {
     hoverColour,
     textColour,
@@ -70,6 +80,7 @@ export const useTheme = (): ThemeColours => {
     reduceOpacity,
     getCommitColour,
     shiftAlphaChannel,
+    getGraphColumnColour,
     hoverTransitionDuration: 0.3
   }
 }

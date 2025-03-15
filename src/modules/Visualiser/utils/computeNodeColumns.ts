@@ -87,7 +87,6 @@ export const computeNodePositions = (entries: Commit[]) => {
   }
 
   for (const commit of entries) {
-    console.log(`Positions at commit index ${i}`, positions)
     let j = -1
 
     const commitSha = commit.hash

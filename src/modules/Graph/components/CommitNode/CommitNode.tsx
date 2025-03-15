@@ -7,14 +7,12 @@ import { useGitContext } from 'modules/Visualiser/context'
 import { CommitNodeTooltip } from './CommitNodeTooltip'
 import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 
-export const CommitNode = ({ hash, parents, commit, showCommitNodeHashes }: CommitNodeProps) => {
+export const CommitNode = ({ hash, parents, commit, colour, showCommitNodeHashes }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { showCommitNodeTooltips } = useGitContext()
-  const { textColour, shiftAlphaChannel, tooltipBackground, getCommitColour } = useTheme()
+  const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
-
-  const nodeColour = getCommitColour(commit)
 
   const handleMouseOver = useCallback(() => {
     setShowTooltip(true)
@@ -43,7 +41,7 @@ export const CommitNode = ({ hash, parents, commit, showCommitNodeHashes }: Comm
           <CommitNodeTooltip
             hash={hash}
             parents={parents}
-            color={nodeColour}
+            color={colour}
             tip={commit.isBranchTip}
           />
         </ArrowContainer>
@@ -56,8 +54,8 @@ export const CommitNode = ({ hash, parents, commit, showCommitNodeHashes }: Comm
         className={styles.commitNode}
         onClick={() => selectCommitHandler.onClick(commit)}
         style={{
-          backgroundColor: shiftAlphaChannel(nodeColour, 0.15),
-          borderColor: nodeColour,
+          backgroundColor: shiftAlphaChannel(colour, 0.15),
+          borderColor: colour,
         }}
       >
         {showCommitNodeHashes && (

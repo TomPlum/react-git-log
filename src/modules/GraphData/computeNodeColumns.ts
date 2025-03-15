@@ -12,7 +12,7 @@ export enum EdgeType {
 export type Edge = [[number, number], [number, number], EdgeType];
 
 export const computeNodePositions = (
-  entries: Commit[],
+  commits: Commit[],
   currentBranch: string,
   children: Map<string, string[]>,
   parents: Map<string, string[]>
@@ -22,10 +22,10 @@ export const computeNodePositions = (
   const branches: (string | null)[] = ['index']
   let edges = new IntervalTree<Edge>()
 
-  const updateIntervalTree = (entries: Commit[]) => {
+  const updateIntervalTree = (commits: Commit[]) => {
     edges = new IntervalTree<Edge>()
     for (const [commitSha, [i0, j0]] of positions) {
-      const parents = entries.find(it => it.hash === commitSha)!.parents
+      const parents = commits.find(it => it.hash === commitSha)!.parents
       for (const [i, parentSha] of parents.entries()) {
         const [i1, j1] = positions.get(parentSha)!
         const data: Edge = [[i0, j0], [i1, j1], i > 0 ? EdgeType.Merge : EdgeType.Normal]
@@ -34,7 +34,7 @@ export const computeNodePositions = (
     }
   }
 
-  const shaToIndex = new Map(entries.map((entry, i) => [entry.hash, i] as [string, number]))
+  const shaToIndex = new Map(commits.map((entry, i) => [entry.hash, i] as [string, number]))
 
   const insertCommit = (commitSha: string, j: number, forbiddenIndices: Set<number>) => {
     // Try to insert as close as possible to i
@@ -55,7 +55,7 @@ export const computeNodePositions = (
     return branches.length - 1
   }
 
-  const headSha = entries.find(commit => commit.branch.includes(currentBranch))!.hash
+  const headSha = commits.find(commit => commit.branch.includes(currentBranch))!.hash
   let rowIndex = 1
 
   const activeNodes = new Map<string, Set<number>>()
@@ -63,7 +63,7 @@ export const computeNodePositions = (
   activeNodes.set('index', new Set<number>())
   activeNodesQueue.add([shaToIndex.get(headSha)!, 'index'])
 
-  for (const commit of entries) {
+  for (const commit of commits) {
     let columnIndex = -1
 
     const commitSha = commit.hash
@@ -129,7 +129,7 @@ export const computeNodePositions = (
       jToAdd.forEach((j) => activeNode.add(j))
     }
     activeNodes.set(commitSha, new Set<number>())
-    const iRemove = Math.max(...entries.find(it => it.hash === commitSha)!.parents!.map((parentSha) => shaToIndex.get(parentSha)!))
+    const iRemove = Math.max(...commits.find(it => it.hash === commitSha)!.parents!.map((parentSha) => shaToIndex.get(parentSha)!))
     activeNodesQueue.add([iRemove, commitSha])
 
     // Remove children from active branches
@@ -149,7 +149,7 @@ export const computeNodePositions = (
     rowIndex++
   }
 
-  updateIntervalTree(entries)
+  updateIntervalTree(commits)
 
   return {
     positions,

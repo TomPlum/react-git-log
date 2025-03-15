@@ -16,7 +16,7 @@ const meta = {
   title: 'Git Log/GitLogVisualiser',
   component: GitLogVisualiser,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'padded'
   },
   args: {
     showGitLog: true,

@@ -17,8 +17,7 @@ export const GitGraph = () => {
 
   const { textColour } = useTheme()
 
-  // TODO: Re-integrate resizing with the new Graph component
-  const { width, ref } = useResize()
+  const { width, ref, startResizing } = useResize()
 
   return (
     <div
@@ -45,6 +44,11 @@ export const GitGraph = () => {
         )}
 
         <Graph />
+
+        <div
+          onMouseDown={startResizing}
+          className={styles.dragHandle}
+        />
       </div>
 
       {showGitLog && (

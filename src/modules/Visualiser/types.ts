@@ -9,6 +9,12 @@ export interface GitLogVisualiserProps {
   entries: GitLogEntry[]
 
   /**
+   * The name of the branch that is
+   * currently checked out.
+   */
+  currentBranch: string
+
+  /**
    * An array of colours to use for
    * the branches.
    */

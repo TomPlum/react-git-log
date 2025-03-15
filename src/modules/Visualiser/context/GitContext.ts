@@ -7,6 +7,7 @@ export const GitContext = createContext<GitContextBag>({
   colours: darkThemeColors,
   showCommitNodeHashes: false,
   commits: [],
+  currentBranch: 'master',
   showGitLog: true,
   showBranchesTags: true,
   theme: 'light',

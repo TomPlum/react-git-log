@@ -34,7 +34,7 @@ export const computeRelationships = (entries: Commit[]) => {
   return { parents, children, commits }
 }
 
-export const computeNodePositions = (entries: Commit[]) => {
+export const computeNodePositions = (entries: Commit[], currentBranch: string) => {
   const positions: Map<string, Node> = new Map<string, Node>()
   const { parents, children, commits } = computeRelationships(entries)
 
@@ -76,7 +76,7 @@ export const computeNodePositions = (entries: Commit[]) => {
   }
 
   positions.clear()
-  const headSha = entries[0].hash
+  const headSha = entries.find(commit => commit.branch.includes(currentBranch))!.hash
   let i = 1
 
   const activeNodes = new Map<string, Set<number>>()

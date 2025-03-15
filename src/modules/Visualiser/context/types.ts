@@ -12,6 +12,12 @@ export interface GitContextBag {
   commits: Commit[]
 
   /**
+   * The name of the branch that is
+   * currently checked out.
+   */
+  currentBranch: string
+
+  /**
    * The currently selected commit that
    * is highlighted in the log.
    */

@@ -1,18 +1,11 @@
 import { useMemo } from 'react'
-import { useGitContext } from 'modules/Visualiser/context'
-import { computeNodePositions, } from 'modules/Visualiser/utils/computeNodeColumns'
 import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
-import { temporalTopologicalSort } from 'modules/Visualiser/utils/temporalTopologicalSort'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
+import { useGraphData } from 'modules/Graph/hooks/useGraphData'
 
 export const Graph = () => {
-  const { commits: commitData } = useGitContext()
-
-  const { width, positions, edges, commits } = useMemo(() => {
-    const temporallySorted = temporalTopologicalSort(commitData)
-    return computeNodePositions(temporallySorted)
-  }, [commitData])
+  const { width, positions, edges, commits } = useGraphData()
 
   // console.log('graph positions', positions)
   // console.log('graph width', width)

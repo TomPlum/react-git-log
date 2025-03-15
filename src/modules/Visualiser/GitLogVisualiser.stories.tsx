@@ -24,6 +24,7 @@ const meta = {
     showCommitNodeTooltips: false,
     showTableHeaders: false,
     entries: [],
+    currentBranch: 'release',
     colours: lightThemeColors,
     theme: 'light',
     onSelectCommit: (commit?: Commit) => {

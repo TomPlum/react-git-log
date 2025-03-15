@@ -19,7 +19,8 @@ export const GitLogVisualiser = ({
    classes,
    timestampFormat = 'YYYY-MM-DD HH:mm:ss',
    onSelectCommit,
-   githubRepositoryUrl
+   githubRepositoryUrl,
+   currentBranch
 }: GitLogVisualiserProps) => {
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
@@ -70,7 +71,8 @@ export const GitLogVisualiser = ({
     showCommitNodeTooltips,
     showTableHeaders,
     graphWidth,
-    commits
+    commits,
+    currentBranch
   }), [
     showBranchesTags,
     showCommitNodeHashes,
@@ -87,7 +89,8 @@ export const GitLogVisualiser = ({
     showCommitNodeTooltips,
     showTableHeaders,
     graphWidth,
-    commits
+    commits,
+    currentBranch
   ])
   
   return (

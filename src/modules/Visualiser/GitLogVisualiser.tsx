@@ -72,19 +72,27 @@ export const GitLogVisualiser = ({
     return graphData.commits.find(it => it.branch.includes(currentBranch))!
   }, [currentBranch, graphData.commits])
 
-  const indexCommit = useMemo<Commit>(() => ({
-    hash: 'index',
-    branch: headCommit.branch,
-    parents: [headCommit.hash],
-    children: [],
-    authorDate: new Date().toString(),
-    message: '// Work in-progress...',
-    committerDate: new Date().toString(),
-    isBranchTip: false,
-    refs: 'index',
-    x: 0,
-    y: 0
-  }), [headCommit.branch, headCommit.hash])
+  const indexCommit = useMemo<Commit>(() => {
+    const repositorySegments = githubRepositoryUrl?.split('/')
+    const slashes = repositorySegments?.length ?? 0
+    const lastTwoSegments = repositorySegments?.slice(slashes - 2, slashes)
+    const repositoryName = lastTwoSegments?.join('/')
+    const withRepoMessage = ` in ${repositoryName}...`
+
+    return ({
+      hash: 'index',
+      branch: headCommit.branch,
+      parents: [headCommit.hash],
+      children: [],
+      authorDate: new Date().toString(),
+      message: `// Work in-progress${githubRepositoryUrl ? withRepoMessage : '...'}`,
+      committerDate: new Date().toString(),
+      isBranchTip: false,
+      refs: 'index',
+      x: 0,
+      y: 0
+    })
+  }, [githubRepositoryUrl, headCommit.branch, headCommit.hash])
 
   const value = useMemo<GitContextBag>(() => ({
     colours: themeColours,

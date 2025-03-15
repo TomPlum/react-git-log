@@ -27,8 +27,6 @@ export const Graph = () => {
       // I.e. drawing a straight merge line between them.
       if (colStart === colEnd) {
         for (let targetRow = rowStart - 1; targetRow <= rowEnd - 1; targetRow++) {
-          const currentRowNodeColumn = commitNodePositions[targetRow][1]
-
           const newColumnState: GraphColumnState[] = new Array(width).fill({
             isVerticalMergeLine: false,
             // isStartNode: currentRowNodeColumn === colStart,
@@ -71,13 +69,12 @@ export const Graph = () => {
 
   return (
     <div className={styles.graph}>
-      {Array.from(positions.entries()).map(([hash, location], index) => (
+      {Array.from(commits.values()).map((commit, index) => (
         <GraphRow
           id={index}
-          key={hash}
+          key={commit.hash}
           width={width}
-          commit={commits.get(hash)!}
-          commitNodeColumn={location[1]}
+          commit={commit}
           columns={columnData.get(index + 1) ?? new Array(width).fill({
             isVerticalMergeLine: false,
             isStartNode:false,

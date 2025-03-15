@@ -5,13 +5,14 @@ import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { CSSProperties, useCallback } from 'react'
 import classNames from 'classnames'
 import { useGitContext } from 'modules/Visualiser/context'
+import { FadingDiv } from 'components/FadingDiv'
 
 // TODO: Source high from a prop once exposed
 const HEIGHT = 40
 
 export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColumnProps) => {
-  const { headCommit, selectedCommit } = useGitContext()
-  const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity } = useTheme()
+  const { headCommit, selectedCommit, previewedCommit } = useGitContext()
+  const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity, hoverColour } = useTheme()
 
   const columnColour = getGraphColumnColour(index)
 
@@ -111,17 +112,27 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
         />
       )}
 
-      {index > commitNodeIndex && selectedCommit?.hash === commit.hash && (
+      {selectedCommit?.hash === commit.hash && (
         <div
-          className={styles.selectedBackground}
-          style={{ background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15) }}
+          className={classNames(
+            { [styles.selectedBackground]: index > commitNodeIndex },
+            { [styles.selectedBackgroundBehindNode]: index === commitNodeIndex }
+          )}
+          style={{
+            background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
+          }}
         />
       )}
 
-      {index === commitNodeIndex && selectedCommit?.hash === commit.hash && (
-        <div
-          className={styles.selectedBackgroundBehindNode}
-          style={{ background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15) }}
+      {previewedCommit?.hash === commit.hash && (
+        <FadingDiv
+          className={classNames(
+            { [styles.selectedBackground]: index > commitNodeIndex },
+            { [styles.selectedBackgroundBehindNode]: index === commitNodeIndex }
+          )}
+          style={{
+            background: hoverColour
+          }}
         />
       )}
 

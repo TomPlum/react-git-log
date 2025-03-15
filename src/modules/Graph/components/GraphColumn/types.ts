@@ -19,6 +19,8 @@ export interface GraphColumnProps {
    * in this column.
    */
   state: GraphColumnState
+
+  commitNodeIndex: number
 }
 
 export interface GraphColumnState {

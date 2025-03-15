@@ -10,6 +10,7 @@ export const GraphRow = ({ commit, width, columns }: GraphRowProps) => {
             index={index}
             commit={commit}
             state={columns[index]}
+            commitNodeIndex={columns.findIndex(col => col.isNode)!}
             key={`row_${commit ? commit.hash : 'index'}_column_${index}}`}
           />
         )

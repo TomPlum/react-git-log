@@ -9,9 +9,9 @@ import { useGitContext } from 'modules/Visualiser/context'
 // TODO: Source high from a prop once exposed
 const HEIGHT = 40
 
-export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
-  const { headCommit } = useGitContext()
-  const { getGraphColumnColour, shiftAlphaChannel } = useTheme()
+export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColumnProps) => {
+  const { headCommit, selectedCommit } = useGitContext()
+  const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity } = useTheme()
 
   const columnColour = getGraphColumnColour(index)
 
@@ -108,6 +108,20 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
             width: index === 0 ? '50%' : '100%'
         }}
           className={classNames(styles.line, styles.horizontal)}
+        />
+      )}
+
+      {index > commitNodeIndex && selectedCommit?.hash === commit.hash && (
+        <div
+          className={styles.selectedBackground}
+          style={{ background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15) }}
+        />
+      )}
+
+      {index === commitNodeIndex && selectedCommit?.hash === commit.hash && (
+        <div
+          className={styles.selectedBackgroundBehindNode}
+          style={{ background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15) }}
         />
       )}
 

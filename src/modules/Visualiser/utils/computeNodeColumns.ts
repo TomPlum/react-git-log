@@ -38,7 +38,6 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
   const positions: Map<string, Node> = new Map<string, Node>()
   const { parents, children, commits } = computeRelationships(entries)
 
-  let width = 0
   const branches: (string | null)[] = ['index']
   let edges = new IntervalTree<Edge>()
 
@@ -172,12 +171,11 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
     ++i
   }
 
-  width = branches.length
   updateIntervalTree(entries)
 
   return {
     positions,
-    width,
+    width: branches.length,
     edges,
     commits
   }

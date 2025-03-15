@@ -16,7 +16,7 @@ const meta = {
   title: 'Git Log/GitLogVisualiser',
   component: GitLogVisualiser,
   parameters: {
-    layout: 'padded'
+    layout: 'fullscreen',
   },
   args: {
     showGitLog: true,
@@ -74,17 +74,21 @@ export const Default: Story = {
       return <div>Loading...</div>
     }
 
+    const backgroundColour = args.theme === 'dark' ? '#1a1a1a' : 'white'
+
     return (
-      <GitLogVisualiser
-        {...args}
-        entries={entries}
-        classes={{
-          containerStyles: {
-            background: args.theme === 'dark' ? '#1a1a1a' : 'white'
-          },
-          logTableClass: styles.table
-        }}
-      />
+      <div style={{ padding: 20, background: backgroundColour }}>
+        <GitLogVisualiser
+          {...args}
+          entries={entries}
+          classes={{
+            containerStyles: {
+              background: backgroundColour
+            },
+            logTableClass: styles.table
+          }}
+        />
+      </div>
     )
   }
 }

@@ -35,7 +35,8 @@ export const Graph = () => {
         }
       } else {
         // Are we connecting nodes in different columns?
-        // I.e. drawing a line that ultimately curves into another column.
+        // I.e. drawing a line that ultimately curves into another column
+        // to represent a new branch being created or a branch being merged.
         for (let targetRow = rowStart - 1; targetRow <= rowEnd - 1; targetRow++) {
           const newColumnState: GraphColumnState[] = new Array<GraphColumnState>(graphWidth).fill({})
 

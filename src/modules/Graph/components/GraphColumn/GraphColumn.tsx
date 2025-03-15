@@ -11,9 +11,14 @@ import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 // TODO: Source high from a prop once exposed
 const HEIGHT = 40
 
-export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColumnProps) => {
-  const { headCommit, selectedCommit, previewedCommit } = useGitContext()
+export const GraphColumn = ({
+  index,
+  state,
+  commit,
+  commitNodeIndex
+}: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
+  const { headCommit, selectedCommit, previewedCommit } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity, hoverColour } = useTheme()
 
   const columnColour = getGraphColumnColour(index)
@@ -101,14 +106,14 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
         />
       )}
 
-      {state.isVerticalMergeLine && (
+      {state.isVerticalLine && (
         <div
           style={verticalNodeLineStyles(false)}
           className={classNames(styles.line, styles.vertical)}
         />
       )}
 
-      {state.isVerticalMergeLine && commit.hash === headCommit.hash && (
+      {state.isVerticalLine && commit.hash === headCommit.hash && (
         <>
           <div
             style={verticalNodeLineStyles(false)}
@@ -136,7 +141,7 @@ export const GraphColumn = ({ index, state, commit, commitNodeIndex }: GraphColu
       {state.isHorizontalLine && (
         <div
           style={{
-            borderTop: `2px solid ${columnColour}`,
+            borderTop: `2px solid ${getGraphColumnColour(state.mergeSourceNodeColumnIndex ?? commitNodeIndex)}`,
             width: index === 0 ? '50%' : '100%'
         }}
           className={classNames(styles.line, styles.horizontal)}

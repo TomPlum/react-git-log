@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
@@ -7,6 +7,10 @@ import { IndexPseudoNode } from 'modules/Graph/components/IndexPseudoNode'
 
 export const Graph = () => {
   const { graphData: { graphWidth, positions, edges, commits }, headCommit } = useGitContext()
+
+  const getEmptyColumnState = useCallback(() => {
+    return new Array<GraphColumnState>(graphWidth).fill({})
+  }, [graphWidth])
 
   const columnData = useMemo(() => {
     // Maps the one-based row index to an array of column state data
@@ -30,7 +34,7 @@ export const Graph = () => {
 
           columnState[colStart] = {
             ...columnState[colStart],
-            isVerticalMergeLine: true
+            isVerticalLine: true
           }
 
           rowToColumnState.set(targetRow, columnState)
@@ -40,8 +44,7 @@ export const Graph = () => {
         // I.e. drawing a line that ultimately curves into another column
         // to represent a new branch being created or a branch being merged.
         for (let targetRow = rowStart; targetRow <= rowEnd; targetRow++) {
-          const emptyColumnState: GraphColumnState[] = new Array<GraphColumnState>(graphWidth).fill({})
-          const columnState = rowToColumnState.get(targetRow) ?? emptyColumnState
+          const columnState = rowToColumnState.get(targetRow) ?? getEmptyColumnState()
 
           // We're drawing a merge line from the bottom of
           // one node, down, then to the left.
@@ -54,7 +57,7 @@ export const Graph = () => {
               // out the bottom of the commit node.
               columnState[colStart] = {
                 ...columnState[colStart],
-                isVerticalMergeLine: true
+                isVerticalLine: true
               }
             } else {
               // Horizontal straight lines in all but the target column
@@ -62,7 +65,8 @@ export const Graph = () => {
               for (let columnIndex = colStart; columnIndex < colEnd; columnIndex++) {
                 columnState[columnIndex] = {
                   ...columnState[columnIndex],
-                  isHorizontalLine: true
+                  isHorizontalLine: true,
+                  mergeSourceNodeColumnIndex: colEnd
                 }
               }
 
@@ -80,7 +84,7 @@ export const Graph = () => {
               if (targetRow !== rowStart && targetRow != rowEnd) {
                 columnState[colStart] = {
                   ...columnState[colStart],
-                  isVerticalMergeLine: true
+                  isVerticalLine: true
                 }
               }
 
@@ -98,7 +102,8 @@ export const Graph = () => {
                 for (let columnIndex = colStart - 1; columnIndex >= colEnd; columnIndex--) {
                   columnState[columnIndex] = {
                     ...columnState[columnIndex],
-                    isHorizontalLine: true
+                    isHorizontalLine: true,
+                    mergeSourceNodeColumnIndex: colStart
                   }
                 }
               }
@@ -107,7 +112,7 @@ export const Graph = () => {
               // then draw vertical lines down to the end node
               columnState[colEnd] = {
                 ...columnState[colEnd],
-                isVerticalMergeLine: true
+                isVerticalLine: true
               }
             }
           }
@@ -130,7 +135,7 @@ export const Graph = () => {
     // Add the commit nodes into their respective rows and columns
     commitNodePositions.forEach((position) => {
       const [row, column] = position
-      const columnState = rowToColumnState.get(row) ?? new Array<GraphColumnState>(graphWidth).fill({})
+      const columnState = rowToColumnState.get(row) ?? getEmptyColumnState()
 
       columnState[column] = {
         ...columnState[column],
@@ -143,7 +148,7 @@ export const Graph = () => {
     // Add the vertical branch lines in from the current branches
     // HEAD commit up to the index pseudo commit node.
     for (let rowIndex = 0; rowIndex <= positions.get(headCommit.hash)![0]; rowIndex++) {
-      const columnState = rowToColumnState.get(rowIndex) ?? new Array<GraphColumnState>(graphWidth).fill({})
+      const columnState = rowToColumnState.get(rowIndex) ?? getEmptyColumnState()
 
       columnState[0] = {
         ...columnState[0],
@@ -152,7 +157,7 @@ export const Graph = () => {
     }
 
     return rowToColumnState
-  }, [positions, edges, commits.length, graphWidth, headCommit.hash])
+  }, [positions, edges, commits.length, graphWidth, getEmptyColumnState, headCommit.hash])
 
   return (
     <div
@@ -172,7 +177,7 @@ export const Graph = () => {
           commit={commit}
           key={commit.hash}
           width={graphWidth}
-          columns={columnData.get(index + 1) ?? new Array(graphWidth).fill({})}
+          columns={columnData.get(index + 1) ?? getEmptyColumnState()}
         />
       ))}
     </div>

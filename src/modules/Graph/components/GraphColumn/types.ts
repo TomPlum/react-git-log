@@ -20,14 +20,19 @@ export interface GraphColumnProps {
    */
   state: GraphColumnState
 
+  /**
+   * The column index of the commit node
+   * in the row that this column sits in.
+   */
   commitNodeIndex: number
 }
 
 export interface GraphColumnState {
   isNode?: boolean
   isHorizontalLine?: boolean
+  mergeSourceNodeColumnIndex?: number
   isLeftDownCurve?: boolean
   isLeftUpCurve?: boolean
-  isVerticalMergeLine?: boolean
+  isVerticalLine?: boolean
   isVerticalIndexLine?: boolean
 }

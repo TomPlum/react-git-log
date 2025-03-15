@@ -12,7 +12,7 @@ export const IndexPseudoNode = ({ graphWidth }: IndexPseudoNodeProps) => {
 
     columns[0] = {
       isNode: true,
-      isVerticalMergeLine: true
+      isVerticalLine: true
     }
 
     return columns

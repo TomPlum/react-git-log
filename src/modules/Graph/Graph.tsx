@@ -3,6 +3,7 @@ import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { useGitContext } from 'modules/Visualiser/context'
+import { IndexPseudoNode } from 'modules/Graph/components/IndexPseudoNode'
 
 export const Graph = () => {
   const { graphData: { graphWidth, positions, edges, commits } } = useGitContext()
@@ -41,11 +42,13 @@ export const Graph = () => {
           const emptyColumnState: GraphColumnState[] = new Array<GraphColumnState>(graphWidth).fill({})
           const columnState = rowToColumnState.get(targetRow) ?? emptyColumnState
 
+          // We're drawing a merge line from the bottom of
+          // one node, down, then to the left.
+          const edgeDownToLeft = rowEnd > rowStart && colEnd < colStart
+
           // If we're on the first row (the one with the start node)
           if (targetRow === rowStart) {
-            // We're drawing a merge line from the bottom of
-            // one node, down, then to the left.
-            if (rowEnd > rowStart && colEnd < colStart) {
+            if (edgeDownToLeft) {
               // For the first row, just add a vertical merge line
               // out the bottom of the commit node.
               columnState[colStart] = {
@@ -69,11 +72,42 @@ export const Graph = () => {
               }
             }
           } else {
-            // If we're on rows beyond the first one where the start node is,
-            // then draw vertical lines down to the end node
-            columnState[colEnd] = {
-              ...columnState[colEnd],
-              isVerticalMergeLine: true
+            if (edgeDownToLeft) {
+              // Vertical straight lines down up until
+              // before we reach the target row since we'll
+              // have a curved line their around the corner.
+              if (targetRow !== rowStart && targetRow != rowEnd) {
+                columnState[colStart] = {
+                  ...columnState[colStart],
+                  isVerticalMergeLine: true
+                }
+              }
+
+              if (targetRow === rowEnd) {
+                // Add the curved line into the column that we're starting
+                // from (the commit nodes), and raw to the left towards our
+                // target node.
+                columnState[colStart] = {
+                  ...columnState[colStart],
+                  isLeftUpCurve: true
+                }
+
+                // For the remaining columns in this final row, draw
+                // horizontal lines towards the target commit node.
+                for (let columnIndex = colStart; columnIndex >= colEnd; columnIndex--) {
+                  columnState[columnIndex] = {
+                    ...columnState[columnIndex],
+                    isHorizontalLine: true
+                  }
+                }
+              }
+            } else {
+              // If we're on rows beyond the first one where the start node is,
+              // then draw vertical lines down to the end node
+              columnState[colEnd] = {
+                ...columnState[colEnd],
+                isVerticalMergeLine: true
+              }
             }
           }
 
@@ -105,12 +139,6 @@ export const Graph = () => {
     return rowToColumnState
   }, [positions, edges, commits.length, graphWidth])
 
-  const indexColumns = new Array<GraphColumnState>(graphWidth).fill({})
-  indexColumns[0] = {
-    isNode: true,
-    isVerticalMergeLine: true
-  }
-
   return (
     <div
       className={styles.graph}
@@ -119,11 +147,8 @@ export const Graph = () => {
         gridTemplateRows: 'repeat(auto-fill, 40px)' // TODO: Source high from a prop once exposed
       }}
     >
-      <GraphRow
-        id={-1}
-        key={'index'}
-        width={graphWidth}
-        columns={indexColumns}
+      <IndexPseudoNode
+        graphWidth={graphWidth}
       />
 
       {Array.from(commits.values()).map((commit, index) => (

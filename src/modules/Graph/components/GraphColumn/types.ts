@@ -11,11 +11,8 @@ export interface GraphColumnProps {
    * Details of the commit that is present
    * somewhere on the row that this column
    * is present in.
-   *
-   * An undefined commit means we must be
-   * referencing the index.
    */
-  commit?: Commit
+  commit: Commit
 
   /**
    * Details about what is present

@@ -28,11 +28,58 @@ export interface GraphColumnProps {
 }
 
 export interface GraphColumnState {
+  /**
+   * Indicates that this column contains
+   * a commit node.
+   */
   isNode?: boolean
+
+  /**
+   * Indicates that this column contains
+   * a horizontal line that spans the full
+   * width of the column to connect two
+   * nodes via branching or merging.
+   */
   isHorizontalLine?: boolean
-  mergeSourceNodeColumnIndex?: number
-  isLeftDownCurve?: boolean
-  isLeftUpCurve?: boolean
+
+  /**
+   * Indicates that this column contains
+   * a vertical line that spans the full
+   * height of the column to connect two
+   * nodes via branching or merging.
+   */
   isVerticalLine?: boolean
+
+  /**
+   * Indicates that this column contains
+   * a vertical dotted line that spans the full
+   * height of the column to connect the HEAD
+   * node of the current branch to the
+   * pseudo index commit node of the git index.
+   */
   isVerticalIndexLine?: boolean
+
+  /**
+   * The graph row column index of the commit
+   * node that a merge came from.
+   */
+  mergeSourceNodeColumnIndex?: number
+
+  /**
+   * Indicates that this column contains
+   * a curved line that starts at the
+   * middle of the left edge of the column
+   * and stops at the middle of the bottom
+   * edge of the column.
+   */
+  isLeftDownCurve?: boolean
+
+  /**
+   * Indicates that this column contains
+   * a curved line that starts at the
+   * middle of the left edge of the column
+   * and stops at the middle of the top
+   * edge of the column.
+   */
+  isLeftUpCurve?: boolean
 }

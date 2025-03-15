@@ -72,7 +72,8 @@ export const GitLogVisualiser = ({
     showTableHeaders,
     graphWidth,
     commits,
-    currentBranch
+    currentBranch,
+    headCommit: commits.find(it => it.branch.includes(currentBranch))!
   }), [
     showBranchesTags,
     showCommitNodeHashes,

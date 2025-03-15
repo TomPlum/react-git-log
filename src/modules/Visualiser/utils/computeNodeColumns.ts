@@ -74,16 +74,14 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
     return branches.length - 1
   }
 
-  positions.clear()
   const headSha = entries.find(commit => commit.branch.includes(currentBranch))!.hash
-  let i = 1
+  let columnIndex = 1
 
   const activeNodes = new Map<string, Set<number>>()
   const activeNodesQueue = new FastPriorityQueue<[number, string]>((lhs, rhs) => lhs[0] < rhs[0])
   activeNodes.set('index', new Set<number>())
-  if (headSha) {
-    activeNodesQueue.add([shaToIndex.get(headSha)!, 'index'])
-  }
+  activeNodesQueue.add([shaToIndex.get(headSha)!, 'index'])
+  // positions.set('index', [0, 0])
 
   for (const commit of entries) {
     let j = -1
@@ -99,7 +97,7 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
     for (const childSha of mergeChildren) {
       const iChild = positions.get(childSha)![0]
       if (iChild < iMin) {
-        iMin = i
+        iMin = columnIndex
         highestChild = childSha
       }
     }
@@ -140,7 +138,7 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
     }
 
     // Remove useless active nodes
-    while (!activeNodesQueue.isEmpty() && activeNodesQueue.peek()![0] < i) {
+    while (!activeNodesQueue.isEmpty() && activeNodesQueue.peek()![0] < columnIndex) {
       const sha = activeNodesQueue.poll()![1]
       activeNodes.delete(sha)
     }
@@ -167,8 +165,8 @@ export const computeNodePositions = (entries: Commit[], currentBranch: string) =
     }
 
     // Finally set the position
-    positions.set(commitSha, [i, j])
-    ++i
+    positions.set(commitSha, [columnIndex, j])
+    ++columnIndex
   }
 
   updateIntervalTree(entries)

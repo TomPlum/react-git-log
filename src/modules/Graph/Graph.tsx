@@ -3,8 +3,10 @@ import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { useGraphData } from 'modules/Graph/hooks/useGraphData'
+import { useGitContext } from 'modules/Visualiser/context'
 
 export const Graph = () => {
+  const { currentBranch, headCommit } = useGitContext()
   const { width, positions, edges, commits } = useGraphData()
 
   // console.log('graph positions', positions)
@@ -89,6 +91,12 @@ export const Graph = () => {
     return rowToColumnState
   }, [commits.size, edges, positions, width])
 
+  const indexColumns = new Array<GraphColumnState>(width).fill({})
+  indexColumns[0] = {
+    isNode: true,
+    isVerticalMergeLine: true
+  }
+
   return (
     <div
       className={styles.graph}
@@ -96,6 +104,13 @@ export const Graph = () => {
         gridTemplateColumns: `repeat(${width}, 1fr)`
       }}
     >
+      <GraphRow
+        id={-1}
+        key={'index'}
+        width={width}
+        columns={indexColumns}
+      />
+
       {Array.from(commits.values()).map((commit, index) => (
         <GraphRow
           id={index}

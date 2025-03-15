@@ -18,6 +18,12 @@ export interface GitContextBag {
   currentBranch: string
 
   /**
+   * Details of the HEAD commit
+   * of the {@link currentBranch}.
+   */
+  headCommit: Commit
+
+  /**
    * The currently selected commit that
    * is highlighted in the log.
    */

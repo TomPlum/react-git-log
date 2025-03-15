@@ -2,7 +2,7 @@ import { GraphColumnProps } from './types'
 import { CommitNode } from 'modules/Graph/components/CommitNode'
 import styles from './GraphColumn.module.scss'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-import { CSSProperties, useCallback } from 'react'
+import { CSSProperties, useCallback, useMemo } from 'react'
 import classNames from 'classnames'
 import { useGitContext } from 'modules/Visualiser/context'
 import { FadingDiv } from 'components/FadingDiv'
@@ -18,7 +18,7 @@ export const GraphColumn = ({
   commitNodeIndex
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
-  const { headCommit, selectedCommit, previewedCommit } = useGitContext()
+  const { headCommit, selectedCommit, previewedCommit, showGitLog } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity, hoverColour } = useTheme()
 
   const columnColour = getGraphColumnColour(index)
@@ -79,6 +79,32 @@ export const GraphColumn = ({
       borderRight: `2px ${borderStyle} ${columnColour}`
     }
   }, [columnColour, commit.hash, commit.isBranchTip, commit.parents.length, headCommit.hash, state.isNode])
+
+  const showPreviewBackground = useMemo(() => {
+    const rowsCommitMatchesPreviewed = previewedCommit?.hash === commit.hash
+    const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash
+    const shouldPreview = rowsCommitMatchesPreviewed && selectedCommitIsNotPreviewed
+
+    if (showGitLog) {
+      return shouldPreview
+    }
+
+    // If the log is not rendered on the right, only
+    // show the preview background for the node column
+    return shouldPreview && commitNodeIndex === index
+  }, [commit.hash, commitNodeIndex, index, previewedCommit?.hash, selectedCommit?.hash, showGitLog])
+
+  const showSelectedBackground = useMemo(() => {
+    const shouldPreview = selectedCommit?.hash === commit.hash
+
+    if (showGitLog) {
+      return shouldPreview
+    }
+
+    // If the log is not rendered on the right, only
+    // show the selected background for the node column
+    return shouldPreview && commitNodeIndex === index
+  }, [commit.hash, commitNodeIndex, index, selectedCommit?.hash, showGitLog])
 
   return (
     <div
@@ -148,10 +174,12 @@ export const GraphColumn = ({
         />
       )}
 
-      {selectedCommit?.hash === commit.hash && (
+      {showSelectedBackground && (
         <div
           className={classNames(
-            { [styles.selectedBackground]: index > commitNodeIndex },
+            styles.selectedBackground,
+            { [styles.noLogBackground]: !showGitLog },
+            { [styles.selectedBackgroundSquare]: index > commitNodeIndex },
             { [styles.selectedBackgroundBehindNode]: index === commitNodeIndex }
           )}
           style={{
@@ -160,10 +188,12 @@ export const GraphColumn = ({
         />
       )}
 
-      {previewedCommit?.hash === commit.hash && selectedCommit?.hash != previewedCommit.hash && (
+      {showPreviewBackground && (
         <FadingDiv
           className={classNames(
-            { [styles.selectedBackground]: index > commitNodeIndex },
+            styles.selectedBackground,
+            { [styles.noLogBackground]: !showGitLog },
+            { [styles.selectedBackgroundSquare]: index > commitNodeIndex },
             { [styles.selectedBackgroundBehindNode]: index === commitNodeIndex }
           )}
           style={{

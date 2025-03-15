@@ -45,23 +45,27 @@
   z-index: 5;
 }
 
-@mixin selectedBg {
+.selectedBackground{
   position: absolute;
   height: 100%;
 }
 
-.selectedBackground {
-  @include selectedBg;
+.selectedBackgroundSquare {
   width: 100%;
   top: 0;
   left: 0;
 }
 
 .selectedBackgroundBehindNode {
-  @include selectedBg;
   width: 90%;
   top: 0;
   right: 0;
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;
+}
+
+.noLogBackground {
+  border-radius: 20px;
+  width: 70%;
+  right: 15%;
 }

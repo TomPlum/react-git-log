@@ -1,6 +1,6 @@
 import { Commit, GitLogEntry } from 'modules/Visualiser'
 
-type RawCommit = Omit<Commit, 'isBranchTip'>
+type RawCommit = Omit<Commit, 'isBranchTip' | 'children'>
 
 export const computeRelationships = (entries: GitLogEntry[]) => {
   const children = new Map<string, string[]>()
@@ -41,6 +41,7 @@ export const computeRelationships = (entries: GitLogEntry[]) => {
   for (const [hash, rawCommit] of hashToRawCommit) {
     hashToCommit.set(hash, {
       ...rawCommit,
+      children: children.get(hash) ?? [],
       isBranchTip: children.get(hash)?.length === 0
     })
   }

@@ -26,11 +26,7 @@ export const Graph = () => {
       // I.e. drawing a straight merge line between them.
       if (colStart === colEnd) {
         for (let targetRow = rowStart; targetRow <= rowEnd; targetRow++) {
-          const newColumnState: GraphColumnState[] = new Array(graphWidth).fill({
-            isVerticalMergeLine: false
-          })
-
-          const columnState = rowToColumnState.get(targetRow) ?? newColumnState
+          const columnState = rowToColumnState.get(targetRow) ?? getEmptyColumnState()
 
           columnState[colStart] = {
             ...columnState[colStart],
@@ -47,7 +43,7 @@ export const Graph = () => {
           const columnState = rowToColumnState.get(targetRow) ?? getEmptyColumnState()
 
           // We're drawing a merge line from the bottom of
-          // one node, down, then to the left.
+          // a commit node, down, then to the left.
           const edgeDownToLeft = rowEnd > rowStart && colEnd < colStart
 
           // If we're on the first row (the one with the start node)
@@ -77,6 +73,8 @@ export const Graph = () => {
               }
             }
           } else {
+            // If we're on rows beyond the first one where the start node is
+
             if (edgeDownToLeft) {
               // Vertical straight lines down up until
               // before we reach the target row since we'll
@@ -108,8 +106,7 @@ export const Graph = () => {
                 }
               }
             } else {
-              // If we're on rows beyond the first one where the start node is,
-              // then draw vertical lines down to the end node
+              // Else we're drawing a vertical line
               columnState[colEnd] = {
                 ...columnState[colEnd],
                 isVerticalLine: true

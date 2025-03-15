@@ -151,6 +151,7 @@ export interface GitVisualiserStylingProps {
 export interface Commit {
   hash: string
   parents: string[]
+  children: string[]
   refs: string
   branch: string
   message: string

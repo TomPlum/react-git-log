@@ -4,9 +4,9 @@ import { useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'modules/Visualiser/context'
 import { lightThemeColors, useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { generateRainbowGradient } from 'modules/Visualiser/hooks/useTheme/createRainbowTheme'
-import { temporalTopologicalSort } from 'modules/GraphData/temporalTopologicalSort.ts'
-import { computeNodePositions } from 'modules/GraphData/computeNodeColumns.ts'
-import { computeRelationships } from 'modules/GraphData/computeRelationships.ts'
+import { temporalTopologicalSort } from 'modules/GraphData/temporalTopologicalSort'
+import { computeNodePositions } from 'modules/GraphData/computeNodeColumns'
+import { computeRelationships } from 'modules/GraphData/computeRelationships'
 import { GraphData } from 'modules/GraphData'
 
 export const GitLogVisualiser = ({
@@ -76,6 +76,7 @@ export const GitLogVisualiser = ({
     hash: 'index',
     branch: headCommit.branch,
     parents: [headCommit.hash],
+    children: [],
     authorDate: new Date().toString(),
     message: '// Work in-progress...',
     committerDate: new Date().toString(),

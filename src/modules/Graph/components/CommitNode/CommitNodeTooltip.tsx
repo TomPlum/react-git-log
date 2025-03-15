@@ -28,6 +28,10 @@ export const CommitNodeTooltip = ({ commit, color }: CommitNodeTooltipProps) => 
       </p>
 
       <p className={styles.text}>
+        Children: {commit.children.join(', ')}
+      </p>
+
+      <p className={styles.text}>
         Is Branch Tip?: {commit.isBranchTip ? 'Yes' : 'No'}
       </p>
     </div>

@@ -2,18 +2,20 @@ import { GraphColumnProps } from './types'
 import { CommitNode } from 'modules/Graph/components/CommitNode'
 import styles from './GraphColumn.module.scss'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-import { CSSProperties, useMemo } from 'react'
+import { CSSProperties, useCallback } from 'react'
 import classNames from 'classnames'
+import { useGitContext } from 'modules/Visualiser/context'
 
 // TODO: Source high from a prop once exposed
 const HEIGHT = 40
 
 export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
+  const { headCommit } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel } = useTheme()
 
   const columnColour = getGraphColumnColour(index)
 
-  const verticalNodeLineStyles = useMemo<CSSProperties>(() => {
+  const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
     if (commit.hash === 'index') {
       return {
         height: '50%',
@@ -22,20 +24,30 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
       }
     }
 
+    const borderStyle = isIndex ? 'dotted' : 'solid'
+
+    if (commit.hash === headCommit.hash && state.isNode) {
+      return {
+        height: '50%',
+        top: 0,
+        borderRight: `2px dotted ${columnColour}`
+      }
+    }
+
     if (commit.isBranchTip && state.isNode) {
       return {
         height: '50%',
         top: '50%',
-        borderRight: `2px solid ${columnColour}`
+        borderRight: `2px ${borderStyle} ${columnColour}`
       }
     }
 
     return {
       height: '100%',
       top: 0,
-      borderRight: `2px solid ${columnColour}`
+      borderRight: `2px ${borderStyle} ${columnColour}`
     }
-  }, [columnColour, commit.hash, commit.isBranchTip, state.isNode])
+  }, [columnColour, commit.hash, commit.isBranchTip, headCommit.hash, state.isNode])
 
   return (
     <div className={styles.column} id={`graph_column_${index}_${commit.hash}`}>
@@ -61,7 +73,32 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
 
       {state.isVerticalMergeLine && (
         <div
-          style={verticalNodeLineStyles}
+          style={verticalNodeLineStyles(false)}
+          className={classNames(styles.line, styles.vertical)}
+        />
+      )}
+
+      {state.isVerticalMergeLine && commit.hash === headCommit.hash && (
+        <>
+          <div
+            style={verticalNodeLineStyles(false)}
+            className={classNames(styles.line, styles.vertical)}
+          />
+
+          <div
+            style={{
+              height: '50%',
+              top: '50%',
+              borderRight: `2px solid ${columnColour}`
+            }}
+            className={classNames(styles.line, styles.vertical)}
+          />
+        </>
+      )}
+
+      {state.isVerticalIndexLine && (
+        <div
+          style={verticalNodeLineStyles(true)}
           className={classNames(styles.line, styles.vertical)}
         />
       )}

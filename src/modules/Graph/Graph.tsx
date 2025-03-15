@@ -6,14 +6,13 @@ import { useGitContext } from 'modules/Visualiser/context'
 import { IndexPseudoNode } from 'modules/Graph/components/IndexPseudoNode'
 
 export const Graph = () => {
-  const { graphData: { graphWidth, positions, edges, commits } } = useGitContext()
-
-  // console.log('graph positions', positions)
-  // console.log('graph width', width)
-  // console.log('graph edges', edges)
+  const { graphData: { graphWidth, positions, edges, commits }, headCommit } = useGitContext()
 
   const columnData = useMemo(() => {
+    // Maps the one-based row index to an array of column state data
     const rowToColumnState = new Map<number, GraphColumnState[]>()
+
+    // An iterable array of tuples containing commit node row and column indices
     const commitNodePositions = Array.from(positions.values())
 
     // Iterate over all the edges update the graph column state
@@ -137,11 +136,23 @@ export const Graph = () => {
         ...columnState[column],
         isNode: true
       }
+
       rowToColumnState.set(row, columnState)
     })
 
+    // Add the vertical branch lines in from the current branches
+    // HEAD commit up to the index pseudo commit node.
+    for (let rowIndex = 0; rowIndex <= positions.get(headCommit.hash)![0]; rowIndex++) {
+      const columnState = rowToColumnState.get(rowIndex) ?? new Array<GraphColumnState>(graphWidth).fill({})
+
+      columnState[0] = {
+        ...columnState[0],
+        isVerticalIndexLine: true
+      }
+    }
+
     return rowToColumnState
-  }, [positions, edges, commits.length, graphWidth])
+  }, [positions, edges, commits.length, graphWidth, headCommit.hash])
 
   return (
     <div

@@ -27,4 +27,5 @@ export interface GraphColumnState {
   isLeftDownCurve?: boolean
   isLeftUpCurve?: boolean
   isVerticalMergeLine?: boolean
+  isVerticalIndexLine?: boolean
 }

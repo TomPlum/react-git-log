@@ -5,18 +5,6 @@ import { useGitContext } from 'modules/Visualiser/context'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { useCallback, useMemo } from 'react'
 
-/**
- * Accounts for the height of the
- * nodes on the graph.
- */
-const HEIGHT_OFFSET = 5
-
-/**
- * The amount of padding, in pixels,
- * used around the branches/tags container.
- */
-const PADDING = 10
-
 const prepareCommits = (commits: Commit[]) => {
   const tagsSeen = new Map<string, boolean>()
 
@@ -63,7 +51,7 @@ export const BranchesTags = () => {
   }, [graphData.graphWidth, graphData.positions])
 
   return (
-    <div className={styles.container} style={{ padding: PADDING }}>
+    <div className={styles.container}>
       {preparedCommits.map((commit, i) => {
         const shouldPreviewBranch = previewedCommit && commit.hash === previewedCommit.hash
         const selectedIsNotTip = selectedCommit && commit.hash === selectedCommit.hash
@@ -80,9 +68,9 @@ export const BranchesTags = () => {
             <BranchTag
               commit={commit}
               id={i.toString()}
+              height={ROW_HEIGHT}
               key={`tag_${commit.hash}`}
               color={getCommitColour(commit)}
-              height={i === 0 ? (ROW_HEIGHT - HEIGHT_OFFSET) : ROW_HEIGHT}
               lineWidth={tagLineWidth(commit)}
               lineRight={-tagLineWidth(commit)}
             />

@@ -99,8 +99,9 @@ export const Graph = () => {
     <div
       className={styles.graph}
       style={{
-        gridTemplateColumns: `repeat(${graphWidth}, 1fr)`
-      }}
+        gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
+        gridTemplateRows: 'repeat(auto-fill, 40px)' // TODO: Source high from a prop once exposed
+    }}
     >
       <GraphRow
         id={-1}

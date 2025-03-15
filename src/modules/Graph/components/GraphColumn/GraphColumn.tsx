@@ -5,6 +5,7 @@ import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { CSSProperties, useMemo } from 'react'
 import classNames from 'classnames'
 
+// TODO: Source high from a prop once exposed
 const HEIGHT = 40
 
 export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
@@ -12,14 +13,10 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
 
   const columnColour = getGraphColumnColour(index)
 
-  // console.log('isVerticalMergeLine', verticalMergeLine)
-  // console.log('isCommitNode', commitNode)
-
   const verticalNodeLineStyles = useMemo<CSSProperties>(() => {
     if (!commit) {
       return {}
     }
-
 
     if (commit.parents.length > 0) {
       return {
@@ -37,7 +34,7 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
   }, [columnColour, commit])
 
   return (
-    <div style={{ height: HEIGHT }} className={styles.column}>
+    <div className={styles.column}>
       {state.isNode && commit && (
         <CommitNode
           commit={commit}

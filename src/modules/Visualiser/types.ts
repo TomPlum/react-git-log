@@ -175,4 +175,4 @@ export interface GitLogEntry {
   authorDate: string
 }
 
-export const ROW_HEIGHT = 48
+export const ROW_HEIGHT = 40

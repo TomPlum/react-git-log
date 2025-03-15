@@ -111,6 +111,7 @@ export const GitLog = () => {
             >
               <td
                 style={tableDataStyle}
+                title={commit.message}
                 className={classNames(styles.td, styles.message)}
               >
                 {commit.message}

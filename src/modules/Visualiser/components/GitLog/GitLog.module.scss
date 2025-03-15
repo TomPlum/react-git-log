@@ -30,8 +30,9 @@
     }
 
     >td:last-child {
-      border-top-right-radius: 8px;
-      border-bottom-right-radius: 8px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding-right: 10px;
     }
   }
 

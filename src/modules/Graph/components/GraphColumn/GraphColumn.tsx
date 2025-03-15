@@ -24,6 +24,8 @@ export const GraphColumn = ({
   const columnColour = getGraphColumnColour(index)
   const isRowCommitIndexNode = commit.hash === 'index'
   const indexCommitNodeBorder = shiftAlphaChannel(columnColour, 0.5)
+  const rowsCommitMatchesPreviewed = previewedCommit?.hash === commit.hash
+  const rowsCommitMatchesSelected = selectedCommit?.hash === commit.hash
 
   const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
     // If the current column is the index pseudo-node
@@ -111,7 +113,6 @@ export const GraphColumn = ({
   }, [commitNodeIndex, getGraphColumnColour, index, state.isNode, state.mergeSourceNodeColumnIndex])
 
   const showPreviewBackground = useMemo(() => {
-    const rowsCommitMatchesPreviewed = previewedCommit?.hash === commit.hash
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash
     const shouldPreview = rowsCommitMatchesPreviewed && selectedCommitIsNotPreviewed
 
@@ -122,19 +123,17 @@ export const GraphColumn = ({
     // If the log is not rendered on the right, only
     // show the preview background for the node column
     return shouldPreview && commitNodeIndex === index
-  }, [commit.hash, commitNodeIndex, index, previewedCommit?.hash, selectedCommit?.hash, showGitLog])
+  }, [commitNodeIndex, index, previewedCommit?.hash, rowsCommitMatchesPreviewed, selectedCommit?.hash, showGitLog])
 
   const showSelectedBackground = useMemo(() => {
-    const shouldPreview = selectedCommit?.hash === commit.hash
-
     if (showGitLog) {
-      return shouldPreview
+      return rowsCommitMatchesSelected
     }
 
     // If the log is not rendered on the right, only
     // show the selected background for the node column
-    return shouldPreview && commitNodeIndex === index
-  }, [commit.hash, commitNodeIndex, index, selectedCommit?.hash, showGitLog])
+    return rowsCommitMatchesSelected && commitNodeIndex === index
+  }, [commitNodeIndex, index, rowsCommitMatchesSelected, showGitLog])
 
   return (
     <div
@@ -154,7 +153,10 @@ export const GraphColumn = ({
 
       {state.isNode && isRowCommitIndexNode && (
         <div
-          className={styles.indexNode}
+          className={classNames(
+            styles.indexNode,
+            { [styles.spin]: (rowsCommitMatchesPreviewed || rowsCommitMatchesSelected) },
+          )}
           style={{
             border: `2px dotted ${shiftAlphaChannel(columnColour, 0.5)}`,
             backgroundColor: shiftAlphaChannel(columnColour, 0.05),

@@ -34,7 +34,7 @@ export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: B
     if (commit.hash === 'index') {
       return {
         color: textColour,
-        border: `2px dotted ${shiftAlphaChannel(color, 0.50)}`,
+        border: `2px dashed ${shiftAlphaChannel(color, 0.50)}`,
         background: shiftAlphaChannel(color, 0.05)
       }
     }

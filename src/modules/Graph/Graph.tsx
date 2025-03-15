@@ -156,9 +156,9 @@ export const Graph = () => {
       {Array.from(commits.values()).map((commit, index) => (
         <GraphRow
           id={index}
+          commit={commit}
           key={commit.hash}
           width={graphWidth}
-          commit={commit}
           columns={columnData.get(index + 1) ?? new Array(graphWidth).fill({})}
         />
       ))}

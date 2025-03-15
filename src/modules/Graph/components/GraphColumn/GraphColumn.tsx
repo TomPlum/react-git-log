@@ -22,7 +22,7 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
       }
     }
 
-    if (commit.isBranchTip) {
+    if (commit.isBranchTip && state.isNode) {
       return {
         height: '50%',
         top: '50%',
@@ -35,7 +35,7 @@ export const GraphColumn = ({ index, state, commit }: GraphColumnProps) => {
       top: 0,
       borderRight: `2px solid ${columnColour}`
     }
-  }, [columnColour, commit])
+  }, [columnColour, commit.hash, commit.isBranchTip, state.isNode])
 
   return (
     <div className={styles.column} id={`graph_column_${index}_${commit.hash}`}>

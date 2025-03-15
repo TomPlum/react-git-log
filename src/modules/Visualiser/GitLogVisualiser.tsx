@@ -101,7 +101,7 @@ export const GitLogVisualiser = ({
     githubRepositoryUrl,
     showCommitNodeTooltips,
     showTableHeaders,
-    graphWidth,
+    defaultGraphContainerWidth: graphWidth,
     currentBranch,
     headCommit,
     indexCommit,

@@ -131,7 +131,8 @@ export interface Commit {
   message: string
   x: number
   y: number
-  date: string
+  committerDate: string
+  authorDate: string
   isBranchTip: boolean
 }
 
@@ -141,7 +142,8 @@ export interface GitLogEntry {
   parents: string[]
   refs: string
   message: string
-  date: string
+  committerDate: string
+  authorDate: string
 }
 
 export const ROW_HEIGHT = 48

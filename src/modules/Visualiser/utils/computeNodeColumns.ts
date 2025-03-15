@@ -11,7 +11,7 @@ export enum EdgeType {
 
 export type Edge = [[number, number], [number, number], EdgeType];
 
-const computeRelationships = (entries: Commit[]) => {
+export const computeRelationships = (entries: Commit[]) => {
   const children = new Map<string, string[]>()
   const parents = new Map<string, string[]>()
   const commits = new Map<string, Commit>()
@@ -116,7 +116,6 @@ export const computeNodePositions = (entries: Commit[]) => {
     } else {
       // The commit can only replace a child whose first parent is this commit
       for (const childSha of branchChildren) {
-        console.log(`Trying to fetch position for ${childSha} while parsing commit ${commit.hash}`)
         const jChild = positions.get(childSha)![1]
         if (!forbiddenIndices.has(jChild) && jChild < jCommitToReplace) {
           commitToReplace = childSha
@@ -132,7 +131,6 @@ export const computeNodePositions = (entries: Commit[]) => {
     } else {
       if (childrenHashes.length > 0) {
         const childSha = childrenHashes[0]
-        console.log(`Trying to fetch position for ${childSha} while parsing commit ${commit.hash} - ${commit.message} - ${commit.parents}`)
         const jChild = positions.get(childSha)![1]
         // Try to insert near a child
         // We could try to insert near any child instead of arbitrarily choosing the first one
@@ -159,11 +157,11 @@ export const computeNodePositions = (entries: Commit[]) => {
     activeNodesQueue.add([iRemove, commitSha])
 
     // Remove children from active branches
-    for (const childSha of branchChildren) {
+    branchChildren.forEach(childSha => {
       if (childSha != commitToReplace) {
         branches[positions.get(childSha)![1]] = null
       }
-    }
+    })
 
     // If the commit has no parent, remove it from active branches
     if (commit.parents.length === 0) {
@@ -171,7 +169,6 @@ export const computeNodePositions = (entries: Commit[]) => {
     }
 
     // Finally set the position
-    console.log('Setting position', commitSha, `Index: ${i}, Column: ${j}`)
     positions.set(commitSha, [i, j])
     ++i
   }

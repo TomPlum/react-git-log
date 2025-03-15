@@ -1,26 +1,31 @@
-import { GitLogEntry } from 'modules/Visualiser'
+import { Commit } from 'modules/Visualiser'
+import { computeRelationships } from 'modules/Visualiser/utils/computeNodeColumns'
 
-export const temporalTopologicalSort = (entries: GitLogEntry[]) => {
+export const temporalTopologicalSort = (commits: Commit[]) => {
+  const sorted: Commit[] = []
   const seen = new Map<string, boolean>()
 
-  const sorted: GitLogEntry[] = []
+  // TODO: Do this just once instead of in here and in the computeNodeColumns.ts
+  const { children, commits: hashToCommit } = computeRelationships(commits)
 
-  const depthFirstSearch = (entry: GitLogEntry) => {
-    if (seen.has(entry.hash)) {
+  const depthFirstSearch = (commit: Commit) => {
+    if (seen.has(commit.hash)) {
       return
     }
 
-    seen.set(entry.hash, true)
+    seen.set(commit.hash, true)
 
-    entry.parents.forEach((parent) => {
-      depthFirstSearch(entries.find(it => it.hash === parent)!)
+    children.get(commit.hash)!.forEach((childHash) => {
+      depthFirstSearch(hashToCommit.get(childHash)!)
     })
 
-    sorted.push(entry)
+    sorted.push(commit)
   }
 
-  const commitsSortedByTime = entries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  console.log('commitsSortedByTime', commitsSortedByTime)
+  const commitsSortedByTime = commits.sort((a, b) => {
+    return new Date(b.committerDate).getTime() - new Date(a.committerDate).getTime()
+  })
+
   commitsSortedByTime.forEach(entry => {
     depthFirstSearch(entry)
   })

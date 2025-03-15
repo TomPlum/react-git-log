@@ -6,7 +6,7 @@ const commit = ({ id, parents }: { id: number | string, parents?: (number | stri
   message: `commit-${id}`,
   parents: parents ? parents.map(it => it.toString()) : [],
   refs: '',
-  date: '',
+  committerDate: '',
   branch: 'test'
 })
 

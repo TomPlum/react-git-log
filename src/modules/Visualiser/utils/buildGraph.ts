@@ -45,7 +45,8 @@ export const buildGraph = (entries: GitLogEntry[], rowHeight: number) => {
 
     return {
       ...entry,
-      date: entry.date,
+      committerDate: entry.committerDate,
+      authorDate: entry.authorDate,
       x: branches.get(entry.branch)!,
       y: index * rowHeight,
     }

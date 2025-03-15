@@ -53,12 +53,12 @@ export const Default: Story = {
         .then(data => {
           const headCommit = data[0]
           const today = dayjs(new Date())
-          const daysSinceHeadCommit = Math.abs(dayjs(headCommit.date).diff(today, 'days'))
+          const daysSinceHeadCommit = Math.abs(dayjs(headCommit.committerDate).diff(today, 'days'))
 
           if (daysSinceHeadCommit > 1) {
             const shiftedData: GitLogEntry[] = data.map(entry => ({
               ...entry,
-              date: dayjs(entry.date).add(daysSinceHeadCommit, 'days').format()
+              committerDate: dayjs(entry.committerDate).add(daysSinceHeadCommit, 'days').format()
             }))
 
             setEntries(shiftedData)

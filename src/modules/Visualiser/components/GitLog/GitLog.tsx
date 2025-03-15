@@ -104,7 +104,7 @@ export const GitLog = ({ data }: GitLogProps) => {
               </td>
 
               <td className={classNames(styles.td, styles.date)} style={tableDataStyle}>
-                {formatTimestamp(commit.date)}
+                {formatTimestamp(commit.committerDate)}
               </td>
 
               <td

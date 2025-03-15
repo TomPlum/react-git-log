@@ -23,11 +23,11 @@ const meta = {
     showBranchesTags: true,
     showCommitNodeHashes: false,
     showCommitNodeTooltips: false,
-    showTableHeaders: false,
+    showTableHeaders: true,
     entries: [],
     currentBranch: 'release',
     colours: lightThemeColors,
-    theme: 'light',
+    theme: 'dark',
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },

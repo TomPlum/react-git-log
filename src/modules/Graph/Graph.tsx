@@ -94,7 +94,7 @@ export const Graph = () => {
 
                 // For the remaining columns in this final row, draw
                 // horizontal lines towards the target commit node.
-                for (let columnIndex = colStart; columnIndex >= colEnd; columnIndex--) {
+                for (let columnIndex = colStart - 1; columnIndex >= colEnd; columnIndex--) {
                   columnState[columnIndex] = {
                     ...columnState[columnIndex],
                     isHorizontalLine: true
@@ -115,6 +115,7 @@ export const Graph = () => {
         }
       }
 
+      // Add the commit nodes into their respective rows and columns
       commitNodePositions.forEach((position) => {
         const [row, column] = position
         const columnState = rowToColumnState.get(row) ?? new Array<GraphColumnState>(graphWidth).fill({})
@@ -126,6 +127,7 @@ export const Graph = () => {
         rowToColumnState.set(row, columnState)
       })
 
+      // TODO: Remove the below once all working
       const fromHash = [...positions.entries()].find((it) => {
         return it[1][0] === rowStart
       })![0]

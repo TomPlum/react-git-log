@@ -12,7 +12,12 @@ const fetchEntries = async (): Promise<GitLogEntry[]> => {
   return parseGitLogOutput(await response.text())
 }
 
-const meta = {
+interface StoryProps extends GitLogVisualiserProps {
+  pageSize?: number
+  page?: number
+}
+
+const meta: Meta<StoryProps> = {
   title: 'Git Log/GitLogVisualiser',
   component: GitLogVisualiser,
   parameters: {
@@ -39,9 +44,21 @@ const meta = {
     theme: {
       control: 'radio',
       options: ['light', 'dark']
+    },
+    pageSize: {
+      control: {
+        type: 'number',
+        min: 0
+      }
+    },
+    page: {
+      control: {
+        type: 'number',
+        min: 0
+      }
     }
   }
-} satisfies Meta<GitLogVisualiserProps>
+} satisfies Meta<StoryProps>
 
 export default meta
 type Story = StoryObj<typeof meta>;
@@ -77,13 +94,13 @@ export const Default: Story = {
     const backgroundColour = args.theme === 'dark' ? '#1a1a1a' : 'white'
 
     return (
-      <div style={{ padding: 20, background: backgroundColour }}>
+      <div style={{ background: backgroundColour }} className={styles.container}>
         <GitLogVisualiser
           {...args}
           entries={entries}
           paging={{
-            page: 0,
-            size: 25 //entries.length
+            page: args.page ?? 0,
+            size: args.pageSize ?? entries.length
           }}
           classes={{
             containerStyles: {

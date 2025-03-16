@@ -1,13 +1,14 @@
-.selectedBackground {
+.background {
   position: absolute;
 }
 
-.selectedBackgroundSquare {
+.backgroundSquare {
   width: 100%;
   left: 0;
 }
 
-.selectedBackgroundBehindNode {
+.backgroundBehindNode {
+  right: 0;
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;
 }

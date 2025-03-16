@@ -7,8 +7,7 @@ import classNames from 'classnames'
 import { useGitContext } from 'context'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import { CurvedEdge } from 'modules/Graph/components/CurvedEdge'
-import { ColumnSelectedBackground } from 'modules/Graph/components/ColumnSelectedBackground'
-import { ColumnPreviewedBackground } from 'modules/Graph/components/ColumnPreviewedBackground'
+import { ColumnBackground } from 'modules/Graph/components/ColumnBackground'
 
 // TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
@@ -18,8 +17,8 @@ export const GraphColumn = ({
   commitNodeIndex
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
-  const { getGraphColumnColour, shiftAlphaChannel, textColour } = useTheme()
   const { headCommit, selectedCommit, previewedCommit, showGitLog } = useGitContext()
+  const { getGraphColumnColour, shiftAlphaChannel, textColour, hoverColour, reduceOpacity } = useTheme()
 
   const columnColour = state.isPlaceholderSkeleton
     ? shiftAlphaChannel(textColour, 0.8)
@@ -213,15 +212,17 @@ export const GraphColumn = ({
       )}
 
       {showSelectedBackground && (
-        <ColumnSelectedBackground
+        <ColumnBackground
           index={index}
           commitNodeIndex={commitNodeIndex}
+          colour={reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)}
         />
       )}
 
       {showPreviewBackground && (
-        <ColumnPreviewedBackground
+        <ColumnBackground
           index={index}
+          colour={hoverColour}
           commitNodeIndex={commitNodeIndex}
         />
       )}

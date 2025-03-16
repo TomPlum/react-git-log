@@ -1,5 +1,5 @@
 import { Commit } from 'modules/Visualiser'
-import { Edge, Node } from 'modules/GraphData/computeNodeColumns.ts'
+import { GraphEdge, CommitNodeLocation } from 'modules/GraphData/computeNodeColumns'
 import DataIntervalTree from 'node-interval-tree'
 
 export interface GraphData {
@@ -35,19 +35,19 @@ export interface GraphData {
 
   /**
    * A map of the SHA1 hash of a commit
-   * and a {@link Node} tuple that contains
+   * and a {@link CommitNodeLocation} tuple that contains
    * data about the row and column in which
    * the node for that commit will be
    * rendered in the graph.
    */
-  positions: Map<string, Node>
+  positions: Map<string, CommitNodeLocation>
 
   /**
    * An interval tree containing all the edges
    * for relationships between commit nodes in
    * the graph.
    */
-  edges: DataIntervalTree<Edge, number>
+  edges: DataIntervalTree<GraphEdge, number>
 
   /**
    * An array of commit details that have been

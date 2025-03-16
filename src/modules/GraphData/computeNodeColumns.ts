@@ -2,78 +2,129 @@ import IntervalTree from 'node-interval-tree'
 import FastPriorityQueue from 'fastpriorityqueue'
 import { Commit } from 'modules/Visualiser'
 
-export type Node = [number, number];
+/**
+ * A tuple containing coordinates
+ * of a commit node in the git graph;
+ *
+ *   1. The index of the row in the graph.
+ *   2. The index of the column in that row.
+ */
+export type CommitNodeLocation = [number, number];
 
+/**
+ * The type of edge between two nodes
+ * on the graph.
+ */
 export enum EdgeType {
   Normal = 'Normal',
   Merge = 'Merge'
 }
 
-export type Edge = [[number, number], [number, number], EdgeType];
+/**
+ * A tuple containing coordinates and other
+ * metadata for a connecting branch or merge
+ * line on the commit {@link Graph}.
+ *
+ *   1. The source nodes location.
+ *   2. The target nodes location.
+ *   3. The type of edge.
+ */
+export type GraphEdge = [CommitNodeLocation, CommitNodeLocation, EdgeType];
 
+/**
+ * Computes the visual positions of commits in a Git log visualization.
+ *
+ * @param commits - List of commit objects
+ * @param currentBranch - The currently active branch
+ * @param children - A map of commit hashes to their child commits
+ * @param parents - A map of commit hashes to their parent commits
+ * @returns An object containing commit positions, graph width, and edge connections
+ */
 export const computeNodePositions = (
   commits: Commit[],
   currentBranch: string,
   children: Map<string, string[]>,
   parents: Map<string, string[]>
 ) => {
-  const positions: Map<string, Node> = new Map<string, Node>()
+  const positions: Map<string, CommitNodeLocation> = new Map<string, CommitNodeLocation>()
 
+  // Represents active branches. Each index corresponds to a column in the visualization.
   const branches: (string | null)[] = ['index']
-  let edges = new IntervalTree<Edge>()
+  const edges = new IntervalTree<GraphEdge>()
 
+  /**
+   * Updates the interval tree with computed edges between commits.
+   */
   const updateIntervalTree = (commits: Commit[]) => {
-    edges = new IntervalTree<Edge>()
-    for (const [commitSha, [i0, j0]] of positions) {
-      const parents = commits.find(it => it.hash === commitSha)!.parents
-      for (const [i, parentSha] of parents.entries()) {
-        const [i1, j1] = positions.get(parentSha)!
-        const data: Edge = [[i0, j0], [i1, j1], i > 0 ? EdgeType.Merge : EdgeType.Normal]
-        edges.insert(i0, i1, data)
+    for (const [commitHash, [i0, j0]] of positions) {
+      const parentHashes = commits.find(it => it.hash === commitHash)!.parents
+      for (const [i, parentHash] of parentHashes.entries()) {
+        const [i1, j1] = positions.get(parentHash)!
+        const edgeType = i > 0 ? EdgeType.Merge : EdgeType.Normal
+        edges.insert(i0, i1, [[i0, j0], [i1, j1], edgeType])
       }
     }
   }
 
-  const shaToIndex = new Map(commits.map((entry, i) => [entry.hash, i] as [string, number]))
+  const hashToIndex = new Map(commits.map((entry, i) => [entry.hash, i]))
 
-  const insertCommit = (commitSha: string, j: number, forbiddenIndices: Set<number>) => {
-    // Try to insert as close as possible to i
-    // replace i by j
-    let dj = 1
-    while (j - dj >= 0 || j + dj < branches.length) {
-      if (j + dj < branches.length && branches[j + dj] === null && !forbiddenIndices.has(j + dj)) {
-        branches[j + dj] = commitSha
-        return j + dj
-      } else if (j - dj >= 0 && branches[j - dj] === null && !forbiddenIndices.has(j - dj)) {
-        branches[j - dj] = commitSha
-        return j - dj
+  /**
+   * Inserts a commit into the nearest available column in the visualization.
+   *
+   * @param hash The SHA1 hash of the commit we're inserting.
+   * @param columnIndex The initial index of the column where we want to place the commit.
+   * @param forbiddenIndices A set of indices where the commit cannot be placed.
+   */
+  const insertCommit = (hash: string, columnIndex: number, forbiddenIndices: Set<number>) => {
+    // How far we're going to try searching from the initial column index
+    let columnDelta = 1
+
+    // While there are still available positions to the left or right...
+    while (columnIndex - columnDelta >= 0 || columnIndex + columnDelta < branches.length) {
+      const isRightForbidden = forbiddenIndices.has(columnIndex + columnDelta)
+      const isRightEmpty = branches[columnIndex + columnDelta] === null
+
+      // Check if we can place the commit on the right-hand side
+      if (columnIndex + columnDelta < branches.length && isRightEmpty && !isRightForbidden) {
+        branches[columnIndex + columnDelta] = hash
+        return columnIndex + columnDelta // Place to the right
       }
-      ++dj
+
+      const isLeftForbidden = forbiddenIndices.has(columnIndex - columnDelta)
+      const isLeftEmpty = branches[columnIndex - columnDelta] === null
+
+      // If not, check the left-hand side
+      if (columnIndex - columnDelta >= 0 && isLeftEmpty && !isLeftForbidden) {
+        branches[columnIndex - columnDelta] = hash
+        return columnIndex - columnDelta // Place to the left
+      }
+
+      columnDelta++
     }
-    // If it is not possible to find an available position, append
-    branches.push(commitSha)
+
+    branches.push(hash)
     return branches.length - 1
   }
 
-  console.log('currentBranch', currentBranch)
-  const headSha = commits.find(commit => commit.branch.includes(currentBranch))!.hash
+  const headCommitHash = commits.find(commit => commit.branch.includes(currentBranch))!.hash
   let rowIndex = 1
 
+  // Active nodes track in-progress branches
   const activeNodes = new Map<string, Set<number>>()
   const activeNodesQueue = new FastPriorityQueue<[number, string]>((lhs, rhs) => lhs[0] < rhs[0])
   activeNodes.set('index', new Set<number>())
-  activeNodesQueue.add([shaToIndex.get(headSha)!, 'index'])
+  activeNodesQueue.add([hashToIndex.get(headCommitHash)!, 'index'])
 
   for (const commit of commits) {
     let columnIndex = -1
+    const commitHash = commit.hash
 
-    const commitSha = commit.hash
-    const childrenHashes = children.get(commitSha)!
-    const branchChildren = childrenHashes.filter((childHash) => parents.get(childHash)![0] === commitSha)
-    const mergeChildren = childrenHashes.filter((childHash) => parents.get(childHash)![0] !== commitSha)
+    const childHashes = children.get(commitHash) ?? []
+    const branchChildren = childHashes.filter(childHash => parents.get(childHash)![0] === commitHash)
+    const mergeChildren = childHashes.filter(childHash => parents.get(childHash)![0] !== commitHash)
 
-    // Compute forbidden indices
-    let highestChild: string | undefined = undefined
+    // Compute forbidden column indices
+    let highestChild: string | undefined
     let iMin = Infinity
     for (const childSha of mergeChildren) {
       const iChild = positions.get(childSha)![0]
@@ -84,69 +135,51 @@ export const computeNodePositions = (
     }
     const forbiddenIndices = highestChild ? activeNodes.get(highestChild)! : new Set<number>()
 
-    // Find a commit to replace
+    // Find a commit to replace in the active branches
     let commitToReplace: string | null = null
-    let jCommitToReplace = Infinity
-    if (commitSha === headSha) {
+    let commitToReplaceColumn = Infinity
+    if (commitHash === headCommitHash) {
       commitToReplace = 'index'
-      jCommitToReplace = 0
+      commitToReplaceColumn = 0
     } else {
-      // The commit can only replace a child whose first parent is this commit
-      for (const childSha of branchChildren) {
-        const jChild = positions.get(childSha)![1]
-        if (!forbiddenIndices.has(jChild) && jChild < jCommitToReplace) {
-          commitToReplace = childSha
-          jCommitToReplace = jChild
+      for (const childHash of branchChildren) {
+        const childColumn = positions.get(childHash)![1]
+        if (!forbiddenIndices.has(childColumn) && childColumn < commitToReplaceColumn) {
+          commitToReplace = childHash
+          commitToReplaceColumn = childColumn
         }
       }
     }
 
-    // Insert the commit in the active branches
-    if (commitToReplace) {
-      columnIndex = jCommitToReplace
-      branches[columnIndex] = commitSha
-    } else {
-      if (childrenHashes.length > 0) {
-        const childSha = childrenHashes[0]
-        const jChild = positions.get(childSha)![1]
-        // Try to insert near a child
-        // We could try to insert near any child instead of arbitrarily choosing the first one
-        columnIndex = insertCommit(commitSha, jChild, forbiddenIndices)
-      } else {
-        // TODO: Find a better value for j
-        columnIndex = insertCommit(commitSha, 0, new Set())
-      }
-    }
+    // Insert commit into active branches
+    columnIndex = commitToReplace ? commitToReplaceColumn : insertCommit(commitHash, 0, new Set())
 
-    // Remove useless active nodes
+    // Remove outdated active nodes
     while (!activeNodesQueue.isEmpty() && activeNodesQueue.peek()![0] < rowIndex) {
       const sha = activeNodesQueue.poll()![1]
       activeNodes.delete(sha)
     }
 
-    // Update the active nodes
-    const jToAdd = [columnIndex, ...branchChildren.map((childSha) => positions.get(childSha)![1])]
-    for (const activeNode of activeNodes.values()) {
-      jToAdd.forEach((j) => activeNode.add(j))
-    }
-    activeNodes.set(commitSha, new Set<number>())
-    const iRemove = Math.max(...commits.find(it => it.hash === commitSha)!.parents!.map((parentSha) => shaToIndex.get(parentSha)!))
-    activeNodesQueue.add([iRemove, commitSha])
+    // Update active nodes with the new commit
+    const columnToAdd = [columnIndex, ...branchChildren.map(childHash => positions.get(childHash)![1])]
+    activeNodes.forEach(activeNode => columnToAdd.forEach(column => activeNode.add(column)))
+    activeNodes.set(commitHash, new Set<number>())
+    activeNodesQueue.add([Math.max(...commit.parents.map(parentHash => hashToIndex.get(parentHash)!)), commitHash])
 
     // Remove children from active branches
     branchChildren.forEach(childSha => {
-      if (childSha != commitToReplace) {
+      if (childSha !== commitToReplace) {
         branches[positions.get(childSha)![1]] = null
       }
     })
 
-    // If the commit has no parent, remove it from active branches
+    // If commit has no parents, remove it from active branches
     if (commit.parents.length === 0) {
       branches[columnIndex] = null
     }
 
-    // Finally set the position
-    positions.set(commitSha, [rowIndex, columnIndex])
+    // Store the computed position
+    positions.set(commitHash, [rowIndex, columnIndex])
     rowIndex++
   }
 

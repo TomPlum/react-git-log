@@ -135,29 +135,42 @@ export const computeNodePositions = (
     }
     const forbiddenIndices = highestChild ? activeNodes.get(highestChild)! : new Set<number>()
 
-    // Find a commit to replace in the active branches
-    let commitToReplace: string | null = null
+    // Find a commit to replace
+    let commitToReplaceHash: string | null = null
     let commitToReplaceColumn = Infinity
+
     if (commitHash === headCommitHash) {
-      commitToReplace = 'index'
+      commitToReplaceHash = 'index'
       commitToReplaceColumn = 0
     } else {
+      // The commit can only replace a child whose first parent is this commit
       for (const childHash of branchChildren) {
         const childColumn = positions.get(childHash)![1]
         if (!forbiddenIndices.has(childColumn) && childColumn < commitToReplaceColumn) {
-          commitToReplace = childHash
+          commitToReplaceHash = childHash
           commitToReplaceColumn = childColumn
         }
       }
     }
 
-    // Insert commit into active branches
-    columnIndex = commitToReplace ? commitToReplaceColumn : insertCommit(commitHash, 0, new Set())
+    // Insert the commit in the active branches
+    if (commitToReplaceHash) {
+      columnIndex = commitToReplaceColumn
+      branches[columnIndex] = commitHash
+    } else {
+      if (childHashes.length > 0) {
+        const childHash = childHashes[0]
+        const childColumn = positions.get(childHash)![1]
+        columnIndex = insertCommit(commitHash, childColumn, forbiddenIndices)
+      } else {
+        columnIndex = insertCommit(commitHash, 0, new Set())
+      }
+    }
 
     // Remove outdated active nodes
     while (!activeNodesQueue.isEmpty() && activeNodesQueue.peek()![0] < rowIndex) {
-      const sha = activeNodesQueue.poll()![1]
-      activeNodes.delete(sha)
+      const activeNodeHash = activeNodesQueue.poll()![1]
+      activeNodes.delete(activeNodeHash)
     }
 
     // Update active nodes with the new commit
@@ -168,7 +181,7 @@ export const computeNodePositions = (
 
     // Remove children from active branches
     branchChildren.forEach(childSha => {
-      if (childSha !== commitToReplace) {
+      if (childSha !== commitToReplaceHash) {
         branches[positions.get(childSha)![1]] = null
       }
     })

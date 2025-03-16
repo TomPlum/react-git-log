@@ -8,6 +8,7 @@ import { useGitContext } from 'context'
 import { FadingDiv } from 'components/FadingDiv'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import { ROW_HEIGHT } from 'constants.ts'
+import { CurvedEdge } from 'modules/Graph/components/CurvedEdge'
 
 // TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
@@ -17,7 +18,7 @@ export const GraphColumn = ({
   commitNodeIndex
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
-  const { headCommit, selectedCommit, previewedCommit, showGitLog, rowSpacing } = useGitContext()
+  const { headCommit, selectedCommit, previewedCommit, showGitLog } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity, hoverColour, textColour } = useTheme()
 
   const columnColour = state.isPlaceholderSkeleton
@@ -270,35 +271,19 @@ export const GraphColumn = ({
       )}
 
       {state.isLeftDownCurve && (
-        <svg width="100%" height={ROW_HEIGHT + rowSpacing} viewBox={'0 0 100 100'} className={styles.curve} preserveAspectRatio='none'>
-          <path
-            d={`
-              M 0,51
-              A 50,50 0 0,1 50,100
-            `}
-            stroke={columnColour}
-            fill="transparent"
-            strokeWidth="2"
-            vectorEffect='non-scaling-stroke'
-            strokeDasharray={state.isPlaceholderSkeleton ? '3 4': undefined}
-          />
-        </svg>
+        <CurvedEdge
+          colour={columnColour}
+          path='M 0,51 A 50,50 0 0,1 50,100'
+          dashed={state.isPlaceholderSkeleton}
+        />
       )}
 
       {state.isLeftUpCurve && (
-        <svg width="100%" height={ROW_HEIGHT + rowSpacing} viewBox={'0 0 100 100'} className={styles.curve} preserveAspectRatio='none'>
-          <path
-            d={`
-              M 0,52 
-              A 50,50 0 0,0 50,0
-            `}
-            stroke={columnColour}
-            strokeDasharray={state.isPlaceholderSkeleton ? '3 4': undefined}
-            fill="transparent"
-            vectorEffect='non-scaling-stroke'
-            strokeWidth="2"
-          />
-        </svg>
+        <CurvedEdge
+          colour={columnColour}
+          path='M 0,52 A 50,50 0 0,0 50,0'
+          dashed={state.isPlaceholderSkeleton}
+        />
       )}
     </div>
   )

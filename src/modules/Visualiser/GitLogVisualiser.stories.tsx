@@ -34,6 +34,7 @@ const meta: Meta<StoryProps> = {
     showCommitNodeHashes: false,
     showCommitNodeTooltips: false,
     showTableHeaders: true,
+    enableResize: false,
     entries: [],
     currentBranch: 'release',
     theme: 'dark',

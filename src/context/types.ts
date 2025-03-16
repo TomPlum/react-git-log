@@ -98,6 +98,12 @@ export interface GitContextBag {
   enableExperimentalAnimation?: boolean
 
   /**
+   * Enables the graphs horizontal width
+   * to be resized.
+   */
+  enableResize?: boolean
+
+  /**
    * A link to the GitHub repository from which
    * the {@link entries} came from. When passed,
    * link so commits, tags and PRs will be rendered.

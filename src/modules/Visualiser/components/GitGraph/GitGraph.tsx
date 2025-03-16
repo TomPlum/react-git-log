@@ -12,7 +12,8 @@ export const GitGraph = () => {
     classes,
     showGitLog,
     showBranchesTags,
-    showTableHeaders
+    showTableHeaders,
+    enableResize
   } = useGitContext()
 
   const { textColour } = useTheme()
@@ -45,10 +46,12 @@ export const GitGraph = () => {
 
         <Graph />
 
-        <div
-          onMouseDown={startResizing}
-          className={styles.dragHandle}
-        />
+        {enableResize && (
+          <div
+            onMouseDown={startResizing}
+            className={styles.dragHandle}
+          />
+        )}
       </div>
 
       {showGitLog && (

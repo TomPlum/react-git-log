@@ -12,7 +12,13 @@ Extract data from all branches.
 git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate:%cd,adate:%ad' --date=iso >> git-log-all.txt
 ```
 
-TODO:
+# References
+- https://pvigier.github.io/2019/05/06/commit-graph-drawing-algorithms.html
+- https://github.com/pvigier/gitamine
+- https://marklodato.github.io/visual-git-guide/index-en.html
+- https://github.com/i-e-b/SnivellingGit/tree/master
+
+# TODO:
 - Filtering of branches
 - Filter by commit message search?
 - Filtering of date?

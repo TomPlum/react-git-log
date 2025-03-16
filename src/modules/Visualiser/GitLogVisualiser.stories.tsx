@@ -3,18 +3,23 @@ import { useEffect, useState } from 'react'
 import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
 import { Commit, GitLogEntry, GitLogVisualiserProps } from './types'
 import { GitLogVisualiser } from './GitLogVisualiser'
-import { lightThemeColors } from 'modules/Visualiser/hooks/useTheme'
 import dayjs from 'dayjs'
 import styles from './GitLogVisualiser.stories.module.scss'
 
-const fetchEntries = async (): Promise<GitLogEntry[]> => {
-  const response = await fetch('/git-log-all.txt')
+const repositories: Record<string, string> = {
+  'TomPlum/sleep': 'release',
+  'TomPlum/learn-japanese': 'feature/JPUI-51'
+}
+
+const fetchEntries = async (name: string): Promise<GitLogEntry[]> => {
+  const response = await fetch(`/${name.split('/')[1]}.txt`)
   return parseGitLogOutput(await response.text())
 }
 
 interface StoryProps extends GitLogVisualiserProps {
   pageSize?: number
   page?: number
+  repository: string
 }
 
 const meta: Meta<StoryProps> = {
@@ -31,14 +36,14 @@ const meta: Meta<StoryProps> = {
     showTableHeaders: true,
     entries: [],
     currentBranch: 'release',
-    colours: lightThemeColors,
     theme: 'dark',
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
     enableExperimentalAnimation: false,
     githubRepositoryUrl: 'https://github.com/TomPlum/sleep',
-    graphWidth: 400
+    graphWidth: 400,
+    repository: 'TomPlum/sleep'
   },
   argTypes: {
     theme: {
@@ -56,6 +61,12 @@ const meta: Meta<StoryProps> = {
         type: 'number',
         min: 0
       }
+    },
+    repository: {
+      options: ['TomPlum/sleep', 'TomPlum/learn-japanese'],
+      control: {
+        type: 'select',
+      }
     }
   }
 } satisfies Meta<StoryProps>
@@ -68,23 +79,22 @@ export const Default: Story = {
     const [entries, setEntries] = useState<GitLogEntry[]>()
 
     useEffect(() => {
-      fetchEntries()
-        .then(data => {
-          const headCommit = data[0]
-          const today = dayjs(new Date())
-          const daysSinceHeadCommit = Math.abs(dayjs(headCommit.committerDate).diff(today, 'days'))
+      fetchEntries(args.repository).then(data => {
+        const headCommit = data[0]
+        const today = dayjs(new Date())
+        const daysSinceHeadCommit = Math.abs(dayjs(headCommit.committerDate).diff(today, 'days'))
 
-          if (daysSinceHeadCommit > 1) {
-            const shiftedData: GitLogEntry[] = data.map(entry => ({
-              ...entry,
-              committerDate: dayjs(entry.committerDate).add(daysSinceHeadCommit, 'days').format()
-            }))
+        if (daysSinceHeadCommit > 1) {
+          const shiftedData: GitLogEntry[] = data.map(entry => ({
+            ...entry,
+            committerDate: dayjs(entry.committerDate).add(daysSinceHeadCommit, 'days').format()
+          }))
 
-            setEntries(shiftedData)
-          } else {
-            setEntries(data)
-          }
-        })
+          setEntries(shiftedData)
+        } else {
+          setEntries(data)
+        }
+      })
     }, [])
 
     if (!entries) {
@@ -102,6 +112,7 @@ export const Default: Story = {
             page: args.page ?? 0,
             size: args.pageSize ?? entries.length
           }}
+          currentBranch={repositories[args.repository]}
           classes={{
             containerStyles: {
               background: backgroundColour

@@ -48,11 +48,6 @@ export const GitLogVisualiser = ({
   }, [currentBranch, entries])
 
   const themeColours = useMemo<string[]>(() => {
-    // TODO: Are we keeping colours as a prop?
- /*   if (colours) {
-      return colours
-    }*/
-
     if (theme) {
       const rainbowColours = generateRainbowGradient(graphData.graphWidth)
 

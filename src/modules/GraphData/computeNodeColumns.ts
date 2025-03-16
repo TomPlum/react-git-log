@@ -55,6 +55,7 @@ export const computeNodePositions = (
     return branches.length - 1
   }
 
+  console.log('currentBranch', currentBranch)
   const headSha = commits.find(commit => commit.branch.includes(currentBranch))!.hash
   let rowIndex = 1
 

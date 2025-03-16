@@ -15,17 +15,8 @@ export interface GitLogVisualiserProps {
   currentBranch: string
 
   /**
-   * An array of colours to use for
-   * the branches.
-   */
-  colours?: string[]
-
-  /**
    * The variant of the default colour
    * them to apply to the visualiser.
-   *
-   * Does not take effect if a custom
-   * array of {@link colours} are passed.
    */
   theme?: Theme
 

@@ -22,3 +22,5 @@ TODO:
 - Expose custom theme object off the Theme type
 - Performance testing on large repos
 - Expose row height parameter
+- Add error boundary
+- Add empty state

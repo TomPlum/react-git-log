@@ -5,5 +5,5 @@ export interface GraphRowProps {
   id: number
   commit: Commit
   width: number
-  columns:  GraphColumnState[]
+  columns: GraphColumnState[]
 }

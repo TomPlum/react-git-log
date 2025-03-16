@@ -11,6 +11,7 @@ import { useSelectCommit } from 'hooks/useSelectCommit'
 // TODO: Source high from a prop once exposed
 const HEIGHT = 40
 
+// TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
   index,
   state,
@@ -19,9 +20,10 @@ export const GraphColumn = ({
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { headCommit, selectedCommit, previewedCommit, showGitLog } = useGitContext()
-  const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity, hoverColour } = useTheme()
+  const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity, hoverColour, textColour } = useTheme()
 
-  const columnColour = getGraphColumnColour(index)
+  const columnColour = state.isPlaceholderSkeleton ? shiftAlphaChannel(textColour, 0.8) : getGraphColumnColour(index)
+
   const isRowCommitIndexNode = commit.hash === 'index'
   const indexCommitNodeBorder = shiftAlphaChannel(columnColour, 0.5)
   const rowsCommitMatchesPreviewed = previewedCommit?.hash === commit.hash
@@ -66,7 +68,8 @@ export const GraphColumn = ({
     }
 
     // Border is dotted for the index pseudo-node
-    const borderStyle = isIndex ? 'dotted' : 'solid'
+    // and the skeleton placeholder elements.
+    const borderStyle = isIndex || state.isPlaceholderSkeleton ? 'dotted' : 'solid'
 
     // If this column contains a commit node, and
     // it is the tip of its branch, then just draw
@@ -87,17 +90,22 @@ export const GraphColumn = ({
       top: 0,
       borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
     }
-  }, [columnColour, commit.isBranchTip, commit.parents.length, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isNode])
+  }, [columnColour, commit.isBranchTip, commit.parents.length, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isNode, state.isPlaceholderSkeleton])
 
   const horizontalNodeLineStyles = useMemo<CSSProperties>(() => {
-    const borderColour = getGraphColumnColour(state.mergeSourceNodeColumnIndex ?? commitNodeIndex)
+    const borderColour = state.isPlaceholderSkeleton
+      ? columnColour
+      : getGraphColumnColour(state.mergeSourceNodeColumnIndex ?? commitNodeIndex)
+
+    // Border is dotted for the skeleton placeholder elements.
+    const borderStyle = state.isPlaceholderSkeleton ? 'dotted' : 'solid'
 
     // If this column has a node and is being merged into from another,
     // then we don't need to draw to the left of the node, just connect
     // to the right side horizontal line.
     if (state.isNode && state.mergeSourceNodeColumnIndex) {
       return {
-        borderTop: `2px solid ${borderColour}`,
+        borderTop: `2px ${borderStyle} ${borderColour}`,
         width: '50%',
         right: 0,
         zIndex: index
@@ -107,11 +115,11 @@ export const GraphColumn = ({
     // If no other conditions are met then we can draw a
     // full-width horizontal line.
     return {
-      borderTop: `2px solid ${borderColour}`,
+      borderTop: `2px ${borderStyle} ${borderColour}`,
       width: index === 0 ? '50%' : '100%',
       zIndex: index
     }
-  }, [commitNodeIndex, getGraphColumnColour, index, state.isNode, state.mergeSourceNodeColumnIndex])
+  }, [columnColour, commitNodeIndex, getGraphColumnColour, index, state.isNode, state.isPlaceholderSkeleton, state.mergeSourceNodeColumnIndex])
 
   const showPreviewBackground = useMemo(() => {
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash
@@ -242,6 +250,7 @@ export const GraphColumn = ({
             stroke={columnColour}
             fill="transparent"
             strokeWidth="4"
+            strokeDasharray={state.isPlaceholderSkeleton ? '3 4': undefined}
           />
         </svg>
       )}
@@ -254,6 +263,7 @@ export const GraphColumn = ({
               C 46,${HEIGHT / 2} 53,0 50,-50
             `}
             stroke={columnColour}
+            strokeDasharray={state.isPlaceholderSkeleton ? '3 4': undefined}
             fill="transparent"
             strokeWidth="4"
           />

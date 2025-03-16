@@ -82,4 +82,14 @@ export interface GraphColumnState {
    * edge of the column.
    */
   isLeftUpCurve?: boolean
+
+  /**
+   * Indicates that the elements in this
+   * column (whether they be lines or a node)
+   * are part of a skeleton placeholder to
+   * indicate that there is currently no data
+   * to show on the graph based on current
+   * filtering.
+   */
+  isPlaceholderSkeleton?: boolean
 }

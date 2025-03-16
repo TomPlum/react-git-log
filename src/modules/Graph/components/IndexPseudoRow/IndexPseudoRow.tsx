@@ -1,10 +1,10 @@
 import { GraphRow } from 'modules/Graph/components/GraphRow'
-import { IndexPseudoNodeProps } from './types'
+import { IndexPseudoRowProps } from './types'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { useMemo } from 'react'
 import { useGitContext } from 'modules/Visualiser/context'
 
-export const IndexPseudoNode = ({ graphWidth }: IndexPseudoNodeProps) => {
+export const IndexPseudoRow = ({ graphWidth }: IndexPseudoRowProps) => {
   const { indexCommit } = useGitContext()
 
   const indexColumns = useMemo(() => {

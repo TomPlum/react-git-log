@@ -3,7 +3,7 @@ import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { useGitContext } from 'modules/Visualiser/context'
-import { IndexPseudoNode } from 'modules/Graph/components/IndexPseudoNode'
+import { IndexPseudoRow } from 'modules/Graph/components/IndexPseudoRow'
 
 export const Graph = () => {
   const {
@@ -178,7 +178,7 @@ export const Graph = () => {
       }}
     >
       {paging.startIndex === 0 && (
-        <IndexPseudoNode
+        <IndexPseudoRow
           graphWidth={graphWidth}
         />
       )}

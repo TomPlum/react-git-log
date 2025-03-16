@@ -1,6 +1,7 @@
 import { Commit } from 'modules/Visualiser'
 
 export interface ThemeColours {
+  theme: Theme
   hoverColour: string
   textColour: string
   tooltipBackground: string

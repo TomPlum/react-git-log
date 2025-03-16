@@ -10,7 +10,7 @@ import { useSelectCommit } from 'hooks/useSelectCommit'
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { showCommitNodeTooltips, showCommitNodeHashes } = useGitContext()
-  const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
+  const { textColour, shiftAlphaChannel, tooltipBackground, theme } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -57,7 +57,13 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
         }}
       >
         {showCommitNodeHashes && (
-          <span className={styles.commitLabel} style={{ color: textColour }}>
+          <span
+            className={styles.commitLabel}
+            style={{
+              color: textColour,
+              background: theme === 'dark' ? 'rgb(26,26,26)' : 'white',
+            }}
+          >
             {commit.hash}
           </span>
         )}

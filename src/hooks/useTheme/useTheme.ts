@@ -79,6 +79,7 @@ export const useTheme = (): ThemeColours => {
   }, [getGraphColumnColour, graphData.positions])
 
   return {
+    theme,
     hoverColour,
     textColour,
     tooltipBackground,

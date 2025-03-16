@@ -1,13 +1,7 @@
 import classNames from 'classnames'
 import styles from './Link.module.scss'
-import { HTMLAttributes } from 'react'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-
-export interface LinkProps extends HTMLAttributes<HTMLAnchorElement> {
-  text: string
-  href?: string
-  className?: string
-}
+import { LinkProps } from './types'
 
 export const Link = ({ href, text, className, ...props }: LinkProps) => {
   const { textColour } = useTheme()

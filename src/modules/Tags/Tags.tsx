@@ -1,6 +1,6 @@
-import styles from './BranchesTags.module.scss'
+import styles from './Tags.module.scss'
 import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
-import { BranchTag } from './BranchTag'
+import { BranchTag } from './components/BranchTag'
 import { useGitContext } from 'modules/Visualiser/context'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { useCallback, useMemo } from 'react'
@@ -24,7 +24,7 @@ const prepareCommits = (commits: Commit[]) => {
   })
 }
 
-export const BranchesTags = () => {
+export const Tags = () => {
   const { getCommitColour } = useTheme()
   const { previewedCommit, selectedCommit, indexCommit, graphData, paging } = useGitContext()
 

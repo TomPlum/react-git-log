@@ -1,5 +1,5 @@
 import styles from './BranchLine.module.scss'
-import { BranchLineProps } from './types'
+import { BranchLineProps } from './types.ts'
 
 export const BranchLine = ({ id, x, y, height, color }: BranchLineProps) => {
   return (

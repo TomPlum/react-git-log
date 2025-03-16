@@ -1,13 +1,13 @@
-import { BranchTagTooltip } from './BranchTagTooltip'
+import { BranchTagTooltip } from '../BranchTagTooltip'
 import styles from './BranchTag.module.scss'
 import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { CSSProperties, useCallback, useMemo, useState } from 'react'
-import { BranchTagProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { FadingDiv } from 'components/FadingDiv'
-import { BranchLabel } from './BranchLabel'
-import { TagLabel } from './TagLabel'
-import { IndexLabel } from 'modules/Visualiser/components/BranchesTags/IndexLabel'
+import { BranchLabel } from '../BranchLabel'
+import { TagLabel } from '../TagLabel'
+import { IndexLabel } from 'modules/Tags/components/IndexLabel'
+import { BranchTagProps } from './types.ts'
 
 export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: BranchTagProps) => {
   const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()

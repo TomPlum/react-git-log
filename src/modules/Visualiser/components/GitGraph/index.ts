@@ -1,1 +1,1 @@
-export * from './GitGraph'
+export * from './GitGraph.tsx'

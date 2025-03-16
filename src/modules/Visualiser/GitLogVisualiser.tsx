@@ -1,5 +1,5 @@
 import { Commit, GitLogVisualiserProps } from './types.ts'
-import { GitGraph } from './components/GitGraph'
+import { GitGraph } from 'modules/Visualiser/components/GitGraph'
 import { useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'modules/Visualiser/context'
 import { lightThemeColors, useTheme } from 'modules/Visualiser/hooks/useTheme'

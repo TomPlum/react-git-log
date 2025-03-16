@@ -2,12 +2,9 @@ import { useGitContext } from 'modules/Visualiser/context'
 import styles from './BranchLabel.module.scss'
 import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
 import { useMemo } from 'react'
-import { Link } from './Link'
-import { BranchIcon } from './BranchIcon'
-
-export interface BranchLabelProps {
-  name: string
-}
+import { Link } from '../Link'
+import { BranchIcon } from '../BranchIcon'
+import { BranchLabelProps } from './types.ts'
 
 export const BranchLabel = ({ name }: BranchLabelProps) => {
   const { githubRepositoryUrl } = useGitContext()

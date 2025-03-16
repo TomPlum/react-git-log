@@ -1,6 +1,6 @@
 import styles from './BranchTagTooltip.module.scss'
-import { BranchTagTooltipProps } from './types'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { BranchTagTooltipProps } from './types'
 
 export const BranchTagTooltip = ({ branch }: BranchTagTooltipProps) => {
   const { textColour, tooltipBackground, shiftAlphaChannel } = useTheme()

@@ -2,10 +2,7 @@ import Icon from 'assets/tag.svg?react'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import styles from './TagIcon.module.scss'
 import classNames from 'classnames'
-
-export interface TagIconProps {
-  className?: string
-}
+import { TagIconProps } from './types'
 
 export const TagIcon = ({ className }: TagIconProps) => {
   const { textColour } = useTheme()

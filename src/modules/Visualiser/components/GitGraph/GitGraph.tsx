@@ -1,6 +1,6 @@
 import styles from './GitGraph.module.scss'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
-import { BranchesTags } from 'modules/Visualiser/components/BranchesTags'
+import { Tags } from 'modules/Tags'
 import { useResize } from 'modules/Visualiser/hooks/useResize'
 import { useGitContext } from 'modules/Visualiser/context'
 import classNames from 'classnames'
@@ -32,7 +32,7 @@ export const GitGraph = () => {
             </h4>
           )}
 
-          <BranchesTags />
+          <Tags />
         </div>
       )}
 

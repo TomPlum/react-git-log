@@ -2,10 +2,7 @@ import Icon from 'assets/branch.svg?react'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import styles from './BranchIcon.module.scss'
 import classNames from 'classnames'
-
-export interface BranchIconProps {
-  className?: string
-}
+import { BranchIconProps } from './types'
 
 export const BranchIcon = ({ className }: BranchIconProps) => {
   const { textColour } = useTheme()

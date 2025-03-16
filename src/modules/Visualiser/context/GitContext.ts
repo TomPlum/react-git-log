@@ -43,5 +43,9 @@ export const GitContext = createContext<GitContextBag>({
     positions: new Map(),
     parents: new Map(),
     hashToCommit: new Map()
+  },
+  paging: {
+    endIndex: 0,
+    startIndex: 0
   }
 })

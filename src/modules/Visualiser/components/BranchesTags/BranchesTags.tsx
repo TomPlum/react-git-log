@@ -26,16 +26,17 @@ const prepareCommits = (commits: Commit[]) => {
 
 export const BranchesTags = () => {
   const { getCommitColour } = useTheme()
-  const { previewedCommit, selectedCommit, indexCommit, graphData } = useGitContext()
+  const { previewedCommit, selectedCommit, indexCommit, graphData, paging } = useGitContext()
 
   const preparedCommits = useMemo(() => {
-    const commitsWithIndex = [
-      indexCommit,
-      ...graphData.commits
-    ]
+    const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
 
-    return prepareCommits(commitsWithIndex)
-  }, [graphData.commits, indexCommit])
+    if (paging.startIndex === 0) {
+      data.unshift(indexCommit)
+    }
+
+    return prepareCommits(data)
+  }, [graphData.commits, indexCommit, paging.endIndex, paging.startIndex])
 
   const tagLineWidth = useCallback((commit: Commit) => {
     const graphContainerWidth = 400 // TODO: Source dynamically

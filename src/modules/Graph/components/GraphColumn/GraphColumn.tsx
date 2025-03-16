@@ -26,6 +26,7 @@ export const GraphColumn = ({
   const indexCommitNodeBorder = shiftAlphaChannel(columnColour, 0.5)
   const rowsCommitMatchesPreviewed = previewedCommit?.hash === commit.hash
   const rowsCommitMatchesSelected = selectedCommit?.hash === commit.hash
+  const rowsCommitIsHead = commit.hash === headCommit.hash
 
   const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
     // If the current column is the index pseudo-node
@@ -42,7 +43,7 @@ export const GraphColumn = ({
     // If this column has the HEAD commit node in it,
     // just draw a dotted line on top of it which will
     // ultimately hit the index pseudo-node above.
-    if (commit.hash === headCommit.hash && state.isNode) {
+    if (rowsCommitIsHead && state.isNode) {
       return {
         height: '50%',
         top: 0,
@@ -55,7 +56,7 @@ export const GraphColumn = ({
     // in the graph, so just draw a solid line above it.
     const isFirstCommit = state.isNode && commit.parents.length === 0
     // Or if we're a merge target node that closed a branch
-    const isMergeTarget = state.isNode && state.mergeSourceNodeColumnIndex
+    // const isMergeTarget = state.isNode && state.mergeSourceNodeColumnIndex // TODO: Are we gonna use this?
     if (isFirstCommit) {
       return {
         height: '50%',
@@ -86,7 +87,7 @@ export const GraphColumn = ({
       top: 0,
       borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
     }
-  }, [columnColour, commit.hash, commit.isBranchTip, commit.parents.length, headCommit.hash, indexCommitNodeBorder, isRowCommitIndexNode, state.isNode, state.mergeSourceNodeColumnIndex])
+  }, [columnColour, commit.isBranchTip, commit.parents.length, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isNode])
 
   const horizontalNodeLineStyles = useMemo<CSSProperties>(() => {
     const borderColour = getGraphColumnColour(state.mergeSourceNodeColumnIndex ?? commitNodeIndex)
@@ -171,7 +172,7 @@ export const GraphColumn = ({
         />
       )}
 
-      {state.isVerticalLine && commit.hash === headCommit.hash && (
+      {state.isVerticalLine && rowsCommitIsHead && (
         <>
           <div
             style={verticalNodeLineStyles(false)}

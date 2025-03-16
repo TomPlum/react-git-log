@@ -108,6 +108,13 @@ export interface GitLogVisualiserProps {
    * elements for custom styling.
    */
   classes?: GitVisualiserStylingProps
+
+  /**
+   * Optional paging information to show
+   * a window of the given size from the
+   * set of git log entries.
+   */
+  paging?: GitVisualiserPaging
 }
 
 export interface GitVisualiserStylingProps {
@@ -146,6 +153,11 @@ export interface GitVisualiserStylingProps {
     tr?: CSSProperties
     td?: CSSProperties
   }
+}
+
+export interface GitVisualiserPaging {
+  size: number
+  page: number
 }
 
 export interface Commit {

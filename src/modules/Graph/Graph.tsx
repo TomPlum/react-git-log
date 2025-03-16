@@ -6,7 +6,11 @@ import { useGitContext } from 'modules/Visualiser/context'
 import { IndexPseudoNode } from 'modules/Graph/components/IndexPseudoNode'
 
 export const Graph = () => {
-  const { graphData: { graphWidth, positions, edges, commits }, headCommit } = useGitContext()
+  const {
+    paging,
+    headCommit,
+    graphData: { graphWidth, positions, edges, commits }
+  } = useGitContext()
 
   const getEmptyColumnState = useCallback(() => {
     return new Array<GraphColumnState>(graphWidth).fill({})
@@ -21,7 +25,7 @@ export const Graph = () => {
 
     // Iterate over all the edges update the graph column state
     // for each of the respective branch/merge line segments.
-    edges.search(0, commits.length).forEach(([[rowStart, colStart], [rowEnd, colEnd], type]) => {
+    edges.search(0, commits.length).forEach(([[rowStart, colStart], [rowEnd, colEnd]]) => {
       // Are we connecting to nodes in the same column?
       // I.e. drawing a straight merge line between them.
       if (colStart === colEnd) {
@@ -123,14 +127,14 @@ export const Graph = () => {
       }
 
       // TODO: Remove the below once all working
-      const fromHash = [...positions.entries()].find((it) => {
+      /*const fromHash = [...positions.entries()].find((it) => {
         return it[1][0] === rowStart
       })![0]
 
       const toHash = [...positions.entries()].find((it) => {
         return it[1][0] === rowEnd
       })![0]
-      console.log('Row', rowStart, 'Column', colStart, 'hash', fromHash, '-->', 'Row', rowEnd, 'Column', colEnd, 'hash', toHash, ' --- type', type)
+      console.log('Row', rowStart, 'Column', colStart, 'hash', fromHash, '-->', 'Row', rowEnd, 'Column', colEnd, 'hash', toHash, ' --- type', type)*/
     })
 
     // Add the commit nodes into their respective rows and columns
@@ -159,7 +163,11 @@ export const Graph = () => {
     }
 
     return rowToColumnState
-  }, [positions, edges, commits.length, graphWidth, getEmptyColumnState, headCommit.hash])
+  }, [positions, edges, commits.length, getEmptyColumnState, headCommit.hash])
+
+  const visibleCommits = useMemo(() => {
+    return commits.slice(paging.startIndex, paging.endIndex)
+  }, [commits, paging])
 
   return (
     <div
@@ -169,17 +177,19 @@ export const Graph = () => {
         gridTemplateRows: 'repeat(auto-fill, 40px)' // TODO: Source high from a prop once exposed
       }}
     >
-      <IndexPseudoNode
-        graphWidth={graphWidth}
-      />
+      {paging.startIndex === 0 && (
+        <IndexPseudoNode
+          graphWidth={graphWidth}
+        />
+      )}
 
-      {Array.from(commits.values()).map((commit, index) => (
+      {visibleCommits.map((commit, index) => (
         <GraphRow
           id={index}
           commit={commit}
           key={commit.hash}
           width={graphWidth}
-          columns={columnData.get(index + 1) ?? getEmptyColumnState()}
+          columns={columnData.get(index + paging.startIndex + 1) ?? getEmptyColumnState()}
         />
       ))}
     </div>

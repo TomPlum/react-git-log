@@ -81,6 +81,10 @@ export const Default: Story = {
         <GitLogVisualiser
           {...args}
           entries={entries}
+          paging={{
+            page: 0,
+            size: 25 //entries.length
+          }}
           classes={{
             containerStyles: {
               background: backgroundColour

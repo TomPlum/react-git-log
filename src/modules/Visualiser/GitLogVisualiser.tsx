@@ -23,7 +23,8 @@ export const GitLogVisualiser = ({
    timestampFormat = 'YYYY-MM-DD HH:mm:ss',
    onSelectCommit,
    githubRepositoryUrl,
-   currentBranch
+   currentBranch,
+   paging
 }: GitLogVisualiserProps) => {
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
@@ -92,7 +93,13 @@ export const GitLogVisualiser = ({
       x: 0,
       y: 0
     })
-  }, [githubRepositoryUrl, headCommit.branch, headCommit.hash])
+  }, [githubRepositoryUrl, headCommit])
+
+  const pageIndices = useMemo(() => {
+    const startIndex = paging ? paging.page * paging.size : 0
+    const endIndex = paging ? startIndex + paging.size : entries.length
+    return { startIndex, endIndex }
+  }, [entries.length, paging])
 
   const value = useMemo<GitContextBag>(() => ({
     colours: themeColours,
@@ -114,7 +121,8 @@ export const GitLogVisualiser = ({
     currentBranch,
     headCommit,
     indexCommit,
-    graphData
+    graphData,
+    paging: pageIndices
   }), [
     showBranchesTags,
     showCommitNodeHashes,
@@ -134,7 +142,8 @@ export const GitLogVisualiser = ({
     currentBranch,
     headCommit,
     indexCommit,
-    graphData
+    graphData,
+    pageIndices
   ])
   
   return (

@@ -30,8 +30,9 @@ export const GitLog = () => {
     timestampFormat,
     showTableHeaders,
     classes,
-    indexCommit,
-    graphData
+    graphData,
+    paging,
+    indexCommit
   } = useGitContext()
 
   const { selectCommitHandler } = useSelectCommit()
@@ -67,11 +68,14 @@ export const GitLog = () => {
   }, [timestampFormat])
 
   const logData = useMemo<Commit[]>(() => {
-    return [
-      indexCommit,
-      ...graphData.commits
-    ]
-  }, [graphData.commits, indexCommit])
+    const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
+
+    if (paging.startIndex === 0) {
+      data.unshift(indexCommit)
+    }
+
+    return data
+  }, [graphData.commits, indexCommit, paging.endIndex, paging.startIndex])
 
   return (
     <table

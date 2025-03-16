@@ -137,4 +137,14 @@ export interface GitContextBag {
    * array of {@link colours} are passed.
    */
   theme: Theme
+
+  /**
+   * Optional paging information to show
+   * a window of the given size from the
+   * set of git log entries.
+   */
+  paging: {
+    startIndex: number
+    endIndex: number
+  }
 }

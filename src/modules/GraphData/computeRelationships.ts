@@ -25,12 +25,12 @@ export const computeRelationships = (entries: GitLogEntry[]) => {
   // Use parent hashes to calculate children.
   // I.e. find the inverse relationship.
   entries.forEach((entry) => {
-    const commitSha = entry.hash
-    const parentShas = entry.parents
-    parents.set(commitSha, parentShas)
+    const hash = entry.hash
+    const parentHashes = entry.parents
+    parents.set(hash, parentHashes)
 
-    parentShas.forEach(parentSha => {
-      children.get(parentSha)!.push(commitSha)
+    parentHashes.forEach(parentHash => {
+      children.get(parentHash)!.push(hash)
     })
   })
 

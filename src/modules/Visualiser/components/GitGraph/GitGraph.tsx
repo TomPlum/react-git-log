@@ -1,10 +1,10 @@
 import styles from './GitGraph.module.scss'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { Tags } from 'modules/Tags'
-import { useResize } from 'modules/Visualiser/hooks/useResize'
+import { useResize } from 'hooks/useResize'
 import { useGitContext } from 'context'
 import classNames from 'classnames'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import { Graph } from 'modules/Graph'
 
 export const GitGraph = () => {

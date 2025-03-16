@@ -2,10 +2,10 @@ import styles from './CommitNode.module.scss'
 import { CommitNodeProps } from './types'
 import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { useCallback, useState } from 'react'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context'
 import { CommitNodeTooltip } from './CommitNodeTooltip'
-import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
+import { useSelectCommit } from 'hooks/useSelectCommit'
 
 export const CommitNode = ({ commit, colour, showCommitNodeHashes }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()

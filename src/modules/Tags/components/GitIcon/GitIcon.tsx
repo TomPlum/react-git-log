@@ -1,4 +1,4 @@
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import classNames from 'classnames'
 import styles from './GitIcon.module.scss'
 import Icon from 'assets/git.svg?react'

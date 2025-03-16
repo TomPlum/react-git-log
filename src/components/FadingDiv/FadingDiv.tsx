@@ -1,7 +1,7 @@
 import { motion, MotionProps } from 'framer-motion'
 import { HTMLAttributes, PropsWithChildren } from 'react'
 import { useGitContext } from 'context'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 
 export const FadingDiv = ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement> & MotionProps>) => {
   const { hoverTransitionDuration } = useTheme()

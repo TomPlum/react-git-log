@@ -1,12 +1,12 @@
 import { GraphColumnProps } from './types'
 import { CommitNode } from 'modules/Graph/components/CommitNode'
 import styles from './GraphColumn.module.scss'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import { CSSProperties, useCallback, useMemo } from 'react'
 import classNames from 'classnames'
 import { useGitContext } from 'context'
 import { FadingDiv } from 'components/FadingDiv'
-import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
+import { useSelectCommit } from 'hooks/useSelectCommit'
 
 // TODO: Source high from a prop once exposed
 const HEIGHT = 40

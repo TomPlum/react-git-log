@@ -3,11 +3,11 @@ import classNames from 'classnames'
 import dayjs from 'dayjs'
 import { useCallback, useMemo } from 'react'
 import { Commit } from 'modules/Visualiser'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { useGitContext } from 'context'
-import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
+import { useSelectCommit } from 'hooks/useSelectCommit'
 import { FadingDiv } from 'components/FadingDiv'
 
 dayjs.extend(advancedFormat)

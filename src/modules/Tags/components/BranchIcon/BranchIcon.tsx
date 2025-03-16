@@ -1,5 +1,5 @@
 import Icon from 'assets/branch.svg?react'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import styles from './BranchIcon.module.scss'
 import classNames from 'classnames'
 import { BranchIconProps } from './types'

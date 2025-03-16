@@ -1,5 +1,5 @@
 import styles from './BranchTagTooltip.module.scss'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import { BranchTagTooltipProps } from './types'
 
 export const BranchTagTooltip = ({ branch }: BranchTagTooltipProps) => {

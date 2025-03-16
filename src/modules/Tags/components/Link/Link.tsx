@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import styles from './Link.module.scss'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import { LinkProps } from './types'
 
 export const Link = ({ href, text, className, ...props }: LinkProps) => {

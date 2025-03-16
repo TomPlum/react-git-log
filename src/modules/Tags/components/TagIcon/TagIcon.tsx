@@ -1,5 +1,5 @@
 import Icon from 'assets/tag.svg?react'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import styles from './TagIcon.module.scss'
 import classNames from 'classnames'
 import { TagIconProps } from './types'

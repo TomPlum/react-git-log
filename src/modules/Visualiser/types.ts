@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { Theme } from 'modules/Visualiser/hooks/useTheme'
+import { Theme } from 'hooks/useTheme'
 
 export interface GitLogVisualiserProps {
   /**

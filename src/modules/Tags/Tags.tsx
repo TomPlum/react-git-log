@@ -2,7 +2,7 @@ import styles from './Tags.module.scss'
 import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { BranchTag } from './components/BranchTag'
 import { useGitContext } from 'context'
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import { useCallback, useMemo } from 'react'
 
 const prepareCommits = (commits: Commit[]) => {

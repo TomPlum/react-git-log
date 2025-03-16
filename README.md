@@ -24,3 +24,4 @@ TODO:
 - Expose row height parameter
 - Add error boundary
 - Add empty state
+- Make App.tsx redundant and create monorepo of lib + demo site

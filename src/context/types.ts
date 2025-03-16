@@ -1,5 +1,5 @@
 import { Commit, GitVisualiserStylingProps } from 'modules/Visualiser'
-import { Theme } from 'modules/Visualiser/hooks/useTheme'
+import { Theme } from 'hooks/useTheme'
 import { GraphData } from 'modules/GraphData'
 
 export interface GitContextBag {

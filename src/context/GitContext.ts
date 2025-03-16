@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 import { GitContextBag } from 'context/types.ts'
-import { darkThemeColors } from 'modules/Visualiser/hooks/useTheme'
+import { darkThemeColors } from 'hooks/useTheme'
 import { Commit } from 'modules/Visualiser'
 import DataIntervalTree from 'node-interval-tree'
 

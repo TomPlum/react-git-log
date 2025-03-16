@@ -1,4 +1,4 @@
-import { useTheme } from 'modules/Visualiser/hooks/useTheme'
+import { useTheme } from 'hooks/useTheme'
 import styles from './CommitNodeTooltip.module.scss'
 import { Commit } from 'modules/Visualiser'
 

@@ -35,12 +35,8 @@ export const GitLog = () => {
       data.unshift(indexCommit)
     }
 
-    if (data.length === 0) {
-      return placeholderData.map(({ commit }) => commit)
-    }
-
     return data
-  }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex, placeholderData])
+  }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
 
   return (
     <table
@@ -62,6 +58,10 @@ export const GitLog = () => {
       )}
 
       <tbody>
+        {logData.length == 0 && placeholderData.map(({ commit }) => (
+          <GitLogTableRow commit={commit} isPlaceholder />
+        ))}
+
         {logData.map((commit) => (
           <GitLogTableRow commit={commit} />
         ))}

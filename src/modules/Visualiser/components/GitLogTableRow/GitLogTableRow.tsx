@@ -12,7 +12,7 @@ import dayjs from 'dayjs'
 // TODO: Make dynamic
 const ROW_HEIGHT = 40
 
-export const GitLogTableRow = ({ commit }: GitLogTableRowProps) => {
+export const GitLogTableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) => {
   const {
     textColour,
     hoverColour,
@@ -63,7 +63,7 @@ export const GitLogTableRow = ({ commit }: GitLogTableRowProps) => {
   const isMergeCommit = commit.parents.length > 1
 
   const tableDataStyle = {
-    opacity: commit.hash === 'index' ? 0.2 : 1,
+    opacity: commit.hash === 'index' || isPlaceholder ? 0.2 : 1,
     color: shiftAlphaChannel(textColour, isMergeCommit ? 0.4 : 1)
   }
 
@@ -85,7 +85,7 @@ export const GitLogTableRow = ({ commit }: GitLogTableRowProps) => {
       </td>
 
       <td className={classNames(styles.td, styles.date)} style={tableDataStyle}>
-        {commit.hash === 'index' ? '-' : formatTimestamp(commit.committerDate)}
+        {commit.hash === 'index' || isPlaceholder ? '-' : formatTimestamp(commit.committerDate)}
       </td>
 
       <td

@@ -13,7 +13,6 @@ git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate
 ```
 
 TODO:
-- Pagination
 - Filtering of branches
 - Filter by commit message search?
 - Filtering of date?
@@ -25,3 +24,4 @@ TODO:
 - Add error boundary
 - Add empty state
 - Make App.tsx redundant and create monorepo of lib + demo site
+- ESLint / Prettier

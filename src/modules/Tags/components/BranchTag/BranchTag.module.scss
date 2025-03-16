@@ -25,9 +25,8 @@
   .tagLine {
     $size: 1px;
     top: 50%;
-    opacity: 0.5;
     height: $size;
     position: absolute;
-    transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 0.3s;
   }
 }

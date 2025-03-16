@@ -8,9 +8,13 @@ import { BranchLabel } from '../BranchLabel'
 import { TagLabel } from '../TagLabel'
 import { IndexLabel } from 'modules/Tags/components/IndexLabel'
 import { BranchTagProps } from './types.ts'
+import { useGitContext } from 'context'
 
-export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: BranchTagProps) => {
-  const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
+export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTagProps) => {
+  const { selectedCommit, previewedCommit } = useGitContext()
+  const { textColour, shiftAlphaChannel, tooltipBackground, getCommitColour } = useTheme()
+
+  const colour = getCommitColour(commit)
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -23,28 +27,38 @@ export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: B
   }, [])
 
   const tagLineStyles = useMemo<CSSProperties>(() => {
+    const isPreviewCommit = commit.hash === previewedCommit?.hash
+
+    const opacity = commit.hash === selectedCommit?.hash
+      ? 1
+      : isPreviewCommit
+      ? 0.8
+      : 0.4
+    
     return {
+      opacity,
       right: lineRight,
       width: lineWidth,
-      borderTop: `2px dotted ${color}`,
+      borderTop: `2px dotted ${colour}`,
+      animationDuration: isPreviewCommit ? '0s' : '0.3s'
     }
-  }, [color, lineRight, lineWidth])
+  }, [colour, commit.hash, lineRight, lineWidth, previewedCommit?.hash, selectedCommit?.hash])
 
   const tagLabelContainerStyles = useMemo<CSSProperties>(() => {
     if (commit.hash === 'index') {
       return {
         color: textColour,
-        border: `2px dashed ${shiftAlphaChannel(color, 0.50)}`,
-        background: shiftAlphaChannel(color, 0.05)
+        border: `2px dashed ${shiftAlphaChannel(colour, 0.50)}`,
+        background: shiftAlphaChannel(colour, 0.05)
       }
     }
 
     return {
       color: textColour,
-      border: `2px solid ${color}`,
-      background: shiftAlphaChannel(color, 0.30)
+      border: `2px solid ${colour}`,
+      background: shiftAlphaChannel(colour, 0.30)
     }
-  }, [color, commit.hash, shiftAlphaChannel, textColour])
+  }, [colour, commit.hash, shiftAlphaChannel, textColour])
 
   const label = useMemo(() => {
     if (commit.hash === 'index') {

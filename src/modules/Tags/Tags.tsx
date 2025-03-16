@@ -2,7 +2,6 @@ import styles from './Tags.module.scss'
 import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { BranchTag } from './components/BranchTag'
 import { useGitContext } from 'context'
-import { useTheme } from 'hooks/useTheme'
 import { useCallback, useMemo } from 'react'
 
 const prepareCommits = (commits: Commit[]) => {
@@ -25,7 +24,6 @@ const prepareCommits = (commits: Commit[]) => {
 }
 
 export const Tags = () => {
-  const { getCommitColour } = useTheme()
   const { previewedCommit, selectedCommit, indexCommit, graphData, paging } = useGitContext()
 
   const preparedCommits = useMemo(() => {
@@ -71,7 +69,6 @@ export const Tags = () => {
               id={i.toString()}
               height={ROW_HEIGHT}
               key={`tag_${commit.hash}`}
-              color={getCommitColour(commit)}
               lineWidth={tagLineWidth(commit)}
               lineRight={-tagLineWidth(commit)}
             />

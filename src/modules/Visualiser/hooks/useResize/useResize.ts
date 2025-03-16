@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useMouse } from '@uidotdev/usehooks'
 import { ResizeState } from './types'
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 
 export const useResize = (): ResizeState => {
   const [mouse] = useMouse()

@@ -2,7 +2,7 @@ import { GraphRow } from 'modules/Graph/components/GraphRow'
 import { IndexPseudoRowProps } from './types'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { useMemo } from 'react'
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 
 export const IndexPseudoRow = ({ graphWidth }: IndexPseudoRowProps) => {
   const { indexCommit } = useGitContext()

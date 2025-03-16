@@ -1,4 +1,4 @@
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 import { ThemeColours } from './types'
 import { useCallback, useMemo } from 'react'
 import { Commit } from 'modules/Visualiser'

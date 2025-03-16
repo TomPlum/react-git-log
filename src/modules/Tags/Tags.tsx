@@ -1,7 +1,7 @@
 import styles from './Tags.module.scss'
 import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { BranchTag } from './components/BranchTag'
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { useCallback, useMemo } from 'react'
 

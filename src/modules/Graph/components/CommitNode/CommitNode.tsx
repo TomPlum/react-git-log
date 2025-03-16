@@ -3,7 +3,7 @@ import { CommitNodeProps } from './types'
 import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { useCallback, useState } from 'react'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 import { CommitNodeTooltip } from './CommitNodeTooltip'
 import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 

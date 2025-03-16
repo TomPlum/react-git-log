@@ -8,7 +8,9 @@ export default defineConfig({
   resolve: {
     alias: {
       modules: '/src/modules',
-      assets: '/src/assets'
+      assets: '/src/assets',
+      components: '/src/components',
+      context: '/src/context'
     }
   },
   css: {

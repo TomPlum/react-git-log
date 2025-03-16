@@ -1,4 +1,4 @@
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
 import { useMemo } from 'react'
 import styles from './TagLabel.module.scss'

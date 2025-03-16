@@ -1,4 +1,4 @@
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 import styles from './BranchLabel.module.scss'
 import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
 import { useMemo } from 'react'

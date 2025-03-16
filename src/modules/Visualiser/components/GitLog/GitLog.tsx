@@ -6,7 +6,7 @@ import { Commit } from 'modules/Visualiser'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 import { FadingDiv } from 'components/FadingDiv'
 

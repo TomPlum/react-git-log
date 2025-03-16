@@ -2,7 +2,7 @@ import { useCallback, useMemo } from 'react'
 import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 import { IndexPseudoRow } from 'modules/Graph/components/IndexPseudoRow'
 
 export const Graph = () => {

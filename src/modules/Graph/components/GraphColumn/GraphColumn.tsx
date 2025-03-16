@@ -4,7 +4,7 @@ import styles from './GraphColumn.module.scss'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { CSSProperties, useCallback, useMemo } from 'react'
 import classNames from 'classnames'
-import { useGitContext } from 'modules/Visualiser/context'
+import { useGitContext } from 'context'
 import { FadingDiv } from 'components/FadingDiv'
 import { useSelectCommit } from 'modules/Visualiser/hooks/useSelectCommit'
 

@@ -80,7 +80,7 @@ export interface GitLogVisualiserProps {
   /**
    * The default width of the graph in pixels.
    */
-  graphWidth?: number
+  defaultGraphContainerWidth?: number
 
   /**
    * A timestamp format string passed to DayJS

@@ -113,7 +113,21 @@ export interface GitContextBag {
   /**
    * The default width of the graph in pixels.
    */
-  defaultGraphContainerWidth?: number
+  defaultGraphContainerWidth: number
+
+  /**
+   * The width of the graph
+   * container in pixels.
+   */
+  graphContainerWidth: number
+
+  /**
+   * Updates the width of the graph
+   * container.
+   *
+   * @param width The new width, in pixels.
+   */
+  setGraphContainerWidth: (width: number) => void
 
   /**
    * Data used to render the visualiser

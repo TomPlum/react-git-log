@@ -1,7 +1,6 @@
 import styles from './GitGraph.module.scss'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { Tags } from 'modules/Tags'
-import { useResize } from 'hooks/useResize'
 import { useGitContext } from 'context'
 import classNames from 'classnames'
 import { useTheme } from 'hooks/useTheme'
@@ -12,13 +11,10 @@ export const GitGraph = () => {
     classes,
     showGitLog,
     showBranchesTags,
-    showTableHeaders,
-    enableResize
+    showTableHeaders
   } = useGitContext()
 
   const { textColour } = useTheme()
-
-  const { width, ref, startResizing } = useResize()
 
   return (
     <div
@@ -37,7 +33,7 @@ export const GitGraph = () => {
         </div>
       )}
 
-      <div className={styles.graphContainer} style={{ width }} ref={ref}>
+      <div className={styles.graphContainer}>
         {showTableHeaders && (
           <h4 style={{ color: textColour }} className={styles.title}>
             Graph
@@ -45,13 +41,6 @@ export const GitGraph = () => {
         )}
 
         <Graph />
-
-        {enableResize && (
-          <div
-            onMouseDown={startResizing}
-            className={styles.dragHandle}
-          />
-        )}
       </div>
 
       {showGitLog && (

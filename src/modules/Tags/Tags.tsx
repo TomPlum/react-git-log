@@ -24,7 +24,7 @@ const prepareCommits = (commits: Commit[]) => {
 }
 
 export const Tags = () => {
-  const { previewedCommit, selectedCommit, indexCommit, graphData, paging } = useGitContext()
+  const { previewedCommit, selectedCommit, indexCommit, graphData, paging, graphContainerWidth } = useGitContext()
 
   const preparedCommits = useMemo(() => {
     const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
@@ -37,7 +37,6 @@ export const Tags = () => {
   }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
 
   const tagLineWidth = useCallback((commit: Commit) => {
-    const graphContainerWidth = 400 // TODO: Source dynamically
     const columnWidth = graphContainerWidth / graphData.graphWidth
 
     if (commit.hash === 'index') {
@@ -47,7 +46,7 @@ export const Tags = () => {
     const columnIndex = graphData.positions.get(commit.hash)![1]
 
     return  (columnWidth * columnIndex) + (columnWidth / 2)
-  }, [graphData.graphWidth, graphData.positions])
+  }, [graphContainerWidth, graphData.graphWidth, graphData.positions])
 
   return (
     <div className={styles.container}>

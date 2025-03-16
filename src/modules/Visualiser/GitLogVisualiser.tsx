@@ -19,7 +19,7 @@ export const GitLogVisualiser = ({
    showCommitNodeTooltips = false,
    showTableHeaders = false,
    enableResize = false,
-   graphWidth = 400,
+   defaultGraphContainerWidth = 400,
    classes,
    timestampFormat = 'YYYY-MM-DD HH:mm:ss',
    onSelectCommit,
@@ -29,6 +29,7 @@ export const GitLogVisualiser = ({
 }: GitLogVisualiserProps) => {
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
+  const [graphContainerWidth, setGraphContainerWidth] = useState(defaultGraphContainerWidth)
 
   const { shiftAlphaChannel } = useTheme()
 
@@ -119,13 +120,15 @@ export const GitLogVisualiser = ({
     githubRepositoryUrl,
     showCommitNodeTooltips,
     showTableHeaders,
-    defaultGraphContainerWidth: graphWidth,
+    defaultGraphContainerWidth: defaultGraphContainerWidth,
     currentBranch,
     headCommit,
     indexCommit,
     graphData,
     paging: pageIndices,
-    enableResize
+    enableResize,
+    graphContainerWidth,
+    setGraphContainerWidth
   }), [
     showBranchesTags,
     showCommitNodeHashes,
@@ -141,7 +144,8 @@ export const GitLogVisualiser = ({
     githubRepositoryUrl,
     showCommitNodeTooltips,
     showTableHeaders,
-    graphWidth,
+    defaultGraphContainerWidth,
+    graphContainerWidth,
     currentBranch,
     headCommit,
     indexCommit,

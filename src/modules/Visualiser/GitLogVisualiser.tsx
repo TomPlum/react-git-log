@@ -97,7 +97,9 @@ export const GitLogVisualiser = ({
     const startIndex = Math.max(0, page * size)
     const endIndex = Math.min(entries.length, startIndex + size)
 
-    return { startIndex, endIndex }
+    const isIndexVisible = startIndex === 0
+
+    return { startIndex, endIndex, isIndexVisible }
   }, [entries.length, paging])
 
   const value = useMemo<GitContextBag>(() => ({

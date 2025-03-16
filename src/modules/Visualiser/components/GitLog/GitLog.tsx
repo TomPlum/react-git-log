@@ -70,12 +70,12 @@ export const GitLog = () => {
   const logData = useMemo<Commit[]>(() => {
     const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
 
-    if (paging.startIndex === 0) {
+    if (paging.isIndexVisible) {
       data.unshift(indexCommit)
     }
 
     return data
-  }, [graphData.commits, indexCommit, paging.endIndex, paging.startIndex])
+  }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
 
   return (
     <table

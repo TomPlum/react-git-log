@@ -177,7 +177,7 @@ export const Graph = () => {
         gridTemplateRows: 'repeat(auto-fill, 40px)' // TODO: Source high from a prop once exposed
       }}
     >
-      {paging.startIndex === 0 && (
+      {paging.isIndexVisible && (
         <IndexPseudoRow
           graphWidth={graphWidth}
         />

@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { GitContextBag } from 'context/types.ts'
+import { GitContextBag } from './types'
 import { darkThemeColors } from 'hooks/useTheme'
 import { Commit } from 'modules/Visualiser'
 import DataIntervalTree from 'node-interval-tree'
@@ -46,6 +46,7 @@ export const GitContext = createContext<GitContextBag>({
   },
   paging: {
     endIndex: 0,
-    startIndex: 0
+    startIndex: 0,
+    isIndexVisible: true
   }
 })

@@ -31,12 +31,12 @@ export const Tags = () => {
   const preparedCommits = useMemo(() => {
     const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
 
-    if (paging.startIndex === 0) {
+    if (paging.isIndexVisible) {
       data.unshift(indexCommit)
     }
 
     return prepareCommits(data)
-  }, [graphData.commits, indexCommit, paging.endIndex, paging.startIndex])
+  }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
 
   const tagLineWidth = useCallback((commit: Commit) => {
     const graphContainerWidth = 400 // TODO: Source dynamically

@@ -41,27 +41,6 @@
   z-index: 20;
 }
 
-.selectedBackground {
-  position: absolute;
-}
-
-.selectedBackgroundSquare {
-  width: 100%;
-  left: 0;
-}
-
-.selectedBackgroundBehindNode {
-  right: 0;
-  border-bottom-left-radius: 20px;
-  border-top-left-radius: 20px;
-}
-
-.noLogBackground {
-  border-radius: 20px;
-  width: 70%;
-  right: 15%;
-}
-
 @keyframes spin {
   from {
     transform: rotate(0deg);

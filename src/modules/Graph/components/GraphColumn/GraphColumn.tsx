@@ -5,10 +5,10 @@ import { useTheme } from 'hooks/useTheme'
 import { CSSProperties, useCallback, useMemo } from 'react'
 import classNames from 'classnames'
 import { useGitContext } from 'context'
-import { FadingDiv } from 'components/FadingDiv'
 import { useSelectCommit } from 'hooks/useSelectCommit'
-import { ROW_HEIGHT } from 'constants.ts'
 import { CurvedEdge } from 'modules/Graph/components/CurvedEdge'
+import { ColumnSelectedBackground } from 'modules/Graph/components/ColumnSelectedBackground'
+import { ColumnPreviewedBackground } from 'modules/Graph/components/ColumnPreviewedBackground'
 
 // TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
@@ -18,8 +18,8 @@ export const GraphColumn = ({
   commitNodeIndex
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
+  const { getGraphColumnColour, shiftAlphaChannel, textColour } = useTheme()
   const { headCommit, selectedCommit, previewedCommit, showGitLog } = useGitContext()
-  const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity, hoverColour, textColour } = useTheme()
 
   const columnColour = state.isPlaceholderSkeleton
     ? shiftAlphaChannel(textColour, 0.8)
@@ -135,40 +135,6 @@ export const GraphColumn = ({
     return shouldPreview && commitNodeIndex === index
   }, [commitNodeIndex, index, previewedCommit?.hash, rowsCommitMatchesPreviewed, selectedCommit?.hash, showGitLog])
 
-  const selectedBackgroundStyles = useMemo<CSSProperties>(() => {
-    const NODE_SIZE = 24 // TODO: Source dynamically once prop exposed
-
-    if (index === commitNodeIndex) {
-      return {
-        height: ROW_HEIGHT,
-        width: `calc(50% + ${NODE_SIZE}px)`,
-        background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
-      }
-    }
-
-    return {
-      height: ROW_HEIGHT,
-      background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
-    }
-  }, [commitNodeIndex, getGraphColumnColour, index, reduceOpacity])
-
-  const previewedBackgroundStyles = useMemo<CSSProperties>(() => {
-    const NODE_SIZE = 24 // TODO: Source dynamically once prop exposed
-
-    if (index === commitNodeIndex) {
-      return {
-        width: `calc(50% + ${NODE_SIZE}px)`,
-        background: hoverColour,
-        height: ROW_HEIGHT
-      }
-    }
-
-    return {
-      height: ROW_HEIGHT,
-      background: hoverColour
-    }
-  }, [commitNodeIndex, hoverColour, index])
-
   const showSelectedBackground = useMemo(() => {
     if (showGitLog) {
       return rowsCommitMatchesSelected
@@ -247,26 +213,16 @@ export const GraphColumn = ({
       )}
 
       {showSelectedBackground && (
-        <div
-          style={selectedBackgroundStyles}
-          className={classNames(
-            styles.selectedBackground,
-            { [styles.noLogBackground]: !showGitLog },
-            { [styles.selectedBackgroundSquare]: index > commitNodeIndex },
-            { [styles.selectedBackgroundBehindNode]: index === commitNodeIndex }
-          )}
+        <ColumnSelectedBackground
+          index={index}
+          commitNodeIndex={commitNodeIndex}
         />
       )}
 
       {showPreviewBackground && (
-        <FadingDiv
-          style={previewedBackgroundStyles}
-          className={classNames(
-            styles.selectedBackground,
-            { [styles.noLogBackground]: !showGitLog },
-            { [styles.selectedBackgroundSquare]: index > commitNodeIndex },
-            { [styles.selectedBackgroundBehindNode]: index === commitNodeIndex }
-          )}
+        <ColumnPreviewedBackground
+          index={index}
+          commitNodeIndex={commitNodeIndex}
         />
       )}
 

@@ -1,0 +1,19 @@
+.selectedBackground {
+  position: absolute;
+}
+
+.selectedBackgroundSquare {
+  width: 100%;
+  left: 0;
+}
+
+.selectedBackgroundBehindNode {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.noLogBackground {
+  border-radius: 20px;
+  width: 70%;
+  right: 15%;
+}

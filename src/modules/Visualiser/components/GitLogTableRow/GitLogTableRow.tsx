@@ -1,6 +1,5 @@
 import styles from './GitLogTableRow.module.scss'
 import classNames from 'classnames'
-import { FadingDiv } from 'components/FadingDiv'
 import { GitLogTableRowProps } from './types'
 import { useCallback } from 'react'
 import { Commit } from 'modules/Visualiser'
@@ -8,9 +7,7 @@ import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import dayjs from 'dayjs'
-
-// TODO: Make dynamic
-const ROW_HEIGHT = 40
+import { ROW_HEIGHT } from 'constants'
 
 export const GitLogTableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) => {
   const {
@@ -25,7 +22,8 @@ export const GitLogTableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) =
     selectedCommit,
     previewedCommit,
     timestampFormat,
-    classes
+    classes,
+    rowSpacing
   } = useGitContext()
 
   const { selectCommitHandler } = useSelectCommit()
@@ -35,13 +33,15 @@ export const GitLogTableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) =
 
     if (selectedCommit?.hash === commit.hash) {
       return {
+        height: ROW_HEIGHT,
         background: reduceOpacity(colour, 0.15)
       }
     }
 
     if (previewedCommit?.hash === commit.hash) {
       return {
-        background: hoverColour
+        height: ROW_HEIGHT,
+        background: hoverColour,
       }
     }
 
@@ -73,8 +73,8 @@ export const GitLogTableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) =
       className={styles.row}
       onMouseOut={selectCommitHandler.onMouseOut}
       onClick={() => selectCommitHandler.onClick(commit)}
-      style={{ height: ROW_HEIGHT, ...classes?.logTableStyles?.tr }}
       onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
+      style={{ height: ROW_HEIGHT + rowSpacing, ...classes?.logTableStyles?.tr }}
     >
       <td
         style={tableDataStyle}
@@ -93,9 +93,7 @@ export const GitLogTableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) =
         className={styles.background}
         style={getBackgroundStyles(commit)}
         data-testid={`git-log-table-row-background-${commit.hash}`}
-      >
-        <FadingDiv />
-      </td>
+      />
     </tr>
   )
 }

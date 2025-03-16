@@ -6,11 +6,13 @@ import { IndexPseudoRow } from 'modules/Graph/components/IndexPseudoRow'
 import { useColumnData } from 'modules/Graph/hooks/useColumnData'
 import { SkeletonGraph } from 'modules/Graph/components/SkeletonGraph'
 import { useResize } from 'hooks/useResize'
+import { ROW_HEIGHT } from 'constants.ts'
 
 export const Graph = () => {
   const {
     paging,
     enableResize,
+    rowSpacing,
     graphData: { graphWidth, commits }
   } = useGitContext()
 
@@ -28,7 +30,7 @@ export const Graph = () => {
         className={styles.graph}
         style={{
           gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
-          gridTemplateRows: 'repeat(auto-fill, 40px)' // TODO: Source height from a prop once exposed
+          gridTemplateRows: `repeat(auto-fill, ${ROW_HEIGHT + rowSpacing}px)`
         }}
       >
         {visibleCommits.length === 0 && (

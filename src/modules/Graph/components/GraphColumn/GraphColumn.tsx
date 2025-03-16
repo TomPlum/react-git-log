@@ -7,9 +7,7 @@ import classNames from 'classnames'
 import { useGitContext } from 'context'
 import { FadingDiv } from 'components/FadingDiv'
 import { useSelectCommit } from 'hooks/useSelectCommit'
-
-// TODO: Source high from a prop once exposed
-const HEIGHT = 40
+import { ROW_HEIGHT } from 'constants.ts'
 
 // TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
@@ -141,27 +139,31 @@ export const GraphColumn = ({
 
     if (index === commitNodeIndex) {
       return {
+        height: ROW_HEIGHT,
         width: `calc(50% + ${NODE_SIZE}px)`,
         background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
       }
     }
 
     return {
+      height: ROW_HEIGHT,
       background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
     }
   }, [commitNodeIndex, getGraphColumnColour, index, reduceOpacity])
 
-  const previewdBackgroundStyles = useMemo<CSSProperties>(() => {
+  const previewedBackgroundStyles = useMemo<CSSProperties>(() => {
     const NODE_SIZE = 24 // TODO: Source dynamically once prop exposed
 
     if (index === commitNodeIndex) {
       return {
         width: `calc(50% + ${NODE_SIZE}px)`,
-        background: hoverColour
+        background: hoverColour,
+        height: ROW_HEIGHT
       }
     }
 
     return {
+      height: ROW_HEIGHT,
       background: hoverColour
     }
   }, [commitNodeIndex, hoverColour, index])
@@ -257,7 +259,7 @@ export const GraphColumn = ({
 
       {showPreviewBackground && (
         <FadingDiv
-          style={previewdBackgroundStyles}
+          style={previewedBackgroundStyles}
           className={classNames(
             styles.selectedBackground,
             { [styles.noLogBackground]: !showGitLog },
@@ -268,11 +270,11 @@ export const GraphColumn = ({
       )}
 
       {state.isLeftDownCurve && (
-        <svg width="100%" height={HEIGHT} viewBox={`0 0 100 ${HEIGHT}`} className={styles.curve}>
+        <svg width="100%" height={ROW_HEIGHT} viewBox={`0 0 100 ${ROW_HEIGHT}`} className={styles.curve}>
           <path
             d={`
-              M 0,${(HEIGHT / 2) + 1} 
-              C 53,${HEIGHT / 2} 53,${HEIGHT} 50,${HEIGHT + 20}
+              M 0,${(ROW_HEIGHT / 2) + 1} 
+              C 53,${ROW_HEIGHT / 2} 53,${ROW_HEIGHT} 50,${ROW_HEIGHT + 20}
             `}
             stroke={columnColour}
             fill="transparent"
@@ -283,11 +285,11 @@ export const GraphColumn = ({
       )}
 
       {state.isLeftUpCurve && (
-        <svg width="100%" height={HEIGHT} viewBox={`0 0 100 ${HEIGHT}`} className={styles.curve}>
+        <svg width="100%" height={ROW_HEIGHT} viewBox={`0 0 100 ${ROW_HEIGHT}`} className={styles.curve}>
           <path
             d={`
-              M 0,${(HEIGHT / 2) + 2} 
-              C 46,${HEIGHT / 2} 53,0 50,-50
+              M 0,${(ROW_HEIGHT / 2) + 2} 
+              C 46,${ROW_HEIGHT / 2} 53,0 50,-50
             `}
             stroke={columnColour}
             strokeDasharray={state.isPlaceholderSkeleton ? '3 4': undefined}

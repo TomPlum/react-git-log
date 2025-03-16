@@ -26,6 +26,7 @@ git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate
 - Tests
 - Expose custom theme object off the Theme type
 - Performance testing on large repos
+- Can Zustand help us here to reduce re-renders with GitContext Provider?
 - Expose row height parameter
 - Add error boundary
 - Add empty state

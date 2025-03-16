@@ -65,8 +65,19 @@ export interface GitLogVisualiserProps {
   /**
    * Enables the graphs horizontal width
    * to be resized.
+   *
+   * @default false
    */
   enableResize?: boolean
+
+  /**
+   * The spacing between the rows of the log.
+   * Effects all elements across the branches,
+   * graph and table.
+   *
+   * @default 0
+   */
+  rowSpacing?: number
 
   /**
    * A link to the GitHub repository from which
@@ -79,6 +90,8 @@ export interface GitLogVisualiserProps {
 
   /**
    * The default width of the graph in pixels.
+   *
+   * @default 400
    */
   defaultGraphContainerWidth?: number
 
@@ -86,6 +99,8 @@ export interface GitLogVisualiserProps {
    * A timestamp format string passed to DayJS
    * to format the timestamps of the commits
    * in the log table.
+   *
+   * @default ISO-8601
    */
   timestampFormat?: string
 
@@ -153,20 +168,79 @@ export interface GitVisualiserStylingProps {
 }
 
 export interface GitVisualiserPaging {
+  /**
+   * The number of rows to show in
+   * each page.
+   */
   size: number
+
+  /**
+   * The page number to show.
+   * The first page is page 0.
+   */
   page: number
 }
 
+/**
+ * Represents a commit in the Git history.
+ */
 export interface Commit {
-  hash: string
-  parents: string[]
-  children: string[]
-  refs: string
-  branch: string
-  message: string
-  committerDate: string
-  authorDate: string
-  isBranchTip: boolean
+  /**
+   * The unique hash (SHA) identifying the commit.
+   */
+  hash: string;
+
+  /**
+   * An array of parent commit hashes (SHA) for this commit.
+   * A commit can have multiple parents in the case of merges.
+   */
+  parents: string[];
+
+  /**
+   * An array of child commit hashes (SHA) that
+   * reference this commit as a parent.
+   *
+   * This helps track descendants in the commit graph.
+   */
+  children: string[];
+
+  /**
+   * A string representing references associated with the commit,
+   * such as branch names or tags.
+   */
+  refs: string;
+
+  /**
+   * The name of the branch this commit belongs to.
+   */
+  branch: string;
+
+  /**
+   * The commit message describing the changes
+   * introduced by this commit.
+   */
+  message: string;
+
+  /**
+   * The date and time when the commit was
+   * made by the author, in ISO 8601 format.
+   */
+  authorDate: string;
+
+  /**
+   * The date and time when the commit was
+   * committed to the repository, in ISO 8601 format.
+   *
+   * This may differ from `authorDate` in cases
+   * like rebases or amend commits.
+   */
+  committerDate: string;
+
+  /**
+   * Indicates whether this commit is the
+   * tip (latest commit) of its branch.
+   */
+  isBranchTip: boolean;
 }
 
 /**
@@ -184,5 +258,3 @@ export interface GitLogEntry {
   committerDate: string
   authorDate: string
 }
-
-export const ROW_HEIGHT = 40

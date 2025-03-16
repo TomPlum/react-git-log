@@ -47,17 +47,14 @@
 
 .selectedBackground {
   position: absolute;
-  height: 100%;
 }
 
 .selectedBackgroundSquare {
   width: 100%;
-  top: 0;
   left: 0;
 }
 
 .selectedBackgroundBehindNode {
-  top: 0;
   right: 0;
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;

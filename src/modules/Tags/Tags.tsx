@@ -1,8 +1,9 @@
 import styles from './Tags.module.scss'
-import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
+import { Commit } from 'modules/Visualiser'
 import { BranchTag } from './components/BranchTag'
 import { useGitContext } from 'context'
 import { useCallback, useMemo } from 'react'
+import { ROW_HEIGHT } from 'constants.ts'
 
 const prepareCommits = (commits: Commit[]) => {
   const tagsSeen = new Map<string, boolean>()
@@ -24,7 +25,15 @@ const prepareCommits = (commits: Commit[]) => {
 }
 
 export const Tags = () => {
-  const { previewedCommit, selectedCommit, indexCommit, graphData, paging, graphContainerWidth } = useGitContext()
+  const {
+    previewedCommit,
+    selectedCommit,
+    indexCommit,
+    graphData,
+    paging,
+    graphContainerWidth,
+    rowSpacing
+  } = useGitContext()
 
   const preparedCommits = useMemo(() => {
     const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
@@ -66,8 +75,8 @@ export const Tags = () => {
             <BranchTag
               commit={commit}
               id={i.toString()}
-              height={ROW_HEIGHT}
               key={`tag_${commit.hash}`}
+              height={ROW_HEIGHT + rowSpacing}
               lineWidth={tagLineWidth(commit)}
               lineRight={-tagLineWidth(commit)}
             />
@@ -77,7 +86,7 @@ export const Tags = () => {
             <div
               className={styles.tag}
               key={`empty_tag_${commit.hash}`}
-              style={{ height: ROW_HEIGHT }}
+              style={{ height: ROW_HEIGHT + rowSpacing }}
             />
           )
         }

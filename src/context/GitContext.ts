@@ -44,6 +44,12 @@ export const GitContext = createContext<GitContextBag>({
     parents: new Map(),
     hashToCommit: new Map()
   },
+  rowSpacing: 0,
+  graphContainerWidth: 400,
+  defaultGraphContainerWidth: 400,
+  setGraphContainerWidth: (width: number) => {
+    console.debug(`Tried to invoke setGraphContainerWidth(${width}) before the GitContext was initialised.`)
+  },
   paging: {
     endIndex: 0,
     startIndex: 0,

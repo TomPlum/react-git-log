@@ -4,12 +4,12 @@
 
   .background {
     width: 100%;
-    height: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
     padding: 0;
     pointer-events: none;
+    top: 50%;
+    left: calc(50% + 5px); // There is a 5px overlap to the left for some reason
+    transform: translate(-50%, -50%);
   }
 
   &:hover {

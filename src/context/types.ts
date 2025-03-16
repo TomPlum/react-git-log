@@ -111,6 +111,15 @@ export interface GitContextBag {
   githubRepositoryUrl?: string
 
   /**
+   * The spacing between the rows of the log.
+   * Effects all elements across the branches,
+   * graph and table.
+   *
+   * @default 0
+   */
+  rowSpacing: number
+
+  /**
    * The default width of the graph in pixels.
    */
   defaultGraphContainerWidth: number

@@ -19,6 +19,7 @@ export const GitLogVisualiser = ({
    showCommitNodeTooltips = false,
    showTableHeaders = false,
    enableResize = false,
+   rowSpacing = 0,
    defaultGraphContainerWidth = 400,
    classes,
    timestampFormat = 'YYYY-MM-DD HH:mm:ss',
@@ -128,7 +129,8 @@ export const GitLogVisualiser = ({
     paging: pageIndices,
     enableResize,
     graphContainerWidth,
-    setGraphContainerWidth
+    setGraphContainerWidth,
+    rowSpacing
   }), [
     showBranchesTags,
     showCommitNodeHashes,
@@ -151,7 +153,8 @@ export const GitLogVisualiser = ({
     indexCommit,
     graphData,
     pageIndices,
-    enableResize
+    enableResize,
+    rowSpacing
   ])
   
   return (

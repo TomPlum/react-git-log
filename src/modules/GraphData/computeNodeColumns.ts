@@ -52,20 +52,6 @@ export const computeNodePositions = (
   const branches: (string | null)[] = ['index']
   const edges = new IntervalTree<GraphEdge>()
 
-  /**
-   * Updates the interval tree with computed edges between commits.
-   */
-  const updateIntervalTree = (commits: Commit[]) => {
-    for (const [commitHash, [i0, j0]] of positions) {
-      const parentHashes = commits.find(it => it.hash === commitHash)!.parents
-      for (const [i, parentHash] of parentHashes.entries()) {
-        const [i1, j1] = positions.get(parentHash)!
-        const edgeType = i > 0 ? EdgeType.Merge : EdgeType.Normal
-        edges.insert(i0, i1, [[i0, j0], [i1, j1], edgeType])
-      }
-    }
-  }
-
   const hashToIndex = new Map(commits.map((entry, i) => [entry.hash, i]))
 
   /**
@@ -196,7 +182,15 @@ export const computeNodePositions = (
     rowIndex++
   }
 
-  updateIntervalTree(commits)
+  // Updates the interval tree with computed edges between commits
+  for (const [commitHash, [rowStart, columnStart]] of positions) {
+    const parentHashes = commits.find(it => it.hash === commitHash)!.parents
+    for (const [parentIndex, parentHash] of parentHashes.entries()) {
+      const [rowTarget, columnTarget] = positions.get(parentHash)!
+      const edgeType = parentIndex > 0 ? EdgeType.Merge : EdgeType.Normal
+      edges.insert(rowStart, rowTarget, [[rowStart, columnStart], [rowTarget, columnTarget], edgeType])
+    }
+  }
 
   return {
     positions,

@@ -22,7 +22,9 @@ export const GraphColumn = ({
   const { headCommit, selectedCommit, previewedCommit, showGitLog } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, reduceOpacity, hoverColour, textColour } = useTheme()
 
-  const columnColour = state.isPlaceholderSkeleton ? shiftAlphaChannel(textColour, 0.8) : getGraphColumnColour(index)
+  const columnColour = state.isPlaceholderSkeleton
+    ? shiftAlphaChannel(textColour, 0.8)
+    : getGraphColumnColour(index)
 
   const isRowCommitIndexNode = commit.hash === 'index'
   const indexCommitNodeBorder = shiftAlphaChannel(columnColour, 0.5)
@@ -134,6 +136,36 @@ export const GraphColumn = ({
     return shouldPreview && commitNodeIndex === index
   }, [commitNodeIndex, index, previewedCommit?.hash, rowsCommitMatchesPreviewed, selectedCommit?.hash, showGitLog])
 
+  const selectedBackgroundStyles = useMemo<CSSProperties>(() => {
+    const NODE_SIZE = 24 // TODO: Source dynamically once prop exposed
+
+    if (index === commitNodeIndex) {
+      return {
+        width: `calc(50% + ${NODE_SIZE}px)`,
+        background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
+      }
+    }
+
+    return {
+      background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
+    }
+  }, [commitNodeIndex, getGraphColumnColour, index, reduceOpacity])
+
+  const previewdBackgroundStyles = useMemo<CSSProperties>(() => {
+    const NODE_SIZE = 24 // TODO: Source dynamically once prop exposed
+
+    if (index === commitNodeIndex) {
+      return {
+        width: `calc(50% + ${NODE_SIZE}px)`,
+        background: hoverColour
+      }
+    }
+
+    return {
+      background: hoverColour
+    }
+  }, [commitNodeIndex, hoverColour, index])
+
   const showSelectedBackground = useMemo(() => {
     if (showGitLog) {
       return rowsCommitMatchesSelected
@@ -213,29 +245,25 @@ export const GraphColumn = ({
 
       {showSelectedBackground && (
         <div
+          style={selectedBackgroundStyles}
           className={classNames(
             styles.selectedBackground,
             { [styles.noLogBackground]: !showGitLog },
             { [styles.selectedBackgroundSquare]: index > commitNodeIndex },
             { [styles.selectedBackgroundBehindNode]: index === commitNodeIndex }
           )}
-          style={{
-            background: reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
-          }}
         />
       )}
 
       {showPreviewBackground && (
         <FadingDiv
+          style={previewdBackgroundStyles}
           className={classNames(
             styles.selectedBackground,
             { [styles.noLogBackground]: !showGitLog },
             { [styles.selectedBackgroundSquare]: index > commitNodeIndex },
             { [styles.selectedBackgroundBehindNode]: index === commitNodeIndex }
           )}
-          style={{
-            background: hoverColour
-          }}
         />
       )}
 

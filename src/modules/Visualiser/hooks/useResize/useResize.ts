@@ -8,7 +8,7 @@ export const useResize = (): ResizeState => {
   const [dragging, setDragging] = useState(false)
   const graphContainerRef = useRef<HTMLDivElement>(null)
 
-  const { graphWidth: defaultWidth } = useGitContext()
+  const { defaultGraphContainerWidth: defaultWidth } = useGitContext()
   const [graphWidth, setGraphWidth] = useState<number>(defaultWidth ?? 400)
   
   useEffect(() => {

@@ -1,10 +1,7 @@
 import { Commit } from 'modules/Visualiser'
 
 export interface CommitNodeProps {
-  x: number
-  y: number
-  hash: string
-  parents: string[]
+  colour: string
   commit: Commit
   showCommitNodeHashes: boolean
 }

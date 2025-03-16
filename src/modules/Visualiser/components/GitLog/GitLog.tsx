@@ -1,8 +1,7 @@
 import styles from './GitLog.module.scss'
 import classNames from 'classnames'
 import dayjs from 'dayjs'
-import { GitLogProps } from './types'
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import { Commit } from 'modules/Visualiser'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
@@ -16,7 +15,7 @@ dayjs.extend(relativeTime)
 
 const ROW_HEIGHT = 40
 
-export const GitLog = ({ data }: GitLogProps) => {
+export const GitLog = () => {
   const {
     textColour,
     hoverColour,
@@ -29,7 +28,11 @@ export const GitLog = ({ data }: GitLogProps) => {
     selectedCommit,
     previewedCommit,
     timestampFormat,
-    showTableHeaders
+    showTableHeaders,
+    classes,
+    graphData,
+    paging,
+    indexCommit
   } = useGitContext()
 
   const { selectCommitHandler } = useSelectCommit()
@@ -64,11 +67,24 @@ export const GitLog = ({ data }: GitLogProps) => {
     return commitDate.fromNow()
   }, [timestampFormat])
 
+  const logData = useMemo<Commit[]>(() => {
+    const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
+
+    if (paging.startIndex === 0) {
+      data.unshift(indexCommit)
+    }
+
+    return data
+  }, [graphData.commits, indexCommit, paging.endIndex, paging.startIndex])
+
   return (
-    <table className={styles.table}>
+    <table
+      style={classes?.logTableStyles?.table}
+      className={classNames(styles.table, classes?.logTableClass)}
+    >
       {showTableHeaders && (
-        <thead>
-          <tr>
+        <thead style={classes?.logTableStyles?.thead}>
+          <tr style={classes?.logTableStyles?.tr}>
             <th style={{ color: textColour }}>
               Commit message
             </th>
@@ -81,9 +97,10 @@ export const GitLog = ({ data }: GitLogProps) => {
       )}
 
       <tbody>
-        {data.map((commit) => {
+        {logData.map((commit) => {
           const isMergeCommit = commit.parents.length > 1
           const tableDataStyle = {
+            opacity: commit.hash === 'index' ? 0.2 : 1,
             color: shiftAlphaChannel(textColour, isMergeCommit ? 0.4 : 1)
           }
 
@@ -91,20 +108,21 @@ export const GitLog = ({ data }: GitLogProps) => {
             <tr
               key={commit.hash}
               className={styles.row}
-              style={{ height: ROW_HEIGHT }}
               onMouseOut={selectCommitHandler.onMouseOut}
               onClick={() => selectCommitHandler.onClick(commit)}
+              style={{ height: ROW_HEIGHT, ...classes?.logTableStyles?.tr }}
               onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
             >
               <td
                 style={tableDataStyle}
+                title={commit.message}
                 className={classNames(styles.td, styles.message)}
               >
                 {commit.message}
               </td>
 
               <td className={classNames(styles.td, styles.date)} style={tableDataStyle}>
-                {formatTimestamp(commit.date)}
+                {commit.hash === 'index' ? '-' : formatTimestamp(commit.committerDate)}
               </td>
 
               <td

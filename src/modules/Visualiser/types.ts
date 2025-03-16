@@ -9,17 +9,14 @@ export interface GitLogVisualiserProps {
   entries: GitLogEntry[]
 
   /**
-   * An array of colours to use for
-   * the branches.
+   * The name of the branch that is
+   * currently checked out.
    */
-  colours?: string[]
+  currentBranch: string
 
   /**
    * The variant of the default colour
    * them to apply to the visualiser.
-   *
-   * Does not take effect if a custom
-   * array of {@link colours} are passed.
    */
   theme?: Theme
 
@@ -101,47 +98,85 @@ export interface GitLogVisualiserProps {
    * CSS Classes to pass to various underlying
    * elements for custom styling.
    */
-  classes?: {
-    /**
-     * A class name passed to the wrapping
-     * container (div) around the visualiser.
-     *
-     * This includes the branches/tags, the
-     * graph and the git log table.
-     */
-    containerClass?: string
+  classes?: GitVisualiserStylingProps
 
-    /**
-     * A React CSS styling object passed to
-     * the wrapping container (div) around
-     * the visualiser.
-     *
-     * This includes the branches/tags, the
-     * graph and the git log table.
-     */
-    containerStyles?: CSSProperties
+  /**
+   * Optional paging information to show
+   * a window of the given size from the
+   * set of git log entries.
+   */
+  paging?: GitVisualiserPaging
+}
+
+export interface GitVisualiserStylingProps {
+  /**
+   * A class name passed to the wrapping
+   * container (div) around the visualiser.
+   *
+   * This includes the branches/tags, the
+   * graph and the git log table.
+   */
+  containerClass?: string
+
+  /**
+   * A React CSS styling object passed to
+   * the wrapping container (div) around
+   * the visualiser.
+   *
+   * This includes the branches/tags, the
+   * graph and the git log table.
+   */
+  containerStyles?: CSSProperties
+
+  /**
+   * A class name passed to the table
+   * element for the git log.
+   */
+  logTableClass?: string
+
+  /**
+   * A React CSS styling object passed to
+   * the table element for the git log.
+   */
+  logTableStyles?: {
+    table?: CSSProperties
+    thead?: CSSProperties
+    tr?: CSSProperties
+    td?: CSSProperties
   }
+}
+
+export interface GitVisualiserPaging {
+  size: number
+  page: number
 }
 
 export interface Commit {
   hash: string
   parents: string[]
+  children: string[]
   refs: string
   branch: string
   message: string
-  x: number
-  y: number
-  date: string
+  committerDate: string
+  authorDate: string
   isBranchTip: boolean
 }
 
+/**
+ * A single entry from your repositories
+ * git log.
+ *
+ * TODO: Can we make some fields optional here? Is refs needed?
+ */
 export interface GitLogEntry {
   hash: string
   branch: string
   parents: string[]
   refs: string
   message: string
-  date: string
+  committerDate: string
+  authorDate: string
 }
 
-export const ROW_HEIGHT = 48
+export const ROW_HEIGHT = 40

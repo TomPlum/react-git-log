@@ -1,15 +1,10 @@
 .commitNode {
-  position: absolute;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   border: 2px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 10px;
-  transform: translate(-50%, -50%);
-  z-index: 5;
+  z-index: 20;
 
   &:hover {
     cursor: pointer;

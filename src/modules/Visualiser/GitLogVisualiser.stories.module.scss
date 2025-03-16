@@ -1,0 +1,11 @@
+.container {
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.table {
+  >thead > tr > th {
+    font-weight: 700;
+  }
+}

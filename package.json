@@ -15,7 +15,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "fastpriorityqueue": "^0.7.5",
     "framer-motion": "^12.4.10",
+    "node-interval-tree": "^2.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-tiny-popover": "^8.1.6"

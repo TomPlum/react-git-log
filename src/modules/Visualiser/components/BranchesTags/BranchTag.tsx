@@ -7,6 +7,7 @@ import { useTheme } from 'modules/Visualiser/hooks/useTheme'
 import { FadingDiv } from 'components/FadingDiv'
 import { BranchLabel } from './BranchLabel'
 import { TagLabel } from './TagLabel'
+import { IndexLabel } from 'modules/Visualiser/components/BranchesTags/IndexLabel'
 
 export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: BranchTagProps) => {
   const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
@@ -29,10 +30,30 @@ export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: B
     }
   }, [color, lineRight, lineWidth])
 
-  const label = useMemo(() => {
-    const isTag = commit.branch.includes('tags/')
+  const tagLabelContainerStyles = useMemo<CSSProperties>(() => {
+    if (commit.hash === 'index') {
+      return {
+        color: textColour,
+        border: `2px dashed ${shiftAlphaChannel(color, 0.50)}`,
+        background: shiftAlphaChannel(color, 0.05)
+      }
+    }
 
-    if (isTag) {
+    return {
+      color: textColour,
+      border: `2px solid ${color}`,
+      background: shiftAlphaChannel(color, 0.30)
+    }
+  }, [color, commit.hash, shiftAlphaChannel, textColour])
+
+  const label = useMemo(() => {
+    if (commit.hash === 'index') {
+      return (
+        <IndexLabel />
+      )
+    }
+    
+    if (commit.branch.includes('tags/')) {
       return (
         <TagLabel name={commit.branch} />
       )
@@ -41,7 +62,7 @@ export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: B
     return (
       <BranchLabel name={commit.branch} />
     )
-  }, [commit.branch])
+  }, [commit.branch, commit.hash])
 
   return (
     <Popover
@@ -69,11 +90,7 @@ export const BranchTag = ({ id, commit, height, color, lineRight, lineWidth }: B
         <div
           key={`tag_${id}`}
           className={styles.tag}
-          style={{
-            color: textColour,
-            border: `2px solid ${color}`,
-            background: shiftAlphaChannel(color, 0.30)
-          }}
+          style={tagLabelContainerStyles}
         >
           {label}
         </div>

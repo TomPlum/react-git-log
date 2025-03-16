@@ -4,7 +4,7 @@ import { useCallback, useMemo } from 'react'
 import { Commit } from 'modules/Visualiser'
 
 export const useTheme = (): ThemeColours => {
-  const { theme, colours } = useGitContext()
+  const { theme, colours, graphData } = useGitContext()
 
   const hoverColour = useMemo(() => {
     if (theme === 'dark') {
@@ -52,16 +52,31 @@ export const useTheme = (): ThemeColours => {
     return `rgba(${rgb?.replace('rgb(', '').replace(')', '')}, ${opacity})`
   }, [])
 
-  const getCommitColour = useCallback((commit: Commit) => {
-    const index = commit.x
-    const colour = colours[index]
+  const getGraphColumnColour = useCallback((columnIndex: number) => {
+    const colour = colours[columnIndex]
 
     if (!colour) {
-      return colours[index % colours.length]
+      return colours[columnIndex % colours.length]
     }
 
     return colour
   }, [colours])
+
+  const getCommitColour = useCallback((commit: Commit) => {
+    if (commit.hash === 'index') {
+      return getGraphColumnColour(0)
+    }
+
+    const position = graphData.positions.get(commit.hash)
+
+    if (position) {
+      const columnIndex = position[1]
+      return getGraphColumnColour(columnIndex)
+    }
+
+    console.warn(`Commit ${commit.hash} did not have a mapped graph position`)
+    return 'rgb(0, 0, 0)'
+  }, [getGraphColumnColour, graphData.positions])
 
   return {
     hoverColour,
@@ -70,6 +85,7 @@ export const useTheme = (): ThemeColours => {
     reduceOpacity,
     getCommitColour,
     shiftAlphaChannel,
+    getGraphColumnColour,
     hoverTransitionDuration: 0.3
   }
 }

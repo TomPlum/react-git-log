@@ -34,6 +34,7 @@ const App = () => {
         <div className={styles.content}>
           <GitLogVisualiser
             entries={entries}
+            currentBranch='release'
             showGitLog={showGitLog}
             showBranchesTags={showTags}
           />

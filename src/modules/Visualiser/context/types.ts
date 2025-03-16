@@ -1,15 +1,29 @@
-import { Commit } from 'modules/Visualiser'
-import { CSSProperties } from 'react'
+import { Commit, GitVisualiserStylingProps } from 'modules/Visualiser'
 import { Theme } from 'modules/Visualiser/hooks/useTheme'
+import { GraphData } from 'modules/GraphData'
 
 export interface GitContextBag {
   colours: string[]
 
   /**
-   * The commits from the git log
-   * currently in context.
+   * The name of the branch that is
+   * currently checked out.
    */
-  commits: Commit[]
+  currentBranch: string
+
+  /**
+   * Details of the HEAD commit
+   * of the {@link currentBranch}.
+   */
+  headCommit: Commit
+
+  /**
+   * A pseudo-commit that represents
+   * the Git index. Most details
+   * here are faked so that it can
+   * be rendered nicely on the graph.
+   */
+  indexCommit: Commit
 
   /**
    * The currently selected commit that
@@ -93,7 +107,14 @@ export interface GitContextBag {
   /**
    * The default width of the graph in pixels.
    */
-  graphWidth?: number
+  defaultGraphContainerWidth?: number
+
+  /**
+   * Data used to render the visualiser
+   * components such as the graph, log
+   * and tag/branch labels.
+   */
+  graphData: GraphData
 
   /**
    * A timestamp format string passed to DayJS
@@ -106,26 +127,7 @@ export interface GitContextBag {
    * CSS Classes to pass to various underlying
    * elements for custom styling.
    */
-  classes?: {
-    /**
-     * A class name passed to the wrapping
-     * container (div) around the visualiser.
-     *
-     * This includes the branches/tags, the
-     * graph and the git log table.
-     */
-    containerClass?: string
-
-    /**
-     * A React CSS styling object passed to
-     * the wrapping container (div) around
-     * the visualiser.
-     *
-     * This includes the branches/tags, the
-     * graph and the git log table.
-     */
-    containerStyles?: CSSProperties
-  }
+  classes?: GitVisualiserStylingProps
 
   /**
    * The variant of the default colour
@@ -135,4 +137,14 @@ export interface GitContextBag {
    * array of {@link colours} are passed.
    */
   theme: Theme
+
+  /**
+   * Optional paging information to show
+   * a window of the given size from the
+   * set of git log entries.
+   */
+  paging: {
+    startIndex: number
+    endIndex: number
+  }
 }

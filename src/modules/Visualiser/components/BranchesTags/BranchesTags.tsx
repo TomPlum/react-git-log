@@ -1,22 +1,9 @@
 import styles from './BranchesTags.module.scss'
-import { BranchesTagsProps } from './types'
 import { Commit, ROW_HEIGHT } from 'modules/Visualiser'
 import { BranchTag } from './BranchTag'
-import { GRAPH_LEFT_OFFSET } from 'modules/Visualiser/components/GitGraph'
 import { useGitContext } from 'modules/Visualiser/context'
 import { useTheme } from 'modules/Visualiser/hooks/useTheme'
-
-/**
- * Accounts for the height of the
- * nodes on the graph.
- */
-const HEIGHT_OFFSET = 5
-
-/**
- * The amount of padding, in pixels,
- * used around the branches/tags container.
- */
-const PADDING = 10
+import { useCallback, useMemo } from 'react'
 
 const prepareCommits = (commits: Commit[]) => {
   const tagsSeen = new Map<string, boolean>()
@@ -37,26 +24,56 @@ const prepareCommits = (commits: Commit[]) => {
   })
 }
 
-export const BranchesTags = ({ commits, commitNodeSpacing }: BranchesTagsProps) => {
+export const BranchesTags = () => {
   const { getCommitColour } = useTheme()
-  const { previewedCommit, selectedCommit } = useGitContext()
+  const { previewedCommit, selectedCommit, indexCommit, graphData, paging } = useGitContext()
+
+  const preparedCommits = useMemo(() => {
+    const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
+
+    if (paging.startIndex === 0) {
+      data.unshift(indexCommit)
+    }
+
+    return prepareCommits(data)
+  }, [graphData.commits, indexCommit, paging.endIndex, paging.startIndex])
+
+  const tagLineWidth = useCallback((commit: Commit) => {
+    const graphContainerWidth = 400 // TODO: Source dynamically
+    const columnWidth = graphContainerWidth / graphData.graphWidth
+
+    if (commit.hash === 'index') {
+      return columnWidth / 2
+    }
+
+    const columnIndex = graphData.positions.get(commit.hash)![1]
+
+    return  (columnWidth * columnIndex) + (columnWidth / 2)
+  }, [graphData.graphWidth, graphData.positions])
 
   return (
-    <div className={styles.container} style={{ padding: PADDING }}>
-      {prepareCommits(commits).map((commit, i) => {
+    <div className={styles.container}>
+      {preparedCommits.map((commit, i) => {
         const shouldPreviewBranch = previewedCommit && commit.hash === previewedCommit.hash
         const selectedIsNotTip = selectedCommit && commit.hash === selectedCommit.hash
+        const isIndexCommit = commit.hash === indexCommit.hash
 
-        if (commit.isBranchTip || shouldPreviewBranch || selectedIsNotTip || commit.isMostRecentTagInstance) {
+        const showRenderBranchTag = commit.isBranchTip
+          || shouldPreviewBranch
+          || selectedIsNotTip
+          || commit.isMostRecentTagInstance
+          || isIndexCommit
+
+        if (showRenderBranchTag) {
           return (
             <BranchTag
               commit={commit}
               id={i.toString()}
+              height={ROW_HEIGHT}
               key={`tag_${commit.hash}`}
               color={getCommitColour(commit)}
-              height={i === 0 ? (ROW_HEIGHT - HEIGHT_OFFSET) : ROW_HEIGHT}
-              lineWidth={(commit.x * commitNodeSpacing) + GRAPH_LEFT_OFFSET}
-              lineRight={0 - PADDING - (commit.x * commitNodeSpacing) - GRAPH_LEFT_OFFSET + 10}
+              lineWidth={tagLineWidth(commit)}
+              lineRight={-tagLineWidth(commit)}
             />
           )
         } else {

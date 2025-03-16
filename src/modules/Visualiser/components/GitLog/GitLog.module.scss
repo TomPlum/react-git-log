@@ -1,7 +1,7 @@
 .table {
   border-collapse: separate;
-  border-spacing: 0 8px;
-  margin-top: -6px;
+  border-spacing: 0 0;
+  margin-top: 12px;
 
   .message {
     max-width: 500px;
@@ -30,8 +30,9 @@
     }
 
     >td:last-child {
-      border-top-right-radius: 8px;
-      border-bottom-right-radius: 8px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding-right: 10px;
     }
   }
 
@@ -46,5 +47,6 @@
 
   >thead >tr >th {
     text-align: left;
+    padding-bottom: 22px;
   }
 }

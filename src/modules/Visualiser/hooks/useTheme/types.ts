@@ -34,6 +34,8 @@ export interface ThemeColours {
   reduceOpacity: (rbg: string, opacity: number) => string
 
   getCommitColour: (commit: Commit) => string
+
+  getGraphColumnColour: (columnIndex: number) => string
 }
 
 export type Theme = 'dark' | 'light'

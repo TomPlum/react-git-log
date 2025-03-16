@@ -1,0 +1,84 @@
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.line {
+  position: absolute;
+}
+
+.horizontal {
+  top: 50%;
+  right: 0;
+  height: 2px;
+}
+
+.vertical {
+  left: calc(50% - 3px);
+  width: 2px;
+  z-index: 10;
+}
+
+.singularLine {
+  position: absolute;
+  left: calc(50% - 3px);
+  top: 0;
+  width: 2px;
+  height: 100%;
+}
+
+.curve {
+  position: absolute;
+}
+
+.indexNode {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 20;
+}
+
+.selectedBackground{
+  position: absolute;
+  height: 100%;
+}
+
+.selectedBackgroundSquare {
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.selectedBackgroundBehindNode {
+  width: 90%;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.noLogBackground {
+  border-radius: 20px;
+  width: 70%;
+  right: 15%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 10s linear infinite;
+}

@@ -7,9 +7,9 @@ import { useGitContext } from 'context'
 import { CommitNodeTooltip } from './CommitNodeTooltip'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 
-export const CommitNode = ({ commit, colour, showCommitNodeHashes }: CommitNodeProps) => {
+export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
-  const { showCommitNodeTooltips } = useGitContext()
+  const { showCommitNodeTooltips, showCommitNodeHashes } = useGitContext()
   const { textColour, shiftAlphaChannel, tooltipBackground } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)

@@ -156,7 +156,6 @@ export const GraphColumn = ({
         <CommitNode
           commit={commit}
           colour={columnColour}
-          showCommitNodeHashes={false}
         />
       )}
 

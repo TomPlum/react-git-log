@@ -96,8 +96,12 @@ export const GitLogVisualiser = ({
   }, [githubRepositoryUrl, headCommit])
 
   const pageIndices = useMemo(() => {
-    const startIndex = paging ? paging.page * paging.size : 0
-    const endIndex = paging ? startIndex + paging.size : entries.length
+    const page = paging?.page ?? 0
+    const size = paging?.size ?? entries.length
+
+    const startIndex = Math.max(0, page * size)
+    const endIndex = Math.min(entries.length, startIndex + size)
+
     return { startIndex, endIndex }
   }, [entries.length, paging])
 

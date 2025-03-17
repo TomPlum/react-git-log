@@ -10,8 +10,8 @@ import { NODE_BORDER_WIDTH } from 'constants.ts'
 
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
+  const { textColour, shiftAlphaChannel, theme } = useTheme()
   const { showCommitNodeTooltips, showCommitNodeHashes } = useGitContext()
-  const { textColour, shiftAlphaChannel, tooltipBackground, theme } = useTheme()
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -27,17 +27,17 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
 
   return (
     <Popover
-      padding={20}
+      padding={0}
       positions={['top', 'bottom']}
       containerStyle={{ zIndex: '20' }}
       isOpen={showCommitNodeTooltips ? showTooltip : false}
       content={({ position, childRect, popoverRect }: PopoverState) => (
         <ArrowContainer
           arrowSize={10}
+          arrowColor={colour}
           position={position}
           childRect={childRect}
           popoverRect={popoverRect}
-          arrowColor={tooltipBackground}
         >
           <CommitNodeTooltip
             commit={commit}

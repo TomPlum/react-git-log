@@ -4,7 +4,7 @@ export interface ThemeColours {
   theme: Theme
   hoverColour: string
   textColour: string
-  tooltipBackground: string
+  getTooltipBackground: (commit: Commit) => string
   hoverTransitionDuration: number
 
   /**

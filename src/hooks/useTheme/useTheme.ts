@@ -22,14 +22,6 @@ export const useTheme = (): ThemeColours => {
     return 'rgb(0, 0, 0)'
   }, [theme])
 
-  const tooltipBackground = useMemo(() => {
-    if (theme === 'dark') {
-      return 'rgb(87,87,87)'
-    }
-
-    return 'rgb(213,213,213)'
-  }, [theme])
-
   const shiftAlphaChannel = useCallback((rgb: string, opacity: number) => {
     const matches = rgb?.match(/\d+/g)
 
@@ -78,11 +70,19 @@ export const useTheme = (): ThemeColours => {
     return 'rgb(0, 0, 0)'
   }, [getGraphColumnColour, graphData.positions])
 
+  const getTooltipBackground = useCallback((commit: Commit) => {
+    if (theme === 'dark') {
+      return shiftAlphaChannel(getCommitColour(commit), 0.2)
+    }
+
+    return shiftAlphaChannel(getCommitColour(commit), 0.1)
+  }, [getCommitColour, shiftAlphaChannel, theme])
+
   return {
     theme,
     hoverColour,
     textColour,
-    tooltipBackground,
+    getTooltipBackground,
     reduceOpacity,
     getCommitColour,
     shiftAlphaChannel,

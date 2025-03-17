@@ -3,15 +3,15 @@ import styles from './CommitNodeTooltip.module.scss'
 import { CommitNodeTooltipProps } from './types'
 
 export const CommitNodeTooltip = ({ commit, color }: CommitNodeTooltipProps) => {
-  const { textColour, getCommitColour, shiftAlphaChannel } = useTheme()
+  const { textColour, getTooltipBackground } = useTheme()
 
   return (
     <div
       className={styles.tooltip}
       style={{
+        color: textColour,
         border: `2px solid ${color}`,
-        background: shiftAlphaChannel(getCommitColour(commit), 0.2),
-        color: textColour
+        background: getTooltipBackground(commit)
       }}
     >
       <div>
@@ -44,9 +44,15 @@ export const CommitNodeTooltip = ({ commit, color }: CommitNodeTooltipProps) => 
         </p>
       </div>
 
-      <p className={styles.text}>
-        Branch Tip: {commit.isBranchTip ? 'Yes' : 'No'}
-      </p>
+      <div>
+        <p className={styles.label}>
+          Branch Tip:
+        </p>
+
+        <p className={styles.text}>
+          {commit.isBranchTip ? 'Yes' : 'No'}
+        </p>
+      </div>
     </div>
   )
 }

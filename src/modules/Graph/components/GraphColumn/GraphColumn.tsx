@@ -229,11 +229,32 @@ export const GraphColumn = ({
       )}
 
       {state.isLeftDownCurve && (
-        <CurvedEdge
-          colour={columnColour}
-          path='M 0,51 A 50,50 0 0,1 50,100'
-          dashed={state.isPlaceholderSkeleton}
-        />
+        <>
+          <div
+            className={styles.line}
+            style={{
+              bottom: 0,
+              left: 'calc(50% - 1px)',
+              borderRight: `2px solid ${columnColour}`,
+              height: (ROW_HEIGHT + rowSpacing - NODE_WIDTH) / 2
+            }}
+          />
+          <CurvedEdge
+            colour={columnColour}
+            path='M 0,53 A 50,50 0 0,1 50,100'
+            dashed={state.isPlaceholderSkeleton}
+          />
+          <div
+            className={styles.line}
+            style={{
+              left: 0,
+              top: '50%',
+              height: 0,
+              borderBottom: `2px solid ${columnColour}`,
+              width: `calc(50% - ${NODE_WIDTH / 2}px)`
+            }}
+          />
+        </>
       )}
 
       {state.isLeftUpCurve && (

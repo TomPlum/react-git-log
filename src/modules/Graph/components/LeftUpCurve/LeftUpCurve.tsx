@@ -1,10 +1,10 @@
-import styles from './LeftDownCurve.module.scss'
+import styles from './LeftUpCurve.module.scss'
 import { NODE_WIDTH, ROW_HEIGHT } from 'constants.ts'
 import { CurvedEdge } from 'modules/Graph/components/CurvedEdge'
 import { useGitContext } from 'context'
-import { LeftDownCurveProps } from './types'
+import { LeftUpCurveProps } from './types'
 
-export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {
+export const LeftUpCurve = ({ color, isPlaceholder }: LeftUpCurveProps) => {
   const { rowSpacing } = useGitContext()
   
   return (
@@ -12,19 +12,17 @@ export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {
       <div
         className={styles.curve}
         style={{
-          bottom: 0,
+          top: 0,
           left: 'calc(50% - 1px)',
           borderRight: `2px solid ${color}`,
           height: (ROW_HEIGHT + rowSpacing - NODE_WIDTH) / 2
         }}
       />
-
       <CurvedEdge
         colour={color}
         dashed={isPlaceholder}
-        path='M 0,53 A 50,50 0 0,1 50,100'
+        path='M 0,53 A 50,50 0 0,0 50,0'
       />
-
       <div
         className={styles.curve}
         style={{

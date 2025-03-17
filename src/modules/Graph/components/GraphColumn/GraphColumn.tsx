@@ -6,10 +6,9 @@ import { CSSProperties, useCallback, useMemo } from 'react'
 import classNames from 'classnames'
 import { useGitContext } from 'context'
 import { useSelectCommit } from 'hooks/useSelectCommit'
-import { CurvedEdge } from 'modules/Graph/components/CurvedEdge'
 import { ColumnBackground } from 'modules/Graph/components/ColumnBackground'
-import { NODE_WIDTH, ROW_HEIGHT } from 'constants.ts'
 import { LeftDownCurve } from 'modules/Graph/components/LeftDownCurve'
+import { LeftUpCurve } from 'modules/Graph/components/LeftUpCurve'
 
 // TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
@@ -19,7 +18,7 @@ export const GraphColumn = ({
   commitNodeIndex
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
-  const { headCommit, selectedCommit, previewedCommit, showGitLog, rowSpacing } = useGitContext()
+  const { headCommit, selectedCommit, previewedCommit, showGitLog } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, textColour, hoverColour, reduceOpacity } = useTheme()
 
   const columnColour = state.isPlaceholderSkeleton
@@ -237,32 +236,10 @@ export const GraphColumn = ({
       )}
 
       {state.isLeftUpCurve && (
-        <>
-          <div
-            className={styles.line}
-            style={{
-              top: 0,
-              left: 'calc(50% - 1px)',
-              borderRight: `2px solid ${columnColour}`,
-              height: (ROW_HEIGHT + rowSpacing - NODE_WIDTH) / 2
-            }}
-          />
-          <CurvedEdge
-            colour={columnColour}
-            path='M 0,53 A 50,50 0 0,0 50,0'
-            dashed={state.isPlaceholderSkeleton}
-          />
-          <div
-            className={styles.line}
-            style={{
-              left: 0,
-              top: '50%',
-              height: 0,
-              borderBottom: `2px solid ${columnColour}`,
-              width: `calc(50% - ${NODE_WIDTH / 2}px)`
-            }}
-          />
-        </>
+        <LeftUpCurve
+          color={columnColour}
+          isPlaceholder={state.isPlaceholderSkeleton}
+        />
       )}
     </div>
   )

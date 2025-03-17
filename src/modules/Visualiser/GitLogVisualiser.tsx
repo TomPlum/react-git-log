@@ -52,7 +52,7 @@ export const GitLogVisualiser = ({
 
   const themeColours = useMemo<string[]>(() => {
     if (theme) {
-      const rainbowColours = generateRainbowGradient(graphData.graphWidth)
+      const rainbowColours = generateRainbowGradient(graphData.graphWidth + 1)
 
       return theme === 'dark'
         ? rainbowColours.map(colour => shiftAlphaChannel(colour, 0.4))

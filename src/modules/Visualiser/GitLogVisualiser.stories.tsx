@@ -43,7 +43,7 @@ const meta: Meta<StoryProps> = {
     },
     enableExperimentalAnimation: false,
     githubRepositoryUrl: 'https://github.com/TomPlum/sleep',
-    defaultGraphContainerWidth: 400,
+    defaultGraphContainerWidth: 300,
     rowSpacing: 0,
     repository: 'TomPlum/sleep'
   },

@@ -20,7 +20,7 @@ export const GitLogVisualiser = ({
    showTableHeaders = false,
    enableResize = false,
    rowSpacing = 0,
-   defaultGraphContainerWidth = 400,
+   defaultGraphContainerWidth = 300,
    classes,
    timestampFormat = 'YYYY-MM-DD HH:mm:ss',
    onSelectCommit,

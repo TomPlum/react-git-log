@@ -19,20 +19,38 @@ export const CommitNodeTooltip = ({ commit, color }: CommitNodeTooltipProps) => 
         color: textColour
       }}
     >
-      <p className={styles.text}>
-        Hash: {commit.hash}
-      </p>
+      <div>
+        <p className={styles.label}>
+          Hash:
+        </p>
+
+        <p className={styles.text}>
+          {commit.hash}
+        </p>
+      </div>
+
+      <div>
+        <p className={styles.label}>
+          Parents:
+        </p>
+
+        <p className={styles.text}>
+          {commit.parents.length > 0 ? commit.parents.join(', ') : 'None'}
+        </p>
+      </div>
+
+      <div>
+        <p className={styles.label}>
+          Children:
+        </p>
+
+        <p className={styles.text}>
+          {commit.children.length > 0 ? commit.children.join(', ') : 'None'}
+        </p>
+      </div>
 
       <p className={styles.text}>
-        Parents: {commit.parents.join(', ')}
-      </p>
-
-      <p className={styles.text}>
-        Children: {commit.children.join(', ')}
-      </p>
-
-      <p className={styles.text}>
-        Is Branch Tip?: {commit.isBranchTip ? 'Yes' : 'No'}
+        Branch Tip: {commit.isBranchTip ? 'Yes' : 'No'}
       </p>
     </div>
   )

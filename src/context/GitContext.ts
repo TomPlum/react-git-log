@@ -45,8 +45,8 @@ export const GitContext = createContext<GitContextBag>({
     hashToCommit: new Map()
   },
   rowSpacing: 0,
-  graphContainerWidth: 400,
-  defaultGraphContainerWidth: 400,
+  graphContainerWidth: 300,
+  defaultGraphContainerWidth: 300,
   setGraphContainerWidth: (width: number) => {
     console.debug(`Tried to invoke setGraphContainerWidth(${width}) before the GitContext was initialised.`)
   },

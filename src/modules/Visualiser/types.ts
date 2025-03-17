@@ -91,7 +91,7 @@ export interface GitLogVisualiserProps {
   /**
    * The default width of the graph in pixels.
    *
-   * @default 400
+   * @default 300
    */
   defaultGraphContainerWidth?: number
 

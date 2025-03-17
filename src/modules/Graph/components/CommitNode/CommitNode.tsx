@@ -6,6 +6,7 @@ import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context'
 import { CommitNodeTooltip } from './CommitNodeTooltip'
 import { useSelectCommit } from 'hooks/useSelectCommit'
+import { NODE_BORDER_WIDTH } from 'constants.ts'
 
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
@@ -53,7 +54,7 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
         onClick={() => selectCommitHandler.onClick(commit)}
         style={{
           backgroundColor: shiftAlphaChannel(colour, 0.15),
-          borderColor: colour,
+          border: `${NODE_BORDER_WIDTH}px solid ${colour}`,
         }}
       >
         {showCommitNodeHashes && (

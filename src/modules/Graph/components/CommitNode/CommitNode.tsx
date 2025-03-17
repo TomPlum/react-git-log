@@ -4,7 +4,7 @@ import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { useCallback, useState } from 'react'
 import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context'
-import { CommitNodeTooltip } from './CommitNodeTooltip'
+import { CommitNodeTooltip } from '../CommitNodeTooltip'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import { NODE_BORDER_WIDTH } from 'constants.ts'
 

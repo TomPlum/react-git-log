@@ -1,11 +1,6 @@
 import { useTheme } from 'hooks/useTheme'
 import styles from './CommitNodeTooltip.module.scss'
-import { Commit } from 'modules/Visualiser'
-
-export interface CommitNodeTooltipProps {
-  commit: Commit
-  color?: string
-}
+import { CommitNodeTooltipProps } from './types'
 
 export const CommitNodeTooltip = ({ commit, color }: CommitNodeTooltipProps) => {
   const { textColour, getCommitColour, shiftAlphaChannel } = useTheme()

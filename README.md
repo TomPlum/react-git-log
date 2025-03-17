@@ -34,3 +34,5 @@ git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate
 - Improve node tooltip contents, embolden labels
 - Make table more responsive, remove 500px message max-width
 - Straight line prop to turn curves into right angles?
+- Move repo selection to the story component instead of being a control
+- Add data-testids to all relevant elements for testing

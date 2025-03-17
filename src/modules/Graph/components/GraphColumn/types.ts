@@ -8,6 +8,12 @@ export interface GraphColumnProps {
   index: number
 
   /**
+   * The index of the row in which this
+   * column belongs to.
+   */
+  rowIndex: number
+
+  /**
    * Details of the commit that is present
    * somewhere on the row that this column
    * is present in.

@@ -15,6 +15,7 @@ export const GraphColumn = ({
   index,
   state,
   commit,
+  rowIndex,
   commitNodeIndex
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
@@ -29,9 +30,9 @@ export const GraphColumn = ({
   const indexCommitNodeBorder = shiftAlphaChannel(columnColour, 0.5)
   const rowsCommitMatchesPreviewed = previewedCommit?.hash === commit.hash
   const rowsCommitMatchesSelected = selectedCommit?.hash === commit.hash
-  const rowsCommitIsHead = commit.hash === headCommit.hash
+  const rowsCommitIsHead = commit.hash === headCommit.hash && state.isNode
 
-  // Further-right active branch takes precedence
+  // Furthest-right active branch takes precedence
   const furtherRightMergeNodeColumnIndex = state?.mergeSourceNodeColumnIndices
     ? Math.max(...state?.mergeSourceNodeColumnIndices ?? [])
     : undefined
@@ -44,6 +45,7 @@ export const GraphColumn = ({
       return {
         top: '50%',
         height: '50%',
+        zIndex: index,
         borderRight: `2px dotted ${indexCommitNodeBorder}`
       }
     }
@@ -51,7 +53,7 @@ export const GraphColumn = ({
     // If this column has the HEAD commit node in it,
     // just draw a dotted line on top of it which will
     // ultimately hit the index pseudo-node above.
-    if (rowsCommitIsHead && state.isNode) {
+    if (rowsCommitIsHead) {
       return {
         height: '50%',
         top: 0,
@@ -69,6 +71,7 @@ export const GraphColumn = ({
       return {
         top: 0,
         height: '50%',
+        zIndex: index,
         borderRight: `2px solid ${columnColour}`
       }
     }
@@ -84,6 +87,7 @@ export const GraphColumn = ({
       return {
         top: '50%',
         height: '50%',
+        zIndex: index,
         borderRight: `2px ${borderStyle} ${columnColour}`
       }
     }
@@ -94,9 +98,10 @@ export const GraphColumn = ({
     return {
       top: 0,
       height: '100%',
+      zIndex: index,
       borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
     }
-  }, [columnColour, commit.isBranchTip, commit.parents.length, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isNode, state.isPlaceholderSkeleton])
+  }, [columnColour, commit.isBranchTip, commit.parents.length, index, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isNode, state.isPlaceholderSkeleton])
 
   const horizontalNodeLineStyles = useMemo<CSSProperties>(() => {
     const borderColour = state.isPlaceholderSkeleton
@@ -158,6 +163,7 @@ export const GraphColumn = ({
       onClick={() => selectCommitHandler.onClick(commit)}
       onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
     >
+      {/* This column contains a node (and it's not the git index pseudo-node) */}
       {state.isNode && !isRowCommitIndexNode && (
         <CommitNode
           commit={commit}
@@ -165,6 +171,7 @@ export const GraphColumn = ({
         />
       )}
 
+      {/* This column contains a node (and it's the git index pseudo-node) */}
       {state.isNode && isRowCommitIndexNode && (
         <div
           className={classNames(
@@ -178,31 +185,28 @@ export const GraphColumn = ({
         />
       )}
 
+      {/* This column contains a vertical branching line (full column height) */}
       {state.isVerticalLine && (
         <div
           style={verticalNodeLineStyles(false)}
           className={classNames(styles.line, styles.vertical)}
+          data-testid={`vertical-line-row-${rowIndex}-col-${index}`}
         />
       )}
 
+      {/* This column contains a vertical branching line but is the HEAD commit (So only draw below the node) */}
       {state.isVerticalLine && rowsCommitIsHead && (
-        <>
-          <div
-            style={verticalNodeLineStyles(false)}
-            className={classNames(styles.line, styles.vertical)}
-          />
-
-          <div
-            style={{
-              height: '50%',
-              top: '50%',
-              borderRight: `2px solid ${columnColour}`
-            }}
-            className={classNames(styles.line, styles.vertical)}
-          />
-        </>
+        <div
+          style={{
+            height: '50%',
+            top: '50%',
+            borderRight: `2px solid ${columnColour}`
+          }}
+          className={classNames(styles.line, styles.vertical)}
+        />
       )}
 
+      {/* This column contains a vertical branching line but its from the HEAD commit to the index node */}
       {state.isVerticalIndexLine && (
         <div
           style={verticalNodeLineStyles(true)}
@@ -210,6 +214,7 @@ export const GraphColumn = ({
         />
       )}
 
+      {/* This column contains a horizontal branching line (full column width) */}
       {state.isHorizontalLine && (
         <div
           style={horizontalNodeLineStyles}
@@ -217,6 +222,7 @@ export const GraphColumn = ({
         />
       )}
 
+      {/* This column is part of a row that has been selected */}
       {showSelectedBackground && (
         <ColumnBackground
           index={index}
@@ -225,6 +231,7 @@ export const GraphColumn = ({
         />
       )}
 
+      {/* This column is part of a row that has been previewed (via hover) */}
       {showPreviewBackground && (
         <ColumnBackground
           index={index}
@@ -233,6 +240,7 @@ export const GraphColumn = ({
         />
       )}
 
+      {/* This column is part of a merge or branching and requires a curve (left edge to bottom edge) */}
       {state.isLeftDownCurve && (
         <LeftDownCurve
           color={columnColour}
@@ -240,6 +248,7 @@ export const GraphColumn = ({
         />
       )}
 
+      {/* This column is part of a merge or branching and requires a curve (left edge to top edge) */}
       {state.isLeftUpCurve && (
         <LeftUpCurve
           color={columnColour}

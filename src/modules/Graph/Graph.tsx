@@ -49,7 +49,7 @@ export const Graph = () => {
 
           return (
             <GraphRow
-              id={index}
+              id={index + 1}
               commit={commit}
               key={commit.hash}
               columns={columns}

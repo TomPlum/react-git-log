@@ -33,8 +33,8 @@ export const GraphColumn = ({
   const rowsCommitIsHead = commit.hash === headCommit.hash && state.isNode
 
   // Furthest-right active branch takes precedence
-  const furtherRightMergeNodeColumnIndex = state?.mergeSourceNodeColumnIndices
-    ? Math.max(...state?.mergeSourceNodeColumnIndices ?? [])
+  const furtherRightMergeNodeColumnIndex = state?.mergeSourceColumns
+    ? Math.max(...state?.mergeSourceColumns ?? [])
     : undefined
 
   const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
@@ -82,8 +82,10 @@ export const GraphColumn = ({
 
     // If this column contains a commit node, and
     // it is the tip of its branch, then just draw
-    // a line underneath the node
-    if (commit.isBranchTip && state.isNode) {
+    // a line underneath the node. Same goes for a
+    // column that an empty one in the row above.
+    const isBranchTip = commit.isBranchTip && state.isNode
+    if (isBranchTip || state.isColumnAboveEmpty) {
       return {
         top: '50%',
         height: '50%',
@@ -114,7 +116,7 @@ export const GraphColumn = ({
     // If this column has a node and is being merged into from another,
     // then we don't need to draw to the left of the node, just connect
     // to the right side horizontal line.
-    if (state.isNode && state.mergeSourceNodeColumnIndices) {
+    if (state.isNode && state.mergeSourceColumns) {
       return {
         borderTop: `2px ${borderStyle} ${borderColour}`,
         width: '50%',
@@ -130,7 +132,7 @@ export const GraphColumn = ({
       width: index === 0 ? '50%' : '100%',
       zIndex: index
     }
-  }, [columnColour, commitNodeIndex, furtherRightMergeNodeColumnIndex, getGraphColumnColour, index, state.isNode, state.isPlaceholderSkeleton, state.mergeSourceNodeColumnIndices])
+  }, [columnColour, commitNodeIndex, furtherRightMergeNodeColumnIndex, getGraphColumnColour, index, state.isNode, state.isPlaceholderSkeleton, state.mergeSourceColumns])
 
   const showPreviewBackground = useMemo(() => {
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash

@@ -73,7 +73,18 @@ export interface GraphColumnState {
    * have commit nodes in. Multiple numbers indicate
    * that multiple other nodes merge into this one.
    */
-  mergeSourceNodeColumnIndices?: number[]
+  mergeSourceColumns?: number[]
+
+  /**
+   * Indicates that the column in the row above
+   * the one that this column resides in is empty.
+   * Which it to say it contains now graphical elements
+   * such as nodes or lines.
+   *
+   * This indicates that the commit node in this column
+   * has no parent commit in the row above (visually).
+   */
+  isColumnAboveEmpty?: boolean
 
   /**
    * Indicates that this column contains

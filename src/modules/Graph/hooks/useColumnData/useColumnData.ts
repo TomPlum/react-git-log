@@ -63,8 +63,8 @@ export const useColumnData = (): GraphColumnData => {
                 columnState[columnIndex] = {
                   ...columnState[columnIndex],
                   isHorizontalLine: true,
-                  mergeSourceNodeColumnIndices: [
-                    ...(columnState[columnIndex]?.mergeSourceNodeColumnIndices ?? []),
+                  mergeSourceColumns: [
+                    ...(columnState[columnIndex]?.mergeSourceColumns ?? []),
                     colEnd
                   ]
                 }
@@ -105,8 +105,8 @@ export const useColumnData = (): GraphColumnData => {
                   columnState[columnIndex] = {
                     ...columnState[columnIndex],
                     isHorizontalLine: true,
-                    mergeSourceNodeColumnIndices: [
-                      ...(columnState[columnIndex]?.mergeSourceNodeColumnIndices ?? []),
+                    mergeSourceColumns: [
+                      ...(columnState[columnIndex]?.mergeSourceColumns ?? []),
                       colStart
                     ]
                   }
@@ -145,9 +145,14 @@ export const useColumnData = (): GraphColumnData => {
       const [row, column] = position
       const columnState = rowToColumnState.get(row) ?? getEmptyColumnState()
 
+      const isColumnAboveEmpty = rowToColumnState.has(row - 1)
+        ? Object.values(rowToColumnState.get(row - 1)![column]).every(value => !value)
+        : false
+
       columnState[column] = {
         ...columnState[column],
-        isNode: true
+        isNode: true,
+        isColumnAboveEmpty
       }
 
       rowToColumnState.set(row, columnState)

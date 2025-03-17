@@ -31,14 +31,19 @@ export const GraphColumn = ({
   const rowsCommitMatchesSelected = selectedCommit?.hash === commit.hash
   const rowsCommitIsHead = commit.hash === headCommit.hash
 
+  // Further-right active branch takes precedence
+  const furtherRightMergeNodeColumnIndex = state?.mergeSourceNodeColumnIndices
+    ? Math.max(...state?.mergeSourceNodeColumnIndices ?? [])
+    : undefined
+
   const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
     // If the current column is the index pseudo-node
     // then draw a dotted line underneath it that will
     // eventually meet with the HEAD commit of the current branch.
     if (isRowCommitIndexNode) {
       return {
-        height: '50%',
         top: '50%',
+        height: '50%',
         borderRight: `2px dotted ${indexCommitNodeBorder}`
       }
     }
@@ -62,8 +67,8 @@ export const GraphColumn = ({
     // const isMergeTarget = state.isNode && state.mergeSourceNodeColumnIndex // TODO: Are we gonna use this?
     if (isFirstCommit) {
       return {
-        height: '50%',
         top: 0,
+        height: '50%',
         borderRight: `2px solid ${columnColour}`
       }
     }
@@ -77,8 +82,8 @@ export const GraphColumn = ({
     // a line underneath the node
     if (commit.isBranchTip && state.isNode) {
       return {
-        height: '50%',
         top: '50%',
+        height: '50%',
         borderRight: `2px ${borderStyle} ${columnColour}`
       }
     }
@@ -87,8 +92,8 @@ export const GraphColumn = ({
     // we must be in a column with no commit node, and
     // so we draw a line the full height of the column.
     return {
-      height: '100%',
       top: 0,
+      height: '100%',
       borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
     }
   }, [columnColour, commit.isBranchTip, commit.parents.length, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isNode, state.isPlaceholderSkeleton])
@@ -96,7 +101,7 @@ export const GraphColumn = ({
   const horizontalNodeLineStyles = useMemo<CSSProperties>(() => {
     const borderColour = state.isPlaceholderSkeleton
       ? columnColour
-      : getGraphColumnColour(state.mergeSourceNodeColumnIndex ?? commitNodeIndex)
+      : getGraphColumnColour(furtherRightMergeNodeColumnIndex ?? commitNodeIndex)
 
     // Border is dotted for the skeleton placeholder elements.
     const borderStyle = state.isPlaceholderSkeleton ? 'dotted' : 'solid'
@@ -104,7 +109,7 @@ export const GraphColumn = ({
     // If this column has a node and is being merged into from another,
     // then we don't need to draw to the left of the node, just connect
     // to the right side horizontal line.
-    if (state.isNode && state.mergeSourceNodeColumnIndex) {
+    if (state.isNode && state.mergeSourceNodeColumnIndices) {
       return {
         borderTop: `2px ${borderStyle} ${borderColour}`,
         width: '50%',
@@ -120,7 +125,7 @@ export const GraphColumn = ({
       width: index === 0 ? '50%' : '100%',
       zIndex: index
     }
-  }, [columnColour, commitNodeIndex, getGraphColumnColour, index, state.isNode, state.isPlaceholderSkeleton, state.mergeSourceNodeColumnIndex])
+  }, [columnColour, commitNodeIndex, furtherRightMergeNodeColumnIndex, getGraphColumnColour, index, state.isNode, state.isPlaceholderSkeleton, state.mergeSourceNodeColumnIndices])
 
   const showPreviewBackground = useMemo(() => {
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash

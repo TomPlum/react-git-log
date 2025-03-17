@@ -198,22 +198,22 @@ export const columns: Array<GraphColumnState[]> = [
     {
       isVerticalLine: true,
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 4,
+      mergeSourceNodeColumnIndices: [4],
       isNode: true
     },
     {
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 4
+      mergeSourceNodeColumnIndices: [4]
     },
     {
       isVerticalLine: true,
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 4
+      mergeSourceNodeColumnIndices: [4]
     },
     {
       isVerticalLine: true,
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 4
+      mergeSourceNodeColumnIndices: [4]
     },
     {
       isLeftDownCurve: true
@@ -227,27 +227,27 @@ export const columns: Array<GraphColumnState[]> = [
     {
       isVerticalLine: true,
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 5,
+      mergeSourceNodeColumnIndices: [5],
       isNode: true
     },
     {
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 5
+      mergeSourceNodeColumnIndices: [5]
     },
     {
       isVerticalLine: true,
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 5
+      mergeSourceNodeColumnIndices: [5]
     },
     {
       isVerticalLine: true,
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 5
+      mergeSourceNodeColumnIndices: [5]
     },
     {
       isVerticalLine: true,
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 5
+      mergeSourceNodeColumnIndices: [5]
     },
     {
       isLeftDownCurve: true
@@ -260,7 +260,7 @@ export const columns: Array<GraphColumnState[]> = [
     {
       isVerticalLine: true,
       isHorizontalLine: true,
-      mergeSourceNodeColumnIndex: 1,
+      mergeSourceNodeColumnIndices: [1],
       isNode: true
     },
     {

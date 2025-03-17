@@ -60,10 +60,14 @@ export interface GraphColumnState {
   isVerticalIndexLine?: boolean
 
   /**
-   * The graph row column index of the commit
-   * node that a merge came from.
+   * The graph row column indices of the commit
+   * nodes that a merge came from.
+   *
+   * This will only be populated for columns that
+   * have commit nodes in. Multiple numbers indicate
+   * that multiple other nodes merge into this one.
    */
-  mergeSourceNodeColumnIndex?: number
+  mergeSourceNodeColumnIndices?: number[]
 
   /**
    * Indicates that this column contains

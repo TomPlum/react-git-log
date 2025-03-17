@@ -63,7 +63,10 @@ export const useColumnData = (): GraphColumnData => {
                 columnState[columnIndex] = {
                   ...columnState[columnIndex],
                   isHorizontalLine: true,
-                  mergeSourceNodeColumnIndex: colEnd
+                  mergeSourceNodeColumnIndices: [
+                    ...(columnState[columnIndex]?.mergeSourceNodeColumnIndices ?? []),
+                    colEnd
+                  ]
                 }
               }
 
@@ -102,7 +105,10 @@ export const useColumnData = (): GraphColumnData => {
                   columnState[columnIndex] = {
                     ...columnState[columnIndex],
                     isHorizontalLine: true,
-                    mergeSourceNodeColumnIndex: colStart
+                    mergeSourceNodeColumnIndices: [
+                      ...(columnState[columnIndex]?.mergeSourceNodeColumnIndices ?? []),
+                      colStart
+                    ]
                   }
                 }
 

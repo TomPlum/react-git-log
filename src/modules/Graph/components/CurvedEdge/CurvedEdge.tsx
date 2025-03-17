@@ -1,12 +1,10 @@
-import { ROW_HEIGHT } from 'constants.ts'
+import { NODE_WIDTH } from 'constants.ts'
 import styles from './CurvedEdge.module.scss'
-import { useGitContext } from 'context'
 import { CurvedEdgeProps } from './types'
 
 export const CurvedEdge = ({ colour, path, dashed }: CurvedEdgeProps) => {
-  const { rowSpacing  } = useGitContext()
   return (
-    <svg width="100%" height={ROW_HEIGHT + rowSpacing} viewBox={'0 0 100 100'} className={styles.curve} preserveAspectRatio='none'>
+    <svg width={NODE_WIDTH} height={NODE_WIDTH} viewBox={'0 0 100 100'} className={styles.curve} preserveAspectRatio='none'>
       <path
         d={path}
         stroke={colour}

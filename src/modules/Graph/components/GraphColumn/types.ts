@@ -87,6 +87,17 @@ export interface GraphColumnState {
   isColumnAboveEmpty?: boolean
 
   /**
+   * Indicates that the column in the row below
+   * the one that this column resides in is empty.
+   * Which it to say it contains now graphical elements
+   * such as nodes or lines.
+   *
+   * This indicates that the commit node in this column
+   * has no child commit in the row below (visually).
+   */
+  isColumnBelowEmpty?: boolean
+
+  /**
    * Indicates that this column contains
    * a curved line that starts at the
    * middle of the left edge of the column

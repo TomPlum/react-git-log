@@ -67,7 +67,7 @@ export const GraphColumn = ({
     const isFirstCommit = state.isNode && commit.parents.length === 0
     // Or if we're a merge target node that closed a branch
     // const isMergeTarget = state.isNode && state.mergeSourceNodeColumnIndex // TODO: Are we gonna use this?
-    if (isFirstCommit) {
+    if (isFirstCommit || state.isColumnBelowEmpty) {
       return {
         top: 0,
         height: '50%',

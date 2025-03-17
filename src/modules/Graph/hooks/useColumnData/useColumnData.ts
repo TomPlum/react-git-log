@@ -149,10 +149,15 @@ export const useColumnData = (): GraphColumnData => {
         ? Object.values(rowToColumnState.get(row - 1)![column]).every(value => !value)
         : false
 
+      const isColumnBelowEmpty = rowToColumnState.has(row + 1)
+        ? Object.values(rowToColumnState.get(row + 1)![column]).every(value => !value)
+        : false
+
       columnState[column] = {
         ...columnState[column],
         isNode: true,
-        isColumnAboveEmpty
+        isColumnAboveEmpty,
+        isColumnBelowEmpty
       }
 
       rowToColumnState.set(row, columnState)

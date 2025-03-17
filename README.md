@@ -32,3 +32,8 @@ git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate
 - Add empty state
 - Make App.tsx redundant and create monorepo of lib + demo site
 - ESLint / Prettier
+- Expose component override props for things like CommitNode, CommitMessage etc.
+- Improve node tooltip contents, embolden labels
+- Make table more responsive, remove 500px message max-width
+- Fix graph curves. Should maybe have an arc that fits perfectly at minimum width/height, and then when larger, just draws straight lines to the sides
+- Straight line prop to turn curves into right angles?

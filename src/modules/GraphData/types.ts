@@ -1,5 +1,4 @@
 import { Commit } from 'modules/Visualiser'
-import { GraphEdge, CommitNodeLocation } from 'modules/GraphData/computeNodeColumns'
 import DataIntervalTree from 'node-interval-tree'
 
 export interface GraphData {
@@ -55,3 +54,32 @@ export interface GraphData {
    */
   commits: Commit[]
 }
+
+/**
+ * A tuple containing coordinates
+ * of a commit node in the git graph;
+ *
+ *   1. The index of the row in the graph.
+ *   2. The index of the column in that row.
+ */
+export type CommitNodeLocation = [number, number]
+
+/**
+ * The type of edge between two nodes
+ * on the graph.
+ */
+export enum EdgeType {
+  Normal = 'Normal',
+  Merge = 'Merge'
+}
+
+/**
+ * A tuple containing coordinates and other
+ * metadata for a connecting branch or merge
+ * line on the commit {@link Graph}.
+ *
+ *   1. The source nodes location.
+ *   2. The target nodes location.
+ *   3. The type of edge.
+ */
+export type GraphEdge = [CommitNodeLocation, CommitNodeLocation, EdgeType]

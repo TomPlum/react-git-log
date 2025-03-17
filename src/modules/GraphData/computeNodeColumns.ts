@@ -1,35 +1,7 @@
 import IntervalTree from 'node-interval-tree'
 import FastPriorityQueue from 'fastpriorityqueue'
 import { Commit } from 'modules/Visualiser'
-
-/**
- * A tuple containing coordinates
- * of a commit node in the git graph;
- *
- *   1. The index of the row in the graph.
- *   2. The index of the column in that row.
- */
-export type CommitNodeLocation = [number, number];
-
-/**
- * The type of edge between two nodes
- * on the graph.
- */
-export enum EdgeType {
-  Normal = 'Normal',
-  Merge = 'Merge'
-}
-
-/**
- * A tuple containing coordinates and other
- * metadata for a connecting branch or merge
- * line on the commit {@link Graph}.
- *
- *   1. The source nodes location.
- *   2. The target nodes location.
- *   3. The type of edge.
- */
-export type GraphEdge = [CommitNodeLocation, CommitNodeLocation, EdgeType];
+import { CommitNodeLocation, EdgeType, GraphEdge } from './types'
 
 /**
  * Computes the visual positions of commits in a Git log visualization.
@@ -185,6 +157,7 @@ export const computeNodePositions = (
   // Updates the interval tree with computed edges between commits
   for (const [commitHash, [rowStart, columnStart]] of positions) {
     const parentHashes = commits.find(it => it.hash === commitHash)!.parents
+    
     for (const [parentIndex, parentHash] of parentHashes.entries()) {
       const [rowTarget, columnTarget] = positions.get(parentHash)!
       const edgeType = parentIndex > 0 ? EdgeType.Merge : EdgeType.Normal

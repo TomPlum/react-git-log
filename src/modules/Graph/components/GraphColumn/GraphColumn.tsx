@@ -9,6 +9,7 @@ import { useSelectCommit } from 'hooks/useSelectCommit'
 import { CurvedEdge } from 'modules/Graph/components/CurvedEdge'
 import { ColumnBackground } from 'modules/Graph/components/ColumnBackground'
 import { NODE_WIDTH, ROW_HEIGHT } from 'constants.ts'
+import { LeftDownCurve } from 'modules/Graph/components/LeftDownCurve'
 
 // TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
@@ -229,32 +230,10 @@ export const GraphColumn = ({
       )}
 
       {state.isLeftDownCurve && (
-        <>
-          <div
-            className={styles.line}
-            style={{
-              bottom: 0,
-              left: 'calc(50% - 1px)',
-              borderRight: `2px solid ${columnColour}`,
-              height: (ROW_HEIGHT + rowSpacing - NODE_WIDTH) / 2
-            }}
-          />
-          <CurvedEdge
-            colour={columnColour}
-            path='M 0,53 A 50,50 0 0,1 50,100'
-            dashed={state.isPlaceholderSkeleton}
-          />
-          <div
-            className={styles.line}
-            style={{
-              left: 0,
-              top: '50%',
-              height: 0,
-              borderBottom: `2px solid ${columnColour}`,
-              width: `calc(50% - ${NODE_WIDTH / 2}px)`
-            }}
-          />
-        </>
+        <LeftDownCurve
+          color={columnColour}
+          isPlaceholder={state.isPlaceholderSkeleton}
+        />
       )}
 
       {state.isLeftUpCurve && (

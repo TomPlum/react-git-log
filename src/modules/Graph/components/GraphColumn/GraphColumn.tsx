@@ -45,7 +45,7 @@ export const GraphColumn = ({
       return {
         top: '50%',
         height: '50%',
-        zIndex: index,
+        zIndex: index + 1,
         borderRight: `2px dotted ${indexCommitNodeBorder}`
       }
     }
@@ -71,7 +71,7 @@ export const GraphColumn = ({
       return {
         top: 0,
         height: '50%',
-        zIndex: index,
+        zIndex: index + 1,
         borderRight: `2px solid ${columnColour}`
       }
     }
@@ -89,7 +89,7 @@ export const GraphColumn = ({
       return {
         top: '50%',
         height: '50%',
-        zIndex: index,
+        zIndex: index + 1,
         borderRight: `2px ${borderStyle} ${columnColour}`
       }
     }
@@ -100,10 +100,10 @@ export const GraphColumn = ({
     return {
       top: 0,
       height: '100%',
-      zIndex: index,
+      zIndex: index + 1,
       borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
     }
-  }, [columnColour, commit.isBranchTip, commit.parents.length, index, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isNode, state.isPlaceholderSkeleton])
+  }, [columnColour, commit.isBranchTip, commit.parents.length, index, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isColumnAboveEmpty, state.isColumnBelowEmpty, state.isNode, state.isPlaceholderSkeleton])
 
   const horizontalNodeLineStyles = useMemo<CSSProperties>(() => {
     const borderColour = state.isPlaceholderSkeleton
@@ -121,7 +121,7 @@ export const GraphColumn = ({
         borderTop: `2px ${borderStyle} ${borderColour}`,
         width: '50%',
         right: 0,
-        zIndex: index
+        zIndex: index + 1
       }
     }
 
@@ -130,7 +130,7 @@ export const GraphColumn = ({
     return {
       borderTop: `2px ${borderStyle} ${borderColour}`,
       width: index === 0 ? '50%' : '100%',
-      zIndex: index
+      zIndex: index + 1
     }
   }, [columnColour, commitNodeIndex, furtherRightMergeNodeColumnIndex, getGraphColumnColour, index, state.isNode, state.isPlaceholderSkeleton, state.mergeSourceColumns])
 

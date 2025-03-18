@@ -128,7 +128,7 @@ export const GitLogVisualiser = ({
     graphData,
     paging: pageIndices,
     enableResize,
-    graphContainerWidth,
+    graphContainerWidth: defaultGraphContainerWidth ?? graphContainerWidth,
     setGraphContainerWidth,
     rowSpacing
   }), [

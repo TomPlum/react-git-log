@@ -1,11 +1,18 @@
 {
   "name": "@tomplum/react-git-log",
+  "repository": "https://github.com/TomPlum/react-git-log",
+  "description": "A flexible, themable, React component for visualising Git commit history, branch and tag metadata.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "main": "dist/react-git-log.umd.js",
   "module": "dist/react-git-log.es.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/react-git-log.es.js",
+    "require": "./dist/react-git-log.umd.js",
+    "types": "./dist/index.d.ts"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --project tsconfig.json && vite build",
@@ -17,23 +24,31 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "fastpriorityqueue": "^0.7.5",
     "framer-motion": "^12.4.10",
     "node-interval-tree": "^2.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-tiny-popover": "^8.1.6"
+    "react-tiny-popover": "^8.1.6",
+    "@uidotdev/usehooks": "^2.4.1"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "react-dom": { "optional": true }
   },
   "devDependencies": {
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "@uidotdev/usehooks": "^2.4.1",
     "@vitejs/plugin-react-swc": "^3.8.0",
     "@vitest/browser": "^3.0.7",
     "@vitest/coverage-v8": "^3.0.7",
     "@vitest/ui": "^3.0.7",
-    "classnames": "^2.5.1",
     "dayjs": "^1.11.13",
     "globals": "^16.0.0",
     "jsdom": "^26.0.0",
@@ -45,5 +60,13 @@
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.7"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not dead",
+    "maintained node versions"
+  ]
 }

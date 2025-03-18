@@ -12,6 +12,18 @@ A flexible and interactive React component for visualising Git commit history. D
 - :memo: Table with commit message and date
 - :bookmark: Branch and tagging information
 
+# HTML Grid System (No canvas!)
+
+The implementation of the graph was designed with testing in mind. 
+The traditional way to draw such an image would with a HTML `canvas` element. Which, while efficient (and probably easier to implement), is hard to programmatically assert its correctness.
+
+This graph uses a grid system. Each row has N number of columns rendered in it, where N is equal to the maximum number of concurrent active branches in the given git log entry data.
+This means that each column is aware of its state and what needs to be drawn (A commit node, vertical line, curved merge line etc.).
+
+Each column is responsive as its row is stretched vertically or horizontally.
+
+![grid-system.gif](docs/images/grid-system.gif)
+
 # Git Log Data
 
 The array of `GitLogEntry` objects is the source of data used by the `GitLog` component. It has the following properties:

@@ -220,12 +220,6 @@ export interface Commit {
   children: string[];
 
   /**
-   * A string representing references associated with the commit,
-   * such as branch names or tags.
-   */
-  refs: string;
-
-  /**
    * The name of the branch this commit belongs to.
    */
   branch: string;
@@ -240,7 +234,7 @@ export interface Commit {
    * The date and time when the commit was
    * made by the author, in ISO 8601 format.
    */
-  authorDate: string;
+  authorDate?: string;
 
   /**
    * The date and time when the commit was
@@ -259,17 +253,43 @@ export interface Commit {
 }
 
 /**
- * A single entry from your repositories
- * git log.
- *
- * TODO: Can we make some fields optional here? Is refs needed?
+ * Represents a single entry in the git log.
  */
 export interface GitLogEntry {
-  hash: string
-  branch: string
-  parents: string[]
-  refs: string
-  message: string
-  committerDate: string
-  authorDate: string
+  /**
+   * The unique hash identifier of the commit.
+   */
+  hash: string;
+
+  /**
+   * The name of the branch this commit belongs to.
+   */
+  branch: string;
+
+  /**
+   * An array of parent commit hashes.
+   *
+   * - If this commit is a merge commit, it will have multiple parents.
+   * - If this commit is an initial commit, it will have no parents.
+   */
+  parents: string[];
+
+  /**
+   * The commit message describing the changes made in this commit.
+   */
+  message: string;
+
+  /**
+   * The date and time when the commit was applied by the committer.
+   *
+   * This is typically the timestamp when the commit was finalized.
+   */
+  committerDate: string;
+
+  /**
+   * The date and time when the commit was originally authored.
+   *
+   * This may differ from `committerDate` if the commit was rebased or amended.
+   */
+  authorDate?: string;
 }

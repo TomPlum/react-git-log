@@ -94,7 +94,6 @@ export const GitLog = ({
       message: `// Work in-progress${githubRepositoryUrl ? withRepoMessage : '...'}`,
       committerDate: new Date().toString(),
       isBranchTip: false,
-      refs: 'index',
       x: 0,
       y: 0
     })

@@ -4,7 +4,6 @@ import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 export const commits: Commit[] = [
   {
     hash: 'aa2c148',
-    refs: '',
     committerDate: '2025-02-24T22:06:22+00:00',
     authorDate: '2025-02-22 22:06:22 +0000',
     message: '',
@@ -19,7 +18,6 @@ export const commits: Commit[] = [
   },
   {
     hash: '515eaa9',
-    refs: '',
     committerDate: '2025-02-24T22:05:44+00:00',
     authorDate: '2025-02-22 22:05:44 +0000',
     message: '',
@@ -35,7 +33,6 @@ export const commits: Commit[] = [
   },
   {
     hash: '88a3ca2',
-    refs: '',
     committerDate: '2025-02-24T22:05:23+00:00',
     authorDate: '2025-02-22 22:05:23 +0000',
     message: '',
@@ -51,7 +48,6 @@ export const commits: Commit[] = [
   },
   {
     hash: 'fd93615',
-    refs: '',
     committerDate: '2025-02-24T22:05:07+00:00',
     authorDate: '2025-02-22 22:05:07 +0000',
     message: '',
@@ -67,7 +63,6 @@ export const commits: Commit[] = [
   },
   {
     hash: '5510915',
-    refs: '',
     committerDate: '2025-02-24T21:52:51+00:00',
     authorDate: '2025-02-22 21:52:51 +0000',
     message: 'chore(data): No git log entries to show...',
@@ -82,7 +77,6 @@ export const commits: Commit[] = [
   },
   {
     hash: '202237c',
-    refs: '',
     committerDate: '2025-02-24T21:51:17+00:00',
     authorDate: '2025-02-22 21:51:17 +0000',
     message: '',
@@ -97,7 +91,6 @@ export const commits: Commit[] = [
   },
   {
     hash: 'f687c53',
-    refs: '',
     committerDate: '2025-02-24T07:05:41+00:00',
     authorDate: '2025-02-22 07:05:41 +0000',
     message: '',
@@ -112,7 +105,6 @@ export const commits: Commit[] = [
   },
   {
     hash: '575887a',
-    refs: '',
     committerDate: '2025-02-24T02:47:35+00:00',
     authorDate: '2025-02-22 02:47:35 +0000',
     message: '',
@@ -127,7 +119,6 @@ export const commits: Commit[] = [
   },
   {
     hash: '932be3a',
-    refs: '',
     committerDate: '2025-02-24T02:47:25+00:00',
     authorDate: '2025-02-22 02:47:25 +0000',
     message: '',
@@ -142,7 +133,6 @@ export const commits: Commit[] = [
   },
   {
     hash: '4be118d',
-    refs: '',
     committerDate: '2025-02-21T21:06:34+00:00',
     authorDate: '2025-02-19 21:06:34 +0000',
     message: '',

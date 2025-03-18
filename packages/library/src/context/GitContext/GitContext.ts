@@ -12,8 +12,7 @@ const defaultCommit: Commit = {
   authorDate: new Date().toString(),
   message: 'Working tree index',
   committerDate: new Date().toString(),
-  isBranchTip: false,
-  refs: 'index'
+  isBranchTip: false
 }
 
 export const GitContext = createContext<GitContextBag>({

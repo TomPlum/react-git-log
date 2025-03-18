@@ -13,7 +13,6 @@ export const computeRelationships = (entries: GitLogEntry[]) => {
 
     hashToRawCommit.set(entry.hash, {
       hash: entry.hash,
-      refs: entry.refs,
       committerDate: entry.committerDate,
       authorDate: entry.authorDate,
       message: entry.message,

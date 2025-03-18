@@ -9,7 +9,7 @@ import storybook from 'eslint-plugin-storybook'
 
 export default tseslint.config(
   {
-    ignores: ['dist']
+    ignores: ['**/dist']
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],

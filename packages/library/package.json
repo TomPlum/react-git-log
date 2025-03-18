@@ -1,0 +1,48 @@
+{
+  "name": "@tomplum/react-git-log",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/react-git-log.umd.js",
+  "module": "dist/react-git-log.es.js",
+  "types": "dist/react-git-log.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --project tsconfig.json && vite build",
+    "preview": "vite preview",
+    "test": "vitest --watch",
+    "test:ui": "vitest --ui",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "fastpriorityqueue": "^0.7.5",
+    "framer-motion": "^12.4.10",
+    "node-interval-tree": "^2.1.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-tiny-popover": "^8.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@uidotdev/usehooks": "^2.4.1",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "@vitest/browser": "^3.0.7",
+    "@vitest/coverage-v8": "^3.0.7",
+    "@vitest/ui": "^3.0.7",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.13",
+    "globals": "^16.0.0",
+    "jsdom": "^26.0.0",
+    "sass": "^1.85.1",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-lib-inject-css": "^2.2.1",
+    "vite-plugin-svgr": "^4.3.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.7"
+  }
+}

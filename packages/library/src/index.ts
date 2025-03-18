@@ -1,2 +1,4 @@
-export * from './modules/Visualiser'
+export * from './types'
+export * from './GitLog'
+
 export * from './hooks/useTheme'

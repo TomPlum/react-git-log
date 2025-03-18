@@ -1,4 +1,4 @@
-import { Commit, GitVisualiserStylingProps } from 'modules/Visualiser'
+import { Commit, GitLogStylingProps } from 'types'
 import { ThemeMode } from 'hooks/useTheme'
 import { GraphData } from 'data'
 
@@ -139,8 +139,8 @@ export interface GitContextBag {
   setGraphContainerWidth: (width: number) => void
 
   /**
-   * Data used to render the visualiser
-   * components such as the graph, log
+   * Data used to render the log
+   * components such as the graph, table
    * and tag/branch labels.
    */
   graphData: GraphData
@@ -148,7 +148,7 @@ export interface GitContextBag {
   /**
    * A timestamp format string passed to DayJS
    * to format the timestamps of the commits
-   * in the log table.
+   * in the table.
    */
   timestampFormat: string
 
@@ -156,11 +156,11 @@ export interface GitContextBag {
    * CSS Classes to pass to various underlying
    * elements for custom styling.
    */
-  classes?: GitVisualiserStylingProps
+  classes?: GitLogStylingProps
 
   /**
    * The variant of the default colour
-   * them to apply to the visualiser.
+   * them to apply to the log.
    *
    * Does not take effect if a custom
    * array of {@link colours} are passed.

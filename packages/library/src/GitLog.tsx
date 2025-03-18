@@ -1,12 +1,12 @@
-import { Commit, GitLogVisualiserProps } from './types'
-import { GitGraph } from 'modules/Visualiser/components/GitGraph'
+import { Commit, GitLogProps } from 'types'
+import { Layout } from './Layout'
 import { useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context/GitContext'
 import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/useTheme'
 import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
 import { GraphData, temporalTopologicalSort, computeNodePositions, computeRelationships } from 'data'
 
-export const GitLogVisualiser = ({
+export const GitLog = ({
    entries,
    showGitLog = true,
    showBranchesTags = true,
@@ -25,7 +25,7 @@ export const GitLogVisualiser = ({
    githubRepositoryUrl,
    currentBranch,
    paging
-}: GitLogVisualiserProps) => {
+}: GitLogProps) => {
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
   const [graphContainerWidth, setGraphContainerWidth] = useState(defaultGraphContainerWidth)
@@ -166,7 +166,7 @@ export const GitLogVisualiser = ({
   
   return (
     <GitContext.Provider value={value}>
-       <GitGraph />
+       <Layout />
     </GitContext.Provider>
   )
 }

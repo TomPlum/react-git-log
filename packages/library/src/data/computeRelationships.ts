@@ -1,4 +1,4 @@
-import { Commit, GitLogEntry } from 'modules/Visualiser'
+import { Commit, GitLogEntry } from 'types'
 
 type RawCommit = Omit<Commit, 'isBranchTip' | 'children'>
 

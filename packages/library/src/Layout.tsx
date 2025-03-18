@@ -1,4 +1,4 @@
-import styles from './GitGraph.module.scss'
+import styles from './Layout.module.scss'
 import { Table } from 'modules/Table'
 import { Tags } from 'modules/Tags'
 import { useGitContext } from 'context/GitContext'
@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import { useTheme } from 'hooks/useTheme'
 import { Graph } from 'modules/Graph'
 
-export const GitGraph = () => {
+export const Layout = () => {
   const {
     classes,
     showGitLog,

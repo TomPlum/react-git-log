@@ -54,7 +54,6 @@ TODO: Add table
 - Rewrite the table with standard div elements
 - Split computeNodeFunctions up
 - Add LICENSE
-- Make Visualiser module dir redundant so just has the core 3 modules + data
 - Node size parameter to make the graph even more compact as it will reduce the minimum column width
 - Line curve radius prop?
 - Should we split the component in 3 sub-components with a wrapper, like `GitLog` and `GitLog.Graph` etc.?

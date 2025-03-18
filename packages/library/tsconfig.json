@@ -13,7 +13,8 @@
       "context/*": ["src/context/*"],
       "hooks/*": ["src/hooks/*"],
       "constants/*": ["src/constants/*"],
-      "data": ["src/data/index.ts"]
+      "data": ["src/data/index.ts"],
+      "types": ["src/types.ts"]
     },
     "types": ["vitest/globals", "vite/client"],
 

@@ -1,6 +1,6 @@
 import IntervalTree from 'node-interval-tree'
 import FastPriorityQueue from 'fastpriorityqueue'
-import { Commit } from 'modules/Visualiser'
+import { Commit } from 'types'
 import { CommitNodeLocation, EdgeType, GraphEdge } from './types'
 
 /**

@@ -2,8 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import { parseGitLogOutput } from './utils/gitLogParser'
 import dayjs from 'dayjs'
-import styles from './GitLogVisualiser.stories.module.scss'
-import { type ThemeColours, type ThemeMode, type Commit, type GitLogEntry, type GitLogVisualiserProps, GitLogVisualiser } from '@tomplum/react-git-log'
+import styles from './GitLog.stories.module.scss'
+import {
+  type ThemeColours,
+  type ThemeMode,
+  type Commit,
+  type GitLogEntry,
+  type GitLogProps,
+  GitLog
+} from '@tomplum/react-git-log'
 
 // TODO: once mono repo in place, extract types and components from here
 
@@ -17,15 +24,15 @@ const fetchEntries = async (name: string): Promise<GitLogEntry[]> => {
   return parseGitLogOutput(await response.text())
 }
 
-interface StoryProps extends GitLogVisualiserProps {
+interface StoryProps extends GitLogProps {
   pageSize?: number
   page?: number
   repository: string
 }
 
 const meta: Meta<StoryProps> = {
-  title: 'Git Log/GitLogVisualiser',
-  component: GitLogVisualiser,
+  title: 'GitLog',
+  component: GitLog,
   parameters: {
     layout: 'fullscreen',
   },
@@ -168,7 +175,7 @@ export const Default: Story = {
           </option>
         </select>
 
-        <GitLogVisualiser
+        <GitLog
           {...args}
           colours={colours}
           entries={entries}

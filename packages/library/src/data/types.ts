@@ -1,4 +1,4 @@
-import { Commit } from 'modules/Visualiser'
+import { Commit } from 'types'
 import DataIntervalTree from 'node-interval-tree'
 
 export interface GraphData {
@@ -28,7 +28,7 @@ export interface GraphData {
    * The width of the graph. A number
    * that is the maximum concurrent active
    * branches at any one time from all
-   * git log entries passed the visualiser.
+   * git log entries passed the log.
    */
   graphWidth: number
 

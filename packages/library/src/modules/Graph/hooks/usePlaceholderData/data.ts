@@ -1,4 +1,4 @@
-import { Commit } from 'modules/Visualiser'
+import { Commit } from 'types'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 
 export const commits: Commit[] = [

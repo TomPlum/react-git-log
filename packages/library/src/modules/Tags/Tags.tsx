@@ -1,9 +1,9 @@
 import styles from './Tags.module.scss'
-import { Commit } from 'modules/Visualiser'
 import { BranchTag } from './components/BranchTag'
 import { useGitContext } from 'context/GitContext'
 import { useCallback, useMemo } from 'react'
 import { ROW_HEIGHT } from 'constants/constants'
+import { Commit } from 'types'
 
 const prepareCommits = (commits: Commit[]) => {
   const tagsSeen = new Map<string, boolean>()

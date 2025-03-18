@@ -22,7 +22,7 @@ export default defineConfig({
       context: resolve(__dirname, '/src/context'),
       hooks: resolve(__dirname, '/src/hooks'),
       constants: resolve(__dirname, '/src/constants'),
-      data: resolve(__dirname, 'src/data'),
+      data: resolve(__dirname, 'src/data')
     }
   },
   build: {

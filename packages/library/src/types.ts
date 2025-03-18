@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react'
 import { ThemeColours, ThemeMode } from 'hooks/useTheme'
 
-export interface GitLogVisualiserProps {
+export interface GitLogProps {
   /**
    * The git log entries to visualise
    * on the graph.
@@ -16,7 +16,7 @@ export interface GitLogVisualiserProps {
 
   /**
    * The variant of the default colour
-   * them to apply to the visualiser.
+   * them to apply to the log.
    */
   theme?: ThemeMode
 
@@ -99,7 +99,7 @@ export interface GitLogVisualiserProps {
    * the {@link entries} came from. When passed,
    * link so commits, tags and PRs will be rendered.
    *
-   * @example https://github.com/TomPlum/git-log-visualiser
+   * @example https://github.com/TomPlum/react-git-log
    */
   githubRepositoryUrl?: string
 
@@ -134,20 +134,20 @@ export interface GitLogVisualiserProps {
    * CSS Classes to pass to various underlying
    * elements for custom styling.
    */
-  classes?: GitVisualiserStylingProps
+  classes?: GitLogStylingProps
 
   /**
    * Optional paging information to show
    * a window of the given size from the
    * set of git log entries.
    */
-  paging?: GitVisualiserPaging
+  paging?: GitLogPaging
 }
 
-export interface GitVisualiserStylingProps {
+export interface GitLogStylingProps {
   /**
    * A class name passed to the wrapping
-   * container (div) around the visualiser.
+   * container (div) around the log.
    *
    * This includes the branches/tags, the
    * graph and the git log table.
@@ -157,7 +157,7 @@ export interface GitVisualiserStylingProps {
   /**
    * A React CSS styling object passed to
    * the wrapping container (div) around
-   * the visualiser.
+   * the log.
    *
    * This includes the branches/tags, the
    * graph and the git log table.
@@ -182,7 +182,7 @@ export interface GitVisualiserStylingProps {
   }
 }
 
-export interface GitVisualiserPaging {
+export interface GitLogPaging {
   /**
    * The number of rows to show in
    * each page.

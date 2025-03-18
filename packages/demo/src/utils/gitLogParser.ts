@@ -1,4 +1,4 @@
-import { GitLogEntry } from '@tomplum/react-git-log/src/modules/Visualiser/types.ts'
+import { GitLogEntry } from '@tomplum/react-git-log'
 
 export const parseGitLogOutput = (output: string): GitLogEntry[] => {
   const commits = output.trim().split('\n')

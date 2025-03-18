@@ -1,4 +1,4 @@
-import { Commit } from 'modules/Visualiser'
+import { Commit } from 'types'
 
 export interface BranchTagProps {
   id: string

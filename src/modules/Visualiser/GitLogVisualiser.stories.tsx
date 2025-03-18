@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import { parseGitLogOutput } from 'modules/Visualiser/utils/gitLogParser'
 import { Commit, GitLogEntry, GitLogVisualiserProps } from './types'
 import { GitLogVisualiser } from './GitLogVisualiser'
 import dayjs from 'dayjs'
 import styles from './GitLogVisualiser.stories.module.scss'
 
-const repositories: Record<string, string> = {
+const branches: Record<string, string> = {
   'TomPlum/sleep': 'release',
   'TomPlum/learn-japanese': 'feature/JPUI-51'
 }
@@ -44,8 +44,7 @@ const meta: Meta<StoryProps> = {
     enableExperimentalAnimation: false,
     githubRepositoryUrl: 'https://github.com/TomPlum/sleep',
     defaultGraphContainerWidth: 300,
-    rowSpacing: 0,
-    repository: 'TomPlum/sleep'
+    rowSpacing: 0
   },
   argTypes: {
     theme: {
@@ -64,12 +63,6 @@ const meta: Meta<StoryProps> = {
         type: 'range',
         min: 0,
         max: 50
-      }
-    },
-    repository: {
-      options: ['TomPlum/sleep', 'TomPlum/learn-japanese'],
-      control: {
-        type: 'select',
       }
     },
     rowSpacing: {
@@ -94,28 +87,46 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => {
+    const [loading, setLoading] = useState(true)
+    const [branch, setBranch] = useState('release')
     const [entries, setEntries] = useState<GitLogEntry[]>()
 
-    useEffect(() => {
-      fetchEntries(args.repository).then(data => {
-        const headCommit = data[0]
-        const today = dayjs(new Date())
-        const daysSinceHeadCommit = Math.abs(dayjs(headCommit.committerDate).diff(today, 'days'))
+    const fetchLogEntryData = useCallback(async (repository: string) => {
+      const data = await fetchEntries(repository)
+      const headCommit = data[0]
+      const today = dayjs(new Date())
+      const daysSinceHeadCommit = Math.abs(dayjs(headCommit.committerDate).diff(today, 'days'))
+      if (daysSinceHeadCommit > 1) {
+        const shiftedData: GitLogEntry[] = data.map(entry => ({
+          ...entry,
+          committerDate: dayjs(entry.committerDate).add(daysSinceHeadCommit, 'days').format()
+        }))
 
-        if (daysSinceHeadCommit > 1) {
-          const shiftedData: GitLogEntry[] = data.map(entry => ({
-            ...entry,
-            committerDate: dayjs(entry.committerDate).add(daysSinceHeadCommit, 'days').format()
-          }))
-
-          setEntries(shiftedData)
-        } else {
-          setEntries(data)
-        }
-      })
+        return shiftedData
+      } else {
+        return data
+      }
     }, [])
 
-    if (!entries) {
+    useEffect(() => {
+      setLoading(true)
+
+      fetchLogEntryData('TomPlum/sleep').then((data) => {
+        setEntries(data)
+      }).finally(() => {
+        setLoading(false)
+      })
+    }, [fetchLogEntryData])
+
+    const handleChangeRepository = useCallback(async (e: ChangeEvent<HTMLSelectElement>) => {
+      const newRepositoryName = e.target.value
+      const newEntries = await fetchLogEntryData(newRepositoryName)
+
+      setEntries(newEntries)
+      setBranch(branches[newRepositoryName])
+    }, [fetchLogEntryData])
+
+    if (loading || !entries) {
       return <div>Loading...</div>
     }
 
@@ -123,14 +134,23 @@ export const Default: Story = {
 
     return (
       <div style={{ background: backgroundColour }} className={styles.container}>
+        <select onChange={handleChangeRepository}>
+          <option value='TomPlum/sleep'>
+            TomPlum/sleep
+          </option>
+          <option value='TomPlum/learn-japanese'>
+            TomPlum/learn-japanese
+          </option>
+        </select>
+
         <GitLogVisualiser
           {...args}
           entries={entries}
+          currentBranch={branch}
           paging={{
             page: args.page ?? 0,
             size: args.pageSize ?? entries.length
           }}
-          currentBranch={repositories[args.repository]}
           classes={{
             containerStyles: {
               background: backgroundColour

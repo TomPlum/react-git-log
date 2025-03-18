@@ -53,21 +53,37 @@ const meta: Meta<StoryProps> = {
       options: ['light', 'dark']
     },
     pageSize: {
-      control: {
-        type: 'number',
-        min: 0
+      control :{
+        type: 'range',
+        min: 1,
+        max: 100
       }
     },
     page: {
-      control: {
-        type: 'number',
-        min: 0
+      control :{
+        type: 'range',
+        min: 0,
+        max: 50
       }
     },
     repository: {
       options: ['TomPlum/sleep', 'TomPlum/learn-japanese'],
       control: {
         type: 'select',
+      }
+    },
+    rowSpacing: {
+      control :{
+        type: 'range',
+        min: 0,
+        max: 50
+      }
+    },
+    defaultGraphContainerWidth: {
+      control: {
+        type: 'range',
+        min: 200,
+        max: 500
       }
     }
   }

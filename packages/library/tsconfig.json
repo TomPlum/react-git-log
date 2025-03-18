@@ -45,8 +45,6 @@
     "node_modules",
     "dist",
     "vite.config.ts",
-    "vitest.shims.d.ts",
-    "vitest.workspace.ts",
     "tsconfig.json"
   ]
 }

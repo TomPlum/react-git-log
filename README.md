@@ -1,5 +1,10 @@
 Git Log Visualiser
 
+A git log with graph component for React.
+
+> [!WARNING]
+> This package is currently in active development. It may contain bugs or performance issues and is not "officially" ready for consumption yet.
+
 # Git Commands
 
 Extract data from a given `<branch>`.
@@ -11,6 +16,16 @@ Extract data from all branches.
 ```bash
 git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate:%cd,adate:%ad' --date=iso >> git-log-all.txt
 ```
+
+# Component Props
+
+## Required
+
+TODO: Add table
+
+## Optional
+
+TODO: Add table
 
 # References
 - https://pvigier.github.io/2019/05/06/commit-graph-drawing-algorithms.html
@@ -42,3 +57,7 @@ git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate
 - Add LICENSE
 - Create GitLog module, rename it to Table, then rename main component to GitLog
 - Make Visualiser module dir redundant so just has the core 3 modules + data
+- Node size parameter to make the graph even more compact as it will reduce the minimum column width
+- Line curve radius prop?
+- Should we split the component in 3 sub-components with a wrapper, like `GitLog` and `GitLog.Graph` etc.?
+- Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props

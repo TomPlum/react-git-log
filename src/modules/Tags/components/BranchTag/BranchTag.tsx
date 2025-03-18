@@ -12,7 +12,7 @@ import { useGitContext } from 'context'
 
 export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTagProps) => {
   const { selectedCommit, previewedCommit } = useGitContext()
-  const { textColour, shiftAlphaChannel, tooltipBackground, getCommitColour } = useTheme()
+  const { textColour, shiftAlphaChannel, getCommitColour } = useTheme()
 
   const colour = getCommitColour(commit)
 
@@ -88,10 +88,10 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
           arrowSize={6}
           position={position}
           childRect={childRect}
+          arrowColor={colour}
           popoverRect={popoverRect}
-          arrowColor={tooltipBackground}
         >
-          <BranchTagTooltip branch={commit.branch} />
+          <BranchTagTooltip commit={commit} />
         </ArrowContainer>
       )}
     >

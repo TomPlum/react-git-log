@@ -2,19 +2,21 @@ import styles from './BranchTagTooltip.module.scss'
 import { useTheme } from 'hooks/useTheme'
 import { BranchTagTooltipProps } from './types'
 
-export const BranchTagTooltip = ({ branch }: BranchTagTooltipProps) => {
-  const { textColour, tooltipBackground, shiftAlphaChannel } = useTheme()
+export const BranchTagTooltip = ({ commit }: BranchTagTooltipProps) => {
+  const { textColour, getTooltipBackground, getCommitColour } = useTheme()
+
+  const colour = getTooltipBackground(commit)
 
   return (
     <div
       className={styles.tooltip}
       style={{
         color: textColour,
-        background: tooltipBackground,
-        border: `2px solid ${shiftAlphaChannel(tooltipBackground, 1.2)}`,
+        background: colour,
+        border: `2px solid ${getCommitColour(commit)}`,
       }}
     >
-      {branch}
+      {commit.branch}
     </div>
   )
 }

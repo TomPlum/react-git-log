@@ -1,62 +1,23 @@
 {
-  "name": "react-git-log",
+  "name": "react-git-log-monorepo",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "packages/library",
+    "packages/demo"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "preview": "vite preview",
-    "test": "vitest --watch",
-    "test:ui": "vitest --ui",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "fastpriorityqueue": "^0.7.5",
-    "framer-motion": "^12.4.10",
-    "node-interval-tree": "^2.1.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-tiny-popover": "^8.1.6"
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.5",
-    "@eslint/js": "^9.21.0",
-    "@storybook/addon-docs": "^8.6.6",
-    "@storybook/addon-essentials": "^8.6.6",
-    "@storybook/blocks": "^8.6.4",
-    "@storybook/experimental-addon-test": "^8.6.6",
-    "@storybook/react": "^8.6.4",
-    "@storybook/react-vite": "^8.6.4",
-    "@storybook/test": "^8.6.4",
-    "@stylistic/eslint-plugin": "^4.2.0",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@uidotdev/usehooks": "^2.4.1",
-    "@vitejs/plugin-react-swc": "^3.8.0",
-    "@vitest/browser": "^3.0.7",
-    "@vitest/coverage-v8": "^3.0.7",
-    "@vitest/ui": "^3.0.7",
-    "classnames": "^2.5.1",
-    "dayjs": "^1.11.13",
     "eslint": "^9.21.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-storybook": "^0.11.4",
-    "globals": "^16.0.0",
-    "jsdom": "^26.0.0",
-    "playwright": "^1.51.0",
-    "sass": "^1.85.1",
-    "storybook": "^8.6.4",
-    "typescript": "~5.7.2",
-    "typescript-eslint": "^8.24.1",
-    "vite": "^6.2.0",
-    "vite-plugin-svgr": "^4.3.0",
-    "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.7"
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@eslint/js": "^9.21.0",
+    "typescript-eslint": "^8.24.1"
   }
 }

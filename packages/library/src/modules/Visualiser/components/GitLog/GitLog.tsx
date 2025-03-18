@@ -9,6 +9,8 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 import { useGitContext } from 'context/GitContext'
 import { usePlaceholderData } from 'modules/Graph/hooks/usePlaceholderData'
 import { GitLogTableRow } from 'modules/Visualiser/components/GitLogTableRow'
+import { ROW_HEIGHT } from 'constants/constants'
+import { HEADER_ROW_HEIGHT } from 'modules/Visualiser/components/GitLog/types'
 
 dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
@@ -21,6 +23,7 @@ export const GitLog = () => {
     classes,
     graphData,
     paging,
+    rowSpacing,
     indexCommit
   } = useGitContext()
 
@@ -36,43 +39,57 @@ export const GitLog = () => {
     return data
   }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
 
+  const gridTemplateRows = useMemo(() => {
+    // With no row spacing, the header row height lines
+    // up with the first data row fine. But when the row
+    // spacing is increased, we must subtract half of it
+    // from the height of the first header row to counteract
+    // the gap between the header and the first data row.
+    const headerRowHeight = HEADER_ROW_HEIGHT - (rowSpacing / 2)
+
+    // All other rows (with data) get a fixed height.
+    const remainingRowsHeight = `repeat(${logData.length}, ${ROW_HEIGHT}px)`
+
+    return `${headerRowHeight}px ${remainingRowsHeight}`
+  }, [logData.length, rowSpacing])
+
   return (
-    <table
-      style={classes?.logTableStyles?.table}
+    <div
+      style={{
+        ...classes?.logTableStyles?.table,
+        gridTemplateRows,
+        rowGap: rowSpacing
+      }}
       className={classNames(styles.table, classes?.logTableClass)}
     >
       {showTableHeaders && (
-        <thead style={classes?.logTableStyles?.thead}>
-          <tr style={classes?.logTableStyles?.tr}>
-            <th style={{ color: textColour }}>
-              Commit message
-            </th>
-            <th style={{ color: textColour }}>
-              Timestamp
-            </th>
-            <th />
-          </tr>
-        </thead>
+        <div style={classes?.logTableStyles?.tr} className={styles.row}>
+          <div style={{ color: textColour }} className={styles.header}>
+            Commit message
+          </div>
+
+          <div style={{ color: textColour }} className={styles.header}>
+            Timestamp
+          </div>
+        </div>
       )}
 
-      <tbody>
-        {logData.length == 0 && placeholderData.map(({ commit }, i) => (
-          <GitLogTableRow
-            isPlaceholder
-            commit={commit}
-            data-testid={`git-log-empty-table-row-${i}`}
-            key={`git-log-empty-table-row-${commit.hash}`}
-          />
-        ))}
+      {logData.length == 0 && placeholderData.map(({ commit }, i) => (
+        <GitLogTableRow
+          isPlaceholder
+          commit={commit}
+          data-testid={`git-log-empty-table-row-${i}`}
+          key={`git-log-empty-table-row-${commit.hash}`}
+        />
+      ))}
 
-        {logData.map((commit, i) => (
-          <GitLogTableRow
-            commit={commit}
-            data-testid={`git-log-table-row-${i}`}
-            key={`git-log-table-row-${commit.hash}`}
-          />
-        ))}
-      </tbody>
-    </table>
+      {logData.map((commit, i) => (
+        <GitLogTableRow
+          commit={commit}
+          data-testid={`git-log-table-row-${i}`}
+          key={`git-log-table-row-${commit.hash}`}
+        />
+      ))}
+    </div>
   )
 }

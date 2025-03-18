@@ -1,9 +1,13 @@
 .table {
-  border-collapse: collapse;
-  border-spacing: 0 0;
   margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
-  >thead >tr >th {
+  .row {
+    display: contents;
+  }
+
+  >.thead >.tr >.th {
     text-align: left;
     padding-bottom: 22px;
     box-sizing: border-box;

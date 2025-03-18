@@ -1,38 +1,25 @@
 .row {
-  border-bottom: 4px solid transparent;
-  position: relative;
+  display: contents;
 
-  .background {
-    width: 100%;
-    position: absolute;
-    padding: 0;
-    pointer-events: none;
-    top: 50%;
-    left: calc(50% + 5px); // There is a 5px overlap to the left for some reason
-    transform: translate(-50%, -50%);
+  .td {
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
   }
 
   &:hover {
     cursor: pointer;
   }
 
-  >td:last-child {
+  .message {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  >.td:last-child {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding-right: 10px;
   }
-
-  .message {
-    max-width: 500px;
-    padding-right: 30px;
-  }
-}
-
-.td {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  box-sizing: border-box;
-  background-clip: content-box;
-  padding: 4px 0;
 }

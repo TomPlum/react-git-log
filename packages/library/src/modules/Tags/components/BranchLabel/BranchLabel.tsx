@@ -1,6 +1,6 @@
 import { useGitContext } from 'context/GitContext'
 import styles from './BranchLabel.module.scss'
-import { formatBranch } from 'modules/Visualiser/utils/formatBranch'
+import { formatBranch } from 'modules/Tags/utils/formatBranch'
 import { useMemo } from 'react'
 import { Link } from '../Link'
 import { BranchIcon } from '../BranchIcon'

@@ -12,7 +12,6 @@ export const parseGitLogOutput = (output: string): GitLogEntry[] => {
         hash: match[1],
         parents: match[2] ? match[2].split(' ') : [],
         branch: match[3].trim(),
-        refs: match[4].trim(),
         message: match[5],
         committerDate: match[6].trim(),
         authorDate: match[7].trim(),

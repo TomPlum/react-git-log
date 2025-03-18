@@ -1,4 +1,4 @@
-# :seedling: Git Log Visualiser
+# :seedling: React Git Log
 
 A flexible and interactive React component for visualising Git commit history. Displays a branching graph alongside commit, branch and tag metadata, with support for customised theming.
 

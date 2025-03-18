@@ -10,7 +10,7 @@ import { useGitContext } from 'context/GitContext'
 import { usePlaceholderData } from 'modules/Graph/hooks/usePlaceholderData'
 import { TableRow } from 'modules/Table/components/TableRow'
 import { ROW_HEIGHT } from 'constants/constants'
-import { HEADER_ROW_HEIGHT } from 'modules/Table/types'
+import { HEADER_ROW_HEIGHT, TABLE_MARGIN_TOP } from 'modules/Table/types'
 
 dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
@@ -40,6 +40,12 @@ export const Table = () => {
   }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
 
   const gridTemplateRows = useMemo(() => {
+    // If the table headers are turned off, then we simply
+    // repeat the same row height for all rows.
+    if (!showTableHeaders) {
+      return `repeat(${logData.length}, ${ROW_HEIGHT}px)`
+    }
+
     // With no row spacing, the header row height lines
     // up with the first data row fine. But when the row
     // spacing is increased, we must subtract half of it
@@ -51,12 +57,21 @@ export const Table = () => {
     const remainingRowsHeight = `repeat(${logData.length}, ${ROW_HEIGHT}px)`
 
     return `${headerRowHeight}px ${remainingRowsHeight}`
-  }, [logData.length, rowSpacing])
+  }, [logData.length, rowSpacing, showTableHeaders])
+
+  const marginTop = useMemo(() => {
+    if (showTableHeaders) {
+      return TABLE_MARGIN_TOP
+    }
+
+    return (rowSpacing / 2) + TABLE_MARGIN_TOP
+  }, [rowSpacing, showTableHeaders])
 
   return (
     <div
       style={{
         ...classes?.logTableStyles?.table,
+        marginTop,
         gridTemplateRows,
         rowGap: rowSpacing
       }}

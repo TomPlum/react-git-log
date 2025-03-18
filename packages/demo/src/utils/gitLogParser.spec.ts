@@ -15,7 +15,6 @@ describe('gitLogParser', () => {
         hash: 'abc123',
         parents: ['def456', 'ghi789'],
         branch: 'main',
-        refs: 'HEAD -> main',
         message: 'Initial commit',
         date: '2025-03-05 12:34:56 +0000',
       },
@@ -23,7 +22,6 @@ describe('gitLogParser', () => {
         hash: 'def456',
         parents: [],
         branch: 'feature',
-        refs: '',
         message: 'Added feature',
         date: '2025-03-04 11:22:33 +0000',
       }
@@ -42,7 +40,6 @@ describe('gitLogParser', () => {
         hash: 'abc123',
         parents: [],
         branch: '',
-        refs: '',
         message: 'No branch or refs',
         date: '2025-03-05 12:34:56 +0000',
       }
@@ -67,7 +64,6 @@ describe('gitLogParser', () => {
         hash: 'abc123',
         parents: ['def456'],
         branch: 'main',
-        refs: 'HEAD',
         message: 'Valid commit',
         date: '2025-03-05 12:34:56 +0000',
       },
@@ -75,7 +71,6 @@ describe('gitLogParser', () => {
         hash: 'def456',
         parents: [],
         branch: 'feature',
-        refs: '',
         message: 'Another commit',
         date: '2025-03-04 11:22:33 +0000',
       }

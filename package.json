@@ -1,6 +1,7 @@
 {
   "name": "react-git-log-monorepo",
   "private": true,
+  "type": "module",
   "workspaces": [
     "packages/library",
     "packages/demo"

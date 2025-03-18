@@ -54,7 +54,6 @@ TODO: Add table
 - Rewrite the table with standard div elements
 - Split computeNodeFunctions up
 - Add LICENSE
-- Create GitLog module, rename it to Table, then rename main component to GitLog
 - Make Visualiser module dir redundant so just has the core 3 modules + data
 - Node size parameter to make the graph even more compact as it will reduce the minimum column width
 - Line curve radius prop?

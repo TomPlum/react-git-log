@@ -1,4 +1,4 @@
-import styles from './GitLogTableRow.module.scss'
+import styles from './TableRow.module.scss'
 import classNames from 'classnames'
 import { GitLogTableRowProps } from './types'
 import { useCallback, useMemo } from 'react'
@@ -8,7 +8,7 @@ import { useSelectCommit } from 'hooks/useSelectCommit'
 import dayjs from 'dayjs'
 import { ROW_HEIGHT } from 'constants/constants'
 
-export const GitLogTableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) => {
+export const TableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) => {
   const {
     textColour,
     hoverColour,

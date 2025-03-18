@@ -1,5 +1,5 @@
 import styles from './GitGraph.module.scss'
-import { GitLog } from 'modules/Visualiser/components/GitLog'
+import { Table } from 'modules/Table'
 import { Tags } from 'modules/Tags'
 import { useGitContext } from 'context/GitContext'
 import classNames from 'classnames'
@@ -45,7 +45,7 @@ export const GitGraph = () => {
 
       {showGitLog && (
         <div className={styles.log}>
-          <GitLog />
+          <Table />
         </div>
       )}
     </div>

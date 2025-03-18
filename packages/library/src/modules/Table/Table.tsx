@@ -1,4 +1,4 @@
-import styles from './GitLog.module.scss'
+import styles from './Table.module.scss'
 import classNames from 'classnames'
 import dayjs from 'dayjs'
 import { useMemo } from 'react'
@@ -8,14 +8,14 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { useGitContext } from 'context/GitContext'
 import { usePlaceholderData } from 'modules/Graph/hooks/usePlaceholderData'
-import { GitLogTableRow } from 'modules/Visualiser/components/GitLogTableRow'
+import { TableRow } from 'modules/Table/components/TableRow'
 import { ROW_HEIGHT } from 'constants/constants'
-import { HEADER_ROW_HEIGHT } from 'modules/Visualiser/components/GitLog/types'
+import { HEADER_ROW_HEIGHT } from 'modules/Table/types'
 
 dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
 
-export const GitLog = () => {
+export const Table = () => {
   const { textColour, } = useTheme()
 
   const {
@@ -75,7 +75,7 @@ export const GitLog = () => {
       )}
 
       {logData.length == 0 && placeholderData.map(({ commit }, i) => (
-        <GitLogTableRow
+        <TableRow
           isPlaceholder
           commit={commit}
           data-testid={`git-log-empty-table-row-${i}`}
@@ -84,7 +84,7 @@ export const GitLog = () => {
       ))}
 
       {logData.map((commit, i) => (
-        <GitLogTableRow
+        <TableRow
           commit={commit}
           data-testid={`git-log-table-row-${i}`}
           key={`git-log-table-row-${commit.hash}`}

@@ -44,7 +44,6 @@ TODO: Add table
 - Can Zustand help us here to reduce re-renders with GitContext Provider?
 - Add error boundary
 - Add empty state
-- Make App.tsx redundant and create monorepo of lib + demo site
 - Expose component override props for things like CommitNode, CommitMessage etc.
 - Improve node tooltip contents, embolden labels
 - Make table more responsive, remove 500px message max-width

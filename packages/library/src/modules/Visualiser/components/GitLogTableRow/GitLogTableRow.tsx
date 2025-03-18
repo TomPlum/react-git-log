@@ -6,6 +6,7 @@ import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context/GitContext'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import dayjs from 'dayjs'
+import { ROW_HEIGHT } from 'constants/constants'
 
 export const GitLogTableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) => {
   const {
@@ -58,6 +59,7 @@ export const GitLogTableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) =
   }, [timestampFormat])
 
   const tableDataStyle = {
+    lineHeight: `${ROW_HEIGHT}px`,
     opacity: isPlaceholder ? 0.2 : 1,
     color: shiftAlphaChannel(textColour, isMergeCommit || commit.hash === 'index' ? 0.4 : 1)
   }

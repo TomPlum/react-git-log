@@ -1,12 +1,6 @@
 .row {
   display: contents;
 
-  .td {
-    padding: 4px 0;
-    display: flex;
-    align-items: center;
-  }
-
   &:hover {
     cursor: pointer;
   }
@@ -15,11 +9,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-right: 30px;
   }
 
   >.td:last-child {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding-right: 10px;
   }
 }

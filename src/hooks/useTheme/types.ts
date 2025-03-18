@@ -47,28 +47,26 @@ export type ThemeColours =
   'neon-aurora-dark' |
   'neon-aurora-light'
 
-export const darkThemeColors = [
-  'rgb(33, 150, 243)',  // Bright blue
-  'rgb(25, 118, 210)',  // Deep blue
-  'rgb(21, 101, 192)',  // Darker blue
-  'rgb(98, 0, 234)',    // Vivid purple
-  'rgb(123, 31, 162)',  // Deep purple
-  'rgb(94, 53, 177)',   // Muted purple
-  'rgb(0, 230, 118)',   // Neon green
-  'rgb(0, 200, 83)',    // Darker neon green
-  'rgb(46, 125, 50)',   // Forest green
-  'rgb(0, 77, 64)'      // Teal green
+export const neonAuroraDarkColours = [
+  'rgb(0, 255, 128)',   // Neon green
+  'rgb(41, 121, 255)',  // Electric blue
+  'rgb(201, 81, 238)',  // Pink
+  'rgb(255, 160, 0)',   // Amber
+  'rgb(0, 184, 212)',   // Dark cyan
+  'rgb(103, 58, 183)',  // Royal violet
+  'rgb(224,33,70)',   // Red
+  'rgb(0, 121, 107)',   // Teal storm
+  'rgb(255, 193, 7)',   // Solar gold
 ]
 
-export const lightThemeColors = [
-  'rgb(100, 181, 246)', // Light blue
-  'rgb(66, 165, 245)',  // Sky blue
-  'rgb(41, 182, 246)',  // Bright cyan-blue
-  'rgb(186, 104, 200)', // Soft purple
-  'rgb(156, 39, 176)',  // Vibrant purple
-  'rgb(171, 71, 188)',  // Medium purple
-  'rgb(102, 187, 106)', // Fresh green
-  'rgb(67, 160, 71)',   // Leaf green
-  'rgb(129, 199, 132)', // Pastel green
-  'rgb(77, 182, 172)'   // Soft teal
+export const neonAuroraLightColours = [
+  'rgb(0, 200, 83)',   // Bright green
+  'rgb(25, 118, 210)', // Medium blue
+  'rgb(244, 143, 177)', // Soft pink
+  'rgb(255, 193, 7)',  // Golden amber
+  'rgb(3, 169, 244)',  // Sky blue
+  'rgb(156, 39, 176)', // Vibrant violet
+  'rgb(229, 57, 53)',  // Warm red
+  'rgb(0, 137, 123)',  // Ocean teal
+  'rgb(255, 160, 0)',  // Deep yellow-orange
 ]

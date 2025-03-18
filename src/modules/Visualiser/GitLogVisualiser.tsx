@@ -2,7 +2,7 @@ import { Commit, GitLogVisualiserProps } from './types.ts'
 import { GitGraph } from 'modules/Visualiser/components/GitGraph'
 import { useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context'
-import { darkThemeColors, lightThemeColors, useTheme } from 'hooks/useTheme'
+import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/useTheme'
 import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
 import { temporalTopologicalSort } from 'modules/GraphData/temporalTopologicalSort'
 import { computeNodePositions } from 'modules/GraphData/computeNodeColumns'
@@ -61,10 +61,10 @@ export const GitLogVisualiser = ({
           .map(colour => shiftAlphaChannel(colour, 0.4))
       }
       case 'neon-aurora-dark': {
-        return darkThemeColors
+        return neonAuroraDarkColours
       }
       case 'neon-aurora-light': {
-        return lightThemeColors
+        return neonAuroraLightColours
       }
       default: {
         return colours

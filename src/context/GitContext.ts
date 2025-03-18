@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 import { GitContextBag } from './types'
-import { darkThemeColors } from 'hooks/useTheme'
+import { neonAuroraDarkColours } from 'hooks/useTheme'
 import { Commit } from 'modules/Visualiser'
 import DataIntervalTree from 'node-interval-tree'
 
@@ -17,7 +17,7 @@ const defaultCommit: Commit = {
 }
 
 export const GitContext = createContext<GitContextBag>({
-  colours: darkThemeColors,
+  colours: neonAuroraDarkColours,
   showCommitNodeHashes: false,
   headCommit: defaultCommit,
   indexCommit: defaultCommit,

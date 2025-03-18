@@ -13,8 +13,6 @@ import { GitLogTableRow } from 'modules/Visualiser/components/GitLogTableRow'
 dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
 
-
-
 export const GitLog = () => {
   const { textColour, } = useTheme()
 
@@ -58,12 +56,21 @@ export const GitLog = () => {
       )}
 
       <tbody>
-        {logData.length == 0 && placeholderData.map(({ commit }) => (
-          <GitLogTableRow commit={commit} isPlaceholder />
+        {logData.length == 0 && placeholderData.map(({ commit }, i) => (
+          <GitLogTableRow
+            isPlaceholder
+            commit={commit}
+            data-testid={`git-log-empty-table-row-${i}`}
+            key={`git-log-empty-table-row-${commit.hash}`}
+          />
         ))}
 
-        {logData.map((commit) => (
-          <GitLogTableRow commit={commit} />
+        {logData.map((commit, i) => (
+          <GitLogTableRow
+            commit={commit}
+            data-testid={`git-log-table-row-${i}`}
+            key={`git-log-table-row-${commit.hash}`}
+          />
         ))}
       </tbody>
     </table>

@@ -45,20 +45,15 @@ const meta: Meta<StoryProps> = {
     enableResize: false,
     entries: [],
     currentBranch: 'release',
-    theme: 'dark',
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
     enableExperimentalAnimation: false,
     githubRepositoryUrl: 'https://github.com/TomPlum/sleep',
-    defaultGraphContainerWidth: 300,
+    defaultGraphContainerWidth: 200,
     rowSpacing: 0
   },
   argTypes: {
-    theme: {
-      control: 'radio',
-      options: ['light', 'dark']
-    },
     pageSize: {
       control :{
         type: 'range',

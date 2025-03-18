@@ -7,6 +7,10 @@
     display: contents;
   }
 
+  .header:first-child {
+    padding-left: 20px;
+  }
+
   >.thead >.tr >.th {
     text-align: left;
     padding-bottom: 22px;

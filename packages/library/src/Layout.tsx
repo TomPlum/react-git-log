@@ -44,7 +44,7 @@ export const Layout = () => {
       </div>
 
       {showGitLog && (
-        <div className={styles.log}>
+        <div className={styles.table}>
           <Table />
         </div>
       )}

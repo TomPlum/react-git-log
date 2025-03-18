@@ -6,7 +6,7 @@ import { Commit } from 'modules/Visualiser'
 import { useTheme } from 'hooks/useTheme'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { useGitContext } from 'context'
+import { useGitContext } from 'context/GitContext'
 import { usePlaceholderData } from 'modules/Graph/hooks/usePlaceholderData'
 import { GitLogTableRow } from 'modules/Visualiser/components/GitLogTableRow'
 

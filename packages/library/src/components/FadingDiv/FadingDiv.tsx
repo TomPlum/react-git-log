@@ -1,6 +1,6 @@
 import { motion, MotionProps } from 'framer-motion'
 import { HTMLAttributes, PropsWithChildren } from 'react'
-import { useGitContext } from 'context'
+import { useGitContext } from 'context/GitContext'
 import { useTheme } from 'hooks/useTheme'
 
 export const FadingDiv = ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement> & MotionProps>) => {

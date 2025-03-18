@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
-import { useGitContext } from 'context'
+import { useGitContext } from 'context/GitContext'
 import { IndexPseudoRow } from 'modules/Graph/components/IndexPseudoRow'
 import { useColumnData } from 'modules/Graph/hooks/useColumnData'
 import { SkeletonGraph } from 'modules/Graph/components/SkeletonGraph'

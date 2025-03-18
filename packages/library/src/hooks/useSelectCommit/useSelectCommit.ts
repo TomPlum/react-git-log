@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { Commit } from 'modules/Visualiser'
-import { useGitContext } from 'context'
+import { useGitContext } from 'context/GitContext'
 import { SelectCommitHandler } from './types'
 
 export const useSelectCommit = (): SelectCommitHandler => {

@@ -8,7 +8,7 @@ import { BranchLabel } from '../BranchLabel'
 import { TagLabel } from '../TagLabel'
 import { IndexLabel } from 'modules/Tags/components/IndexLabel'
 import { BranchTagProps } from './types'
-import { useGitContext } from 'context'
+import { useGitContext } from 'context/GitContext'
 
 export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTagProps) => {
   const { selectedCommit, previewedCommit } = useGitContext()

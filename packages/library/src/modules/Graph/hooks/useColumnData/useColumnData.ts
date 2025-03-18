@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
-import { useGitContext } from 'context'
+import { useGitContext } from 'context/GitContext'
 import { GraphColumnData } from './types'
 
 export const useColumnData = (): GraphColumnData => {

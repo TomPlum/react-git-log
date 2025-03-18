@@ -1,7 +1,7 @@
 import styles from './GitGraph.module.scss'
 import { GitLog } from 'modules/Visualiser/components/GitLog'
 import { Tags } from 'modules/Tags'
-import { useGitContext } from 'context'
+import { useGitContext } from 'context/GitContext'
 import classNames from 'classnames'
 import { useTheme } from 'hooks/useTheme'
 import { Graph } from 'modules/Graph'

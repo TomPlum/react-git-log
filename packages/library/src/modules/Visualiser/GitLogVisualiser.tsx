@@ -1,7 +1,7 @@
 import { Commit, GitLogVisualiserProps } from './types'
 import { GitGraph } from 'modules/Visualiser/components/GitGraph'
 import { useCallback, useMemo, useState } from 'react'
-import { GitContext, GitContextBag } from 'context'
+import { GitContext, GitContextBag } from 'context/GitContext'
 import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/useTheme'
 import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
 import { temporalTopologicalSort } from 'modules/GraphData/temporalTopologicalSort'

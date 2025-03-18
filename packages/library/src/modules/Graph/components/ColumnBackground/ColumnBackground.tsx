@@ -4,7 +4,7 @@ import styles from './ColumnBackground.module.scss'
 import { FadingDiv } from 'components/FadingDiv'
 import { CSSProperties, useMemo } from 'react'
 import { NODE_BORDER_WIDTH, NODE_WIDTH, ROW_HEIGHT } from 'constants/constants'
-import { useGitContext } from 'context'
+import { useGitContext } from 'context/GitContext'
 
 export const ColumnBackground = ({ index, colour, commitNodeIndex }: ColumnBackgroundProps) => {
   const { showGitLog } = useGitContext()

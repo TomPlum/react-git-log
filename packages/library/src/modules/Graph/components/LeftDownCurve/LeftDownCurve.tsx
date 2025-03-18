@@ -1,7 +1,7 @@
 import styles from './LeftDownCurve.module.scss'
 import { NODE_WIDTH, ROW_HEIGHT } from 'constants/constants'
 import { CurvedEdge } from 'modules/Graph/components/CurvedEdge'
-import { useGitContext } from 'context'
+import { useGitContext } from 'context/GitContext'
 import { LeftDownCurveProps } from './types'
 
 export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {

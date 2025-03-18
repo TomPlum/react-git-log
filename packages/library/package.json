@@ -5,7 +5,7 @@
   "type": "module",
   "main": "dist/react-git-log.umd.js",
   "module": "dist/react-git-log.es.js",
-  "types": "dist/react-git-log.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc --project tsconfig.json && vite build",

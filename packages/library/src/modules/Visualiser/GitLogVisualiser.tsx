@@ -4,10 +4,7 @@ import { useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context/GitContext'
 import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/useTheme'
 import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
-import { temporalTopologicalSort } from 'modules/GraphData/temporalTopologicalSort'
-import { computeNodePositions } from 'modules/GraphData/computeNodeColumns'
-import { computeRelationships } from 'modules/GraphData/computeRelationships'
-import { GraphData } from 'modules/GraphData'
+import { GraphData, temporalTopologicalSort, computeNodePositions, computeRelationships } from 'data'
 
 export const GitLogVisualiser = ({
    entries,

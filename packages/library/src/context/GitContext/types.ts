@@ -1,6 +1,6 @@
 import { Commit, GitVisualiserStylingProps } from 'modules/Visualiser'
 import { ThemeMode } from 'hooks/useTheme'
-import { GraphData } from 'modules/GraphData'
+import { GraphData } from 'data'
 
 export interface GitContextBag {
   colours: string[]

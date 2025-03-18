@@ -21,7 +21,8 @@ export default defineConfig({
       components: resolve(__dirname, '/src/components'),
       context: resolve(__dirname, '/src/context'),
       hooks: resolve(__dirname, '/src/hooks'),
-      constants: resolve(__dirname, '/src/constants')
+      constants: resolve(__dirname, '/src/constants'),
+      data: resolve(__dirname, 'src/data'),
     }
   },
   build: {

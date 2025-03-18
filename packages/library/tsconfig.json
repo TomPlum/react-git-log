@@ -12,7 +12,8 @@
       "components/*": ["src/components/*"],
       "context/*": ["src/context/*"],
       "hooks/*": ["src/hooks/*"],
-      "constants/*": ["src/constants/*"]
+      "constants/*": ["src/constants/*"],
+      "data": ["src/data/index.ts"]
     },
     "types": ["vitest/globals", "vite/client"],
 

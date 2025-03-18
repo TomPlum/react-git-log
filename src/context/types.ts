@@ -1,5 +1,5 @@
 import { Commit, GitVisualiserStylingProps } from 'modules/Visualiser'
-import { Theme } from 'hooks/useTheme'
+import { ThemeMode } from 'hooks/useTheme'
 import { GraphData } from 'modules/GraphData'
 
 export interface GitContextBag {
@@ -165,7 +165,7 @@ export interface GitContextBag {
    * Does not take effect if a custom
    * array of {@link colours} are passed.
    */
-  theme: Theme
+  theme: ThemeMode
 
   /**
    * Optional paging information to show

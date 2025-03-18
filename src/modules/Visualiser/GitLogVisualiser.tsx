@@ -2,7 +2,7 @@ import { Commit, GitLogVisualiserProps } from './types.ts'
 import { GitGraph } from 'modules/Visualiser/components/GitGraph'
 import { useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context'
-import { lightThemeColors, useTheme } from 'hooks/useTheme'
+import { darkThemeColors, lightThemeColors, useTheme } from 'hooks/useTheme'
 import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
 import { temporalTopologicalSort } from 'modules/GraphData/temporalTopologicalSort'
 import { computeNodePositions } from 'modules/GraphData/computeNodeColumns'
@@ -11,7 +11,6 @@ import { GraphData } from 'modules/GraphData'
 
 export const GitLogVisualiser = ({
    entries,
-   theme = 'light',
    showGitLog = true,
    showBranchesTags = true,
    showCommitNodeHashes = false,
@@ -20,6 +19,8 @@ export const GitLogVisualiser = ({
    showTableHeaders = false,
    enableResize = false,
    rowSpacing = 0,
+   theme = 'light',
+   colours = 'rainbow-light',
    defaultGraphContainerWidth = 300,
    classes,
    timestampFormat = 'YYYY-MM-DD HH:mm:ss',
@@ -51,16 +52,25 @@ export const GitLogVisualiser = ({
   }, [currentBranch, entries])
 
   const themeColours = useMemo<string[]>(() => {
-    if (theme) {
-      const rainbowColours = generateRainbowGradient(graphData.graphWidth + 1)
-
-      return theme === 'dark'
-        ? rainbowColours.map(colour => shiftAlphaChannel(colour, 0.4))
-        : rainbowColours
+    switch (colours) {
+      case 'rainbow-light': {
+        return generateRainbowGradient(graphData.graphWidth + 1)
+      }
+      case 'rainbow-dark': {
+        return generateRainbowGradient(graphData.graphWidth + 1)
+          .map(colour => shiftAlphaChannel(colour, 0.4))
+      }
+      case 'neon-aurora-dark': {
+        return darkThemeColors
+      }
+      case 'neon-aurora-light': {
+        return lightThemeColors
+      }
+      default: {
+        return colours
+      }
     }
-
-    return lightThemeColors
-  }, [graphData.graphWidth, shiftAlphaChannel, theme])
+  }, [colours, graphData.graphWidth, shiftAlphaChannel])
 
   const handleSelectCommit = useCallback((commit?: Commit) => {
     setSelectedCommit(commit)

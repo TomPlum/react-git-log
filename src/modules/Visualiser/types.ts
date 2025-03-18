@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { Theme } from 'hooks/useTheme'
+import { ThemeColours, ThemeMode } from 'hooks/useTheme'
 
 export interface GitLogVisualiserProps {
   /**
@@ -18,7 +18,22 @@ export interface GitLogVisualiserProps {
    * The variant of the default colour
    * them to apply to the visualiser.
    */
-  theme?: Theme
+  theme?: ThemeMode
+
+  /**
+   * An array of colours used to colour the
+   * logs elements such as the graph.
+   *
+   * One colour will be used for each column
+   * in the graph. The number of columns is
+   * equal to the maximum number of concurrent
+   * active branches in the log.
+   *
+   * If the number of colours passed is not enough
+   * then the columns will loop back round and start
+   * taking from the beginning of the array again.
+   */
+  colours?: ThemeColours | string[]
 
   /**
    * Whether to show labels for the nodes

@@ -5,6 +5,9 @@ import { Commit, GitLogEntry, GitLogVisualiserProps } from './types'
 import { GitLogVisualiser } from './GitLogVisualiser'
 import dayjs from 'dayjs'
 import styles from './GitLogVisualiser.stories.module.scss'
+import { ThemeColours, ThemeMode } from 'hooks/useTheme'
+
+// TODO: once mono repo in place, extract types and components from here
 
 const branches: Record<string, string> = {
   'TomPlum/sleep': 'release',
@@ -90,6 +93,8 @@ export const Default: Story = {
     const [loading, setLoading] = useState(true)
     const [branch, setBranch] = useState('release')
     const [entries, setEntries] = useState<GitLogEntry[]>()
+    const [colours, setColours] = useState<ThemeColours>('rainbow-dark')
+    const [theme, setTheme] = useState<ThemeMode>('dark')
 
     const fetchLogEntryData = useCallback(async (repository: string) => {
       const data = await fetchEntries(repository)
@@ -126,11 +131,18 @@ export const Default: Story = {
       setBranch(branches[newRepositoryName])
     }, [fetchLogEntryData])
 
+    const handleChangeColors = useCallback(async (e: ChangeEvent<HTMLSelectElement>) => {
+      const newColours = e.target.value
+
+      setTheme(newColours.split('-').reverse()[0] as ThemeMode)
+      setColours(newColours as ThemeColours)
+    }, [])
+
     if (loading || !entries) {
       return <div>Loading...</div>
     }
 
-    const backgroundColour = args.theme === 'dark' ? '#1a1a1a' : 'white'
+    const backgroundColour = theme === 'dark' ? '#1a1a1a' : 'white'
 
     return (
       <div style={{ background: backgroundColour }} className={styles.container}>
@@ -143,9 +155,26 @@ export const Default: Story = {
           </option>
         </select>
 
+        <select onChange={handleChangeColors}>
+          <option value='rainbow-dark'>
+            rainbow-dark
+          </option>
+          <option value='rainbow-light'>
+            rainbow-light
+          </option>
+          <option value='neon-aurora-dark'>
+            neon-aurora-dark
+          </option>
+          <option value='neon-aurora-light'>
+            neon-aurora-light
+          </option>
+        </select>
+
         <GitLogVisualiser
           {...args}
+          colours={colours}
           entries={entries}
+          theme={theme}
           currentBranch={branch}
           paging={{
             page: args.page ?? 0,

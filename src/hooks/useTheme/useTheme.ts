@@ -1,9 +1,9 @@
 import { useGitContext } from 'context'
-import { ThemeColours } from './types.ts'
+import { ThemeFunctions } from './types.ts'
 import { useCallback, useMemo } from 'react'
 import { Commit } from 'modules/Visualiser'
 
-export const useTheme = (): ThemeColours => {
+export const useTheme = (): ThemeFunctions => {
   const { theme, colours, graphData } = useGitContext()
 
   const hoverColour = useMemo(() => {

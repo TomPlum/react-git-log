@@ -1,7 +1,7 @@
 import { Commit } from 'modules/Visualiser'
 
-export interface ThemeColours {
-  theme: Theme
+export interface ThemeFunctions {
+  theme: ThemeMode
   hoverColour: string
   textColour: string
   getTooltipBackground: (commit: Commit) => string
@@ -39,7 +39,13 @@ export interface ThemeColours {
   getGraphColumnColour: (columnIndex: number) => string
 }
 
-export type Theme = 'dark' | 'light'
+export type ThemeMode = 'light' | 'dark'
+
+export type ThemeColours =
+  'rainbow-dark' |
+  'rainbow-light' |
+  'neon-aurora-dark' |
+  'neon-aurora-light'
 
 export const darkThemeColors = [
   'rgb(33, 150, 243)',  // Bright blue

@@ -10,8 +10,7 @@
   "types": "dist/index.d.ts",
   "exports": {
     "import": "./dist/react-git-log.es.js",
-    "require": "./dist/react-git-log.umd.js",
-    "types": "./dist/index.d.ts"
+    "require": "./dist/react-git-log.umd.js"
   },
   "scripts": {
     "dev": "vite",

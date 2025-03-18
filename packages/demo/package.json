@@ -1,5 +1,5 @@
 {
-  "name": "react-git-log-demo",
+  "name": "@tomplum/react-git-log-demo",
   "private": true,
   "version": "0.0.0",
   "type": "module",

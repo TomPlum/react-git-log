@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --project tsconfig.json && vite build",
+    "watch": "vite build --watch",
     "preview": "vite preview",
     "test": "vitest --watch",
     "test:ui": "vitest --ui",

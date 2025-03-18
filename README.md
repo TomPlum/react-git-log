@@ -1,21 +1,37 @@
-Git Log Visualiser
+# :seedling: Git Log Visualiser
 
-A git log with graph component for React.
+A flexible and interactive React component for visualising Git commit history. Displays a branching graph alongside commit, branch and tag metadata, with support for customised theming.
 
 > [!WARNING]
 > This package is currently in active development. It may contain bugs or performance issues and is not "officially" ready for consumption yet.
 
-# Git Commands
 
-Extract data from a given `<branch>`.
+# Features
+
+- :seedling: Responsive commit history graph
+- :memo: Table with commit message and date
+- :bookmark: Branch and tagging information
+
+# Git Log Data
+
+The array of `GitLogEntry` objects is the source of data used by the `GitLog` component. It has the following properties:
+
+| Property        | Type       | Description                                                                                                                                   |
+|-----------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| `hash`          | `string`   | The unique hash identifier of the commit.                                                                                                     |
+| `branch`        | `string`   | The name of the branch this commit belongs to.                                                                                                |
+| `parents`       | `string[]` | An array of parent commit hashes. If this is a merge commit, it will have multiple parents. If it's an initial commit, it will have none.     |
+| `message`       | `string`   | The commit message describing the changes made in this commit.                                                                                |
+| `committerDate` | `string`   | The date and time when the commit was applied by the committer. Typically the timestamp when the commit was finalized.                        |
+| `authorDate`    | `string?`  | *(Optional)* The date and time when the commit was originally authored. May differ from `committerDate` if the commit was rebased or amended. |
+
+Usually you'd be sourcing this data from a backend service like a web-api, but you can extract it from the command line with the following command:
+
 ```bash
-git log <branch> --pretty=format:hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate:%cd,adate:%ad' --date=iso
+git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate:%cd,adate:%ad' --date=iso >> git-log.txt
 ```
 
-Extract data from all branches.
-```bash
-git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,refs:%d,msg:%s,cdate:%cd,adate:%ad' --date=iso >> git-log-all.txt
-```
+This will write `git-log.txt` in the directory where you ran the command. It can be passed to the `parseGitLog.ts` function from the library to produce an array of `GitLogEntry`.
 
 # Component Props
 

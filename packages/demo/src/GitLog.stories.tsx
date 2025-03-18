@@ -11,6 +11,7 @@ import {
   type GitLogProps,
   GitLog
 } from '@tomplum/react-git-log'
+import { ThemeSelector } from 'components/ThemeSelector'
 
 // TODO: once mono repo in place, extract types and components from here
 
@@ -131,11 +132,9 @@ export const Default: Story = {
       setBranch(branches[newRepositoryName])
     }, [fetchLogEntryData])
 
-    const handleChangeColors = useCallback(async (e: ChangeEvent<HTMLSelectElement>) => {
-      const newColours = e.target.value
-
-      setTheme(newColours.split('-').reverse()[0] as ThemeMode)
-      setColours(newColours as ThemeColours)
+    const handleChangeColors = useCallback((themeName: string) => {
+      setTheme(themeName.split('-').reverse()[0] as ThemeMode)
+      setColours(themeName as ThemeColours)
     }, [])
 
     if (loading || !entries) {
@@ -146,6 +145,12 @@ export const Default: Story = {
 
     return (
       <div style={{ background: backgroundColour }} className={styles.container}>
+        <div>
+          <a href='https://github.com/TomPlum/react-git-log'>react-git-log</a>
+          {' by '}
+          <a href='https://github.com/TomPlum'>TomPlum</a>
+        </div>
+
         <select onChange={handleChangeRepository}>
           <option value='TomPlum/sleep'>
             TomPlum/sleep
@@ -155,20 +160,7 @@ export const Default: Story = {
           </option>
         </select>
 
-        <select onChange={handleChangeColors}>
-          <option value='rainbow-dark'>
-            rainbow-dark
-          </option>
-          <option value='rainbow-light'>
-            rainbow-light
-          </option>
-          <option value='neon-aurora-dark'>
-            neon-aurora-dark
-          </option>
-          <option value='neon-aurora-light'>
-            neon-aurora-light
-          </option>
-        </select>
+        <ThemeSelector onChange={handleChangeColors} />
 
         <GitLog
           {...args}

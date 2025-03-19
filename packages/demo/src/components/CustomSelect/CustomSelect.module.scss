@@ -22,8 +22,26 @@
   background: white;
   border-radius: 5px;
   padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
 
   &:hover {
     cursor: pointer;
+  }
+
+  .chevron {
+    transition: all ease-in-out 0.3s;
+    width: 12px;
+    transform: rotate(90deg);
+    margin-top: 2px;
+  }
+
+  .chevronOpen {
+    transition: all ease-in-out 0.3s;
+    width: 12px;
+    transform: rotate(-90deg);
+    margin-top: 2px;
   }
 }

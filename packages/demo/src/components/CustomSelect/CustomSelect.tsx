@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Popover } from 'react-tiny-popover'
 import { CustomSelectProps } from './types'
+import Chevron from 'assets/chevron.svg?react'
 import styles from './CustomSelect.module.scss'
 
 export const CustomSelect = ({ value, onChange, options }: CustomSelectProps) => {
@@ -32,6 +33,7 @@ export const CustomSelect = ({ value, onChange, options }: CustomSelectProps) =>
     >
       <button className={styles.anchor} onClick={() => setIsOpen(!isOpen)}>
         {value}
+        <Chevron className={isOpen ? styles.chevronOpen : styles.chevron} />
       </button>
     </Popover>
   )

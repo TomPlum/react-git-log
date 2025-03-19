@@ -19,7 +19,7 @@ export const ThemeToggle = ({ theme, onChange }: ThemeToggleProps) => {
       toggled={theme === 'dark'}
       style={{
         color: theme === 'dark' ? 'white' : 'black',
-        fontSize: '1.5em',
+        fontSize: '2.3em',
         display: 'flex',
         alignItems: 'center',
         marginBottom: 2

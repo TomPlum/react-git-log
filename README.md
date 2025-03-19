@@ -5,18 +5,35 @@ A flexible and interactive React component for visualising Git commit history. D
 > [!WARNING]
 > This package is currently in active development. It may contain bugs or performance issues and is not "officially" ready for consumption yet.
 
+<!-- TOC -->
+* [Features](#features)
+* [HTML Grid System (No canvas!)](#html-grid-system-no-canvas)
+* [Using the component](#using-the-component)
+* [Git Log Data](#git-log-data)
+* [Component Props](#component-props)
+   * [Required](#required)
+   * [Optional](#optional)
+      * [GitLogStylingProps](#gitlogstylingprops)
+      * [GitLogPaging](#gitlogpaging)
+* [References](#references)
+* [TODO:](#todo)
+<!-- TOC -->
 
 # Features
 
-- :seedling: Responsive commit history graph
-- :memo: Table with commit message and date
-- :bookmark: Branch and tagging information
-- :art: Custom theming API
-- :waning_crescent_moon: Dark and light modes
+:seedling: Responsive commit history graph \
+:memo: Table with commit message and date \
+:bookmark: Branch and tagging information \
+:art: Custom theming API \
+:waning_crescent_moon: Dark and light modes
+
+## Pagination
+
+Page a page size and number to render a window of the log. See the [paging](#gitlogpaging) properties for more details.
 
 ![pagination.gif](docs/images/pagination.gif)
 
-# HTML Grid System (No canvas!)
+## HTML Grid System (No canvas!)
 
 The implementation of the graph was designed with testing in mind. 
 The traditional way to draw such an image would with a HTML `canvas` element. Which, while efficient (and probably easier to implement), is hard to programmatically assert its correctness.

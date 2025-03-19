@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ChangeEvent, useCallback, useEffect, useState } from 'react'
-import { parseGitLogOutput } from './utils/gitLogParser'
-import dayjs from 'dayjs'
 import styles from './GitLog.stories.module.scss'
 import GitHubLogo from 'assets/github-mark.svg?react'
 import {
@@ -13,17 +11,13 @@ import {
   GitLog
 } from '@tomplum/react-git-log'
 import { ThemeSelector } from 'components/ThemeSelector'
+import { fetchLogEntryData } from 'utils/fetchLogEntryData'
 
 // TODO: once mono repo in place, extract types and components from here
 
 const branches: Record<string, string> = {
   'TomPlum/sleep': 'release',
   'TomPlum/learn-japanese': 'feature/JPUI-51'
-}
-
-const fetchEntries = async (name: string): Promise<GitLogEntry[]> => {
-  const response = await fetch(`/${name.split('/')[1]}.txt`)
-  return parseGitLogOutput(await response.text())
 }
 
 interface StoryProps extends GitLogProps {
@@ -98,44 +92,30 @@ export const Default: Story = {
     const [colours, setColours] = useState<ThemeColours>('rainbow-dark')
     const [theme, setTheme] = useState<ThemeMode>('dark')
 
-    const fetchLogEntryData = useCallback(async (repository: string) => {
-      const data = await fetchEntries(repository)
-      const headCommit = data[0]
-      const today = dayjs(new Date())
-      const daysSinceHeadCommit = Math.abs(dayjs(headCommit.committerDate).diff(today, 'days'))
-      if (daysSinceHeadCommit > 1) {
-        const shiftedData: GitLogEntry[] = data.map(entry => ({
-          ...entry,
-          committerDate: dayjs(entry.committerDate).add(daysSinceHeadCommit, 'days').format()
-        }))
-
-        return shiftedData
-      } else {
-        return data
-      }
+    const getData = useCallback(async (repository: string) => {
+      return fetchLogEntryData(repository)
     }, [])
 
     useEffect(() => {
       setLoading(true)
 
-      fetchLogEntryData('TomPlum/sleep').then((data) => {
+      getData('TomPlum/sleep').then((data) => {
         setEntries(data)
       }).finally(() => {
         setLoading(false)
       })
-    }, [fetchLogEntryData])
+    }, [getData])
 
     const handleChangeRepository = useCallback(async (e: ChangeEvent<HTMLSelectElement>) => {
       const newRepositoryName = e.target.value
-      const newEntries = await fetchLogEntryData(newRepositoryName)
+      const newEntries = await getData(newRepositoryName)
 
       setEntries(newEntries)
       setBranch(branches[newRepositoryName])
-    }, [fetchLogEntryData])
+    }, [getData])
 
-    const handleChangeColors = useCallback((themeName: string) => {
-      setTheme(themeName.split('-').reverse()[0] as ThemeMode)
-      setColours(themeName as ThemeColours)
+    const handleChangeColors = useCallback((colours: string[]) => {
+      setColours(colours as ThemeMode)
     }, [])
 
     if (loading || !entries) {

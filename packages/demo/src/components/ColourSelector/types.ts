@@ -1,3 +1,9 @@
+export interface ColourSelection {
+  id: string
+  colors: string[]
+}
+
 export interface ThemeSelectorProps {
-  onChange: (theme: string[]) => void
+  selected: string
+  onChange: (theme: ColourSelection) => void
 }

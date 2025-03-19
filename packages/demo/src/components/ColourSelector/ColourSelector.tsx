@@ -1,6 +1,8 @@
 import { ThemeSelectorProps } from './types'
-import { ChangeEvent, useCallback } from 'react'
+import { useCallback } from 'react'
 import { cyberpunkNeon, natureEssence, neonAurora, rainbow, retroPop, solarFlare } from 'themes'
+import { CustomSelect } from 'components/CustomSelect'
+import { ColourItem } from 'components/ColourItem'
 
 const getTheme = (name: string) => {
   switch (name) {
@@ -28,31 +30,86 @@ const getTheme = (name: string) => {
   }
 }
 
-export const ColourSelector = ({ onChange }: ThemeSelectorProps) => {
-  const handleChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
-    onChange(getTheme(e.target.value))
-  }, [onChange])
+export const ColourSelector = ({ selected, onChange }: ThemeSelectorProps) => {
+  const handleChange = useCallback((id: string) => {
+    onChange({
+      id,
+      colors: getTheme(selected)
+    })
+  }, [onChange, selected])
 
   return (
-    <select onChange={handleChange}>
-      <option value='rainbow'>
-        rainbow
-      </option>
-      <option value='neon-aurora'>
-        neon-aurora
-      </option>
-      <option value='solar-flare'>
-        solar-flare
-      </option>
-      <option value='cyberpunk-neon'>
-        cyberpunk-neon
-      </option>
-      <option value='nature-essence'>
-        nature-essence
-      </option>
-      <option value='retro-pop'>
-        retro-pop
-      </option>
-    </select>
+    <CustomSelect
+      value={selected}
+      onChange={handleChange}
+      options={[
+        {
+          value: 'rainbow',
+          label: (
+            <ColourItem
+              id='rainbow'
+              name='Rainbow'
+              colours={rainbow}
+              selected={selected}
+            />
+          )
+        },
+        {
+          value: 'neon-aurora',
+          label: (
+            <ColourItem
+              id='neon-aurora'
+              name='Neon Aurora'
+              colours={neonAurora}
+              selected={selected}
+            />
+          )
+        },
+        {
+          value: 'solar-flare',
+          label: (
+            <ColourItem
+              id='solar-flare'
+              name='Solar Flare'
+              colours={solarFlare}
+              selected={selected}
+            />
+          )
+        },
+        {
+          value: 'cyberpunk-neon',
+          label: (
+            <ColourItem
+              id='cyberpunk-neon'
+              name='Cyberpunk Neon'
+              colours={cyberpunkNeon}
+              selected={selected}
+            />
+          )
+        },
+        {
+          value: 'nature-essence',
+          label: (
+            <ColourItem
+              id='nature-essence'
+              name='Nature Essence'
+              colours={natureEssence}
+              selected={selected}
+            />
+          )
+        },
+        {
+          value: 'retro-pop',
+          label: (
+            <ColourItem
+              id='retro-pop'
+              name='Retro Pop'
+              colours={retroPop}
+              selected={selected}
+            />
+          )
+        }
+      ]}
+    />
   )
 }

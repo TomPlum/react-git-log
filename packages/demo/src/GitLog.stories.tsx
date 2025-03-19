@@ -3,14 +3,13 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import styles from './GitLog.stories.module.scss'
 import GitHubLogo from 'assets/github-mark.svg?react'
 import {
-  type ThemeColours,
   type ThemeMode,
   type Commit,
   type GitLogEntry,
   type GitLogProps,
   GitLog
 } from '@tomplum/react-git-log'
-import { ColourSelector } from 'components/ColourSelector'
+import { ColourSelection, ColourSelector } from 'components/ColourSelector'
 import { fetchLogEntryData } from 'utils/fetchLogEntryData'
 import { ThemeToggle } from 'components/ThemeToggle'
 import { rainbow } from 'themes.ts'
@@ -91,8 +90,8 @@ export const Default: Story = {
     const [loading, setLoading] = useState(true)
     const [branch, setBranch] = useState('release')
     const [entries, setEntries] = useState<GitLogEntry[]>()
-    const [colours, setColours] = useState<ThemeColours>(rainbow)
     const [theme, setTheme] = useState<ThemeMode>('dark')
+    const [colours, setColours] = useState<ColourSelection>({ id: 'rainbow', colors: rainbow })
 
     const getData = useCallback(async (repository: string) => {
       return fetchLogEntryData(repository)
@@ -116,8 +115,8 @@ export const Default: Story = {
       setBranch(branches[newRepositoryName])
     }, [getData])
 
-    const handleChangeColors = useCallback((colours: string[]) => {
-      setColours(colours as ThemeMode)
+    const handleChangeColors = useCallback((selected: ColourSelection) => {
+      setColours(selected)
     }, [])
 
     if (loading || !entries) {
@@ -140,7 +139,10 @@ export const Default: Story = {
               </option>
             </select>
 
-            <ColourSelector onChange={handleChangeColors} />
+            <ColourSelector
+              selected={colours.id}
+              onChange={handleChangeColors}
+            />
 
             <ThemeToggle
               theme={theme}
@@ -170,7 +172,7 @@ export const Default: Story = {
 
         <GitLog
           {...args}
-          colours={colours}
+          colours={colours.colors}
           entries={entries}
           theme={theme}
           currentBranch={branch}

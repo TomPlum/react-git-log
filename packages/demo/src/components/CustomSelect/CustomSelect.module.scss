@@ -1,0 +1,29 @@
+.dropdown {
+  padding: 8px;
+  border-radius: 5px;
+
+  .item {
+    background: white;
+
+    &:first-of-type {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    &:last-of-type {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
+
+.anchor {
+  all: unset;
+  background: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

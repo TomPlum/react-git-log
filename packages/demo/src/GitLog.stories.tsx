@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ChangeEvent, useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import styles from './GitLog.stories.module.scss'
 import GitHubLogo from 'assets/github-mark.svg?react'
 import {
@@ -13,6 +13,7 @@ import { ColourSelection, ColourSelector } from 'components/ColourSelector'
 import { fetchLogEntryData } from 'utils/fetchLogEntryData'
 import { ThemeToggle } from 'components/ThemeToggle'
 import { rainbow } from 'themes.ts'
+import { RepositorySelector } from 'components/RepositorySelector'
 
 // TODO: once mono repo in place, extract types and components from here
 
@@ -88,10 +89,13 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => {
     const [loading, setLoading] = useState(true)
+
     const [branch, setBranch] = useState('release')
     const [entries, setEntries] = useState<GitLogEntry[]>()
+
     const [theme, setTheme] = useState<ThemeMode>('dark')
     const [colours, setColours] = useState<ColourSelection>({ id: 'rainbow', colors: rainbow })
+    const [repository, setRepository] = useState('TomPlum/sleep')
 
     const getData = useCallback(async (repository: string) => {
       return fetchLogEntryData(repository)
@@ -107,12 +111,12 @@ export const Default: Story = {
       })
     }, [getData])
 
-    const handleChangeRepository = useCallback(async (e: ChangeEvent<HTMLSelectElement>) => {
-      const newRepositoryName = e.target.value
-      const newEntries = await getData(newRepositoryName)
+    const handleChangeRepository = useCallback(async (selected: string) => {
+      const newEntries = await getData(selected)
 
       setEntries(newEntries)
-      setBranch(branches[newRepositoryName])
+      setRepository(selected)
+      setBranch(branches[selected])
     }, [getData])
 
     const handleChangeColors = useCallback((selected: ColourSelection) => {
@@ -130,14 +134,10 @@ export const Default: Story = {
       <div style={{ background: backgroundColour }} className={styles.container}>
         <div className={styles.header}>
           <div className={styles.controls}>
-            <select onChange={handleChangeRepository}>
-              <option value='TomPlum/sleep'>
-                TomPlum/sleep
-              </option>
-              <option value='TomPlum/learn-japanese'>
-                TomPlum/learn-japanese
-              </option>
-            </select>
+            <RepositorySelector
+              selected={repository}
+              onSelect={handleChangeRepository}
+            />
 
             <ColourSelector
               selected={colours.id}

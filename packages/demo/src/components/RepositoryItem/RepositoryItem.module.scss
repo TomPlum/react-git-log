@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 10px;
+  transition: all ease-in-out 0.2s;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #eaeaea;
+  }
+
+  .name {
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+  }
+}
+
+.selected {
+  background: #dedede;
+
+  .name {
+    font-weight: 600;
+  }
+}

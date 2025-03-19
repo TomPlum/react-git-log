@@ -2,6 +2,9 @@ import FastPriorityQueue from 'fastpriorityqueue'
 import { Commit } from 'types'
 import { CommitNodeLocation } from './types'
 import { buildNodeGraph } from './buildNodeGraph'
+import { ActiveBranches } from './ActiveBranches'
+
+const activeBranches = new ActiveBranches()
 
 /**
  * Computes the visual positions of commits in a Git log visualization.
@@ -20,48 +23,7 @@ export const computeNodePositions = (
 ) => {
   const positions: Map<string, CommitNodeLocation> = new Map<string, CommitNodeLocation>()
 
-  // Represents active branches. Each index corresponds to a column in the visualization.
-  const branches: (string | null)[] = ['index']
-
   const hashToIndex = new Map(commits.map((entry, i) => [entry.hash, i]))
-
-  /**
-   * Inserts a commit into the nearest available column in the visualization.
-   *
-   * @param hash The SHA1 hash of the commit we're inserting.
-   * @param columnIndex The initial index of the column where we want to place the commit.
-   * @param forbiddenIndices A set of indices where the commit cannot be placed.
-   */
-  const insertCommit = (hash: string, columnIndex: number, forbiddenIndices: Set<number>) => {
-    // How far we're going to try searching from the initial column index
-    let columnDelta = 1
-
-    // While there are still available positions to the left or right...
-    while (columnIndex - columnDelta >= 0 || columnIndex + columnDelta < branches.length) {
-      const isRightForbidden = forbiddenIndices.has(columnIndex + columnDelta)
-      const isRightEmpty = branches[columnIndex + columnDelta] === null
-
-      // Check if we can place the commit on the right-hand side
-      if (columnIndex + columnDelta < branches.length && isRightEmpty && !isRightForbidden) {
-        branches[columnIndex + columnDelta] = hash
-        return columnIndex + columnDelta // Place to the right
-      }
-
-      const isLeftForbidden = forbiddenIndices.has(columnIndex - columnDelta)
-      const isLeftEmpty = branches[columnIndex - columnDelta] === null
-
-      // If not, check the left-hand side
-      if (columnIndex - columnDelta >= 0 && isLeftEmpty && !isLeftForbidden) {
-        branches[columnIndex - columnDelta] = hash
-        return columnIndex - columnDelta // Place to the left
-      }
-
-      columnDelta++
-    }
-
-    branches.push(hash)
-    return branches.length - 1
-  }
 
   const headCommitHash = commits.find(commit => commit.branch.includes(currentBranch))!.hash
   let rowIndex = 1
@@ -113,14 +75,14 @@ export const computeNodePositions = (
     // Insert the commit in the active branches
     if (commitToReplaceHash) {
       columnIndex = commitToReplaceColumn
-      branches[columnIndex] = commitHash
+      activeBranches.setHash(columnIndex, commitHash)
     } else {
       if (childHashes.length > 0) {
         const childHash = childHashes[0]
         const childColumn = positions.get(childHash)![1]
-        columnIndex = insertCommit(commitHash, childColumn, forbiddenIndices)
+        columnIndex = activeBranches.insertCommit(commitHash, childColumn, forbiddenIndices)
       } else {
-        columnIndex = insertCommit(commitHash, 0, new Set())
+        columnIndex = activeBranches.insertCommit(commitHash, 0, new Set())
       }
     }
 
@@ -139,13 +101,13 @@ export const computeNodePositions = (
     // Remove children from active branches
     branchChildren.forEach(childSha => {
       if (childSha !== commitToReplaceHash) {
-        branches[positions.get(childSha)![1]] = null
+        activeBranches.removeHash(positions.get(childSha)![1])
       }
     })
 
     // If commit has no parents, remove it from active branches
     if (commit.parents.length === 0) {
-      branches[columnIndex] = null
+      activeBranches.removeHash(columnIndex)
     }
 
     // Store the computed position
@@ -155,7 +117,7 @@ export const computeNodePositions = (
 
   return {
     positions,
-    graphWidth: branches.length,
+    graphWidth: activeBranches.length,
     edges: buildNodeGraph(positions, commits)
   }
 }

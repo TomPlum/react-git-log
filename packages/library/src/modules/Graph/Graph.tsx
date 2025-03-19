@@ -30,7 +30,7 @@ export const Graph = () => {
         className={styles.graph}
         style={{
           gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
-          gridTemplateRows: `repeat(auto-fill, ${ROW_HEIGHT + rowSpacing}px)`
+          gridTemplateRows: `repeat(${visibleCommits.length}, ${ROW_HEIGHT + rowSpacing}px)`
         }}
       >
         {visibleCommits.length === 0 && (

@@ -46,7 +46,7 @@ export interface GitLogProps {
    * Whether to show a table of commit metadata
    * on the right-hand side of the graph.
    */
-  showGitLog?: boolean
+  showTable?: boolean
 
   /**
    * Whether to show the commit hash

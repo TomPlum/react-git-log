@@ -126,7 +126,7 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 | `theme`                       | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                                                                 |
 | `colours`                     | `ThemeColours \| string[]`  | An array of colors used to color the log elements such as the graph. If not enough colors are provided, they will loop back from the start. |
 | `showBranchesTags`            | `boolean`                   | Whether to show labels for nodes that are the tips of branches or tags in the graph.                                                        |
-| `showGitLog`                  | `boolean`                   | Whether to show a table of commit metadata on the right-hand side of the graph.                                                             |
+| `showTable`                   | `boolean`                   | Whether to show a table of commit metadata on the right-hand side of the graph.                                                             |
 | `showCommitNodeHashes`        | `boolean`                   | Whether to show the commit hash next to the node in the graph.                                                                              |
 | `showCommitNodeTooltips`      | `boolean`                   | Whether to show tooltips when hovering over a commit node in the graph.                                                                     |
 | `showTableHeaders`            | `boolean`                   | Whether to show the names of the elements at the top of the component (e.g., "Graph", "Commit message").                                    |

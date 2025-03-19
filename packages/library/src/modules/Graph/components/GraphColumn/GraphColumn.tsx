@@ -19,7 +19,7 @@ export const GraphColumn = ({
   commitNodeIndex
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
-  const { headCommit, selectedCommit, previewedCommit, showGitLog } = useGitContext()
+  const { headCommit, selectedCommit, previewedCommit, showTable } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, textColour, hoverColour, reduceOpacity } = useTheme()
 
   const columnColour = state.isPlaceholderSkeleton
@@ -138,24 +138,24 @@ export const GraphColumn = ({
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash
     const shouldPreview = rowsCommitMatchesPreviewed && selectedCommitIsNotPreviewed
 
-    if (showGitLog) {
+    if (showTable) {
       return shouldPreview
     }
 
     // If the log is not rendered on the right, only
     // show the preview background for the node column
     return shouldPreview && commitNodeIndex === index
-  }, [commitNodeIndex, index, previewedCommit?.hash, rowsCommitMatchesPreviewed, selectedCommit?.hash, showGitLog])
+  }, [commitNodeIndex, index, previewedCommit?.hash, rowsCommitMatchesPreviewed, selectedCommit?.hash, showTable])
 
   const showSelectedBackground = useMemo(() => {
-    if (showGitLog) {
+    if (showTable) {
       return rowsCommitMatchesSelected
     }
 
     // If the log is not rendered on the right, only
     // show the selected background for the node column
     return rowsCommitMatchesSelected && commitNodeIndex === index
-  }, [commitNodeIndex, index, rowsCommitMatchesSelected, showGitLog])
+  }, [commitNodeIndex, index, rowsCommitMatchesSelected, showTable])
 
   return (
     <div

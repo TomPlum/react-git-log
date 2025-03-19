@@ -21,7 +21,7 @@ export const GitContext = createContext<GitContextBag>({
   headCommit: defaultCommit,
   indexCommit: defaultCommit,
   currentBranch: 'master',
-  showGitLog: true,
+  showTable: true,
   showBranchesTags: true,
   theme: 'light',
   timestampFormat: 'YYYY-MM-DD HH:mm:ss',

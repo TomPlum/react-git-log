@@ -8,7 +8,7 @@ import { GraphData, temporalTopologicalSort, computeNodePositions, computeRelati
 
 export const GitLog = ({
    entries,
-   showGitLog = true,
+   showTable = true,
    showBranchesTags = true,
    showCommitNodeHashes = false,
    enableExperimentalAnimation = false,
@@ -117,7 +117,7 @@ export const GitLog = ({
 
   const value = useMemo<GitContextBag>(() => ({
     colours: themeColours,
-    showGitLog,
+    showTable,
     showBranchesTags,
     showCommitNodeHashes,
     classes,
@@ -144,7 +144,7 @@ export const GitLog = ({
   }), [
     showBranchesTags,
     showCommitNodeHashes,
-    showGitLog,
+    showTable,
     themeColours,
     classes,
     theme,

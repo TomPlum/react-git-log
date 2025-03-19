@@ -35,7 +35,7 @@ const meta: Meta<StoryProps> = {
     layout: 'fullscreen',
   },
   args: {
-    showGitLog: true,
+    showTable: true,
     showBranchesTags: true,
     showCommitNodeHashes: false,
     showCommitNodeTooltips: false,

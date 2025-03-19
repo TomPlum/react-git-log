@@ -9,7 +9,7 @@ import { Graph } from 'modules/Graph'
 export const Layout = () => {
   const {
     classes,
-    showGitLog,
+    showTable,
     showBranchesTags,
     showTableHeaders
   } = useGitContext()
@@ -43,7 +43,7 @@ export const Layout = () => {
         <Graph />
       </div>
 
-      {showGitLog && (
+      {showTable && (
         <div className={styles.table}>
           <Table />
         </div>

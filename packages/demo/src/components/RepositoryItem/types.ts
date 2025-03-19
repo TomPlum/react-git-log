@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
 export interface RepositoryItemProps {
-  icon: ReactElement
+  icon: ReactElement<{ className?: string }>
   name: string
 }

@@ -135,11 +135,13 @@ export const Default: Story = {
         <div className={styles.header}>
           <div className={styles.controls}>
             <RepositorySelector
+              theme={theme}
               selected={repository}
               onSelect={handleChangeRepository}
             />
 
             <ColourSelector
+              theme={theme}
               selected={colours.id}
               onChange={handleChangeColors}
             />

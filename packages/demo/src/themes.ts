@@ -11,14 +11,15 @@ export const neonAurora = [
 ]
 
 export const rainbow = [
-  'rgb(255, 0, 0)',
-  'rgb(255, 219, 0)',
-  'rgb(73, 255, 0)',
-  'rgb(0, 255, 146)',
-  'rgb(0, 146, 255)',
-  'rgb(73, 0, 255)',
-  'rgb(255, 0, 219)',
-  'rgb(255, 0, 0)'
+  'rgb(255, 0, 0)',     // Red
+  'rgb(255, 127, 0)',   // Orange
+  'rgb(255, 255, 0)',   // Yellow
+  'rgb(0, 255, 0)',     // Green
+  'rgb(0, 255, 255)',   // Cyan
+  'rgb(0, 0, 255)',     // Blue
+  'rgb(75, 0, 130)',    // Indigo
+  'rgb(148, 0, 211)',   // Violet
+  'rgb(255, 0, 0)'      // Back to Red
 ]
 
 export const solarFlare = [

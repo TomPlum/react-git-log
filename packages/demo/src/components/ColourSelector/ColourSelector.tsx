@@ -3,6 +3,7 @@ import { useCallback } from 'react'
 import { cyberpunkNeon, natureEssence, neonAurora, rainbow, retroPop, solarFlare } from 'themes'
 import { CustomSelect } from 'components/CustomSelect'
 import { ColourItem } from 'components/ColourItem'
+import styles from './ColourSelector.module.scss'
 
 const getTheme = (name: string) => {
   switch (name) {
@@ -30,17 +31,20 @@ const getTheme = (name: string) => {
   }
 }
 
-export const ColourSelector = ({ selected, onChange }: ThemeSelectorProps) => {
+export const ColourSelector = ({ selected, onChange, theme }: ThemeSelectorProps) => {
   const handleChange = useCallback((id: string) => {
     onChange({
       id,
-      colors: getTheme(selected)
+      colors: getTheme(id)
     })
-  }, [onChange, selected])
+  }, [onChange])
 
   return (
     <CustomSelect
+      width={180}
+      theme={theme}
       value={selected}
+      className={styles.selector}
       onChange={handleChange}
       options={[
         {

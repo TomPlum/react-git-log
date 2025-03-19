@@ -16,18 +16,19 @@
   margin-bottom: 20px;
   width: 100%;
   justify-content: space-between;
-  padding-left: 8px;
+  padding-left: 7px;
 
   .controls {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
   }
 
   .info {
     display: flex;
     align-items: center;
     font-size: 0.8rem;
+    padding-right: 15px;
 
     .github {
       margin-right: 5px;

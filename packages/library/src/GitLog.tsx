@@ -55,7 +55,7 @@ export const GitLog = ({
       }
       case 'rainbow-dark': {
         return generateRainbowGradient(graphData.graphWidth + 1)
-          .map(colour => shiftAlphaChannel(colour, 0.4))
+          .map(colour => shiftAlphaChannel(colour, 0.6))
       }
       case 'neon-aurora-dark': {
         return neonAuroraDarkColours
@@ -68,7 +68,7 @@ export const GitLog = ({
           return colours
         }
 
-        return colours.map(colour => shiftAlphaChannel(colour, 0.4))
+        return colours.map(colour => shiftAlphaChannel(colour, 0.6))
       }
     }
   }, [colours, graphData.graphWidth, shiftAlphaChannel, theme])

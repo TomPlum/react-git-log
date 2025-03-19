@@ -3,9 +3,10 @@ import { RepositorySelectorProps } from './types'
 import { RepositoryItem } from 'components/RepositoryItem'
 import styles from './RepositorySelector.module.scss'
 
-export const RepositorySelector = ({ selected, onSelect }: RepositorySelectorProps) => {
+export const RepositorySelector = ({ selected, onSelect, theme }: RepositorySelectorProps) => {
   return (
     <CustomSelect
+      theme={theme}
       value={selected}
       className={styles.anchor}
       onChange={onSelect}

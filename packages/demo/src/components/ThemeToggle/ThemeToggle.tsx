@@ -22,8 +22,9 @@ export const ThemeToggle = ({ theme, onChange }: ThemeToggleProps) => {
         fontSize: '2.3em',
         display: 'flex',
         alignItems: 'center',
-        marginBottom: 2
-    }}
+        margin: '0 0 2px 0',
+        padding: 0
+      }}
     />
   )
 }

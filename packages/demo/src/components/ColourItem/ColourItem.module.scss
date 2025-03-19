@@ -1,15 +1,7 @@
 .item {
   display: flex;
   flex-direction: column;
-  background: white;
-  padding: 15px;
   transition: all ease-in-out 0.2s;
-  border-radius: 5px;
-
-  &:hover {
-    cursor: pointer;
-    background-color: #eaeaea;
-  }
 
   .name {
     margin: 0 0 5px 0;
@@ -18,20 +10,13 @@
 
   .colours {
     display: flex;
-    gap: 3px;
+    gap: 4px;
     margin-left: 1px;
 
     .colour {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
     }
-  }
-}
-
-.selected {
-  background: #dedede;
-
-  .name {
-    font-weight: 600;
   }
 }

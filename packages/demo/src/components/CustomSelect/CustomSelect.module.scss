@@ -1,9 +1,21 @@
 .dropdown {
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
 
   .item {
-    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all ease-in-out 0.2s;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--hover-colour) !important;
+    }
 
     &:first-of-type {
       border-top-left-radius: 5px;
@@ -17,9 +29,13 @@
   }
 }
 
+.selected {
+  font-weight: 600;
+}
+
 .anchor {
   all: unset;
-  background: white;
+  box-sizing: border-box;
   border-radius: 5px;
   padding: 5px 10px;
   display: flex;
@@ -33,16 +49,20 @@
   }
 
   .chevron {
-    transition: all ease-in-out 0.3s;
+    transition: all ease-in-out 0.2s;
     width: 12px;
     transform: rotate(90deg);
     margin-top: 2px;
   }
 
   .chevronOpen {
-    transition: all ease-in-out 0.3s;
+    transition: all ease-in-out 0.2s;
     width: 12px;
     transform: rotate(-90deg);
     margin-top: 2px;
   }
+}
+
+.anchorOpen {
+  border-radius: 5px 5px 0 0;
 }

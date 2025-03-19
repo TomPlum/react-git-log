@@ -27,27 +27,35 @@
 
   .info {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     font-size: 0.8rem;
     padding-right: 15px;
+    gap: 3px;
 
-    .github {
-      margin-right: 5px;
-      width: 18px;
-      height: 18px;
+    .top {
+      display: flex;
+      align-items: center;
+
+      .link {
+        color: #5ec1e7;
+        text-decoration: none;
+        transition: all ease-in-out 0.3s;
+
+        &:hover {
+          color: #38b3ff;
+        }
+      }
     }
 
-    .by {
-      margin: 0 5px;
-    }
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-    .link {
-      color: #5ec1e7;
-      text-decoration: none;
-      transition: all ease-in-out 0.3s;
-
-      &:hover {
-        color: #38b3ff;
+      .github {
+        margin-right: 5px;
+        width: 14px;
+        height: 14px;
       }
     }
   }

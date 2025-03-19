@@ -54,32 +54,115 @@ const meta: Meta<StoryProps> = {
     pageSize: 200
   },
   argTypes: {
+    entries: {
+      name: 'Git Log Entries',
+      table: {
+        category: 'Required Props'
+      }
+    },
+    currentBranch: {
+      name: 'Current Branch',
+      table: {
+        category: 'Required Props'
+      }
+    },
+    showCommitNodeHashes: {
+      name: 'Show Commit Hashes',
+      table: {
+        category: 'Visibility'
+      }
+    },
+    showTable: {
+      name: 'Show Table',
+      table: {
+        category: 'Visibility'
+      }
+    },
+    showBranchesTags: {
+      name: 'Show Branches / Tags',
+      table: {
+        category: 'Visibility'
+      }
+    },
+    showTableHeaders: {
+      name: 'Show Table Headers',
+      table: {
+        category: 'Visibility'
+      }
+    },
+    showCommitNodeTooltips: {
+      name: 'Show Commit Tooltips',
+      table: {
+        category: 'Visibility'
+      }
+    },
+    enableExperimentalAnimation: {
+      name: 'Enable Animation (Experimental)',
+      table: {
+        category: 'Visibility'
+      }
+    },
+    githubRepositoryUrl: {
+      name: 'Github Repository',
+      table: {
+        category: 'Visibility'
+      }
+    },
     pageSize: {
-      control :{
+      name: 'Page Size',
+      description: 'Number of commits per page',
+      table: {
+        category: 'Pagination'
+      },
+      control: {
         type: 'range',
         min: 1,
         max: 300
       }
     },
     page: {
-      control :{
+      name: 'Page Number',
+      table: {
+        category: 'Pagination'
+      },
+      control: {
         type: 'range',
         min: 0,
         max: 50
       }
     },
+    enableResize: {
+      name: 'Enable Resize',
+      table: {
+        category: 'Dimensions'
+      }
+    },
     rowSpacing: {
-      control :{
+      name: 'Row Spacing',
+      table: {
+        category: 'Dimensions'
+      },
+      control: {
         type: 'range',
         min: 0,
         max: 50
       }
     },
     defaultGraphContainerWidth: {
+      name: 'Graph Width',
+      table: {
+        category: 'Dimensions'
+      },
       control: {
         type: 'range',
         min: 200,
         max: 500
+      }
+    },
+    onSelectCommit: {
+      name: 'onSelectCommit',
+      table: {
+        category: 'Callback Functions'
       }
     }
   }

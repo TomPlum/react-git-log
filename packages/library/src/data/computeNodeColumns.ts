@@ -1,8 +1,8 @@
-import FastPriorityQueue from 'fastpriorityqueue'
 import { Commit } from 'types'
 import { CommitNodeLocation } from './types'
 import { buildNodeGraph } from './buildNodeGraph'
 import { ActiveBranches } from './ActiveBranches'
+import { ActiveNodes } from './ActiveNodes'
 
 const activeBranches = new ActiveBranches()
 
@@ -29,10 +29,8 @@ export const computeNodePositions = (
   let rowIndex = 1
 
   // Active nodes track in-progress branches
-  const activeNodes = new Map<string, Set<number>>()
-  const activeNodesQueue = new FastPriorityQueue<[number, string]>((lhs, rhs) => lhs[0] < rhs[0])
-  activeNodes.set('index', new Set<number>())
-  activeNodesQueue.add([hashToIndex.get(headCommitHash)!, 'index'])
+  const headCommitIndex = hashToIndex.get(headCommitHash)!
+  const activeNodes = new ActiveNodes(headCommitIndex)
 
   for (const commit of commits) {
     let columnIndex = -1
@@ -52,7 +50,7 @@ export const computeNodePositions = (
         highestChild = childSha
       }
     }
-    const forbiddenIndices = highestChild ? activeNodes.get(highestChild)! : new Set<number>()
+    const invalidIndices = highestChild ? activeNodes.get(highestChild)! : new Set<number>()
 
     // Find a commit to replace
     let commitToReplaceHash: string | null = null
@@ -65,7 +63,7 @@ export const computeNodePositions = (
       // The commit can only replace a child whose first parent is this commit
       for (const childHash of branchChildren) {
         const childColumn = positions.get(childHash)![1]
-        if (!forbiddenIndices.has(childColumn) && childColumn < commitToReplaceColumn) {
+        if (!invalidIndices.has(childColumn) && childColumn < commitToReplaceColumn) {
           commitToReplaceHash = childHash
           commitToReplaceColumn = childColumn
         }
@@ -80,23 +78,24 @@ export const computeNodePositions = (
       if (childHashes.length > 0) {
         const childHash = childHashes[0]
         const childColumn = positions.get(childHash)![1]
-        columnIndex = activeBranches.insertCommit(commitHash, childColumn, forbiddenIndices)
+        columnIndex = activeBranches.insertCommit(commitHash, childColumn, invalidIndices)
       } else {
         columnIndex = activeBranches.insertCommit(commitHash, 0, new Set())
       }
     }
 
     // Remove outdated active nodes
-    while (!activeNodesQueue.isEmpty() && activeNodesQueue.peek()![0] < rowIndex) {
-      const activeNodeHash = activeNodesQueue.poll()![1]
-      activeNodes.delete(activeNodeHash)
-    }
+    activeNodes.removeOutdatedNodes(rowIndex)
 
     // Update active nodes with the new commit
     const columnToAdd = [columnIndex, ...branchChildren.map(childHash => positions.get(childHash)![1])]
-    activeNodes.forEach(activeNode => columnToAdd.forEach(column => activeNode.add(column)))
-    activeNodes.set(commitHash, new Set<number>())
-    activeNodesQueue.add([Math.max(...commit.parents.map(parentHash => hashToIndex.get(parentHash)!)), commitHash])
+    activeNodes.update(columnToAdd)
+
+    activeNodes.initialiseNewColumn(commitHash)
+
+    const parentIndices = commit.parents.map(parentHash => hashToIndex.get(parentHash)!)
+    const highestParentIndex: [number, string] = [Math.max(...parentIndices), commitHash]
+    activeNodes.enqueue(highestParentIndex)
 
     // Remove children from active branches
     branchChildren.forEach(childSha => {

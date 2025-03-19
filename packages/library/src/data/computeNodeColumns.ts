@@ -1,7 +1,7 @@
-import IntervalTree from 'node-interval-tree'
 import FastPriorityQueue from 'fastpriorityqueue'
 import { Commit } from 'types'
-import { CommitNodeLocation, EdgeType, GraphEdge } from './types'
+import { CommitNodeLocation } from './types'
+import { buildNodeGraph } from './buildNodeGraph'
 
 /**
  * Computes the visual positions of commits in a Git log visualization.
@@ -22,7 +22,6 @@ export const computeNodePositions = (
 
   // Represents active branches. Each index corresponds to a column in the visualization.
   const branches: (string | null)[] = ['index']
-  const edges = new IntervalTree<GraphEdge>()
 
   const hashToIndex = new Map(commits.map((entry, i) => [entry.hash, i]))
 
@@ -154,20 +153,9 @@ export const computeNodePositions = (
     rowIndex++
   }
 
-  // Updates the interval tree with computed edges between commits
-  for (const [commitHash, [rowStart, columnStart]] of positions) {
-    const parentHashes = commits.find(it => it.hash === commitHash)!.parents
-    
-    for (const [parentIndex, parentHash] of parentHashes.entries()) {
-      const [rowTarget, columnTarget] = positions.get(parentHash)!
-      const edgeType = parentIndex > 0 ? EdgeType.Merge : EdgeType.Normal
-      edges.insert(rowStart, rowTarget, [[rowStart, columnStart], [rowTarget, columnTarget], edgeType])
-    }
-  }
-
   return {
     positions,
     graphWidth: branches.length,
-    edges
+    edges: buildNodeGraph(positions, commits)
   }
 }

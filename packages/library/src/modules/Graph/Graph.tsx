@@ -30,7 +30,8 @@ export const Graph = () => {
         className={styles.graph}
         style={{
           gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
-          gridTemplateRows: `repeat(${visibleCommits.length}, ${ROW_HEIGHT + rowSpacing}px)`
+          // +1 to length to include index. TODO: If add enableIndex prop, drive the +1 with it
+          gridTemplateRows: `repeat(${visibleCommits.length + 1}, ${ROW_HEIGHT + rowSpacing}px)`
         }}
       >
         {visibleCommits.length === 0 && (

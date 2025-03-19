@@ -33,7 +33,7 @@ export const Layout = () => {
         </div>
       )}
 
-      <div className={styles.graphContainer}>
+      <div className={styles.graph}>
         {showTableHeaders && (
           <h4 style={{ color: textColour }} className={styles.title}>
             Graph

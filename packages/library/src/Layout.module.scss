@@ -1,13 +1,17 @@
 .container {
   position: relative;
   width: 100%;
+  height: 100%;
   background: white;
   display: flex;
 
   .tags {
     flex-grow: 1;
     max-width: 175px;
-    color: black;
+  }
+
+  .graph {
+    flex-grow: 1;
   }
 
   .table {

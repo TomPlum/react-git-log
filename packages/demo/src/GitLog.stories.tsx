@@ -35,28 +35,30 @@ const meta: Meta<StoryProps> = {
     layout: 'fullscreen',
   },
   args: {
+    entries: [],
     showTable: true,
+    currentBranch: 'release',
     showBranchesTags: true,
     showCommitNodeHashes: false,
     showCommitNodeTooltips: false,
     showTableHeaders: true,
     enableResize: false,
-    entries: [],
-    currentBranch: 'release',
+    enableExperimentalAnimation: false,
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
-    enableExperimentalAnimation: false,
     githubRepositoryUrl: 'https://github.com/TomPlum/sleep',
     defaultGraphContainerWidth: 200,
-    rowSpacing: 0
+    rowSpacing: 0,
+    page: 0,
+    pageSize: 200
   },
   argTypes: {
     pageSize: {
       control :{
         type: 'range',
         min: 1,
-        max: 100
+        max: 300
       }
     },
     page: {

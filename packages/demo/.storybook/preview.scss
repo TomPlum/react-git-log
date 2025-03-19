@@ -23,16 +23,11 @@
 }
 
 #storybook-root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  box-sizing: border-box;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: 'JetBrains Mono', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

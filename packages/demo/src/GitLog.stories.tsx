@@ -13,6 +13,7 @@ import {
 import { ColourSelector } from 'components/ColourSelector'
 import { fetchLogEntryData } from 'utils/fetchLogEntryData'
 import { ThemeToggle } from 'components/ThemeToggle'
+import { rainbow } from 'themes.ts'
 
 // TODO: once mono repo in place, extract types and components from here
 
@@ -90,7 +91,7 @@ export const Default: Story = {
     const [loading, setLoading] = useState(true)
     const [branch, setBranch] = useState('release')
     const [entries, setEntries] = useState<GitLogEntry[]>()
-    const [colours, setColours] = useState<ThemeColours>('rainbow-dark')
+    const [colours, setColours] = useState<ThemeColours>(rainbow)
     const [theme, setTheme] = useState<ThemeMode>('dark')
 
     const getData = useCallback(async (repository: string) => {
@@ -166,8 +167,6 @@ export const Default: Story = {
            </a>
          </div>
         </div>
-
-
 
         <GitLog
           {...args}

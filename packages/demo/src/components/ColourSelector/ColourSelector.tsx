@@ -1,20 +1,14 @@
 import { ThemeSelectorProps } from './types'
 import { ChangeEvent, useCallback } from 'react'
-import { neonAuroraDarkColours, neonAuroraLightColours, rainbowDarkColours, rainbowLightColours } from 'themes'
+import { neonAurora, rainbow } from 'themes'
 
 const getTheme = (name: string) => {
   switch (name) {
-    case 'rainbow-dark': {
-      return rainbowDarkColours
+    case 'rainbow': {
+      return rainbow
     }
-    case 'rainbow-light': {
-      return rainbowLightColours
-    }
-    case 'neon-aurora-dark': {
-      return neonAuroraDarkColours
-    }
-    case 'neon-aurora-light': {
-      return neonAuroraLightColours
+    case 'neon-aurora': {
+      return neonAurora
     }
     default: {
       return []
@@ -29,17 +23,11 @@ export const ColourSelector = ({ onChange }: ThemeSelectorProps) => {
 
   return (
     <select onChange={handleChange}>
-      <option value='rainbow-dark'>
-        rainbow-dark
+      <option value='rainbow'>
+        rainbow
       </option>
-      <option value='rainbow-light'>
-        rainbow-light
-      </option>
-      <option value='neon-aurora-dark'>
-        neon-aurora-dark
-      </option>
-      <option value='neon-aurora-light'>
-        neon-aurora-light
+      <option value='neon-aurora'>
+        neon-aurora
       </option>
     </select>
   )

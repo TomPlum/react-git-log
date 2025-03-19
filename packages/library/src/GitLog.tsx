@@ -64,10 +64,14 @@ export const GitLog = ({
         return neonAuroraLightColours
       }
       default: {
-        return colours
+        if (theme === 'light') {
+          return colours
+        }
+
+        return colours.map(colour => shiftAlphaChannel(colour, 0.4))
       }
     }
-  }, [colours, graphData.graphWidth, shiftAlphaChannel])
+  }, [colours, graphData.graphWidth, shiftAlphaChannel, theme])
 
   const handleSelectCommit = useCallback((commit?: Commit) => {
     setSelectedCommit(commit)

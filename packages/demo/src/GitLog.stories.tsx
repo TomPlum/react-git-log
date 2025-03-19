@@ -3,6 +3,7 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import { parseGitLogOutput } from './utils/gitLogParser'
 import dayjs from 'dayjs'
 import styles from './GitLog.stories.module.scss'
+import GitHubLogo from 'assets/github-mark.svg?react'
 import {
   type ThemeColours,
   type ThemeMode,
@@ -142,25 +143,42 @@ export const Default: Story = {
     }
 
     const backgroundColour = theme === 'dark' ? '#1a1a1a' : 'white'
+    const textColour = theme === 'dark' ? 'white' : '#1a1a1a'
 
     return (
       <div style={{ background: backgroundColour }} className={styles.container}>
-        <div>
-          <a href='https://github.com/TomPlum/react-git-log'>react-git-log</a>
-          {' by '}
-          <a href='https://github.com/TomPlum'>TomPlum</a>
+        <div className={styles.header}>
+          <div className={styles.controls}>
+            <select onChange={handleChangeRepository}>
+              <option value='TomPlum/sleep'>
+                TomPlum/sleep
+              </option>
+              <option value='TomPlum/learn-japanese'>
+                TomPlum/learn-japanese
+              </option>
+            </select>
+
+            <ThemeSelector onChange={handleChangeColors} />
+          </div>
+
+         <div className={styles.info}>
+           <GitHubLogo
+             className={styles.github}
+             style={{ height: 20, width: 20, fill: textColour }}
+           />
+
+           <a href='https://github.com/TomPlum/react-git-log' className={styles.link}>
+             react-git-log
+           </a>
+           <span style={{ color: textColour, margin: '0 8px' }}>{' by '}</span>
+
+           <a href='https://github.com/TomPlum' className={styles.link}>
+             TomPlum
+           </a>
+         </div>
         </div>
 
-        <select onChange={handleChangeRepository}>
-          <option value='TomPlum/sleep'>
-            TomPlum/sleep
-          </option>
-          <option value='TomPlum/learn-japanese'>
-            TomPlum/learn-japanese
-          </option>
-        </select>
 
-        <ThemeSelector onChange={handleChangeColors} />
 
         <GitLog
           {...args}

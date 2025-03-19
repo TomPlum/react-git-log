@@ -9,3 +9,37 @@
     font-weight: 700;
   }
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-between;
+  padding-left: 8px;
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+
+    .github {
+      margin-right: 10px;
+      margin-top: 2px;
+    }
+
+    .link {
+      color: #62de73;
+      transition: all ease-in-out 0.3s;
+
+      &:hover {
+        color: #3eb64c;
+      }
+    }
+  }
+}

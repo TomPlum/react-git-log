@@ -6,6 +6,7 @@ import styles from './RepositorySelector.module.scss'
 export const RepositorySelector = ({ selected, onSelect, theme }: RepositorySelectorProps) => {
   return (
     <CustomSelect
+      width={250}
       theme={theme}
       value={selected}
       className={styles.anchor}

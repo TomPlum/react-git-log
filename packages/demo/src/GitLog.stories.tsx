@@ -132,7 +132,12 @@ export const Default: Story = {
 
     return (
       <div style={{ background: backgroundColour }} className={styles.container}>
-        <div className={styles.header}>
+        <div
+          className={styles.header}
+          style={{
+            borderBottom: `1px solid ${theme === 'dark' ? 'rgb(112,112,112)' : 'rgb(42,42,42)'}`
+          }}
+        >
           <div className={styles.controls}>
             <RepositorySelector
               theme={theme}

@@ -9,7 +9,7 @@ addons.setConfig({
   showToolbar: true,
   theme: undefined,
   selectedPanel: undefined,
-  initialActive: 'sidebar',
+  initialActive: 'canvas',
   sidebar: {
     showRoots: false,
     collapsedRoots: ['other']

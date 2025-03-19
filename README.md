@@ -176,8 +176,6 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 - Expose component override props for things like CommitNode, CommitMessage etc.
 - Straight line prop to turn curves into right angles?
 - Add data-testids to all relevant elements for testing
-- Split computeNodeFunctions up
-- Add LICENSE
 - Node size parameter to make the graph even more compact as it will reduce the minimum column width
 - Line curve radius prop?
 - Should we split the component in 3 sub-components with a wrapper, like `GitLog` and `GitLog.Graph` etc.?

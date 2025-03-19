@@ -27,9 +27,16 @@
   .info {
     display: flex;
     align-items: center;
+    font-size: 0.8rem;
 
     .github {
-      margin-right: 10px;
+      margin-right: 5px;
+      width: 15px;
+      height: 15px;
+    }
+
+    .by {
+      margin: 0 5px;
     }
 
     .link {

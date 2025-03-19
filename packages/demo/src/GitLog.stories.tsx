@@ -164,13 +164,16 @@ export const Default: Story = {
          <div className={styles.info}>
            <GitHubLogo
              className={styles.github}
-             style={{ height: 20, width: 20, fill: textColour }}
+             style={{ fill: textColour }}
            />
 
            <a href='https://github.com/TomPlum/react-git-log' className={styles.link}>
              react-git-log
            </a>
-           <span style={{ color: textColour, margin: '0 8px' }}>{' by '}</span>
+
+           <span style={{ color: textColour }} className={styles.by}>
+             by
+           </span>
 
            <a href='https://github.com/TomPlum' className={styles.link}>
              TomPlum

@@ -29,21 +29,25 @@ Each column is responsive as its row is stretched vertically or horizontally.
 1. Install the package using your preferred package manager.
 
     Using npm
-    ```bash
+    ```shell
     npm install @tomplum/react-git-log
     ```
     
     Using yarn
-    ```bash
+    ```shell
     yarn add @tomplum/react-git-log
     ```
     
     Using pnpm
-    ```bash
+    ```shell
     pnpm add @tomplum/react-git-log
     ```
    
 2. Make sure that `react` and `react-dom` are installed in your project, as they are peer dependencies.
+
+   ```shell
+   npm install react react-dom
+   ```
 
 3. Render the component in your application.
 

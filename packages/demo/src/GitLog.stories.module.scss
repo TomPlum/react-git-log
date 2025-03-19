@@ -30,15 +30,15 @@
 
     .github {
       margin-right: 10px;
-      margin-top: 2px;
     }
 
     .link {
       color: #62de73;
+      text-decoration: none;
       transition: all ease-in-out 0.3s;
 
       &:hover {
-        color: #3eb64c;
+        color: #8afc95;
       }
     }
   }

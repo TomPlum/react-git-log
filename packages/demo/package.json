@@ -20,8 +20,10 @@
     "@storybook/react": "^8.6.4",
     "@storybook/react-vite": "^8.6.4",
     "@storybook/test": "^8.6.4",
+    "@theme-toggles/react": "^4.1.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+    "dayjs": "^1.11.13",
     "playwright": "^1.51.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -30,7 +32,6 @@
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
     "vite-plugin-svgr": "^4.3.0",
-    "vite-tsconfig-paths": "^5.1.4",
-    "dayjs": "^1.11.13"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

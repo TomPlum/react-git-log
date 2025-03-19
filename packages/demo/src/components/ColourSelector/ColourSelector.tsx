@@ -22,7 +22,7 @@ const getTheme = (name: string) => {
   }
 }
 
-export const ThemeSelector = ({ onChange }: ThemeSelectorProps) => {
+export const ColourSelector = ({ onChange }: ThemeSelectorProps) => {
   const handleChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     onChange(getTheme(e.target.value))
   }, [onChange])

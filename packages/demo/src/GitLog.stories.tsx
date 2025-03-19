@@ -10,8 +10,9 @@ import {
   type GitLogProps,
   GitLog
 } from '@tomplum/react-git-log'
-import { ThemeSelector } from 'components/ThemeSelector'
+import { ColourSelector } from 'components/ColourSelector'
 import { fetchLogEntryData } from 'utils/fetchLogEntryData'
+import { ThemeToggle } from 'components/ThemeToggle'
 
 // TODO: once mono repo in place, extract types and components from here
 
@@ -138,7 +139,12 @@ export const Default: Story = {
               </option>
             </select>
 
-            <ThemeSelector onChange={handleChangeColors} />
+            <ColourSelector onChange={handleChangeColors} />
+
+            <ThemeToggle
+              theme={theme}
+              onChange={setTheme}
+            />
           </div>
 
          <div className={styles.info}>

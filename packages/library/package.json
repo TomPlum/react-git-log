@@ -14,8 +14,9 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:watch": "vite build --watch",
     "build": "tsc --project tsconfig.json && vite build",
-    "watch": "vite build --watch",
+    "build:watch": "tsc --project tsconfig.json --watch",
     "preview": "vite preview",
     "test": "vitest --watch",
     "test:ui": "vitest --ui",

@@ -40,6 +40,7 @@ export interface ThemeFunctions {
 }
 
 export type ThemeMode = 'light' | 'dark'
+export type NodeTheme = 'default' | 'merge'
 
 export type ThemeColours =
   'rainbow-dark' |

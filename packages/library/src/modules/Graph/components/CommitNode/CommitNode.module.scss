@@ -4,6 +4,7 @@
   border-radius: 50%;
   font-size: 10px;
   z-index: 20;
+  position: relative;
 
   &:hover {
     cursor: pointer;
@@ -17,4 +18,13 @@
     border-radius: 5px;
     font-size: 0.7rem
   }
+}
+
+.mergeCommitInner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
 }

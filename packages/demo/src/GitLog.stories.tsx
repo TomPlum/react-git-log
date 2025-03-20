@@ -45,6 +45,7 @@ const meta: Meta<StoryProps> = {
     showTableHeaders: true,
     enableResize: false,
     enableExperimentalAnimation: false,
+    nodeTheme: 'default',
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
@@ -108,6 +109,14 @@ const meta: Meta<StoryProps> = {
       table: {
         category: 'Visibility'
       }
+    },
+    nodeTheme: {
+      name: 'Node Style',
+      table: {
+        category: 'Visibility'
+      },
+      control: 'radio',
+      options: ['default', 'merge']
     },
     pageSize: {
       name: 'Page Size',
@@ -181,7 +190,6 @@ export const Default: Story = {
     const [theme, setTheme] = useState<ThemeMode>('dark')
     const [colours, setColours] = useState<ColourSelection>({ id: 'rainbow', colors: rainbow })
     const [repository, setRepository] = useState('TomPlum/sleep')
-    console.log(repository, branch)
 
     const getData = useCallback(async (repository: string) => {
       return fetchLogEntryData(repository)

@@ -20,6 +20,10 @@ export interface GitLogProps {
    */
   theme?: ThemeMode
 
+  /**
+   * The theme to apply the commit node
+   * elements in the graph.
+   */
   nodeTheme?: NodeTheme
 
   /**

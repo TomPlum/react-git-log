@@ -40,6 +40,15 @@ export interface ThemeFunctions {
 }
 
 export type ThemeMode = 'light' | 'dark'
+
+/**
+ * The default theme renders all nodes
+ * (except the index pseudo-node) the same.
+ *
+ * The merge theme renders merge nodes
+ * with a different theme to make them
+ * more distinct from regular commits.
+ */
 export type NodeTheme = 'default' | 'merge'
 
 export type ThemeColours =

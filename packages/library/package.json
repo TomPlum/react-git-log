@@ -2,7 +2,6 @@
   "name": "@tomplum/react-git-log",
   "repository": "https://github.com/TomPlum/react-git-log",
   "description": "A flexible, themable, React component for visualising Git commit history, branch and tag metadata.",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "main": "dist/react-git-log.umd.js",

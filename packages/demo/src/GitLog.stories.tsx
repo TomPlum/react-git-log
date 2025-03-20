@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useCallback, useEffect, useState } from 'react'
 import styles from './GitLog.stories.module.scss'
-import GitHubLogo from 'assets/github-mark.svg?react'
 import {
   type ThemeMode,
   type Commit,
@@ -15,8 +14,7 @@ import { ThemeToggle } from 'components/ThemeToggle'
 import { rainbow } from 'themes.ts'
 import { RepositorySelector } from 'components/RepositorySelector'
 import { Loading } from 'components/Loading'
-
-// TODO: once mono repo in place, extract types and components from here
+import { PackageInfo } from 'components/PackageInfo'
 
 const branches: Record<string, string> = {
   'TomPlum/sleep': 'release',
@@ -248,24 +246,7 @@ export const Default: Story = {
             />
           </div>
 
-         <div className={styles.info}>
-           <div className={styles.top}>
-             <a href='https://github.com/TomPlum/react-git-log' className={styles.link}>
-               react-git-log
-             </a>
-           </div>
-
-           <div className={styles.bottom}>
-             <GitHubLogo
-               className={styles.github}
-               style={{ fill: textColour }}
-             />
-
-             <span style={{ color: textColour }} className={styles.by}>
-               by tomplum
-             </span>
-           </div>
-         </div>
+          <PackageInfo theme={theme} />
         </div>
 
         {loading && (

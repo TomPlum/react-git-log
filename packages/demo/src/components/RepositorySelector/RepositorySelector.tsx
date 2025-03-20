@@ -22,6 +22,7 @@ export const RepositorySelector = ({ selected, onSelect, theme }: RepositorySele
             <RepositoryItem
               icon={<SleepIcon />}
               name='TomPlum/sleep'
+              branch='release'
             />
           )
         },
@@ -31,6 +32,7 @@ export const RepositorySelector = ({ selected, onSelect, theme }: RepositorySele
             <RepositoryItem
               icon={<JapaneseLantern />}
               name='TomPlum/learn-japanese'
+              branch='feature/JPUI-51'
             />
           )
         },
@@ -40,6 +42,7 @@ export const RepositorySelector = ({ selected, onSelect, theme }: RepositorySele
             <RepositoryItem
               icon={<StarIcon style={{ stroke: theme === 'dark' ? 'rgb(245,230,57)' : 'rgb(255,246,40)' }} />}
               name='TomPlum/advent-of-code-2019'
+              branch='master'
             />
           )
         }

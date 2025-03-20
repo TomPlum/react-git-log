@@ -1,0 +1,36 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.loading {
+  height: 60px;
+  aspect-ratio: 2;
+  border-bottom: 3px solid #0000;
+  position: relative;
+  animation: l3-0 .75s linear infinite;
+}
+
+.loading:before {
+  content: "";
+  position: absolute;
+  inset: auto 42.5% 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #CF4647;
+  animation: l3-1 .75s cubic-bezier(0,900,1,900) infinite;
+}
+
+@keyframes l3-0 {
+  to {background-position: -125% 100%}
+}
+
+@keyframes l3-1 {
+  0%,2% {bottom: 0%}
+  98%,to {bottom:.1%}
+}

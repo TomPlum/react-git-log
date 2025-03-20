@@ -14,6 +14,7 @@ import { fetchLogEntryData } from 'utils/fetchLogEntryData'
 import { ThemeToggle } from 'components/ThemeToggle'
 import { rainbow } from 'themes.ts'
 import { RepositorySelector } from 'components/RepositorySelector'
+import { Loading } from 'components/Loading'
 
 // TODO: once mono repo in place, extract types and components from here
 
@@ -217,10 +218,6 @@ export const Default: Story = {
       setColours(selected)
     }, [])
 
-    if (loading || !entries) {
-      return <div>Loading...</div>
-    }
-
     const backgroundColour = theme === 'dark' ? '#1a1a1a' : 'white'
     const textColour = theme === 'dark' ? 'white' : '#1a1a1a'
 
@@ -271,23 +268,31 @@ export const Default: Story = {
          </div>
         </div>
 
-        <GitLog
-          {...args}
-          colours={colours.colors}
-          entries={entries}
-          theme={theme}
-          currentBranch={branch}
-          paging={{
-            page: args.page ?? 0,
-            size: args.pageSize ?? entries.length
-          }}
-          classes={{
-            containerStyles: {
-              background: backgroundColour
-            },
-            logTableClass: styles.table
-          }}
-        />
+        {true && (
+          <div className={styles.loading}>
+            <Loading theme={theme} />
+          </div>
+        )}
+
+        {!true && entries && (
+          <GitLog
+            {...args}
+            colours={colours.colors}
+            entries={entries}
+            theme={theme}
+            currentBranch={branch}
+            paging={{
+              page: args.page ?? 0,
+              size: args.pageSize ?? entries.length
+            }}
+            classes={{
+              containerStyles: {
+                background: backgroundColour
+              },
+              logTableClass: styles.table
+            }}
+          />
+        )}
       </div>
     )
   }

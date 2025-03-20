@@ -1,0 +1,1 @@
+{"v":5,"entries":{"gitlog--default":{"type":"story","id":"gitlog--default","name":"Default","title":"GitLog","importPath":"./src/GitLog.stories.tsx","componentPath":"@tomplum/react-git-log","tags":["dev","test"]}}}

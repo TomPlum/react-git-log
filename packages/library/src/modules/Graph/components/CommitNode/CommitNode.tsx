@@ -13,7 +13,7 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { textColour, shiftAlphaChannel, theme } = useTheme()
   const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme } = useGitContext()
 
-  const isMergeCommit = nodeTheme === 'merge' && commit.parents.length > 1
+  const isMergeCommit = nodeTheme === 'default' && commit.parents.length > 1
 
   const [showTooltip, setShowTooltip] = useState(false)
 

@@ -115,7 +115,10 @@ const meta: Meta<StoryProps> = {
         category: 'Visibility'
       },
       control: 'radio',
-      options: ['default', 'merge']
+      options: {
+        Default: 'default',
+        Plain: 'plain'
+      }
     },
     pageSize: {
       name: 'Page Size',

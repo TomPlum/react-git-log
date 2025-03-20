@@ -1,8 +1,10 @@
 name: Demo Website
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -35,7 +37,21 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Get package version
+        id: package_version
+        run: echo "VERSION=$(jq -r .version packages/react-git-log/package.json)" >> $GITHUB_ENV
+
+      - name: Check if version exists on NPM
+        id: check_version
+        run: |
+          if npm show @tomplum/react-git-log@${VERSION} > /dev/null 2>&1; then
+            echo "VERSION_EXISTS=true" >> $GITHUB_ENV
+          else
+            echo "VERSION_EXISTS=false" >> $GITHUB_ENV
+          fi
+
       - name: Publish to NPM
+        if: env.VERSION_EXISTS == 'false'
         run: npm publish --workspace=@tomplum/react-git-log --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

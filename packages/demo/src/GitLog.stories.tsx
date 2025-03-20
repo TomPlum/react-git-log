@@ -19,7 +19,8 @@ import { RepositorySelector } from 'components/RepositorySelector'
 
 const branches: Record<string, string> = {
   'TomPlum/sleep': 'release',
-  'TomPlum/learn-japanese': 'feature/JPUI-51'
+  'TomPlum/learn-japanese': 'feature/JPUI-51',
+  'TomPlum/advent-of-code-2019': 'master'
 }
 
 interface StoryProps extends GitLogProps {
@@ -32,7 +33,7 @@ const meta: Meta<StoryProps> = {
   title: 'GitLog',
   component: GitLog,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'fullscreen'
   },
   args: {
     entries: [],
@@ -110,7 +111,6 @@ const meta: Meta<StoryProps> = {
     },
     pageSize: {
       name: 'Page Size',
-      description: 'Number of commits per page',
       table: {
         category: 'Pagination'
       },
@@ -181,6 +181,7 @@ export const Default: Story = {
     const [theme, setTheme] = useState<ThemeMode>('dark')
     const [colours, setColours] = useState<ColourSelection>({ id: 'rainbow', colors: rainbow })
     const [repository, setRepository] = useState('TomPlum/sleep')
+    console.log(repository, branch)
 
     const getData = useCallback(async (repository: string) => {
       return fetchLogEntryData(repository)

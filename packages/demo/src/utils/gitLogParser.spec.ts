@@ -4,8 +4,8 @@ import { parseGitLogOutput } from './gitLogParser'
 describe('gitLogParser', () => {
   it('parses valid git log output', () => {
     const input = `
-      hash:abc123,parents:def456 ghi789,branch:main,refs:HEAD -> main,msg:Initial commit,date:2025-03-05 12:34:56 +0000
-      hash:def456,parents:,branch:feature,refs:,msg:Added feature,date:2025-03-04 11:22:33 +0000
+      hash:abc123,parents:def456 ghi789,branch:main,msg:Initial commit,date:2025-03-05 12:34:56 +0000
+      hash:def456,parents:,branch:feature,msg:Added feature,date:2025-03-04 11:22:33 +0000
     `
 
     const result = parseGitLogOutput(input.trim())

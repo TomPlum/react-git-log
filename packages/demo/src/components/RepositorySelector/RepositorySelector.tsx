@@ -31,6 +31,15 @@ export const RepositorySelector = ({ selected, onSelect, theme }: RepositorySele
               name='TomPlum/learn-japanese'
             />
           )
+        },
+        {
+          value: 'TomPlum/advent-of-code-2019',
+          label: (
+            <RepositoryItem
+              icon={<JapaneseLantern />}
+              name='TomPlum/advent-of-code-2019'
+            />
+          )
         }
       ]}
     />

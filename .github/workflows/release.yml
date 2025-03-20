@@ -30,6 +30,10 @@ jobs:
         with:
           folder: ./packages/demo/storybook-static
 
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Publish to NPM
         run: npm publish --workspace=@tomplum/react-git-log --access public
         env:

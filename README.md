@@ -1,22 +1,24 @@
+![NPM Version](https://img.shields.io/npm/v/%40tomplum%2Freact-git-log?style=for-the-badge&logo=npm&color=red)
+![GitHub Release](https://img.shields.io/github/v/release/TomPlum/react-git-log?style=for-the-badge&logo=github)
+![NPM Type Definitions](https://img.shields.io/npm/types/%40tomplum%2Freact-git-log?style=for-the-badge&logo=typescript)
+
 # :seedling: React Git Log
 
 A flexible and interactive React component for visualising Git commit history. Displays a branching graph alongside commit, branch and tag metadata, with support for customised theming.
-
-> [!WARNING]
-> This package is currently in active development. It may contain bugs or performance issues and is not "officially" ready for consumption yet.
-
 <!-- TOC -->
 * [Features](#features)
-* [HTML Grid System (No canvas!)](#html-grid-system-no-canvas)
+  * [Pagination](#pagination)
+  * [HTML Grid System (No canvas!)](#html-grid-system-no-canvas)
 * [Using the component](#using-the-component)
 * [Git Log Data](#git-log-data)
 * [Component Props](#component-props)
-   * [Required](#required)
-   * [Optional](#optional)
-      * [GitLogStylingProps](#gitlogstylingprops)
-      * [GitLogPaging](#gitlogpaging)
+  * [Required](#required)
+  * [Optional](#optional)
+    * [GitLogStylingProps](#gitlogstylingprops)
+    * [GitLogPaging](#gitlogpaging)
+    * [NodeTheme](#nodetheme)
 * [References](#references)
-* [TODO:](#todo)
+* [Roadmap](#roadmap)
 <!-- TOC -->
 
 # Features
@@ -102,7 +104,8 @@ The array of `GitLogEntry` objects is the source of data used by the `GitLog` co
 | `committerDate` | `string`   | The date and time when the commit was applied by the committer. Typically the timestamp when the commit was finalized.                        |
 | `authorDate`    | `string?`  | *(Optional)* The date and time when the commit was originally authored. May differ from `committerDate` if the commit was rebased or amended. |
 
-Usually you'd be sourcing this data from a backend service like a web-api, but you can extract it from the command line with the following command:
+> [!TIP]
+> Usually you'd be sourcing this data from a backend service like a web-api, but you can extract it from the command line with the following command.
 
 ```bash
 git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,msg:%s,cdate:%cd,adate:%ad' --date=iso >> git-log.txt
@@ -165,12 +168,11 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 | `merge`   | `string` | Merge nodes are distinctly different.            |
 
 # References
-- https://pvigier.github.io/2019/05/06/commit-graph-drawing-algorithms.html
-- https://github.com/pvigier/gitamine
+- Many thanks to Pierre Vigier for his fantastic [blog](https://pvigier.github.io/2019/05/06/commit-graph-drawing-algorithms.html) on Git algorithms and his Electron-based Git client [gitamine](https://github.com/pvigier/gitamine) for help and inspiration.
 - https://marklodato.github.io/visual-git-guide/index-en.html
 - https://github.com/i-e-b/SnivellingGit/tree/master
 
-# TODO:
+# Roadmap
 - Filtering of branches
 - Filter by commit message search?
 - Filtering of date?

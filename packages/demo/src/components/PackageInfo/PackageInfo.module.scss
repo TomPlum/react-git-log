@@ -1,0 +1,36 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  padding-right: 15px;
+  gap: 3px;
+  text-decoration: none;
+
+  &:hover {
+    .top .packageName {
+      color: #38b3ff;
+    }
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+
+    .packageName {
+      transition: all ease-in-out 0.3s;
+      color: #5ec1e7;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .github {
+      margin-right: 5px;
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

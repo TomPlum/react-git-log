@@ -41,6 +41,7 @@ export const ColourSelector = ({ selected, onChange, theme }: ThemeSelectorProps
 
   return (
     <CustomSelect
+      label='Theme'
       width={180}
       theme={theme}
       value={selected}

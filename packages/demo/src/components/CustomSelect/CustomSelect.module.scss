@@ -39,8 +39,7 @@
   border-radius: 5px;
   padding: 5px 10px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 5px;
   user-select: none;
 
@@ -48,18 +47,34 @@
     cursor: pointer;
   }
 
-  .chevron {
-    transition: all ease-in-out 0.2s;
-    width: 12px;
-    transform: rotate(90deg);
-    margin-top: 2px;
+  .label {
+    margin: 0 0 -4px 0;
+    font-size: 0.6rem;
   }
 
-  .chevronOpen {
-    transition: all ease-in-out 0.2s;
-    width: 12px;
-    transform: rotate(-90deg);
-    margin-top: 2px;
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .selectedValue {
+      font-size: 0.9rem;
+    }
+
+    .chevron {
+      transition: all ease-in-out 0.2s;
+      width: 12px;
+      transform: rotate(90deg);
+      margin-top: 2px;
+    }
+
+    .chevronOpen {
+      transition: all ease-in-out 0.2s;
+      width: 12px;
+      transform: rotate(-90deg);
+      margin-top: 2px;
+    }
   }
 }
 

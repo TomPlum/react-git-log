@@ -10,6 +10,7 @@ export const RepositorySelector = ({ selected, onSelect, theme }: RepositorySele
   return (
     <CustomSelect
       width={300}
+      label='Repository'
       theme={theme}
       value={selected}
       className={styles.anchor}

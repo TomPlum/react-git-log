@@ -1,33 +1,26 @@
 ![NPM Version](https://img.shields.io/npm/v/%40tomplum%2Freact-git-log?style=for-the-badge&logo=npm&color=red)
 ![GitHub Release](https://img.shields.io/github/v/release/TomPlum/react-git-log?style=for-the-badge&logo=github&color=lightgrey)
 ![NPM Type Definitions](https://img.shields.io/npm/types/%40tomplum%2Freact-git-log?style=for-the-badge&logo=typescript)
-![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40tomplum%2Freact-git-log?style=for-the-badge&logo=react&color=green)
+![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40tomplum%2Freact-git-log?style=for-the-badge&logo=vite&color=gold&logoColor=gold)
 
 # :seedling: React Git Log
 
 A flexible and interactive React component for visualising Git commit history. Displays a branching graph alongside commit, branch and tag metadata, with support for customised theming.
 <!-- TOC -->
 * [Features](#features)
-  * [Pagination](#pagination)
-  * [HTML Grid System (No canvas!)](#html-grid-system-no-canvas)
 * [Using the component](#using-the-component)
 * [Git Log Data](#git-log-data)
 * [Component Props](#component-props)
-  * [Required](#required)
-  * [Optional](#optional)
-    * [GitLogStylingProps](#gitlogstylingprops)
-    * [GitLogPaging](#gitlogpaging)
-    * [NodeTheme](#nodetheme)
 * [References](#references)
 * [Roadmap](#roadmap)
 <!-- TOC -->
 
 # Features
 
-- :seedling: Responsive commit history graph \
-- :memo: Table with commit message and date \
-- :bookmark: Branch and tagging information \
-- :art: Custom theming API \
+- :seedling: Responsive commit history graph
+- :memo: Table with commit message and date
+- :bookmark: Branch and tagging information
+- :art: Custom theming API
 - :waning_crescent_moon: Dark and light modes
 
 ## Pagination

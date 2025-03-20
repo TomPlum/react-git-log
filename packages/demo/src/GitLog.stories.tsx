@@ -268,13 +268,13 @@ export const Default: Story = {
          </div>
         </div>
 
-        {true && (
+        {loading && (
           <div className={styles.loading}>
             <Loading theme={theme} />
           </div>
         )}
 
-        {!true && entries && (
+        {!loading && entries && (
           <GitLog
             {...args}
             colours={colours.colors}

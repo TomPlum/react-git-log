@@ -29,6 +29,10 @@ export const computeRelationships = (entries: GitLogEntry[]) => {
     parents.set(hash, parentHashes)
 
     parentHashes.forEach(parentHash => {
+      if (!children.has(parentHash)) {
+        console.error(`Commit with hash ${parentHash} cannot be found in the hash -> children map. This should not be possible. Are you git log entries valid?`)
+      }
+
       children.get(parentHash)!.push(hash)
     })
   })

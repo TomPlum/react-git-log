@@ -9,8 +9,19 @@
     margin-right: 4px;
   }
 
-  .name {
-    margin: 0;
-    font-size: 0.9rem;
+  .details {
+    display: flex;
+    flex-direction: column;
+
+    .name {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .branch {
+      opacity: 0.8;
+      font-size: 0.7rem;
+      margin: 0 0 0 1px;
+    }
   }
 }

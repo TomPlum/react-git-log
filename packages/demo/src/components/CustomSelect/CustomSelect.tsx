@@ -5,13 +5,14 @@ import Chevron from 'assets/chevron.svg?react'
 import styles from './CustomSelect.module.scss'
 import classNames from 'classnames'
 
-export const CustomSelect = ({ value, onChange, className, options, theme, width }: CustomSelectProps) => {
+export const CustomSelect = ({ label, value, onChange, className, options, theme, width }: CustomSelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const textColour = theme === 'dark' ? 'rgb(239,239,239)' : 'black'
-  const backgroundColour = theme === 'dark' ? 'rgb(68,68,68)' : 'white'
-  const hoverBackgroundColour = theme === 'dark' ? 'rgb(138,138,138)' : 'white'
-  const selectedBackgroundColour = theme === 'dark' ? 'rgb(108,108,108)' : 'white'
+  const textColour = theme === 'dark' ? 'rgb(239,239,239)' : 'rgb(0,0,0)'
+  const labelColour = theme === 'dark' ? 'rgb(203,203,203)' : 'rgb(45,45,45)'
+  const backgroundColour = theme === 'dark' ? 'rgb(68,68,68)' : 'rgb(218,218,218)'
+  const hoverBackgroundColour = theme === 'dark' ? 'rgb(138,138,138)' : 'rgb(255,255,255)'
+  const selectedBackgroundColour = theme === 'dark' ? 'rgb(108,108,108)' : 'rgb(255,255,255)'
 
   return (
     <Popover
@@ -63,14 +64,20 @@ export const CustomSelect = ({ value, onChange, className, options, theme, width
           backgroundColor: backgroundColour
         }}
       >
-        <span style={{ color: textColour }}>
+        <p style={{ color: labelColour }} className={styles.label}>
+          {label}
+        </p>
+
+        <div className={styles.bottom}>
+          <span style={{ color: textColour }} className={styles.selectedValue}>
           {value}
         </span>
 
-        <Chevron
-          style={{ fill: textColour }}
-          className={isOpen ? styles.chevronOpen : styles.chevron}
-        />
+          <Chevron
+            style={{ fill: textColour }}
+            className={isOpen ? styles.chevronOpen : styles.chevron}
+          />
+        </div>
       </button>
     </Popover>
   )

@@ -1,5 +1,5 @@
 import { Commit, GitLogStylingProps } from 'types'
-import { ThemeMode } from 'hooks/useTheme'
+import { NodeTheme, ThemeMode } from 'hooks/useTheme'
 import { GraphData } from 'data'
 
 export interface GitContextBag {
@@ -166,6 +166,8 @@ export interface GitContextBag {
    * array of {@link colours} are passed.
    */
   theme: ThemeMode
+
+  nodeTheme?: NodeTheme
 
   /**
    * Optional paging information to show

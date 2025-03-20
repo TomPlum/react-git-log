@@ -19,7 +19,8 @@ import { RepositorySelector } from 'components/RepositorySelector'
 
 const branches: Record<string, string> = {
   'TomPlum/sleep': 'release',
-  'TomPlum/learn-japanese': 'feature/JPUI-51'
+  'TomPlum/learn-japanese': 'feature/JPUI-51',
+  'TomPlum/advent-of-code-2019': 'master'
 }
 
 interface StoryProps extends GitLogProps {
@@ -32,7 +33,7 @@ const meta: Meta<StoryProps> = {
   title: 'GitLog',
   component: GitLog,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'fullscreen'
   },
   args: {
     entries: [],
@@ -44,6 +45,7 @@ const meta: Meta<StoryProps> = {
     showTableHeaders: true,
     enableResize: false,
     enableExperimentalAnimation: false,
+    nodeTheme: 'default',
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
@@ -108,9 +110,16 @@ const meta: Meta<StoryProps> = {
         category: 'Visibility'
       }
     },
+    nodeTheme: {
+      name: 'Node Style',
+      table: {
+        category: 'Visibility'
+      },
+      control: 'radio',
+      options: ['default', 'merge']
+    },
     pageSize: {
       name: 'Page Size',
-      description: 'Number of commits per page',
       table: {
         category: 'Pagination'
       },

@@ -1,7 +1,7 @@
 import styles from './CommitNode.module.scss'
 import { CommitNodeProps } from './types'
 import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context/GitContext'
 import { CommitNodeTooltip } from '../CommitNodeTooltip'
@@ -11,7 +11,9 @@ import { NODE_BORDER_WIDTH } from 'constants/constants'
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { textColour, shiftAlphaChannel, theme } = useTheme()
-  const { showCommitNodeTooltips, showCommitNodeHashes } = useGitContext()
+  const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme } = useGitContext()
+
+  const isMergeCommit = nodeTheme === 'merge' && commit.parents.length > 1
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -24,6 +26,13 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
     setShowTooltip(false)
     selectCommitHandler.onMouseOut()
   }, [selectCommitHandler])
+
+  const nodeStyles = useMemo(() => {
+    return {
+      backgroundColor: shiftAlphaChannel(colour, 0.15),
+      border: `${NODE_BORDER_WIDTH}px solid ${colour}`,
+    }
+  }, [colour, shiftAlphaChannel])
 
   return (
     <Popover
@@ -48,15 +57,19 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
     >
       <div
         key={commit.hash}
+        style={nodeStyles}
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
         className={styles.commitNode}
         onClick={() => selectCommitHandler.onClick(commit)}
-        style={{
-          backgroundColor: shiftAlphaChannel(colour, 0.15),
-          border: `${NODE_BORDER_WIDTH}px solid ${colour}`,
-        }}
       >
+        {isMergeCommit && (
+          <div
+            style={{ background: colour }}
+            className={styles.mergeCommitInner}
+          />
+        )}
+
         {showCommitNodeHashes && (
           <span
             className={styles.commitLabel}

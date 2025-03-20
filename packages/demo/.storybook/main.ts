@@ -4,6 +4,9 @@ const config: StorybookConfig = {
   stories: [
     '../src/**/*.stories.@(tsx)'
   ],
+  staticDirs: [
+    '../public'
+  ],
   core: {
     disableWhatsNewNotifications: true
   },

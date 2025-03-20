@@ -1,5 +1,5 @@
 ![NPM Version](https://img.shields.io/npm/v/%40tomplum%2Freact-git-log?style=for-the-badge&logo=npm&color=red)
-![GitHub Release](https://img.shields.io/github/v/release/TomPlum/react-git-log?style=for-the-badge&logo=github&color=lightgrey)
+![GitHub Release](https://img.shields.io/github/v/release/TomPlum/react-git-log?style=for-the-badge&logo=github&color=green)
 ![NPM Type Definitions](https://img.shields.io/npm/types/%40tomplum%2Freact-git-log?style=for-the-badge&logo=typescript)
 ![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40tomplum%2Freact-git-log?style=for-the-badge&logo=vite&color=gold&logoColor=gold)
 
@@ -29,7 +29,7 @@ Page a page size and number to render a window of the log. See the [paging](#git
 
 ![pagination.gif](docs/images/pagination.gif)
 
-## HTML Grid System (No canvas!)
+## Grid System
 
 The implementation of the graph was designed with testing in mind. 
 The traditional way to draw such an image would with a HTML `canvas` element. Which, while efficient (and probably easier to implement), is hard to programmatically assert its correctness.
@@ -162,9 +162,10 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 | `merge`   | `string` | Merge nodes are distinctly different.            |
 
 # References
+
 - Many thanks to Pierre Vigier for his fantastic [blog](https://pvigier.github.io/2019/05/06/commit-graph-drawing-algorithms.html) on Git algorithms and his Electron-based Git client [gitamine](https://github.com/pvigier/gitamine) for help and inspiration.
-- https://marklodato.github.io/visual-git-guide/index-en.html
-- https://github.com/i-e-b/SnivellingGit/tree/master
+- This [blog](https://marklodato.github.io/visual-git-guide/index-en.html) by Mark Lodato was useful for graph theory reference.
+- And Iain Ballard for his experimental GUI [SnivellingGit](https://github.com/i-e-b/SnivellingGit/tree/master)
 
 # Roadmap
 - Filtering of branches

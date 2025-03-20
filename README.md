@@ -1,6 +1,7 @@
 ![NPM Version](https://img.shields.io/npm/v/%40tomplum%2Freact-git-log?style=for-the-badge&logo=npm&color=red)
-![GitHub Release](https://img.shields.io/github/v/release/TomPlum/react-git-log?style=for-the-badge&logo=github)
+![GitHub Release](https://img.shields.io/github/v/release/TomPlum/react-git-log?style=for-the-badge&logo=github&color=lightgrey)
 ![NPM Type Definitions](https://img.shields.io/npm/types/%40tomplum%2Freact-git-log?style=for-the-badge&logo=typescript)
+![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40tomplum%2Freact-git-log?style=for-the-badge&logo=react&color=green)
 
 # :seedling: React Git Log
 
@@ -23,11 +24,11 @@ A flexible and interactive React component for visualising Git commit history. D
 
 # Features
 
-:seedling: Responsive commit history graph \
-:memo: Table with commit message and date \
-:bookmark: Branch and tagging information \
-:art: Custom theming API \
-:waning_crescent_moon: Dark and light modes
+- :seedling: Responsive commit history graph \
+- :memo: Table with commit message and date \
+- :bookmark: Branch and tagging information \
+- :art: Custom theming API \
+- :waning_crescent_moon: Dark and light modes
 
 ## Pagination
 

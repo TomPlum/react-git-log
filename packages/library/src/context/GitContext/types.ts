@@ -167,6 +167,10 @@ export interface GitContextBag {
    */
   theme: ThemeMode
 
+  /**
+   * The theme to apply the commit node
+   * elements in the graph.
+   */
   nodeTheme?: NodeTheme
 
   /**

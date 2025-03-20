@@ -125,6 +125,7 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 |-------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | `theme`                       | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                                                                 |
 | `colours`                     | `ThemeColours \| string[]`  | An array of colors used to color the log elements such as the graph. If not enough colors are provided, they will loop back from the start. |
+| `nodeTheme`                   | `NodeTheme`                 | The theme to apply the commit node elements in the graph.                                                                                   |
 | `showBranchesTags`            | `boolean`                   | Whether to show labels for nodes that are the tips of branches or tags in the graph.                                                        |
 | `showTable`                   | `boolean`                   | Whether to show a table of commit metadata on the right-hand side of the graph.                                                             |
 | `showCommitNodeHashes`        | `boolean`                   | Whether to show the commit hash next to the node in the graph.                                                                              |
@@ -155,6 +156,13 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 |--------|----------|-------------------------------------------------|
 | `size` | `number` | The number of rows to show per page.            |
 | `page` | `number` | The page number to display (first page is `0`). |
+
+### NodeTheme
+
+| Prop      | Type     | Description                                      |
+|-----------|----------|--------------------------------------------------|
+| `default` | `string` | The default theme where all nodes look the same. |
+| `merge`   | `string` | Merge nodes are distinctly different.            |
 
 # References
 - https://pvigier.github.io/2019/05/06/commit-graph-drawing-algorithms.html

@@ -3,7 +3,8 @@ import { resolve } from 'path'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import svgr from 'vite-plugin-svgr'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/react-git-log/' : '',
   plugins: [
     tsconfigPaths(),
     svgr(),
@@ -21,4 +22,4 @@ export default defineConfig({
       }
     }
   }
-})
+}))

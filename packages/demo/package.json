@@ -1,7 +1,7 @@
 {
   "name": "@tomplum/react-git-log-demo",
-  "private": true,
-  "version": "0.0.0",
+  "homepage": "https://tomplum.github.io/react-git-log/",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "tsc -b && vite build",

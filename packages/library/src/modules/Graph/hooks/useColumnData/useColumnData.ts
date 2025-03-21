@@ -171,6 +171,7 @@ export const useColumnData = (): GraphColumnData => {
 
       columnState[0] = {
         ...columnState[0],
+        isVerticalLine: true,
         isVerticalIndexLine: true
       }
     }

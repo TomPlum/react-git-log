@@ -1,13 +1,13 @@
 import classNames from 'classnames'
 import styles from './VerticalLine.module.scss'
-import { CSSProperties, useCallback } from 'react'
+import { CSSProperties, useMemo } from 'react'
 import { VerticalLineProps } from './types'
 import { useGitContext } from 'context/GitContext'
 
-export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCommitNodeBorder }: VerticalLineProps) => {
+export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCommitNodeBorder, isIndex }: VerticalLineProps) => {
   const { headCommit } = useGitContext()
   
-  const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
+  const verticalNodeLineStyles = useMemo<CSSProperties>(() => {
     const isRowCommitIndexNode = commit.hash === 'index'
     const rowsCommitIsHead = commit.hash === headCommit.hash && state.isNode
 
@@ -74,12 +74,12 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
       zIndex: columnIndex + 1,
       borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
     }
-  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit.hash, state.isNode, state.isColumnBelowEmpty, state.isPlaceholderSkeleton, state.isColumnAboveEmpty, columnIndex, indexCommitNodeBorder, columnColour])
+  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit.hash, state.isNode, state.isColumnBelowEmpty, state.isPlaceholderSkeleton, state.isColumnAboveEmpty, isIndex, columnIndex, indexCommitNodeBorder, columnColour])
 
   
   return (
     <div
-      style={verticalNodeLineStyles(true)}
+      style={verticalNodeLineStyles}
       className={classNames(styles.line, styles.vertical)}
     />
   )

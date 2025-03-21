@@ -11,6 +11,7 @@ import { LeftDownCurve } from 'modules/Graph/components/LeftDownCurve'
 import { LeftUpCurve } from 'modules/Graph/components/LeftUpCurve'
 import { HorizontalLine } from 'modules/Graph/components/HorizontalLine'
 import { VerticalLine } from 'modules/Graph/components/VerticalLine'
+import { HeadCommitVerticalLine } from 'src/modules/Graph/components/HeadCommitVerticalLine'
 
 // TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
@@ -162,21 +163,17 @@ export const GraphColumn = ({
         />
       )}
 
-      {/* This column contains a vertical branching line but is the HEAD commit (So only draw below the node) */}
+      {/* This column contains the HEAD commit, so only draw below a vertical line below the node */}
       {state.isVerticalLine && rowsCommitIsHead && (
-        <div
-          style={{
-            height: '50%',
-            top: '50%',
-            borderRight: `2px solid ${columnColour}`
-          }}
-          className={classNames(styles.line, styles.vertical)}
+        <HeadCommitVerticalLine
+          columnColour={columnColour}
         />
       )}
 
       {/* This column contains a vertical branching line but its from the HEAD commit to the index node */}
       {state.isVerticalIndexLine && (
         <VerticalLine
+          isIndex
           state={state}
           commit={commit}
           columnIndex={index}

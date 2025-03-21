@@ -1,0 +1,9 @@
+.line {
+  position: absolute;
+}
+
+.vertical {
+  left: calc(50% - 3px);
+  width: 2px;
+  z-index: 10;
+}

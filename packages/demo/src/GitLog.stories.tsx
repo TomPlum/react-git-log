@@ -15,6 +15,7 @@ import { rainbow } from 'themes.ts'
 import { RepositorySelector } from 'components/RepositorySelector'
 import { Loading } from 'components/Loading'
 import { PackageInfo } from 'components/PackageInfo'
+import { useArgs } from '@storybook/preview-api'
 
 const branches: Record<string, string> = {
   'TomPlum/sleep': 'release',
@@ -184,6 +185,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => {
+    const [, updateArgs] = useArgs<GitLogProps>()
+
     const [loading, setLoading] = useState(true)
 
     const [branch, setBranch] = useState('release')
@@ -213,14 +216,21 @@ export const Default: Story = {
       setEntries(newEntries)
       setRepository(selected)
       setBranch(branches[selected])
-    }, [getData])
+      updateArgs({
+        githubRepositoryUrl: `https://github.com/${repository}`,
+        currentBranch: branches[selected]
+      })
+    }, [getData, repository, updateArgs])
 
     const handleChangeColors = useCallback((selected: ColourSelection) => {
       setColours(selected)
     }, [])
 
     const backgroundColour = theme === 'dark' ? '#1a1a1a' : 'white'
-    const textColour = theme === 'dark' ? 'white' : '#1a1a1a'
+
+    const handleChangeTheme = useCallback((newTheme: ThemeMode) => {
+      setTheme(newTheme)
+    }, [])
 
     return (
       <div style={{ background: backgroundColour }} className={styles.container}>
@@ -245,7 +255,7 @@ export const Default: Story = {
 
             <ThemeToggle
               theme={theme}
-              onChange={setTheme}
+              onChange={handleChangeTheme}
             />
           </div>
 

@@ -156,10 +156,10 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 
 ### NodeTheme
 
-| Prop      | Type     | Description                                      |
-|-----------|----------|--------------------------------------------------|
-| `default` | `string` | The default theme where all nodes look the same. |
-| `merge`   | `string` | Merge nodes are distinctly different.            |
+| Prop      | Type     | Description                                                           |
+|-----------|----------|-----------------------------------------------------------------------|
+| `default` | `string` | The default theme where nodes change their style based on their type. |
+| `plain`   | `string` | All nodes look the same, except for their colours.                    |
 
 # References
 
@@ -185,3 +185,4 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 - Line curve radius prop?
 - Should we split the component in 3 sub-components with a wrapper, like `GitLog` and `GitLog.Graph` etc.?
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
+- Extract ThemeContext

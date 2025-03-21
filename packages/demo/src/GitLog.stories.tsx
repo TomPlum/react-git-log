@@ -186,6 +186,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => {
     const [, updateArgs] = useArgs<GitLogProps>()
+
     const [loading, setLoading] = useState(true)
 
     const [branch, setBranch] = useState('release')
@@ -227,6 +228,10 @@ export const Default: Story = {
 
     const backgroundColour = theme === 'dark' ? '#1a1a1a' : 'white'
 
+    const handleChangeTheme = useCallback((newTheme: ThemeMode) => {
+      setTheme(newTheme)
+    }, [])
+
     return (
       <div style={{ background: backgroundColour }} className={styles.container}>
         <div
@@ -250,7 +255,7 @@ export const Default: Story = {
 
             <ThemeToggle
               theme={theme}
-              onChange={setTheme}
+              onChange={handleChangeTheme}
             />
           </div>
 

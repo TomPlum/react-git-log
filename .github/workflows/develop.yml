@@ -26,9 +26,7 @@ jobs:
 
       - name: Get package version
         id: package_version
-        run: |
-          echo "VERSION=$(jq -r .version packages/react-git-log/package.json)" >> $GITHUB_ENV
-          ls -R
+        run: echo "VERSION=$(jq -r .version packages/react-git-log/package.json)" >> $GITHUB_ENV
 
       - name: Check if version exists on NPM
         id: check_version

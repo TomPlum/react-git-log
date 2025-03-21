@@ -9,6 +9,7 @@ import { useSelectCommit } from 'hooks/useSelectCommit'
 import { ColumnBackground } from 'modules/Graph/components/ColumnBackground'
 import { LeftDownCurve } from 'modules/Graph/components/LeftDownCurve'
 import { LeftUpCurve } from 'modules/Graph/components/LeftUpCurve'
+import { HorizontalLine } from 'modules/Graph/components/HorizontalLine'
 
 // TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
@@ -31,11 +32,6 @@ export const GraphColumn = ({
   const rowsCommitMatchesPreviewed = previewedCommit?.hash === commit.hash
   const rowsCommitMatchesSelected = selectedCommit?.hash === commit.hash
   const rowsCommitIsHead = commit.hash === headCommit.hash && state.isNode
-
-  // Furthest-right active branch takes precedence
-  const furtherRightMergeNodeColumnIndex = state?.mergeSourceColumns
-    ? Math.max(...state?.mergeSourceColumns ?? [])
-    : undefined
 
   const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
     // If the current column is the index pseudo-node
@@ -102,35 +98,6 @@ export const GraphColumn = ({
       borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
     }
   }, [columnColour, commit.isBranchTip, commit.parents.length, index, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isColumnAboveEmpty, state.isColumnBelowEmpty, state.isNode, state.isPlaceholderSkeleton])
-
-  const horizontalNodeLineStyles = useMemo<CSSProperties>(() => {
-    const borderColour = state.isPlaceholderSkeleton
-      ? columnColour
-      : getGraphColumnColour(furtherRightMergeNodeColumnIndex ?? commitNodeIndex)
-
-    // Border is dotted for the skeleton placeholder elements.
-    const borderStyle = state.isPlaceholderSkeleton ? 'dotted' : 'solid'
-
-    // If this column has a node and is being merged into from another,
-    // then we don't need to draw to the left of the node, just connect
-    // to the right side horizontal line.
-    if (state.isNode && state.mergeSourceColumns) {
-      return {
-        borderTop: `2px ${borderStyle} ${borderColour}`,
-        width: '50%',
-        right: 0,
-        zIndex: index + 1
-      }
-    }
-
-    // If no other conditions are met then we can draw a
-    // full-width horizontal line.
-    return {
-      borderTop: `2px ${borderStyle} ${borderColour}`,
-      width: index === 0 ? '50%' : '100%',
-      zIndex: index + 1
-    }
-  }, [columnColour, commitNodeIndex, furtherRightMergeNodeColumnIndex, getGraphColumnColour, index, state.isNode, state.isPlaceholderSkeleton, state.mergeSourceColumns])
 
   const showPreviewBackground = useMemo(() => {
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash
@@ -216,9 +183,11 @@ export const GraphColumn = ({
 
       {/* This column contains a horizontal branching line (full column width) */}
       {state.isHorizontalLine && (
-        <div
-          style={horizontalNodeLineStyles}
-          className={classNames(styles.line, styles.horizontal)}
+        <HorizontalLine
+          state={state}
+          columnIndex={index}
+          columnColour={columnColour}
+          commitNodeIndex={commitNodeIndex}
         />
       )}
 

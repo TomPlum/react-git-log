@@ -7,6 +7,7 @@ import { useColumnData } from 'modules/Graph/hooks/useColumnData'
 import { SkeletonGraph } from 'modules/Graph/components/SkeletonGraph'
 import { useResize } from 'hooks/useResize'
 import { ROW_HEIGHT } from 'constants/constants'
+import { placeholderCommits } from 'modules/Graph/hooks/usePlaceholderData/data'
 
 export const Graph = () => {
   const {
@@ -26,9 +27,9 @@ export const Graph = () => {
   const commitQuantity = useMemo(() => {
     // If there is no data being show, then we'll
     // be rendering the skeleton graph placeholder which
-    // shows 10 fake commits.
+    // shows fake commits.
     if (visibleCommits.length === 0) {
-      return 10
+      return placeholderCommits.length
     }
 
     // If the index node is visible then we show one

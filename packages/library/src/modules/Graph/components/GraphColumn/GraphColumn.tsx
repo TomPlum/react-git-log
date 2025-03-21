@@ -15,6 +15,7 @@ import { IndexPseudoCommitNode } from 'modules/Graph/components/IndexPseudoCommi
 
 export const GraphColumn = ({
   index,
+  rowIndex,
   state,
   commit,
   commitNodeIndex
@@ -59,9 +60,10 @@ export const GraphColumn = ({
   return (
     <div
       className={styles.column}
-      id={`graph_column_${index}_${commit.hash}`}
+      id={`graph-column-row-${rowIndex}-col-${index}`}
       onMouseOut={() => selectCommitHandler.onMouseOut()}
       onClick={() => selectCommitHandler.onClick(commit)}
+      data-testid={`graph-column-row-${rowIndex}-col-${index}`}
       onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
     >
       {/* This column contains a node (and it's not the git index pseudo-node) */}

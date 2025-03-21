@@ -43,6 +43,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
+    "src/_test/vitest.setup.ts"
   ],
   "exclude": [
     "node_modules",

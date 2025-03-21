@@ -60,6 +60,7 @@ export default defineConfig({
         classNameStrategy: 'non-scoped'
       }
     },
+    setupFiles: ['./src/_test/vitest.setup.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],

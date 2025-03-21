@@ -61,6 +61,8 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
         className={styles.commitNode}
+        id={`commit-node-${commit.hash}`}
+        data-testid={`commit-node-${commit.hash}`}
         onClick={() => selectCommitHandler.onClick(commit)}
       >
         {isMergeCommit && (

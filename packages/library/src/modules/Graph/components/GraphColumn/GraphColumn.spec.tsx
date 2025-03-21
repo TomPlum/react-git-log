@@ -17,12 +17,14 @@ describe('GraphColumn', () => {
       }
     })
 
+    const columnsRowCommit = commit()
+
     render(
       <GraphColumn
         index={0}
         state={{}}
         rowIndex={0}
-        commit={commit()}
+        commit={columnsRowCommit}
         commitNodeIndex={0}
       />
     )
@@ -42,6 +44,62 @@ describe('GraphColumn', () => {
     fireEvent.click(columnElement)
     expect(onMouseOverHandler).toHaveBeenCalledOnce()
     expect(onMouseOutHandler).toHaveBeenCalledOnce()
-    expect(onClickHandler).toHaveBeenCalledOnce()
+    expect(onClickHandler).toHaveBeenCalledExactlyOnceWith(columnsRowCommit)
+  })
+
+  it('should render a node commit if the column state has a node, but is not the index node', () => {
+    render(
+      <GraphColumn
+        index={0}
+        rowIndex={0}
+        commitNodeIndex={0}
+        state={{ isNode: true }} // <-- is a commit node
+        commit={commit({ hash: 'not-index' })} // <-- and is not the index
+      />
+    )
+
+    expect(screen.getByTestId('commit-node-not-index')).toBeInTheDocument()
+  })
+
+  it('should not render a node commit if the column state has a node, is the index node', () => {
+    render(
+      <GraphColumn
+        index={0}
+        rowIndex={0}
+        commitNodeIndex={0}
+        state={{ isNode: true }} // <-- is a commit node
+        commit={commit({ hash: 'index' })} // <-- but is the index
+      />
+    )
+
+    expect(screen.queryByTestId('commit-node-index')).not.toBeInTheDocument()
+  })
+
+  it('should not render a node commit if the column state is the index node but does not contain a commit node', () => {
+    render(
+      <GraphColumn
+        index={0}
+        rowIndex={0}
+        commitNodeIndex={0}
+        state={{ isNode: false }} // <-- is not a commit node
+        commit={commit({ hash: 'index' })} // <-- and is the index
+      />
+    )
+
+    expect(screen.queryByTestId('commit-node-index')).not.toBeInTheDocument()
+  })
+
+  it('should not render a node commit if the column state has no commit or index node', () => {
+    render(
+      <GraphColumn
+        index={0}
+        rowIndex={0}
+        commitNodeIndex={0}
+        state={{ isNode: false }} // <-- is not a commit node
+        commit={commit({ hash: 'not-index' })} // <-- nor the index
+      />
+    )
+
+    expect(screen.queryByTestId('commit-node-not-index')).not.toBeInTheDocument()
   })
 })

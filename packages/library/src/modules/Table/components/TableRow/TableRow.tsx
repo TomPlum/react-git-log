@@ -32,21 +32,33 @@ export const TableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) => {
     const colour = getCommitColour(commit)
 
     if (selectedCommit?.hash === commit.hash) {
+      if (isPlaceholder) {
+        return {
+          background: hoverColour
+        }
+      }
+
       return {
         background: reduceOpacity(colour, 0.15)
       }
     }
 
     if (previewedCommit?.hash === commit.hash) {
+      if (isPlaceholder) {
+        return {
+          background: hoverColour
+        }
+      }
+
       return {
-        background: hoverColour,
+        background: hoverColour
       }
     }
 
     return {
       background: 'transparent'
     }
-  }, [getCommitColour, commit, selectedCommit?.hash, previewedCommit?.hash, reduceOpacity, hoverColour])
+  }, [isPlaceholder, getCommitColour, commit, selectedCommit?.hash, previewedCommit?.hash, reduceOpacity, hoverColour])
 
   const formatTimestamp = useCallback((dateString: string) => {
     const commitDate = dayjs(dateString)
@@ -58,10 +70,11 @@ export const TableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) => {
     return commitDate.fromNow()
   }, [timestampFormat])
 
+  const shouldReduceOpacity = !isPlaceholder && (isMergeCommit || commit.hash === 'index')
+
   const tableDataStyle = {
     lineHeight: `${ROW_HEIGHT}px`,
-    opacity: isPlaceholder ? 0.2 : 1,
-    color: shiftAlphaChannel(textColour, isMergeCommit || commit.hash === 'index' ? 0.4 : 1)
+    color: shiftAlphaChannel(textColour, shouldReduceOpacity ? 0.4 : 1)
   }
 
   return (

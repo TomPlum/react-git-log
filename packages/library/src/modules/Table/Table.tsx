@@ -40,10 +40,17 @@ export const Table = () => {
   }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
 
   const gridTemplateRows = useMemo(() => {
+    // If no commits are visible as we're showing
+    // the placeholder data for the skeleton view,
+    // then use that size, else just use the log data length.
+    const commitsVisible = logData.length > 0
+      ? logData.length
+      : 10
+
     // If the table headers are turned off, then we simply
     // repeat the same row height for all rows.
     if (!showTableHeaders) {
-      return `repeat(${logData.length}, ${ROW_HEIGHT}px)`
+      return `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
     }
 
     // With no row spacing, the header row height lines
@@ -54,7 +61,7 @@ export const Table = () => {
     const headerRowHeight = HEADER_ROW_HEIGHT - (rowSpacing / 2)
 
     // All other rows (with data) get a fixed height.
-    const remainingRowsHeight = `repeat(${logData.length}, ${ROW_HEIGHT}px)`
+    const remainingRowsHeight = `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
 
     return `${headerRowHeight}px ${remainingRowsHeight}`
   }, [logData.length, rowSpacing, showTableHeaders])

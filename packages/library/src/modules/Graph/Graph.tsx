@@ -17,12 +17,30 @@ export const Graph = () => {
   } = useGitContext()
 
   const { width, ref, startResizing } = useResize()
-
   const { columnData, getEmptyColumnState } = useColumnData()
 
   const visibleCommits = useMemo(() => {
     return commits.slice(paging.startIndex, paging.endIndex)
   }, [commits, paging])
+
+  const commitQuantity = useMemo(() => {
+    // If there is no data being show, then we'll
+    // be rendering the skeleton graph placeholder which
+    // shows 10 fake commits.
+    if (visibleCommits.length === 0) {
+      return 10
+    }
+
+    // If the index node is visible then we show one
+    // extra commit in the form of the index pseudo-node.
+    if (paging.isIndexVisible) {
+      return visibleCommits.length + 1
+    }
+
+    // Else, just the number of visible commits, relative
+    // to the current pagination configuration.
+    return visibleCommits.length
+  }, [paging.isIndexVisible, visibleCommits.length])
 
   return (
     <div className={styles.container} style={{ width }} ref={ref}>
@@ -30,8 +48,7 @@ export const Graph = () => {
         className={styles.graph}
         style={{
           gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
-          // +1 to length to include index. TODO: If add enableIndex prop, drive the +1 with it
-          gridTemplateRows: `repeat(${visibleCommits.length + 1}, ${ROW_HEIGHT + rowSpacing}px)`
+          gridTemplateRows: `repeat(${commitQuantity}, ${ROW_HEIGHT + rowSpacing}px)`
         }}
       >
         {visibleCommits.length === 0 && (

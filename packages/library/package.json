@@ -68,5 +68,21 @@
     "defaults",
     "not dead",
     "maintained node versions"
+  ],
+  "keywords": [
+    "react",
+    "git",
+    "git-log",
+    "visualization",
+    "react-component",
+    "git-history",
+    "commit-graph",
+    "react-git",
+    "react-visualization",
+    "branching",
+    "git-graph",
+    "react-git-graph",
+    "version-control",
+    "git-ui"
   ]
 }

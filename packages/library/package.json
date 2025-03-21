@@ -18,6 +18,7 @@
     "build:watch": "tsc --project tsconfig.json --watch",
     "preview": "vite preview",
     "test": "vitest --watch",
+    "test:ci": "vitest --run --reporter=verbose",
     "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

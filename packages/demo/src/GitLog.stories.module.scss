@@ -1,7 +1,14 @@
 .container {
   padding: 20px;
   box-sizing: border-box;
+  display: flex;
   height: 100%;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.gitLogContainer {
+  flex: 1;
 }
 
 .loading {

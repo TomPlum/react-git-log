@@ -11,7 +11,7 @@ export const CurvedEdge = ({ colour, path, dashed }: CurvedEdgeProps) => {
         strokeWidth="2"
         fill="transparent"
         vectorEffect='non-scaling-stroke'
-        strokeDasharray={dashed ? '3 4': undefined}
+        strokeDasharray={dashed ? '2 2': undefined}
       />
     </svg>
   )

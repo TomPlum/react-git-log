@@ -65,8 +65,6 @@ export const GraphColumn = ({
     // has no parents, then it must be the first commit
     // in the graph, so just draw a solid line above it.
     const isFirstCommit = state.isNode && commit.parents.length === 0
-    // Or if we're a merge target node that closed a branch
-    // const isMergeTarget = state.isNode && state.mergeSourceNodeColumnIndex // TODO: Are we gonna use this?
     if (isFirstCommit || state.isColumnBelowEmpty) {
       return {
         top: 0,
@@ -229,7 +227,7 @@ export const GraphColumn = ({
         <ColumnBackground
           index={index}
           commitNodeIndex={commitNodeIndex}
-          colour={reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)}
+          colour={state.isPlaceholderSkeleton ? hoverColour : reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)}
         />
       )}
 

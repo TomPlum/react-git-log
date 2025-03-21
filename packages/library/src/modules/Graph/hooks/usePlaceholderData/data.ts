@@ -1,7 +1,7 @@
 import { Commit } from 'types'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 
-export const commits: Commit[] = [
+export const placeholderCommits: Commit[] = [
   {
     hash: 'aa2c148',
     committerDate: '2025-02-24T22:06:22+00:00',

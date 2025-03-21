@@ -8,9 +8,9 @@ export const PackageInfo = ({ theme }: PackageInfoProps) => {
   return (
     <a href='https://github.com/TomPlum/react-git-log' className={styles.info}>
       <div className={styles.top}>
-        <a className={styles.packageName}>
+        <span className={styles.packageName}>
           react-git-log
-        </a>
+        </span>
       </div>
 
       <div className={styles.bottom}>

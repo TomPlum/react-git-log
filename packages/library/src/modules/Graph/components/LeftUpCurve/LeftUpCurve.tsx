@@ -6,6 +6,8 @@ import { LeftUpCurveProps } from './types'
 
 export const LeftUpCurve = ({ color, isPlaceholder }: LeftUpCurveProps) => {
   const { rowSpacing } = useGitContext()
+
+  const borderStyle = isPlaceholder ? 'dotted' : 'solid'
   
   return (
     <>
@@ -14,7 +16,7 @@ export const LeftUpCurve = ({ color, isPlaceholder }: LeftUpCurveProps) => {
         style={{
           top: 0,
           left: 'calc(50% - 1px)',
-          borderRight: `2px solid ${color}`,
+          borderRight: `2px ${borderStyle} ${color}`,
           height: (ROW_HEIGHT + rowSpacing - NODE_WIDTH) / 2
         }}
       />
@@ -29,7 +31,7 @@ export const LeftUpCurve = ({ color, isPlaceholder }: LeftUpCurveProps) => {
           left: 0,
           top: '50%',
           height: 0,
-          borderBottom: `2px solid ${color}`,
+          borderBottom: `2px ${borderStyle} ${color}`,
           width: `calc(50% - ${NODE_WIDTH / 2}px)`
         }}
       />

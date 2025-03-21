@@ -1,0 +1,136 @@
+![NPM Version](https://img.shields.io/npm/v/%40tomplum%2Freact-git-log?style=for-the-badge&logo=npm&color=red&logoColor=red)
+![GitHub Release](https://img.shields.io/github/v/release/TomPlum/react-git-log?style=for-the-badge&logo=github&color=green)
+![NPM Type Definitions](https://img.shields.io/npm/types/%40tomplum%2Freact-git-log?style=for-the-badge&logo=typescript)
+![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40tomplum%2Freact-git-log?style=for-the-badge&logo=vite&color=gold&logoColor=gold)
+
+# :seedling: React Git Log
+
+A flexible and interactive React component for visualising Git commit history. Displays a branching graph alongside commit, branch and tag metadata, with support for customised theming.
+
+# Features
+
+- :seedling: Responsive commit history graph
+- :memo: Table with commit message and date
+- :bookmark: Branch and tagging information
+- :art: Custom theming API
+- :waning_crescent_moon: Dark and light modes
+
+# Using the component
+
+1. Install the package using your preferred package manager.
+
+   Using npm
+    ```shell
+    npm install @tomplum/react-git-log
+    ```
+
+   Using yarn
+    ```shell
+    yarn add @tomplum/react-git-log
+    ```
+
+   Using pnpm
+    ```shell
+    pnpm add @tomplum/react-git-log
+    ```
+
+2. Make sure that `react` and `react-dom` are installed in your project, as they are peer dependencies.
+
+   ```shell
+   npm install react react-dom
+   ```
+
+3. Render the component in your application.
+
+   Below is an example `YourConsumer.tsx` component that is using `GitLog`. See the [required](#required) component props to get started and the [optional](#optional) props for further configuration and theming.
+
+    ```typescript jsx
+    import { GitLog } from "@tomplum/react-git-log"
+    
+    const YourConsumer = () => {
+      const { entries, currentBranch } = useYourDataSource()
+      
+      return (
+        <GitLog
+          entries={entries} // <-- Pass the git log entry data in
+          currentBranch={currentBranch} // <-- Tell it the branch that is checked out
+        />
+      )
+    }
+    ```
+
+# Git Log Data
+
+The array of `GitLogEntry` objects is the source of data used by the `GitLog` component. It has the following properties:
+
+| Property        | Type       | Description                                                                                                                                   |
+|-----------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| `hash`          | `string`   | The unique hash identifier of the commit.                                                                                                     |
+| `branch`        | `string`   | The name of the branch this commit belongs to.                                                                                                |
+| `parents`       | `string[]` | An array of parent commit hashes. If this is a merge commit, it will have multiple parents. If it's an initial commit, it will have none.     |
+| `message`       | `string`   | The commit message describing the changes made in this commit.                                                                                |
+| `committerDate` | `string`   | The date and time when the commit was applied by the committer. Typically the timestamp when the commit was finalized.                        |
+| `authorDate`    | `string?`  | *(Optional)* The date and time when the commit was originally authored. May differ from `committerDate` if the commit was rebased or amended. |
+
+> [!TIP]
+> Usually you'd be sourcing this data from a backend service like a web-api, but you can extract it from the command line with the following command.
+
+```bash
+git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,msg:%s,cdate:%cd,adate:%ad' --date=iso >> git-log.txt
+```
+
+This will write `git-log.txt` in the directory where you ran the command. It can be passed to the `parseGitLog.ts` function from the library to produce an array of `GitLogEntry`.
+
+# Component Props
+
+## Required
+
+| Prop                          | Type                        | Description                                                                                                                                 |
+|-------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| `entries`                     | `GitLogEntry[]`             | The git log entries to visualize on the graph.                                                                                              |
+| `currentBranch`               | `string`                    | The name of the branch that is currently checked out.                                                                                       |
+
+## Optional
+
+| Prop                          | Type                        | Description                                                                                                                                 |
+|-------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| `theme`                       | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                                                                 |
+| `colours`                     | `ThemeColours \| string[]`  | An array of colors used to color the log elements such as the graph. If not enough colors are provided, they will loop back from the start. |
+| `nodeTheme`                   | `NodeTheme`                 | The theme to apply the commit node elements in the graph.                                                                                   |
+| `showBranchesTags`            | `boolean`                   | Whether to show labels for nodes that are the tips of branches or tags in the graph.                                                        |
+| `showTable`                   | `boolean`                   | Whether to show a table of commit metadata on the right-hand side of the graph.                                                             |
+| `showCommitNodeHashes`        | `boolean`                   | Whether to show the commit hash next to the node in the graph.                                                                              |
+| `showCommitNodeTooltips`      | `boolean`                   | Whether to show tooltips when hovering over a commit node in the graph.                                                                     |
+| `showTableHeaders`            | `boolean`                   | Whether to show the names of the elements at the top of the component (e.g., "Graph", "Commit message").                                    |
+| `enableExperimentalAnimation` | `boolean`                   | Enables Framer Motion animation for simple fading transitions. Experimental feature.                                                        |
+| `enableResize`                | `boolean`                   | Enables the graph's horizontal width to be resized. (Default: `false`)                                                                      |
+| `rowSpacing`                  | `number`                    | The spacing between the rows of the log, affecting all elements across branches, graph, and table. (Default: `0`)                           |
+| `githubRepositoryUrl`         | `string`                    | A link to the GitHub repository from which the log entries came. Enables links for commits, tags, and PRs.                                  |
+| `defaultGraphContainerWidth`  | `number`                    | The default width of the graph in pixels. (Default: `300`)                                                                                  |
+| `timestampFormat`             | `string`                    | A timestamp format string passed to DayJS to format commit timestamps. (Default: `ISO-8601`)                                                |
+| `onSelectCommit`              | `(commit?: Commit) => void` | A callback function invoked when a commit is selected or unselected.                                                                        |
+| `classes`                     | `GitLogStylingProps`        | CSS classes for various underlying elements for custom styling.                                                                             |
+| `paging`                      | `GitLogPaging`              | Optional paging information to show a window of the given size from the set of git log entries.                                             |
+
+### GitLogStylingProps
+
+| Prop              | Type                                                                                        | Description                                             |
+|-------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| `containerClass`  | `string`                                                                                    | A class name for the wrapping container around the log. |
+| `containerStyles` | `CSSProperties`                                                                             | A React CSS styling object for the wrapping container.  |
+| `logTableClass`   | `string`                                                                                    | A class name for the table element in the git log.      |
+| `logTableStyles`  | `{ table?: CSSProperties; thead?: CSSProperties; tr?: CSSProperties; td?: CSSProperties; }` | A React CSS styling object for the git log table.       |
+
+### GitLogPaging
+
+| Prop   | Type     | Description                                     |
+|--------|----------|-------------------------------------------------|
+| `size` | `number` | The number of rows to show per page.            |
+| `page` | `number` | The page number to display (first page is `0`). |
+
+### NodeTheme
+
+| Prop      | Type     | Description                                                           |
+|-----------|----------|-----------------------------------------------------------------------|
+| `default` | `string` | The default theme where nodes change their style based on their type. |
+| `plain`   | `string` | All nodes look the same, except for their colours.                    |

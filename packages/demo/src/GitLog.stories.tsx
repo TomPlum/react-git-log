@@ -283,6 +283,7 @@ export const Default: Story = {
               containerStyles: {
                 background: backgroundColour
               },
+              containerClass: styles.gitLogContainer,
               logTableClass: styles.table
             }}
           />

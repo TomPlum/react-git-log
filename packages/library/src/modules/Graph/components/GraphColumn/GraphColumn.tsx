@@ -3,7 +3,6 @@ import { CommitNode } from 'modules/Graph/components/CommitNode'
 import styles from './GraphColumn.module.scss'
 import { useTheme } from 'hooks/useTheme'
 import { useMemo } from 'react'
-import classNames from 'classnames'
 import { useGitContext } from 'context/GitContext'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import { ColumnBackground } from 'modules/Graph/components/ColumnBackground'
@@ -12,8 +11,8 @@ import { LeftUpCurve } from 'modules/Graph/components/LeftUpCurve'
 import { HorizontalLine } from 'modules/Graph/components/HorizontalLine'
 import { VerticalLine } from 'modules/Graph/components/VerticalLine'
 import { HeadCommitVerticalLine } from 'src/modules/Graph/components/HeadCommitVerticalLine'
+import { IndexPseudoCommitNode } from 'modules/Graph/components/IndexPseudoCommitNode'
 
-// TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
   index,
   state,
@@ -75,15 +74,9 @@ export const GraphColumn = ({
 
       {/* This column contains a node (and it's the git index pseudo-node) */}
       {state.isNode && isRowCommitIndexNode && (
-        <div
-          className={classNames(
-            styles.indexNode,
-            { [styles.spin]: (rowsCommitMatchesPreviewed || rowsCommitMatchesSelected) },
-          )}
-          style={{
-            border: `2px dotted ${shiftAlphaChannel(columnColour, 0.5)}`,
-            backgroundColor: shiftAlphaChannel(columnColour, 0.05),
-          }}
+        <IndexPseudoCommitNode
+          columnColour={columnColour}
+          animate={rowsCommitMatchesPreviewed || rowsCommitMatchesSelected}
         />
       )}
 
@@ -122,7 +115,10 @@ export const GraphColumn = ({
         <ColumnBackground
           index={index}
           commitNodeIndex={commitNodeIndex}
-          colour={state.isPlaceholderSkeleton ? hoverColour : reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)}
+          colour={state.isPlaceholderSkeleton
+            ? hoverColour
+            : reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
+          }
         />
       )}
 

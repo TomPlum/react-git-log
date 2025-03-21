@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import styles from 'modules/Graph/components/GraphColumn/GraphColumn.module.scss'
+import styles from './HeadCommitVerticalLine.module.scss'
 import { HeadCommitVerticalLineProps } from './types'
 
 export const HeadCommitVerticalLine = ({ columnColour }: HeadCommitVerticalLineProps) => {

@@ -156,10 +156,10 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 
 ### NodeTheme
 
-| Prop      | Type     | Description                                      |
-|-----------|----------|--------------------------------------------------|
-| `default` | `string` | The default theme where all nodes look the same. |
-| `merge`   | `string` | Merge nodes are distinctly different.            |
+| Prop      | Type     | Description                                                           |
+|-----------|----------|-----------------------------------------------------------------------|
+| `default` | `string` | The default theme where nodes change their style based on their type. |
+| `plain`   | `string` | All nodes look the same, except for their colours.                    |
 
 # References
 

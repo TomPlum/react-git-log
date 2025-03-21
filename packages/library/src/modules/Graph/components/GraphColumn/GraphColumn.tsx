@@ -10,6 +10,7 @@ import { ColumnBackground } from 'modules/Graph/components/ColumnBackground'
 import { LeftDownCurve } from 'modules/Graph/components/LeftDownCurve'
 import { LeftUpCurve } from 'modules/Graph/components/LeftUpCurve'
 import { HorizontalLine } from 'modules/Graph/components/HorizontalLine'
+import { VerticalLine } from 'modules/Graph/components/VerticalLine'
 
 // TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
@@ -175,9 +176,12 @@ export const GraphColumn = ({
 
       {/* This column contains a vertical branching line but its from the HEAD commit to the index node */}
       {state.isVerticalIndexLine && (
-        <div
-          style={verticalNodeLineStyles(true)}
-          className={classNames(styles.line, styles.vertical)}
+        <VerticalLine
+          state={state}
+          commit={commit}
+          columnIndex={index}
+          columnColour={columnColour}
+          indexCommitNodeBorder={indexCommitNodeBorder}
         />
       )}
 

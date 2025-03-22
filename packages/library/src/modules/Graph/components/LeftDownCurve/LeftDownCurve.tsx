@@ -10,9 +10,9 @@ export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {
   const borderStyle = isPlaceholder ? 'dotted' : 'solid'
   
   return (
-    <>
+    <div id='left-down-curve' data-testid='left-down-curve' className={styles.container}>
       <div
-        className={styles.curve}
+        className={styles.line}
         style={{
           bottom: 0,
           left: 'calc(50% - 1px)',
@@ -28,7 +28,7 @@ export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {
       />
 
       <div
-        className={styles.curve}
+        className={styles.line}
         style={{
           left: 0,
           top: '50%',
@@ -37,6 +37,6 @@ export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {
           width: `calc(50% - ${NODE_WIDTH / 2}px)`
         }}
       />
-    </>
+    </div>
   )
 }

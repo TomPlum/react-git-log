@@ -8,6 +8,8 @@ export const IndexPseudoCommitNode = ({ animate, columnColour }: IndexPseudoComm
 
   return (
     <div
+      id='index-pseudo-commit-node'
+      data-testid='index-pseudo-commit-node'
       className={classNames(
         styles.indexNode,
         { [styles.spin]: animate },

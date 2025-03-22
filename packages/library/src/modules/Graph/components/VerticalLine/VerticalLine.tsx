@@ -7,7 +7,7 @@ import { useGitContext } from 'context/GitContext'
 export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCommitNodeBorder, isIndex }: VerticalLineProps) => {
   const { headCommit } = useGitContext()
   
-  const verticalNodeLineStyles = useMemo<CSSProperties>(() => {
+  const { style, variant } = useMemo<{ style: CSSProperties, variant: string }>(() => {
     const isRowCommitIndexNode = commit.hash === 'index'
     const rowsCommitIsHead = commit.hash === headCommit.hash && state.isNode
 
@@ -16,10 +16,13 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
     // eventually meet with the HEAD commit of the current branch.
     if (isRowCommitIndexNode) {
       return {
-        top: '50%',
-        height: '50%',
-        zIndex: columnIndex + 1,
-        borderRight: `2px dotted ${indexCommitNodeBorder}`
+        variant: 'bottom-half-dotted',
+        style: {
+          top: '50%',
+          height: '50%',
+          zIndex: columnIndex + 1,
+          borderRight: `2px dotted ${indexCommitNodeBorder}`
+        }
       }
     }
 
@@ -28,9 +31,12 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
     // ultimately hit the index pseudo-node above.
     if (rowsCommitIsHead) {
       return {
-        height: '50%',
-        top: 0,
-        borderRight: `2px dotted ${indexCommitNodeBorder}`
+        variant: 'top-half-dotted',
+        style: {
+          height: '50%',
+          top: 0,
+          borderRight: `2px dotted ${indexCommitNodeBorder}`
+        }
       }
     }
 
@@ -40,10 +46,13 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
     const isFirstCommit = state.isNode && commit.parents.length === 0
     if (isFirstCommit || state.isColumnBelowEmpty) {
       return {
-        top: 0,
-        height: '50%',
-        zIndex: columnIndex + 1,
-        borderRight: `2px solid ${columnColour}`
+        variant: 'top-half',
+        style: {
+          top: 0,
+          height: '50%',
+          zIndex: columnIndex + 1,
+          borderRight: `2px solid ${columnColour}`
+        }
       }
     }
 
@@ -58,10 +67,13 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
     const isBranchTip = commit.isBranchTip && state.isNode
     if (isBranchTip || state.isColumnAboveEmpty) {
       return {
-        top: '50%',
-        height: '50%',
-        zIndex: columnIndex + 1,
-        borderRight: `2px ${borderStyle} ${columnColour}`
+        variant: 'bottom-half',
+        style: {
+          top: '50%',
+          height: '50%',
+          zIndex: columnIndex + 1,
+          borderRight: `2px ${borderStyle} ${columnColour}`
+        }
       }
     }
 
@@ -69,17 +81,22 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
     // we must be in a column with no commit node, and
     // so we draw a line the full height of the column.
     return {
-      top: 0,
-      height: '100%',
-      zIndex: columnIndex + 1,
-      borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
+      variant: 'full-height',
+      style: {
+        top: 0,
+        height: '100%',
+        zIndex: columnIndex + 1,
+        borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
+      }
     }
   }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit.hash, state.isNode, state.isColumnBelowEmpty, state.isPlaceholderSkeleton, state.isColumnAboveEmpty, isIndex, columnIndex, indexCommitNodeBorder, columnColour])
 
   
   return (
     <div
-      style={verticalNodeLineStyles}
+      style={style}
+      id={`vertical-line-${variant}`}
+      data-testid={`vertical-line-${variant}`}
       className={classNames(styles.line, styles.vertical)}
     />
   )

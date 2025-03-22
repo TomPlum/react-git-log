@@ -64,8 +64,13 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
+      include: [
+        'src'
+      ],
       exclude: [
-        'node_modules/'
+        'node_modules/',
+        'dist',
+        'src/_test'
       ]
     }
   }

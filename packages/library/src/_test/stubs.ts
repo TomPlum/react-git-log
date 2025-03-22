@@ -3,6 +3,7 @@ import { GitContextBag } from 'context/GitContext'
 import DataIntervalTree from 'node-interval-tree'
 import { ThemeFunctions } from 'hooks/useTheme'
 import { GraphData } from 'data'
+import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 
 export const commit = (commit?: Partial<Commit>) => ({
   hash: 'aa2c148',
@@ -64,4 +65,17 @@ export const graphData = (data?: Partial<GraphData>): GraphData => ({
   edges: new DataIntervalTree(),
   children: new Map(),
   ...data
+})
+
+export const graphColumnState = (state?: Partial<GraphColumnState>): GraphColumnState => ({
+  isNode: false,
+  isPlaceholderSkeleton: false,
+  isLeftUpCurve: false,
+  isLeftDownCurve: false,
+  isHorizontalLine: false,
+  isVerticalLine: false,
+  isVerticalIndexLine: false,
+  isColumnBelowEmpty: false,
+  isColumnAboveEmpty: false,
+  ...state
 })

@@ -272,7 +272,8 @@ describe('GraphColumn', () => {
       const selectedCommit = commit({ hash: 'selected-commit' })
 
       vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
-        selectedCommit
+        selectedCommit,
+        showTable: true // <-- the table is shown
       }))
 
       render(
@@ -292,7 +293,8 @@ describe('GraphColumn', () => {
       const selectedCommit = commit({ hash: 'selected-commit' })
 
       vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
-        selectedCommit
+        selectedCommit,
+        showTable: true // <-- the table is shown
       }))
 
       render(
@@ -308,6 +310,48 @@ describe('GraphColumn', () => {
       )
 
       expect(graphColumn.withBackground({ column: 2, shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should render a column background when the table is not shown if the commit on this row is in this column', () => {
+      const selectedCommit = commit({ hash: 'selected-commit' })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        selectedCommit,
+        showTable: false // <-- the table is not shown
+      }))
+
+      render(
+        <GraphColumn
+          index={7} // <-- This column is index 7 in the row
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={7} // <-- the commit on this row is also in this column
+          commit={selectedCommit} // <-- The selected commit is on this columns row
+        />
+      )
+
+      expect(graphColumn.withBackground({ column: 7 })).toBeInTheDocument()
+    })
+
+    it('should not render a column background if the the table is not shown and the commit on this row is in a different column', () => {
+      const selectedCommit = commit({ hash: 'selected-commit' })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        selectedCommit,
+        showTable: false // <-- the table is not shown
+      }))
+
+      render(
+        <GraphColumn
+          index={7} // <-- This column is index 7 in the row
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={2} // <-- the commit on this row is in a different column
+          commit={selectedCommit} // <-- The selected commit is on this columns row
+        />
+      )
+
+      expect(graphColumn.withBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
     })
   })
 })

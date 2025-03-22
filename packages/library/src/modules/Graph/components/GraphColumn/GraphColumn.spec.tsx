@@ -74,6 +74,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a pseudo commit node if the column state has a node and is the index node', () => {
@@ -97,6 +98,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a commit node if the column state is the index node but does not contain a commit node', () => {
@@ -118,6 +120,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a commit node if the column state has no commit or index node', () => {
@@ -139,6 +142,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
   })
 
@@ -152,7 +156,6 @@ describe('GraphColumn', () => {
           commitNodeIndex={0}
           state={{
             isVerticalLine: true, // <-- is a vertical line
-            isVerticalIndexLine: false // <-- but is not drawn from the index node
           }}
         />
       )
@@ -167,6 +170,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a full height dotted vertical line if the state has a vertical line and index line', () => {
@@ -186,6 +190,36 @@ describe('GraphColumn', () => {
       const verticalLine = graphColumn.withFullHeightVerticalLine()
       expect(verticalLine).toBeInTheDocument()
       expect(getComputedStyle(verticalLine).borderRightStyle).toBe('dotted')
+
+      expect(graphColumn.withCommitNode({ hash: 'not-index', shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should render a solid half-height vertical line if the rows commit is the head and this column has its node', () => {
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        headCommit: commit({ hash: 'HEAD' }),
+      }))
+
+      render(
+        <GraphColumn
+          index={0}
+          rowIndex={0}
+          commitNodeIndex={0}
+          commit={commit({ hash: 'HEAD' })} // <-- HEAD commit in this column
+          state={{
+            isVerticalLine: true, // <-- has a vertical line
+            isNode: true // <-- this column has the node
+          }}
+        />
+      )
+
+      expect(graphColumn.withHeadCommitVerticalLine()).toBeInTheDocument()
 
       expect(graphColumn.withCommitNode({ hash: 'not-index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
@@ -221,6 +255,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a right half solid horizontal line if the column has a commit and is the target of a merge', () => {
@@ -256,6 +291,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a right half dotted horizontal line if the column has a commit, is the target of a merge and is a placeholder', () => {
@@ -291,6 +327,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
   })
 
@@ -561,6 +598,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
@@ -618,6 +656,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
@@ -681,6 +720,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
@@ -737,6 +777,7 @@ describe('GraphColumn', () => {
       // Other elements should not be rendered
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHeadCommitVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()

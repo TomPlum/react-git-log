@@ -38,6 +38,10 @@ class GraphColumnElement {
     return this.getElement('vertical-line-full-height', shouldExist)
   }
 
+  public withHeadCommitVerticalLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('head-commit-vertical-line', shouldExist)
+  }
+
   public withFullWidthHorizontalLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
     return this.getElement('horizontal-line-full-width', shouldExist)
   }

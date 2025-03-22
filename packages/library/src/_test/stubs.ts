@@ -2,6 +2,7 @@ import { Commit } from 'types'
 import { GitContextBag } from 'context/GitContext'
 import DataIntervalTree from 'node-interval-tree'
 import { ThemeFunctions } from 'hooks/useTheme'
+import { GraphData } from 'data'
 
 export const commit = (commit?: Partial<Commit>) => ({
   hash: 'aa2c148',
@@ -37,15 +38,7 @@ export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({
   selectedCommit: commit({ hash: 'selected' }),
   colours: ['white'],
   headCommit: commit({ hash: 'HEAD' }),
-  graphData: {
-    positions: new Map(),
-    graphWidth: 5,
-    commits: [],
-    hashToCommit: new Map(),
-    parents: new Map(),
-    edges: new DataIntervalTree(),
-    children: new Map()
-  },
+  graphData: graphData(),
   ...bag
 })
 
@@ -60,4 +53,15 @@ export const themeFunctions = (response?: Partial<ThemeFunctions>): ThemeFunctio
   getTooltipBackground: vi.fn(),
   hoverTransitionDuration: 500,
   ...response
+})
+
+export const graphData = (data?: Partial<GraphData>): GraphData => ({
+  positions: new Map(),
+  graphWidth: 5,
+  commits: [],
+  hashToCommit: new Map(),
+  parents: new Map(),
+  edges: new DataIntervalTree(),
+  children: new Map(),
+  ...data
 })

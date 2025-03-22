@@ -9,7 +9,7 @@ import { useGitContext } from 'context/GitContext'
 export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnBackgroundProps) => {
   const { showTable } = useGitContext()
 
-  const previewedBackgroundStyles = useMemo<CSSProperties>(() => {
+  const style = useMemo<CSSProperties>(() => {
     // 8 pixels either side of the node
     const offset = 8 * 2
     const widthOffset = offset / (NODE_BORDER_WIDTH * 2)
@@ -37,7 +37,7 @@ export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnB
     <FadingDiv
       id={`column-background-${index}-${id}`}
       data-testid={`column-background-${index}-${id}`}
-      style={previewedBackgroundStyles}
+      style={style}
       className={classNames(
         styles.background,
         { [styles.noLogBackground]: !showTable },

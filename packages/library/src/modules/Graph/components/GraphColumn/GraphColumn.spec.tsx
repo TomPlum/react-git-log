@@ -5,6 +5,22 @@ import * as selectCommitHandler from 'hooks/useSelectCommit'
 import * as gitContext from 'context/GitContext/useGitContext'
 import * as themeHook from 'hooks/useTheme'
 import { graphColumn } from 'test/elements/GraphColumn'
+import { ThemeFunctions } from 'hooks/useTheme'
+
+const spyTheme = (stubs: Partial<ThemeFunctions>) => {
+  return vi.spyOn(themeHook, 'useTheme').mockReturnValue({
+    getGraphColumnColour: vi.fn(),
+    shiftAlphaChannel: vi.fn(),
+    hoverColour: 'hoverColour',
+    theme: 'dark',
+    textColour: 'textColour',
+    reduceOpacity: vi.fn(),
+    getCommitColour: vi.fn(),
+    getTooltipBackground: vi.fn(),
+    hoverTransitionDuration: 500,
+    ...stubs
+  })
+}
 
 describe('GraphColumn', () => {
   describe('Event Handling', () => {
@@ -340,17 +356,60 @@ describe('GraphColumn', () => {
         showTable: true // <-- the table is shown
       }))
 
+      const commitNodeIndex = 3
+      const expectedColour = 'rgb(123, 123, 123)'
+      const graphColumnColour = 'graph-column-colour'
+      const getGraphColumnColour = vi.fn().mockReturnValue(graphColumnColour)
+      const reduceOpacity = vi.fn().mockReturnValue(expectedColour)
+
+      spyTheme({ getGraphColumnColour, reduceOpacity })
+
       render(
         <GraphColumn
           index={5}
           state={{}}
           rowIndex={0}
-          commitNodeIndex={0}
           commit={selectedCommit}
+          commitNodeIndex={commitNodeIndex}
         />
       )
 
-      expect(graphColumn.withSelectedBackground({ column: 5 })).toBeInTheDocument()
+      expect(getGraphColumnColour).toHaveBeenCalledWith(commitNodeIndex)
+      expect(reduceOpacity).toHaveBeenCalledWith(graphColumnColour, 0.15)
+
+      const background = graphColumn.withSelectedBackground({ column: 5 })
+      expect(background).toBeInTheDocument()
+      expect(getComputedStyle(background).background).toBe(expectedColour)
+
+      expect(graphColumn.withPreviewedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should render a different coloured background for the selected rows column if its a placeholder', () => {
+      const selectedCommit = commit({ hash: 'selected-commit' })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        selectedCommit
+      }))
+
+      const expectedColour = 'rgb(8, 5, 1)'
+      spyTheme({
+        hoverColour: expectedColour
+      })
+
+      render(
+        <GraphColumn
+          index={5}
+          rowIndex={0}
+          commitNodeIndex={0}
+          commit={selectedCommit}
+          state={{ isPlaceholderSkeleton: true }} // <-- is placeholder
+        />
+      )
+
+      const background = graphColumn.withSelectedBackground({ column: 5 })
+      expect(background).toBeInTheDocument()
+      expect(getComputedStyle(background).background).toBe(expectedColour)
+
       expect(graphColumn.withPreviewedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
     })
 
@@ -444,6 +503,42 @@ describe('GraphColumn', () => {
 
       expect(graphColumn.withPreviewedBackground({ column: 5 })).toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should render a curved column background if the column has a commit node in it', () => {
+      const previewedCommit = commit({ hash: 'previewed-commit' })
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        previewedCommit
+      }))
+
+      const expectedBackgroundColour = 'rgb(1, 2, 3)'
+      spyTheme({
+        hoverColour: expectedBackgroundColour
+      })
+
+      render(
+        <GraphColumn
+          index={3} // <-- this column is index 3 in the row
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={3} // <-- the commit in this row is also index 3
+          commit={previewedCommit}
+        />
+      )
+
+      // Should render the background
+      const background = graphColumn.withPreviewedBackground({ column: 3 })
+      expect(background).toBeInTheDocument()
+
+      // Since this is the nodes column, the background should be rounded
+      const backgroundStyle = getComputedStyle(background)
+      expect(background).toHaveClass('backgroundBehindNode')
+      expect(backgroundStyle.width).toBe('calc(50% + 24px - 4px)')
+      expect(backgroundStyle.background).toBe(expectedBackgroundColour)
+      expect(backgroundStyle.height).toBe('40px')
+      expect(backgroundStyle.left).toBe('calc(50% - 24px + 4px)')
+
+      expect(graphColumn.withSelectedBackground({ column: 3, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a previewed column background if the previewed commits hash matches that of the columns rows, the table is shown, but the row is already selected', () => {

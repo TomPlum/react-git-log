@@ -14,7 +14,8 @@
       "hooks/*": ["src/hooks/*"],
       "constants/*": ["src/constants/*"],
       "data": ["src/data/index.ts"],
-      "types": ["src/types.ts"]
+      "types": ["src/types.ts"],
+      "test/*": ["src/_test/*"],
     },
     "types": ["vitest/globals", "vite/client"],
 
@@ -42,6 +43,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
+    "src/_test/vitest.setup.ts"
   ],
   "exclude": [
     "node_modules",

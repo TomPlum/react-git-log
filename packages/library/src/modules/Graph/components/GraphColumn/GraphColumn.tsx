@@ -2,21 +2,22 @@ import { GraphColumnProps } from './types'
 import { CommitNode } from 'modules/Graph/components/CommitNode'
 import styles from './GraphColumn.module.scss'
 import { useTheme } from 'hooks/useTheme'
-import { CSSProperties, useCallback, useMemo } from 'react'
-import classNames from 'classnames'
+import { useMemo } from 'react'
 import { useGitContext } from 'context/GitContext'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import { ColumnBackground } from 'modules/Graph/components/ColumnBackground'
 import { LeftDownCurve } from 'modules/Graph/components/LeftDownCurve'
 import { LeftUpCurve } from 'modules/Graph/components/LeftUpCurve'
 import { HorizontalLine } from 'modules/Graph/components/HorizontalLine'
+import { VerticalLine } from 'modules/Graph/components/VerticalLine'
+import { HeadCommitVerticalLine } from 'src/modules/Graph/components/HeadCommitVerticalLine'
+import { IndexPseudoCommitNode } from 'modules/Graph/components/IndexPseudoCommitNode'
 
-// TODO: Extract a bunch of stuff out of this file
 export const GraphColumn = ({
   index,
+  rowIndex,
   state,
   commit,
-  rowIndex,
   commitNodeIndex
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
@@ -32,92 +33,32 @@ export const GraphColumn = ({
   const rowsCommitMatchesPreviewed = previewedCommit?.hash === commit.hash
   const rowsCommitMatchesSelected = selectedCommit?.hash === commit.hash
   const rowsCommitIsHead = commit.hash === headCommit.hash && state.isNode
-
-  const verticalNodeLineStyles = useCallback<(isIndex: boolean) => CSSProperties>(isIndex => {
-    // If the current column is the index pseudo-node
-    // then draw a dotted line underneath it that will
-    // eventually meet with the HEAD commit of the current branch.
-    if (isRowCommitIndexNode) {
-      return {
-        top: '50%',
-        height: '50%',
-        zIndex: index + 1,
-        borderRight: `2px dotted ${indexCommitNodeBorder}`
-      }
-    }
-
-    // If this column has the HEAD commit node in it,
-    // just draw a dotted line on top of it which will
-    // ultimately hit the index pseudo-node above.
-    if (rowsCommitIsHead) {
-      return {
-        height: '50%',
-        top: 0,
-        borderRight: `2px dotted ${indexCommitNodeBorder}`
-      }
-    }
-
-    // If this column has a commit node in it, and it
-    // has no parents, then it must be the first commit
-    // in the graph, so just draw a solid line above it.
-    const isFirstCommit = state.isNode && commit.parents.length === 0
-    if (isFirstCommit || state.isColumnBelowEmpty) {
-      return {
-        top: 0,
-        height: '50%',
-        zIndex: index + 1,
-        borderRight: `2px solid ${columnColour}`
-      }
-    }
-
-    // Border is dotted for the index pseudo-node
-    // and the skeleton placeholder elements.
-    const borderStyle = isIndex || state.isPlaceholderSkeleton ? 'dotted' : 'solid'
-
-    // If this column contains a commit node, and
-    // it is the tip of its branch, then just draw
-    // a line underneath the node. Same goes for a
-    // column that an empty one in the row above.
-    const isBranchTip = commit.isBranchTip && state.isNode
-    if (isBranchTip || state.isColumnAboveEmpty) {
-      return {
-        top: '50%',
-        height: '50%',
-        zIndex: index + 1,
-        borderRight: `2px ${borderStyle} ${columnColour}`
-      }
-    }
-
-    // If none of the above conditions are met then
-    // we must be in a column with no commit node, and
-    // so we draw a line the full height of the column.
-    return {
-      top: 0,
-      height: '100%',
-      zIndex: index + 1,
-      borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
-    }
-  }, [columnColour, commit.isBranchTip, commit.parents.length, index, indexCommitNodeBorder, isRowCommitIndexNode, rowsCommitIsHead, state.isColumnAboveEmpty, state.isColumnBelowEmpty, state.isNode, state.isPlaceholderSkeleton])
-
+  
   const showPreviewBackground = useMemo(() => {
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash
     const shouldPreview = rowsCommitMatchesPreviewed && selectedCommitIsNotPreviewed
 
+    // If we're rendering the table on the right, then we
+    // want all columns in this row to render a background
+    // so that it lines up with the table row.
     if (showTable) {
       return shouldPreview
     }
 
-    // If the log is not rendered on the right, only
+    // If the table is not rendered on the right, only
     // show the preview background for the node column
     return shouldPreview && commitNodeIndex === index
   }, [commitNodeIndex, index, previewedCommit?.hash, rowsCommitMatchesPreviewed, selectedCommit?.hash, showTable])
 
   const showSelectedBackground = useMemo(() => {
+    // If we're rendering the table on the right, then we
+    // want all columns in this row to render a background
+    // so that it lines up with the table row.
     if (showTable) {
       return rowsCommitMatchesSelected
     }
 
-    // If the log is not rendered on the right, only
+    // If the table is not rendered on the right, only
     // show the selected background for the node column
     return rowsCommitMatchesSelected && commitNodeIndex === index
   }, [commitNodeIndex, index, rowsCommitMatchesSelected, showTable])
@@ -125,9 +66,10 @@ export const GraphColumn = ({
   return (
     <div
       className={styles.column}
-      id={`graph_column_${index}_${commit.hash}`}
+      id={`graph-column-row-${rowIndex}-col-${index}`}
       onMouseOut={() => selectCommitHandler.onMouseOut()}
       onClick={() => selectCommitHandler.onClick(commit)}
+      data-testid={`graph-column-row-${rowIndex}-col-${index}`}
       onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
     >
       {/* This column contains a node (and it's not the git index pseudo-node) */}
@@ -140,44 +82,29 @@ export const GraphColumn = ({
 
       {/* This column contains a node (and it's the git index pseudo-node) */}
       {state.isNode && isRowCommitIndexNode && (
-        <div
-          className={classNames(
-            styles.indexNode,
-            { [styles.spin]: (rowsCommitMatchesPreviewed || rowsCommitMatchesSelected) },
-          )}
-          style={{
-            border: `2px dotted ${shiftAlphaChannel(columnColour, 0.5)}`,
-            backgroundColor: shiftAlphaChannel(columnColour, 0.05),
-          }}
+        <IndexPseudoCommitNode
+          columnColour={columnColour}
+          animate={rowsCommitMatchesPreviewed || rowsCommitMatchesSelected}
+        />
+      )}
+
+      {/* This column contains the HEAD commit, so only draw below a vertical line below the node */}
+      {state.isVerticalLine && rowsCommitIsHead && (
+        <HeadCommitVerticalLine
+          columnColour={columnColour}
         />
       )}
 
       {/* This column contains a vertical branching line (full column height) */}
+      {/* OR - This column contains a vertical branching line but its from the HEAD commit to the index node */}
       {state.isVerticalLine && (
-        <div
-          style={verticalNodeLineStyles(false)}
-          className={classNames(styles.line, styles.vertical)}
-          data-testid={`vertical-line-row-${rowIndex}-col-${index}`}
-        />
-      )}
-
-      {/* This column contains a vertical branching line but is the HEAD commit (So only draw below the node) */}
-      {state.isVerticalLine && rowsCommitIsHead && (
-        <div
-          style={{
-            height: '50%',
-            top: '50%',
-            borderRight: `2px solid ${columnColour}`
-          }}
-          className={classNames(styles.line, styles.vertical)}
-        />
-      )}
-
-      {/* This column contains a vertical branching line but its from the HEAD commit to the index node */}
-      {state.isVerticalIndexLine && (
-        <div
-          style={verticalNodeLineStyles(true)}
-          className={classNames(styles.line, styles.vertical)}
+        <VerticalLine
+          state={state}
+          commit={commit}
+          columnIndex={index}
+          columnColour={columnColour}
+          isIndex={state.isVerticalIndexLine ?? false}
+          indexCommitNodeBorder={indexCommitNodeBorder}
         />
       )}
 
@@ -194,15 +121,20 @@ export const GraphColumn = ({
       {/* This column is part of a row that has been selected */}
       {showSelectedBackground && (
         <ColumnBackground
+          id='selected'
           index={index}
           commitNodeIndex={commitNodeIndex}
-          colour={state.isPlaceholderSkeleton ? hoverColour : reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)}
+          colour={state.isPlaceholderSkeleton
+            ? hoverColour
+            : reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
+          }
         />
       )}
 
       {/* This column is part of a row that has been previewed (via hover) */}
       {showPreviewBackground && (
         <ColumnBackground
+          id='previewed'
           index={index}
           colour={hoverColour}
           commitNodeIndex={commitNodeIndex}

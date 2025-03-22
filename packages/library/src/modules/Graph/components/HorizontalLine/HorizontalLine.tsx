@@ -41,8 +41,7 @@ export const HorizontalLine = ({ state, columnIndex, commitNodeIndex, columnColo
       variant: 'full-width',
       style: {
         borderTop: `2px ${borderStyle} ${borderColour}`,
-        width: '50%',
-        right: 0,
+        width: columnIndex === 0 ? '50%' : '100%',
         zIndex: columnIndex + 1
       }
     }

@@ -623,4 +623,124 @@ describe('GraphColumn', () => {
       expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
   })
+
+  describe('Left Up Curve', () => {
+    it('should render a left-up curve if the column has a left up curve element', () => {
+      const getGraphColumnColour = vi.fn()
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue({
+        getGraphColumnColour,
+        shiftAlphaChannel: vi.fn(),
+        hoverColour: 'hoverColour',
+        theme: 'dark',
+        textColour: 'textColour',
+        reduceOpacity: vi.fn(),
+        getCommitColour: vi.fn(),
+        getTooltipBackground: vi.fn(),
+        hoverTransitionDuration: 500
+      })
+
+      const graphColumnColour = 'rgb(124, 6, 168)'
+      getGraphColumnColour.mockReturnValue(graphColumnColour)
+
+      render(
+        <GraphColumn
+          index={1}
+          rowIndex={0}
+          commit={commit()}
+          commitNodeIndex={2}
+          state={{
+            isLeftUpCurve: true, // <-- has a left-up curve
+            isPlaceholderSkeleton: false // <-- but is not a placeholder
+          }}
+        />
+      )
+
+      expect(getGraphColumnColour).toHaveBeenCalledWith(1)
+
+      // Should render the correct curve element
+      expect(graphColumn.withLeftUpCurve()).toBeInTheDocument()
+
+      // Since it's not a placeholder, the lines should be solid
+      const leftLine = graphColumn.withLeftUpCurveLeftLine()
+      const leftLineStyles = getComputedStyle(leftLine)
+      expect(leftLineStyles.borderBottomStyle).toBe('solid')
+      expect(leftLineStyles.borderBottomColor).toBe(graphColumnColour)
+
+      const topLine = graphColumn.withLeftUpCurveTopLine()
+      const topLineStyles = getComputedStyle(topLine)
+      expect(topLineStyles.borderRightStyle).toBe('solid')
+      expect(topLineStyles.borderRightColor).toBe(graphColumnColour)
+
+      const curvedLine = graphColumn.withLeftUpCurveCurvedLine()
+      const curvedLinePath = curvedLine?.querySelector('path')
+      expect(curvedLinePath?.getAttribute('stroke-dasharray')).toBeNull()
+      expect(curvedLinePath?.getAttribute('stroke')).toBe(graphColumnColour)
+
+
+      // Other elements should not be rendered
+      expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should render a dotted left-up curve if the column has a left up curve element and is a placeholder', () => {
+      const shiftAlphaChannel = vi.fn()
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue({
+        getGraphColumnColour: vi.fn(),
+        shiftAlphaChannel,
+        hoverColour: 'hoverColour',
+        theme: 'dark',
+        textColour: 'textColour',
+        reduceOpacity: vi.fn(),
+        getCommitColour: vi.fn(),
+        getTooltipBackground: vi.fn(),
+        hoverTransitionDuration: 500
+      })
+
+      const placeholderColour = 'rgb(255, 255, 255)'
+      shiftAlphaChannel.mockReturnValue(placeholderColour)
+
+      render(
+        <GraphColumn
+          index={1}
+          rowIndex={0}
+          commit={commit()}
+          commitNodeIndex={2}
+          state={{
+            isLeftUpCurve: true, // <-- has a left-up curve
+            isPlaceholderSkeleton: true // <-- and is a placeholder
+          }}
+        />
+      )
+
+      expect(shiftAlphaChannel).toHaveBeenCalledWith('textColour', 0.8)
+
+      // Since it's a placeholder, the lines should be dotted
+      const leftLine = graphColumn.withLeftUpCurveLeftLine()
+      const leftLineStyles = getComputedStyle(leftLine)
+      expect(leftLineStyles.borderBottomStyle).toBe('dotted')
+      expect(leftLineStyles.borderBottomColor).toBe(placeholderColour)
+
+      const topLine = graphColumn.withLeftUpCurveTopLine()
+      const topLineStyles = getComputedStyle(topLine)
+      expect(topLineStyles.borderRightStyle).toBe('dotted')
+      expect(topLineStyles.borderRightColor).toBe(placeholderColour)
+
+      const curvedLine = graphColumn.withLeftUpCurveCurvedLine()
+      const curvedLinePath = curvedLine?.querySelector('path')
+      expect(curvedLinePath?.getAttribute('stroke-dasharray')).toBe('2 2')
+      expect(curvedLinePath?.getAttribute('stroke')).toBe(placeholderColour)
+
+      // Other elements should not be rendered
+      expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+    })
+  })
 })

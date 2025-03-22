@@ -248,7 +248,7 @@ describe('GraphColumn', () => {
   })
 
   describe('Horizontal Lines', () => {
-    it('should render a full width solid horizontal line if the state has a horizontal line', () => {
+    it('should render a right-side half width solid horizontal line if the state has a horizontal line index column index 0', () => {
       render(
         <GraphColumn
           index={0}
@@ -259,14 +259,14 @@ describe('GraphColumn', () => {
         />
       )
 
-      const horizontalLine = graphColumn.withFullWidthHorizontalLine()
+      const horizontalLine = graphColumn.withHalfWidthRightHorizontalLine()
       expect(horizontalLine).toBeInTheDocument()
       expect(getComputedStyle(horizontalLine).borderTopStyle).toBe('solid')
 
       expect(graphColumn.withCommitNode({ hash: 'not-index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withHalfWidthRightHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()

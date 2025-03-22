@@ -121,6 +121,7 @@ export const GraphColumn = ({
       {/* This column is part of a row that has been selected */}
       {showSelectedBackground && (
         <ColumnBackground
+          id='selected'
           index={index}
           commitNodeIndex={commitNodeIndex}
           colour={state.isPlaceholderSkeleton
@@ -133,6 +134,7 @@ export const GraphColumn = ({
       {/* This column is part of a row that has been previewed (via hover) */}
       {showPreviewBackground && (
         <ColumnBackground
+          id='previewed'
           index={index}
           colour={hoverColour}
           commitNodeIndex={commitNodeIndex}

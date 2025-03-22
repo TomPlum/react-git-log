@@ -46,8 +46,12 @@ class GraphColumnElement {
     return this.getElement('horizontal-line-right-half', shouldExist)
   }
 
-  public withBackground<T extends boolean = true>({ column, shouldExist }: Background<T> = {} as Background<T>) {
-    return this.getElement(`column-background-${column}`, shouldExist)
+  public withSelectedBackground<T extends boolean = true>({ column, shouldExist }: Background<T> = {} as Background<T>) {
+    return this.getElement(`column-background-${column}-selected`, shouldExist)
+  }
+
+  public withPreviewedBackground<T extends boolean = true>({ column, shouldExist }: Background<T> = {} as Background<T>) {
+    return this.getElement(`column-background-${column}-previewed`, shouldExist)
   }
 }
 

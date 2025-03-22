@@ -6,7 +6,7 @@ import { CSSProperties, useMemo } from 'react'
 import { NODE_BORDER_WIDTH, NODE_WIDTH, ROW_HEIGHT } from 'constants/constants'
 import { useGitContext } from 'context/GitContext'
 
-export const ColumnBackground = ({ index, colour, commitNodeIndex }: ColumnBackgroundProps) => {
+export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnBackgroundProps) => {
   const { showTable } = useGitContext()
 
   const previewedBackgroundStyles = useMemo<CSSProperties>(() => {
@@ -35,8 +35,8 @@ export const ColumnBackground = ({ index, colour, commitNodeIndex }: ColumnBackg
   
   return (
     <FadingDiv
-      id={`column-background-${index}`}
-      data-testid={`column-background-${index}`}
+      id={`column-background-${index}-${id}`}
+      data-testid={`column-background-${index}-${id}`}
       style={previewedBackgroundStyles}
       className={classNames(
         styles.background,

@@ -69,7 +69,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a pseudo commit node if the column state has a node and is the index node', () => {
@@ -89,7 +90,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withCommitNode({ hash: 'index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a commit node if the column state is the index node but does not contain a commit node', () => {
@@ -107,7 +109,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a commit node if the column state has no commit or index node', () => {
@@ -125,7 +128,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
     })
   })
 
@@ -151,7 +155,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withCommitNode({ hash: 'not-index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a full height dotted vertical line if the state has a vertical line and index line', () => {
@@ -175,7 +179,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withCommitNode({ hash: 'not-index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
     })
   })
 
@@ -199,7 +204,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withHalfWidthRightHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a right half solid horizontal line if the column has a commit and is the target of a merge', () => {
@@ -231,7 +237,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a right half dotted horizontal line if the column has a commit, is the target of a merge and is a placeholder', () => {
@@ -263,7 +270,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
-      expect(graphColumn.withBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
     })
   })
 
@@ -286,7 +294,8 @@ describe('GraphColumn', () => {
         />
       )
 
-      expect(graphColumn.withBackground({ column: 5 })).toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 5 })).toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a column background if the the table is shown but the selected commits hash does not match', () => {
@@ -309,7 +318,8 @@ describe('GraphColumn', () => {
         />
       )
 
-      expect(graphColumn.withBackground({ column: 2, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 2, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 2, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a column background when the table is not shown if the commit on this row is in this column', () => {
@@ -330,7 +340,8 @@ describe('GraphColumn', () => {
         />
       )
 
-      expect(graphColumn.withBackground({ column: 7 })).toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 7 })).toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a column background if the the table is not shown and the commit on this row is in a different column', () => {
@@ -351,7 +362,126 @@ describe('GraphColumn', () => {
         />
       )
 
-      expect(graphColumn.withBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
+    })
+  })
+
+  describe('Column Background (Previewed Commit)', () => {
+    it('should render a column background if the previewed commits hash matches that of the columns rows, and the table is shown', () => {
+      const previewedCommit = commit({ hash: 'previewed-commit' })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        previewedCommit,
+        showTable: true // <-- the table is shown
+      }))
+
+      render(
+        <GraphColumn
+          index={5}
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={0}
+          commit={previewedCommit}
+        />
+      )
+
+      expect(graphColumn.withPreviewedBackground({ column: 5 })).toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should not render a previewed column background if the previewed commits hash matches that of the columns rows, the table is shown, but the row is already selected', () => {
+      // This row is already selected, but the user is hovering too, so it's marked as previewed
+      const commitHash = 'the-commit-of-this-row'
+      const previewedCommit = commit({ hash: commitHash })
+      const selectedCommit = commit({ hash: commitHash })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        previewedCommit,
+        selectedCommit,
+        showTable: true // <-- the table is shown
+      }))
+
+      render(
+        <GraphColumn
+          index={5}
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={0}
+          commit={commit({ hash: commitHash })}
+        />
+      )
+
+      expect(graphColumn.withSelectedBackground({ column: 5 })).toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should not render a column background if the the table is shown but the previewed commits hash does not match', () => {
+      const previewedCommit = commit({ hash: 'previewed-commit' })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        previewedCommit,
+        showTable: true // <-- the table is shown
+      }))
+
+      render(
+        <GraphColumn
+          index={2}
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={0}
+          commit={commit({
+            hash: 'different-hash' // <-- The commit in this columns row does not match the previewed
+          })}
+        />
+      )
+
+      expect(graphColumn.withPreviewedBackground({ column: 2, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 2, shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should render a column background when the table is not shown if the commit on this row is in this column', () => {
+      const previewedCommit = commit({ hash: 'previewed-commit' })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        previewedCommit,
+        showTable: false // <-- the table is not shown
+      }))
+
+      render(
+        <GraphColumn
+          index={7} // <-- This column is index 7 in the row
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={7} // <-- the commit on this row is also in this column
+          commit={previewedCommit} // <-- The previewed commit is on this columns row
+        />
+      )
+
+      expect(graphColumn.withPreviewedBackground({ column: 7 })).toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should not render a column background if the the table is not shown and the commit on this row is in a different column', () => {
+      const previewedCommit = commit({ hash: 'previewed-commit' })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        previewedCommit,
+        showTable: false // <-- the table is not shown
+      }))
+
+      render(
+        <GraphColumn
+          index={7} // <-- This column is index 7 in the row
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={2} // <-- the commit on this row is in a different column
+          commit={previewedCommit} // <-- The previewedCommit commit is on this columns row
+        />
+      )
+
+      expect(graphColumn.withPreviewedBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
     })
   })
 })

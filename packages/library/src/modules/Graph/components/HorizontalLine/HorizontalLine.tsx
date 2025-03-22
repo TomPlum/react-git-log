@@ -7,7 +7,7 @@ import { useTheme } from 'hooks/useTheme'
 export const HorizontalLine = ({ state, columnIndex, commitNodeIndex, columnColour }: HorizontalLineProps) => {
   const { getGraphColumnColour } = useTheme()
 
-  const style = useMemo<CSSProperties>(() => {
+  const { style, variant } = useMemo<{ style: CSSProperties, variant: string }>(() => {
     // Furthest-right active branch takes precedence
     const furtherRightMergeNodeColumnIndex = state?.mergeSourceColumns
       ? Math.max(...state?.mergeSourceColumns ?? [])
@@ -25,19 +25,26 @@ export const HorizontalLine = ({ state, columnIndex, commitNodeIndex, columnColo
     // to the right side horizontal line.
     if (state.isNode && state.mergeSourceColumns) {
       return {
-        borderTop: `2px ${borderStyle} ${borderColour}`,
-        width: '50%',
-        right: 0,
-        zIndex: columnIndex + 1
+        variant: 'right-half',
+        style: {
+          borderTop: `2px ${borderStyle} ${borderColour}`,
+          width: '50%',
+          right: 0,
+          zIndex: columnIndex + 1
+        }
       }
     }
 
     // If no other conditions are met then we can draw a
     // full-width horizontal line.
     return {
-      borderTop: `2px ${borderStyle} ${borderColour}`,
-      width: columnIndex === 0 ? '50%' : '100%',
-      zIndex: columnIndex + 1
+      variant: 'full-width',
+      style: {
+        borderTop: `2px ${borderStyle} ${borderColour}`,
+        width: '50%',
+        right: 0,
+        zIndex: columnIndex + 1
+      }
     }
   }, [columnColour, commitNodeIndex, getGraphColumnColour, columnIndex, state.isNode, state.isPlaceholderSkeleton, state.mergeSourceColumns])
 
@@ -45,6 +52,8 @@ export const HorizontalLine = ({ state, columnIndex, commitNodeIndex, columnColo
   return (
     <div
       style={style}
+      id={`horizontal-line-${variant}`}
+      data-testid={`horizontal-line-${variant}`}
       className={classNames(styles.line, styles.horizontal)}
     />
   )

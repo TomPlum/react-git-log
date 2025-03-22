@@ -67,6 +67,7 @@ describe('GraphColumn', () => {
       // Other column elements should not be rendered
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a pseudo commit node if the column state has a node and is the index node', () => {
@@ -85,6 +86,7 @@ describe('GraphColumn', () => {
       // Other column elements should not be rendered
       expect(graphColumn.withCommitNode({ hash: 'index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a commit node if the column state is the index node but does not contain a commit node', () => {
@@ -101,6 +103,7 @@ describe('GraphColumn', () => {
       expect(graphColumn.withCommitNode({ hash: 'index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a commit node if the column state has no commit or index node', () => {
@@ -117,11 +120,12 @@ describe('GraphColumn', () => {
       expect(graphColumn.withCommitNode({ hash: 'not-index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
   })
 
   describe('Vertical Lines', () => {
-    it('should render a full height solid vertical line if the state isVerticalLine but not isVerticalIndexLine', () => {
+    it('should render a full height solid vertical line if the state has a vertical line but not an index line', () => {
       render(
         <GraphColumn
           index={0}
@@ -135,14 +139,16 @@ describe('GraphColumn', () => {
         />
       )
 
-      expect(graphColumn.withFullHeightVerticalLine()).toBeInTheDocument()
-      expect(getComputedStyle(graphColumn.withFullHeightVerticalLine()).borderRightStyle).toBe('solid')
+      const verticalLine = graphColumn.withFullHeightVerticalLine()
+      expect(verticalLine).toBeInTheDocument()
+      expect(getComputedStyle(verticalLine).borderRightStyle).toBe('solid')
 
       expect(graphColumn.withCommitNode({ hash: 'not-index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
 
-    it('should render a full height vertical line if the state has isVerticalLine', () => {
+    it('should render a full height dotted vertical line if the state has a vertical line and index line', () => {
       render(
         <GraphColumn
           index={0}
@@ -156,11 +162,98 @@ describe('GraphColumn', () => {
         />
       )
 
-      expect(graphColumn.withFullHeightVerticalLine()).toBeInTheDocument()
-      expect(getComputedStyle(graphColumn.withFullHeightVerticalLine()).borderRightStyle).toBe('dotted')
+      const verticalLine = graphColumn.withFullHeightVerticalLine()
+      expect(verticalLine).toBeInTheDocument()
+      expect(getComputedStyle(verticalLine).borderRightStyle).toBe('dotted')
 
       expect(graphColumn.withCommitNode({ hash: 'not-index', shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+    })
+  })
+
+  describe('Horizontal Lines', () => {
+    it('should render a full width solid horizontal line if the state has a horizontal line', () => {
+      render(
+        <GraphColumn
+          index={0}
+          rowIndex={0}
+          commit={commit()}
+          commitNodeIndex={0}
+          state={{ isHorizontalLine: true }} // <-- is a horizontal line
+        />
+      )
+
+      const horizontalLine = graphColumn.withFullWidthHorizontalLine()
+      expect(horizontalLine).toBeInTheDocument()
+      expect(getComputedStyle(horizontalLine).borderTopStyle).toBe('solid')
+
+      expect(graphColumn.withCommitNode({ hash: 'not-index', shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withHalfWidthRightHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should render a right half solid horizontal line if the column has a commit and is the target of a merge', () => {
+      render(
+        <GraphColumn
+          index={0}
+          rowIndex={0}
+          commitNodeIndex={0}
+          commit={commit({ hash: 'merge-target-node' })}
+          state={{
+            isHorizontalLine: true, // <-- has is a horizontal line
+            isNode: true, // <-- also contains a commit node
+            mergeSourceColumns: [1], // <-- and has been merged into
+            isPlaceholderSkeleton: false // <-- not a placeholder, so solid line
+          }}
+        />
+      )
+
+
+      // Should render the half-width line on the right side
+      const horizontalLine = graphColumn.withHalfWidthRightHorizontalLine()
+      expect(horizontalLine).toBeInTheDocument()
+      expect(getComputedStyle(horizontalLine).borderTopStyle).toBe('solid')
+
+      // Plus the commit node
+      expect(graphColumn.withCommitNode({ hash: 'merge-target-node' })).toBeInTheDocument()
+
+      // Other elements should not be rendered
+      expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should render a right half dotted horizontal line if the column has a commit, is the target of a merge and is a placeholder', () => {
+      render(
+        <GraphColumn
+          index={0}
+          rowIndex={0}
+          commitNodeIndex={0}
+          commit={commit({ hash: 'merge-target-node-2' })}
+          state={{
+            isHorizontalLine: true, // <-- has is a horizontal line
+            isNode: true, // <-- also contains a commit node
+            mergeSourceColumns: [1], // <-- and has been merged into
+            isPlaceholderSkeleton: true // <-- is a placeholder, so dotted line
+          }}
+        />
+      )
+
+
+      // Should render the half-width line on the right side
+      const horizontalLine = graphColumn.withHalfWidthRightHorizontalLine()
+      expect(horizontalLine).toBeInTheDocument()
+      expect(getComputedStyle(horizontalLine).borderTopStyle).toBe('dotted')
+
+      // Plus the commit node
+      expect(graphColumn.withCommitNode({ hash: 'merge-target-node-2' })).toBeInTheDocument()
+
+      // Other elements should not be rendered
+      expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
     })
   })
 })

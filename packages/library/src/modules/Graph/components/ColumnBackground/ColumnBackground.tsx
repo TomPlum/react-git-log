@@ -35,6 +35,8 @@ export const ColumnBackground = ({ index, colour, commitNodeIndex }: ColumnBackg
   
   return (
     <FadingDiv
+      id={`column-background-${index}`}
+      data-testid={`column-background-${index}`}
       style={previewedBackgroundStyles}
       className={classNames(
         styles.background,

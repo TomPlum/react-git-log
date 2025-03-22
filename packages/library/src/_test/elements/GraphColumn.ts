@@ -1,5 +1,9 @@
 import { screen } from '@testing-library/react'
 
+interface ShouldExist<T> {
+  shouldExist?: T
+}
+
 interface At<T> extends ShouldExist<T> {
   row: number
   column: number
@@ -9,8 +13,8 @@ interface Node<T> extends ShouldExist<T> {
   hash: string
 }
 
-interface ShouldExist<T> {
-  shouldExist?: T
+interface Background<T> extends ShouldExist<T> {
+  column: number
 }
 
 class GraphColumnElement {
@@ -40,6 +44,10 @@ class GraphColumnElement {
 
   public withHalfWidthRightHorizontalLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
     return this.getElement('horizontal-line-right-half', shouldExist)
+  }
+
+  public withBackground<T extends boolean = true>({ column, shouldExist }: Background<T> = {} as Background<T>) {
+    return this.getElement(`column-background-${column}`, shouldExist)
   }
 }
 

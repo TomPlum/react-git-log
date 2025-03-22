@@ -38,21 +38,27 @@ export const GraphColumn = ({
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash
     const shouldPreview = rowsCommitMatchesPreviewed && selectedCommitIsNotPreviewed
 
+    // If we're rendering the table on the right, then we
+    // want all columns in this row to render a background
+    // so that it lines up with the table row.
     if (showTable) {
       return shouldPreview
     }
 
-    // If the log is not rendered on the right, only
+    // If the table is not rendered on the right, only
     // show the preview background for the node column
     return shouldPreview && commitNodeIndex === index
   }, [commitNodeIndex, index, previewedCommit?.hash, rowsCommitMatchesPreviewed, selectedCommit?.hash, showTable])
 
   const showSelectedBackground = useMemo(() => {
+    // If we're rendering the table on the right, then we
+    // want all columns in this row to render a background
+    // so that it lines up with the table row.
     if (showTable) {
       return rowsCommitMatchesSelected
     }
 
-    // If the log is not rendered on the right, only
+    // If the table is not rendered on the right, only
     // show the selected background for the node column
     return rowsCommitMatchesSelected && commitNodeIndex === index
   }, [commitNodeIndex, index, rowsCommitMatchesSelected, showTable])

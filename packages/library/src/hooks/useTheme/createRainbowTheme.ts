@@ -10,10 +10,19 @@ export const generateRainbowGradient = (n: number): string[] => {
 
   const colors: string[] = []
 
-  for (let i = 0; i < n; i++) {
-    const hue = (i / (n - 1)) * 360 // Spread across the hue spectrum (0-360)
-    const rgb = hslToRgb(hue, 100, 50)
-    colors.push(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`)
+  if (n === 1) {
+    // Just any colour if the graph width is 1...
+    colors.push('rgb(54,229,234)')
+  } else {
+    for (let i = 0; i < n; i++) {
+      const hue = (i / (n - 1)) * 360 // Spread across the hue spectrum (0-360)
+
+      // Ensure that hue values do not exactly repeat at the first and last position
+      const adjustedHue = i === 0 ? 0 : (i === n - 1 ? 360 - 1 : hue)
+
+      const rgb = hslToRgb(adjustedHue, 100, 50)
+      colors.push(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`)
+    }
   }
 
   return colors

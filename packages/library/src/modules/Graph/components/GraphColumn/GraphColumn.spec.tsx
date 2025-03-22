@@ -3,6 +3,7 @@ import { GraphColumn } from './GraphColumn'
 import { commit, gitContextBag } from 'test/stubs'
 import * as selectCommitHandler from 'hooks/useSelectCommit'
 import * as gitContext from 'context/GitContext/useGitContext'
+import * as themeHook from 'hooks/useTheme'
 import { graphColumn } from 'test/elements/GraphColumn'
 
 describe('GraphColumn', () => {
@@ -71,6 +72,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a pseudo commit node if the column state has a node and is the index node', () => {
@@ -92,6 +95,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a commit node if the column state is the index node but does not contain a commit node', () => {
@@ -111,6 +116,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should not render a commit node if the column state has no commit or index node', () => {
@@ -130,6 +137,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
   })
 
@@ -156,6 +165,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a full height dotted vertical line if the state has a vertical line and index line', () => {
@@ -181,6 +192,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
   })
 
@@ -206,6 +219,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withHalfWidthRightHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a right half solid horizontal line if the column has a commit and is the target of a merge', () => {
@@ -239,6 +254,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
 
     it('should render a right half dotted horizontal line if the column has a commit, is the target of a merge and is a placeholder', () => {
@@ -272,6 +289,8 @@ describe('GraphColumn', () => {
       expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftDownCurve({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
   })
 
@@ -482,6 +501,126 @@ describe('GraphColumn', () => {
 
       expect(graphColumn.withPreviewedBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 7, shouldExist: false })).not.toBeInTheDocument()
+    })
+  })
+
+  describe('Left Down Curve', () => {
+    it('should render a left-down curve if the column has a left down curve element', () => {
+      const getGraphColumnColour = vi.fn()
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue({
+        getGraphColumnColour,
+        shiftAlphaChannel: vi.fn(),
+        hoverColour: 'hoverColour',
+        theme: 'dark',
+        textColour: 'textColour',
+        reduceOpacity: vi.fn(),
+        getCommitColour: vi.fn(),
+        getTooltipBackground: vi.fn(),
+        hoverTransitionDuration: 500
+      })
+
+      const graphColumnColour = 'rgb(124, 6, 168)'
+      getGraphColumnColour.mockReturnValue(graphColumnColour)
+
+      render(
+        <GraphColumn
+          index={1}
+          rowIndex={0}
+          commit={commit()}
+          commitNodeIndex={2}
+          state={{
+            isLeftDownCurve: true, // <-- has a left-down curve
+            isPlaceholderSkeleton: false // <-- but is not a placeholder
+          }}
+        />
+      )
+
+      expect(getGraphColumnColour).toHaveBeenCalledWith(1)
+
+      // Should render the correct curve element
+      expect(graphColumn.withLeftDownCurve()).toBeInTheDocument()
+
+      // Since it's not a placeholder, the lines should be solid
+      const leftLine = graphColumn.withLeftDownCurveLeftLine()
+      const leftLineStyles = getComputedStyle(leftLine)
+      expect(leftLineStyles.borderBottomStyle).toBe('solid')
+      expect(leftLineStyles.borderBottomColor).toBe(graphColumnColour)
+
+      const bottomLine = graphColumn.withLeftDownCurveBottomLine()
+      const bottomLineStyles = getComputedStyle(bottomLine)
+      expect(bottomLineStyles.borderRightStyle).toBe('solid')
+      expect(bottomLineStyles.borderRightColor).toBe(graphColumnColour)
+
+      const curvedLine = graphColumn.withLeftDownCurveCurvedLine()
+      const curvedLinePath = curvedLine?.querySelector('path')
+      expect(curvedLinePath?.getAttribute('stroke-dasharray')).toBeNull()
+      expect(curvedLinePath?.getAttribute('stroke')).toBe(graphColumnColour)
+
+
+      // Other elements should not be rendered
+      expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should render a dotted left-down curve if the column has a left down curve element and is a placeholder', () => {
+      const shiftAlphaChannel = vi.fn()
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue({
+        getGraphColumnColour: vi.fn(),
+        shiftAlphaChannel,
+        hoverColour: 'hoverColour',
+        theme: 'dark',
+        textColour: 'textColour',
+        reduceOpacity: vi.fn(),
+        getCommitColour: vi.fn(),
+        getTooltipBackground: vi.fn(),
+        hoverTransitionDuration: 500
+      })
+
+      const placeholderColour = 'rgb(255, 255, 255)'
+      shiftAlphaChannel.mockReturnValue(placeholderColour)
+
+      render(
+        <GraphColumn
+          index={1}
+          rowIndex={0}
+          commit={commit()}
+          commitNodeIndex={2}
+          state={{
+            isLeftDownCurve: true, // <-- has a left-down curve
+            isPlaceholderSkeleton: true // <-- and is a placeholder
+          }}
+        />
+      )
+
+      expect(shiftAlphaChannel).toHaveBeenCalledWith('textColour', 0.8)
+
+      // Since it's a placeholder, the lines should be dotted
+      const leftLine = graphColumn.withLeftDownCurveLeftLine()
+      const leftLineStyles = getComputedStyle(leftLine)
+      expect(leftLineStyles.borderBottomStyle).toBe('dotted')
+      expect(leftLineStyles.borderBottomColor).toBe(placeholderColour)
+
+      const bottomLine = graphColumn.withLeftDownCurveBottomLine()
+      const bottomLineStyles = getComputedStyle(bottomLine)
+      expect(bottomLineStyles.borderRightStyle).toBe('dotted')
+      expect(bottomLineStyles.borderRightColor).toBe(placeholderColour)
+
+      const curvedLine = graphColumn.withLeftDownCurveCurvedLine()
+      const curvedLinePath = curvedLine?.querySelector('path')
+      expect(curvedLinePath?.getAttribute('stroke-dasharray')).toBe('2 2')
+      expect(curvedLinePath?.getAttribute('stroke')).toBe(placeholderColour)
+
+      // Other elements should not be rendered
+      expect(graphColumn.withIndexPseudoCommitNode({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullWidthHorizontalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withFullHeightVerticalLine({ shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 0, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withLeftUpCurve({ shouldExist: false })).not.toBeInTheDocument()
     })
   })
 })

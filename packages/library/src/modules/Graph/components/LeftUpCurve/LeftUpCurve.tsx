@@ -12,6 +12,8 @@ export const LeftUpCurve = ({ color, isPlaceholder }: LeftUpCurveProps) => {
   return (
     <div id='left-up-curve' data-testid='left-up-curve' className={styles.container}>
       <div
+        id='left-up-curve-top-line'
+        data-testid='left-up-curve-top-line'
         className={styles.line}
         style={{
           top: 0,
@@ -24,10 +26,13 @@ export const LeftUpCurve = ({ color, isPlaceholder }: LeftUpCurveProps) => {
       <CurvedEdge
         colour={color}
         dashed={isPlaceholder}
+        id='left-up-curve-curved-line'
         path='M 0,53 A 50,50 0 0,0 50,0'
       />
 
       <div
+        id='left-up-curve-left-line'
+        data-testid='left-up-curve-left-line'
         className={styles.line}
         style={{
           left: 0,

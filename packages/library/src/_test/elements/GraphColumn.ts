@@ -53,6 +53,38 @@ class GraphColumnElement {
   public withPreviewedBackground<T extends boolean = true>({ column, shouldExist }: Background<T> = {} as Background<T>) {
     return this.getElement(`column-background-${column}-previewed`, shouldExist)
   }
+
+  public withLeftDownCurve<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('left-down-curve', shouldExist)
+  }
+
+  public withLeftDownCurveCurvedLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('left-down-curve-curved-line', shouldExist)
+  }
+
+  public withLeftDownCurveLeftLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('left-down-curve-left-line', shouldExist)
+  }
+
+  public withLeftDownCurveBottomLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('left-down-curve-bottom-line', shouldExist)
+  }
+
+  public withLeftUpCurve<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('left-up-curve', shouldExist)
+  }
+
+  public withLeftUpCurveCurvedLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('left-up-curve-curved-line', shouldExist)
+  }
+
+  public withLeftUpCurveLeftLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('left-up-curve-left-line', shouldExist)
+  }
+
+  public withLeftUpCurveTopLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('left-up-curve-top-line', shouldExist)
+  }
 }
 
 export const graphColumn = new GraphColumnElement()

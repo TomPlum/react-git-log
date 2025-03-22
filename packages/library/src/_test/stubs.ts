@@ -1,6 +1,7 @@
 import { Commit } from 'types'
 import { GitContextBag } from 'context/GitContext'
 import DataIntervalTree from 'node-interval-tree'
+import { ThemeFunctions } from 'hooks/useTheme'
 
 export const commit = (commit?: Partial<Commit>) => ({
   hash: 'aa2c148',
@@ -46,4 +47,17 @@ export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({
     children: new Map()
   },
   ...bag
+})
+
+export const themeFunctions = (response?: Partial<ThemeFunctions>): ThemeFunctions => ({
+  getGraphColumnColour: vi.fn(),
+  shiftAlphaChannel: vi.fn(),
+  hoverColour: 'hoverColour',
+  theme: 'dark',
+  textColour: 'textColour',
+  reduceOpacity: vi.fn(),
+  getCommitColour: vi.fn(),
+  getTooltipBackground: vi.fn(),
+  hoverTransitionDuration: 500,
+  ...response
 })

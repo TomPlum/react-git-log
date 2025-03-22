@@ -1,26 +1,10 @@
 import { fireEvent, render } from '@testing-library/react'
 import { GraphColumn } from './GraphColumn'
-import { commit, gitContextBag } from 'test/stubs'
+import { commit, gitContextBag, themeFunctions } from 'test/stubs'
 import * as selectCommitHandler from 'hooks/useSelectCommit'
 import * as gitContext from 'context/GitContext/useGitContext'
 import * as themeHook from 'hooks/useTheme'
 import { graphColumn } from 'test/elements/GraphColumn'
-import { ThemeFunctions } from 'hooks/useTheme'
-
-const spyTheme = (stubs: Partial<ThemeFunctions>) => {
-  return vi.spyOn(themeHook, 'useTheme').mockReturnValue({
-    getGraphColumnColour: vi.fn(),
-    shiftAlphaChannel: vi.fn(),
-    hoverColour: 'hoverColour',
-    theme: 'dark',
-    textColour: 'textColour',
-    reduceOpacity: vi.fn(),
-    getCommitColour: vi.fn(),
-    getTooltipBackground: vi.fn(),
-    hoverTransitionDuration: 500,
-    ...stubs
-  })
-}
 
 describe('GraphColumn', () => {
   describe('Event Handling', () => {
@@ -362,7 +346,10 @@ describe('GraphColumn', () => {
       const getGraphColumnColour = vi.fn().mockReturnValue(graphColumnColour)
       const reduceOpacity = vi.fn().mockReturnValue(expectedColour)
 
-      spyTheme({ getGraphColumnColour, reduceOpacity })
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
+        getGraphColumnColour,
+        reduceOpacity
+      }))
 
       render(
         <GraphColumn
@@ -392,9 +379,9 @@ describe('GraphColumn', () => {
       }))
 
       const expectedColour = 'rgb(8, 5, 1)'
-      spyTheme({
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
         hoverColour: expectedColour
-      })
+      }))
 
       render(
         <GraphColumn
@@ -512,9 +499,9 @@ describe('GraphColumn', () => {
       }))
 
       const expectedBackgroundColour = 'rgb(1, 2, 3)'
-      spyTheme({
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
         hoverColour: expectedBackgroundColour
-      })
+      }))
 
       render(
         <GraphColumn

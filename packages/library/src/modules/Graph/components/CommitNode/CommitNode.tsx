@@ -6,12 +6,12 @@ import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context/GitContext'
 import { CommitNodeTooltip } from '../CommitNodeTooltip'
 import { useSelectCommit } from 'hooks/useSelectCommit'
-import { NODE_BORDER_WIDTH } from 'constants/constants'
+import { NODE_BORDER_WIDTH, NODE_WIDTH } from 'constants/constants'
 
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { textColour, shiftAlphaChannel, theme } = useTheme()
-  const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme } = useGitContext()
+  const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, rowSpacing } = useGitContext()
 
   const isMergeCommit = nodeTheme === 'default' && commit.parents.length > 1
 
@@ -77,6 +77,8 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
             className={styles.commitLabel}
             style={{
               color: textColour,
+              top: `calc(50% - 4px - ${rowSpacing})`,
+              left: `calc(50% + ${NODE_WIDTH / 2}px + 5px)`,
               background: theme === 'dark' ? 'rgb(26,26,26)' : 'white',
             }}
           >

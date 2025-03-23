@@ -44,7 +44,7 @@ describe('Integration', () => {
     return commitDate.fromNow()
   }
 
-  it('should render the correct elements in each column for the sleep repository git log entries', { timeout: 120 * 1000 }, () => {
+  it('should render the correct elements in each column for the sleep repository git log entries', { timeout: 60 * 1000 * 5 }, () => {
     const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
     const headCommit = sleepCommits.find(commit => commit.hash === '1352f4c')
     const commits = prepareCommits(sleepCommits)

@@ -34,13 +34,19 @@ hash:c88f0b9,parents:786b044,branch:refs/heads/develop,msg:feat(highlights): cle
     expect(parseGitLogOutput('')).toEqual([])
   })
 
-  it('throw an error for invalid log lines', () => {
+  it('throw log an error for invalid log lines', () => {
+    const consoleWarn = vi.spyOn(console, 'warn')
+
     const input = `
       hash:abc123,parents:def456,branch:main,refs:HEAD,msg:Valid commit,date:2025-03-05 12:34:56 +0000
       invalid log entry
       hash:def456,parents:,branch:feature,refs:,msg:Another commit,date:2025-03-04 11:22:33 +0000
     `
 
-    expect(() => parseGitLogOutput(input.trim())).toThrowError('Invalid commit entry data: hash:abc123,parents:def456,branch:main,refs:HEAD,msg:Valid commit,date:2025-03-05 12:34:56 +0000')
+    const parsed = parseGitLogOutput(input.trim())
+
+    expect(parsed).toHaveLength(0)
+    expect(consoleWarn).toHaveBeenCalledTimes(4)
+    expect(consoleWarn).toHaveBeenCalledWith('There were 3 invalid entries in the git log entry data.')
   })
 })

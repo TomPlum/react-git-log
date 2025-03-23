@@ -3,7 +3,7 @@ import { Commit } from 'types'
 export const sleepCommits: Commit[] = [
   {
     hash: 'be2b8a8',
-    committerDate: '2025-03-23T02:44:38+00:00',
+    committerDate: '2025-03-20 02:44:38 +0000',
     authorDate: '2025-03-20 02:44:38 +0000',
     message: 'fix(deps): update all non-major dependencies',
     parents: [
@@ -15,7 +15,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c88f0b9',
-    committerDate: '2025-03-10T20:42:31+00:00',
+    committerDate: '2025-03-07 20:42:31 +0000',
     authorDate: '2025-03-07 20:42:31 +0000',
     message: 'feat(highlights): cleaned up effect function',
     parents: [
@@ -27,7 +27,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '26130ea',
-    committerDate: '2025-03-08T17:30:04+00:00',
+    committerDate: '2025-03-05 17:30:04 +0000',
     authorDate: '2025-03-05 17:30:04 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@1352f4c7814aa2ae660d9bd875870608a32734d1 🚀',
     parents: [
@@ -39,7 +39,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd5d320b',
-    committerDate: '2025-03-08T17:29:54+00:00',
+    committerDate: '2025-03-05 17:29:54 +0000',
     authorDate: '2025-03-05 17:29:54 +0000',
     message: 'fix(deps): update react monorepo to v19',
     parents: [
@@ -51,7 +51,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6c59bca',
-    committerDate: '2025-03-08T17:29:47+00:00',
+    committerDate: '2025-03-05 17:29:47 +0000',
     authorDate: '2025-03-05 17:29:47 +0000',
     message: 'fix(deps): update dependency react-router-dom to v7',
     parents: [
@@ -63,7 +63,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1352f4c',
-    committerDate: '2025-03-08T17:29:01+00:00',
+    committerDate: '2025-03-05 17:29:01 +0000',
     authorDate: '2025-03-05 17:29:01 +0000',
     message: 'Merge pull request #54 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -80,7 +80,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1d594ea',
-    committerDate: '2025-03-08T10:55:09+00:00',
+    committerDate: '2025-03-05 10:55:09 +0000',
     authorDate: '2025-03-05 10:55:09 +0000',
     message: 'fix(deps): update all non-major dependencies',
     parents: [
@@ -94,7 +94,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '786b044',
-    committerDate: '2025-03-07T19:22:11+00:00',
+    committerDate: '2025-03-04 19:22:11 +0000',
     authorDate: '2025-03-04 19:22:11 +0000',
     message: 'feat(highlights): Extracted ShowcaseProgressDots component',
     parents: [
@@ -108,7 +108,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0776115',
-    committerDate: '2025-03-07T18:54:59+00:00',
+    committerDate: '2025-03-04 18:54:59 +0000',
     authorDate: '2025-03-04 18:54:59 +0000',
     message: 'feat(highlights): responsive styling improvements to wake up showcase',
     parents: [
@@ -122,7 +122,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0a0a44d',
-    committerDate: '2025-03-07T18:36:14+00:00',
+    committerDate: '2025-03-04 18:36:14 +0000',
     authorDate: '2025-03-04 18:36:14 +0000',
     message: 'feat(highlights): added active showcase to query params',
     parents: [
@@ -136,7 +136,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '769e569',
-    committerDate: '2025-03-07T18:18:59+00:00',
+    committerDate: '2025-03-04 18:18:59 +0000',
     authorDate: '2025-03-04 18:18:59 +0000',
     message: 'feat(highlights): starting adding progress dots to wake up showcase',
     parents: [
@@ -150,7 +150,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '02af2b4',
-    committerDate: '2025-03-06T19:30:12+00:00',
+    committerDate: '2025-03-03 19:30:12 +0000',
     authorDate: '2025-03-03 19:30:12 +0000',
     message: 'feat(highlights): positioned text in wakeup showcase',
     parents: [
@@ -164,7 +164,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'de2ac76',
-    committerDate: '2025-03-04T19:00:19+00:00',
+    committerDate: '2025-03-01 19:00:19 +0000',
     authorDate: '2025-03-01 19:00:19 +0000',
     message: 'feat(highlights): refactored page so showcases are full viewport size and added lakeside sunrise animation',
     parents: [
@@ -178,7 +178,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd81f45e',
-    committerDate: '2025-03-04T18:24:09+00:00',
+    committerDate: '2025-03-01 18:24:09 +0000',
     authorDate: '2025-03-01 18:24:09 +0000',
     message: 'feat(highlights): started calculating average wakeup times',
     parents: [
@@ -192,7 +192,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4a5f077',
-    committerDate: '2025-03-04T17:21:50+00:00',
+    committerDate: '2025-03-01 17:21:50 +0000',
     authorDate: '2025-03-01 17:21:50 +0000',
     message: 'feat(highlights): fixed showcase context',
     parents: [
@@ -206,7 +206,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '33d2930',
-    committerDate: '2025-03-03T15:26:55+00:00',
+    committerDate: '2025-02-28 15:26:55 +0000',
     authorDate: '2025-02-28 15:26:55 +0000',
     message: 'feat(highlights): started implementing custom showcase',
     parents: [
@@ -220,7 +220,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6671923',
-    committerDate: '2025-03-02T17:53:06+00:00',
+    committerDate: '2025-02-27 17:53:06 +0000',
     authorDate: '2025-02-27 17:53:06 +0000',
     message: 'feat(highlights): extracted LandingPageHeading.tsx component',
     parents: [
@@ -234,7 +234,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a8bfc71',
-    committerDate: '2025-03-02T17:49:03+00:00',
+    committerDate: '2025-02-27 17:49:03 +0000',
     authorDate: '2025-02-27 17:49:03 +0000',
     message: 'feat(styling): added back to charts link in highlights landing page',
     parents: [
@@ -248,7 +248,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '69e20aa',
-    committerDate: '2025-03-01T21:10:47+00:00',
+    committerDate: '2025-02-26 21:10:47 +0000',
     authorDate: '2025-02-26 21:10:47 +0000',
     message: 'feat(styling): minor improvements to layout of highlights showcases',
     parents: [
@@ -262,7 +262,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ec397ea',
-    committerDate: '2025-03-01T20:56:55+00:00',
+    committerDate: '2025-02-26 20:56:55 +0000',
     authorDate: '2025-02-26 20:56:55 +0000',
     message: 'feat(styling): added in remaining exit animations after starting',
     parents: [
@@ -276,7 +276,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2c26dfb',
-    committerDate: '2025-03-01T20:45:52+00:00',
+    committerDate: '2025-02-26 20:45:52 +0000',
     authorDate: '2025-02-26 20:45:52 +0000',
     message: 'feat(styling): added moon and land exit animations',
     parents: [
@@ -290,7 +290,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3dc9b40',
-    committerDate: '2025-03-01T20:33:32+00:00',
+    committerDate: '2025-02-26 20:33:32 +0000',
     authorDate: '2025-02-26 20:33:32 +0000',
     message: 'feat(styling): added moon loading state',
     parents: [
@@ -304,7 +304,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8c8952a',
-    committerDate: '2025-03-01T20:25:51+00:00',
+    committerDate: '2025-02-26 20:25:51 +0000',
     authorDate: '2025-02-26 20:25:51 +0000',
     message: 'feat(styling): added compact sleep data loading component',
     parents: [
@@ -318,7 +318,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a267aea',
-    committerDate: '2025-03-01T19:42:48+00:00',
+    committerDate: '2025-02-26 19:42:48 +0000',
     authorDate: '2025-02-26 19:42:48 +0000',
     message: 'feat(styling): extracted night sky scene into component',
     parents: [
@@ -332,7 +332,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9994eec',
-    committerDate: '2025-03-01T19:40:30+00:00',
+    committerDate: '2025-02-26 19:40:30 +0000',
     authorDate: '2025-02-26 19:40:30 +0000',
     message: 'feat(styling): added extra shooting star',
     parents: [
@@ -346,7 +346,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '52aa9dd',
-    committerDate: '2025-03-01T19:37:02+00:00',
+    committerDate: '2025-02-26 19:37:02 +0000',
     authorDate: '2025-02-26 19:37:02 +0000',
     message: 'feat(styling): adjustments to moon',
     parents: [
@@ -360,7 +360,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '18088d2',
-    committerDate: '2025-03-01T19:32:50+00:00',
+    committerDate: '2025-02-26 19:32:50 +0000',
     authorDate: '2025-02-26 19:32:50 +0000',
     message: 'feat(styling): added generated stars to background scene',
     parents: [
@@ -374,7 +374,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0c202af',
-    committerDate: '2025-03-01T17:59:21+00:00',
+    committerDate: '2025-02-26 17:59:21 +0000',
     authorDate: '2025-02-26 17:59:21 +0000',
     message: 'feat(styling): making scene more responsive and full screen',
     parents: [
@@ -388,7 +388,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'cf56b70',
-    committerDate: '2025-03-01T17:27:45+00:00',
+    committerDate: '2025-02-26 17:27:45 +0000',
     authorDate: '2025-02-26 17:27:45 +0000',
     message: 'feat(styling): experimenting with highlights landing styling',
     parents: [
@@ -402,7 +402,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5a67c90',
-    committerDate: '2025-02-28T17:14:01+00:00',
+    committerDate: '2025-02-25 17:14:01 +0000',
     authorDate: '2025-02-25 17:14:01 +0000',
     message: 'fix(deps): update react monorepo to v19',
     parents: [
@@ -414,7 +414,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b61aeed',
-    committerDate: '2025-02-28T17:11:36+00:00',
+    committerDate: '2025-02-25 17:11:36 +0000',
     authorDate: '2025-02-25 17:11:36 +0000',
     message: 'fix(styling): fixed dart sass 3.0 deprecation warnings',
     parents: [
@@ -428,7 +428,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '81ce807',
-    committerDate: '2025-02-28T17:09:11+00:00',
+    committerDate: '2025-02-25 17:09:11 +0000',
     authorDate: '2025-02-25 17:09:11 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@e059c28b8fa1668ec033daca1648f00a78126bc5 🚀',
     parents: [
@@ -442,7 +442,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2d173ca',
-    committerDate: '2025-02-28T17:08:31+00:00',
+    committerDate: '2025-02-25 17:08:31 +0000',
     authorDate: '2025-02-25 17:08:31 +0000',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -457,7 +457,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e059c28',
-    committerDate: '2025-02-28T17:08:06+00:00',
+    committerDate: '2025-02-25 17:08:06 +0000',
     authorDate: '2025-02-25 17:08:06 +0000',
     message: 'Merge pull request #39 from TomPlum/renovate/vite-6.x',
     parents: [
@@ -475,7 +475,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '51ba1e7',
-    committerDate: '2025-02-28T17:07:43+00:00',
+    committerDate: '2025-02-25 17:07:43 +0000',
     authorDate: '2025-02-25 17:07:43 +0000',
     message: 'feat(page): playing with highlights landing page styling',
     parents: [
@@ -489,7 +489,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '675127e',
-    committerDate: '2025-02-27T19:56:47+00:00',
+    committerDate: '2025-02-24 19:56:47 +0000',
     authorDate: '2025-02-24 19:56:47 +0000',
     message: 'feat(page): moved colours, added sleeping animation',
     parents: [
@@ -503,7 +503,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '017e506',
-    committerDate: '2025-02-27T17:48:20+00:00',
+    committerDate: '2025-02-24 17:48:20 +0000',
     authorDate: '2025-02-24 17:48:20 +0000',
     message: 'feat(page): progress on highlights page',
     parents: [
@@ -517,7 +517,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ff018dd',
-    committerDate: '2025-02-26T19:29:55+00:00',
+    committerDate: '2025-02-23 19:29:55 +0000',
     authorDate: '2025-02-23 19:29:55 +0000',
     message: 'feat(page): initial pass of best session showcase content',
     parents: [
@@ -531,7 +531,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f28088d',
-    committerDate: '2025-02-26T19:09:41+00:00',
+    committerDate: '2025-02-23 19:09:41 +0000',
     authorDate: '2025-02-23 19:09:41 +0000',
     message: 'feat(page): initial highlights page work for showcases',
     parents: [
@@ -545,7 +545,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f7cd757',
-    committerDate: '2025-02-26T18:48:35+00:00',
+    committerDate: '2025-02-23 18:48:35 +0000',
     authorDate: '2025-02-23 18:48:35 +0000',
     message: 'chore(docs): added tsdoc to NestedProgressCircle props interface',
     parents: [
@@ -559,7 +559,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ea5a998',
-    committerDate: '2025-02-26T17:44:59+00:00',
+    committerDate: '2025-02-23 17:44:59 +0000',
     authorDate: '2025-02-23 17:44:59 +0000',
     message: 'feat(routing): added highlights page and made query param routing only for sleep page',
     parents: [
@@ -573,7 +573,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f2d49cf',
-    committerDate: '2025-02-26T16:40:46+00:00',
+    committerDate: '2025-02-23 16:40:46 +0000',
     authorDate: '2025-02-23 16:40:46 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@0b78e0746d5a183a5be7879a9726815df474e857 🚀',
     parents: [
@@ -587,7 +587,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0b78e07',
-    committerDate: '2025-02-26T16:39:50+00:00',
+    committerDate: '2025-02-23 16:39:50 +0000',
     authorDate: '2025-02-23 16:39:50 +0000',
     message: 'Merge pull request #52 from TomPlum/develop',
     parents: [
@@ -602,7 +602,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'efe3dd6',
-    committerDate: '2025-02-26T16:38:25+00:00',
+    committerDate: '2025-02-23 16:38:25 +0000',
     authorDate: '2025-02-23 16:38:25 +0000',
     message: 'feat(chart): moved session highlights card',
     parents: [
@@ -617,7 +617,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd524100',
-    committerDate: '2025-02-26T16:35:33+00:00',
+    committerDate: '2025-02-23 16:35:33 +0000',
     authorDate: '2025-02-23 16:35:33 +0000',
     message: 'feat(chart): Re-added locale toggle as ascii checkbox',
     parents: [
@@ -631,7 +631,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '50250a9',
-    committerDate: '2025-02-26T16:29:15+00:00',
+    committerDate: '2025-02-23 16:29:15 +0000',
     authorDate: '2025-02-23 16:29:15 +0000',
     message: 'feat(chart): Added show highlights card toggle to controls + jp translations',
     parents: [
@@ -645,7 +645,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'bb950c2',
-    committerDate: '2025-02-26T16:08:30+00:00',
+    committerDate: '2025-02-23 16:08:30 +0000',
     authorDate: '2025-02-23 16:08:30 +0000',
     message: 'feat(chart): Fixed carousel theming in SessionHighlightCard.tsx',
     parents: [
@@ -659,7 +659,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '432fd9c',
-    committerDate: '2025-02-26T15:46:54+00:00',
+    committerDate: '2025-02-23 15:46:54 +0000',
     authorDate: '2025-02-23 15:46:54 +0000',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -674,7 +674,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6115d5f',
-    committerDate: '2025-02-26T13:03:09+00:00',
+    committerDate: '2025-02-23 13:03:09 +0000',
     authorDate: '2025-02-23 13:03:09 +0000',
     message: 'feat(chart): Extracted HighlightCarouselItem component',
     parents: [
@@ -688,7 +688,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b45bf05',
-    committerDate: '2025-02-26T12:56:22+00:00',
+    committerDate: '2025-02-23 12:56:22 +0000',
     authorDate: '2025-02-23 12:56:22 +0000',
     message: 'feat(chart): Moved SessionHighlightCard to Highlights module',
     parents: [
@@ -702,7 +702,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6beb2d1',
-    committerDate: '2025-02-26T12:54:45+00:00',
+    committerDate: '2025-02-23 12:54:45 +0000',
     authorDate: '2025-02-23 12:54:45 +0000',
     message: 'feat(chart): Extracted NestedProgressCircles components in new Highlights module',
     parents: [
@@ -716,7 +716,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2bc6652',
-    committerDate: '2025-02-25T23:56:31+00:00',
+    committerDate: '2025-02-22 23:56:31 +0000',
     authorDate: '2025-02-22 23:56:31 +0000',
     message: 'feat(chart): Added formatDuration util and added details to highlight card',
     parents: [
@@ -730,7 +730,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ab51db5',
-    committerDate: '2025-02-25T23:33:27+00:00',
+    committerDate: '2025-02-22 23:33:27 +0000',
     authorDate: '2025-02-22 23:33:27 +0000',
     message: 'feat(chart): added nested progress circle to session highlight',
     parents: [
@@ -744,7 +744,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '165b754',
-    committerDate: '2025-02-25T23:24:09+00:00',
+    committerDate: '2025-02-22 23:24:09 +0000',
     authorDate: '2025-02-22 23:24:09 +0000',
     message: 'feat(chart): starting new session highlight component',
     parents: [
@@ -758,7 +758,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '30ee0ba',
-    committerDate: '2025-02-25T22:48:03+00:00',
+    committerDate: '2025-02-22 22:48:03 +0000',
     authorDate: '2025-02-22 22:48:03 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@7355361e6e85ef1159cfe61f676044dc71d5f2fd 🚀',
     parents: [
@@ -772,7 +772,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7355361',
-    committerDate: '2025-02-25T22:47:07+00:00',
+    committerDate: '2025-02-22 22:47:07 +0000',
     authorDate: '2025-02-22 22:47:07 +0000',
     message: 'Merge pull request #51 from TomPlum/develop',
     parents: [
@@ -788,7 +788,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'eff7491',
-    committerDate: '2025-02-25T22:45:59+00:00',
+    committerDate: '2025-02-22 22:45:59 +0000',
     authorDate: '2025-02-22 22:45:59 +0000',
     message: 'chore(docs): updated web worker loading image for docs',
     parents: [
@@ -803,7 +803,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '127dd9c',
-    committerDate: '2025-02-25T22:44:34+00:00',
+    committerDate: '2025-02-22 22:44:34 +0000',
     authorDate: '2025-02-22 22:44:34 +0000',
     message: 'fix(styling): fixed positioning issue in starry background',
     parents: [
@@ -817,7 +817,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0964b7d',
-    committerDate: '2025-02-25T22:33:55+00:00',
+    committerDate: '2025-02-22 22:33:55 +0000',
     authorDate: '2025-02-22 22:33:55 +0000',
     message: 'fix(params): date range params now default to last 2 months if they are not present on page load',
     parents: [
@@ -831,7 +831,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f4ef8e9',
-    committerDate: '2025-02-25T22:11:18+00:00',
+    committerDate: '2025-02-22 22:11:18 +0000',
     authorDate: '2025-02-22 22:11:18 +0000',
     message: 'feat(loading): added starry background to data loading page',
     parents: [
@@ -845,7 +845,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'aa2c148',
-    committerDate: '2025-02-25T22:06:22+00:00',
+    committerDate: '2025-02-22 22:06:22 +0000',
     authorDate: '2025-02-22 22:06:22 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@88a3ca2bc032b0ddf44eff0d272abf71052fbbe5 🚀',
     parents: [
@@ -859,7 +859,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '515eaa9',
-    committerDate: '2025-02-25T22:05:44+00:00',
+    committerDate: '2025-02-22 22:05:44 +0000',
     authorDate: '2025-02-22 22:05:44 +0000',
     message: 'Merge pull request #49 from TomPlum/renovate/major-eslint-stylistic-monorepo',
     parents: [
@@ -874,7 +874,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '88a3ca2',
-    committerDate: '2025-02-25T22:05:23+00:00',
+    committerDate: '2025-02-22 22:05:23 +0000',
     authorDate: '2025-02-22 22:05:23 +0000',
     message: 'Merge pull request #48 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -889,7 +889,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'fd93615',
-    committerDate: '2025-02-25T22:05:07+00:00',
+    committerDate: '2025-02-22 22:05:07 +0000',
     authorDate: '2025-02-22 22:05:07 +0000',
     message: 'Merge pull request #50 from TomPlum/renovate/globals-16.x',
     parents: [
@@ -904,7 +904,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5510915',
-    committerDate: '2025-02-25T21:52:51+00:00',
+    committerDate: '2025-02-22 21:52:51 +0000',
     authorDate: '2025-02-22 21:52:51 +0000',
     message: 'feat(page): added back link on improvements page',
     parents: [
@@ -918,7 +918,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '202237c',
-    committerDate: '2025-02-25T21:51:17+00:00',
+    committerDate: '2025-02-22 21:51:17 +0000',
     authorDate: '2025-02-22 21:51:17 +0000',
     message: 'feat(page): rough first draft of improvements page content',
     parents: [
@@ -932,7 +932,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f687c53',
-    committerDate: '2025-02-25T07:05:41+00:00',
+    committerDate: '2025-02-22 07:05:41 +0000',
     authorDate: '2025-02-22 07:05:41 +0000',
     message: 'chore(deps): update dependency globals to v16',
     parents: [
@@ -946,7 +946,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '575887a',
-    committerDate: '2025-02-25T02:47:35+00:00',
+    committerDate: '2025-02-22 02:47:35 +0000',
     authorDate: '2025-02-22 02:47:35 +0000',
     message: 'chore(deps): update dependency @stylistic/eslint-plugin to v4',
     parents: [
@@ -960,7 +960,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '932be3a',
-    committerDate: '2025-02-25T02:47:25+00:00',
+    committerDate: '2025-02-22 02:47:25 +0000',
     authorDate: '2025-02-22 02:47:25 +0000',
     message: 'fix(deps): update all non-major dependencies',
     parents: [
@@ -974,7 +974,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4be118d',
-    committerDate: '2025-02-22T21:06:34+00:00',
+    committerDate: '2025-02-19 21:06:34 +0000',
     authorDate: '2025-02-19 21:06:34 +0000',
     message: 'chore(docs): added missing ToC entry in readme',
     parents: [
@@ -988,7 +988,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a338942',
-    committerDate: '2025-02-19T17:26:41+00:00',
+    committerDate: '2025-02-16 17:26:41 +0000',
     authorDate: '2025-02-16 17:26:41 +0000',
     message: 'chore(docs): more docs additions in readme',
     parents: [
@@ -1002,7 +1002,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f17afd7',
-    committerDate: '2025-02-19T17:20:01+00:00',
+    committerDate: '2025-02-16 17:20:01 +0000',
     authorDate: '2025-02-16 17:20:01 +0000',
     message: 'chore(docs): updated readme images and docs',
     parents: [
@@ -1016,7 +1016,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'afdb263',
-    committerDate: '2025-02-19T15:23:06+00:00',
+    committerDate: '2025-02-16 15:23:06 +0000',
     authorDate: '2025-02-16 15:23:06 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@3d4d017bf91addfc357a9bfcc88ccfc4eceae78c 🚀',
     parents: [
@@ -1030,7 +1030,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3d4d017',
-    committerDate: '2025-02-19T15:22:11+00:00',
+    committerDate: '2025-02-16 15:22:11 +0000',
     authorDate: '2025-02-16 15:22:11 +0000',
     message: 'Merge pull request #47 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -1049,7 +1049,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '867c511',
-    committerDate: '2025-02-19T15:21:55+00:00',
+    committerDate: '2025-02-16 15:21:55 +0000',
     authorDate: '2025-02-16 15:21:55 +0000',
     message: 'chore(deps): update dependency vite to v6',
     parents: [
@@ -1063,7 +1063,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a829a48',
-    committerDate: '2025-02-19T15:21:20+00:00',
+    committerDate: '2025-02-16 15:21:20 +0000',
     authorDate: '2025-02-16 15:21:20 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@5525ed5d3a90dca5f4930426d8f6367f67587575 🚀',
     parents: [
@@ -1077,7 +1077,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f157195',
-    committerDate: '2025-02-19T15:21:05+00:00',
+    committerDate: '2025-02-16 15:21:05 +0000',
     authorDate: '2025-02-16 15:21:05 +0000',
     message: 'fix(deps): update all non-major dependencies',
     parents: [
@@ -1091,7 +1091,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5525ed5',
-    committerDate: '2025-02-19T15:20:20+00:00',
+    committerDate: '2025-02-16 15:20:20 +0000',
     authorDate: '2025-02-16 15:20:20 +0000',
     message: 'Merge pull request #38 from TomPlum/develop',
     parents: [
@@ -1108,7 +1108,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '081b2d3',
-    committerDate: '2025-02-19T15:16:44+00:00',
+    committerDate: '2025-02-16 15:16:44 +0000',
     authorDate: '2025-02-16 15:16:44 +0000',
     message: 'chore(data): added latest pillow data 16/02/2025',
     parents: [
@@ -1122,7 +1122,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a10ab03',
-    committerDate: '2025-02-19T15:02:17+00:00',
+    committerDate: '2025-02-16 15:02:17 +0000',
     authorDate: '2025-02-16 15:02:17 +0000',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -1137,7 +1137,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8ddccd2',
-    committerDate: '2025-02-19T15:01:01+00:00',
+    committerDate: '2025-02-16 15:01:01 +0000',
     authorDate: '2025-02-16 15:01:01 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@58624987661cae7503ac110e7ec054e47e62cd2c 🚀',
     parents: [
@@ -1151,7 +1151,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5862498',
-    committerDate: '2025-02-19T15:00:05+00:00',
+    committerDate: '2025-02-16 15:00:05 +0000',
     authorDate: '2025-02-16 15:00:05 +0000',
     message: 'Merge pull request #46 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -1167,7 +1167,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'eeeb1f2',
-    committerDate: '2025-02-17T01:53:30+00:00',
+    committerDate: '2025-02-14 01:53:30 +0000',
     authorDate: '2025-02-14 01:53:30 +0000',
     message: 'fix(deps): update all non-major dependencies',
     parents: [
@@ -1181,7 +1181,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '55ec23e',
-    committerDate: '2025-02-04T15:22:07+00:00',
+    committerDate: '2025-02-01 15:22:07 +0000',
     authorDate: '2025-02-01 15:22:07 +0000',
     message: 'fix(deps): npm install to fix lockfile issues',
     parents: [
@@ -1195,7 +1195,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '75fea53',
-    committerDate: '2025-02-04T15:21:44+00:00',
+    committerDate: '2025-02-01 15:21:44 +0000',
     authorDate: '2025-02-01 15:21:44 +0000',
     message: 'Merge branch \'refs/heads/release\' into develop',
     parents: [
@@ -1210,7 +1210,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '27d7e9e',
-    committerDate: '2025-02-04T15:21:11+00:00',
+    committerDate: '2025-02-01 15:21:11 +0000',
     authorDate: '2025-02-01 15:21:11 +0000',
     message: 'Merge pull request #45 from TomPlum/renovate/major-eslint-stylistic-monorepo',
     parents: [
@@ -1227,7 +1227,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '338b505',
-    committerDate: '2025-02-04T15:20:55+00:00',
+    committerDate: '2025-02-01 15:20:55 +0000',
     authorDate: '2025-02-01 15:20:55 +0000',
     message: 'Merge pull request #43 from TomPlum/renovate/jsdom-26.x',
     parents: [
@@ -1242,7 +1242,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '988bf8d',
-    committerDate: '2025-02-04T15:20:45+00:00',
+    committerDate: '2025-02-01 15:20:45 +0000',
     authorDate: '2025-02-01 15:20:45 +0000',
     message: 'Merge pull request #44 from TomPlum/renovate/major-vitest-monorepo',
     parents: [
@@ -1257,7 +1257,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e11674d',
-    committerDate: '2025-02-04T15:17:11+00:00',
+    committerDate: '2025-02-01 15:17:11 +0000',
     authorDate: '2025-02-01 15:17:11 +0000',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -1272,7 +1272,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5db47c6',
-    committerDate: '2025-02-04T15:16:35+00:00',
+    committerDate: '2025-02-01 15:16:35 +0000',
     authorDate: '2025-02-01 15:16:35 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@b35728b6da106abb0f2c82c143ae0b4a6e31f668 🚀',
     parents: [
@@ -1286,7 +1286,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0577e9d',
-    committerDate: '2025-02-04T15:16:12+00:00',
+    committerDate: '2025-02-01 15:16:12 +0000',
     authorDate: '2025-02-01 15:16:12 +0000',
     message: 'chore(deps): update dependency @stylistic/eslint-plugin to v3',
     parents: [
@@ -1300,7 +1300,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b35728b',
-    committerDate: '2025-02-04T15:15:42+00:00',
+    committerDate: '2025-02-01 15:15:42 +0000',
     authorDate: '2025-02-01 15:15:42 +0000',
     message: 'Merge pull request #42 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -1317,7 +1317,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0f5ae74',
-    committerDate: '2025-02-03T21:51:43+00:00',
+    committerDate: '2025-01-31 21:51:43 +0000',
     authorDate: '2025-01-31 21:51:43 +0000',
     message: 'fix(deps): update all non-major dependencies',
     parents: [
@@ -1331,7 +1331,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '648f6e9',
-    committerDate: '2025-01-22T09:39:08+00:00',
+    committerDate: '2025-01-19 09:39:08 +0000',
     authorDate: '2025-01-19 09:39:08 +0000',
     message: 'chore(deps): update vitest monorepo to v3',
     parents: [
@@ -1345,7 +1345,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ca136bf',
-    committerDate: '2025-01-14T01:17:46+00:00',
+    committerDate: '2025-01-11 01:17:46 +0000',
     authorDate: '2025-01-11 01:17:46 +0000',
     message: 'chore(deps): update dependency jsdom to v26',
     parents: [
@@ -1359,7 +1359,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '09e615d',
-    committerDate: '2025-01-12T20:17:13+00:00',
+    committerDate: '2025-01-09 20:17:13 +0000',
     authorDate: '2025-01-09 20:17:13 +0000',
     message: 'Merge pull request #41 from TomPlum/renovate/react-error-boundary-5.x',
     parents: [
@@ -1377,7 +1377,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '72a5dbb',
-    committerDate: '2025-01-12T20:16:59+00:00',
+    committerDate: '2025-01-09 20:16:59 +0000',
     authorDate: '2025-01-09 20:16:59 +0000',
     message: 'fix(deps): removed redundant package-lock.json entries',
     parents: [
@@ -1391,7 +1391,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5281010',
-    committerDate: '2025-01-12T20:15:57+00:00',
+    committerDate: '2025-01-09 20:15:57 +0000',
     authorDate: '2025-01-09 20:15:57 +0000',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -1406,7 +1406,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd26bcc7',
-    committerDate: '2025-01-12T20:15:47+00:00',
+    committerDate: '2025-01-09 20:15:47 +0000',
     authorDate: '2025-01-09 20:15:47 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@b7ec8259f761ea82faf75ed4da7502589769e1a7 🚀',
     parents: [
@@ -1420,7 +1420,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b7ec825',
-    committerDate: '2025-01-12T20:14:48+00:00',
+    committerDate: '2025-01-09 20:14:48 +0000',
     authorDate: '2025-01-09 20:14:48 +0000',
     message: 'Merge pull request #35 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -1436,7 +1436,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3d680fd',
-    committerDate: '2025-01-11T22:25:06+00:00',
+    committerDate: '2025-01-08 22:25:06 +0000',
     authorDate: '2025-01-08 22:25:06 +0000',
     message: 'fix(deps): update all non-major dependencies',
     parents: [
@@ -1450,7 +1450,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2b85a9e',
-    committerDate: '2024-12-24T21:55:38+00:00',
+    committerDate: '2024-12-21 21:55:38 +0000',
     authorDate: '2024-12-21 21:55:38 +0000',
     message: 'fix(deps): update dependency react-error-boundary to v5',
     parents: [
@@ -1464,7 +1464,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '000b3aa',
-    committerDate: '2024-12-01T19:10:41+00:00',
+    committerDate: '2024-11-28 19:10:41 +0000',
     authorDate: '2024-11-28 19:10:41 +0000',
     message: 'fix(graph): filtered out metric nodes that have a value of 0',
     parents: [
@@ -1478,7 +1478,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '45dbbde',
-    committerDate: '2024-12-01T19:08:06+00:00',
+    committerDate: '2024-11-28 19:08:06 +0000',
     authorDate: '2024-11-28 19:08:06 +0000',
     message: 'feat(graph): minor styling consistency improvements to the ascii inputs',
     parents: [
@@ -1492,7 +1492,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2c60633',
-    committerDate: '2024-12-01T18:50:33+00:00',
+    committerDate: '2024-11-28 18:50:33 +0000',
     authorDate: '2024-11-28 18:50:33 +0000',
     message: 'feat(graph): moved stats ui to bottom right and updated ascii checkbox checked mark',
     parents: [
@@ -1506,7 +1506,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7f60983',
-    committerDate: '2024-12-01T18:26:08+00:00',
+    committerDate: '2024-11-28 18:26:08 +0000',
     authorDate: '2024-11-28 18:26:08 +0000',
     message: 'feat(graph): reduced scene cooldown time to stop node drift and improve performance on first render',
     parents: [
@@ -1520,7 +1520,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'cebb57d',
-    committerDate: '2024-12-01T17:57:17+00:00',
+    committerDate: '2024-11-28 17:57:17 +0000',
     authorDate: '2024-11-28 17:57:17 +0000',
     message: 'chore(deps): removed react-force-graph and replaced with 3d standalone package and bumped three back to latest',
     parents: [
@@ -1534,7 +1534,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '33c38c5',
-    committerDate: '2024-12-01T16:27:32+00:00',
+    committerDate: '2024-11-28 16:27:32 +0000',
     authorDate: '2024-11-28 16:27:32 +0000',
     message: 'chore(graph): removed redundant import file extensions',
     parents: [
@@ -1548,7 +1548,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f19e207',
-    committerDate: '2024-12-01T16:26:50+00:00',
+    committerDate: '2024-11-28 16:26:50 +0000',
     authorDate: '2024-11-28 16:26:50 +0000',
     message: 'chore(graph): renamed three scene folder to match module name',
     parents: [
@@ -1562,7 +1562,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b9bc1dc',
-    committerDate: '2024-12-01T16:24:07+00:00',
+    committerDate: '2024-11-28 16:24:07 +0000',
     authorDate: '2024-11-28 16:24:07 +0000',
     message: 'feat(graph): added root node link directional particles and arrows to indicate the passage of time',
     parents: [
@@ -1576,7 +1576,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9c65959',
-    committerDate: '2024-12-01T11:57:08+00:00',
+    committerDate: '2024-11-28 11:57:08 +0000',
     authorDate: '2024-11-28 11:57:08 +0000',
     message: 'feat(graph): fixed ref typing and reset camera loading state',
     parents: [
@@ -1590,7 +1590,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a172219',
-    committerDate: '2024-12-01T11:37:49+00:00',
+    committerDate: '2024-11-28 11:37:49 +0000',
     authorDate: '2024-11-28 11:37:49 +0000',
     message: 'feat(graph): renamed and structured three chart component',
     parents: [
@@ -1604,7 +1604,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a3af060',
-    committerDate: '2024-12-01T11:35:52+00:00',
+    committerDate: '2024-11-28 11:35:52 +0000',
     authorDate: '2024-11-28 11:35:52 +0000',
     message: 'feat(graph): reworked three scene component structure for better use of context + added ascii button',
     parents: [
@@ -1618,7 +1618,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '363c60d',
-    committerDate: '2024-11-30T17:24:13+00:00',
+    committerDate: '2024-11-27 17:24:13 +0000',
     authorDate: '2024-11-27 17:24:13 +0000',
     message: 'feat(graph): added draggable nodes button and dynamic node sizes based on percentage',
     parents: [
@@ -1632,7 +1632,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'cc0598b',
-    committerDate: '2024-11-30T16:50:40+00:00',
+    committerDate: '2024-11-27 16:50:40 +0000',
     authorDate: '2024-11-27 16:50:40 +0000',
     message: 'feat(graph): added new three context and toggle for the scene',
     parents: [
@@ -1646,7 +1646,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6e89c11',
-    committerDate: '2024-11-30T16:31:13+00:00',
+    committerDate: '2024-11-27 16:31:13 +0000',
     authorDate: '2024-11-27 16:31:13 +0000',
     message: 'feat(graph): started adding controls menu for 3d graph',
     parents: [
@@ -1660,7 +1660,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6904884',
-    committerDate: '2024-11-30T16:30:28+00:00',
+    committerDate: '2024-11-27 16:30:28 +0000',
     authorDate: '2024-11-27 16:30:28 +0000',
     message: 'feat(graph): minor styling improvements on ascii checkbox and turned checked \'x\' to \'o\'',
     parents: [
@@ -1674,7 +1674,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '94b945f',
-    committerDate: '2024-11-30T16:17:49+00:00',
+    committerDate: '2024-11-27 16:17:49 +0000',
     authorDate: '2024-11-27 16:17:49 +0000',
     message: 'feat(graph): more experimentation with 3d force graph',
     parents: [
@@ -1688,7 +1688,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '115846d',
-    committerDate: '2024-11-30T10:35:33+00:00',
+    committerDate: '2024-11-27 10:35:33 +0000',
     authorDate: '2024-11-27 10:35:33 +0000',
     message: 'feat(graph): added fps and network stats counter to 3d graph',
     parents: [
@@ -1702,7 +1702,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '71869c4',
-    committerDate: '2024-11-30T09:10:10+00:00',
+    committerDate: '2024-11-27 09:10:10 +0000',
     authorDate: '2024-11-27 09:10:10 +0000',
     message: 'fix(config): vite config css preproccessor options now use modern-compiler to fix dart scss warnings',
     parents: [
@@ -1716,7 +1716,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a3476a8',
-    committerDate: '2024-11-30T09:09:45+00:00',
+    committerDate: '2024-11-27 09:09:45 +0000',
     authorDate: '2024-11-27 09:09:45 +0000',
     message: 'fix(graph): fixed is3D default query param value and line chart missing opacity keyframes',
     parents: [
@@ -1730,7 +1730,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'deba6b5',
-    committerDate: '2024-11-29T16:53:18+00:00',
+    committerDate: '2024-11-26 16:53:18 +0000',
     authorDate: '2024-11-26 16:53:18 +0000',
     message: 'feat(graph): added experimental 3d button and re-instated 3d graph behind it',
     parents: [
@@ -1744,7 +1744,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '74885fc',
-    committerDate: '2024-11-29T14:11:47+00:00',
+    committerDate: '2024-11-26 14:11:47 +0000',
     authorDate: '2024-11-26 14:11:47 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@810a868f1f691c458fa0354a5122d8fe166d84ed 🚀',
     parents: [
@@ -1758,7 +1758,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '810a868',
-    committerDate: '2024-11-29T14:10:47+00:00',
+    committerDate: '2024-11-26 14:10:47 +0000',
     authorDate: '2024-11-26 14:10:47 +0000',
     message: 'Merge pull request #37 from TomPlum/develop',
     parents: [
@@ -1775,7 +1775,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd8e279c',
-    committerDate: '2024-11-29T13:46:26+00:00',
+    committerDate: '2024-11-26 13:46:26 +0000',
     authorDate: '2024-11-26 13:46:26 +0000',
     message: 'chore(graph): removed locale toggle from graph controls ui',
     parents: [
@@ -1789,7 +1789,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3a78717',
-    committerDate: '2024-11-29T13:44:29+00:00',
+    committerDate: '2024-11-26 13:44:29 +0000',
     authorDate: '2024-11-26 13:44:29 +0000',
     message: 'fix(graph): active session info colour gradients now support all new chart view types',
     parents: [
@@ -1804,7 +1804,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd89f085',
-    committerDate: '2024-11-29T13:43:23+00:00',
+    committerDate: '2024-11-26 13:43:23 +0000',
     authorDate: '2024-11-26 13:43:23 +0000',
     message: 'chore(graph): renamed stackedMetrics to activeMetrics in chart config context',
     parents: [
@@ -1818,7 +1818,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5f7da3f',
-    committerDate: '2024-11-29T11:00:51+00:00',
+    committerDate: '2024-11-26 11:00:51 +0000',
     authorDate: '2024-11-26 11:00:51 +0000',
     message: 'fix(controls): made chart view selector button small to match the other controls',
     parents: [
@@ -1832,7 +1832,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7ca3b25',
-    committerDate: '2024-11-29T10:57:41+00:00',
+    committerDate: '2024-11-26 10:57:41 +0000',
     authorDate: '2024-11-26 10:57:41 +0000',
     message: 'fix(graph): rendered key-less line when in single metric view to stop re-mounting',
     parents: [
@@ -1846,7 +1846,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'fc6a3e8',
-    committerDate: '2024-11-29T10:35:05+00:00',
+    committerDate: '2024-11-26 10:35:05 +0000',
     authorDate: '2024-11-26 10:35:05 +0000',
     message: 'fix(graph): chart view selection now correctly updates stacked metrics param',
     parents: [
@@ -1860,7 +1860,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c1b3995',
-    committerDate: '2024-11-29T10:31:14+00:00',
+    committerDate: '2024-11-26 10:31:14 +0000',
     authorDate: '2024-11-26 10:31:14 +0000',
     message: 'feat(graph): refactored chart metric selection to support all view types',
     parents: [
@@ -1874,7 +1874,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f61711f',
-    committerDate: '2024-11-29T10:06:44+00:00',
+    committerDate: '2024-11-26 10:06:44 +0000',
     authorDate: '2024-11-26 10:06:44 +0000',
     message: 'chore(graph): renamed StackedGraphPlaceholder to ChartMetricSelection',
     parents: [
@@ -1888,7 +1888,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '62e3f80',
-    committerDate: '2024-11-29T10:05:35+00:00',
+    committerDate: '2024-11-26 10:05:35 +0000',
     authorDate: '2024-11-26 10:05:35 +0000',
     message: 'feat(graph): fixed chart view selector for single metric',
     parents: [
@@ -1902,7 +1902,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '17d9d64',
-    committerDate: '2024-11-29T09:57:09+00:00',
+    committerDate: '2024-11-26 09:57:09 +0000',
     authorDate: '2024-11-26 09:57:09 +0000',
     message: 'feat(graph): added graph metric selector in multiple metrics view when none are selected',
     parents: [
@@ -1916,7 +1916,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b516162',
-    committerDate: '2024-11-28T21:16:17+00:00',
+    committerDate: '2024-11-25 21:16:17 +0000',
     authorDate: '2024-11-25 21:16:17 +0000',
     message: 'feat(graph): started refactor for adding multiple metric lines on the chart at once',
     parents: [
@@ -1930,7 +1930,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '33b5d79',
-    committerDate: '2024-11-28T20:48:51+00:00',
+    committerDate: '2024-11-25 20:48:51 +0000',
     authorDate: '2024-11-25 20:48:51 +0000',
     message: 'chore(graph): renamed line chart component to be consistent',
     parents: [
@@ -1944,7 +1944,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '97b060f',
-    committerDate: '2024-11-28T19:14:05+00:00',
+    committerDate: '2024-11-25 19:14:05 +0000',
     authorDate: '2024-11-25 19:14:05 +0000',
     message: 'feat(graph): refactored stacked view toggle into a chart view selector dropdown',
     parents: [
@@ -1958,7 +1958,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ecb5b57',
-    committerDate: '2024-11-28T18:35:11+00:00',
+    committerDate: '2024-11-25 18:35:11 +0000',
     authorDate: '2024-11-25 18:35:11 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@c31b3a86b361a8a207d838498ce16125a5c93b54 🚀',
     parents: [
@@ -1972,7 +1972,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c31b3a8',
-    committerDate: '2024-11-28T18:34:13+00:00',
+    committerDate: '2024-11-25 18:34:13 +0000',
     authorDate: '2024-11-25 18:34:13 +0000',
     message: 'Merge pull request #36 from TomPlum/develop',
     parents: [
@@ -1987,7 +1987,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e6318eb',
-    committerDate: '2024-11-28T18:31:19+00:00',
+    committerDate: '2024-11-25 18:31:19 +0000',
     authorDate: '2024-11-25 18:31:19 +0000',
     message: 'test(data): fixed bad file path reference which was breaking a test mock',
     parents: [
@@ -2002,7 +2002,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2d1025f',
-    committerDate: '2024-11-28T16:03:20+00:00',
+    committerDate: '2024-11-25 16:03:20 +0000',
     authorDate: '2024-11-25 16:03:20 +0000',
     message: 'chore(data): added tsdoc and supporting comments to useSleepStageData',
     parents: [
@@ -2016,7 +2016,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1321e4d',
-    committerDate: '2024-11-28T15:55:53+00:00',
+    committerDate: '2024-11-25 15:55:53 +0000',
     authorDate: '2024-11-25 15:55:53 +0000',
     message: 'fix(data): filtered sleep stage instance data by their unique IDs to remove duplicates that were breaking the chart',
     parents: [
@@ -2030,7 +2030,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '71a1a7e',
-    committerDate: '2024-11-28T15:49:06+00:00',
+    committerDate: '2024-11-25 15:49:06 +0000',
     authorDate: '2024-11-25 15:49:06 +0000',
     message: 'feat(graph): added basic styling to error boundary fallback page',
     parents: [
@@ -2044,7 +2044,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '97a941a',
-    committerDate: '2024-11-28T15:48:52+00:00',
+    committerDate: '2024-11-25 15:48:52 +0000',
     authorDate: '2024-11-25 15:48:52 +0000',
     message: 'feat(graph): reworked metric checkbox styling, no longer uses antd',
     parents: [
@@ -2058,7 +2058,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0d85838',
-    committerDate: '2024-11-28T15:21:04+00:00',
+    committerDate: '2024-11-25 15:21:04 +0000',
     authorDate: '2024-11-25 15:21:04 +0000',
     message: 'feat(data): added japanese translations for the web worker statuses',
     parents: [
@@ -2072,7 +2072,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'cf8e018',
-    committerDate: '2024-11-28T15:17:48+00:00',
+    committerDate: '2024-11-25 15:17:48 +0000',
     authorDate: '2024-11-25 15:17:48 +0000',
     message: 'feat(graph): added error boundary around application',
     parents: [
@@ -2086,7 +2086,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5e7f6f8',
-    committerDate: '2024-11-27T17:38:11+00:00',
+    committerDate: '2024-11-24 17:38:11 +0000',
     authorDate: '2024-11-24 17:38:11 +0000',
     message: 'feat(graph): added sound toggle to session info',
     parents: [
@@ -2100,7 +2100,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5a0d8f6',
-    committerDate: '2024-11-27T17:20:40+00:00',
+    committerDate: '2024-11-24 17:20:40 +0000',
     authorDate: '2024-11-24 17:20:40 +0000',
     message: 'fix(context): inverted context dependencies to fix date selection bug',
     parents: [
@@ -2114,7 +2114,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e42905d',
-    committerDate: '2024-11-27T17:10:58+00:00',
+    committerDate: '2024-11-24 17:10:58 +0000',
     authorDate: '2024-11-24 17:10:58 +0000',
     message: 'feat(graph): added sleep stage pie chart tooltip',
     parents: [
@@ -2128,7 +2128,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '66a83c0',
-    committerDate: '2024-11-27T16:26:24+00:00',
+    committerDate: '2024-11-24 16:26:24 +0000',
     authorDate: '2024-11-24 16:26:24 +0000',
     message: 'fix(data): added web worker terminate call after done event received',
     parents: [
@@ -2142,7 +2142,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9e9389e',
-    committerDate: '2024-11-27T16:26:03+00:00',
+    committerDate: '2024-11-24 16:26:03 +0000',
     authorDate: '2024-11-24 16:26:03 +0000',
     message: 'chore(context): split chart config context from sleep context',
     parents: [
@@ -2156,7 +2156,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8e241d2',
-    committerDate: '2024-11-27T10:30:47+00:00',
+    committerDate: '2024-11-24 10:30:47 +0000',
     authorDate: '2024-11-24 10:30:47 +0000',
     message: 'chore(housekeeping): moved sleep context files into its own subdirectory',
     parents: [
@@ -2170,7 +2170,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b7a1cc8',
-    committerDate: '2024-11-27T10:27:26+00:00',
+    committerDate: '2024-11-24 10:27:26 +0000',
     authorDate: '2024-11-24 10:27:26 +0000',
     message: 'chore(housekeeping): renamed some components for consistency',
     parents: [
@@ -2184,7 +2184,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0143d04',
-    committerDate: '2024-11-26T22:48:51+00:00',
+    committerDate: '2024-11-23 22:48:51 +0000',
     authorDate: '2024-11-23 22:48:51 +0000',
     message: 'fix(housekeeping): fixed bad translations string after folder refactor',
     parents: [
@@ -2198,7 +2198,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '25f597f',
-    committerDate: '2024-11-26T22:41:41+00:00',
+    committerDate: '2024-11-23 22:41:41 +0000',
     authorDate: '2024-11-23 22:41:41 +0000',
     message: 'chore(housekeeping): major folder structure and module rework',
     parents: [
@@ -2212,7 +2212,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8e4f92b',
-    committerDate: '2024-11-26T22:26:38+00:00',
+    committerDate: '2024-11-23 22:26:38 +0000',
     authorDate: '2024-11-23 22:26:38 +0000',
     message: 'feat(graph): removed active dot from sleep stage areas',
     parents: [
@@ -2226,7 +2226,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '47d542c',
-    committerDate: '2024-11-26T22:24:15+00:00',
+    committerDate: '2024-11-23 22:24:15 +0000',
     authorDate: '2024-11-23 22:24:15 +0000',
     message: 'feat(graph): added stage instance duration to graph tooltip',
     parents: [
@@ -2240,7 +2240,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9248e1f',
-    committerDate: '2024-11-26T22:07:08+00:00',
+    committerDate: '2024-11-23 22:07:08 +0000',
     authorDate: '2024-11-23 22:07:08 +0000',
     message: 'chore(graph): added custom interface for sleep session graph y-axis meta',
     parents: [
@@ -2254,7 +2254,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '38190b2',
-    committerDate: '2024-11-26T19:39:33+00:00',
+    committerDate: '2024-11-23 19:39:33 +0000',
     authorDate: '2024-11-23 19:39:33 +0000',
     message: 'chore(deps): upgraded i18next to major version 24',
     parents: [
@@ -2268,7 +2268,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '60698cc',
-    committerDate: '2024-11-26T19:38:24+00:00',
+    committerDate: '2024-11-23 19:38:24 +0000',
     authorDate: '2024-11-23 19:38:24 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@0b903cc93b1fd0fed264ae1f4d746f1414235fc9 🚀',
     parents: [
@@ -2282,7 +2282,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f8ddbd4',
-    committerDate: '2024-11-26T19:37:44+00:00',
+    committerDate: '2024-11-23 19:37:44 +0000',
     authorDate: '2024-11-23 19:37:44 +0000',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -2297,7 +2297,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0b903cc',
-    committerDate: '2024-11-26T19:37:29+00:00',
+    committerDate: '2024-11-23 19:37:29 +0000',
     authorDate: '2024-11-23 19:37:29 +0000',
     message: 'Merge pull request #32 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -2313,7 +2313,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4ebf726',
-    committerDate: '2024-11-26T19:35:46+00:00',
+    committerDate: '2024-11-23 19:35:46 +0000',
     authorDate: '2024-11-23 19:35:46 +0000',
     message: 'feat(graph): added close button to selected session display',
     parents: [
@@ -2327,7 +2327,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9857380',
-    committerDate: '2024-11-26T19:30:44+00:00',
+    committerDate: '2024-11-23 19:30:44 +0000',
     authorDate: '2024-11-23 19:30:44 +0000',
     message: 'chore(graph): improved styling in SleepSessionTooltip.module.scss for labels and values',
     parents: [
@@ -2341,7 +2341,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'acd7649',
-    committerDate: '2024-11-26T19:29:30+00:00',
+    committerDate: '2024-11-23 19:29:30 +0000',
     authorDate: '2024-11-23 19:29:30 +0000',
     message: 'chore(graph): extracted SleepSessionBreakdownInfo.tsx component',
     parents: [
@@ -2355,7 +2355,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7723e57',
-    committerDate: '2024-11-26T19:24:31+00:00',
+    committerDate: '2024-11-23 19:24:31 +0000',
     authorDate: '2024-11-23 19:24:31 +0000',
     message: 'feat(graph): sleep stage graph x-ticks are now 30 minute intervals',
     parents: [
@@ -2369,7 +2369,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ff5f173',
-    committerDate: '2024-11-26T19:21:55+00:00',
+    committerDate: '2024-11-23 19:21:55 +0000',
     authorDate: '2024-11-23 19:21:55 +0000',
     message: 'chore(graph): moved stage transition data to hook and disabled area animations',
     parents: [
@@ -2383,7 +2383,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b754d54',
-    committerDate: '2024-11-26T19:04:33+00:00',
+    committerDate: '2024-11-23 19:04:33 +0000',
     authorDate: '2024-11-23 19:04:33 +0000',
     message: 'feat(graph): sleep stage graph tooltip now shows current stage and time',
     parents: [
@@ -2397,7 +2397,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ea79846',
-    committerDate: '2024-11-26T15:11:32+00:00',
+    committerDate: '2024-11-23 15:11:32 +0000',
     authorDate: '2024-11-23 15:11:32 +0000',
     message: 'test(graph): added unit test suite for generateTicks',
     parents: [
@@ -2411,7 +2411,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '478a361',
-    committerDate: '2024-11-26T15:07:03+00:00',
+    committerDate: '2024-11-23 15:07:03 +0000',
     authorDate: '2024-11-23 15:07:03 +0000',
     message: 'test(graph): added unit test suite for getSleepStageMetricYValue',
     parents: [
@@ -2425,7 +2425,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9d21764',
-    committerDate: '2024-11-26T15:02:43+00:00',
+    committerDate: '2024-11-23 15:02:43 +0000',
     authorDate: '2024-11-23 15:02:43 +0000',
     message: 'chore(graph): extracted useSleepStagesAreas hook from breakdown graph',
     parents: [
@@ -2439,7 +2439,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'be596e4',
-    committerDate: '2024-11-26T14:25:55+00:00',
+    committerDate: '2024-11-23 14:25:55 +0000',
     authorDate: '2024-11-23 14:25:55 +0000',
     message: 'feat(graph): sleep stage areas now generate minute granular points along their edges',
     parents: [
@@ -2453,7 +2453,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'dc8936d',
-    committerDate: '2024-11-26T04:50:20+00:00',
+    committerDate: '2024-11-23 04:50:20 +0000',
     authorDate: '2024-11-23 04:50:20 +0000',
     message: 'chore(deps): update all non-major dependencies',
     parents: [
@@ -2467,7 +2467,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6ef3091',
-    committerDate: '2024-11-25T19:56:50+00:00',
+    committerDate: '2024-11-22 19:56:50 +0000',
     authorDate: '2024-11-22 19:56:50 +0000',
     message: 'feat(graph): refactored sleep stage graph to use real areas instead of reference ones',
     parents: [
@@ -2481,7 +2481,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f60cdc8',
-    committerDate: '2024-11-25T16:46:06+00:00',
+    committerDate: '2024-11-22 16:46:06 +0000',
     authorDate: '2024-11-22 16:46:06 +0000',
     message: 'feat(graph): extracted useSleepStageData hook from breakdown graph component',
     parents: [
@@ -2495,7 +2495,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '05bec69',
-    committerDate: '2024-11-24T19:55:10+00:00',
+    committerDate: '2024-11-21 19:55:10 +0000',
     authorDate: '2024-11-21 19:55:10 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@6e3df33a8b0bc47270c2cf0e2f45aaa9afe17eaf 🚀',
     parents: [
@@ -2509,7 +2509,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6e3df33',
-    committerDate: '2024-11-24T19:54:17+00:00',
+    committerDate: '2024-11-21 19:54:17 +0000',
     authorDate: '2024-11-21 19:54:17 +0000',
     message: 'Merge pull request #31 from TomPlum/develop',
     parents: [
@@ -2525,7 +2525,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b1c9c9b',
-    committerDate: '2024-11-24T19:51:52+00:00',
+    committerDate: '2024-11-21 19:51:52 +0000',
     authorDate: '2024-11-21 19:51:52 +0000',
     message: 'Merge pull request #30 from TomPlum/improve-stage-chart',
     parents: [
@@ -2541,7 +2541,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'db3c4f9',
-    committerDate: '2024-11-24T19:50:20+00:00',
+    committerDate: '2024-11-21 19:50:20 +0000',
     authorDate: '2024-11-21 19:50:20 +0000',
     message: 'feat(graph): improved stage graph x-domain',
     parents: [
@@ -2555,7 +2555,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b4e9d3b',
-    committerDate: '2024-11-24T19:41:09+00:00',
+    committerDate: '2024-11-21 19:41:09 +0000',
     authorDate: '2024-11-21 19:41:09 +0000',
     message: 'feat(graph): fixed stage breakdown graph y-domain and ticks',
     parents: [
@@ -2569,7 +2569,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5b96a51',
-    committerDate: '2024-11-24T19:03:51+00:00',
+    committerDate: '2024-11-21 19:03:51 +0000',
     authorDate: '2024-11-21 19:03:51 +0000',
     message: 'feat(graph): added in reparation code to the sleep stage graph data',
     parents: [
@@ -2583,7 +2583,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd89c2c1',
-    committerDate: '2024-11-23T20:58:52+00:00',
+    committerDate: '2024-11-20 20:58:52 +0000',
     authorDate: '2024-11-20 20:58:52 +0000',
     message: 'feat(graph): corrected stage transition line x-ordinates',
     parents: [
@@ -2597,7 +2597,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ced9837',
-    committerDate: '2024-11-23T18:45:26+00:00',
+    committerDate: '2024-11-20 18:45:26 +0000',
     authorDate: '2024-11-20 18:45:26 +0000',
     message: 'feat(graph): switched sleep stage scatter to reference areas',
     parents: [
@@ -2611,7 +2611,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9b4a1b5',
-    committerDate: '2024-11-23T14:59:16+00:00',
+    committerDate: '2024-11-20 14:59:16 +0000',
     authorDate: '2024-11-20 14:59:16 +0000',
     message: 'feat(graph): fixed breakdown graph stage connecting lines',
     parents: [
@@ -2625,7 +2625,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1d21e76',
-    committerDate: '2024-11-23T14:44:03+00:00',
+    committerDate: '2024-11-20 14:44:03 +0000',
     authorDate: '2024-11-20 14:44:03 +0000',
     message: 'feat(graph): fixed sorting of stage data in breakdown graph',
     parents: [
@@ -2639,7 +2639,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '76eb4f3',
-    committerDate: '2024-11-22T20:53:45+00:00',
+    committerDate: '2024-11-19 20:53:45 +0000',
     authorDate: '2024-11-19 20:53:45 +0000',
     message: 'feat(graph): starting refactoring breakdown chart',
     parents: [
@@ -2653,7 +2653,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'db3687b',
-    committerDate: '2024-11-22T17:16:54+00:00',
+    committerDate: '2024-11-19 17:16:54 +0000',
     authorDate: '2024-11-19 17:16:54 +0000',
     message: 'feat(graph): line chart x-axis tick now changes format for small ranges',
     parents: [
@@ -2668,7 +2668,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a18a5c4',
-    committerDate: '2024-11-22T17:09:14+00:00',
+    committerDate: '2024-11-19 17:09:14 +0000',
     authorDate: '2024-11-19 17:09:14 +0000',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -2683,7 +2683,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f396ce1',
-    committerDate: '2024-11-22T17:08:58+00:00',
+    committerDate: '2024-11-19 17:08:58 +0000',
     authorDate: '2024-11-19 17:08:58 +0000',
     message: 'Merge pull request #26 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -2699,7 +2699,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'de17621',
-    committerDate: '2024-11-22T17:08:30+00:00',
+    committerDate: '2024-11-19 17:08:30 +0000',
     authorDate: '2024-11-19 17:08:30 +0000',
     message: 'test(data): fixed failing test for useLinearRegression.spec.ts',
     parents: [
@@ -2713,7 +2713,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5752a89',
-    committerDate: '2024-11-22T14:00:17+00:00',
+    committerDate: '2024-11-19 14:00:17 +0000',
     authorDate: '2024-11-19 14:00:17 +0000',
     message: 'chore(deps): update all non-major dependencies',
     parents: [
@@ -2727,7 +2727,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b0f2ce3',
-    committerDate: '2024-11-21T17:35:25+00:00',
+    committerDate: '2024-11-18 17:35:25 +0000',
     authorDate: '2024-11-18 17:35:25 +0000',
     message: 'feat(graph): added custom sleep stage tooltip and extracted display name util',
     parents: [
@@ -2741,7 +2741,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'dad2e46',
-    committerDate: '2024-11-21T17:06:00+00:00',
+    committerDate: '2024-11-18 17:06:00 +0000',
     authorDate: '2024-11-18 17:06:00 +0000',
     message: 'chore(data): updated docs regarding Apples Cocoa Datetime API',
     parents: [
@@ -2755,7 +2755,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3c495cc',
-    committerDate: '2024-11-20T19:12:19+00:00',
+    committerDate: '2024-11-17 19:12:19 +0000',
     authorDate: '2024-11-17 19:12:19 +0000',
     message: 'feat(graph): extracted legend item component and updated styles',
     parents: [
@@ -2769,7 +2769,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7d91ff0',
-    committerDate: '2024-11-20T19:05:12+00:00',
+    committerDate: '2024-11-17 19:05:12 +0000',
     authorDate: '2024-11-17 19:05:12 +0000',
     message: 'feat(graph): added duration in sleep session info',
     parents: [
@@ -2783,7 +2783,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4be777a',
-    committerDate: '2024-11-20T18:22:47+00:00',
+    committerDate: '2024-11-17 18:22:47 +0000',
     authorDate: '2024-11-17 18:22:47 +0000',
     message: 'feat(graph): added endTime to graph data and mapped date range to session info',
     parents: [
@@ -2797,7 +2797,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0cf76da',
-    committerDate: '2024-11-20T18:06:42+00:00',
+    committerDate: '2024-11-17 18:06:42 +0000',
     authorDate: '2024-11-17 18:06:42 +0000',
     message: 'chore(graph): refactored selected session state management (hoisted to context)',
     parents: [
@@ -2811,7 +2811,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0c28eb6',
-    committerDate: '2024-11-20T17:33:57+00:00',
+    committerDate: '2024-11-17 17:33:57 +0000',
     authorDate: '2024-11-17 17:33:57 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@8eda2d7e39053ecf13ee4bd6ce82c4821f3e7ed4 🚀',
     parents: [
@@ -2825,7 +2825,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8eda2d7',
-    committerDate: '2024-11-20T17:33:07+00:00',
+    committerDate: '2024-11-17 17:33:07 +0000',
     authorDate: '2024-11-17 17:33:07 +0000',
     message: 'Merge pull request #29 from TomPlum/develop',
     parents: [
@@ -2841,7 +2841,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '954670c',
-    committerDate: '2024-11-20T17:30:54+00:00',
+    committerDate: '2024-11-17 17:30:54 +0000',
     authorDate: '2024-11-17 17:30:54 +0000',
     message: 'fix(ci): made dates in useLinearRegression.spec.ts UTC for CI',
     parents: [
@@ -2856,7 +2856,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '419257d',
-    committerDate: '2024-11-20T17:26:00+00:00',
+    committerDate: '2024-11-17 17:26:00 +0000',
     authorDate: '2024-11-17 17:26:00 +0000',
     message: 'debug(ci): added date check in develop workflow to check TZ',
     parents: [
@@ -2870,7 +2870,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '52dfc3f',
-    committerDate: '2024-11-20T17:20:05+00:00',
+    committerDate: '2024-11-17 17:20:05 +0000',
     authorDate: '2024-11-17 17:20:05 +0000',
     message: 'test(data): used dayjs utc in useLinearRegression to try and fix ci tests',
     parents: [
@@ -2884,7 +2884,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e7a2380',
-    committerDate: '2024-11-20T17:19:28+00:00',
+    committerDate: '2024-11-17 17:19:28 +0000',
     authorDate: '2024-11-17 17:19:28 +0000',
     message: 'feat(graph): extracted useGraphHeight hook and used in placeholder component too',
     parents: [
@@ -2898,7 +2898,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd31697d',
-    committerDate: '2024-11-20T17:11:47+00:00',
+    committerDate: '2024-11-17 17:11:47 +0000',
     authorDate: '2024-11-17 17:11:47 +0000',
     message: 'fix(graph): tweaked line chart graph height when in stacked view with a selected session',
     parents: [
@@ -2912,7 +2912,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8a68890',
-    committerDate: '2024-11-20T16:58:58+00:00',
+    committerDate: '2024-11-17 16:58:58 +0000',
     authorDate: '2024-11-17 16:58:58 +0000',
     message: 'feat(ci): set UTC timezone in develop workflow',
     parents: [
@@ -2926,7 +2926,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'df5f451',
-    committerDate: '2024-11-20T16:57:27+00:00',
+    committerDate: '2024-11-17 16:57:27 +0000',
     authorDate: '2024-11-17 16:57:27 +0000',
     message: 'feat(ci): added new develop workflow for building/testing on PRs',
     parents: [
@@ -2940,7 +2940,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7308bc3',
-    committerDate: '2024-11-20T16:53:28+00:00',
+    committerDate: '2024-11-17 16:53:28 +0000',
     authorDate: '2024-11-17 16:53:28 +0000',
     message: 'fix(ci): added UTC timezone to release workflow config',
     parents: [
@@ -2954,7 +2954,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '64ae166',
-    committerDate: '2024-11-20T16:48:29+00:00',
+    committerDate: '2024-11-17 16:48:29 +0000',
     authorDate: '2024-11-17 16:48:29 +0000',
     message: 'Merge pull request #28 from TomPlum/develop',
     parents: [
@@ -2969,7 +2969,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '310412c',
-    committerDate: '2024-11-20T16:48:01+00:00',
+    committerDate: '2024-11-17 16:48:01 +0000',
     authorDate: '2024-11-17 16:48:01 +0000',
     message: 'feat(ci): added unit tests to release workflow',
     parents: [
@@ -2984,7 +2984,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0f637b2',
-    committerDate: '2024-11-20T16:47:10+00:00',
+    committerDate: '2024-11-17 16:47:10 +0000',
     authorDate: '2024-11-17 16:47:10 +0000',
     message: 'test(data): fixed failing tests and added test:ci script',
     parents: [
@@ -2998,7 +2998,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6aa8dab',
-    committerDate: '2024-11-20T16:44:09+00:00',
+    committerDate: '2024-11-17 16:44:09 +0000',
     authorDate: '2024-11-17 16:44:09 +0000',
     message: 'fix(data): moved env util into sub-dir to fix build issue',
     parents: [
@@ -3012,7 +3012,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c6a41eb',
-    committerDate: '2024-11-20T15:25:29+00:00',
+    committerDate: '2024-11-17 15:25:29 +0000',
     authorDate: '2024-11-17 15:25:29 +0000',
     message: 'Merge pull request #27 from TomPlum/develop',
     parents: [
@@ -3027,7 +3027,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0237445',
-    committerDate: '2024-11-20T15:06:15+00:00',
+    committerDate: '2024-11-17 15:06:15 +0000',
     authorDate: '2024-11-17 15:06:15 +0000',
     message: 'feat(graph): duration breakdown pie chart now matches other charts animation timings',
     parents: [
@@ -3042,7 +3042,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '33e8dd5',
-    committerDate: '2024-11-20T15:04:26+00:00',
+    committerDate: '2024-11-17 15:04:26 +0000',
     authorDate: '2024-11-17 15:04:26 +0000',
     message: 'feat(graph): pushed down session selection code to prevent re-renders',
     parents: [
@@ -3056,7 +3056,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '072d7d6',
-    committerDate: '2024-11-20T14:53:23+00:00',
+    committerDate: '2024-11-17 14:53:23 +0000',
     authorDate: '2024-11-17 14:53:23 +0000',
     message: 'feat(graph): added legend to sleep stage breakdown graph',
     parents: [
@@ -3070,7 +3070,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '947600b',
-    committerDate: '2024-11-20T14:38:15+00:00',
+    committerDate: '2024-11-17 14:38:15 +0000',
     authorDate: '2024-11-17 14:38:15 +0000',
     message: 'feat(graph): sleep stage chart is now size aware and resizes bars appropriately',
     parents: [
@@ -3084,7 +3084,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5861283',
-    committerDate: '2024-11-20T14:32:24+00:00',
+    committerDate: '2024-11-17 14:32:24 +0000',
     authorDate: '2024-11-17 14:32:24 +0000',
     message: 'feat(graph): removed pie chart from chart tooltip',
     parents: [
@@ -3098,7 +3098,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e778c0d',
-    committerDate: '2024-11-20T14:25:18+00:00',
+    committerDate: '2024-11-17 14:25:18 +0000',
     authorDate: '2024-11-17 14:25:18 +0000',
     message: 'feat(graph): added duration breakdown pie chart to selected session info',
     parents: [
@@ -3112,7 +3112,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6c21df1',
-    committerDate: '2024-11-20T14:22:01+00:00',
+    committerDate: '2024-11-17 14:22:01 +0000',
     authorDate: '2024-11-17 14:22:01 +0000',
     message: 'feat(graph): added selected session into query parameters',
     parents: [
@@ -3126,7 +3126,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5beb80b',
-    committerDate: '2024-11-20T13:53:07+00:00',
+    committerDate: '2024-11-17 13:53:07 +0000',
     authorDate: '2024-11-17 13:53:07 +0000',
     message: 'chore(lint): added quote-props eslint rule and ran --fix',
     parents: [
@@ -3140,7 +3140,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e82dd75',
-    committerDate: '2024-11-20T13:52:28+00:00',
+    committerDate: '2024-11-17 13:52:28 +0000',
     authorDate: '2024-11-17 13:52:28 +0000',
     message: 'test(data): added test suite for scanTables utility',
     parents: [
@@ -3154,7 +3154,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f6e0c4e',
-    committerDate: '2024-11-20T13:27:51+00:00',
+    committerDate: '2024-11-17 13:27:51 +0000',
     authorDate: '2024-11-17 13:27:51 +0000',
     message: 'fix(data): added missing benchmark start() call to scanTables',
     parents: [
@@ -3168,7 +3168,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a09f9ad',
-    committerDate: '2024-11-20T13:26:16+00:00',
+    committerDate: '2024-11-17 13:26:16 +0000',
     authorDate: '2024-11-17 13:26:16 +0000',
     message: 'test(data): updated unknown time delta message and added tests for it',
     parents: [
@@ -3182,7 +3182,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ac05a9f',
-    committerDate: '2024-11-20T13:18:00+00:00',
+    committerDate: '2024-11-17 13:18:00 +0000',
     authorDate: '2024-11-17 13:18:00 +0000',
     message: 'test(data): added parseDataLine utility tests',
     parents: [
@@ -3196,7 +3196,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '74f829c',
-    committerDate: '2024-11-20T12:57:06+00:00',
+    committerDate: '2024-11-17 12:57:06 +0000',
     authorDate: '2024-11-17 12:57:06 +0000',
     message: 'test(data): added readRawDatabaseExport tests',
     parents: [
@@ -3210,7 +3210,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ddd3298',
-    committerDate: '2024-11-20T12:45:42+00:00',
+    committerDate: '2024-11-17 12:45:42 +0000',
     authorDate: '2024-11-17 12:45:42 +0000',
     message: 'test(data): added readFile unit tests and env utility class',
     parents: [
@@ -3224,7 +3224,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ca95d1b',
-    committerDate: '2024-11-19T18:40:13+00:00',
+    committerDate: '2024-11-16 18:40:13 +0000',
     authorDate: '2024-11-16 18:40:13 +0000',
     message: 'feat(graph): added sound reference lines to stage breakdown graph',
     parents: [
@@ -3238,7 +3238,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '87c3e4b',
-    committerDate: '2024-11-18T19:04:17+00:00',
+    committerDate: '2024-11-15 19:04:17 +0000',
     authorDate: '2024-11-15 19:04:17 +0000',
     message: 'feat(graph): passed sleep sound data into session info component from context',
     parents: [
@@ -3252,7 +3252,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '43767e6',
-    committerDate: '2024-11-18T17:02:12+00:00',
+    committerDate: '2024-11-15 17:02:12 +0000',
     authorDate: '2024-11-15 17:02:12 +0000',
     message: 'feat(data): worker file reader now calculates uncompressed file size',
     parents: [
@@ -3266,7 +3266,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'eb5e0ad',
-    committerDate: '2024-11-18T17:01:52+00:00',
+    committerDate: '2024-11-15 17:01:52 +0000',
     authorDate: '2024-11-15 17:01:52 +0000',
     message: 'test(data): added unit tests and docs for sendMessage.ts',
     parents: [
@@ -3280,7 +3280,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'dc56de6',
-    committerDate: '2024-11-18T16:54:15+00:00',
+    committerDate: '2024-11-15 16:54:15 +0000',
     authorDate: '2024-11-15 16:54:15 +0000',
     message: 'test(data): added unit tests and docs for formatNumber.ts',
     parents: [
@@ -3294,7 +3294,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a9d6cf6',
-    committerDate: '2024-11-18T16:52:09+00:00',
+    committerDate: '2024-11-15 16:52:09 +0000',
     authorDate: '2024-11-15 16:52:09 +0000',
     message: 'test(data): added unit test for convertTimestamp.ts',
     parents: [
@@ -3308,7 +3308,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9cdfa40',
-    committerDate: '2024-11-18T16:44:36+00:00',
+    committerDate: '2024-11-15 16:44:36 +0000',
     authorDate: '2024-11-15 16:44:36 +0000',
     message: 'fix(data): fixed benchmark delta bug and added unit tests',
     parents: [
@@ -3322,7 +3322,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '724f9ef',
-    committerDate: '2024-11-17T21:55:11+00:00',
+    committerDate: '2024-11-14 21:55:11 +0000',
     authorDate: '2024-11-14 21:55:11 +0000',
     message: 'chore(data): added benchmark util to encapsulate timing and delta formatting',
     parents: [
@@ -3336,7 +3336,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8472bb5',
-    committerDate: '2024-11-17T21:45:41+00:00',
+    committerDate: '2024-11-14 21:45:41 +0000',
     authorDate: '2024-11-14 21:45:41 +0000',
     message: 'test(data): added unit test suite for convertSleepStage.ts',
     parents: [
@@ -3350,7 +3350,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1482fb7',
-    committerDate: '2024-11-17T21:39:46+00:00',
+    committerDate: '2024-11-14 21:39:46 +0000',
     authorDate: '2024-11-14 21:39:46 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@d52b826c02b6909059675040789181420beafd52 🚀',
     parents: [
@@ -3364,7 +3364,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7271948',
-    committerDate: '2024-11-17T21:38:53+00:00',
+    committerDate: '2024-11-14 21:38:53 +0000',
     authorDate: '2024-11-14 21:38:53 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@744a38879b90beeeddfffebbe9c3ecaca4a4c155 🚀',
     parents: [
@@ -3378,7 +3378,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd52b826',
-    committerDate: '2024-11-17T21:38:52+00:00',
+    committerDate: '2024-11-14 21:38:52 +0000',
     authorDate: '2024-11-14 21:38:52 +0000',
     message: 'Merge pull request #24 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -3394,7 +3394,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '744a388',
-    committerDate: '2024-11-17T21:38:02+00:00',
+    committerDate: '2024-11-14 21:38:02 +0000',
     authorDate: '2024-11-14 21:38:02 +0000',
     message: 'Merge pull request #25 from TomPlum/feature/parse-raw-data',
     parents: [
@@ -3409,7 +3409,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4c98b03',
-    committerDate: '2024-11-17T19:22:19+00:00',
+    committerDate: '2024-11-14 19:22:19 +0000',
     authorDate: '2024-11-14 19:22:19 +0000',
     message: 'chore(data): moved worker type and shortened imports',
     parents: [
@@ -3423,7 +3423,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9b96063',
-    committerDate: '2024-11-17T19:17:58+00:00',
+    committerDate: '2024-11-14 19:17:58 +0000',
     authorDate: '2024-11-14 19:17:58 +0000',
     message: 'chore(data): reduced more redundant code for file reading',
     parents: [
@@ -3437,7 +3437,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c675f33',
-    committerDate: '2024-11-17T19:11:32+00:00',
+    committerDate: '2024-11-14 19:11:32 +0000',
     authorDate: '2024-11-14 19:11:32 +0000',
     message: 'chore(data): extracted session validation function to reduce redundant code',
     parents: [
@@ -3451,7 +3451,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ebec2f8',
-    committerDate: '2024-11-17T19:07:04+00:00',
+    committerDate: '2024-11-14 19:07:04 +0000',
     authorDate: '2024-11-14 19:07:04 +0000',
     message: 'test(data): installed @vitest/web-worker to fix failing tests',
     parents: [
@@ -3465,7 +3465,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b3a7721',
-    committerDate: '2024-11-17T16:18:11+00:00',
+    committerDate: '2024-11-14 16:18:11 +0000',
     authorDate: '2024-11-14 16:18:11 +0000',
     message: 'chore(config): added --host flag to dev script so the server is available on the LAN',
     parents: [
@@ -3479,7 +3479,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '328c273',
-    committerDate: '2024-11-17T13:09:47+00:00',
+    committerDate: '2024-11-14 13:09:47 +0000',
     authorDate: '2024-11-14 13:09:47 +0000',
     message: 'chore(deps): update all non-major dependencies',
     parents: [
@@ -3493,7 +3493,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f6a4794',
-    committerDate: '2024-11-17T12:10:51+00:00',
+    committerDate: '2024-11-14 12:10:51 +0000',
     authorDate: '2024-11-14 12:10:51 +0000',
     message: 'chore(data): started extracting data worker into its own module of files',
     parents: [
@@ -3507,7 +3507,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2c6a2a7',
-    committerDate: '2024-11-16T20:45:31+00:00',
+    committerDate: '2024-11-13 20:45:31 +0000',
     authorDate: '2024-11-13 20:45:31 +0000',
     message: 'feat(graph): updated active session file name and moved types from worker to types file',
     parents: [
@@ -3521,7 +3521,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0261ff8',
-    committerDate: '2024-11-16T18:01:15+00:00',
+    committerDate: '2024-11-13 18:01:15 +0000',
     authorDate: '2024-11-13 18:01:15 +0000',
     message: 'feat(graph): changed breakdown chart y value type and added tooltip',
     parents: [
@@ -3535,7 +3535,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0d66a55',
-    committerDate: '2024-11-16T16:24:04+00:00',
+    committerDate: '2024-11-13 16:24:04 +0000',
     authorDate: '2024-11-13 16:24:04 +0000',
     message: 'chore(data): renamed statusCode -> code and added extra docs to worker types',
     parents: [
@@ -3549,7 +3549,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1bb1a3f',
-    committerDate: '2024-11-16T16:20:58+00:00',
+    committerDate: '2024-11-13 16:20:58 +0000',
     authorDate: '2024-11-13 16:20:58 +0000',
     message: 'feat(data): extracted and simplified worker number formatter',
     parents: [
@@ -3563,7 +3563,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '181a606',
-    committerDate: '2024-11-16T16:14:39+00:00',
+    committerDate: '2024-11-13 16:14:39 +0000',
     authorDate: '2024-11-13 16:14:39 +0000',
     message: 'feat(data): added timeouts to throttle worker messages (callback hell, oops)',
     parents: [
@@ -3577,7 +3577,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '34e6895',
-    committerDate: '2024-11-16T16:05:57+00:00',
+    committerDate: '2024-11-13 16:05:57 +0000',
     authorDate: '2024-11-13 16:05:57 +0000',
     message: 'feat(data): tweaks to web worker messaging',
     parents: [
@@ -3591,7 +3591,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '05b851a',
-    committerDate: '2024-11-16T09:04:42+00:00',
+    committerDate: '2024-11-13 09:04:42 +0000',
     authorDate: '2024-11-13 09:04:42 +0000',
     message: 'feat(data): added extra worker events for preprocessing stages',
     parents: [
@@ -3605,7 +3605,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '053033d',
-    committerDate: '2024-11-15T18:57:10+00:00',
+    committerDate: '2024-11-12 18:57:10 +0000',
     authorDate: '2024-11-12 18:57:10 +0000',
     message: 'fix(data): significantly improved worker performance (35s -> 50ms)',
     parents: [
@@ -3619,7 +3619,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '94c5cdb',
-    committerDate: '2024-11-15T18:37:10+00:00',
+    committerDate: '2024-11-12 18:37:10 +0000',
     authorDate: '2024-11-12 18:37:10 +0000',
     message: 'feat(graph): selection session info/graph now renders in stacked view',
     parents: [
@@ -3633,7 +3633,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f05bba9',
-    committerDate: '2024-11-15T18:32:17+00:00',
+    committerDate: '2024-11-12 18:32:17 +0000',
     authorDate: '2024-11-12 18:32:17 +0000',
     message: 'feat(data): added slight delay to final worker event to show data parsing message',
     parents: [
@@ -3647,7 +3647,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '00d2522',
-    committerDate: '2024-11-15T18:24:05+00:00',
+    committerDate: '2024-11-12 18:24:05 +0000',
     authorDate: '2024-11-12 18:24:05 +0000',
     message: 'chore(data): cleared 2 x TODOs in web worker',
     parents: [
@@ -3661,7 +3661,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'be23a35',
-    committerDate: '2024-11-15T17:39:10+00:00',
+    committerDate: '2024-11-12 17:39:10 +0000',
     authorDate: '2024-11-12 17:39:10 +0000',
     message: 'feat(graph): added breathing radial gradient to loading component',
     parents: [
@@ -3675,7 +3675,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e55624f',
-    committerDate: '2024-11-15T17:29:04+00:00',
+    committerDate: '2024-11-12 17:29:04 +0000',
     authorDate: '2024-11-12 17:29:04 +0000',
     message: 'chore(graph): extracted useDynamicFavicon hook',
     parents: [
@@ -3689,7 +3689,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '300166e',
-    committerDate: '2024-11-15T17:27:23+00:00',
+    committerDate: '2024-11-12 17:27:23 +0000',
     authorDate: '2024-11-12 17:27:23 +0000',
     message: 'chore(graph): extracted SleepStageBar component',
     parents: [
@@ -3703,7 +3703,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ebc5a24',
-    committerDate: '2024-11-15T17:19:29+00:00',
+    committerDate: '2024-11-12 17:19:29 +0000',
     authorDate: '2024-11-12 17:19:29 +0000',
     message: 'chore(data): removed old CSV data hook from context provider',
     parents: [
@@ -3717,7 +3717,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4a265bf',
-    committerDate: '2024-11-15T17:17:11+00:00',
+    committerDate: '2024-11-12 17:17:11 +0000',
     authorDate: '2024-11-12 17:17:11 +0000',
     message: 'feat(graph): started adding info box to breakdown graph',
     parents: [
@@ -3731,7 +3731,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '77aec21',
-    committerDate: '2024-11-15T17:01:01+00:00',
+    committerDate: '2024-11-12 17:01:01 +0000',
     authorDate: '2024-11-12 17:01:01 +0000',
     message: 'fix(graph): fixed yTicks in SleepSessionStageBreakdownGraph',
     parents: [
@@ -3745,7 +3745,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f3ad7d7',
-    committerDate: '2024-11-15T16:56:09+00:00',
+    committerDate: '2024-11-12 16:56:09 +0000',
     authorDate: '2024-11-12 16:56:09 +0000',
     message: 'feat(graph): fixed raw stage mapping and session -> stages ID mapping',
     parents: [
@@ -3759,7 +3759,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '52e1dd5',
-    committerDate: '2024-11-15T15:54:03+00:00',
+    committerDate: '2024-11-12 15:54:03 +0000',
     authorDate: '2024-11-12 15:54:03 +0000',
     message: 'feat(data): data worker typing improvements + TODOs',
     parents: [
@@ -3773,7 +3773,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8ab78a0',
-    committerDate: '2024-11-15T14:44:30+00:00',
+    committerDate: '2024-11-12 14:44:30 +0000',
     authorDate: '2024-11-12 14:44:30 +0000',
     message: 'feat(graph): moved sleep stage graph to the bottom and fixed heights',
     parents: [
@@ -3787,7 +3787,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8af99c6',
-    committerDate: '2024-11-15T14:13:45+00:00',
+    committerDate: '2024-11-12 14:13:45 +0000',
     authorDate: '2024-11-12 14:13:45 +0000',
     message: 'feat(graph): added custom line active dot to bind click events to sleep breakdown',
     parents: [
@@ -3801,7 +3801,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9bc2a52',
-    committerDate: '2024-11-15T08:28:13+00:00',
+    committerDate: '2024-11-12 08:28:13 +0000',
     authorDate: '2024-11-12 08:28:13 +0000',
     message: 'feat(data): minor copy and styling improvements to worker events and loading page',
     parents: [
@@ -3815,7 +3815,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd5271f3',
-    committerDate: '2024-11-14T21:13:25+00:00',
+    committerDate: '2024-11-11 21:13:25 +0000',
     authorDate: '2024-11-11 21:13:25 +0000',
     message: 'feat(data): added timings and payload data for other worker events',
     parents: [
@@ -3829,7 +3829,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'eda7bbf',
-    committerDate: '2024-11-14T20:58:36+00:00',
+    committerDate: '2024-11-11 20:58:36 +0000',
     authorDate: '2024-11-11 20:58:36 +0000',
     message: 'feat(data): added custom payload to worker messages and sent file size',
     parents: [
@@ -3843,7 +3843,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0dfc9ec',
-    committerDate: '2024-11-14T20:33:18+00:00',
+    committerDate: '2024-11-11 20:33:18 +0000',
     authorDate: '2024-11-11 20:33:18 +0000',
     message: 'feat(data): fixed some of the failing data web worker event messages',
     parents: [
@@ -3857,7 +3857,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8580cc5',
-    committerDate: '2024-11-14T20:21:46+00:00',
+    committerDate: '2024-11-11 20:21:46 +0000',
     authorDate: '2024-11-11 20:21:46 +0000',
     message: 'feat(data): refactored worker to use Worker constructor to support type imports',
     parents: [
@@ -3871,7 +3871,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '73fbcc4',
-    committerDate: '2024-11-14T16:32:43+00:00',
+    committerDate: '2024-11-11 16:32:43 +0000',
     authorDate: '2024-11-11 16:32:43 +0000',
     message: 'feat(data): added percentage to data worker message events for granular tracking',
     parents: [
@@ -3885,7 +3885,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'dab5c7b',
-    committerDate: '2024-11-14T15:56:24+00:00',
+    committerDate: '2024-11-11 15:56:24 +0000',
     authorDate: '2024-11-11 15:56:24 +0000',
     message: 'feat(data): integrated worker status with context and loading component',
     parents: [
@@ -3899,7 +3899,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'bee4e29',
-    committerDate: '2024-11-14T15:31:19+00:00',
+    committerDate: '2024-11-11 15:31:19 +0000',
     authorDate: '2024-11-11 15:31:19 +0000',
     message: 'feat(data): implemented custom web worker for data loading and dropped external dep',
     parents: [
@@ -3913,7 +3913,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd05120c',
-    committerDate: '2024-11-14T14:48:00+00:00',
+    committerDate: '2024-11-11 14:48:00 +0000',
     authorDate: '2024-11-11 14:48:00 +0000',
     message: 'chore(data): added extra comments and docs to the pillow export parser',
     parents: [
@@ -3927,7 +3927,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '70e8695',
-    committerDate: '2024-11-14T14:43:38+00:00',
+    committerDate: '2024-11-11 14:43:38 +0000',
     authorDate: '2024-11-11 14:43:38 +0000',
     message: 'feat(data): pillow export parser now supports the truly raw export with no prior modifications made',
     parents: [
@@ -3941,7 +3941,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0eeea35',
-    committerDate: '2024-11-13T20:40:34+00:00',
+    committerDate: '2024-11-10 20:40:34 +0000',
     authorDate: '2024-11-10 20:40:34 +0000',
     message: 'feat(data): refactored raw data parser function to make only one pass of the file',
     parents: [
@@ -3955,7 +3955,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e0fa20a',
-    committerDate: '2024-11-13T17:57:08+00:00',
+    committerDate: '2024-11-10 17:57:08 +0000',
     authorDate: '2024-11-10 17:57:08 +0000',
     message: 'feat(graph): sleep stage graph improvements',
     parents: [
@@ -3969,7 +3969,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6178286',
-    committerDate: '2024-11-13T17:46:07+00:00',
+    committerDate: '2024-11-10 17:46:07 +0000',
     authorDate: '2024-11-10 17:46:07 +0000',
     message: 'feat(graph): first pass of stacked bar chart / gantt of sleep stage breakdown',
     parents: [
@@ -3983,7 +3983,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3496d41',
-    committerDate: '2024-11-13T15:54:37+00:00',
+    committerDate: '2024-11-10 15:54:37 +0000',
     authorDate: '2024-11-10 15:54:37 +0000',
     message: 'feat(data): re-integrated worker into raw sleep data hook and added to context',
     parents: [
@@ -3997,7 +3997,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '70437fd',
-    committerDate: '2024-11-13T15:09:39+00:00',
+    committerDate: '2024-11-10 15:09:39 +0000',
     authorDate: '2024-11-10 15:09:39 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@28881627b2f5288a3a68f9127abc1fdfd966c6d2 🚀',
     parents: [
@@ -4011,7 +4011,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2888162',
-    committerDate: '2024-11-13T15:08:53+00:00',
+    committerDate: '2024-11-10 15:08:53 +0000',
     authorDate: '2024-11-10 15:08:53 +0000',
     message: 'Merge pull request #20 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -4027,7 +4027,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '42f2132',
-    committerDate: '2024-11-13T14:47:12+00:00',
+    committerDate: '2024-11-10 14:47:12 +0000',
     authorDate: '2024-11-10 14:47:12 +0000',
     message: 'feat(data): removed redundant props from useRawSleepData hook',
     parents: [
@@ -4041,7 +4041,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'bf551c0',
-    committerDate: '2024-11-13T13:21:35+00:00',
+    committerDate: '2024-11-10 13:21:35 +0000',
     authorDate: '2024-11-10 13:21:35 +0000',
     message: 'feat(data): fixed sound data parsing and added sleep stage data alongside it',
     parents: [
@@ -4055,7 +4055,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '29a7212',
-    committerDate: '2024-11-13T12:40:13+00:00',
+    committerDate: '2024-11-10 12:40:13 +0000',
     authorDate: '2024-11-10 12:40:13 +0000',
     message: 'feat(data): consolidated raw data parsing experiment into main impl',
     parents: [
@@ -4069,7 +4069,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4c801b6',
-    committerDate: '2024-11-12T21:23:18+00:00',
+    committerDate: '2024-11-09 21:23:18 +0000',
     authorDate: '2024-11-09 21:23:18 +0000',
     message: 'feat(data): parsed sound points and mapped to sessions',
     parents: [
@@ -4083,7 +4083,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ffb0337',
-    committerDate: '2024-11-12T21:02:39+00:00',
+    committerDate: '2024-11-09 21:02:39 +0000',
     authorDate: '2024-11-09 21:02:39 +0000',
     message: 'feat(data): fixed table searching and date parsing',
     parents: [
@@ -4097,7 +4097,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5e7b005',
-    committerDate: '2024-11-12T20:01:39+00:00',
+    committerDate: '2024-11-09 20:01:39 +0000',
     authorDate: '2024-11-09 20:01:39 +0000',
     message: 'feat(data): attempting to parse raw data file',
     parents: [
@@ -4111,7 +4111,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7215477',
-    committerDate: '2024-11-12T04:39:56+00:00',
+    committerDate: '2024-11-09 04:39:56 +0000',
     authorDate: '2024-11-09 04:39:56 +0000',
     message: 'chore(deps): update all non-major dependencies',
     parents: [
@@ -4125,7 +4125,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '821fe5a',
-    committerDate: '2024-11-08T21:18:18+00:00',
+    committerDate: '2024-11-05 21:18:18 +0000',
     authorDate: '2024-11-05 21:18:18 +0000',
     message: 'chore(docs): README ToC',
     parents: [
@@ -4139,7 +4139,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5036be1',
-    committerDate: '2024-11-07T19:47:06+00:00',
+    committerDate: '2024-11-04 19:47:06 +0000',
     authorDate: '2024-11-04 19:47:06 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@732b3044a9b1ea8699908ba4b6c41f593f44d18f 🚀',
     parents: [
@@ -4153,7 +4153,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '732b304',
-    committerDate: '2024-11-07T19:46:19+00:00',
+    committerDate: '2024-11-04 19:46:19 +0000',
     authorDate: '2024-11-04 19:46:19 +0000',
     message: 'Merge pull request #23 from TomPlum/develop',
     parents: [
@@ -4170,7 +4170,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b2bf478',
-    committerDate: '2024-11-07T19:45:58+00:00',
+    committerDate: '2024-11-04 19:45:58 +0000',
     authorDate: '2024-11-04 19:45:58 +0000',
     message: 'fix(graph): fixed static asset loading in production mode',
     parents: [
@@ -4184,7 +4184,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b9196fc',
-    committerDate: '2024-11-07T19:32:13+00:00',
+    committerDate: '2024-11-04 19:32:13 +0000',
     authorDate: '2024-11-04 19:32:13 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@fbca587594c87b5c4d13dbb14387eff3bbd97f0b 🚀',
     parents: [
@@ -4198,7 +4198,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'fbca587',
-    committerDate: '2024-11-07T19:31:29+00:00',
+    committerDate: '2024-11-04 19:31:29 +0000',
     authorDate: '2024-11-04 19:31:29 +0000',
     message: 'Merge pull request #22 from TomPlum/develop',
     parents: [
@@ -4213,7 +4213,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4410cd7',
-    committerDate: '2024-11-07T19:31:08+00:00',
+    committerDate: '2024-11-04 19:31:08 +0000',
     authorDate: '2024-11-04 19:31:08 +0000',
     message: 'test(data): fixed compilation error in useLinearRegression.spec.ts',
     parents: [
@@ -4228,7 +4228,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ff20995',
-    committerDate: '2024-11-07T19:29:24+00:00',
+    committerDate: '2024-11-04 19:29:24 +0000',
     authorDate: '2024-11-04 19:29:24 +0000',
     message: 'Merge pull request #21 from TomPlum/develop',
     parents: [
@@ -4243,7 +4243,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e8c2bfb',
-    committerDate: '2024-11-06T18:35:05+00:00',
+    committerDate: '2024-11-03 18:35:05 +0000',
     authorDate: '2024-11-03 18:35:05 +0000',
     message: 'feat(graph): updated active session info to use pillow logo instead of text',
     parents: [
@@ -4258,7 +4258,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4d7a7e9',
-    committerDate: '2024-11-06T09:41:53+00:00',
+    committerDate: '2024-11-03 09:41:53 +0000',
     authorDate: '2024-11-03 09:41:53 +0000',
     message: 'feat(graph): added day of the week name to the tooltip session date format',
     parents: [
@@ -4272,7 +4272,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '69eaadc',
-    committerDate: '2024-11-06T09:39:56+00:00',
+    committerDate: '2024-11-03 09:39:56 +0000',
     authorDate: '2024-11-03 09:39:56 +0000',
     message: 'chore(data): updated sleep data to most recent csv snapshot',
     parents: [
@@ -4286,7 +4286,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c31f162',
-    committerDate: '2024-11-03T20:02:36+00:00',
+    committerDate: '2024-10-31 20:02:36 +0000',
     authorDate: '2024-10-31 20:02:36 +0000',
     message: 'feat(graph): minor styling improvements to active session info and stacked graph placeholder',
     parents: [
@@ -4300,7 +4300,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '98ff75e',
-    committerDate: '2024-11-02T20:21:01+00:00',
+    committerDate: '2024-10-30 20:21:01 +0000',
     authorDate: '2024-10-30 20:21:01 +0000',
     message: 'feat(graph): added pillows website link to the active session info component',
     parents: [
@@ -4314,7 +4314,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7e8868b',
-    committerDate: '2024-11-02T20:15:09+00:00',
+    committerDate: '2024-10-30 20:15:09 +0000',
     authorDate: '2024-10-30 20:15:09 +0000',
     message: 'feat(graph): added descriptions of sleep metrics upon hover in stacked view',
     parents: [
@@ -4328,7 +4328,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0994f81',
-    committerDate: '2024-11-02T19:52:18+00:00',
+    committerDate: '2024-10-30 19:52:18 +0000',
     authorDate: '2024-10-30 19:52:18 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@529c1176ebc495163d44d926469cce22300cb2a9 🚀',
     parents: [
@@ -4342,7 +4342,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '51f121d',
-    committerDate: '2024-11-02T19:51:40+00:00',
+    committerDate: '2024-10-30 19:51:40 +0000',
     authorDate: '2024-10-30 19:51:40 +0000',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -4357,7 +4357,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '529c117',
-    committerDate: '2024-11-02T19:51:30+00:00',
+    committerDate: '2024-10-30 19:51:30 +0000',
     authorDate: '2024-10-30 19:51:30 +0000',
     message: 'Merge pull request #16 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -4373,7 +4373,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5765026',
-    committerDate: '2024-11-02T15:18:13+00:00',
+    committerDate: '2024-10-30 15:18:13 +0000',
     authorDate: '2024-10-30 15:18:13 +0000',
     message: 'chore(deps): update all non-major dependencies',
     parents: [
@@ -4387,7 +4387,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '21678c9',
-    committerDate: '2024-10-30T19:38:06+00:00',
+    committerDate: '2024-10-27 19:38:06 +0000',
     authorDate: '2024-10-27 19:38:06 +0000',
     message: 'chore(graph): extracted useDefaultQueryParams hook from sleep context provider',
     parents: [
@@ -4401,7 +4401,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e6ea316',
-    committerDate: '2024-10-30T19:30:38+00:00',
+    committerDate: '2024-10-27 19:30:38 +0000',
     authorDate: '2024-10-27 19:30:38 +0000',
     message: 'chore(graph): changed default date range query params to all data instead of recent',
     parents: [
@@ -4415,7 +4415,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f7116d9',
-    committerDate: '2024-10-30T19:28:45+00:00',
+    committerDate: '2024-10-27 19:28:45 +0000',
     authorDate: '2024-10-27 19:28:45 +0000',
     message: 'chore(graph): increased typical sessions healthy awake time range to 0-10%',
     parents: [
@@ -4429,7 +4429,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '87efebe',
-    committerDate: '2024-10-30T19:25:00+00:00',
+    committerDate: '2024-10-27 19:25:00 +0000',
     authorDate: '2024-10-27 19:25:00 +0000',
     message: 'fix(graph): duration breakdown pie chart no longer renders labels for 0% values',
     parents: [
@@ -4443,7 +4443,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd638b1e',
-    committerDate: '2024-10-30T18:55:58+00:00',
+    committerDate: '2024-10-27 18:55:58 +0000',
     authorDate: '2024-10-27 18:55:58 +0000',
     message: 'feat(graph): added mood emoji to the session tooltip',
     parents: [
@@ -4457,7 +4457,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '928a7f4',
-    committerDate: '2024-10-26T13:14:39+01:00',
+    committerDate: '2024-10-23 13:14:39 +0100',
     authorDate: '2024-10-23 13:14:39 +0100',
     message: 'feat(graph): reduced active dot radius for active session counts between 100 and 300',
     parents: [
@@ -4471,7 +4471,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd401424',
-    committerDate: '2024-10-26T13:08:07+01:00',
+    committerDate: '2024-10-23 13:08:07 +0100',
     authorDate: '2024-10-23 13:08:07 +0100',
     message: 'fix(graph): fixed stacked view toggle not updating query param when checking',
     parents: [
@@ -4485,7 +4485,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'bdaa4e4',
-    committerDate: '2024-10-26T12:46:53+01:00',
+    committerDate: '2024-10-23 11:46:53 +0000',
     authorDate: '2024-10-23 11:46:53 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@0d12d74a0d49b59240f4071adc56fb9599990905 🚀',
     parents: [
@@ -4499,7 +4499,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0d12d74',
-    committerDate: '2024-10-26T12:46:10+01:00',
+    committerDate: '2024-10-23 12:46:10 +0100',
     authorDate: '2024-10-23 12:46:10 +0100',
     message: 'Merge pull request #19 from TomPlum/develop',
     parents: [
@@ -4515,7 +4515,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2f85544',
-    committerDate: '2024-10-26T12:40:38+01:00',
+    committerDate: '2024-10-23 12:40:38 +0100',
     authorDate: '2024-10-23 12:40:38 +0100',
     message: 'Merge pull request #18 from TomPlum/feature/stacked-view',
     parents: [
@@ -4531,7 +4531,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2c5082d',
-    committerDate: '2024-10-26T12:39:13+01:00',
+    committerDate: '2024-10-23 12:39:13 +0100',
     authorDate: '2024-10-23 12:39:13 +0100',
     message: 'feat(graph): stacked toggle now clears stacked metrics when turning on',
     parents: [
@@ -4545,7 +4545,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9676781',
-    committerDate: '2024-10-26T12:33:26+01:00',
+    committerDate: '2024-10-23 12:33:26 +0100',
     authorDate: '2024-10-23 12:33:26 +0100',
     message: 'fix(config): trying to make vite HMR watch the public dir during local development',
     parents: [
@@ -4559,7 +4559,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '317a526',
-    committerDate: '2024-10-26T12:22:32+01:00',
+    committerDate: '2024-10-23 12:22:32 +0100',
     authorDate: '2024-10-23 12:22:32 +0100',
     message: 'feat(graph): fixed stacked graph placeholder messages and ensured metric checkboxes update the query params',
     parents: [
@@ -4573,7 +4573,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '66ac076',
-    committerDate: '2024-10-25T20:27:41+01:00',
+    committerDate: '2024-10-22 20:27:41 +0100',
     authorDate: '2024-10-22 20:27:41 +0100',
     message: 'fix(graph): fixed missing tooltip and improvement label from single graph view',
     parents: [
@@ -4587,7 +4587,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '415c1d1',
-    committerDate: '2024-10-25T20:18:29+01:00',
+    committerDate: '2024-10-22 20:18:29 +0100',
     authorDate: '2024-10-22 20:18:29 +0100',
     message: 'feat(graph): improvement line label and tooltip no longer render twice in stacked view',
     parents: [
@@ -4601,7 +4601,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c0dc79f',
-    committerDate: '2024-10-25T20:13:21+01:00',
+    committerDate: '2024-10-22 20:13:21 +0100',
     authorDate: '2024-10-22 20:13:21 +0100',
     message: 'feat(graph): active sessions info now respects stacked view with no selections',
     parents: [
@@ -4615,7 +4615,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0b9fad5',
-    committerDate: '2024-10-25T20:08:53+01:00',
+    committerDate: '2024-10-22 20:08:53 +0100',
     authorDate: '2024-10-22 20:08:53 +0100',
     message: 'fix(graph): fixed react hooks lifecycle error with stacked graphs',
     parents: [
@@ -4629,7 +4629,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '70164f4',
-    committerDate: '2024-10-25T19:38:40+01:00',
+    committerDate: '2024-10-22 19:38:40 +0100',
     authorDate: '2024-10-22 19:38:40 +0100',
     message: 'chore(graph): split metric checkbox component into two for separation of concerns',
     parents: [
@@ -4643,7 +4643,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'bb29e00',
-    committerDate: '2024-10-25T17:33:45+01:00',
+    committerDate: '2024-10-22 17:33:45 +0100',
     authorDate: '2024-10-22 17:33:45 +0100',
     message: 'feat(graph): metric checkbox now has button mode and graph placeholder improved button styling',
     parents: [
@@ -4657,7 +4657,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6487f34',
-    committerDate: '2024-10-25T15:38:58+01:00',
+    committerDate: '2024-10-22 15:38:58 +0100',
     authorDate: '2024-10-22 15:38:58 +0100',
     message: 'feat(routing): serialised stacked view boolean in query params',
     parents: [
@@ -4671,7 +4671,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '18fdb81',
-    committerDate: '2024-10-25T15:13:33+01:00',
+    committerDate: '2024-10-22 15:13:33 +0100',
     authorDate: '2024-10-22 15:13:33 +0100',
     message: 'feat(graph): metric config no longer lets you pick more than 3 metrics in stacked view',
     parents: [
@@ -4685,7 +4685,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e33383e',
-    committerDate: '2024-10-25T15:10:35+01:00',
+    committerDate: '2024-10-22 15:10:35 +0100',
     authorDate: '2024-10-22 15:10:35 +0100',
     message: 'feat(graph): stacked graph placeholder now offer available sleep metrics to pick from',
     parents: [
@@ -4699,7 +4699,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '77adf46',
-    committerDate: '2024-10-25T14:59:15+01:00',
+    committerDate: '2024-10-22 14:59:15 +0100',
     authorDate: '2024-10-22 14:59:15 +0100',
     message: 'chore(graph): extracted stacked graph placeholder component',
     parents: [
@@ -4713,7 +4713,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1d30e95',
-    committerDate: '2024-10-25T13:49:05+01:00',
+    committerDate: '2024-10-22 13:49:05 +0100',
     authorDate: '2024-10-22 13:49:05 +0100',
     message: 'feat(graph): second graph in stacked view now transitions its opacity as it renders',
     parents: [
@@ -4727,7 +4727,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd453692',
-    committerDate: '2024-10-25T12:59:58+01:00',
+    committerDate: '2024-10-22 12:59:58 +0100',
     authorDate: '2024-10-22 12:59:58 +0100',
     message: 'feat(graph): reduced the upper-bound of the dynamic y-axis domain to better frame the data on the chart',
     parents: [
@@ -4741,7 +4741,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7ef626b',
-    committerDate: '2024-10-25T12:57:30+01:00',
+    committerDate: '2024-10-22 12:57:30 +0100',
     authorDate: '2024-10-22 12:57:30 +0100',
     message: 'feat(graph): added selection placeholder when a second metric is not selected in stacked view',
     parents: [
@@ -4755,7 +4755,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b7851b4',
-    committerDate: '2024-10-25T09:56:43+01:00',
+    committerDate: '2024-10-22 09:56:43 +0100',
     authorDate: '2024-10-22 09:56:43 +0100',
     message: 'feat(graph): favicon now changes based on active sleep metric',
     parents: [
@@ -4769,7 +4769,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '569f1d0',
-    committerDate: '2024-10-25T09:28:15+01:00',
+    committerDate: '2024-10-22 09:28:15 +0100',
     authorDate: '2024-10-22 09:28:15 +0100',
     message: 'feat(graph): added text to stacked view toggle button',
     parents: [
@@ -4783,7 +4783,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '72634f1',
-    committerDate: '2024-10-25T09:20:51+01:00',
+    committerDate: '2024-10-22 09:20:51 +0100',
     authorDate: '2024-10-22 09:20:51 +0100',
     message: 'feat(graph): fixed non-stacked view and added dynamic stacked colours to active session info',
     parents: [
@@ -4797,7 +4797,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6b2dfb3',
-    committerDate: '2024-10-24T17:24:29+01:00',
+    committerDate: '2024-10-21 17:24:29 +0100',
     authorDate: '2024-10-21 17:24:29 +0100',
     message: 'feat(graph): first pass of enabling stacked graphs',
     parents: [
@@ -4811,7 +4811,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a6ba004',
-    committerDate: '2024-10-24T16:35:40+01:00',
+    committerDate: '2024-10-21 16:35:40 +0100',
     authorDate: '2024-10-21 16:35:40 +0100',
     message: 'chore(graph): renamed old graph to 3D',
     parents: [
@@ -4826,7 +4826,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9de61dd',
-    committerDate: '2024-10-24T16:34:23+01:00',
+    committerDate: '2024-10-21 16:34:23 +0100',
     authorDate: '2024-10-21 16:34:23 +0100',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -4841,7 +4841,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e9d14e5',
-    committerDate: '2024-10-24T16:34:13+01:00',
+    committerDate: '2024-10-21 16:34:13 +0100',
     authorDate: '2024-10-21 16:34:13 +0100',
     message: 'chore(docs): added some TODOs to the README',
     parents: [
@@ -4855,7 +4855,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6c77a6b',
-    committerDate: '2024-10-24T11:42:07+01:00',
+    committerDate: '2024-10-21 10:42:07 +0000',
     authorDate: '2024-10-21 10:42:07 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@5e1e15c2d5eada142fbd66cd5b87d015945fd11b 🚀',
     parents: [
@@ -4869,7 +4869,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5e1e15c',
-    committerDate: '2024-10-24T11:41:21+01:00',
+    committerDate: '2024-10-21 11:41:21 +0100',
     authorDate: '2024-10-21 11:41:21 +0100',
     message: 'Merge pull request #17 from TomPlum/develop',
     parents: [
@@ -4885,7 +4885,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '61b38d9',
-    committerDate: '2024-10-24T10:46:02+01:00',
+    committerDate: '2024-10-21 10:46:02 +0100',
     authorDate: '2024-10-21 10:46:02 +0100',
     message: 'feat(graph): session count colour now transitions with same animation duration as graph',
     parents: [
@@ -4900,7 +4900,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a2db943',
-    committerDate: '2024-10-24T10:44:52+01:00',
+    committerDate: '2024-10-21 10:44:52 +0100',
     authorDate: '2024-10-21 10:44:52 +0100',
     message: 'feat(graph): data source now links to a download of the raw CSV',
     parents: [
@@ -4914,7 +4914,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5a21429',
-    committerDate: '2024-10-24T10:35:42+01:00',
+    committerDate: '2024-10-21 10:35:42 +0100',
     authorDate: '2024-10-21 10:35:42 +0100',
     message: 'feat(graph): added data source version to active session info',
     parents: [
@@ -4928,7 +4928,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a5425d1',
-    committerDate: '2024-10-24T10:27:09+01:00',
+    committerDate: '2024-10-21 10:27:09 +0100',
     authorDate: '2024-10-21 10:27:09 +0100',
     message: 'chore(graph): extracted active session info component from sleep page',
     parents: [
@@ -4942,7 +4942,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2282d36',
-    committerDate: '2024-10-24T10:22:42+01:00',
+    committerDate: '2024-10-21 10:22:42 +0100',
     authorDate: '2024-10-21 10:22:42 +0100',
     message: 'chore(graph): increased font weight of improvement label text',
     parents: [
@@ -4956,7 +4956,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'cba1df6',
-    committerDate: '2024-10-23T11:18:32+01:00',
+    committerDate: '2024-10-20 11:18:32 +0100',
     authorDate: '2024-10-20 11:18:32 +0100',
     message: 'feat(graph): added subtle cartesian grid back to the line chart',
     parents: [
@@ -4970,7 +4970,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'da988de',
-    committerDate: '2024-10-23T11:06:32+01:00',
+    committerDate: '2024-10-20 11:06:32 +0100',
     authorDate: '2024-10-20 11:06:32 +0100',
     message: 'fix(graph): a single month can now be selected from the date picker',
     parents: [
@@ -4984,7 +4984,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'edafbbf',
-    committerDate: '2024-10-23T10:55:50+01:00',
+    committerDate: '2024-10-20 10:55:50 +0100',
     authorDate: '2024-10-20 10:55:50 +0100',
     message: 'Merge branch \'release\' into develop',
     parents: [
@@ -4999,7 +4999,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'afd8749',
-    committerDate: '2024-10-23T10:54:55+01:00',
+    committerDate: '2024-10-20 10:54:55 +0100',
     authorDate: '2024-10-20 10:54:55 +0100',
     message: 'chore(graph): tweaked active dot radius for the main sleep metric line',
     parents: [
@@ -5013,7 +5013,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'cee6402',
-    committerDate: '2024-10-23T10:49:13+01:00',
+    committerDate: '2024-10-20 10:49:13 +0100',
     authorDate: '2024-10-20 10:49:13 +0100',
     message: 'chore(graph): hoisted improvement date calculation into sleep context',
     parents: [
@@ -5027,7 +5027,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '012ffe9',
-    committerDate: '2024-10-23T10:45:23+01:00',
+    committerDate: '2024-10-20 10:45:23 +0100',
     authorDate: '2024-10-20 10:45:23 +0100',
     message: 'feat(graph): improved session and nap filtering',
     parents: [
@@ -5041,7 +5041,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'bff2088',
-    committerDate: '2024-10-22T19:18:37+01:00',
+    committerDate: '2024-10-19 19:18:37 +0100',
     authorDate: '2024-10-19 19:18:37 +0100',
     message: 'feat(routing): added language to query parameters',
     parents: [
@@ -5055,7 +5055,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '21fecc1',
-    committerDate: '2024-10-22T19:10:25+01:00',
+    committerDate: '2024-10-19 19:10:25 +0100',
     authorDate: '2024-10-19 19:10:25 +0100',
     message: 'feat(graph): show all button now changes to "recent" if all sessions are showing',
     parents: [
@@ -5069,7 +5069,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ed89441',
-    committerDate: '2024-10-22T19:02:15+01:00',
+    committerDate: '2024-10-19 18:02:15 +0000',
     authorDate: '2024-10-19 18:02:15 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@7d545a59464b63d3aaace8e99aa55cf6e0866f97 🚀',
     parents: [
@@ -5083,7 +5083,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7d545a5',
-    committerDate: '2024-10-22T19:01:32+01:00',
+    committerDate: '2024-10-19 19:01:32 +0100',
     authorDate: '2024-10-19 19:01:32 +0100',
     message: 'Merge pull request #14 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -5099,7 +5099,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9136c6b',
-    committerDate: '2024-10-22T15:36:18+01:00',
+    committerDate: '2024-10-19 15:36:18 +0100',
     authorDate: '2024-10-19 15:36:18 +0100',
     message: 'feat(graph): added show all button and extracted date selection hook',
     parents: [
@@ -5113,7 +5113,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7fc3850',
-    committerDate: '2024-10-22T15:21:51+01:00',
+    committerDate: '2024-10-19 15:21:51 +0100',
     authorDate: '2024-10-19 15:21:51 +0100',
     message: 'chore(graph): extracted graph controls component',
     parents: [
@@ -5127,7 +5127,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7c9d0e2',
-    committerDate: '2024-10-22T15:17:59+01:00',
+    committerDate: '2024-10-19 15:17:59 +0100',
     authorDate: '2024-10-19 15:17:59 +0100',
     message: 'fix(data): filtered out sessions longer than 15 hours',
     parents: [
@@ -5141,7 +5141,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '91ab124',
-    committerDate: '2024-10-22T15:12:54+01:00',
+    committerDate: '2024-10-19 15:12:54 +0100',
     authorDate: '2024-10-19 15:12:54 +0100',
     message: 'feat(graph): added vertical reference line for the date in which I made improvements',
     parents: [
@@ -5155,7 +5155,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1b5c868',
-    committerDate: '2024-10-22T12:45:18+01:00',
+    committerDate: '2024-10-19 11:45:18 +0000',
     authorDate: '2024-10-19 11:45:18 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@3d3d5a2ec3361fa74673968451d4fb7bd9d9bf65 🚀',
     parents: [
@@ -5169,7 +5169,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3d3d5a2',
-    committerDate: '2024-10-22T12:44:33+01:00',
+    committerDate: '2024-10-19 12:44:33 +0100',
     authorDate: '2024-10-19 12:44:33 +0100',
     message: 'Merge pull request #15 from TomPlum/develop',
     parents: [
@@ -5184,7 +5184,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b9e9eaf',
-    committerDate: '2024-10-22T12:43:46+01:00',
+    committerDate: '2024-10-19 12:43:46 +0100',
     authorDate: '2024-10-19 12:43:46 +0100',
     message: 'chore(test): fixed failing unit tests due to bad setup data',
     parents: [
@@ -5199,7 +5199,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1634ce3',
-    committerDate: '2024-10-22T12:40:59+01:00',
+    committerDate: '2024-10-19 12:40:59 +0100',
     authorDate: '2024-10-19 12:40:59 +0100',
     message: 'feat(graph): moved locale switch to top right controls and extracted component',
     parents: [
@@ -5213,7 +5213,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'fcc0e1c',
-    committerDate: '2024-10-22T12:26:20+01:00',
+    committerDate: '2024-10-19 12:26:20 +0100',
     authorDate: '2024-10-19 12:26:20 +0100',
     message: 'chore(docs): added screenshots to README',
     parents: [
@@ -5227,7 +5227,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ef2cfc2',
-    committerDate: '2024-10-22T12:21:14+01:00',
+    committerDate: '2024-10-19 12:21:14 +0100',
     authorDate: '2024-10-19 12:21:14 +0100',
     message: 'feat(graph): added nap indicator to session tooltip',
     parents: [
@@ -5241,7 +5241,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '76a2a2e',
-    committerDate: '2024-10-22T12:11:57+01:00',
+    committerDate: '2024-10-19 12:11:57 +0100',
     authorDate: '2024-10-19 12:11:57 +0100',
     message: 'fix(routing): fixed bad query param name for sleep metric',
     parents: [
@@ -5255,7 +5255,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3f4402f',
-    committerDate: '2024-10-22T12:04:44+01:00',
+    committerDate: '2024-10-19 12:04:44 +0100',
     authorDate: '2024-10-19 12:04:44 +0100',
     message: 'feat(graph): added duration as a percentage of 8 hours as a new metric',
     parents: [
@@ -5269,7 +5269,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e27d91a',
-    committerDate: '2024-10-22T05:30:16+01:00',
+    committerDate: '2024-10-19 04:30:16 +0000',
     authorDate: '2024-10-19 04:30:16 +0000',
     message: 'chore(deps): update all non-major dependencies',
     parents: [
@@ -5283,7 +5283,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'bff718f',
-    committerDate: '2024-10-21T16:30:26+01:00',
+    committerDate: '2024-10-18 15:30:26 +0000',
     authorDate: '2024-10-18 15:30:26 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@c9c48c01cfc584cfe74ecedbbe63f350b39bbc17 🚀',
     parents: [
@@ -5297,7 +5297,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c9c48c0',
-    committerDate: '2024-10-21T16:29:29+01:00',
+    committerDate: '2024-10-18 16:29:29 +0100',
     authorDate: '2024-10-18 16:29:29 +0100',
     message: 'Merge pull request #13 from TomPlum/develop',
     parents: [
@@ -5313,7 +5313,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '184b081',
-    committerDate: '2024-10-21T16:28:37+01:00',
+    committerDate: '2024-10-18 16:28:37 +0100',
     authorDate: '2024-10-18 16:28:37 +0100',
     message: 'chore(test): fixed failing unit tests for useLinearRegression.spec.ts',
     parents: [
@@ -5328,7 +5328,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'eda1f0d',
-    committerDate: '2024-10-21T16:24:57+01:00',
+    committerDate: '2024-10-18 16:24:57 +0100',
     authorDate: '2024-10-18 16:24:57 +0100',
     message: 'feat(graph): added github button to top left controls container',
     parents: [
@@ -5342,7 +5342,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b89ac17',
-    committerDate: '2024-10-21T11:32:53+01:00',
+    committerDate: '2024-10-18 11:32:53 +0100',
     authorDate: '2024-10-18 11:32:53 +0100',
     message: 'chore(styling): minor styling and font changes',
     parents: [
@@ -5356,7 +5356,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '15c8018',
-    committerDate: '2024-10-20T20:18:02+01:00',
+    committerDate: '2024-10-17 20:18:02 +0100',
     authorDate: '2024-10-17 20:18:02 +0100',
     message: 'chore(graph): extracted regression delta label component from graph',
     parents: [
@@ -5370,7 +5370,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b4a80bb',
-    committerDate: '2024-10-20T20:13:11+01:00',
+    committerDate: '2024-10-17 20:13:11 +0100',
     authorDate: '2024-10-17 20:13:11 +0100',
     message: 'feat(graph): regression line delta horizontal reference line now animates like its vertical counterpart',
     parents: [
@@ -5384,7 +5384,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e748aef',
-    committerDate: '2024-10-20T19:50:26+01:00',
+    committerDate: '2024-10-17 19:50:26 +0100',
     authorDate: '2024-10-17 19:50:26 +0100',
     message: 'feat(graph): regression line delta vertical reference line now fits the correct y-ordinates and doesn\'t fill the charts height',
     parents: [
@@ -5398,7 +5398,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '46cfb4d',
-    committerDate: '2024-10-20T18:15:51+01:00',
+    committerDate: '2024-10-17 18:15:51 +0100',
     authorDate: '2024-10-17 18:15:51 +0100',
     message: 'chore(graph): encapsulated reference area fill into hook and tweaks reference line stroke dash',
     parents: [
@@ -5412,7 +5412,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'aaa16bf',
-    committerDate: '2024-10-20T18:00:20+01:00',
+    committerDate: '2024-10-17 18:00:20 +0100',
     authorDate: '2024-10-17 18:00:20 +0100',
     message: 'chore(docs): removed readme template contents',
     parents: [
@@ -5426,7 +5426,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '05b7c89',
-    committerDate: '2024-10-20T17:58:06+01:00',
+    committerDate: '2024-10-17 17:58:06 +0100',
     authorDate: '2024-10-17 17:58:06 +0100',
     message: 'chore(lint): added import eslint plugin, configured and fixed import extensions',
     parents: [
@@ -5440,7 +5440,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '19e0968',
-    committerDate: '2024-10-20T17:51:00+01:00',
+    committerDate: '2024-10-17 17:51:00 +0100',
     authorDate: '2024-10-17 17:51:00 +0100',
     message: 'chore(lint): tweaked quotes rules and fixed all double -> single',
     parents: [
@@ -5454,7 +5454,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '245c95a',
-    committerDate: '2024-10-20T17:50:04+01:00',
+    committerDate: '2024-10-17 17:50:04 +0100',
     authorDate: '2024-10-17 17:50:04 +0100',
     message: 'chore(lint): tweaked object/curly brace rules and fixed all spacing issues',
     parents: [
@@ -5468,7 +5468,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ddca752',
-    committerDate: '2024-10-20T17:48:04+01:00',
+    committerDate: '2024-10-17 17:48:04 +0100',
     authorDate: '2024-10-17 17:48:04 +0100',
     message: 'chore(lint): tweaked semi rules and removed redundant semicolons',
     parents: [
@@ -5482,7 +5482,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f32e3d4',
-    committerDate: '2024-10-20T16:42:11+01:00',
+    committerDate: '2024-10-17 16:42:11 +0100',
     authorDate: '2024-10-17 16:42:11 +0100',
     message: 'Revert "chore(data): removed redundant guarding in linear regression hook"',
     parents: [
@@ -5496,7 +5496,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '01068d1',
-    committerDate: '2024-10-20T16:41:32+01:00',
+    committerDate: '2024-10-17 16:41:32 +0100',
     authorDate: '2024-10-17 16:41:32 +0100',
     message: 'chore(data): removed redundant guarding in linear regression hook',
     parents: [
@@ -5510,7 +5510,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c61415e',
-    committerDate: '2024-10-20T16:34:33+01:00',
+    committerDate: '2024-10-17 16:34:33 +0100',
     authorDate: '2024-10-17 16:34:33 +0100',
     message: 'chore(data): filtered out invalid awake time values',
     parents: [
@@ -5524,7 +5524,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '66a1d30',
-    committerDate: '2024-10-20T16:30:39+01:00',
+    committerDate: '2024-10-17 16:30:39 +0100',
     authorDate: '2024-10-17 16:30:39 +0100',
     message: 'feat(graph): migrated xAxisInterval to axes hook and added one more level of granularity',
     parents: [
@@ -5538,7 +5538,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8f95b4a',
-    committerDate: '2024-10-20T16:22:19+01:00',
+    committerDate: '2024-10-17 15:22:19 +0000',
     authorDate: '2024-10-17 15:22:19 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@5f4518bb04c3e9c8fe74c2815da5b0584d1cdbc7 🚀',
     parents: [
@@ -5552,7 +5552,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5f4518b',
-    committerDate: '2024-10-20T16:21:40+01:00',
+    committerDate: '2024-10-17 16:21:40 +0100',
     authorDate: '2024-10-17 16:21:40 +0100',
     message: 'Merge pull request #12 from TomPlum/develop',
     parents: [
@@ -5567,7 +5567,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '76baba0',
-    committerDate: '2024-10-20T16:21:03+01:00',
+    committerDate: '2024-10-17 16:21:03 +0100',
     authorDate: '2024-10-17 16:21:03 +0100',
     message: 'feat(locale): default locale and switch position is now en',
     parents: [
@@ -5582,7 +5582,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ae9b6bc',
-    committerDate: '2024-10-20T16:19:51+01:00',
+    committerDate: '2024-10-17 16:19:51 +0100',
     authorDate: '2024-10-17 16:19:51 +0100',
     message: 'feat(graph): custom x tick now offsets first/last date strings to fit on screen',
     parents: [
@@ -5596,7 +5596,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '924c8f9',
-    committerDate: '2024-10-20T16:12:38+01:00',
+    committerDate: '2024-10-17 16:12:38 +0100',
     authorDate: '2024-10-17 16:12:38 +0100',
     message: 'chore(data): extracted axes 2d hook',
     parents: [
@@ -5610,7 +5610,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '8abcdd6',
-    committerDate: '2024-10-20T16:04:33+01:00',
+    committerDate: '2024-10-17 16:04:33 +0100',
     authorDate: '2024-10-17 16:04:33 +0100',
     message: 'chore(data): hoisted earliest/latest active session dates into context and integrated with x-axis domain',
     parents: [
@@ -5624,7 +5624,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd4d645a',
-    committerDate: '2024-10-20T15:30:01+01:00',
+    committerDate: '2024-10-17 15:30:01 +0100',
     authorDate: '2024-10-17 15:30:01 +0100',
     message: 'feat(data): reworked linear regression algorithm and x-axis domain to work better with dates and ensure line of best fit is linear',
     parents: [
@@ -5638,7 +5638,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7a78b8d',
-    committerDate: '2024-10-20T11:25:24+01:00',
+    committerDate: '2024-10-17 11:25:24 +0100',
     authorDate: '2024-10-17 11:25:24 +0100',
     message: 'test(data): added linear regression hook unit tests and shortened english translations',
     parents: [
@@ -5652,7 +5652,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9f93e5f',
-    committerDate: '2024-10-19T10:47:17+01:00',
+    committerDate: '2024-10-16 09:47:17 +0000',
     authorDate: '2024-10-16 09:47:17 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@34aa1bf564af10c4d3ebeef73542b82385be5163 🚀',
     parents: [
@@ -5666,7 +5666,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '34aa1bf',
-    committerDate: '2024-10-19T10:46:32+01:00',
+    committerDate: '2024-10-16 10:46:32 +0100',
     authorDate: '2024-10-16 10:46:32 +0100',
     message: 'Merge pull request #11 from TomPlum/develop',
     parents: [
@@ -5681,7 +5681,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '827a805',
-    committerDate: '2024-10-19T10:45:53+01:00',
+    committerDate: '2024-10-16 10:45:53 +0100',
     authorDate: '2024-10-16 10:45:53 +0100',
     message: 'feat(routing): re-added sleep route to app navigation and added dynamic baseUrl based on mode',
     parents: [
@@ -5696,7 +5696,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9950706',
-    committerDate: '2024-10-19T10:39:12+01:00',
+    committerDate: '2024-10-16 09:39:12 +0000',
     authorDate: '2024-10-16 09:39:12 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@6a66ec6e43d3e2961e869aa07bfed4bcfa369eed 🚀',
     parents: [
@@ -5710,7 +5710,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6a66ec6',
-    committerDate: '2024-10-19T10:38:22+01:00',
+    committerDate: '2024-10-16 10:38:22 +0100',
     authorDate: '2024-10-16 10:38:22 +0100',
     message: 'Merge pull request #10 from TomPlum/develop',
     parents: [
@@ -5725,7 +5725,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5ef49a3',
-    committerDate: '2024-10-19T10:37:53+01:00',
+    committerDate: '2024-10-16 10:37:53 +0100',
     authorDate: '2024-10-16 10:37:53 +0100',
     message: 'feat(graph): added language toggle button',
     parents: [
@@ -5740,7 +5740,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '38ff1c2',
-    committerDate: '2024-10-18T18:51:27+01:00',
+    committerDate: '2024-10-15 17:51:27 +0000',
     authorDate: '2024-10-15 17:51:27 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@46a65f9bf3c7bf3060a0fccc8b0e5ce4ccdf5310 🚀',
     parents: [
@@ -5754,7 +5754,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '46a65f9',
-    committerDate: '2024-10-18T18:50:48+01:00',
+    committerDate: '2024-10-15 18:50:48 +0100',
     authorDate: '2024-10-15 18:50:48 +0100',
     message: 'Merge pull request #9 from TomPlum/develop',
     parents: [
@@ -5769,7 +5769,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3270ffd',
-    committerDate: '2024-10-18T18:49:22+01:00',
+    committerDate: '2024-10-15 18:49:22 +0100',
     authorDate: '2024-10-15 18:49:22 +0100',
     message: 'feat(graph): added duration to the tooltip',
     parents: [
@@ -5784,7 +5784,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'fb7455a',
-    committerDate: '2024-10-18T18:43:22+01:00',
+    committerDate: '2024-10-15 18:43:22 +0100',
     authorDate: '2024-10-15 18:43:22 +0100',
     message: 'feat(graph): added healthy data range for sleep quality metric',
     parents: [
@@ -5798,7 +5798,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1606c57',
-    committerDate: '2024-10-18T18:22:41+01:00',
+    committerDate: '2024-10-15 18:22:41 +0100',
     authorDate: '2024-10-15 18:22:41 +0100',
     message: 'chore(graph): session count now renders in the current metric colour',
     parents: [
@@ -5812,7 +5812,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5408eb4',
-    committerDate: '2024-10-18T16:52:42+01:00',
+    committerDate: '2024-10-15 16:52:42 +0100',
     authorDate: '2024-10-15 16:52:42 +0100',
     message: 'chore(graph): tweaked healthy ranges and added translations for session count',
     parents: [
@@ -5826,7 +5826,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'adaf340',
-    committerDate: '2024-10-18T16:45:46+01:00',
+    committerDate: '2024-10-15 16:45:46 +0100',
     authorDate: '2024-10-15 16:45:46 +0100',
     message: 'chore(styles): added antd dark theme and added total sessions to top left',
     parents: [
@@ -5840,7 +5840,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '95dcf41',
-    committerDate: '2024-10-18T16:37:33+01:00',
+    committerDate: '2024-10-15 16:37:33 +0100',
     authorDate: '2024-10-15 16:37:33 +0100',
     message: 'feat(graph): added label to typical session area and added missing jp translations',
     parents: [
@@ -5854,7 +5854,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '28293da',
-    committerDate: '2024-10-18T16:26:56+01:00',
+    committerDate: '2024-10-15 16:26:56 +0100',
     authorDate: '2024-10-15 16:26:56 +0100',
     message: 'chore(graph): removed enum index signatures in sleep graph datum interface and removed casting',
     parents: [
@@ -5868,7 +5868,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c27bf01',
-    committerDate: '2024-10-18T16:07:11+01:00',
+    committerDate: '2024-10-15 16:07:11 +0100',
     authorDate: '2024-10-15 16:07:11 +0100',
     message: 'feat(graph): added custom domain and ticks so the y domain is wrapped tighter around the value range',
     parents: [
@@ -5882,7 +5882,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'eb84e73',
-    committerDate: '2024-10-18T15:45:53+01:00',
+    committerDate: '2024-10-15 15:45:53 +0100',
     authorDate: '2024-10-15 15:45:53 +0100',
     message: 'feat(graph): 2d line graph now renders right up against the left viewport edge',
     parents: [
@@ -5896,7 +5896,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1a19a6a',
-    committerDate: '2024-10-18T14:40:52+01:00',
+    committerDate: '2024-10-15 14:40:52 +0100',
     authorDate: '2024-10-15 14:40:52 +0100',
     message: 'chore(graph): extracted typical sleep session hook for area data',
     parents: [
@@ -5910,7 +5910,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e28e441',
-    committerDate: '2024-10-18T14:33:17+01:00',
+    committerDate: '2024-10-15 14:33:17 +0100',
     authorDate: '2024-10-15 14:33:17 +0100',
     message: 'chore(graph): encapsulated properties into linear regression hook',
     parents: [
@@ -5924,7 +5924,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7f58f11',
-    committerDate: '2024-10-18T14:30:56+01:00',
+    committerDate: '2024-10-15 14:30:56 +0100',
     authorDate: '2024-10-15 14:30:56 +0100',
     message: 'chore(graph): moved linear regression line delta reference lines into hook',
     parents: [
@@ -5938,7 +5938,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b854f35',
-    committerDate: '2024-10-18T14:24:51+01:00',
+    committerDate: '2024-10-15 14:24:51 +0100',
     authorDate: '2024-10-15 14:24:51 +0100',
     message: 'feat(graph): added typical sleep session reference areas',
     parents: [
@@ -5952,7 +5952,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ddc31b5',
-    committerDate: '2024-10-18T13:40:21+01:00',
+    committerDate: '2024-10-15 13:40:21 +0100',
     authorDate: '2024-10-15 13:40:21 +0100',
     message: 'feat(graph): added reference lines to show regression delta',
     parents: [
@@ -5966,7 +5966,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7e82560',
-    committerDate: '2024-10-18T11:06:18+01:00',
+    committerDate: '2024-10-15 11:06:18 +0100',
     authorDate: '2024-10-15 11:06:18 +0100',
     message: 'chore(hooks): moved more graph styling logic into a hook',
     parents: [
@@ -5980,7 +5980,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4bebfe5',
-    committerDate: '2024-10-18T10:31:40+01:00',
+    committerDate: '2024-10-15 09:31:40 +0000',
     authorDate: '2024-10-15 09:31:40 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@71254127053aea2018fab52895ce039a5bcb607c 🚀',
     parents: [
@@ -5994,7 +5994,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7125412',
-    committerDate: '2024-10-18T10:31:01+01:00',
+    committerDate: '2024-10-15 10:31:01 +0100',
     authorDate: '2024-10-15 10:31:01 +0100',
     message: 'Merge pull request #8 from TomPlum/develop',
     parents: [
@@ -6009,7 +6009,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '55c405d',
-    committerDate: '2024-10-18T10:29:58+01:00',
+    committerDate: '2024-10-15 10:29:58 +0100',
     authorDate: '2024-10-15 10:29:58 +0100',
     message: 'feat(routing): removed internal use of /sleep in favour of / since gh-pages hosts at /sleep anyway',
     parents: [
@@ -6024,7 +6024,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '758174d',
-    committerDate: '2024-10-18T10:25:57+01:00',
+    committerDate: '2024-10-15 10:25:57 +0100',
     authorDate: '2024-10-15 10:25:57 +0100',
     message: 'feat(graph): encapsulated more graph styling into custom hook and added active dot radius value',
     parents: [
@@ -6038,7 +6038,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b081373',
-    committerDate: '2024-10-18T10:04:16+01:00',
+    committerDate: '2024-10-15 10:04:16 +0100',
     authorDate: '2024-10-15 10:04:16 +0100',
     message: 'chore(state): hoisted graph data to react context and fixed render instability',
     parents: [
@@ -6052,7 +6052,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e50f872',
-    committerDate: '2024-10-18T09:42:31+01:00',
+    committerDate: '2024-10-15 09:42:31 +0100',
     authorDate: '2024-10-15 09:42:31 +0100',
     message: 'chore(state): hoisted sleep page state management to react context',
     parents: [
@@ -6066,7 +6066,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5b5f0a9',
-    committerDate: '2024-10-18T09:23:48+01:00',
+    committerDate: '2024-10-15 09:23:48 +0100',
     authorDate: '2024-10-15 09:23:48 +0100',
     message: 'feat(graph): graph config now render translucent and becomes opaque on hover',
     parents: [
@@ -6080,7 +6080,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9e6b6d9',
-    committerDate: '2024-10-17T19:45:07+01:00',
+    committerDate: '2024-10-14 19:45:07 +0100',
     authorDate: '2024-10-14 19:45:07 +0100',
     message: 'feat(graph): lines now start on the left viewport edge and y-ticks have a background',
     parents: [
@@ -6094,7 +6094,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e544bc3',
-    committerDate: '2024-10-17T19:03:44+01:00',
+    committerDate: '2024-10-14 19:03:44 +0100',
     authorDate: '2024-10-14 19:03:44 +0100',
     message: 'feat(routing): added 404 not found page',
     parents: [
@@ -6108,7 +6108,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7d32883',
-    committerDate: '2024-10-17T18:38:12+01:00',
+    committerDate: '2024-10-14 17:38:12 +0000',
     authorDate: '2024-10-14 17:38:12 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@3cf1df49c0ef97fd2954882c882f8013d59f6c87 🚀',
     parents: [
@@ -6122,7 +6122,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3cf1df4',
-    committerDate: '2024-10-17T18:37:31+01:00',
+    committerDate: '2024-10-14 18:37:31 +0100',
     authorDate: '2024-10-14 18:37:31 +0100',
     message: 'Merge pull request #7 from TomPlum/develop',
     parents: [
@@ -6137,7 +6137,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd683d57',
-    committerDate: '2024-10-17T18:37:03+01:00',
+    committerDate: '2024-10-14 18:37:03 +0100',
     authorDate: '2024-10-14 18:37:03 +0100',
     message: 'chore(build): added vite base path for gh-pages deployment',
     parents: [
@@ -6152,7 +6152,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9744f6f',
-    committerDate: '2024-10-17T14:57:51+01:00',
+    committerDate: '2024-10-14 13:57:51 +0000',
     authorDate: '2024-10-14 13:57:51 +0000',
     message: 'Deploying to gh-pages from @ TomPlum/sleep@67d24a6224871536699e9ef78e8ac62a61c442f7 🚀',
     parents: [
@@ -6166,7 +6166,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'e74f89d',
-    committerDate: '2024-10-17T14:57:51+01:00',
+    committerDate: '2024-10-14 13:57:51 +0000',
     authorDate: '2024-10-14 13:57:51 +0000',
     message: 'Initial gh-pages commit',
     parents: [],
@@ -6178,7 +6178,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '67d24a6',
-    committerDate: '2024-10-17T14:57:04+01:00',
+    committerDate: '2024-10-14 14:57:04 +0100',
     authorDate: '2024-10-14 14:57:04 +0100',
     message: 'Merge pull request #6 from TomPlum/develop',
     parents: [
@@ -6193,7 +6193,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '3a9d56e',
-    committerDate: '2024-10-17T14:56:00+01:00',
+    committerDate: '2024-10-14 14:56:00 +0100',
     authorDate: '2024-10-14 14:56:00 +0100',
     message: 'chore(build): fixed build issues for release',
     parents: [
@@ -6208,7 +6208,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'bffed4c',
-    committerDate: '2024-10-17T14:47:46+01:00',
+    committerDate: '2024-10-14 14:47:46 +0100',
     authorDate: '2024-10-14 14:47:46 +0100',
     message: 'Merge pull request #5 from TomPlum/develop',
     parents: [
@@ -6223,7 +6223,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '17b8e10',
-    committerDate: '2024-10-17T14:47:19+01:00',
+    committerDate: '2024-10-14 14:47:19 +0100',
     authorDate: '2024-10-14 14:47:19 +0100',
     message: 'chore(ci): renamed main workflow -> release',
     parents: [
@@ -6238,7 +6238,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'fd2f791',
-    committerDate: '2024-10-17T14:45:08+01:00',
+    committerDate: '2024-10-14 14:45:08 +0100',
     authorDate: '2024-10-14 14:45:08 +0100',
     message: 'Merge pull request #4 from TomPlum/renovate/all-minor-patch',
     parents: [
@@ -6254,7 +6254,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a3aad32',
-    committerDate: '2024-10-17T14:44:02+01:00',
+    committerDate: '2024-10-14 13:44:02 +0000',
     authorDate: '2024-10-14 13:44:02 +0000',
     message: 'chore(deps): update all non-major dependencies',
     parents: [
@@ -6268,7 +6268,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b166be8',
-    committerDate: '2024-10-17T14:41:43+01:00',
+    committerDate: '2024-10-14 14:41:43 +0100',
     authorDate: '2024-10-14 14:41:43 +0100',
     message: 'Merge pull request #2 from TomPlum/develop',
     parents: [
@@ -6284,7 +6284,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6376640',
-    committerDate: '2024-10-17T14:41:24+01:00',
+    committerDate: '2024-10-14 14:41:24 +0100',
     authorDate: '2024-10-14 14:41:24 +0100',
     message: 'chore(config): updated renovate rules, schedule and assignee',
     parents: [
@@ -6298,7 +6298,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '30d449b',
-    committerDate: '2024-10-17T14:39:59+01:00',
+    committerDate: '2024-10-14 14:39:59 +0100',
     authorDate: '2024-10-14 14:39:59 +0100',
     message: 'Merge pull request #1 from TomPlum/renovate/configure',
     parents: [
@@ -6313,7 +6313,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '949b36d',
-    committerDate: '2024-10-17T14:37:36+01:00',
+    committerDate: '2024-10-14 13:37:36 +0000',
     authorDate: '2024-10-14 13:37:36 +0000',
     message: 'Add renovate.json',
     parents: [
@@ -6327,7 +6327,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd399e92',
-    committerDate: '2024-10-17T10:45:28+01:00',
+    committerDate: '2024-10-14 10:45:28 +0100',
     authorDate: '2024-10-14 10:45:28 +0100',
     message: 'chore(ci): added gh-pages package and added github actions main workflow',
     parents: [
@@ -6343,7 +6343,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '96d0ac5',
-    committerDate: '2024-10-17T10:41:44+01:00',
+    committerDate: '2024-10-14 10:41:44 +0100',
     authorDate: '2024-10-14 10:41:44 +0100',
     message: 'feat(graph): extracted metric checkbox component and changed colours based on metric',
     parents: [
@@ -6357,7 +6357,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1e65c1d',
-    committerDate: '2024-10-17T10:07:12+01:00',
+    committerDate: '2024-10-14 10:07:12 +0100',
     authorDate: '2024-10-14 10:07:12 +0100',
     message: 'feat(graph): added pie to to tooltip and extracted graph styles hook',
     parents: [
@@ -6371,7 +6371,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '30dcafd',
-    committerDate: '2024-10-17T09:28:43+01:00',
+    committerDate: '2024-10-14 09:28:43 +0100',
     authorDate: '2024-10-14 09:28:43 +0100',
     message: 'chore(graph): minor improvements to graph formatting & styling',
     parents: [
@@ -6385,7 +6385,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '72b1f86',
-    committerDate: '2024-10-17T07:55:23+01:00',
+    committerDate: '2024-10-14 07:55:23 +0100',
     authorDate: '2024-10-14 07:55:23 +0100',
     message: 'chore(graph): extracted sleep data 2d hook',
     parents: [
@@ -6399,7 +6399,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '2115a48',
-    committerDate: '2024-10-17T07:45:57+01:00',
+    committerDate: '2024-10-14 07:45:57 +0100',
     authorDate: '2024-10-14 07:45:57 +0100',
     message: 'feat(graph): increased axis tick stroke width',
     parents: [
@@ -6413,7 +6413,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '0bf74b1',
-    committerDate: '2024-10-17T07:43:44+01:00',
+    committerDate: '2024-10-14 07:43:44 +0100',
     authorDate: '2024-10-14 07:43:44 +0100',
     message: 'feat(graph): added custom x-axis tick component',
     parents: [
@@ -6427,7 +6427,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5a6b882',
-    committerDate: '2024-10-16T16:27:42+01:00',
+    committerDate: '2024-10-13 16:27:42 +0100',
     authorDate: '2024-10-13 16:27:42 +0100',
     message: 'feat(graph): tweaked colours and now stroke width is dynamic based on dataset size',
     parents: [
@@ -6441,7 +6441,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9cfcece',
-    committerDate: '2024-10-16T16:19:46+01:00',
+    committerDate: '2024-10-13 16:19:46 +0100',
     authorDate: '2024-10-13 16:19:46 +0100',
     message: 'feat(routing): sleep route now adds default query params if not present',
     parents: [
@@ -6455,7 +6455,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '603fbbc',
-    committerDate: '2024-10-16T15:24:07+01:00',
+    committerDate: '2024-10-13 15:24:07 +0100',
     authorDate: '2024-10-13 15:24:07 +0100',
     message: 'chore(test): fixed failing data test and added eslint stylistic plugin',
     parents: [
@@ -6469,7 +6469,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'f892161',
-    committerDate: '2024-10-16T12:31:54+01:00',
+    committerDate: '2024-10-13 12:31:54 +0100',
     authorDate: '2024-10-13 12:31:54 +0100',
     message: 'feat(graph): added custom tooltip and filtered out data with no breakdown',
     parents: [
@@ -6483,7 +6483,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '9df8d6c',
-    committerDate: '2024-10-16T11:26:08+01:00',
+    committerDate: '2024-10-13 11:26:08 +0100',
     authorDate: '2024-10-13 11:26:08 +0100',
     message: 'chore(refactor): extracted custom y-axis tick component into its own file',
     parents: [
@@ -6497,7 +6497,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'bb8d532',
-    committerDate: '2024-10-16T11:19:26+01:00',
+    committerDate: '2024-10-13 11:19:26 +0100',
     authorDate: '2024-10-13 11:19:26 +0100',
     message: 'chore(state): hoisted sleep data state management into a react context',
     parents: [
@@ -6511,7 +6511,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7955da7',
-    committerDate: '2024-10-15T22:14:12+01:00',
+    committerDate: '2024-10-12 22:14:12 +0100',
     authorDate: '2024-10-12 22:14:12 +0100',
     message: 'feat(graph): formatting and styling improvements to 2d graph',
     parents: [
@@ -6525,7 +6525,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '5109e9d',
-    committerDate: '2024-10-15T22:01:25+01:00',
+    committerDate: '2024-10-12 22:01:25 +0100',
     authorDate: '2024-10-12 22:01:25 +0100',
     message: 'feat(routing): added custom query params hook and serialised date range in query params',
     parents: [
@@ -6539,7 +6539,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd160456',
-    committerDate: '2024-10-15T21:41:17+01:00',
+    committerDate: '2024-10-12 21:41:17 +0100',
     authorDate: '2024-10-12 21:41:17 +0100',
     message: 'feat(routing): added router, new base URL and serialised metric in query param',
     parents: [
@@ -6553,7 +6553,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'a09ca48',
-    committerDate: '2024-10-15T19:54:44+01:00',
+    committerDate: '2024-10-12 19:54:44 +0100',
     authorDate: '2024-10-12 19:54:44 +0100',
     message: 'feat(graph): first pass at linear regression line',
     parents: [
@@ -6567,7 +6567,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'c2ed208',
-    committerDate: '2024-10-15T19:10:12+01:00',
+    committerDate: '2024-10-12 19:10:12 +0100',
     authorDate: '2024-10-12 19:10:12 +0100',
     message: 'feat(graph): added date range picker',
     parents: [
@@ -6581,7 +6581,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '4522569',
-    committerDate: '2024-10-15T17:05:28+01:00',
+    committerDate: '2024-10-12 17:05:28 +0100',
     authorDate: '2024-10-12 17:05:28 +0100',
     message: 'feat(graph): added colours to each sleep metric line',
     parents: [
@@ -6595,7 +6595,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'eb371fa',
-    committerDate: '2024-10-15T16:52:25+01:00',
+    committerDate: '2024-10-12 16:52:25 +0100',
     authorDate: '2024-10-12 16:52:25 +0100',
     message: 'feat(graph): added metric configuration panel',
     parents: [
@@ -6609,7 +6609,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '6530e27',
-    committerDate: '2024-10-15T10:55:38+01:00',
+    committerDate: '2024-10-12 10:55:38 +0100',
     authorDate: '2024-10-12 10:55:38 +0100',
     message: 'feat(graph): basic first pass at a 2D graph with recharts',
     parents: [
@@ -6623,7 +6623,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'd94993e',
-    committerDate: '2024-10-10T19:38:04+01:00',
+    committerDate: '2024-10-07 19:38:04 +0100',
     authorDate: '2024-10-07 19:38:04 +0100',
     message: 'feat(graph): added awake time to the 3d graph',
     parents: [
@@ -6637,7 +6637,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '72de5c9',
-    committerDate: '2024-10-09T17:11:49+01:00',
+    committerDate: '2024-10-06 17:11:49 +0100',
     authorDate: '2024-10-06 17:11:49 +0100',
     message: 'feat(graph): first pass of rendering a 2D sleep quality graph in 3D',
     parents: [
@@ -6651,7 +6651,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '7e68687',
-    committerDate: '2024-10-09T16:31:02+01:00',
+    committerDate: '2024-10-06 16:31:02 +0100',
     authorDate: '2024-10-06 16:31:02 +0100',
     message: 'feat(data): mapped pillow data into custom domain object and parsed raw values',
     parents: [
@@ -6665,7 +6665,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'ab657c9',
-    committerDate: '2024-10-09T12:47:24+01:00',
+    committerDate: '2024-10-06 12:47:24 +0100',
     authorDate: '2024-10-06 12:47:24 +0100',
     message: 'feat(data): started parsing pillow CSV data',
     parents: [
@@ -6679,7 +6679,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: 'b3e99e8',
-    committerDate: '2024-10-09T10:42:01+01:00',
+    committerDate: '2024-10-06 10:42:01 +0100',
     authorDate: '2024-10-06 10:42:01 +0100',
     message: 'chore(config): added react-force-graph and vitest dependencies + pillow data',
     parents: [
@@ -6693,7 +6693,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '1e5c110',
-    committerDate: '2024-10-09T10:34:20+01:00',
+    committerDate: '2024-10-06 10:34:20 +0100',
     authorDate: '2024-10-06 10:34:20 +0100',
     message: 'chore(config): added placeholder page title and favicon',
     parents: [
@@ -6707,7 +6707,7 @@ export const sleepCommits: Commit[] = [
   },
   {
     hash: '05d1859',
-    committerDate: '2024-10-09T09:36:22+01:00',
+    committerDate: '2024-10-06 09:36:22 +0100',
     authorDate: '2024-10-06 09:36:22 +0100',
     message: 'chore(setup): ran vite@latest with react-swc-ts template',
     parents: [],

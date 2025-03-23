@@ -11,6 +11,8 @@ import { commitNode } from 'test/elements/CommitNode'
 import { tag } from 'test/elements/Tag'
 import { Commit } from 'types'
 import { formatBranch } from 'modules/Tags/utils/formatBranch'
+import { table } from 'test/elements/Table'
+import dayjs from 'dayjs'
 
 describe('Integration', () => {
   const prepareCommits = (commits: Commit[]) => {
@@ -32,6 +34,16 @@ describe('Integration', () => {
     })
   }
 
+  const formatTimestamp = (dateString: string) => {
+    const commitDate = dayjs(dateString)
+
+    if (dayjs(new Date()).diff(commitDate, 'week') >= 1) {
+      return commitDate.format('YYYY-MM-DD HH:mm:ss')
+    }
+
+    return commitDate.fromNow()
+  }
+
   it('should render the correct elements in each column for the sleep repository git log entries', { timeout: 120 * 1000 }, () => {
     const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
     const headCommit = sleepCommits.find(commit => commit.hash === '1352f4c')
@@ -39,8 +51,12 @@ describe('Integration', () => {
 
     render(
       <GitLog
+        showTable
+        showBranchesTags
+        showTableHeaders
         currentBranch='release'
         entries={gitLogEntries}
+        githubRepositoryUrl='https://github.com/TomPlum/sleep'
       />
     )
 
@@ -62,6 +78,11 @@ describe('Integration', () => {
     const indexTag = tag.atRow({ row: 0 })
     expect(indexTag).toBeInTheDocument()
     expect(indexTag).toHaveTextContent('index')
+
+    const indexTableRow = table.row({ row: 0 })
+    expect(indexTableRow).toBeInTheDocument()
+    expect(table.commitMessageData({ row: 0 })).toHaveTextContent('// Work in-progress in TomPlum/sleep...')
+    expect(table.timestampData({ row: 0 })).toHaveTextContent('-')
 
     // The row/column state is from index 1 on-wards,
     // since the index pseudo-commit is rendered separately.
@@ -156,7 +177,16 @@ describe('Integration', () => {
         }
       })
 
-      // Check table TODO
+      // Check table state
+      const tableRowElement = table.row({ row: rowIndex })
+      expect(tableRowElement).toBeInTheDocument()
+      expect(table.commitMessageData({ row: rowIndex })).toHaveTextContent(commit.message)
+
+      if (rowIndex > 1) {
+        expect(table.timestampData({ row: rowIndex })).toHaveTextContent(formatTimestamp(commit.committerDate))
+      } else {
+        expect(table.timestampData({ row: 1 })).toHaveTextContent('4 days ago')
+      }
     })
 
     console.debug('Metrics from GitLog integration test for TomPlum/sleep @ release')

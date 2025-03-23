@@ -9,13 +9,6 @@ export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {
 
   const borderStyle = isPlaceholder ? 'dotted' : 'solid'
 
-  console.log({
-    bottom: 0,
-    left: 'calc(50% - 1px)',
-    borderRight: `2px ${borderStyle} ${color}`,
-    height: (ROW_HEIGHT + rowSpacing - NODE_WIDTH) / 2
-  })
-
   return (
     <div id='left-down-curve' data-testid='left-down-curve' className={styles.container}>
       <div

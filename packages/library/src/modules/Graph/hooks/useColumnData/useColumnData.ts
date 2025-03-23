@@ -128,16 +128,6 @@ export const useColumnData = (): GraphColumnData => {
           rowToColumnState.set(targetRow, columnState)
         }
       }
-
-      // TODO: Remove the below once all working
-      /*const fromHash = [...positions.entries()].find((it) => {
-        return it[1][0] === rowStart
-      })![0]
-
-      const toHash = [...positions.entries()].find((it) => {
-        return it[1][0] === rowEnd
-      })![0]
-      console.log('Row', rowStart, 'Column', colStart, 'hash', fromHash, '-->', 'Row', rowEnd, 'Column', colEnd, 'hash', toHash, ' --- type', type)*/
     })
 
     // Add the commit nodes into their respective rows and columns

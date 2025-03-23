@@ -8,11 +8,34 @@ import { render, within } from '@testing-library/react'
 import { GitLog } from './GitLog'
 import { sleepCommits } from 'test/data/sleepCommits'
 import { commitNode } from 'test/elements/CommitNode'
+import { tag } from 'test/elements/Tag'
+import { Commit } from 'types'
+import { formatBranch } from 'modules/Tags/utils/formatBranch'
 
 describe('Integration', () => {
+  const prepareCommits = (commits: Commit[]) => {
+    const tagsSeen = new Map<string, boolean>()
+
+    return commits.map(commit => {
+      const isTag = commit.branch.includes('tags/')
+      const hasBeenRendered = tagsSeen.has(commit.branch)
+
+      const shouldRenderTag = isTag && !hasBeenRendered
+      if (shouldRenderTag) {
+        tagsSeen.set(commit.branch, true)
+      }
+
+      return {
+        ...commit,
+        isMostRecentTagInstance: shouldRenderTag
+      }
+    })
+  }
+
   it('should render the correct elements in each column for the sleep repository git log entries', { timeout: 120 * 1000 }, () => {
     const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
     const headCommit = sleepCommits.find(commit => commit.hash === '1352f4c')
+    const commits = prepareCommits(sleepCommits)
 
     render(
       <GitLog
@@ -36,11 +59,24 @@ describe('Integration', () => {
       expect(otherColumn).toBeEmptyDOMElement()
     }
 
+    const indexTag = tag.atRow({ row: 0 })
+    expect(indexTag).toBeInTheDocument()
+    expect(indexTag).toHaveTextContent('index')
+
     // The row/column state is from index 1 on-wards,
     // since the index pseudo-commit is rendered separately.
     Object.entries(sleepRepositoryRowColumnState).forEach(([index, columnStates]: [string, GraphColumnState[]]) => {
       const rowIndex = Number(index)
-      // Check branches / tags TODO
+      const commit = commits[rowIndex - 1]
+
+      // Check branches / tags
+      if (commit.isBranchTip || commit.isMostRecentTagInstance) {
+        const tagElement = tag.atRow({ row: rowIndex })
+        expect(tagElement).toBeInTheDocument()
+        expect(tagElement).toHaveTextContent(formatBranch(commit.branch))
+      } else {
+        expect(tag.empty({ row: rowIndex })).toBeInTheDocument()
+      }
 
       // Check graph state
       columnStates.forEach((columnState, columnIndex) => {
@@ -49,15 +85,17 @@ describe('Integration', () => {
           column: columnIndex
         })
 
+        const insideCurrentColumn = within(columnElement)
+
         const missingColMsg = `Column container at row ${rowIndex}, column ${columnIndex} was not found in the graph`
         expect(columnElement, missingColMsg).toBeInTheDocument()
 
         // If the column is supposed to have a commit node in it,
         // assert that it renders the correct elements.
         if (columnState.isNode) {
-          const commit = sleepCommits[rowIndex - 1]
           const missingNodeMsg = `Expected commit node element in row ${rowIndex}, column ${columnIndex} with hash ${commit.hash}, but it was not found in the graph`
-          expect(graphColumn.withCommitNode({ hash: commit.hash }), missingNodeMsg)
+          const commitNodeTestId = graphColumn.commitNodeId({ hash: commit.hash })
+          expect(insideCurrentColumn.getByTestId(commitNodeTestId), missingNodeMsg)
           debugMetrics['commit-nodes'] = (debugMetrics['commit-nodes'] ?? 0) + 1
 
           // If the commit is a merge commit
@@ -69,8 +107,6 @@ describe('Integration', () => {
         // If the column is supposed to have a horizontal line in it,
         // assert that it renders the correct elements.
         if (columnState.isHorizontalLine) {
-          const insideCurrentColumn = within(columnElement)
-
           // Nodes in the first column always have half-width horizontal lines.
           // A nodes that are the target of merges also have half-width ones.
           if (columnState.isNode && (columnState.mergeSourceColumns || columnIndex === 0)) {
@@ -89,7 +125,6 @@ describe('Integration', () => {
         // If the column is supposed to have a vertical line in it,
         // assert that it renders the correct elements.
         if (columnState.isVerticalLine) {
-          const insideCurrentColumn = within(columnElement)
           const commit = sleepCommits[rowIndex - 1]
 
           if (columnState.isNode) {
@@ -110,6 +145,14 @@ describe('Integration', () => {
           } else {
             expect(insideCurrentColumn.getByTestId(graphColumn.fullHeightVerticalLineId)).toBeInTheDocument()
           }
+        }
+
+        if (columnState.isLeftUpCurve) {
+          expect(insideCurrentColumn.getByTestId(graphColumn.leftUpCurveId)).toBeInTheDocument()
+        }
+
+        if (columnState.isLeftDownCurve) {
+          expect(insideCurrentColumn.getByTestId(graphColumn.leftDownCurveId)).toBeInTheDocument()
         }
       })
 

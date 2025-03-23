@@ -96,7 +96,9 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
       )}
     >
       <FadingDiv
+        id={`tag-${id}`}
         style={{ height }}
+        data-testid={`tag-${id}`}
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
         className={styles.tagContainer}

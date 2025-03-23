@@ -33,6 +33,10 @@ class GraphColumnElement {
 
   public indexPseudoCommitNodeId = 'index-pseudo-commit-node'
   public fullHeightVerticalLineId = 'vertical-line-full-height'
+  public bottomHalfVerticalLineId = 'vertical-line-bottom-half'
+  public bottomHalfDottedVerticalLineId = 'vertical-line-bottom-half-dotted'
+  public topHalfDottedVerticalLineId = 'vertical-line-top-half-dotted'
+  public topHalfVerticalLineId = 'vertical-line-top-half'
   public headCommitVerticalLineId = 'head-commit-vertical-line'
   public fullWidthHorizontalLineId = 'horizontal-line-full-width'
   public halfWidthRightHorizontalLineId = 'horizontal-line-right-half'
@@ -59,6 +63,18 @@ class GraphColumnElement {
 
   public withFullHeightVerticalLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
     return this.getElement(this.fullHeightVerticalLineId, shouldExist)
+  }
+
+  public withBottomHalfVerticalLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement(this.bottomHalfVerticalLineId, shouldExist)
+  }
+
+  public withTopHalfDottedVerticalLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement(this.topHalfDottedVerticalLineId, shouldExist)
+  }
+
+  public withTopHalfVerticalLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement(this.topHalfVerticalLineId, shouldExist)
   }
 
   public withHeadCommitVerticalLine<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {

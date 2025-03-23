@@ -91,7 +91,10 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
           arrowColor={colour}
           popoverRect={popoverRect}
         >
-          <BranchTagTooltip commit={commit} />
+          <BranchTagTooltip
+            id={id}
+            commit={commit}
+          />
         </ArrowContainer>
       )}
     >
@@ -104,8 +107,10 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
         className={styles.tagContainer}
       >
         <div
-          key={`tag_${id}`}
+          id={`tag-label-${id}`}
+          key={`tag-label-${id}`}
           className={styles.tag}
+          data-testid={`tag-label-${id}`}
           style={tagLabelContainerStyles}
         >
           {label}
@@ -113,8 +118,10 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
 
         <div
           style={tagLineStyles}
+          id={`tag-line-${id}`}
           className={styles.tagLine}
-          key={`tag_line_${commit.branch}`}
+          data-testid={`tag-line-${id}`}
+          key={`tag-line-${commit.branch}`}
         />
       </FadingDiv>
     </Popover>

@@ -8,6 +8,8 @@ export const CommitNodeTooltip = ({ commit, color }: CommitNodeTooltipProps) => 
   return (
     <div
       className={styles.tooltip}
+      id={`commit-node-tooltip-${commit.hash}`}
+      data-testid={`commit-node-tooltip-${commit.hash}`}
       style={{
         color: textColour,
         border: `2px solid ${color}`,

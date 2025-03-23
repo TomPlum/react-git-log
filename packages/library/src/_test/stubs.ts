@@ -40,6 +40,11 @@ export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({
   colours: ['white'],
   headCommit: commit({ hash: 'HEAD' }),
   graphData: graphData(),
+  nodeTheme: 'default',
+  showCommitNodeTooltips: false,
+  enableExperimentalAnimation: false,
+  showTableHeaders: true,
+  enableResize: false,
   ...bag
 })
 

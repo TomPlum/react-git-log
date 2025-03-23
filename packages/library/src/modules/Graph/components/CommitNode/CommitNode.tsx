@@ -11,8 +11,9 @@ import { NODE_BORDER_WIDTH, NODE_WIDTH } from 'constants/constants'
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { textColour, shiftAlphaChannel, theme } = useTheme()
-  const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, rowSpacing } = useGitContext()
+  const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme } = useGitContext()
 
+  const commitHashLabelHeight = 20
   const isMergeCommit = nodeTheme === 'default' && commit.parents.length > 1
 
   const [showTooltip, setShowTooltip] = useState(false)
@@ -69,16 +70,21 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
           <div
             style={{ background: colour }}
             className={styles.mergeCommitInner}
+            id={`commit-node-merge-circle-${commit.hash}`}
+            data-testid={`commit-node-merge-circle-${commit.hash}`}
           />
         )}
 
         {showCommitNodeHashes && (
           <span
+            id={`commit-node-hash-${commit.hash}`}
+            data-testid={`commit-node-hash-${commit.hash}`}
             className={styles.commitLabel}
             style={{
               color: textColour,
-              top: `calc(50% - 4px - ${rowSpacing})`,
+              height: commitHashLabelHeight,
               left: `calc(50% + ${NODE_WIDTH / 2}px + 5px)`,
+              top: `calc(50% - ${commitHashLabelHeight / 2}px)`,
               background: theme === 'dark' ? 'rgb(26,26,26)' : 'white',
             }}
           >

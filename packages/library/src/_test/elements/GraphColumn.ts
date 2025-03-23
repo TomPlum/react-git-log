@@ -1,8 +1,5 @@
 import { screen } from '@testing-library/react'
-
-interface ShouldExist<T> {
-  shouldExist?: T
-}
+import { ShouldExist } from './types'
 
 interface At<T> extends ShouldExist<T> {
   row: number

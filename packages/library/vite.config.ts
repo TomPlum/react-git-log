@@ -64,6 +64,8 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
+      cleanOnRerun: true,
+      reportOnFailure: true,
       include: [
         'src'
       ],

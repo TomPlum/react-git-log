@@ -9,7 +9,7 @@ import { GitLog } from './GitLog'
 import { sleepCommits } from 'test/data/sleepCommits'
 
 describe('Integration', () => {
-  it('should render the correct elements in each column for the sleep repository git log entries', () => {
+  it('should render the correct elements in each column for the sleep repository git log entries', { timeout: 120 * 1000 }, () => {
     const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
 
     render(
@@ -66,5 +66,5 @@ describe('Integration', () => {
 
     console.debug('Metrics from GitLog integration test for TomPlum/sleep @ release')
     console.debug(JSON.stringify(debugMetrics))
-  }, { timeout: 120 * 1000 })
+  })
 })

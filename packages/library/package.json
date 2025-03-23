@@ -17,8 +17,10 @@
     "build": "tsc --project tsconfig.json && vite build",
     "build:watch": "tsc --project tsconfig.json --watch",
     "preview": "vite preview",
-    "test": "vitest --watch",
-    "test:ci": "vitest --run --reporter=verbose",
+    "test:unit": "vitest --watch --exclude '**/*.integration.spec.tsx'",
+    "test:integration": "vitest --watch .integration.spec.tsx",
+    "test:unit:ci": "vitest --run --reporter=verbose --exclude '**/*.integration.spec.tsx'",
+    "test:integration:ci": "vitest --run --reporter=verbose .integration.spec.tsx",
     "test:ui": "vitest --watch --ui --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

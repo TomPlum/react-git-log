@@ -80,7 +80,6 @@ export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTable
   return (
     <div
       {...props}
-      key={commit.hash}
       className={styles.row}
       style={classes?.tableStyles?.tr}
       id={`react-git-log-table-row-${index}`}

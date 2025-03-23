@@ -9,7 +9,9 @@ export const parseGitLogOutput = (output: string): GitLogEntry[] => {
     return []
   }
 
-  return commits
+  const invalid: string[] = []
+
+  const parsed = commits
     .map(commit => {
       const match = commit.trim().match(logRegex)
 
@@ -24,6 +26,13 @@ export const parseGitLogOutput = (output: string): GitLogEntry[] => {
         }
       }
 
-      throw Error(`Invalid commit entry data: ${commit}`)
+      invalid.push(commit)
     })
+
+  if (invalid.length > 0) {
+    console.warn(`There were ${invalid.length} invalid entries in the git log entry data.`)
+    invalid.forEach(entry => console.warn(entry))
+  }
+
+  return parsed.filter(entry => !!entry)
 }

@@ -25,7 +25,7 @@ export const Graph = () => {
   }, [commits, paging])
 
   const commitQuantity = useMemo(() => {
-    // If there is no data being show, then we'll
+    // If there is no data being shown, then we'll
     // be rendering the skeleton graph placeholder which
     // shows fake commits.
     if (visibleCommits.length === 0) {

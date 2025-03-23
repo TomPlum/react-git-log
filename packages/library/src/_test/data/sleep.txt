@@ -1,0 +1,472 @@
+hash:be2b8a8,parents:1352f4c,branch:refs/remotes/origin/renovate/all-minor-patch,msg:fix(deps): update all non-major dependencies,cdate:2025-03-20 02:44:38 +0000,adate:2025-03-20 02:44:38 +0000
+hash:c88f0b9,parents:786b044,branch:refs/heads/develop,msg:feat(highlights): cleaned up effect function,cdate:2025-03-07 20:42:31 +0000,adate:2025-03-07 20:42:31 +0000
+hash:26130ea,parents:81ce807,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@1352f4c7814aa2ae660d9bd875870608a32734d1 🚀,cdate:2025-03-05 17:30:04 +0000,adate:2025-03-05 17:30:04 +0000
+hash:d5d320b,parents:1352f4c,branch:refs/remotes/origin/renovate/major-react-monorepo,msg:fix(deps): update react monorepo to v19,cdate:2025-03-05 17:29:54 +0000,adate:2025-03-05 17:29:54 +0000
+hash:6c59bca,parents:1352f4c,branch:refs/remotes/origin/renovate/major-react-router-monorepo,msg:fix(deps): update dependency react-router-dom to v7,cdate:2025-03-05 17:29:47 +0000,adate:2025-03-05 17:29:47 +0000
+hash:1352f4c,parents:e059c28 1d594ea,branch:refs/remotes/origin/release,msg:Merge pull request #54 from TomPlum/renovate/all-minor-patch,cdate:2025-03-05 17:29:01 +0000,adate:2025-03-05 17:29:01 +0000
+hash:1d594ea,parents:e059c28,branch:refs/remotes/origin/release,msg:fix(deps): update all non-major dependencies,cdate:2025-03-05 10:55:09 +0000,adate:2025-03-05 10:55:09 +0000
+hash:786b044,parents:0776115,branch:refs/heads/develop,msg:feat(highlights): Extracted ShowcaseProgressDots component,cdate:2025-03-04 19:22:11 +0000,adate:2025-03-04 19:22:11 +0000
+hash:0776115,parents:0a0a44d,branch:refs/heads/develop,msg:feat(highlights): responsive styling improvements to wake up showcase,cdate:2025-03-04 18:54:59 +0000,adate:2025-03-04 18:54:59 +0000
+hash:0a0a44d,parents:769e569,branch:refs/heads/develop,msg:feat(highlights): added active showcase to query params,cdate:2025-03-04 18:36:14 +0000,adate:2025-03-04 18:36:14 +0000
+hash:769e569,parents:02af2b4,branch:refs/heads/develop,msg:feat(highlights): starting adding progress dots to wake up showcase,cdate:2025-03-04 18:18:59 +0000,adate:2025-03-04 18:18:59 +0000
+hash:02af2b4,parents:de2ac76,branch:refs/heads/develop,msg:feat(highlights): positioned text in wakeup showcase,cdate:2025-03-03 19:30:12 +0000,adate:2025-03-03 19:30:12 +0000
+hash:de2ac76,parents:d81f45e,branch:refs/heads/develop,msg:feat(highlights): refactored page so showcases are full viewport size and added lakeside sunrise animation,cdate:2025-03-01 19:00:19 +0000,adate:2025-03-01 19:00:19 +0000
+hash:d81f45e,parents:4a5f077,branch:refs/heads/develop,msg:feat(highlights): started calculating average wakeup times,cdate:2025-03-01 18:24:09 +0000,adate:2025-03-01 18:24:09 +0000
+hash:4a5f077,parents:33d2930,branch:refs/heads/develop,msg:feat(highlights): fixed showcase context,cdate:2025-03-01 17:21:50 +0000,adate:2025-03-01 17:21:50 +0000
+hash:33d2930,parents:6671923,branch:refs/heads/develop,msg:feat(highlights): started implementing custom showcase,cdate:2025-02-28 15:26:55 +0000,adate:2025-02-28 15:26:55 +0000
+hash:6671923,parents:a8bfc71,branch:refs/heads/develop,msg:feat(highlights): extracted LandingPageHeading.tsx component,cdate:2025-02-27 17:53:06 +0000,adate:2025-02-27 17:53:06 +0000
+hash:a8bfc71,parents:69e20aa,branch:refs/heads/develop,msg:feat(styling): added back to charts link in highlights landing page,cdate:2025-02-27 17:49:03 +0000,adate:2025-02-27 17:49:03 +0000
+hash:69e20aa,parents:ec397ea,branch:refs/heads/develop,msg:feat(styling): minor improvements to layout of highlights showcases,cdate:2025-02-26 21:10:47 +0000,adate:2025-02-26 21:10:47 +0000
+hash:ec397ea,parents:2c26dfb,branch:refs/heads/develop,msg:feat(styling): added in remaining exit animations after starting,cdate:2025-02-26 20:56:55 +0000,adate:2025-02-26 20:56:55 +0000
+hash:2c26dfb,parents:3dc9b40,branch:refs/heads/develop,msg:feat(styling): added moon and land exit animations,cdate:2025-02-26 20:45:52 +0000,adate:2025-02-26 20:45:52 +0000
+hash:3dc9b40,parents:8c8952a,branch:refs/heads/develop,msg:feat(styling): added moon loading state,cdate:2025-02-26 20:33:32 +0000,adate:2025-02-26 20:33:32 +0000
+hash:8c8952a,parents:a267aea,branch:refs/heads/develop,msg:feat(styling): added compact sleep data loading component,cdate:2025-02-26 20:25:51 +0000,adate:2025-02-26 20:25:51 +0000
+hash:a267aea,parents:9994eec,branch:refs/heads/develop,msg:feat(styling): extracted night sky scene into component,cdate:2025-02-26 19:42:48 +0000,adate:2025-02-26 19:42:48 +0000
+hash:9994eec,parents:52aa9dd,branch:refs/heads/develop,msg:feat(styling): added extra shooting star,cdate:2025-02-26 19:40:30 +0000,adate:2025-02-26 19:40:30 +0000
+hash:52aa9dd,parents:18088d2,branch:refs/heads/develop,msg:feat(styling): adjustments to moon,cdate:2025-02-26 19:37:02 +0000,adate:2025-02-26 19:37:02 +0000
+hash:18088d2,parents:0c202af,branch:refs/heads/develop,msg:feat(styling): added generated stars to background scene,cdate:2025-02-26 19:32:50 +0000,adate:2025-02-26 19:32:50 +0000
+hash:0c202af,parents:cf56b70,branch:refs/heads/develop,msg:feat(styling): making scene more responsive and full screen,cdate:2025-02-26 17:59:21 +0000,adate:2025-02-26 17:59:21 +0000
+hash:cf56b70,parents:b61aeed,branch:refs/heads/develop,msg:feat(styling): experimenting with highlights landing styling,cdate:2025-02-26 17:27:45 +0000,adate:2025-02-26 17:27:45 +0000
+hash:5a67c90,parents:e059c28,branch:refs/heads/renovate/major-react-monorepo,msg:fix(deps): update react monorepo to v19,cdate:2025-02-25 17:14:01 +0000,adate:2025-02-25 17:14:01 +0000
+hash:b61aeed,parents:2d173ca,branch:refs/heads/develop,msg:fix(styling): fixed dart sass 3.0 deprecation warnings,cdate:2025-02-25 17:11:36 +0000,adate:2025-02-25 17:11:36 +0000
+hash:81ce807,parents:f2d49cf,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@e059c28b8fa1668ec033daca1648f00a78126bc5 🚀,cdate:2025-02-25 17:09:11 +0000,adate:2025-02-25 17:09:11 +0000
+hash:2d173ca,parents:51ba1e7 e059c28,branch:refs/heads/develop,msg:Merge branch 'release' into develop,cdate:2025-02-25 17:08:31 +0000,adate:2025-02-25 17:08:31 +0000
+hash:e059c28,parents:0b78e07 867c511,branch:refs/heads/release,msg:Merge pull request #39 from TomPlum/renovate/vite-6.x,cdate:2025-02-25 17:08:06 +0000,adate:2025-02-25 17:08:06 +0000
+hash:51ba1e7,parents:675127e,branch:refs/heads/develop,msg:feat(page): playing with highlights landing page styling,cdate:2025-02-25 17:07:43 +0000,adate:2025-02-25 17:07:43 +0000
+hash:675127e,parents:017e506,branch:refs/heads/develop,msg:feat(page): moved colours, added sleeping animation,cdate:2025-02-24 19:56:47 +0000,adate:2025-02-24 19:56:47 +0000
+hash:017e506,parents:ff018dd,branch:refs/heads/develop,msg:feat(page): progress on highlights page,cdate:2025-02-24 17:48:20 +0000,adate:2025-02-24 17:48:20 +0000
+hash:ff018dd,parents:f28088d,branch:refs/heads/develop,msg:feat(page): initial pass of best session showcase content,cdate:2025-02-23 19:29:55 +0000,adate:2025-02-23 19:29:55 +0000
+hash:f28088d,parents:f7cd757,branch:refs/heads/develop,msg:feat(page): initial highlights page work for showcases,cdate:2025-02-23 19:09:41 +0000,adate:2025-02-23 19:09:41 +0000
+hash:f7cd757,parents:ea5a998,branch:refs/heads/develop,msg:chore(docs): added tsdoc to NestedProgressCircle props interface,cdate:2025-02-23 18:48:35 +0000,adate:2025-02-23 18:48:35 +0000
+hash:ea5a998,parents:efe3dd6,branch:refs/heads/develop,msg:feat(routing): added highlights page and made query param routing only for sleep page,cdate:2025-02-23 17:44:59 +0000,adate:2025-02-23 17:44:59 +0000
+hash:f2d49cf,parents:30ee0ba,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@0b78e0746d5a183a5be7879a9726815df474e857 🚀,cdate:2025-02-23 16:40:46 +0000,adate:2025-02-23 16:40:46 +0000
+hash:0b78e07,parents:7355361 efe3dd6,branch:refs/tags/v2.4.0,msg:Merge pull request #52 from TomPlum/develop,cdate:2025-02-23 16:39:50 +0000,adate:2025-02-23 16:39:50 +0000
+hash:efe3dd6,parents:d524100,branch:refs/heads/develop,msg:feat(chart): moved session highlights card,cdate:2025-02-23 16:38:25 +0000,adate:2025-02-23 16:38:25 +0000
+hash:d524100,parents:50250a9,branch:refs/heads/develop,msg:feat(chart): Re-added locale toggle as ascii checkbox,cdate:2025-02-23 16:35:33 +0000,adate:2025-02-23 16:35:33 +0000
+hash:50250a9,parents:bb950c2,branch:refs/heads/develop,msg:feat(chart): Added show highlights card toggle to controls + jp translations,cdate:2025-02-23 16:29:15 +0000,adate:2025-02-23 16:29:15 +0000
+hash:bb950c2,parents:432fd9c,branch:refs/heads/develop,msg:feat(chart): Fixed carousel theming in SessionHighlightCard.tsx,cdate:2025-02-23 16:08:30 +0000,adate:2025-02-23 16:08:30 +0000
+hash:432fd9c,parents:6115d5f 7355361,branch:refs/heads/develop,msg:Merge branch 'release' into develop,cdate:2025-02-23 15:46:54 +0000,adate:2025-02-23 15:46:54 +0000
+hash:6115d5f,parents:b45bf05,branch:refs/heads/develop,msg:feat(chart): Extracted HighlightCarouselItem component,cdate:2025-02-23 13:03:09 +0000,adate:2025-02-23 13:03:09 +0000
+hash:b45bf05,parents:6beb2d1,branch:refs/heads/develop,msg:feat(chart): Moved SessionHighlightCard to Highlights module,cdate:2025-02-23 12:56:22 +0000,adate:2025-02-23 12:56:22 +0000
+hash:6beb2d1,parents:2bc6652,branch:refs/heads/develop,msg:feat(chart): Extracted NestedProgressCircles components in new Highlights module,cdate:2025-02-23 12:54:45 +0000,adate:2025-02-23 12:54:45 +0000
+hash:2bc6652,parents:ab51db5,branch:refs/heads/develop,msg:feat(chart): Added formatDuration util and added details to highlight card,cdate:2025-02-22 23:56:31 +0000,adate:2025-02-22 23:56:31 +0000
+hash:ab51db5,parents:165b754,branch:refs/heads/develop,msg:feat(chart): added nested progress circle to session highlight,cdate:2025-02-22 23:33:27 +0000,adate:2025-02-22 23:33:27 +0000
+hash:165b754,parents:eff7491,branch:refs/heads/develop,msg:feat(chart): starting new session highlight component,cdate:2025-02-22 23:24:09 +0000,adate:2025-02-22 23:24:09 +0000
+hash:30ee0ba,parents:aa2c148,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@7355361e6e85ef1159cfe61f676044dc71d5f2fd 🚀,cdate:2025-02-22 22:48:03 +0000,adate:2025-02-22 22:48:03 +0000
+hash:7355361,parents:515eaa9 eff7491,branch:refs/tags/v2.3.1,msg:Merge pull request #51 from TomPlum/develop,cdate:2025-02-22 22:47:07 +0000,adate:2025-02-22 22:47:07 +0000
+hash:eff7491,parents:127dd9c,branch:refs/heads/develop,msg:chore(docs): updated web worker loading image for docs,cdate:2025-02-22 22:45:59 +0000,adate:2025-02-22 22:45:59 +0000
+hash:127dd9c,parents:0964b7d,branch:refs/heads/develop,msg:fix(styling): fixed positioning issue in starry background,cdate:2025-02-22 22:44:34 +0000,adate:2025-02-22 22:44:34 +0000
+hash:0964b7d,parents:f4ef8e9,branch:refs/heads/develop,msg:fix(params): date range params now default to last 2 months if they are not present on page load,cdate:2025-02-22 22:33:55 +0000,adate:2025-02-22 22:33:55 +0000
+hash:f4ef8e9,parents:5510915,branch:refs/heads/develop,msg:feat(loading): added starry background to data loading page,cdate:2025-02-22 22:11:18 +0000,adate:2025-02-22 22:11:18 +0000
+hash:aa2c148,parents:afdb263,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@88a3ca2bc032b0ddf44eff0d272abf71052fbbe5 🚀,cdate:2025-02-22 22:06:22 +0000,adate:2025-02-22 22:06:22 +0000
+hash:515eaa9,parents:88a3ca2 575887a,branch:refs/tags/v2.3.1,msg:Merge pull request #49 from TomPlum/renovate/major-eslint-stylistic-monorepo,cdate:2025-02-22 22:05:44 +0000,adate:2025-02-22 22:05:44 +0000
+hash:88a3ca2,parents:fd93615 932be3a,branch:refs/tags/v2.3.1,msg:Merge pull request #48 from TomPlum/renovate/all-minor-patch,cdate:2025-02-22 22:05:23 +0000,adate:2025-02-22 22:05:23 +0000
+hash:fd93615,parents:3d4d017 f687c53,branch:refs/tags/v2.3.1,msg:Merge pull request #50 from TomPlum/renovate/globals-16.x,cdate:2025-02-22 22:05:07 +0000,adate:2025-02-22 22:05:07 +0000
+hash:5510915,parents:202237c,branch:refs/heads/develop,msg:feat(page): added back link on improvements page,cdate:2025-02-22 21:52:51 +0000,adate:2025-02-22 21:52:51 +0000
+hash:202237c,parents:4be118d,branch:refs/heads/develop,msg:feat(page): rough first draft of improvements page content,cdate:2025-02-22 21:51:17 +0000,adate:2025-02-22 21:51:17 +0000
+hash:f687c53,parents:3d4d017,branch:refs/tags/v2.3.1,msg:chore(deps): update dependency globals to v16,cdate:2025-02-22 07:05:41 +0000,adate:2025-02-22 07:05:41 +0000
+hash:575887a,parents:3d4d017,branch:refs/tags/v2.3.1,msg:chore(deps): update dependency @stylistic/eslint-plugin to v4,cdate:2025-02-22 02:47:35 +0000,adate:2025-02-22 02:47:35 +0000
+hash:932be3a,parents:3d4d017,branch:refs/tags/v2.3.1,msg:fix(deps): update all non-major dependencies,cdate:2025-02-22 02:47:25 +0000,adate:2025-02-22 02:47:25 +0000
+hash:4be118d,parents:a338942,branch:refs/heads/develop,msg:chore(docs): added missing ToC entry in readme,cdate:2025-02-19 21:06:34 +0000,adate:2025-02-19 21:06:34 +0000
+hash:a338942,parents:f17afd7,branch:refs/heads/develop,msg:chore(docs): more docs additions in readme,cdate:2025-02-16 17:26:41 +0000,adate:2025-02-16 17:26:41 +0000
+hash:f17afd7,parents:3d4d017,branch:refs/heads/develop,msg:chore(docs): updated readme images and docs,cdate:2025-02-16 17:20:01 +0000,adate:2025-02-16 17:20:01 +0000
+hash:afdb263,parents:a829a48,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@3d4d017bf91addfc357a9bfcc88ccfc4eceae78c 🚀,cdate:2025-02-16 15:23:06 +0000,adate:2025-02-16 15:23:06 +0000
+hash:3d4d017,parents:5525ed5 f157195,branch:refs/tags/v2.3.0,msg:Merge pull request #47 from TomPlum/renovate/all-minor-patch,cdate:2025-02-16 15:22:11 +0000,adate:2025-02-16 15:22:11 +0000
+hash:867c511,parents:5525ed5,branch:refs/heads/release,msg:chore(deps): update dependency vite to v6,cdate:2025-02-16 15:21:55 +0000,adate:2025-02-16 15:21:55 +0000
+hash:a829a48,parents:8ddccd2,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@5525ed5d3a90dca5f4930426d8f6367f67587575 🚀,cdate:2025-02-16 15:21:20 +0000,adate:2025-02-16 15:21:20 +0000
+hash:f157195,parents:5525ed5,branch:refs/tags/v2.3.0,msg:fix(deps): update all non-major dependencies,cdate:2025-02-16 15:21:05 +0000,adate:2025-02-16 15:21:05 +0000
+hash:5525ed5,parents:5862498 081b2d3,branch:refs/tags/v2.3.0,msg:Merge pull request #38 from TomPlum/develop,cdate:2025-02-16 15:20:20 +0000,adate:2025-02-16 15:20:20 +0000
+hash:081b2d3,parents:a10ab03,branch:refs/tags/v2.3.0,msg:chore(data): added latest pillow data 16/02/2025,cdate:2025-02-16 15:16:44 +0000,adate:2025-02-16 15:16:44 +0000
+hash:a10ab03,parents:55ec23e 5862498,branch:refs/tags/v2.3.0,msg:Merge branch 'release' into develop,cdate:2025-02-16 15:02:17 +0000,adate:2025-02-16 15:02:17 +0000
+hash:8ddccd2,parents:5db47c6,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@58624987661cae7503ac110e7ec054e47e62cd2c 🚀,cdate:2025-02-16 15:01:01 +0000,adate:2025-02-16 15:01:01 +0000
+hash:5862498,parents:27d7e9e eeeb1f2,branch:refs/tags/v2.3.0,msg:Merge pull request #46 from TomPlum/renovate/all-minor-patch,cdate:2025-02-16 15:00:05 +0000,adate:2025-02-16 15:00:05 +0000
+hash:eeeb1f2,parents:27d7e9e,branch:refs/tags/v2.3.0,msg:fix(deps): update all non-major dependencies,cdate:2025-02-14 01:53:30 +0000,adate:2025-02-14 01:53:30 +0000
+hash:55ec23e,parents:75fea53,branch:refs/tags/v2.3.0,msg:fix(deps): npm install to fix lockfile issues,cdate:2025-02-01 15:22:07 +0000,adate:2025-02-01 15:22:07 +0000
+hash:75fea53,parents:e11674d 27d7e9e,branch:refs/tags/v2.3.0,msg:Merge branch 'refs/heads/release' into develop,cdate:2025-02-01 15:21:44 +0000,adate:2025-02-01 15:21:44 +0000
+hash:27d7e9e,parents:338b505 0577e9d,branch:refs/tags/v2.3.0,msg:Merge pull request #45 from TomPlum/renovate/major-eslint-stylistic-monorepo,cdate:2025-02-01 15:21:11 +0000,adate:2025-02-01 15:21:11 +0000
+hash:338b505,parents:988bf8d ca136bf,branch:refs/tags/v2.3.0,msg:Merge pull request #43 from TomPlum/renovate/jsdom-26.x,cdate:2025-02-01 15:20:55 +0000,adate:2025-02-01 15:20:55 +0000
+hash:988bf8d,parents:b35728b 648f6e9,branch:refs/tags/v2.3.0,msg:Merge pull request #44 from TomPlum/renovate/major-vitest-monorepo,cdate:2025-02-01 15:20:45 +0000,adate:2025-02-01 15:20:45 +0000
+hash:e11674d,parents:72a5dbb b35728b,branch:refs/tags/v2.3.0,msg:Merge branch 'release' into develop,cdate:2025-02-01 15:17:11 +0000,adate:2025-02-01 15:17:11 +0000
+hash:5db47c6,parents:d26bcc7,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@b35728b6da106abb0f2c82c143ae0b4a6e31f668 🚀,cdate:2025-02-01 15:16:35 +0000,adate:2025-02-01 15:16:35 +0000
+hash:0577e9d,parents:b35728b,branch:refs/tags/v2.3.0,msg:chore(deps): update dependency @stylistic/eslint-plugin to v3,cdate:2025-02-01 15:16:12 +0000,adate:2025-02-01 15:16:12 +0000
+hash:b35728b,parents:09e615d 0f5ae74,branch:refs/tags/v2.3.0,msg:Merge pull request #42 from TomPlum/renovate/all-minor-patch,cdate:2025-02-01 15:15:42 +0000,adate:2025-02-01 15:15:42 +0000
+hash:0f5ae74,parents:09e615d,branch:refs/tags/v2.3.0,msg:fix(deps): update all non-major dependencies,cdate:2025-01-31 21:51:43 +0000,adate:2025-01-31 21:51:43 +0000
+hash:648f6e9,parents:09e615d,branch:refs/tags/v2.3.0,msg:chore(deps): update vitest monorepo to v3,cdate:2025-01-19 09:39:08 +0000,adate:2025-01-19 09:39:08 +0000
+hash:ca136bf,parents:09e615d,branch:refs/tags/v2.3.0,msg:chore(deps): update dependency jsdom to v26,cdate:2025-01-11 01:17:46 +0000,adate:2025-01-11 01:17:46 +0000
+hash:09e615d,parents:b7ec825 2b85a9e,branch:refs/tags/v2.3.0,msg:Merge pull request #41 from TomPlum/renovate/react-error-boundary-5.x,cdate:2025-01-09 20:17:13 +0000,adate:2025-01-09 20:17:13 +0000
+hash:72a5dbb,parents:5281010,branch:refs/tags/v2.3.0,msg:fix(deps): removed redundant package-lock.json entries,cdate:2025-01-09 20:16:59 +0000,adate:2025-01-09 20:16:59 +0000
+hash:5281010,parents:000b3aa b7ec825,branch:refs/tags/v2.3.0,msg:Merge branch 'release' into develop,cdate:2025-01-09 20:15:57 +0000,adate:2025-01-09 20:15:57 +0000
+hash:d26bcc7,parents:74885fc,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@b7ec8259f761ea82faf75ed4da7502589769e1a7 🚀,cdate:2025-01-09 20:15:47 +0000,adate:2025-01-09 20:15:47 +0000
+hash:b7ec825,parents:810a868 3d680fd,branch:refs/tags/v2.3.0,msg:Merge pull request #35 from TomPlum/renovate/all-minor-patch,cdate:2025-01-09 20:14:48 +0000,adate:2025-01-09 20:14:48 +0000
+hash:3d680fd,parents:810a868,branch:refs/tags/v2.3.0,msg:fix(deps): update all non-major dependencies,cdate:2025-01-08 22:25:06 +0000,adate:2025-01-08 22:25:06 +0000
+hash:2b85a9e,parents:810a868,branch:refs/tags/v2.3.0,msg:fix(deps): update dependency react-error-boundary to v5,cdate:2024-12-21 21:55:38 +0000,adate:2024-12-21 21:55:38 +0000
+hash:000b3aa,parents:45dbbde,branch:refs/tags/v2.3.0,msg:fix(graph): filtered out metric nodes that have a value of 0,cdate:2024-11-28 19:10:41 +0000,adate:2024-11-28 19:10:41 +0000
+hash:45dbbde,parents:2c60633,branch:refs/tags/v2.3.0,msg:feat(graph): minor styling consistency improvements to the ascii inputs,cdate:2024-11-28 19:08:06 +0000,adate:2024-11-28 19:08:06 +0000
+hash:2c60633,parents:7f60983,branch:refs/tags/v2.3.0,msg:feat(graph): moved stats ui to bottom right and updated ascii checkbox checked mark,cdate:2024-11-28 18:50:33 +0000,adate:2024-11-28 18:50:33 +0000
+hash:7f60983,parents:cebb57d,branch:refs/tags/v2.3.0,msg:feat(graph): reduced scene cooldown time to stop node drift and improve performance on first render,cdate:2024-11-28 18:26:08 +0000,adate:2024-11-28 18:26:08 +0000
+hash:cebb57d,parents:33c38c5,branch:refs/tags/v2.3.0,msg:chore(deps): removed react-force-graph and replaced with 3d standalone package and bumped three back to latest,cdate:2024-11-28 17:57:17 +0000,adate:2024-11-28 17:57:17 +0000
+hash:33c38c5,parents:f19e207,branch:refs/tags/v2.3.0,msg:chore(graph): removed redundant import file extensions,cdate:2024-11-28 16:27:32 +0000,adate:2024-11-28 16:27:32 +0000
+hash:f19e207,parents:b9bc1dc,branch:refs/tags/v2.3.0,msg:chore(graph): renamed three scene folder to match module name,cdate:2024-11-28 16:26:50 +0000,adate:2024-11-28 16:26:50 +0000
+hash:b9bc1dc,parents:9c65959,branch:refs/tags/v2.3.0,msg:feat(graph): added root node link directional particles and arrows to indicate the passage of time,cdate:2024-11-28 16:24:07 +0000,adate:2024-11-28 16:24:07 +0000
+hash:9c65959,parents:a172219,branch:refs/tags/v2.3.0,msg:feat(graph): fixed ref typing and reset camera loading state,cdate:2024-11-28 11:57:08 +0000,adate:2024-11-28 11:57:08 +0000
+hash:a172219,parents:a3af060,branch:refs/tags/v2.3.0,msg:feat(graph): renamed and structured three chart component,cdate:2024-11-28 11:37:49 +0000,adate:2024-11-28 11:37:49 +0000
+hash:a3af060,parents:363c60d,branch:refs/tags/v2.3.0,msg:feat(graph): reworked three scene component structure for better use of context + added ascii button,cdate:2024-11-28 11:35:52 +0000,adate:2024-11-28 11:35:52 +0000
+hash:363c60d,parents:cc0598b,branch:refs/tags/v2.3.0,msg:feat(graph): added draggable nodes button and dynamic node sizes based on percentage,cdate:2024-11-27 17:24:13 +0000,adate:2024-11-27 17:24:13 +0000
+hash:cc0598b,parents:6e89c11,branch:refs/tags/v2.3.0,msg:feat(graph): added new three context and toggle for the scene,cdate:2024-11-27 16:50:40 +0000,adate:2024-11-27 16:50:40 +0000
+hash:6e89c11,parents:6904884,branch:refs/tags/v2.3.0,msg:feat(graph): started adding controls menu for 3d graph,cdate:2024-11-27 16:31:13 +0000,adate:2024-11-27 16:31:13 +0000
+hash:6904884,parents:94b945f,branch:refs/tags/v2.3.0,msg:feat(graph): minor styling improvements on ascii checkbox and turned checked 'x' to 'o',cdate:2024-11-27 16:30:28 +0000,adate:2024-11-27 16:30:28 +0000
+hash:94b945f,parents:115846d,branch:refs/tags/v2.3.0,msg:feat(graph): more experimentation with 3d force graph,cdate:2024-11-27 16:17:49 +0000,adate:2024-11-27 16:17:49 +0000
+hash:115846d,parents:71869c4,branch:refs/tags/v2.3.0,msg:feat(graph): added fps and network stats counter to 3d graph,cdate:2024-11-27 10:35:33 +0000,adate:2024-11-27 10:35:33 +0000
+hash:71869c4,parents:a3476a8,branch:refs/tags/v2.3.0,msg:fix(config): vite config css preproccessor options now use modern-compiler to fix dart scss warnings,cdate:2024-11-27 09:10:10 +0000,adate:2024-11-27 09:10:10 +0000
+hash:a3476a8,parents:deba6b5,branch:refs/tags/v2.3.0,msg:fix(graph): fixed is3D default query param value and line chart missing opacity keyframes,cdate:2024-11-27 09:09:45 +0000,adate:2024-11-27 09:09:45 +0000
+hash:deba6b5,parents:d8e279c,branch:refs/tags/v2.3.0,msg:feat(graph): added experimental 3d button and re-instated 3d graph behind it,cdate:2024-11-26 16:53:18 +0000,adate:2024-11-26 16:53:18 +0000
+hash:74885fc,parents:ecb5b57,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@810a868f1f691c458fa0354a5122d8fe166d84ed 🚀,cdate:2024-11-26 14:11:47 +0000,adate:2024-11-26 14:11:47 +0000
+hash:810a868,parents:c31b3a8 3a78717,branch:refs/tags/v2.2.0,msg:Merge pull request #37 from TomPlum/develop,cdate:2024-11-26 14:10:47 +0000,adate:2024-11-26 14:10:47 +0000
+hash:d8e279c,parents:3a78717,branch:refs/tags/v2.3.0,msg:chore(graph): removed locale toggle from graph controls ui,cdate:2024-11-26 13:46:26 +0000,adate:2024-11-26 13:46:26 +0000
+hash:3a78717,parents:d89f085,branch:refs/tags/v2.2.0,msg:fix(graph): active session info colour gradients now support all new chart view types,cdate:2024-11-26 13:44:29 +0000,adate:2024-11-26 13:44:29 +0000
+hash:d89f085,parents:5f7da3f,branch:refs/tags/v2.2.0,msg:chore(graph): renamed stackedMetrics to activeMetrics in chart config context,cdate:2024-11-26 13:43:23 +0000,adate:2024-11-26 13:43:23 +0000
+hash:5f7da3f,parents:7ca3b25,branch:refs/tags/v2.2.0,msg:fix(controls): made chart view selector button small to match the other controls,cdate:2024-11-26 11:00:51 +0000,adate:2024-11-26 11:00:51 +0000
+hash:7ca3b25,parents:fc6a3e8,branch:refs/tags/v2.2.0,msg:fix(graph): rendered key-less line when in single metric view to stop re-mounting,cdate:2024-11-26 10:57:41 +0000,adate:2024-11-26 10:57:41 +0000
+hash:fc6a3e8,parents:c1b3995,branch:refs/tags/v2.2.0,msg:fix(graph): chart view selection now correctly updates stacked metrics param,cdate:2024-11-26 10:35:05 +0000,adate:2024-11-26 10:35:05 +0000
+hash:c1b3995,parents:f61711f,branch:refs/tags/v2.2.0,msg:feat(graph): refactored chart metric selection to support all view types,cdate:2024-11-26 10:31:14 +0000,adate:2024-11-26 10:31:14 +0000
+hash:f61711f,parents:62e3f80,branch:refs/tags/v2.2.0,msg:chore(graph): renamed StackedGraphPlaceholder to ChartMetricSelection,cdate:2024-11-26 10:06:44 +0000,adate:2024-11-26 10:06:44 +0000
+hash:62e3f80,parents:17d9d64,branch:refs/tags/v2.2.0,msg:feat(graph): fixed chart view selector for single metric,cdate:2024-11-26 10:05:35 +0000,adate:2024-11-26 10:05:35 +0000
+hash:17d9d64,parents:b516162,branch:refs/tags/v2.2.0,msg:feat(graph): added graph metric selector in multiple metrics view when none are selected,cdate:2024-11-26 09:57:09 +0000,adate:2024-11-26 09:57:09 +0000
+hash:b516162,parents:33b5d79,branch:refs/tags/v2.2.0,msg:feat(graph): started refactor for adding multiple metric lines on the chart at once,cdate:2024-11-25 21:16:17 +0000,adate:2024-11-25 21:16:17 +0000
+hash:33b5d79,parents:97b060f,branch:refs/tags/v2.2.0,msg:chore(graph): renamed line chart component to be consistent,cdate:2024-11-25 20:48:51 +0000,adate:2024-11-25 20:48:51 +0000
+hash:97b060f,parents:e6318eb,branch:refs/tags/v2.2.0,msg:feat(graph): refactored stacked view toggle into a chart view selector dropdown,cdate:2024-11-25 19:14:05 +0000,adate:2024-11-25 19:14:05 +0000
+hash:ecb5b57,parents:60698cc,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@c31b3a86b361a8a207d838498ce16125a5c93b54 🚀,cdate:2024-11-25 18:35:11 +0000,adate:2024-11-25 18:35:11 +0000
+hash:c31b3a8,parents:0b903cc e6318eb,branch:refs/tags/v2.1.1,msg:Merge pull request #36 from TomPlum/develop,cdate:2024-11-25 18:34:13 +0000,adate:2024-11-25 18:34:13 +0000
+hash:e6318eb,parents:2d1025f,branch:refs/tags/v2.2.0,msg:test(data): fixed bad file path reference which was breaking a test mock,cdate:2024-11-25 18:31:19 +0000,adate:2024-11-25 18:31:19 +0000
+hash:2d1025f,parents:1321e4d,branch:refs/tags/v2.2.0,msg:chore(data): added tsdoc and supporting comments to useSleepStageData,cdate:2024-11-25 16:03:20 +0000,adate:2024-11-25 16:03:20 +0000
+hash:1321e4d,parents:71a1a7e,branch:refs/tags/v2.2.0,msg:fix(data): filtered sleep stage instance data by their unique IDs to remove duplicates that were breaking the chart,cdate:2024-11-25 15:55:53 +0000,adate:2024-11-25 15:55:53 +0000
+hash:71a1a7e,parents:97a941a,branch:refs/tags/v2.2.0,msg:feat(graph): added basic styling to error boundary fallback page,cdate:2024-11-25 15:49:06 +0000,adate:2024-11-25 15:49:06 +0000
+hash:97a941a,parents:0d85838,branch:refs/tags/v2.2.0,msg:feat(graph): reworked metric checkbox styling, no longer uses antd,cdate:2024-11-25 15:48:52 +0000,adate:2024-11-25 15:48:52 +0000
+hash:0d85838,parents:cf8e018,branch:refs/tags/v2.2.0,msg:feat(data): added japanese translations for the web worker statuses,cdate:2024-11-25 15:21:04 +0000,adate:2024-11-25 15:21:04 +0000
+hash:cf8e018,parents:5e7f6f8,branch:refs/tags/v2.2.0,msg:feat(graph): added error boundary around application,cdate:2024-11-25 15:17:48 +0000,adate:2024-11-25 15:17:48 +0000
+hash:5e7f6f8,parents:5a0d8f6,branch:refs/tags/v2.2.0,msg:feat(graph): added sound toggle to session info,cdate:2024-11-24 17:38:11 +0000,adate:2024-11-24 17:38:11 +0000
+hash:5a0d8f6,parents:e42905d,branch:refs/tags/v2.2.0,msg:fix(context): inverted context dependencies to fix date selection bug,cdate:2024-11-24 17:20:40 +0000,adate:2024-11-24 17:20:40 +0000
+hash:e42905d,parents:66a83c0,branch:refs/tags/v2.2.0,msg:feat(graph): added sleep stage pie chart tooltip,cdate:2024-11-24 17:10:58 +0000,adate:2024-11-24 17:10:58 +0000
+hash:66a83c0,parents:9e9389e,branch:refs/tags/v2.2.0,msg:fix(data): added web worker terminate call after done event received,cdate:2024-11-24 16:26:24 +0000,adate:2024-11-24 16:26:24 +0000
+hash:9e9389e,parents:8e241d2,branch:refs/tags/v2.2.0,msg:chore(context): split chart config context from sleep context,cdate:2024-11-24 16:26:03 +0000,adate:2024-11-24 16:26:03 +0000
+hash:8e241d2,parents:b7a1cc8,branch:refs/tags/v2.2.0,msg:chore(housekeeping): moved sleep context files into its own subdirectory,cdate:2024-11-24 10:30:47 +0000,adate:2024-11-24 10:30:47 +0000
+hash:b7a1cc8,parents:0143d04,branch:refs/tags/v2.2.0,msg:chore(housekeeping): renamed some components for consistency,cdate:2024-11-24 10:27:26 +0000,adate:2024-11-24 10:27:26 +0000
+hash:0143d04,parents:25f597f,branch:refs/tags/v2.2.0,msg:fix(housekeeping): fixed bad translations string after folder refactor,cdate:2024-11-23 22:48:51 +0000,adate:2024-11-23 22:48:51 +0000
+hash:25f597f,parents:8e4f92b,branch:refs/tags/v2.2.0,msg:chore(housekeeping): major folder structure and module rework,cdate:2024-11-23 22:41:41 +0000,adate:2024-11-23 22:41:41 +0000
+hash:8e4f92b,parents:47d542c,branch:refs/tags/v2.2.0,msg:feat(graph): removed active dot from sleep stage areas,cdate:2024-11-23 22:26:38 +0000,adate:2024-11-23 22:26:38 +0000
+hash:47d542c,parents:9248e1f,branch:refs/tags/v2.2.0,msg:feat(graph): added stage instance duration to graph tooltip,cdate:2024-11-23 22:24:15 +0000,adate:2024-11-23 22:24:15 +0000
+hash:9248e1f,parents:38190b2,branch:refs/tags/v2.2.0,msg:chore(graph): added custom interface for sleep session graph y-axis meta,cdate:2024-11-23 22:07:08 +0000,adate:2024-11-23 22:07:08 +0000
+hash:38190b2,parents:f8ddbd4,branch:refs/tags/v2.2.0,msg:chore(deps): upgraded i18next to major version 24,cdate:2024-11-23 19:39:33 +0000,adate:2024-11-23 19:39:33 +0000
+hash:60698cc,parents:05bec69,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@0b903cc93b1fd0fed264ae1f4d746f1414235fc9 🚀,cdate:2024-11-23 19:38:24 +0000,adate:2024-11-23 19:38:24 +0000
+hash:f8ddbd4,parents:4ebf726 0b903cc,branch:refs/tags/v2.2.0,msg:Merge branch 'release' into develop,cdate:2024-11-23 19:37:44 +0000,adate:2024-11-23 19:37:44 +0000
+hash:0b903cc,parents:6e3df33 dc8936d,branch:refs/tags/v2.1.1,msg:Merge pull request #32 from TomPlum/renovate/all-minor-patch,cdate:2024-11-23 19:37:29 +0000,adate:2024-11-23 19:37:29 +0000
+hash:4ebf726,parents:9857380,branch:refs/tags/v2.2.0,msg:feat(graph): added close button to selected session display,cdate:2024-11-23 19:35:46 +0000,adate:2024-11-23 19:35:46 +0000
+hash:9857380,parents:acd7649,branch:refs/tags/v2.2.0,msg:chore(graph): improved styling in SleepSessionTooltip.module.scss for labels and values,cdate:2024-11-23 19:30:44 +0000,adate:2024-11-23 19:30:44 +0000
+hash:acd7649,parents:7723e57,branch:refs/tags/v2.2.0,msg:chore(graph): extracted SleepSessionBreakdownInfo.tsx component,cdate:2024-11-23 19:29:30 +0000,adate:2024-11-23 19:29:30 +0000
+hash:7723e57,parents:ff5f173,branch:refs/tags/v2.2.0,msg:feat(graph): sleep stage graph x-ticks are now 30 minute intervals,cdate:2024-11-23 19:24:31 +0000,adate:2024-11-23 19:24:31 +0000
+hash:ff5f173,parents:b754d54,branch:refs/tags/v2.2.0,msg:chore(graph): moved stage transition data to hook and disabled area animations,cdate:2024-11-23 19:21:55 +0000,adate:2024-11-23 19:21:55 +0000
+hash:b754d54,parents:ea79846,branch:refs/tags/v2.2.0,msg:feat(graph): sleep stage graph tooltip now shows current stage and time,cdate:2024-11-23 19:04:33 +0000,adate:2024-11-23 19:04:33 +0000
+hash:ea79846,parents:478a361,branch:refs/tags/v2.2.0,msg:test(graph): added unit test suite for generateTicks,cdate:2024-11-23 15:11:32 +0000,adate:2024-11-23 15:11:32 +0000
+hash:478a361,parents:9d21764,branch:refs/tags/v2.2.0,msg:test(graph): added unit test suite for getSleepStageMetricYValue,cdate:2024-11-23 15:07:03 +0000,adate:2024-11-23 15:07:03 +0000
+hash:9d21764,parents:be596e4,branch:refs/tags/v2.2.0,msg:chore(graph): extracted useSleepStagesAreas hook from breakdown graph,cdate:2024-11-23 15:02:43 +0000,adate:2024-11-23 15:02:43 +0000
+hash:be596e4,parents:6ef3091,branch:refs/tags/v2.2.0,msg:feat(graph): sleep stage areas now generate minute granular points along their edges,cdate:2024-11-23 14:25:55 +0000,adate:2024-11-23 14:25:55 +0000
+hash:dc8936d,parents:6e3df33,branch:refs/tags/v2.1.1,msg:chore(deps): update all non-major dependencies,cdate:2024-11-23 04:50:20 +0000,adate:2024-11-23 04:50:20 +0000
+hash:6ef3091,parents:f60cdc8,branch:refs/tags/v2.2.0,msg:feat(graph): refactored sleep stage graph to use real areas instead of reference ones,cdate:2024-11-22 19:56:50 +0000,adate:2024-11-22 19:56:50 +0000
+hash:f60cdc8,parents:b1c9c9b,branch:refs/tags/v2.2.0,msg:feat(graph): extracted useSleepStageData hook from breakdown graph component,cdate:2024-11-22 16:46:06 +0000,adate:2024-11-22 16:46:06 +0000
+hash:05bec69,parents:0c28eb6,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@6e3df33a8b0bc47270c2cf0e2f45aaa9afe17eaf 🚀,cdate:2024-11-21 19:55:10 +0000,adate:2024-11-21 19:55:10 +0000
+hash:6e3df33,parents:f396ce1 b1c9c9b,branch:refs/tags/v2.1.0,msg:Merge pull request #31 from TomPlum/develop,cdate:2024-11-21 19:54:17 +0000,adate:2024-11-21 19:54:17 +0000
+hash:b1c9c9b,parents:db3687b db3c4f9,branch:refs/tags/v2.2.0,msg:Merge pull request #30 from TomPlum/improve-stage-chart,cdate:2024-11-21 19:51:52 +0000,adate:2024-11-21 19:51:52 +0000
+hash:db3c4f9,parents:b4e9d3b,branch:refs/heads/improve-stage-chart,msg:feat(graph): improved stage graph x-domain,cdate:2024-11-21 19:50:20 +0000,adate:2024-11-21 19:50:20 +0000
+hash:b4e9d3b,parents:5b96a51,branch:refs/heads/improve-stage-chart,msg:feat(graph): fixed stage breakdown graph y-domain and ticks,cdate:2024-11-21 19:41:09 +0000,adate:2024-11-21 19:41:09 +0000
+hash:5b96a51,parents:d89c2c1,branch:refs/heads/improve-stage-chart,msg:feat(graph): added in reparation code to the sleep stage graph data,cdate:2024-11-21 19:03:51 +0000,adate:2024-11-21 19:03:51 +0000
+hash:d89c2c1,parents:ced9837,branch:refs/heads/improve-stage-chart,msg:feat(graph): corrected stage transition line x-ordinates,cdate:2024-11-20 20:58:52 +0000,adate:2024-11-20 20:58:52 +0000
+hash:ced9837,parents:9b4a1b5,branch:refs/heads/improve-stage-chart,msg:feat(graph): switched sleep stage scatter to reference areas,cdate:2024-11-20 18:45:26 +0000,adate:2024-11-20 18:45:26 +0000
+hash:9b4a1b5,parents:1d21e76,branch:refs/heads/improve-stage-chart,msg:feat(graph): fixed breakdown graph stage connecting lines,cdate:2024-11-20 14:59:16 +0000,adate:2024-11-20 14:59:16 +0000
+hash:1d21e76,parents:76eb4f3,branch:refs/heads/improve-stage-chart,msg:feat(graph): fixed sorting of stage data in breakdown graph,cdate:2024-11-20 14:44:03 +0000,adate:2024-11-20 14:44:03 +0000
+hash:76eb4f3,parents:db3687b,branch:refs/heads/improve-stage-chart,msg:feat(graph): starting refactoring breakdown chart,cdate:2024-11-19 20:53:45 +0000,adate:2024-11-19 20:53:45 +0000
+hash:db3687b,parents:a18a5c4,branch:refs/tags/v2.2.0,msg:feat(graph): line chart x-axis tick now changes format for small ranges,cdate:2024-11-19 17:16:54 +0000,adate:2024-11-19 17:16:54 +0000
+hash:a18a5c4,parents:de17621 f396ce1,branch:refs/tags/v2.2.0,msg:Merge branch 'release' into develop,cdate:2024-11-19 17:09:14 +0000,adate:2024-11-19 17:09:14 +0000
+hash:f396ce1,parents:8eda2d7 5752a89,branch:refs/tags/v2.1.0,msg:Merge pull request #26 from TomPlum/renovate/all-minor-patch,cdate:2024-11-19 17:08:58 +0000,adate:2024-11-19 17:08:58 +0000
+hash:de17621,parents:b0f2ce3,branch:refs/tags/v2.2.0,msg:test(data): fixed failing test for useLinearRegression.spec.ts,cdate:2024-11-19 17:08:30 +0000,adate:2024-11-19 17:08:30 +0000
+hash:5752a89,parents:8eda2d7,branch:refs/tags/v2.1.0,msg:chore(deps): update all non-major dependencies,cdate:2024-11-19 14:00:17 +0000,adate:2024-11-19 14:00:17 +0000
+hash:b0f2ce3,parents:dad2e46,branch:refs/tags/v2.2.0,msg:feat(graph): added custom sleep stage tooltip and extracted display name util,cdate:2024-11-18 17:35:25 +0000,adate:2024-11-18 17:35:25 +0000
+hash:dad2e46,parents:3c495cc,branch:refs/tags/v2.2.0,msg:chore(data): updated docs regarding Apples Cocoa Datetime API,cdate:2024-11-18 17:06:00 +0000,adate:2024-11-18 17:06:00 +0000
+hash:3c495cc,parents:7d91ff0,branch:refs/tags/v2.2.0,msg:feat(graph): extracted legend item component and updated styles,cdate:2024-11-17 19:12:19 +0000,adate:2024-11-17 19:12:19 +0000
+hash:7d91ff0,parents:4be777a,branch:refs/tags/v2.2.0,msg:feat(graph): added duration in sleep session info,cdate:2024-11-17 19:05:12 +0000,adate:2024-11-17 19:05:12 +0000
+hash:4be777a,parents:0cf76da,branch:refs/tags/v2.2.0,msg:feat(graph): added endTime to graph data and mapped date range to session info,cdate:2024-11-17 18:22:47 +0000,adate:2024-11-17 18:22:47 +0000
+hash:0cf76da,parents:954670c,branch:refs/tags/v2.2.0,msg:chore(graph): refactored selected session state management (hoisted to context),cdate:2024-11-17 18:06:42 +0000,adate:2024-11-17 18:06:42 +0000
+hash:0c28eb6,parents:1482fb7,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@8eda2d7e39053ecf13ee4bd6ce82c4821f3e7ed4 🚀,cdate:2024-11-17 17:33:57 +0000,adate:2024-11-17 17:33:57 +0000
+hash:8eda2d7,parents:64ae166 954670c,branch:refs/tags/v2.1.0,msg:Merge pull request #29 from TomPlum/develop,cdate:2024-11-17 17:33:07 +0000,adate:2024-11-17 17:33:07 +0000
+hash:954670c,parents:419257d,branch:refs/tags/v2.2.0,msg:fix(ci): made dates in useLinearRegression.spec.ts UTC for CI,cdate:2024-11-17 17:30:54 +0000,adate:2024-11-17 17:30:54 +0000
+hash:419257d,parents:52dfc3f,branch:refs/tags/v2.2.0,msg:debug(ci): added date check in develop workflow to check TZ,cdate:2024-11-17 17:26:00 +0000,adate:2024-11-17 17:26:00 +0000
+hash:52dfc3f,parents:e7a2380,branch:refs/tags/v2.2.0,msg:test(data): used dayjs utc in useLinearRegression to try and fix ci tests,cdate:2024-11-17 17:20:05 +0000,adate:2024-11-17 17:20:05 +0000
+hash:e7a2380,parents:d31697d,branch:refs/tags/v2.2.0,msg:feat(graph): extracted useGraphHeight hook and used in placeholder component too,cdate:2024-11-17 17:19:28 +0000,adate:2024-11-17 17:19:28 +0000
+hash:d31697d,parents:8a68890,branch:refs/tags/v2.2.0,msg:fix(graph): tweaked line chart graph height when in stacked view with a selected session,cdate:2024-11-17 17:11:47 +0000,adate:2024-11-17 17:11:47 +0000
+hash:8a68890,parents:df5f451,branch:refs/tags/v2.2.0,msg:feat(ci): set UTC timezone in develop workflow,cdate:2024-11-17 16:58:58 +0000,adate:2024-11-17 16:58:58 +0000
+hash:df5f451,parents:7308bc3,branch:refs/tags/v2.2.0,msg:feat(ci): added new develop workflow for building/testing on PRs,cdate:2024-11-17 16:57:27 +0000,adate:2024-11-17 16:57:27 +0000
+hash:7308bc3,parents:310412c,branch:refs/tags/v2.2.0,msg:fix(ci): added UTC timezone to release workflow config,cdate:2024-11-17 16:53:28 +0000,adate:2024-11-17 16:53:28 +0000
+hash:64ae166,parents:c6a41eb 310412c,branch:refs/tags/v2.1.0,msg:Merge pull request #28 from TomPlum/develop,cdate:2024-11-17 16:48:29 +0000,adate:2024-11-17 16:48:29 +0000
+hash:310412c,parents:0f637b2,branch:refs/tags/v2.2.0,msg:feat(ci): added unit tests to release workflow,cdate:2024-11-17 16:48:01 +0000,adate:2024-11-17 16:48:01 +0000
+hash:0f637b2,parents:6aa8dab,branch:refs/tags/v2.2.0,msg:test(data): fixed failing tests and added test:ci script,cdate:2024-11-17 16:47:10 +0000,adate:2024-11-17 16:47:10 +0000
+hash:6aa8dab,parents:0237445,branch:refs/tags/v2.2.0,msg:fix(data): moved env util into sub-dir to fix build issue,cdate:2024-11-17 16:44:09 +0000,adate:2024-11-17 16:44:09 +0000
+hash:c6a41eb,parents:d52b826 0237445,branch:refs/tags/v2.0.0,msg:Merge pull request #27 from TomPlum/develop,cdate:2024-11-17 15:25:29 +0000,adate:2024-11-17 15:25:29 +0000
+hash:0237445,parents:33e8dd5,branch:refs/tags/v2.2.0,msg:feat(graph): duration breakdown pie chart now matches other charts animation timings,cdate:2024-11-17 15:06:15 +0000,adate:2024-11-17 15:06:15 +0000
+hash:33e8dd5,parents:072d7d6,branch:refs/tags/v2.2.0,msg:feat(graph): pushed down session selection code to prevent re-renders,cdate:2024-11-17 15:04:26 +0000,adate:2024-11-17 15:04:26 +0000
+hash:072d7d6,parents:947600b,branch:refs/tags/v2.2.0,msg:feat(graph): added legend to sleep stage breakdown graph,cdate:2024-11-17 14:53:23 +0000,adate:2024-11-17 14:53:23 +0000
+hash:947600b,parents:5861283,branch:refs/tags/v2.2.0,msg:feat(graph): sleep stage chart is now size aware and resizes bars appropriately,cdate:2024-11-17 14:38:15 +0000,adate:2024-11-17 14:38:15 +0000
+hash:5861283,parents:e778c0d,branch:refs/tags/v2.2.0,msg:feat(graph): removed pie chart from chart tooltip,cdate:2024-11-17 14:32:24 +0000,adate:2024-11-17 14:32:24 +0000
+hash:e778c0d,parents:6c21df1,branch:refs/tags/v2.2.0,msg:feat(graph): added duration breakdown pie chart to selected session info,cdate:2024-11-17 14:25:18 +0000,adate:2024-11-17 14:25:18 +0000
+hash:6c21df1,parents:5beb80b,branch:refs/tags/v2.2.0,msg:feat(graph): added selected session into query parameters,cdate:2024-11-17 14:22:01 +0000,adate:2024-11-17 14:22:01 +0000
+hash:5beb80b,parents:e82dd75,branch:refs/tags/v2.2.0,msg:chore(lint): added quote-props eslint rule and ran --fix,cdate:2024-11-17 13:53:07 +0000,adate:2024-11-17 13:53:07 +0000
+hash:e82dd75,parents:f6e0c4e,branch:refs/tags/v2.2.0,msg:test(data): added test suite for scanTables utility,cdate:2024-11-17 13:52:28 +0000,adate:2024-11-17 13:52:28 +0000
+hash:f6e0c4e,parents:a09f9ad,branch:refs/tags/v2.2.0,msg:fix(data): added missing benchmark start() call to scanTables,cdate:2024-11-17 13:27:51 +0000,adate:2024-11-17 13:27:51 +0000
+hash:a09f9ad,parents:ac05a9f,branch:refs/tags/v2.2.0,msg:test(data): updated unknown time delta message and added tests for it,cdate:2024-11-17 13:26:16 +0000,adate:2024-11-17 13:26:16 +0000
+hash:ac05a9f,parents:74f829c,branch:refs/tags/v2.2.0,msg:test(data): added parseDataLine utility tests,cdate:2024-11-17 13:18:00 +0000,adate:2024-11-17 13:18:00 +0000
+hash:74f829c,parents:ddd3298,branch:refs/tags/v2.2.0,msg:test(data): added readRawDatabaseExport tests,cdate:2024-11-17 12:57:06 +0000,adate:2024-11-17 12:57:06 +0000
+hash:ddd3298,parents:ca95d1b,branch:refs/tags/v2.2.0,msg:test(data): added readFile unit tests and env utility class,cdate:2024-11-17 12:45:42 +0000,adate:2024-11-17 12:45:42 +0000
+hash:ca95d1b,parents:87c3e4b,branch:refs/tags/v2.2.0,msg:feat(graph): added sound reference lines to stage breakdown graph,cdate:2024-11-16 18:40:13 +0000,adate:2024-11-16 18:40:13 +0000
+hash:87c3e4b,parents:43767e6,branch:refs/tags/v2.2.0,msg:feat(graph): passed sleep sound data into session info component from context,cdate:2024-11-15 19:04:17 +0000,adate:2024-11-15 19:04:17 +0000
+hash:43767e6,parents:eb5e0ad,branch:refs/tags/v2.2.0,msg:feat(data): worker file reader now calculates uncompressed file size,cdate:2024-11-15 17:02:12 +0000,adate:2024-11-15 17:02:12 +0000
+hash:eb5e0ad,parents:dc56de6,branch:refs/tags/v2.2.0,msg:test(data): added unit tests and docs for sendMessage.ts,cdate:2024-11-15 17:01:52 +0000,adate:2024-11-15 17:01:52 +0000
+hash:dc56de6,parents:a9d6cf6,branch:refs/tags/v2.2.0,msg:test(data): added unit tests and docs for formatNumber.ts,cdate:2024-11-15 16:54:15 +0000,adate:2024-11-15 16:54:15 +0000
+hash:a9d6cf6,parents:9cdfa40,branch:refs/tags/v2.2.0,msg:test(data): added unit test for convertTimestamp.ts,cdate:2024-11-15 16:52:09 +0000,adate:2024-11-15 16:52:09 +0000
+hash:9cdfa40,parents:724f9ef,branch:refs/tags/v2.2.0,msg:fix(data): fixed benchmark delta bug and added unit tests,cdate:2024-11-15 16:44:36 +0000,adate:2024-11-15 16:44:36 +0000
+hash:724f9ef,parents:8472bb5,branch:refs/tags/v2.2.0,msg:chore(data): added benchmark util to encapsulate timing and delta formatting,cdate:2024-11-14 21:55:11 +0000,adate:2024-11-14 21:55:11 +0000
+hash:8472bb5,parents:d52b826,branch:refs/tags/v2.2.0,msg:test(data): added unit test suite for convertSleepStage.ts,cdate:2024-11-14 21:45:41 +0000,adate:2024-11-14 21:45:41 +0000
+hash:1482fb7,parents:7271948,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@d52b826c02b6909059675040789181420beafd52 🚀,cdate:2024-11-14 21:39:46 +0000,adate:2024-11-14 21:39:46 +0000
+hash:7271948,parents:70437fd,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@744a38879b90beeeddfffebbe9c3ecaca4a4c155 🚀,cdate:2024-11-14 21:38:53 +0000,adate:2024-11-14 21:38:53 +0000
+hash:d52b826,parents:744a388 328c273,branch:refs/tags/v2.0.0,msg:Merge pull request #24 from TomPlum/renovate/all-minor-patch,cdate:2024-11-14 21:38:52 +0000,adate:2024-11-14 21:38:52 +0000
+hash:744a388,parents:2888162 4c98b03,branch:refs/tags/v2.0.0,msg:Merge pull request #25 from TomPlum/feature/parse-raw-data,cdate:2024-11-14 21:38:02 +0000,adate:2024-11-14 21:38:02 +0000
+hash:4c98b03,parents:9b96063,branch:refs/heads/feature/parse-raw-data,msg:chore(data): moved worker type and shortened imports,cdate:2024-11-14 19:22:19 +0000,adate:2024-11-14 19:22:19 +0000
+hash:9b96063,parents:c675f33,branch:refs/heads/feature/parse-raw-data,msg:chore(data): reduced more redundant code for file reading,cdate:2024-11-14 19:17:58 +0000,adate:2024-11-14 19:17:58 +0000
+hash:c675f33,parents:ebec2f8,branch:refs/heads/feature/parse-raw-data,msg:chore(data): extracted session validation function to reduce redundant code,cdate:2024-11-14 19:11:32 +0000,adate:2024-11-14 19:11:32 +0000
+hash:ebec2f8,parents:b3a7721,branch:refs/heads/feature/parse-raw-data,msg:test(data): installed @vitest/web-worker to fix failing tests,cdate:2024-11-14 19:07:04 +0000,adate:2024-11-14 19:07:04 +0000
+hash:b3a7721,parents:f6a4794,branch:refs/heads/feature/parse-raw-data,msg:chore(config): added --host flag to dev script so the server is available on the LAN,cdate:2024-11-14 16:18:11 +0000,adate:2024-11-14 16:18:11 +0000
+hash:328c273,parents:2888162,branch:refs/tags/v2.0.0,msg:chore(deps): update all non-major dependencies,cdate:2024-11-14 13:09:47 +0000,adate:2024-11-14 13:09:47 +0000
+hash:f6a4794,parents:2c6a2a7,branch:refs/heads/feature/parse-raw-data,msg:chore(data): started extracting data worker into its own module of files,cdate:2024-11-14 12:10:51 +0000,adate:2024-11-14 12:10:51 +0000
+hash:2c6a2a7,parents:0261ff8,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): updated active session file name and moved types from worker to types file,cdate:2024-11-13 20:45:31 +0000,adate:2024-11-13 20:45:31 +0000
+hash:0261ff8,parents:0d66a55,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): changed breakdown chart y value type and added tooltip,cdate:2024-11-13 18:01:15 +0000,adate:2024-11-13 18:01:15 +0000
+hash:0d66a55,parents:1bb1a3f,branch:refs/heads/feature/parse-raw-data,msg:chore(data): renamed statusCode -> code and added extra docs to worker types,cdate:2024-11-13 16:24:04 +0000,adate:2024-11-13 16:24:04 +0000
+hash:1bb1a3f,parents:181a606,branch:refs/heads/feature/parse-raw-data,msg:feat(data): extracted and simplified worker number formatter,cdate:2024-11-13 16:20:58 +0000,adate:2024-11-13 16:20:58 +0000
+hash:181a606,parents:34e6895,branch:refs/heads/feature/parse-raw-data,msg:feat(data): added timeouts to throttle worker messages (callback hell, oops),cdate:2024-11-13 16:14:39 +0000,adate:2024-11-13 16:14:39 +0000
+hash:34e6895,parents:05b851a,branch:refs/heads/feature/parse-raw-data,msg:feat(data): tweaks to web worker messaging,cdate:2024-11-13 16:05:57 +0000,adate:2024-11-13 16:05:57 +0000
+hash:05b851a,parents:053033d,branch:refs/heads/feature/parse-raw-data,msg:feat(data): added extra worker events for preprocessing stages,cdate:2024-11-13 09:04:42 +0000,adate:2024-11-13 09:04:42 +0000
+hash:053033d,parents:94c5cdb,branch:refs/heads/feature/parse-raw-data,msg:fix(data): significantly improved worker performance (35s -> 50ms),cdate:2024-11-12 18:57:10 +0000,adate:2024-11-12 18:57:10 +0000
+hash:94c5cdb,parents:f05bba9,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): selection session info/graph now renders in stacked view,cdate:2024-11-12 18:37:10 +0000,adate:2024-11-12 18:37:10 +0000
+hash:f05bba9,parents:00d2522,branch:refs/heads/feature/parse-raw-data,msg:feat(data): added slight delay to final worker event to show data parsing message,cdate:2024-11-12 18:32:17 +0000,adate:2024-11-12 18:32:17 +0000
+hash:00d2522,parents:be23a35,branch:refs/heads/feature/parse-raw-data,msg:chore(data): cleared 2 x TODOs in web worker,cdate:2024-11-12 18:24:05 +0000,adate:2024-11-12 18:24:05 +0000
+hash:be23a35,parents:e55624f,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): added breathing radial gradient to loading component,cdate:2024-11-12 17:39:10 +0000,adate:2024-11-12 17:39:10 +0000
+hash:e55624f,parents:300166e,branch:refs/heads/feature/parse-raw-data,msg:chore(graph): extracted useDynamicFavicon hook,cdate:2024-11-12 17:29:04 +0000,adate:2024-11-12 17:29:04 +0000
+hash:300166e,parents:ebc5a24,branch:refs/heads/feature/parse-raw-data,msg:chore(graph): extracted SleepStageBar component,cdate:2024-11-12 17:27:23 +0000,adate:2024-11-12 17:27:23 +0000
+hash:ebc5a24,parents:4a265bf,branch:refs/heads/feature/parse-raw-data,msg:chore(data): removed old CSV data hook from context provider,cdate:2024-11-12 17:19:29 +0000,adate:2024-11-12 17:19:29 +0000
+hash:4a265bf,parents:77aec21,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): started adding info box to breakdown graph,cdate:2024-11-12 17:17:11 +0000,adate:2024-11-12 17:17:11 +0000
+hash:77aec21,parents:f3ad7d7,branch:refs/heads/feature/parse-raw-data,msg:fix(graph): fixed yTicks in SleepSessionStageBreakdownGraph,cdate:2024-11-12 17:01:01 +0000,adate:2024-11-12 17:01:01 +0000
+hash:f3ad7d7,parents:52e1dd5,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): fixed raw stage mapping and session -> stages ID mapping,cdate:2024-11-12 16:56:09 +0000,adate:2024-11-12 16:56:09 +0000
+hash:52e1dd5,parents:8ab78a0,branch:refs/heads/feature/parse-raw-data,msg:feat(data): data worker typing improvements + TODOs,cdate:2024-11-12 15:54:03 +0000,adate:2024-11-12 15:54:03 +0000
+hash:8ab78a0,parents:8af99c6,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): moved sleep stage graph to the bottom and fixed heights,cdate:2024-11-12 14:44:30 +0000,adate:2024-11-12 14:44:30 +0000
+hash:8af99c6,parents:9bc2a52,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): added custom line active dot to bind click events to sleep breakdown,cdate:2024-11-12 14:13:45 +0000,adate:2024-11-12 14:13:45 +0000
+hash:9bc2a52,parents:d5271f3,branch:refs/heads/feature/parse-raw-data,msg:feat(data): minor copy and styling improvements to worker events and loading page,cdate:2024-11-12 08:28:13 +0000,adate:2024-11-12 08:28:13 +0000
+hash:d5271f3,parents:eda7bbf,branch:refs/heads/feature/parse-raw-data,msg:feat(data): added timings and payload data for other worker events,cdate:2024-11-11 21:13:25 +0000,adate:2024-11-11 21:13:25 +0000
+hash:eda7bbf,parents:0dfc9ec,branch:refs/heads/feature/parse-raw-data,msg:feat(data): added custom payload to worker messages and sent file size,cdate:2024-11-11 20:58:36 +0000,adate:2024-11-11 20:58:36 +0000
+hash:0dfc9ec,parents:8580cc5,branch:refs/heads/feature/parse-raw-data,msg:feat(data): fixed some of the failing data web worker event messages,cdate:2024-11-11 20:33:18 +0000,adate:2024-11-11 20:33:18 +0000
+hash:8580cc5,parents:73fbcc4,branch:refs/heads/feature/parse-raw-data,msg:feat(data): refactored worker to use Worker constructor to support type imports,cdate:2024-11-11 20:21:46 +0000,adate:2024-11-11 20:21:46 +0000
+hash:73fbcc4,parents:dab5c7b,branch:refs/heads/feature/parse-raw-data,msg:feat(data): added percentage to data worker message events for granular tracking,cdate:2024-11-11 16:32:43 +0000,adate:2024-11-11 16:32:43 +0000
+hash:dab5c7b,parents:bee4e29,branch:refs/heads/feature/parse-raw-data,msg:feat(data): integrated worker status with context and loading component,cdate:2024-11-11 15:56:24 +0000,adate:2024-11-11 15:56:24 +0000
+hash:bee4e29,parents:d05120c,branch:refs/heads/feature/parse-raw-data,msg:feat(data): implemented custom web worker for data loading and dropped external dep,cdate:2024-11-11 15:31:19 +0000,adate:2024-11-11 15:31:19 +0000
+hash:d05120c,parents:70e8695,branch:refs/heads/feature/parse-raw-data,msg:chore(data): added extra comments and docs to the pillow export parser,cdate:2024-11-11 14:48:00 +0000,adate:2024-11-11 14:48:00 +0000
+hash:70e8695,parents:0eeea35,branch:refs/heads/feature/parse-raw-data,msg:feat(data): pillow export parser now supports the truly raw export with no prior modifications made,cdate:2024-11-11 14:43:38 +0000,adate:2024-11-11 14:43:38 +0000
+hash:0eeea35,parents:e0fa20a,branch:refs/heads/feature/parse-raw-data,msg:feat(data): refactored raw data parser function to make only one pass of the file,cdate:2024-11-10 20:40:34 +0000,adate:2024-11-10 20:40:34 +0000
+hash:e0fa20a,parents:6178286,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): sleep stage graph improvements,cdate:2024-11-10 17:57:08 +0000,adate:2024-11-10 17:57:08 +0000
+hash:6178286,parents:3496d41,branch:refs/heads/feature/parse-raw-data,msg:feat(graph): first pass of stacked bar chart / gantt of sleep stage breakdown,cdate:2024-11-10 17:46:07 +0000,adate:2024-11-10 17:46:07 +0000
+hash:3496d41,parents:42f2132,branch:refs/heads/feature/parse-raw-data,msg:feat(data): re-integrated worker into raw sleep data hook and added to context,cdate:2024-11-10 15:54:37 +0000,adate:2024-11-10 15:54:37 +0000
+hash:70437fd,parents:5036be1,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@28881627b2f5288a3a68f9127abc1fdfd966c6d2 🚀,cdate:2024-11-10 15:09:39 +0000,adate:2024-11-10 15:09:39 +0000
+hash:2888162,parents:732b304 7215477,branch:refs/tags/v2.0.0,msg:Merge pull request #20 from TomPlum/renovate/all-minor-patch,cdate:2024-11-10 15:08:53 +0000,adate:2024-11-10 15:08:53 +0000
+hash:42f2132,parents:bf551c0,branch:refs/heads/feature/parse-raw-data,msg:feat(data): removed redundant props from useRawSleepData hook,cdate:2024-11-10 14:47:12 +0000,adate:2024-11-10 14:47:12 +0000
+hash:bf551c0,parents:29a7212,branch:refs/heads/feature/parse-raw-data,msg:feat(data): fixed sound data parsing and added sleep stage data alongside it,cdate:2024-11-10 13:21:35 +0000,adate:2024-11-10 13:21:35 +0000
+hash:29a7212,parents:4c801b6,branch:refs/heads/feature/parse-raw-data,msg:feat(data): consolidated raw data parsing experiment into main impl,cdate:2024-11-10 12:40:13 +0000,adate:2024-11-10 12:40:13 +0000
+hash:4c801b6,parents:ffb0337,branch:refs/heads/feature/parse-raw-data,msg:feat(data): parsed sound points and mapped to sessions,cdate:2024-11-09 21:23:18 +0000,adate:2024-11-09 21:23:18 +0000
+hash:ffb0337,parents:5e7b005,branch:refs/heads/feature/parse-raw-data,msg:feat(data): fixed table searching and date parsing,cdate:2024-11-09 21:02:39 +0000,adate:2024-11-09 21:02:39 +0000
+hash:5e7b005,parents:821fe5a,branch:refs/heads/feature/parse-raw-data,msg:feat(data): attempting to parse raw data file,cdate:2024-11-09 20:01:39 +0000,adate:2024-11-09 20:01:39 +0000
+hash:7215477,parents:732b304,branch:refs/tags/v2.0.0,msg:chore(deps): update all non-major dependencies,cdate:2024-11-09 04:39:56 +0000,adate:2024-11-09 04:39:56 +0000
+hash:821fe5a,parents:732b304,branch:refs/heads/feature/parse-raw-data,msg:chore(docs): README ToC,cdate:2024-11-05 21:18:18 +0000,adate:2024-11-05 21:18:18 +0000
+hash:5036be1,parents:b9196fc,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@732b3044a9b1ea8699908ba4b6c41f593f44d18f 🚀,cdate:2024-11-04 19:47:06 +0000,adate:2024-11-04 19:47:06 +0000
+hash:732b304,parents:fbca587 b2bf478,branch:refs/tags/v2.0.0,msg:Merge pull request #23 from TomPlum/develop,cdate:2024-11-04 19:46:19 +0000,adate:2024-11-04 19:46:19 +0000
+hash:b2bf478,parents:4410cd7,branch:refs/tags/v2.0.0,msg:fix(graph): fixed static asset loading in production mode,cdate:2024-11-04 19:45:58 +0000,adate:2024-11-04 19:45:58 +0000
+hash:b9196fc,parents:0994f81,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@fbca587594c87b5c4d13dbb14387eff3bbd97f0b 🚀,cdate:2024-11-04 19:32:13 +0000,adate:2024-11-04 19:32:13 +0000
+hash:fbca587,parents:ff20995 4410cd7,branch:refs/tags/v1.2.1,msg:Merge pull request #22 from TomPlum/develop,cdate:2024-11-04 19:31:29 +0000,adate:2024-11-04 19:31:29 +0000
+hash:4410cd7,parents:e8c2bfb,branch:refs/tags/v2.0.0,msg:test(data): fixed compilation error in useLinearRegression.spec.ts,cdate:2024-11-04 19:31:08 +0000,adate:2024-11-04 19:31:08 +0000
+hash:ff20995,parents:529c117 e8c2bfb,branch:refs/tags/v1.2.1,msg:Merge pull request #21 from TomPlum/develop,cdate:2024-11-04 19:29:24 +0000,adate:2024-11-04 19:29:24 +0000
+hash:e8c2bfb,parents:4d7a7e9,branch:refs/tags/v2.0.0,msg:feat(graph): updated active session info to use pillow logo instead of text,cdate:2024-11-03 18:35:05 +0000,adate:2024-11-03 18:35:05 +0000
+hash:4d7a7e9,parents:69eaadc,branch:refs/tags/v2.0.0,msg:feat(graph): added day of the week name to the tooltip session date format,cdate:2024-11-03 09:41:53 +0000,adate:2024-11-03 09:41:53 +0000
+hash:69eaadc,parents:c31f162,branch:refs/tags/v2.0.0,msg:chore(data): updated sleep data to most recent csv snapshot,cdate:2024-11-03 09:39:56 +0000,adate:2024-11-03 09:39:56 +0000
+hash:c31f162,parents:98ff75e,branch:refs/tags/v2.0.0,msg:feat(graph): minor styling improvements to active session info and stacked graph placeholder,cdate:2024-10-31 20:02:36 +0000,adate:2024-10-31 20:02:36 +0000
+hash:98ff75e,parents:7e8868b,branch:refs/tags/v2.0.0,msg:feat(graph): added pillows website link to the active session info component,cdate:2024-10-30 20:21:01 +0000,adate:2024-10-30 20:21:01 +0000
+hash:7e8868b,parents:51f121d,branch:refs/tags/v2.0.0,msg:feat(graph): added descriptions of sleep metrics upon hover in stacked view,cdate:2024-10-30 20:15:09 +0000,adate:2024-10-30 20:15:09 +0000
+hash:0994f81,parents:bdaa4e4,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@529c1176ebc495163d44d926469cce22300cb2a9 🚀,cdate:2024-10-30 19:52:18 +0000,adate:2024-10-30 19:52:18 +0000
+hash:51f121d,parents:21678c9 529c117,branch:refs/tags/v2.0.0,msg:Merge branch 'release' into develop,cdate:2024-10-30 19:51:40 +0000,adate:2024-10-30 19:51:40 +0000
+hash:529c117,parents:0d12d74 5765026,branch:refs/tags/v1.2.1,msg:Merge pull request #16 from TomPlum/renovate/all-minor-patch,cdate:2024-10-30 19:51:30 +0000,adate:2024-10-30 19:51:30 +0000
+hash:5765026,parents:0d12d74,branch:refs/tags/v1.2.1,msg:chore(deps): update all non-major dependencies,cdate:2024-10-30 15:18:13 +0000,adate:2024-10-30 15:18:13 +0000
+hash:21678c9,parents:e6ea316,branch:refs/tags/v2.0.0,msg:chore(graph): extracted useDefaultQueryParams hook from sleep context provider,cdate:2024-10-27 19:38:06 +0000,adate:2024-10-27 19:38:06 +0000
+hash:e6ea316,parents:f7116d9,branch:refs/tags/v2.0.0,msg:chore(graph): changed default date range query params to all data instead of recent,cdate:2024-10-27 19:30:38 +0000,adate:2024-10-27 19:30:38 +0000
+hash:f7116d9,parents:87efebe,branch:refs/tags/v2.0.0,msg:chore(graph): increased typical sessions healthy awake time range to 0-10%,cdate:2024-10-27 19:28:45 +0000,adate:2024-10-27 19:28:45 +0000
+hash:87efebe,parents:d638b1e,branch:refs/tags/v2.0.0,msg:fix(graph): duration breakdown pie chart no longer renders labels for 0% values,cdate:2024-10-27 19:25:00 +0000,adate:2024-10-27 19:25:00 +0000
+hash:d638b1e,parents:928a7f4,branch:refs/tags/v2.0.0,msg:feat(graph): added mood emoji to the session tooltip,cdate:2024-10-27 18:55:58 +0000,adate:2024-10-27 18:55:58 +0000
+hash:928a7f4,parents:d401424,branch:refs/tags/v2.0.0,msg:feat(graph): reduced active dot radius for active session counts between 100 and 300,cdate:2024-10-23 13:14:39 +0100,adate:2024-10-23 13:14:39 +0100
+hash:d401424,parents:2f85544,branch:refs/tags/v2.0.0,msg:fix(graph): fixed stacked view toggle not updating query param when checking,cdate:2024-10-23 13:08:07 +0100,adate:2024-10-23 13:08:07 +0100
+hash:bdaa4e4,parents:6c77a6b,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@0d12d74a0d49b59240f4071adc56fb9599990905 🚀,cdate:2024-10-23 11:46:53 +0000,adate:2024-10-23 11:46:53 +0000
+hash:0d12d74,parents:5e1e15c 2f85544,branch:refs/tags/v1.2.0,msg:Merge pull request #19 from TomPlum/develop,cdate:2024-10-23 12:46:10 +0100,adate:2024-10-23 12:46:10 +0100
+hash:2f85544,parents:a6ba004 2c5082d,branch:refs/tags/v2.0.0,msg:Merge pull request #18 from TomPlum/feature/stacked-view,cdate:2024-10-23 12:40:38 +0100,adate:2024-10-23 12:40:38 +0100
+hash:2c5082d,parents:9676781,branch:refs/heads/feature/stacked-view,msg:feat(graph): stacked toggle now clears stacked metrics when turning on,cdate:2024-10-23 12:39:13 +0100,adate:2024-10-23 12:39:13 +0100
+hash:9676781,parents:317a526,branch:refs/heads/feature/stacked-view,msg:fix(config): trying to make vite HMR watch the public dir during local development,cdate:2024-10-23 12:33:26 +0100,adate:2024-10-23 12:33:26 +0100
+hash:317a526,parents:66ac076,branch:refs/heads/feature/stacked-view,msg:feat(graph): fixed stacked graph placeholder messages and ensured metric checkboxes update the query params,cdate:2024-10-23 12:22:32 +0100,adate:2024-10-23 12:22:32 +0100
+hash:66ac076,parents:415c1d1,branch:refs/heads/feature/stacked-view,msg:fix(graph): fixed missing tooltip and improvement label from single graph view,cdate:2024-10-22 20:27:41 +0100,adate:2024-10-22 20:27:41 +0100
+hash:415c1d1,parents:c0dc79f,branch:refs/heads/feature/stacked-view,msg:feat(graph): improvement line label and tooltip no longer render twice in stacked view,cdate:2024-10-22 20:18:29 +0100,adate:2024-10-22 20:18:29 +0100
+hash:c0dc79f,parents:0b9fad5,branch:refs/heads/feature/stacked-view,msg:feat(graph): active sessions info now respects stacked view with no selections,cdate:2024-10-22 20:13:21 +0100,adate:2024-10-22 20:13:21 +0100
+hash:0b9fad5,parents:70164f4,branch:refs/heads/feature/stacked-view,msg:fix(graph): fixed react hooks lifecycle error with stacked graphs,cdate:2024-10-22 20:08:53 +0100,adate:2024-10-22 20:08:53 +0100
+hash:70164f4,parents:bb29e00,branch:refs/heads/feature/stacked-view,msg:chore(graph): split metric checkbox component into two for separation of concerns,cdate:2024-10-22 19:38:40 +0100,adate:2024-10-22 19:38:40 +0100
+hash:bb29e00,parents:6487f34,branch:refs/heads/feature/stacked-view,msg:feat(graph): metric checkbox now has button mode and graph placeholder improved button styling,cdate:2024-10-22 17:33:45 +0100,adate:2024-10-22 17:33:45 +0100
+hash:6487f34,parents:18fdb81,branch:refs/heads/feature/stacked-view,msg:feat(routing): serialised stacked view boolean in query params,cdate:2024-10-22 15:38:58 +0100,adate:2024-10-22 15:38:58 +0100
+hash:18fdb81,parents:e33383e,branch:refs/heads/feature/stacked-view,msg:feat(graph): metric config no longer lets you pick more than 3 metrics in stacked view,cdate:2024-10-22 15:13:33 +0100,adate:2024-10-22 15:13:33 +0100
+hash:e33383e,parents:77adf46,branch:refs/heads/feature/stacked-view,msg:feat(graph): stacked graph placeholder now offer available sleep metrics to pick from,cdate:2024-10-22 15:10:35 +0100,adate:2024-10-22 15:10:35 +0100
+hash:77adf46,parents:1d30e95,branch:refs/heads/feature/stacked-view,msg:chore(graph): extracted stacked graph placeholder component,cdate:2024-10-22 14:59:15 +0100,adate:2024-10-22 14:59:15 +0100
+hash:1d30e95,parents:d453692,branch:refs/heads/feature/stacked-view,msg:feat(graph): second graph in stacked view now transitions its opacity as it renders,cdate:2024-10-22 13:49:05 +0100,adate:2024-10-22 13:49:05 +0100
+hash:d453692,parents:7ef626b,branch:refs/heads/feature/stacked-view,msg:feat(graph): reduced the upper-bound of the dynamic y-axis domain to better frame the data on the chart,cdate:2024-10-22 12:59:58 +0100,adate:2024-10-22 12:59:58 +0100
+hash:7ef626b,parents:b7851b4,branch:refs/heads/feature/stacked-view,msg:feat(graph): added selection placeholder when a second metric is not selected in stacked view,cdate:2024-10-22 12:57:30 +0100,adate:2024-10-22 12:57:30 +0100
+hash:b7851b4,parents:569f1d0,branch:refs/heads/feature/stacked-view,msg:feat(graph): favicon now changes based on active sleep metric,cdate:2024-10-22 09:56:43 +0100,adate:2024-10-22 09:56:43 +0100
+hash:569f1d0,parents:72634f1,branch:refs/heads/feature/stacked-view,msg:feat(graph): added text to stacked view toggle button,cdate:2024-10-22 09:28:15 +0100,adate:2024-10-22 09:28:15 +0100
+hash:72634f1,parents:6b2dfb3,branch:refs/heads/feature/stacked-view,msg:feat(graph): fixed non-stacked view and added dynamic stacked colours to active session info,cdate:2024-10-22 09:20:51 +0100,adate:2024-10-22 09:20:51 +0100
+hash:6b2dfb3,parents:a6ba004,branch:refs/heads/feature/stacked-view,msg:feat(graph): first pass of enabling stacked graphs,cdate:2024-10-21 17:24:29 +0100,adate:2024-10-21 17:24:29 +0100
+hash:a6ba004,parents:9de61dd,branch:refs/tags/v2.0.0,msg:chore(graph): renamed old graph to 3D,cdate:2024-10-21 16:35:40 +0100,adate:2024-10-21 16:35:40 +0100
+hash:9de61dd,parents:e9d14e5 5e1e15c,branch:refs/tags/v2.0.0,msg:Merge branch 'release' into develop,cdate:2024-10-21 16:34:23 +0100,adate:2024-10-21 16:34:23 +0100
+hash:e9d14e5,parents:61b38d9,branch:refs/tags/v2.0.0,msg:chore(docs): added some TODOs to the README,cdate:2024-10-21 16:34:13 +0100,adate:2024-10-21 16:34:13 +0100
+hash:6c77a6b,parents:ed89441,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@5e1e15c2d5eada142fbd66cd5b87d015945fd11b 🚀,cdate:2024-10-21 10:42:07 +0000,adate:2024-10-21 10:42:07 +0000
+hash:5e1e15c,parents:7d545a5 61b38d9,branch:refs/tags/v1.1.0,msg:Merge pull request #17 from TomPlum/develop,cdate:2024-10-21 11:41:21 +0100,adate:2024-10-21 11:41:21 +0100
+hash:61b38d9,parents:a2db943,branch:refs/tags/v2.0.0,msg:feat(graph): session count colour now transitions with same animation duration as graph,cdate:2024-10-21 10:46:02 +0100,adate:2024-10-21 10:46:02 +0100
+hash:a2db943,parents:5a21429,branch:refs/tags/v2.0.0,msg:feat(graph): data source now links to a download of the raw CSV,cdate:2024-10-21 10:44:52 +0100,adate:2024-10-21 10:44:52 +0100
+hash:5a21429,parents:a5425d1,branch:refs/tags/v2.0.0,msg:feat(graph): added data source version to active session info,cdate:2024-10-21 10:35:42 +0100,adate:2024-10-21 10:35:42 +0100
+hash:a5425d1,parents:2282d36,branch:refs/tags/v2.0.0,msg:chore(graph): extracted active session info component from sleep page,cdate:2024-10-21 10:27:09 +0100,adate:2024-10-21 10:27:09 +0100
+hash:2282d36,parents:cba1df6,branch:refs/tags/v2.0.0,msg:chore(graph): increased font weight of improvement label text,cdate:2024-10-21 10:22:42 +0100,adate:2024-10-21 10:22:42 +0100
+hash:cba1df6,parents:da988de,branch:refs/tags/v2.0.0,msg:feat(graph): added subtle cartesian grid back to the line chart,cdate:2024-10-20 11:18:32 +0100,adate:2024-10-20 11:18:32 +0100
+hash:da988de,parents:edafbbf,branch:refs/tags/v2.0.0,msg:fix(graph): a single month can now be selected from the date picker,cdate:2024-10-20 11:06:32 +0100,adate:2024-10-20 11:06:32 +0100
+hash:edafbbf,parents:afd8749 7d545a5,branch:refs/tags/v2.0.0,msg:Merge branch 'release' into develop,cdate:2024-10-20 10:55:50 +0100,adate:2024-10-20 10:55:50 +0100
+hash:afd8749,parents:cee6402,branch:refs/tags/v2.0.0,msg:chore(graph): tweaked active dot radius for the main sleep metric line,cdate:2024-10-20 10:54:55 +0100,adate:2024-10-20 10:54:55 +0100
+hash:cee6402,parents:012ffe9,branch:refs/tags/v2.0.0,msg:chore(graph): hoisted improvement date calculation into sleep context,cdate:2024-10-20 10:49:13 +0100,adate:2024-10-20 10:49:13 +0100
+hash:012ffe9,parents:bff2088,branch:refs/tags/v2.0.0,msg:feat(graph): improved session and nap filtering,cdate:2024-10-20 10:45:23 +0100,adate:2024-10-20 10:45:23 +0100
+hash:bff2088,parents:21fecc1,branch:refs/tags/v2.0.0,msg:feat(routing): added language to query parameters,cdate:2024-10-19 19:18:37 +0100,adate:2024-10-19 19:18:37 +0100
+hash:21fecc1,parents:9136c6b,branch:refs/tags/v2.0.0,msg:feat(graph): show all button now changes to "recent" if all sessions are showing,cdate:2024-10-19 19:10:25 +0100,adate:2024-10-19 19:10:25 +0100
+hash:ed89441,parents:1b5c868,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@7d545a59464b63d3aaace8e99aa55cf6e0866f97 🚀,cdate:2024-10-19 18:02:15 +0000,adate:2024-10-19 18:02:15 +0000
+hash:7d545a5,parents:3d3d5a2 e27d91a,branch:refs/tags/v1.1.0,msg:Merge pull request #14 from TomPlum/renovate/all-minor-patch,cdate:2024-10-19 19:01:32 +0100,adate:2024-10-19 19:01:32 +0100
+hash:9136c6b,parents:7fc3850,branch:refs/tags/v2.0.0,msg:feat(graph): added show all button and extracted date selection hook,cdate:2024-10-19 15:36:18 +0100,adate:2024-10-19 15:36:18 +0100
+hash:7fc3850,parents:7c9d0e2,branch:refs/tags/v2.0.0,msg:chore(graph): extracted graph controls component,cdate:2024-10-19 15:21:51 +0100,adate:2024-10-19 15:21:51 +0100
+hash:7c9d0e2,parents:91ab124,branch:refs/tags/v2.0.0,msg:fix(data): filtered out sessions longer than 15 hours,cdate:2024-10-19 15:17:59 +0100,adate:2024-10-19 15:17:59 +0100
+hash:91ab124,parents:b9e9eaf,branch:refs/tags/v2.0.0,msg:feat(graph): added vertical reference line for the date in which I made improvements,cdate:2024-10-19 15:12:54 +0100,adate:2024-10-19 15:12:54 +0100
+hash:1b5c868,parents:bff718f,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@3d3d5a2ec3361fa74673968451d4fb7bd9d9bf65 🚀,cdate:2024-10-19 11:45:18 +0000,adate:2024-10-19 11:45:18 +0000
+hash:3d3d5a2,parents:c9c48c0 b9e9eaf,branch:refs/tags/v1.1.0,msg:Merge pull request #15 from TomPlum/develop,cdate:2024-10-19 12:44:33 +0100,adate:2024-10-19 12:44:33 +0100
+hash:b9e9eaf,parents:1634ce3,branch:refs/tags/v2.0.0,msg:chore(test): fixed failing unit tests due to bad setup data,cdate:2024-10-19 12:43:46 +0100,adate:2024-10-19 12:43:46 +0100
+hash:1634ce3,parents:fcc0e1c,branch:refs/tags/v2.0.0,msg:feat(graph): moved locale switch to top right controls and extracted component,cdate:2024-10-19 12:40:59 +0100,adate:2024-10-19 12:40:59 +0100
+hash:fcc0e1c,parents:ef2cfc2,branch:refs/tags/v2.0.0,msg:chore(docs): added screenshots to README,cdate:2024-10-19 12:26:20 +0100,adate:2024-10-19 12:26:20 +0100
+hash:ef2cfc2,parents:76a2a2e,branch:refs/tags/v2.0.0,msg:feat(graph): added nap indicator to session tooltip,cdate:2024-10-19 12:21:14 +0100,adate:2024-10-19 12:21:14 +0100
+hash:76a2a2e,parents:3f4402f,branch:refs/tags/v2.0.0,msg:fix(routing): fixed bad query param name for sleep metric,cdate:2024-10-19 12:11:57 +0100,adate:2024-10-19 12:11:57 +0100
+hash:3f4402f,parents:184b081,branch:refs/tags/v2.0.0,msg:feat(graph): added duration as a percentage of 8 hours as a new metric,cdate:2024-10-19 12:04:44 +0100,adate:2024-10-19 12:04:44 +0100
+hash:e27d91a,parents:c9c48c0,branch:refs/tags/v1.1.0,msg:chore(deps): update all non-major dependencies,cdate:2024-10-19 04:30:16 +0000,adate:2024-10-19 04:30:16 +0000
+hash:bff718f,parents:8f95b4a,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@c9c48c01cfc584cfe74ecedbbe63f350b39bbc17 🚀,cdate:2024-10-18 15:30:26 +0000,adate:2024-10-18 15:30:26 +0000
+hash:c9c48c0,parents:5f4518b 184b081,branch:refs/tags/v1.0.0,msg:Merge pull request #13 from TomPlum/develop,cdate:2024-10-18 16:29:29 +0100,adate:2024-10-18 16:29:29 +0100
+hash:184b081,parents:eda1f0d,branch:refs/tags/v2.0.0,msg:chore(test): fixed failing unit tests for useLinearRegression.spec.ts,cdate:2024-10-18 16:28:37 +0100,adate:2024-10-18 16:28:37 +0100
+hash:eda1f0d,parents:b89ac17,branch:refs/tags/v2.0.0,msg:feat(graph): added github button to top left controls container,cdate:2024-10-18 16:24:57 +0100,adate:2024-10-18 16:24:57 +0100
+hash:b89ac17,parents:15c8018,branch:refs/tags/v2.0.0,msg:chore(styling): minor styling and font changes,cdate:2024-10-18 11:32:53 +0100,adate:2024-10-18 11:32:53 +0100
+hash:15c8018,parents:b4a80bb,branch:refs/tags/v2.0.0,msg:chore(graph): extracted regression delta label component from graph,cdate:2024-10-17 20:18:02 +0100,adate:2024-10-17 20:18:02 +0100
+hash:b4a80bb,parents:e748aef,branch:refs/tags/v2.0.0,msg:feat(graph): regression line delta horizontal reference line now animates like its vertical counterpart,cdate:2024-10-17 20:13:11 +0100,adate:2024-10-17 20:13:11 +0100
+hash:e748aef,parents:46cfb4d,branch:refs/tags/v2.0.0,msg:feat(graph): regression line delta vertical reference line now fits the correct y-ordinates and doesn't fill the charts height,cdate:2024-10-17 19:50:26 +0100,adate:2024-10-17 19:50:26 +0100
+hash:46cfb4d,parents:aaa16bf,branch:refs/tags/v2.0.0,msg:chore(graph): encapsulated reference area fill into hook and tweaks reference line stroke dash,cdate:2024-10-17 18:15:51 +0100,adate:2024-10-17 18:15:51 +0100
+hash:aaa16bf,parents:05b7c89,branch:refs/tags/v2.0.0,msg:chore(docs): removed readme template contents,cdate:2024-10-17 18:00:20 +0100,adate:2024-10-17 18:00:20 +0100
+hash:05b7c89,parents:19e0968,branch:refs/tags/v2.0.0,msg:chore(lint): added import eslint plugin, configured and fixed import extensions,cdate:2024-10-17 17:58:06 +0100,adate:2024-10-17 17:58:06 +0100
+hash:19e0968,parents:245c95a,branch:refs/tags/v2.0.0,msg:chore(lint): tweaked quotes rules and fixed all double -> single,cdate:2024-10-17 17:51:00 +0100,adate:2024-10-17 17:51:00 +0100
+hash:245c95a,parents:ddca752,branch:refs/tags/v2.0.0,msg:chore(lint): tweaked object/curly brace rules and fixed all spacing issues,cdate:2024-10-17 17:50:04 +0100,adate:2024-10-17 17:50:04 +0100
+hash:ddca752,parents:f32e3d4,branch:refs/tags/v2.0.0,msg:chore(lint): tweaked semi rules and removed redundant semicolons,cdate:2024-10-17 17:48:04 +0100,adate:2024-10-17 17:48:04 +0100
+hash:f32e3d4,parents:01068d1,branch:refs/tags/v2.0.0,msg:Revert "chore(data): removed redundant guarding in linear regression hook",cdate:2024-10-17 16:42:11 +0100,adate:2024-10-17 16:42:11 +0100
+hash:01068d1,parents:c61415e,branch:refs/tags/v2.0.0,msg:chore(data): removed redundant guarding in linear regression hook,cdate:2024-10-17 16:41:32 +0100,adate:2024-10-17 16:41:32 +0100
+hash:c61415e,parents:66a1d30,branch:refs/tags/v2.0.0,msg:chore(data): filtered out invalid awake time values,cdate:2024-10-17 16:34:33 +0100,adate:2024-10-17 16:34:33 +0100
+hash:66a1d30,parents:76baba0,branch:refs/tags/v2.0.0,msg:feat(graph): migrated xAxisInterval to axes hook and added one more level of granularity,cdate:2024-10-17 16:30:39 +0100,adate:2024-10-17 16:30:39 +0100
+hash:8f95b4a,parents:9f93e5f,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@5f4518bb04c3e9c8fe74c2815da5b0584d1cdbc7 🚀,cdate:2024-10-17 15:22:19 +0000,adate:2024-10-17 15:22:19 +0000
+hash:5f4518b,parents:34aa1bf 76baba0,branch:refs/tags/v1.0.0,msg:Merge pull request #12 from TomPlum/develop,cdate:2024-10-17 16:21:40 +0100,adate:2024-10-17 16:21:40 +0100
+hash:76baba0,parents:ae9b6bc,branch:refs/tags/v2.0.0,msg:feat(locale): default locale and switch position is now en,cdate:2024-10-17 16:21:03 +0100,adate:2024-10-17 16:21:03 +0100
+hash:ae9b6bc,parents:924c8f9,branch:refs/tags/v2.0.0,msg:feat(graph): custom x tick now offsets first/last date strings to fit on screen,cdate:2024-10-17 16:19:51 +0100,adate:2024-10-17 16:19:51 +0100
+hash:924c8f9,parents:8abcdd6,branch:refs/tags/v2.0.0,msg:chore(data): extracted axes 2d hook,cdate:2024-10-17 16:12:38 +0100,adate:2024-10-17 16:12:38 +0100
+hash:8abcdd6,parents:d4d645a,branch:refs/tags/v2.0.0,msg:chore(data): hoisted earliest/latest active session dates into context and integrated with x-axis domain,cdate:2024-10-17 16:04:33 +0100,adate:2024-10-17 16:04:33 +0100
+hash:d4d645a,parents:7a78b8d,branch:refs/tags/v2.0.0,msg:feat(data): reworked linear regression algorithm and x-axis domain to work better with dates and ensure line of best fit is linear,cdate:2024-10-17 15:30:01 +0100,adate:2024-10-17 15:30:01 +0100
+hash:7a78b8d,parents:827a805,branch:refs/tags/v2.0.0,msg:test(data): added linear regression hook unit tests and shortened english translations,cdate:2024-10-17 11:25:24 +0100,adate:2024-10-17 11:25:24 +0100
+hash:9f93e5f,parents:9950706,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@34aa1bf564af10c4d3ebeef73542b82385be5163 🚀,cdate:2024-10-16 09:47:17 +0000,adate:2024-10-16 09:47:17 +0000
+hash:34aa1bf,parents:6a66ec6 827a805,branch:refs/tags/v1.0.0,msg:Merge pull request #11 from TomPlum/develop,cdate:2024-10-16 10:46:32 +0100,adate:2024-10-16 10:46:32 +0100
+hash:827a805,parents:5ef49a3,branch:refs/tags/v2.0.0,msg:feat(routing): re-added sleep route to app navigation and added dynamic baseUrl based on mode,cdate:2024-10-16 10:45:53 +0100,adate:2024-10-16 10:45:53 +0100
+hash:9950706,parents:38ff1c2,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@6a66ec6e43d3e2961e869aa07bfed4bcfa369eed 🚀,cdate:2024-10-16 09:39:12 +0000,adate:2024-10-16 09:39:12 +0000
+hash:6a66ec6,parents:46a65f9 5ef49a3,branch:refs/tags/v1.0.0,msg:Merge pull request #10 from TomPlum/develop,cdate:2024-10-16 10:38:22 +0100,adate:2024-10-16 10:38:22 +0100
+hash:5ef49a3,parents:3270ffd,branch:refs/tags/v2.0.0,msg:feat(graph): added language toggle button,cdate:2024-10-16 10:37:53 +0100,adate:2024-10-16 10:37:53 +0100
+hash:38ff1c2,parents:4bebfe5,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@46a65f9bf3c7bf3060a0fccc8b0e5ce4ccdf5310 🚀,cdate:2024-10-15 17:51:27 +0000,adate:2024-10-15 17:51:27 +0000
+hash:46a65f9,parents:7125412 3270ffd,branch:refs/tags/v1.0.0,msg:Merge pull request #9 from TomPlum/develop,cdate:2024-10-15 18:50:48 +0100,adate:2024-10-15 18:50:48 +0100
+hash:3270ffd,parents:fb7455a,branch:refs/tags/v2.0.0,msg:feat(graph): added duration to the tooltip,cdate:2024-10-15 18:49:22 +0100,adate:2024-10-15 18:49:22 +0100
+hash:fb7455a,parents:1606c57,branch:refs/tags/v2.0.0,msg:feat(graph): added healthy data range for sleep quality metric,cdate:2024-10-15 18:43:22 +0100,adate:2024-10-15 18:43:22 +0100
+hash:1606c57,parents:5408eb4,branch:refs/tags/v2.0.0,msg:chore(graph): session count now renders in the current metric colour,cdate:2024-10-15 18:22:41 +0100,adate:2024-10-15 18:22:41 +0100
+hash:5408eb4,parents:adaf340,branch:refs/tags/v2.0.0,msg:chore(graph): tweaked healthy ranges and added translations for session count,cdate:2024-10-15 16:52:42 +0100,adate:2024-10-15 16:52:42 +0100
+hash:adaf340,parents:95dcf41,branch:refs/tags/v2.0.0,msg:chore(styles): added antd dark theme and added total sessions to top left,cdate:2024-10-15 16:45:46 +0100,adate:2024-10-15 16:45:46 +0100
+hash:95dcf41,parents:28293da,branch:refs/tags/v2.0.0,msg:feat(graph): added label to typical session area and added missing jp translations,cdate:2024-10-15 16:37:33 +0100,adate:2024-10-15 16:37:33 +0100
+hash:28293da,parents:c27bf01,branch:refs/tags/v2.0.0,msg:chore(graph): removed enum index signatures in sleep graph datum interface and removed casting,cdate:2024-10-15 16:26:56 +0100,adate:2024-10-15 16:26:56 +0100
+hash:c27bf01,parents:eb84e73,branch:refs/tags/v2.0.0,msg:feat(graph): added custom domain and ticks so the y domain is wrapped tighter around the value range,cdate:2024-10-15 16:07:11 +0100,adate:2024-10-15 16:07:11 +0100
+hash:eb84e73,parents:1a19a6a,branch:refs/tags/v2.0.0,msg:feat(graph): 2d line graph now renders right up against the left viewport edge,cdate:2024-10-15 15:45:53 +0100,adate:2024-10-15 15:45:53 +0100
+hash:1a19a6a,parents:e28e441,branch:refs/tags/v2.0.0,msg:chore(graph): extracted typical sleep session hook for area data,cdate:2024-10-15 14:40:52 +0100,adate:2024-10-15 14:40:52 +0100
+hash:e28e441,parents:7f58f11,branch:refs/tags/v2.0.0,msg:chore(graph): encapsulated properties into linear regression hook,cdate:2024-10-15 14:33:17 +0100,adate:2024-10-15 14:33:17 +0100
+hash:7f58f11,parents:b854f35,branch:refs/tags/v2.0.0,msg:chore(graph): moved linear regression line delta reference lines into hook,cdate:2024-10-15 14:30:56 +0100,adate:2024-10-15 14:30:56 +0100
+hash:b854f35,parents:ddc31b5,branch:refs/tags/v2.0.0,msg:feat(graph): added typical sleep session reference areas,cdate:2024-10-15 14:24:51 +0100,adate:2024-10-15 14:24:51 +0100
+hash:ddc31b5,parents:7e82560,branch:refs/tags/v2.0.0,msg:feat(graph): added reference lines to show regression delta,cdate:2024-10-15 13:40:21 +0100,adate:2024-10-15 13:40:21 +0100
+hash:7e82560,parents:55c405d,branch:refs/tags/v2.0.0,msg:chore(hooks): moved more graph styling logic into a hook,cdate:2024-10-15 11:06:18 +0100,adate:2024-10-15 11:06:18 +0100
+hash:4bebfe5,parents:7d32883,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@71254127053aea2018fab52895ce039a5bcb607c 🚀,cdate:2024-10-15 09:31:40 +0000,adate:2024-10-15 09:31:40 +0000
+hash:7125412,parents:3cf1df4 55c405d,branch:refs/tags/v1.0.0,msg:Merge pull request #8 from TomPlum/develop,cdate:2024-10-15 10:31:01 +0100,adate:2024-10-15 10:31:01 +0100
+hash:55c405d,parents:758174d,branch:refs/tags/v2.0.0,msg:feat(routing): removed internal use of /sleep in favour of / since gh-pages hosts at /sleep anyway,cdate:2024-10-15 10:29:58 +0100,adate:2024-10-15 10:29:58 +0100
+hash:758174d,parents:b081373,branch:refs/tags/v2.0.0,msg:feat(graph): encapsulated more graph styling into custom hook and added active dot radius value,cdate:2024-10-15 10:25:57 +0100,adate:2024-10-15 10:25:57 +0100
+hash:b081373,parents:e50f872,branch:refs/tags/v2.0.0,msg:chore(state): hoisted graph data to react context and fixed render instability,cdate:2024-10-15 10:04:16 +0100,adate:2024-10-15 10:04:16 +0100
+hash:e50f872,parents:5b5f0a9,branch:refs/tags/v2.0.0,msg:chore(state): hoisted sleep page state management to react context,cdate:2024-10-15 09:42:31 +0100,adate:2024-10-15 09:42:31 +0100
+hash:5b5f0a9,parents:9e6b6d9,branch:refs/tags/v2.0.0,msg:feat(graph): graph config now render translucent and becomes opaque on hover,cdate:2024-10-15 09:23:48 +0100,adate:2024-10-15 09:23:48 +0100
+hash:9e6b6d9,parents:e544bc3,branch:refs/tags/v2.0.0,msg:feat(graph): lines now start on the left viewport edge and y-ticks have a background,cdate:2024-10-14 19:45:07 +0100,adate:2024-10-14 19:45:07 +0100
+hash:e544bc3,parents:d683d57,branch:refs/tags/v2.0.0,msg:feat(routing): added 404 not found page,cdate:2024-10-14 19:03:44 +0100,adate:2024-10-14 19:03:44 +0100
+hash:7d32883,parents:9744f6f,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@3cf1df49c0ef97fd2954882c882f8013d59f6c87 🚀,cdate:2024-10-14 17:38:12 +0000,adate:2024-10-14 17:38:12 +0000
+hash:3cf1df4,parents:67d24a6 d683d57,branch:refs/tags/v1.0.0,msg:Merge pull request #7 from TomPlum/develop,cdate:2024-10-14 18:37:31 +0100,adate:2024-10-14 18:37:31 +0100
+hash:d683d57,parents:3a9d56e,branch:refs/tags/v2.0.0,msg:chore(build): added vite base path for gh-pages deployment,cdate:2024-10-14 18:37:03 +0100,adate:2024-10-14 18:37:03 +0100
+hash:9744f6f,parents:e74f89d,branch:refs/remotes/origin/gh-pages,msg:Deploying to gh-pages from @ TomPlum/sleep@67d24a6224871536699e9ef78e8ac62a61c442f7 🚀,cdate:2024-10-14 13:57:51 +0000,adate:2024-10-14 13:57:51 +0000
+hash:e74f89d,parents:,branch:refs/remotes/origin/gh-pages,msg:Initial gh-pages commit,cdate:2024-10-14 13:57:51 +0000,adate:2024-10-14 13:57:51 +0000
+hash:67d24a6,parents:bffed4c 3a9d56e,branch:refs/tags/v1.0.0,msg:Merge pull request #6 from TomPlum/develop,cdate:2024-10-14 14:57:04 +0100,adate:2024-10-14 14:57:04 +0100
+hash:3a9d56e,parents:17b8e10,branch:refs/tags/v2.0.0,msg:chore(build): fixed build issues for release,cdate:2024-10-14 14:56:00 +0100,adate:2024-10-14 14:56:00 +0100
+hash:bffed4c,parents:fd2f791 17b8e10,branch:refs/tags/v1.0.0,msg:Merge pull request #5 from TomPlum/develop,cdate:2024-10-14 14:47:46 +0100,adate:2024-10-14 14:47:46 +0100
+hash:17b8e10,parents:fd2f791,branch:refs/tags/v2.0.0,msg:chore(ci): renamed main workflow -> release,cdate:2024-10-14 14:47:19 +0100,adate:2024-10-14 14:47:19 +0100
+hash:fd2f791,parents:b166be8 a3aad32,branch:refs/tags/v1.0.0,msg:Merge pull request #4 from TomPlum/renovate/all-minor-patch,cdate:2024-10-14 14:45:08 +0100,adate:2024-10-14 14:45:08 +0100
+hash:a3aad32,parents:b166be8,branch:refs/tags/v1.0.0,msg:chore(deps): update all non-major dependencies,cdate:2024-10-14 13:44:02 +0000,adate:2024-10-14 13:44:02 +0000
+hash:b166be8,parents:d399e92 6376640,branch:refs/tags/v1.0.0,msg:Merge pull request #2 from TomPlum/develop,cdate:2024-10-14 14:41:43 +0100,adate:2024-10-14 14:41:43 +0100
+hash:6376640,parents:30d449b,branch:refs/tags/v1.0.0,msg:chore(config): updated renovate rules, schedule and assignee,cdate:2024-10-14 14:41:24 +0100,adate:2024-10-14 14:41:24 +0100
+hash:30d449b,parents:d399e92 949b36d,branch:refs/tags/v1.0.0,msg:Merge pull request #1 from TomPlum/renovate/configure,cdate:2024-10-14 14:39:59 +0100,adate:2024-10-14 14:39:59 +0100
+hash:949b36d,parents:d399e92,branch:refs/tags/v1.0.0,msg:Add renovate.json,cdate:2024-10-14 13:37:36 +0000,adate:2024-10-14 13:37:36 +0000
+hash:d399e92,parents:96d0ac5,branch:refs/tags/v1.0.0,msg:chore(ci): added gh-pages package and added github actions main workflow,cdate:2024-10-14 10:45:28 +0100,adate:2024-10-14 10:45:28 +0100
+hash:96d0ac5,parents:1e65c1d,branch:refs/tags/v1.0.0,msg:feat(graph): extracted metric checkbox component and changed colours based on metric,cdate:2024-10-14 10:41:44 +0100,adate:2024-10-14 10:41:44 +0100
+hash:1e65c1d,parents:30dcafd,branch:refs/tags/v1.0.0,msg:feat(graph): added pie to to tooltip and extracted graph styles hook,cdate:2024-10-14 10:07:12 +0100,adate:2024-10-14 10:07:12 +0100
+hash:30dcafd,parents:72b1f86,branch:refs/tags/v1.0.0,msg:chore(graph): minor improvements to graph formatting & styling,cdate:2024-10-14 09:28:43 +0100,adate:2024-10-14 09:28:43 +0100
+hash:72b1f86,parents:2115a48,branch:refs/tags/v1.0.0,msg:chore(graph): extracted sleep data 2d hook,cdate:2024-10-14 07:55:23 +0100,adate:2024-10-14 07:55:23 +0100
+hash:2115a48,parents:0bf74b1,branch:refs/tags/v1.0.0,msg:feat(graph): increased axis tick stroke width,cdate:2024-10-14 07:45:57 +0100,adate:2024-10-14 07:45:57 +0100
+hash:0bf74b1,parents:5a6b882,branch:refs/tags/v1.0.0,msg:feat(graph): added custom x-axis tick component,cdate:2024-10-14 07:43:44 +0100,adate:2024-10-14 07:43:44 +0100
+hash:5a6b882,parents:9cfcece,branch:refs/tags/v1.0.0,msg:feat(graph): tweaked colours and now stroke width is dynamic based on dataset size,cdate:2024-10-13 16:27:42 +0100,adate:2024-10-13 16:27:42 +0100
+hash:9cfcece,parents:603fbbc,branch:refs/tags/v1.0.0,msg:feat(routing): sleep route now adds default query params if not present,cdate:2024-10-13 16:19:46 +0100,adate:2024-10-13 16:19:46 +0100
+hash:603fbbc,parents:f892161,branch:refs/tags/v1.0.0,msg:chore(test): fixed failing data test and added eslint stylistic plugin,cdate:2024-10-13 15:24:07 +0100,adate:2024-10-13 15:24:07 +0100
+hash:f892161,parents:9df8d6c,branch:refs/tags/v1.0.0,msg:feat(graph): added custom tooltip and filtered out data with no breakdown,cdate:2024-10-13 12:31:54 +0100,adate:2024-10-13 12:31:54 +0100
+hash:9df8d6c,parents:bb8d532,branch:refs/tags/v1.0.0,msg:chore(refactor): extracted custom y-axis tick component into its own file,cdate:2024-10-13 11:26:08 +0100,adate:2024-10-13 11:26:08 +0100
+hash:bb8d532,parents:7955da7,branch:refs/tags/v1.0.0,msg:chore(state): hoisted sleep data state management into a react context,cdate:2024-10-13 11:19:26 +0100,adate:2024-10-13 11:19:26 +0100
+hash:7955da7,parents:5109e9d,branch:refs/tags/v1.0.0,msg:feat(graph): formatting and styling improvements to 2d graph,cdate:2024-10-12 22:14:12 +0100,adate:2024-10-12 22:14:12 +0100
+hash:5109e9d,parents:d160456,branch:refs/tags/v1.0.0,msg:feat(routing): added custom query params hook and serialised date range in query params,cdate:2024-10-12 22:01:25 +0100,adate:2024-10-12 22:01:25 +0100
+hash:d160456,parents:a09ca48,branch:refs/tags/v1.0.0,msg:feat(routing): added router, new base URL and serialised metric in query param,cdate:2024-10-12 21:41:17 +0100,adate:2024-10-12 21:41:17 +0100
+hash:a09ca48,parents:c2ed208,branch:refs/tags/v1.0.0,msg:feat(graph): first pass at linear regression line,cdate:2024-10-12 19:54:44 +0100,adate:2024-10-12 19:54:44 +0100
+hash:c2ed208,parents:4522569,branch:refs/tags/v1.0.0,msg:feat(graph): added date range picker,cdate:2024-10-12 19:10:12 +0100,adate:2024-10-12 19:10:12 +0100
+hash:4522569,parents:eb371fa,branch:refs/tags/v1.0.0,msg:feat(graph): added colours to each sleep metric line,cdate:2024-10-12 17:05:28 +0100,adate:2024-10-12 17:05:28 +0100
+hash:eb371fa,parents:6530e27,branch:refs/tags/v1.0.0,msg:feat(graph): added metric configuration panel,cdate:2024-10-12 16:52:25 +0100,adate:2024-10-12 16:52:25 +0100
+hash:6530e27,parents:d94993e,branch:refs/tags/v1.0.0,msg:feat(graph): basic first pass at a 2D graph with recharts,cdate:2024-10-12 10:55:38 +0100,adate:2024-10-12 10:55:38 +0100
+hash:d94993e,parents:72de5c9,branch:refs/tags/v1.0.0,msg:feat(graph): added awake time to the 3d graph,cdate:2024-10-07 19:38:04 +0100,adate:2024-10-07 19:38:04 +0100
+hash:72de5c9,parents:7e68687,branch:refs/tags/v1.0.0,msg:feat(graph): first pass of rendering a 2D sleep quality graph in 3D,cdate:2024-10-06 17:11:49 +0100,adate:2024-10-06 17:11:49 +0100
+hash:7e68687,parents:ab657c9,branch:refs/tags/v1.0.0,msg:feat(data): mapped pillow data into custom domain object and parsed raw values,cdate:2024-10-06 16:31:02 +0100,adate:2024-10-06 16:31:02 +0100
+hash:ab657c9,parents:b3e99e8,branch:refs/tags/v1.0.0,msg:feat(data): started parsing pillow CSV data,cdate:2024-10-06 12:47:24 +0100,adate:2024-10-06 12:47:24 +0100
+hash:b3e99e8,parents:1e5c110,branch:refs/tags/v1.0.0,msg:chore(config): added react-force-graph and vitest dependencies + pillow data,cdate:2024-10-06 10:42:01 +0100,adate:2024-10-06 10:42:01 +0100
+hash:1e5c110,parents:05d1859,branch:refs/tags/v1.0.0,msg:chore(config): added placeholder page title and favicon,cdate:2024-10-06 10:34:20 +0100,adate:2024-10-06 10:34:20 +0100
+hash:05d1859,parents:,branch:refs/tags/v1.0.0,msg:chore(setup): ran vite@latest with react-swc-ts template,cdate:2024-10-06 09:36:22 +0100,adate:2024-10-06 09:36:22 +0100

@@ -65,6 +65,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html'],
       cleanOnRerun: true,
+      clean: true,
       reportOnFailure: true,
       include: [
         'src'

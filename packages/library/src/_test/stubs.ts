@@ -1,11 +1,11 @@
-import { Commit } from 'types'
+import { Commit, GitLogEntry } from 'types'
 import { GitContextBag } from 'context/GitContext'
 import DataIntervalTree from 'node-interval-tree'
 import { ThemeFunctions } from 'hooks/useTheme'
 import { GraphData } from 'data'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 
-export const commit = (commit?: Partial<Commit>) => ({
+export const commit = (commit?: Partial<Commit>): Commit => ({
   hash: 'aa2c148',
   committerDate: '2025-02-24T22:06:22+00:00',
   authorDate: '2025-02-22 22:06:22 +0000',
@@ -19,6 +19,16 @@ export const commit = (commit?: Partial<Commit>) => ({
   ],
   isBranchTip: false,
   ...commit
+})
+
+export const entry = (entry?: Partial<GitLogEntry>): GitLogEntry => ({
+  hash: 'aa2c148',
+  committerDate: '2025-02-24T22:06:22+00:00',
+  authorDate: '2025-02-22 22:06:22 +0000',
+  message: 'feat(graph): example commit message',
+  parents: [],
+  branch: 'refs/remotes/origin/gh-pages',
+  ...entry
 })
 
 export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({

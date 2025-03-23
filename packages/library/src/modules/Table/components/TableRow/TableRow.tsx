@@ -8,7 +8,7 @@ import { useSelectCommit } from 'hooks/useSelectCommit'
 import dayjs from 'dayjs'
 import { ROW_HEIGHT } from 'constants/constants'
 
-export const TableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) => {
+export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTableRowProps) => {
   const {
     textColour,
     hoverColour,
@@ -79,25 +79,31 @@ export const TableRow = ({ commit, isPlaceholder }: GitLogTableRowProps) => {
 
   return (
     <div
+      {...props}
       key={commit.hash}
       className={styles.row}
-      style={classes?.logTableStyles?.tr}
+      style={classes?.tableStyles?.tr}
+      id={`react-git-log-table-row-${index}`}
       onMouseOut={selectCommitHandler.onMouseOut}
-      data-testid={`git-log-table-row-${commit.hash}`}
+      data-testid={`react-git-log-table-row-${index}`}
       onClick={() => selectCommitHandler.onClick(commit)}
       onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
     >
       <div
         title={commit.message}
-        style={{ ...tableDataStyle, ...backgroundStyles }}
         className={classNames(styles.td, styles.message)}
+        id={`react-git-log-table-data-commit-message-${index}`}
+        data-testid={`react-git-log-table-data-commit-message-${index}`}
+        style={{ ...tableDataStyle, ...backgroundStyles, ...classes?.tableStyles?.td }}
       >
         {commit.message}
       </div>
 
       <div
         className={classNames(styles.td, styles.date)}
-        style={{ ...tableDataStyle, ...backgroundStyles }}>
+        id={`react-git-log-table-data-timestamp-${index}`}
+        data-testid={`react-git-log-table-data-timestamp-${index}`}
+        style={{ ...tableDataStyle, ...backgroundStyles, ...classes?.tableStyles?.td }}>
         {commit.hash === 'index' || isPlaceholder ? '-' : formatTimestamp(commit.committerDate)}
       </div>
     </div>

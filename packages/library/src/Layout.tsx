@@ -18,6 +18,8 @@ export const Layout = () => {
 
   return (
     <div
+      id='react-git-log'
+      data-testid='react-git-log'
       style={classes?.containerStyles}
       className={classNames(styles.container, classes?.containerClass)}
     >

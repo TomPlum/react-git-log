@@ -1,13 +1,16 @@
 {
   "name": "@tomplum/react-git-log",
+  "author": "Thomas Plumpton",
   "repository": "https://github.com/TomPlum/react-git-log",
   "description": "A flexible, themable, React component for visualising Git commit history, branch and tag metadata.",
-  "version": "1.1.1",
+  "version": "1.1.2",
+  "license": "Apache-2.0",
   "type": "module",
   "main": "dist/react-git-log.umd.js",
   "module": "dist/react-git-log.es.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "types": "./dist/index.d.ts",
     "import": "./dist/react-git-log.es.js",
     "require": "./dist/react-git-log.umd.js"
   },

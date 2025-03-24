@@ -1,5 +1,4 @@
 import styles from './Table.module.scss'
-import classNames from 'classnames'
 import dayjs from 'dayjs'
 import { useMemo } from 'react'
 import { Commit } from 'types'
@@ -9,9 +8,7 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 import { useGitContext } from 'context/GitContext'
 import { usePlaceholderData } from 'modules/Graph/hooks/usePlaceholderData'
 import { TableRow } from 'modules/Table/components/TableRow'
-import { ROW_HEIGHT } from 'constants/constants'
-import { HEADER_ROW_HEIGHT, TABLE_MARGIN_TOP } from 'modules/Table/types'
-import { placeholderCommits } from 'modules/Graph/hooks/usePlaceholderData/data'
+import { TableContainer } from 'modules/Table/components/TableContainer'
 
 dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
@@ -24,13 +21,12 @@ export const Table = () => {
     classes,
     graphData,
     paging,
-    rowSpacing,
     indexCommit
   } = useGitContext()
 
   const { placeholderData } = usePlaceholderData()
 
-  const logData = useMemo<Commit[]>(() => {
+  const tableData = useMemo<Commit[]>(() => {
     const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
 
     if (paging.isIndexVisible) {
@@ -40,56 +36,12 @@ export const Table = () => {
     return data
   }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
 
-  const gridTemplateRows = useMemo(() => {
-    // If no commits are visible as we're showing
-    // the placeholder data for the skeleton view,
-    // then use that size, else just use the log data length.
-    const commitsVisible = logData.length > 0
-      ? logData.length
-      : placeholderCommits.length
-
-    // If the table headers are turned off, then we simply
-    // repeat the same row height for all rows.
-    if (!showTableHeaders) {
-      return `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
-    }
-
-    // With no row spacing, the header row height lines
-    // up with the first data row fine. But when the row
-    // spacing is increased, we must subtract half of it
-    // from the height of the first header row to counteract
-    // the gap between the header and the first data row.
-    const headerRowHeight = HEADER_ROW_HEIGHT - (rowSpacing / 2)
-
-    // All other rows (with data) get a fixed height.
-    const remainingRowsHeight = `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
-
-    return `${headerRowHeight}px ${remainingRowsHeight}`
-  }, [logData.length, rowSpacing, showTableHeaders])
-
-  const marginTop = useMemo(() => {
-    if (showTableHeaders) {
-      return TABLE_MARGIN_TOP
-    }
-
-    return (rowSpacing / 2) + TABLE_MARGIN_TOP
-  }, [rowSpacing, showTableHeaders])
 
   return (
-    <div
-      id='react-git-log-table'
-      data-testid='react-git-log-table'
-      style={{
-        ...classes?.tableStyles?.table,
-        marginTop,
-        gridTemplateRows,
-        rowGap: rowSpacing
-      }}
-      className={classNames(styles.table, classes?.tableClass)}
-    >
+    <TableContainer rowQuantity={tableData.length}>
       {showTableHeaders && (
         <div
-          className={styles.row}
+          className={styles.head}
           id='react-git-log-table-head'
           style={classes?.tableStyles?.thead}
           data-testid='react-git-log-table-head'
@@ -123,7 +75,7 @@ export const Table = () => {
         </div>
       )}
 
-      {logData.length == 0 && placeholderData.map(({ commit }, i) => (
+      {tableData.length == 0 && placeholderData.map(({ commit }, i) => (
         <TableRow
           index={i}
           isPlaceholder
@@ -133,7 +85,7 @@ export const Table = () => {
         />
       ))}
 
-      {logData.map((commit, i) => (
+      {tableData.map((commit, i) => (
         <TableRow
           index={i}
           commit={commit}
@@ -141,6 +93,6 @@ export const Table = () => {
           data-testid={`react-git-log-table-row-${i}`}
         />
       ))}
-    </div>
+    </TableContainer>
   )
 }

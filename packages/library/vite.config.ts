@@ -11,7 +11,9 @@ export default defineConfig({
     react(),
     tsconfigPaths(),
     svgr(),
-    dts(),
+    dts({
+      tsconfigPath: 'tsconfig.build.json'
+    }),
     libInjectCss()
   ],
   resolve: {

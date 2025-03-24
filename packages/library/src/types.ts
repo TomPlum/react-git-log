@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { NodeTheme, ThemeColours, ThemeMode } from 'hooks/useTheme'
+import { NodeTheme, ThemeColours, ThemeMode } from './hooks/useTheme/types'
 
 export interface GitLogProps {
   /**

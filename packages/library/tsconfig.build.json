@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/index.ts",
+    "src/types.ts",
+    "src/GitLog.tsx",
+    "src/types/*",
+    "src/hooks/useTheme/types.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "vite.config.ts",
+    "tsconfig.json",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/*.spec.tsx",
+    "src/*.spec.ts",
+    "src/**/__tests__",
+    "src/_test/**"
+  ]
+}

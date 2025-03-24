@@ -42,8 +42,7 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/_test/vitest.setup.ts"
+    "src/**/*.tsx"
   ],
   "exclude": [
     "node_modules",

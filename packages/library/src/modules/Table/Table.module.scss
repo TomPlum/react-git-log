@@ -1,22 +1,11 @@
-.table {
-  display: grid;
-  grid-template-columns: minmax(350px, 4fr) minmax(100px, 1fr) 195px;
+.head {
+  display: contents;
+}
 
-  .row {
-    display: contents;
-  }
+.header:first-child {
+  padding-left: 20px;
+}
 
-  .header:first-child {
-    padding-left: 20px;
-  }
-
-  .header {
-    font-weight: 600;
-  }
-
-  >.thead >.tr >.th {
-    text-align: left;
-    padding-bottom: 22px;
-    box-sizing: border-box;
-  }
+.header {
+  font-weight: 600;
 }

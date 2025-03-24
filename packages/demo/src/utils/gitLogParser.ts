@@ -3,7 +3,7 @@ import { GitLogEntry } from '@tomplum/react-git-log'
 export const parseGitLogOutput = (output: string): GitLogEntry[] => {
   const commits = output.trim().split('\n')
   const logRegex =
-    /^hash:(?<hash>\S+),parents:(?<parents>.*?),branch:(?<branch>\S*),msg:(?<message>.+),cdate:(?<committerDate>[\d\- :+]+),adate:(?<authorDate>[\d\- :+]+)/
+    /^hash:(?<hash>\S+),parents:(?<parents>.*?),branch:(?<branch>\S*),msg:(?<message>.+),cdate:(?<committerDate>[\d\- :+]+),adate:(?<authorDate>[\d\- :+]+),author:(?<author>.+),email:(?<email>.+)/
 
   return commits
     .map(commit => {
@@ -17,6 +17,13 @@ export const parseGitLogOutput = (output: string): GitLogEntry[] => {
           message: match.groups.message,
           committerDate: match.groups.committerDate.trim(),
           authorDate: match.groups.authorDate.trim(),
+          author:
+            match.groups.author || match.groups.email
+              ? {
+                name: match.groups.author?.trim() || undefined,
+                email: match.groups.email?.trim() || undefined,
+              }
+              : undefined
         }
       }
 

@@ -209,13 +209,13 @@ export interface Commit {
   /**
    * The unique hash (SHA) identifying the commit.
    */
-  hash: string;
+  hash: string
 
   /**
    * An array of parent commit hashes (SHA) for this commit.
    * A commit can have multiple parents in the case of merges.
    */
-  parents: string[];
+  parents: string[]
 
   /**
    * An array of child commit hashes (SHA) that
@@ -223,24 +223,30 @@ export interface Commit {
    *
    * This helps track descendants in the commit graph.
    */
-  children: string[];
+  children: string[]
 
   /**
    * The name of the branch this commit belongs to.
    */
-  branch: string;
+  branch: string
 
   /**
    * The commit message describing the changes
    * introduced by this commit.
    */
-  message: string;
+  message: string
+
+  /**
+   * Details of the user who authored
+   * the commit.
+   */
+  author?: CommitAuthor
 
   /**
    * The date and time when the commit was
    * made by the author, in ISO 8601 format.
    */
-  authorDate?: string;
+  authorDate?: string
 
   /**
    * The date and time when the commit was
@@ -249,13 +255,28 @@ export interface Commit {
    * This may differ from `authorDate` in cases
    * like rebases or amend commits.
    */
-  committerDate: string;
+  committerDate: string
 
   /**
    * Indicates whether this commit is the
    * tip (latest commit) of its branch.
    */
-  isBranchTip: boolean;
+  isBranchTip: boolean
+}
+
+/**
+ * Represents the author of a Git commit.
+ */
+export interface CommitAuthor {
+  /**
+   * The name of the commit author.
+   */
+  name?: string;
+
+  /**
+   * The email address of the commit author.
+   */
+  email?: string;
 }
 
 /**
@@ -265,12 +286,12 @@ export interface GitLogEntry {
   /**
    * The unique hash identifier of the commit.
    */
-  hash: string;
+  hash: string
 
   /**
    * The name of the branch this commit belongs to.
    */
-  branch: string;
+  branch: string
 
   /**
    * An array of parent commit hashes.
@@ -278,24 +299,30 @@ export interface GitLogEntry {
    * - If this commit is a merge commit, it will have multiple parents.
    * - If this commit is an initial commit, it will have no parents.
    */
-  parents: string[];
+  parents: string[]
 
   /**
    * The commit message describing the changes made in this commit.
    */
-  message: string;
+  message: string
+
+  /**
+   * Details of the user who authored
+   * the commit.
+   */
+  author?: CommitAuthor
 
   /**
    * The date and time when the commit was applied by the committer.
    *
    * This is typically the timestamp when the commit was finalized.
    */
-  committerDate: string;
+  committerDate: string
 
   /**
    * The date and time when the commit was originally authored.
    *
    * This may differ from `committerDate` if the commit was rebased or amended.
    */
-  authorDate?: string;
+  authorDate?: string
 }

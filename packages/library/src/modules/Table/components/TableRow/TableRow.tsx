@@ -70,6 +70,33 @@ export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTable
     return commitDate.fromNow()
   }, [timestampFormat])
 
+  const author = useMemo(() => {
+    if (commit.author && commit.author.name) {
+      return commit.author.name
+    }
+
+    return ''
+  }, [commit.author])
+
+  const authorTitle = useMemo(() => {
+    if (commit.author) {
+      if (commit.author.name && commit.author.name) {
+        return `${commit.author.name} (${commit.author.email})`
+      }
+
+      if (commit.author.name && !commit.author.email) {
+        return commit.author.name
+      }
+
+      if (commit.author.email && !commit.author.name) {
+        return commit.author.email
+      }
+    }
+
+    return undefined
+  }, [commit.author])
+
+  const shouldRenderHyphenValue = commit.hash === 'index' || isPlaceholder
   const shouldReduceOpacity = !isPlaceholder && (isMergeCommit || commit.hash === 'index')
 
   const tableDataStyle = {
@@ -99,11 +126,21 @@ export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTable
       </div>
 
       <div
+        title={authorTitle}
+        className={classNames(styles.td, styles.author)}
+        id={`react-git-log-table-data-author-${index}`}
+        data-testid={`react-git-log-table-data-author-${index}`}
+        style={{ ...tableDataStyle, ...backgroundStyles, ...classes?.tableStyles?.td }}
+      >
+        {shouldRenderHyphenValue ? '-' : author}
+      </div>
+
+      <div
         className={classNames(styles.td, styles.date)}
         id={`react-git-log-table-data-timestamp-${index}`}
         data-testid={`react-git-log-table-data-timestamp-${index}`}
         style={{ ...tableDataStyle, ...backgroundStyles, ...classes?.tableStyles?.td }}>
-        {commit.hash === 'index' || isPlaceholder ? '-' : formatTimestamp(commit.committerDate)}
+        {shouldRenderHyphenValue ? '-' : formatTimestamp(commit.committerDate)}
       </div>
     </div>
   )

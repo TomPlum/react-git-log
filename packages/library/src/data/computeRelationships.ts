@@ -18,6 +18,7 @@ export const computeRelationships = (entries: GitLogEntry[]) => {
       message: entry.message,
       parents: entry.parents,
       branch: entry.branch,
+      author: entry.author
     })
   })
 

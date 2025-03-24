@@ -26,6 +26,10 @@ export class Table {
     return this.getElement('react-git-log-table-header-timestamp', shouldExist)
   }
 
+  public authorHeader<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {
+    return this.getElement('react-git-log-table-header-author', shouldExist)
+  }
+
   public row<T extends boolean = true>({ row, shouldExist }: HasRow<T> = {} as HasRow<T>) {
     return this.getElement(`react-git-log-table-row-${row}`, shouldExist)
   }
@@ -36,6 +40,10 @@ export class Table {
 
   public timestampData<T extends boolean = true>({ row, shouldExist }: HasRow<T> = {} as HasRow<T>) {
     return this.getElement(`react-git-log-table-data-timestamp-${row}`, shouldExist)
+  }
+
+  public authorData<T extends boolean = true>({ row, shouldExist }: HasRow<T> = {} as HasRow<T>) {
+    return this.getElement(`react-git-log-table-data-author-${row}`, shouldExist)
   }
 }
 

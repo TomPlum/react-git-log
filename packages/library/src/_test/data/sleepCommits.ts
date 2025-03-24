@@ -2,14 +2,34 @@ import { Commit } from 'types'
 
 export const sleepCommits: Commit[] = [
   {
-    hash: 'be2b8a8',
-    committerDate: '2025-03-20 02:44:38 +0000',
-    authorDate: '2025-03-20 02:44:38 +0000',
+    hash: '2079fb6',
+    committerDate: '2025-03-24 17:03:58 +0000',
+    authorDate: '2025-03-24 17:03:58 +0000',
     message: 'fix(deps): update all non-major dependencies',
     parents: [
       '1352f4c'
     ],
     branch: 'refs/remotes/origin/renovate/all-minor-patch',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
+    children: [],
+    isBranchTip: true
+  },
+  {
+    hash: '6d76309',
+    committerDate: '2025-03-22 02:47:00 +0000',
+    authorDate: '2025-03-22 02:47:00 +0000',
+    message: 'fix(deps): update dependency @ant-design/icons to v6',
+    parents: [
+      '1352f4c'
+    ],
+    branch: 'refs/remotes/origin/renovate/ant-design-icons-6.x',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [],
     isBranchTip: true
   },
@@ -22,6 +42,10 @@ export const sleepCommits: Commit[] = [
       '786b044'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [],
     isBranchTip: true
   },
@@ -34,6 +58,10 @@ export const sleepCommits: Commit[] = [
       '81ce807'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [],
     isBranchTip: true
   },
@@ -46,6 +74,10 @@ export const sleepCommits: Commit[] = [
       '1352f4c'
     ],
     branch: 'refs/remotes/origin/renovate/major-react-monorepo',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [],
     isBranchTip: true
   },
@@ -58,6 +90,10 @@ export const sleepCommits: Commit[] = [
       '1352f4c'
     ],
     branch: 'refs/remotes/origin/renovate/major-react-router-monorepo',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [],
     isBranchTip: true
   },
@@ -71,8 +107,13 @@ export const sleepCommits: Commit[] = [
       '1d594ea'
     ],
     branch: 'refs/remotes/origin/release',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
-      'be2b8a8',
+      '2079fb6',
+      '6d76309',
       'd5d320b',
       '6c59bca'
     ],
@@ -87,6 +128,10 @@ export const sleepCommits: Commit[] = [
       'e059c28'
     ],
     branch: 'refs/remotes/origin/release',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '1352f4c'
     ],
@@ -101,6 +146,10 @@ export const sleepCommits: Commit[] = [
       '0776115'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c88f0b9'
     ],
@@ -115,6 +164,10 @@ export const sleepCommits: Commit[] = [
       '0a0a44d'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '786b044'
     ],
@@ -129,6 +182,10 @@ export const sleepCommits: Commit[] = [
       '769e569'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0776115'
     ],
@@ -143,6 +200,10 @@ export const sleepCommits: Commit[] = [
       '02af2b4'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0a0a44d'
     ],
@@ -157,6 +218,10 @@ export const sleepCommits: Commit[] = [
       'de2ac76'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '769e569'
     ],
@@ -171,6 +236,10 @@ export const sleepCommits: Commit[] = [
       'd81f45e'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '02af2b4'
     ],
@@ -185,6 +254,10 @@ export const sleepCommits: Commit[] = [
       '4a5f077'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'de2ac76'
     ],
@@ -199,6 +272,10 @@ export const sleepCommits: Commit[] = [
       '33d2930'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd81f45e'
     ],
@@ -213,6 +290,10 @@ export const sleepCommits: Commit[] = [
       '6671923'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4a5f077'
     ],
@@ -227,6 +308,10 @@ export const sleepCommits: Commit[] = [
       'a8bfc71'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '33d2930'
     ],
@@ -241,6 +326,10 @@ export const sleepCommits: Commit[] = [
       '69e20aa'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6671923'
     ],
@@ -255,6 +344,10 @@ export const sleepCommits: Commit[] = [
       'ec397ea'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a8bfc71'
     ],
@@ -269,6 +362,10 @@ export const sleepCommits: Commit[] = [
       '2c26dfb'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '69e20aa'
     ],
@@ -283,6 +380,10 @@ export const sleepCommits: Commit[] = [
       '3dc9b40'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ec397ea'
     ],
@@ -297,6 +398,10 @@ export const sleepCommits: Commit[] = [
       '8c8952a'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2c26dfb'
     ],
@@ -311,6 +416,10 @@ export const sleepCommits: Commit[] = [
       'a267aea'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3dc9b40'
     ],
@@ -325,6 +434,10 @@ export const sleepCommits: Commit[] = [
       '9994eec'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8c8952a'
     ],
@@ -339,6 +452,10 @@ export const sleepCommits: Commit[] = [
       '52aa9dd'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a267aea'
     ],
@@ -353,6 +470,10 @@ export const sleepCommits: Commit[] = [
       '18088d2'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9994eec'
     ],
@@ -367,6 +488,10 @@ export const sleepCommits: Commit[] = [
       '0c202af'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '52aa9dd'
     ],
@@ -381,6 +506,10 @@ export const sleepCommits: Commit[] = [
       'cf56b70'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '18088d2'
     ],
@@ -395,6 +524,10 @@ export const sleepCommits: Commit[] = [
       'b61aeed'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0c202af'
     ],
@@ -409,6 +542,10 @@ export const sleepCommits: Commit[] = [
       'e059c28'
     ],
     branch: 'refs/heads/renovate/major-react-monorepo',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [],
     isBranchTip: true
   },
@@ -421,6 +558,10 @@ export const sleepCommits: Commit[] = [
       '2d173ca'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'cf56b70'
     ],
@@ -435,6 +576,10 @@ export const sleepCommits: Commit[] = [
       'f2d49cf'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '26130ea'
     ],
@@ -450,6 +595,10 @@ export const sleepCommits: Commit[] = [
       'e059c28'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b61aeed'
     ],
@@ -465,6 +614,10 @@ export const sleepCommits: Commit[] = [
       '867c511'
     ],
     branch: 'refs/heads/release',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1352f4c',
       '1d594ea',
@@ -482,6 +635,10 @@ export const sleepCommits: Commit[] = [
       '675127e'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2d173ca'
     ],
@@ -496,6 +653,10 @@ export const sleepCommits: Commit[] = [
       '017e506'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '51ba1e7'
     ],
@@ -510,6 +671,10 @@ export const sleepCommits: Commit[] = [
       'ff018dd'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '675127e'
     ],
@@ -524,6 +689,10 @@ export const sleepCommits: Commit[] = [
       'f28088d'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '017e506'
     ],
@@ -538,6 +707,10 @@ export const sleepCommits: Commit[] = [
       'f7cd757'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ff018dd'
     ],
@@ -552,6 +725,10 @@ export const sleepCommits: Commit[] = [
       'ea5a998'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f28088d'
     ],
@@ -566,6 +743,10 @@ export const sleepCommits: Commit[] = [
       'efe3dd6'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f7cd757'
     ],
@@ -580,6 +761,10 @@ export const sleepCommits: Commit[] = [
       '30ee0ba'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '81ce807'
     ],
@@ -595,6 +780,10 @@ export const sleepCommits: Commit[] = [
       'efe3dd6'
     ],
     branch: 'refs/tags/v2.4.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e059c28'
     ],
@@ -609,6 +798,10 @@ export const sleepCommits: Commit[] = [
       'd524100'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ea5a998',
       '0b78e07'
@@ -624,6 +817,10 @@ export const sleepCommits: Commit[] = [
       '50250a9'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'efe3dd6'
     ],
@@ -638,6 +835,10 @@ export const sleepCommits: Commit[] = [
       'bb950c2'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd524100'
     ],
@@ -652,6 +853,10 @@ export const sleepCommits: Commit[] = [
       '432fd9c'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '50250a9'
     ],
@@ -667,6 +872,10 @@ export const sleepCommits: Commit[] = [
       '7355361'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'bb950c2'
     ],
@@ -681,6 +890,10 @@ export const sleepCommits: Commit[] = [
       'b45bf05'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '432fd9c'
     ],
@@ -695,6 +908,10 @@ export const sleepCommits: Commit[] = [
       '6beb2d1'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6115d5f'
     ],
@@ -709,6 +926,10 @@ export const sleepCommits: Commit[] = [
       '2bc6652'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b45bf05'
     ],
@@ -723,6 +944,10 @@ export const sleepCommits: Commit[] = [
       'ab51db5'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6beb2d1'
     ],
@@ -737,6 +962,10 @@ export const sleepCommits: Commit[] = [
       '165b754'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2bc6652'
     ],
@@ -751,6 +980,10 @@ export const sleepCommits: Commit[] = [
       'eff7491'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ab51db5'
     ],
@@ -765,6 +998,10 @@ export const sleepCommits: Commit[] = [
       'aa2c148'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f2d49cf'
     ],
@@ -780,6 +1017,10 @@ export const sleepCommits: Commit[] = [
       'eff7491'
     ],
     branch: 'refs/tags/v2.3.1',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0b78e07',
       '432fd9c'
@@ -795,6 +1036,10 @@ export const sleepCommits: Commit[] = [
       '127dd9c'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '165b754',
       '7355361'
@@ -810,6 +1055,10 @@ export const sleepCommits: Commit[] = [
       '0964b7d'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'eff7491'
     ],
@@ -824,6 +1073,10 @@ export const sleepCommits: Commit[] = [
       'f4ef8e9'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '127dd9c'
     ],
@@ -838,6 +1091,10 @@ export const sleepCommits: Commit[] = [
       '5510915'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0964b7d'
     ],
@@ -852,6 +1109,10 @@ export const sleepCommits: Commit[] = [
       'afdb263'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '30ee0ba'
     ],
@@ -867,6 +1128,10 @@ export const sleepCommits: Commit[] = [
       '575887a'
     ],
     branch: 'refs/tags/v2.3.1',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7355361'
     ],
@@ -882,6 +1147,10 @@ export const sleepCommits: Commit[] = [
       '932be3a'
     ],
     branch: 'refs/tags/v2.3.1',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '515eaa9'
     ],
@@ -897,6 +1166,10 @@ export const sleepCommits: Commit[] = [
       'f687c53'
     ],
     branch: 'refs/tags/v2.3.1',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '88a3ca2'
     ],
@@ -911,6 +1184,10 @@ export const sleepCommits: Commit[] = [
       '202237c'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f4ef8e9'
     ],
@@ -925,6 +1202,10 @@ export const sleepCommits: Commit[] = [
       '4be118d'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5510915'
     ],
@@ -939,6 +1220,10 @@ export const sleepCommits: Commit[] = [
       '3d4d017'
     ],
     branch: 'refs/tags/v2.3.1',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       'fd93615'
     ],
@@ -953,6 +1238,10 @@ export const sleepCommits: Commit[] = [
       '3d4d017'
     ],
     branch: 'refs/tags/v2.3.1',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '515eaa9'
     ],
@@ -967,6 +1256,10 @@ export const sleepCommits: Commit[] = [
       '3d4d017'
     ],
     branch: 'refs/tags/v2.3.1',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '88a3ca2'
     ],
@@ -981,6 +1274,10 @@ export const sleepCommits: Commit[] = [
       'a338942'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '202237c'
     ],
@@ -995,6 +1292,10 @@ export const sleepCommits: Commit[] = [
       'f17afd7'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4be118d'
     ],
@@ -1009,6 +1310,10 @@ export const sleepCommits: Commit[] = [
       '3d4d017'
     ],
     branch: 'refs/heads/develop',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a338942'
     ],
@@ -1023,6 +1328,10 @@ export const sleepCommits: Commit[] = [
       'a829a48'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'aa2c148'
     ],
@@ -1038,6 +1347,10 @@ export const sleepCommits: Commit[] = [
       'f157195'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'fd93615',
       'f687c53',
@@ -1056,6 +1369,10 @@ export const sleepCommits: Commit[] = [
       '5525ed5'
     ],
     branch: 'refs/heads/release',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       'e059c28'
     ],
@@ -1070,6 +1387,10 @@ export const sleepCommits: Commit[] = [
       '8ddccd2'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'afdb263'
     ],
@@ -1084,6 +1405,10 @@ export const sleepCommits: Commit[] = [
       '5525ed5'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '3d4d017'
     ],
@@ -1099,6 +1424,10 @@ export const sleepCommits: Commit[] = [
       '081b2d3'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3d4d017',
       '867c511',
@@ -1115,6 +1444,10 @@ export const sleepCommits: Commit[] = [
       'a10ab03'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5525ed5'
     ],
@@ -1130,6 +1463,10 @@ export const sleepCommits: Commit[] = [
       '5862498'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '081b2d3'
     ],
@@ -1144,6 +1481,10 @@ export const sleepCommits: Commit[] = [
       '5db47c6'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a829a48'
     ],
@@ -1159,6 +1500,10 @@ export const sleepCommits: Commit[] = [
       'eeeb1f2'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5525ed5',
       'a10ab03'
@@ -1174,6 +1519,10 @@ export const sleepCommits: Commit[] = [
       '27d7e9e'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '5862498'
     ],
@@ -1188,6 +1537,10 @@ export const sleepCommits: Commit[] = [
       '75fea53'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a10ab03'
     ],
@@ -1203,6 +1556,10 @@ export const sleepCommits: Commit[] = [
       '27d7e9e'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '55ec23e'
     ],
@@ -1218,6 +1575,10 @@ export const sleepCommits: Commit[] = [
       '0577e9d'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5862498',
       'eeeb1f2',
@@ -1235,6 +1596,10 @@ export const sleepCommits: Commit[] = [
       'ca136bf'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '27d7e9e'
     ],
@@ -1250,6 +1615,10 @@ export const sleepCommits: Commit[] = [
       '648f6e9'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '338b505'
     ],
@@ -1265,6 +1634,10 @@ export const sleepCommits: Commit[] = [
       'b35728b'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '75fea53'
     ],
@@ -1279,6 +1652,10 @@ export const sleepCommits: Commit[] = [
       'd26bcc7'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8ddccd2'
     ],
@@ -1293,6 +1670,10 @@ export const sleepCommits: Commit[] = [
       'b35728b'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '27d7e9e'
     ],
@@ -1308,6 +1689,10 @@ export const sleepCommits: Commit[] = [
       '0f5ae74'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '988bf8d',
       'e11674d',
@@ -1324,6 +1709,10 @@ export const sleepCommits: Commit[] = [
       '09e615d'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       'b35728b'
     ],
@@ -1338,6 +1727,10 @@ export const sleepCommits: Commit[] = [
       '09e615d'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '988bf8d'
     ],
@@ -1352,6 +1745,10 @@ export const sleepCommits: Commit[] = [
       '09e615d'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '338b505'
     ],
@@ -1367,6 +1764,10 @@ export const sleepCommits: Commit[] = [
       '2b85a9e'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b35728b',
       '0f5ae74',
@@ -1384,6 +1785,10 @@ export const sleepCommits: Commit[] = [
       '5281010'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e11674d'
     ],
@@ -1399,6 +1804,10 @@ export const sleepCommits: Commit[] = [
       'b7ec825'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '72a5dbb'
     ],
@@ -1413,6 +1822,10 @@ export const sleepCommits: Commit[] = [
       '74885fc'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5db47c6'
     ],
@@ -1428,6 +1841,10 @@ export const sleepCommits: Commit[] = [
       '3d680fd'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '09e615d',
       '5281010'
@@ -1443,6 +1860,10 @@ export const sleepCommits: Commit[] = [
       '810a868'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       'b7ec825'
     ],
@@ -1457,6 +1878,10 @@ export const sleepCommits: Commit[] = [
       '810a868'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '09e615d'
     ],
@@ -1471,6 +1896,10 @@ export const sleepCommits: Commit[] = [
       '45dbbde'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5281010'
     ],
@@ -1485,6 +1914,10 @@ export const sleepCommits: Commit[] = [
       '2c60633'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '000b3aa'
     ],
@@ -1499,6 +1932,10 @@ export const sleepCommits: Commit[] = [
       '7f60983'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '45dbbde'
     ],
@@ -1513,6 +1950,10 @@ export const sleepCommits: Commit[] = [
       'cebb57d'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2c60633'
     ],
@@ -1527,6 +1968,10 @@ export const sleepCommits: Commit[] = [
       '33c38c5'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7f60983'
     ],
@@ -1541,6 +1986,10 @@ export const sleepCommits: Commit[] = [
       'f19e207'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'cebb57d'
     ],
@@ -1555,6 +2004,10 @@ export const sleepCommits: Commit[] = [
       'b9bc1dc'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '33c38c5'
     ],
@@ -1569,6 +2022,10 @@ export const sleepCommits: Commit[] = [
       '9c65959'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f19e207'
     ],
@@ -1583,6 +2040,10 @@ export const sleepCommits: Commit[] = [
       'a172219'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b9bc1dc'
     ],
@@ -1597,6 +2058,10 @@ export const sleepCommits: Commit[] = [
       'a3af060'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9c65959'
     ],
@@ -1611,6 +2076,10 @@ export const sleepCommits: Commit[] = [
       '363c60d'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a172219'
     ],
@@ -1625,6 +2094,10 @@ export const sleepCommits: Commit[] = [
       'cc0598b'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a3af060'
     ],
@@ -1639,6 +2112,10 @@ export const sleepCommits: Commit[] = [
       '6e89c11'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '363c60d'
     ],
@@ -1653,6 +2130,10 @@ export const sleepCommits: Commit[] = [
       '6904884'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'cc0598b'
     ],
@@ -1667,6 +2148,10 @@ export const sleepCommits: Commit[] = [
       '94b945f'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6e89c11'
     ],
@@ -1681,6 +2166,10 @@ export const sleepCommits: Commit[] = [
       '115846d'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6904884'
     ],
@@ -1695,6 +2184,10 @@ export const sleepCommits: Commit[] = [
       '71869c4'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '94b945f'
     ],
@@ -1709,6 +2202,10 @@ export const sleepCommits: Commit[] = [
       'a3476a8'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '115846d'
     ],
@@ -1723,6 +2220,10 @@ export const sleepCommits: Commit[] = [
       'deba6b5'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '71869c4'
     ],
@@ -1737,6 +2238,10 @@ export const sleepCommits: Commit[] = [
       'd8e279c'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a3476a8'
     ],
@@ -1751,6 +2256,10 @@ export const sleepCommits: Commit[] = [
       'ecb5b57'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd26bcc7'
     ],
@@ -1766,6 +2275,10 @@ export const sleepCommits: Commit[] = [
       '3a78717'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b7ec825',
       '3d680fd',
@@ -1782,6 +2295,10 @@ export const sleepCommits: Commit[] = [
       '3a78717'
     ],
     branch: 'refs/tags/v2.3.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'deba6b5'
     ],
@@ -1796,6 +2313,10 @@ export const sleepCommits: Commit[] = [
       'd89f085'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '810a868',
       'd8e279c'
@@ -1811,6 +2332,10 @@ export const sleepCommits: Commit[] = [
       '5f7da3f'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3a78717'
     ],
@@ -1825,6 +2350,10 @@ export const sleepCommits: Commit[] = [
       '7ca3b25'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd89f085'
     ],
@@ -1839,6 +2368,10 @@ export const sleepCommits: Commit[] = [
       'fc6a3e8'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5f7da3f'
     ],
@@ -1853,6 +2386,10 @@ export const sleepCommits: Commit[] = [
       'c1b3995'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7ca3b25'
     ],
@@ -1867,6 +2404,10 @@ export const sleepCommits: Commit[] = [
       'f61711f'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'fc6a3e8'
     ],
@@ -1881,6 +2422,10 @@ export const sleepCommits: Commit[] = [
       '62e3f80'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c1b3995'
     ],
@@ -1895,6 +2440,10 @@ export const sleepCommits: Commit[] = [
       '17d9d64'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f61711f'
     ],
@@ -1909,6 +2458,10 @@ export const sleepCommits: Commit[] = [
       'b516162'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '62e3f80'
     ],
@@ -1923,6 +2476,10 @@ export const sleepCommits: Commit[] = [
       '33b5d79'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '17d9d64'
     ],
@@ -1937,6 +2494,10 @@ export const sleepCommits: Commit[] = [
       '97b060f'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b516162'
     ],
@@ -1951,6 +2512,10 @@ export const sleepCommits: Commit[] = [
       'e6318eb'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '33b5d79'
     ],
@@ -1965,6 +2530,10 @@ export const sleepCommits: Commit[] = [
       '60698cc'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '74885fc'
     ],
@@ -1980,6 +2549,10 @@ export const sleepCommits: Commit[] = [
       'e6318eb'
     ],
     branch: 'refs/tags/v2.1.1',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '810a868'
     ],
@@ -1994,6 +2567,10 @@ export const sleepCommits: Commit[] = [
       '2d1025f'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '97b060f',
       'c31b3a8'
@@ -2009,6 +2586,10 @@ export const sleepCommits: Commit[] = [
       '1321e4d'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e6318eb'
     ],
@@ -2023,6 +2604,10 @@ export const sleepCommits: Commit[] = [
       '71a1a7e'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2d1025f'
     ],
@@ -2037,6 +2622,10 @@ export const sleepCommits: Commit[] = [
       '97a941a'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1321e4d'
     ],
@@ -2051,6 +2640,10 @@ export const sleepCommits: Commit[] = [
       '0d85838'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '71a1a7e'
     ],
@@ -2065,6 +2658,10 @@ export const sleepCommits: Commit[] = [
       'cf8e018'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '97a941a'
     ],
@@ -2079,6 +2676,10 @@ export const sleepCommits: Commit[] = [
       '5e7f6f8'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0d85838'
     ],
@@ -2093,6 +2694,10 @@ export const sleepCommits: Commit[] = [
       '5a0d8f6'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'cf8e018'
     ],
@@ -2107,6 +2712,10 @@ export const sleepCommits: Commit[] = [
       'e42905d'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5e7f6f8'
     ],
@@ -2121,6 +2730,10 @@ export const sleepCommits: Commit[] = [
       '66a83c0'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5a0d8f6'
     ],
@@ -2135,6 +2748,10 @@ export const sleepCommits: Commit[] = [
       '9e9389e'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e42905d'
     ],
@@ -2149,6 +2766,10 @@ export const sleepCommits: Commit[] = [
       '8e241d2'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '66a83c0'
     ],
@@ -2163,6 +2784,10 @@ export const sleepCommits: Commit[] = [
       'b7a1cc8'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9e9389e'
     ],
@@ -2177,6 +2802,10 @@ export const sleepCommits: Commit[] = [
       '0143d04'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8e241d2'
     ],
@@ -2191,6 +2820,10 @@ export const sleepCommits: Commit[] = [
       '25f597f'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b7a1cc8'
     ],
@@ -2205,6 +2838,10 @@ export const sleepCommits: Commit[] = [
       '8e4f92b'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0143d04'
     ],
@@ -2219,6 +2856,10 @@ export const sleepCommits: Commit[] = [
       '47d542c'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '25f597f'
     ],
@@ -2233,6 +2874,10 @@ export const sleepCommits: Commit[] = [
       '9248e1f'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8e4f92b'
     ],
@@ -2247,6 +2892,10 @@ export const sleepCommits: Commit[] = [
       '38190b2'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '47d542c'
     ],
@@ -2261,6 +2910,10 @@ export const sleepCommits: Commit[] = [
       'f8ddbd4'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9248e1f'
     ],
@@ -2275,6 +2928,10 @@ export const sleepCommits: Commit[] = [
       '05bec69'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ecb5b57'
     ],
@@ -2290,6 +2947,10 @@ export const sleepCommits: Commit[] = [
       '0b903cc'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '38190b2'
     ],
@@ -2305,6 +2966,10 @@ export const sleepCommits: Commit[] = [
       'dc8936d'
     ],
     branch: 'refs/tags/v2.1.1',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c31b3a8',
       'f8ddbd4'
@@ -2320,6 +2985,10 @@ export const sleepCommits: Commit[] = [
       '9857380'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f8ddbd4'
     ],
@@ -2334,6 +3003,10 @@ export const sleepCommits: Commit[] = [
       'acd7649'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4ebf726'
     ],
@@ -2348,6 +3021,10 @@ export const sleepCommits: Commit[] = [
       '7723e57'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9857380'
     ],
@@ -2362,6 +3039,10 @@ export const sleepCommits: Commit[] = [
       'ff5f173'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'acd7649'
     ],
@@ -2376,6 +3057,10 @@ export const sleepCommits: Commit[] = [
       'b754d54'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7723e57'
     ],
@@ -2390,6 +3075,10 @@ export const sleepCommits: Commit[] = [
       'ea79846'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ff5f173'
     ],
@@ -2404,6 +3093,10 @@ export const sleepCommits: Commit[] = [
       '478a361'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b754d54'
     ],
@@ -2418,6 +3111,10 @@ export const sleepCommits: Commit[] = [
       '9d21764'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ea79846'
     ],
@@ -2432,6 +3129,10 @@ export const sleepCommits: Commit[] = [
       'be596e4'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '478a361'
     ],
@@ -2446,6 +3147,10 @@ export const sleepCommits: Commit[] = [
       '6ef3091'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9d21764'
     ],
@@ -2460,6 +3165,10 @@ export const sleepCommits: Commit[] = [
       '6e3df33'
     ],
     branch: 'refs/tags/v2.1.1',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '0b903cc'
     ],
@@ -2474,6 +3183,10 @@ export const sleepCommits: Commit[] = [
       'f60cdc8'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'be596e4'
     ],
@@ -2488,6 +3201,10 @@ export const sleepCommits: Commit[] = [
       'b1c9c9b'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6ef3091'
     ],
@@ -2502,6 +3219,10 @@ export const sleepCommits: Commit[] = [
       '0c28eb6'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '60698cc'
     ],
@@ -2517,6 +3238,10 @@ export const sleepCommits: Commit[] = [
       'b1c9c9b'
     ],
     branch: 'refs/tags/v2.1.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0b903cc',
       'dc8936d'
@@ -2533,6 +3258,10 @@ export const sleepCommits: Commit[] = [
       'db3c4f9'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f60cdc8',
       '6e3df33'
@@ -2548,6 +3277,10 @@ export const sleepCommits: Commit[] = [
       'b4e9d3b'
     ],
     branch: 'refs/heads/improve-stage-chart',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b1c9c9b'
     ],
@@ -2562,6 +3295,10 @@ export const sleepCommits: Commit[] = [
       '5b96a51'
     ],
     branch: 'refs/heads/improve-stage-chart',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'db3c4f9'
     ],
@@ -2576,6 +3313,10 @@ export const sleepCommits: Commit[] = [
       'd89c2c1'
     ],
     branch: 'refs/heads/improve-stage-chart',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b4e9d3b'
     ],
@@ -2590,6 +3331,10 @@ export const sleepCommits: Commit[] = [
       'ced9837'
     ],
     branch: 'refs/heads/improve-stage-chart',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5b96a51'
     ],
@@ -2604,6 +3349,10 @@ export const sleepCommits: Commit[] = [
       '9b4a1b5'
     ],
     branch: 'refs/heads/improve-stage-chart',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd89c2c1'
     ],
@@ -2618,6 +3367,10 @@ export const sleepCommits: Commit[] = [
       '1d21e76'
     ],
     branch: 'refs/heads/improve-stage-chart',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ced9837'
     ],
@@ -2632,6 +3385,10 @@ export const sleepCommits: Commit[] = [
       '76eb4f3'
     ],
     branch: 'refs/heads/improve-stage-chart',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9b4a1b5'
     ],
@@ -2646,6 +3403,10 @@ export const sleepCommits: Commit[] = [
       'db3687b'
     ],
     branch: 'refs/heads/improve-stage-chart',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1d21e76'
     ],
@@ -2660,6 +3421,10 @@ export const sleepCommits: Commit[] = [
       'a18a5c4'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b1c9c9b',
       '76eb4f3'
@@ -2676,6 +3441,10 @@ export const sleepCommits: Commit[] = [
       'f396ce1'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'db3687b'
     ],
@@ -2691,6 +3460,10 @@ export const sleepCommits: Commit[] = [
       '5752a89'
     ],
     branch: 'refs/tags/v2.1.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6e3df33',
       'a18a5c4'
@@ -2706,6 +3479,10 @@ export const sleepCommits: Commit[] = [
       'b0f2ce3'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a18a5c4'
     ],
@@ -2720,6 +3497,10 @@ export const sleepCommits: Commit[] = [
       '8eda2d7'
     ],
     branch: 'refs/tags/v2.1.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       'f396ce1'
     ],
@@ -2734,6 +3515,10 @@ export const sleepCommits: Commit[] = [
       'dad2e46'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'de17621'
     ],
@@ -2748,6 +3533,10 @@ export const sleepCommits: Commit[] = [
       '3c495cc'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b0f2ce3'
     ],
@@ -2762,6 +3551,10 @@ export const sleepCommits: Commit[] = [
       '7d91ff0'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'dad2e46'
     ],
@@ -2776,6 +3569,10 @@ export const sleepCommits: Commit[] = [
       '4be777a'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3c495cc'
     ],
@@ -2790,6 +3587,10 @@ export const sleepCommits: Commit[] = [
       '0cf76da'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7d91ff0'
     ],
@@ -2804,6 +3605,10 @@ export const sleepCommits: Commit[] = [
       '954670c'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4be777a'
     ],
@@ -2818,6 +3623,10 @@ export const sleepCommits: Commit[] = [
       '1482fb7'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '05bec69'
     ],
@@ -2833,6 +3642,10 @@ export const sleepCommits: Commit[] = [
       '954670c'
     ],
     branch: 'refs/tags/v2.1.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f396ce1',
       '5752a89'
@@ -2848,6 +3661,10 @@ export const sleepCommits: Commit[] = [
       '419257d'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0cf76da',
       '8eda2d7'
@@ -2863,6 +3680,10 @@ export const sleepCommits: Commit[] = [
       '52dfc3f'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '954670c'
     ],
@@ -2877,6 +3698,10 @@ export const sleepCommits: Commit[] = [
       'e7a2380'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '419257d'
     ],
@@ -2891,6 +3716,10 @@ export const sleepCommits: Commit[] = [
       'd31697d'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '52dfc3f'
     ],
@@ -2905,6 +3734,10 @@ export const sleepCommits: Commit[] = [
       '8a68890'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e7a2380'
     ],
@@ -2919,6 +3752,10 @@ export const sleepCommits: Commit[] = [
       'df5f451'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd31697d'
     ],
@@ -2933,6 +3770,10 @@ export const sleepCommits: Commit[] = [
       '7308bc3'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8a68890'
     ],
@@ -2947,6 +3788,10 @@ export const sleepCommits: Commit[] = [
       '310412c'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'df5f451'
     ],
@@ -2962,6 +3807,10 @@ export const sleepCommits: Commit[] = [
       '310412c'
     ],
     branch: 'refs/tags/v2.1.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8eda2d7'
     ],
@@ -2976,6 +3825,10 @@ export const sleepCommits: Commit[] = [
       '0f637b2'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7308bc3',
       '64ae166'
@@ -2991,6 +3844,10 @@ export const sleepCommits: Commit[] = [
       '6aa8dab'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '310412c'
     ],
@@ -3005,6 +3862,10 @@ export const sleepCommits: Commit[] = [
       '0237445'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0f637b2'
     ],
@@ -3020,6 +3881,10 @@ export const sleepCommits: Commit[] = [
       '0237445'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '64ae166'
     ],
@@ -3034,6 +3899,10 @@ export const sleepCommits: Commit[] = [
       '33e8dd5'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6aa8dab',
       'c6a41eb'
@@ -3049,6 +3918,10 @@ export const sleepCommits: Commit[] = [
       '072d7d6'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0237445'
     ],
@@ -3063,6 +3936,10 @@ export const sleepCommits: Commit[] = [
       '947600b'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '33e8dd5'
     ],
@@ -3077,6 +3954,10 @@ export const sleepCommits: Commit[] = [
       '5861283'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '072d7d6'
     ],
@@ -3091,6 +3972,10 @@ export const sleepCommits: Commit[] = [
       'e778c0d'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '947600b'
     ],
@@ -3105,6 +3990,10 @@ export const sleepCommits: Commit[] = [
       '6c21df1'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5861283'
     ],
@@ -3119,6 +4008,10 @@ export const sleepCommits: Commit[] = [
       '5beb80b'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e778c0d'
     ],
@@ -3133,6 +4026,10 @@ export const sleepCommits: Commit[] = [
       'e82dd75'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6c21df1'
     ],
@@ -3147,6 +4044,10 @@ export const sleepCommits: Commit[] = [
       'f6e0c4e'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5beb80b'
     ],
@@ -3161,6 +4062,10 @@ export const sleepCommits: Commit[] = [
       'a09f9ad'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e82dd75'
     ],
@@ -3175,6 +4080,10 @@ export const sleepCommits: Commit[] = [
       'ac05a9f'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f6e0c4e'
     ],
@@ -3189,6 +4098,10 @@ export const sleepCommits: Commit[] = [
       '74f829c'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a09f9ad'
     ],
@@ -3203,6 +4116,10 @@ export const sleepCommits: Commit[] = [
       'ddd3298'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ac05a9f'
     ],
@@ -3217,6 +4134,10 @@ export const sleepCommits: Commit[] = [
       'ca95d1b'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '74f829c'
     ],
@@ -3231,6 +4152,10 @@ export const sleepCommits: Commit[] = [
       '87c3e4b'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ddd3298'
     ],
@@ -3245,6 +4170,10 @@ export const sleepCommits: Commit[] = [
       '43767e6'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ca95d1b'
     ],
@@ -3259,6 +4188,10 @@ export const sleepCommits: Commit[] = [
       'eb5e0ad'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '87c3e4b'
     ],
@@ -3273,6 +4206,10 @@ export const sleepCommits: Commit[] = [
       'dc56de6'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '43767e6'
     ],
@@ -3287,6 +4224,10 @@ export const sleepCommits: Commit[] = [
       'a9d6cf6'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'eb5e0ad'
     ],
@@ -3301,6 +4242,10 @@ export const sleepCommits: Commit[] = [
       '9cdfa40'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'dc56de6'
     ],
@@ -3315,6 +4260,10 @@ export const sleepCommits: Commit[] = [
       '724f9ef'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a9d6cf6'
     ],
@@ -3329,6 +4278,10 @@ export const sleepCommits: Commit[] = [
       '8472bb5'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9cdfa40'
     ],
@@ -3343,6 +4296,10 @@ export const sleepCommits: Commit[] = [
       'd52b826'
     ],
     branch: 'refs/tags/v2.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '724f9ef'
     ],
@@ -3357,6 +4314,10 @@ export const sleepCommits: Commit[] = [
       '7271948'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0c28eb6'
     ],
@@ -3371,6 +4332,10 @@ export const sleepCommits: Commit[] = [
       '70437fd'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1482fb7'
     ],
@@ -3386,6 +4351,10 @@ export const sleepCommits: Commit[] = [
       '328c273'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c6a41eb',
       '8472bb5'
@@ -3402,6 +4371,10 @@ export const sleepCommits: Commit[] = [
       '4c98b03'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd52b826'
     ],
@@ -3416,6 +4389,10 @@ export const sleepCommits: Commit[] = [
       '9b96063'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '744a388'
     ],
@@ -3430,6 +4407,10 @@ export const sleepCommits: Commit[] = [
       'c675f33'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4c98b03'
     ],
@@ -3444,6 +4425,10 @@ export const sleepCommits: Commit[] = [
       'ebec2f8'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9b96063'
     ],
@@ -3458,6 +4443,10 @@ export const sleepCommits: Commit[] = [
       'b3a7721'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c675f33'
     ],
@@ -3472,6 +4461,10 @@ export const sleepCommits: Commit[] = [
       'f6a4794'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ebec2f8'
     ],
@@ -3486,6 +4479,10 @@ export const sleepCommits: Commit[] = [
       '2888162'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       'd52b826'
     ],
@@ -3500,6 +4497,10 @@ export const sleepCommits: Commit[] = [
       '2c6a2a7'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b3a7721'
     ],
@@ -3514,6 +4515,10 @@ export const sleepCommits: Commit[] = [
       '0261ff8'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f6a4794'
     ],
@@ -3528,6 +4533,10 @@ export const sleepCommits: Commit[] = [
       '0d66a55'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2c6a2a7'
     ],
@@ -3542,6 +4551,10 @@ export const sleepCommits: Commit[] = [
       '1bb1a3f'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0261ff8'
     ],
@@ -3556,6 +4569,10 @@ export const sleepCommits: Commit[] = [
       '181a606'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0d66a55'
     ],
@@ -3570,6 +4587,10 @@ export const sleepCommits: Commit[] = [
       '34e6895'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1bb1a3f'
     ],
@@ -3584,6 +4605,10 @@ export const sleepCommits: Commit[] = [
       '05b851a'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '181a606'
     ],
@@ -3598,6 +4623,10 @@ export const sleepCommits: Commit[] = [
       '053033d'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '34e6895'
     ],
@@ -3612,6 +4641,10 @@ export const sleepCommits: Commit[] = [
       '94c5cdb'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '05b851a'
     ],
@@ -3626,6 +4659,10 @@ export const sleepCommits: Commit[] = [
       'f05bba9'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '053033d'
     ],
@@ -3640,6 +4677,10 @@ export const sleepCommits: Commit[] = [
       '00d2522'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '94c5cdb'
     ],
@@ -3654,6 +4695,10 @@ export const sleepCommits: Commit[] = [
       'be23a35'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f05bba9'
     ],
@@ -3668,6 +4713,10 @@ export const sleepCommits: Commit[] = [
       'e55624f'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '00d2522'
     ],
@@ -3682,6 +4731,10 @@ export const sleepCommits: Commit[] = [
       '300166e'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'be23a35'
     ],
@@ -3696,6 +4749,10 @@ export const sleepCommits: Commit[] = [
       'ebc5a24'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e55624f'
     ],
@@ -3710,6 +4767,10 @@ export const sleepCommits: Commit[] = [
       '4a265bf'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '300166e'
     ],
@@ -3724,6 +4785,10 @@ export const sleepCommits: Commit[] = [
       '77aec21'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ebc5a24'
     ],
@@ -3738,6 +4803,10 @@ export const sleepCommits: Commit[] = [
       'f3ad7d7'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4a265bf'
     ],
@@ -3752,6 +4821,10 @@ export const sleepCommits: Commit[] = [
       '52e1dd5'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '77aec21'
     ],
@@ -3766,6 +4839,10 @@ export const sleepCommits: Commit[] = [
       '8ab78a0'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f3ad7d7'
     ],
@@ -3780,6 +4857,10 @@ export const sleepCommits: Commit[] = [
       '8af99c6'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '52e1dd5'
     ],
@@ -3794,6 +4875,10 @@ export const sleepCommits: Commit[] = [
       '9bc2a52'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8ab78a0'
     ],
@@ -3808,6 +4893,10 @@ export const sleepCommits: Commit[] = [
       'd5271f3'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8af99c6'
     ],
@@ -3822,6 +4911,10 @@ export const sleepCommits: Commit[] = [
       'eda7bbf'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9bc2a52'
     ],
@@ -3836,6 +4929,10 @@ export const sleepCommits: Commit[] = [
       '0dfc9ec'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd5271f3'
     ],
@@ -3850,6 +4947,10 @@ export const sleepCommits: Commit[] = [
       '8580cc5'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'eda7bbf'
     ],
@@ -3864,6 +4965,10 @@ export const sleepCommits: Commit[] = [
       '73fbcc4'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0dfc9ec'
     ],
@@ -3878,6 +4983,10 @@ export const sleepCommits: Commit[] = [
       'dab5c7b'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8580cc5'
     ],
@@ -3892,6 +5001,10 @@ export const sleepCommits: Commit[] = [
       'bee4e29'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '73fbcc4'
     ],
@@ -3906,6 +5019,10 @@ export const sleepCommits: Commit[] = [
       'd05120c'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'dab5c7b'
     ],
@@ -3920,6 +5037,10 @@ export const sleepCommits: Commit[] = [
       '70e8695'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'bee4e29'
     ],
@@ -3934,6 +5055,10 @@ export const sleepCommits: Commit[] = [
       '0eeea35'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd05120c'
     ],
@@ -3948,6 +5073,10 @@ export const sleepCommits: Commit[] = [
       'e0fa20a'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '70e8695'
     ],
@@ -3962,6 +5091,10 @@ export const sleepCommits: Commit[] = [
       '6178286'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0eeea35'
     ],
@@ -3976,6 +5109,10 @@ export const sleepCommits: Commit[] = [
       '3496d41'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e0fa20a'
     ],
@@ -3990,6 +5127,10 @@ export const sleepCommits: Commit[] = [
       '42f2132'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6178286'
     ],
@@ -4004,6 +5145,10 @@ export const sleepCommits: Commit[] = [
       '5036be1'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7271948'
     ],
@@ -4019,6 +5164,10 @@ export const sleepCommits: Commit[] = [
       '7215477'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '744a388',
       '328c273'
@@ -4034,6 +5183,10 @@ export const sleepCommits: Commit[] = [
       'bf551c0'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3496d41'
     ],
@@ -4048,6 +5201,10 @@ export const sleepCommits: Commit[] = [
       '29a7212'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '42f2132'
     ],
@@ -4062,6 +5219,10 @@ export const sleepCommits: Commit[] = [
       '4c801b6'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'bf551c0'
     ],
@@ -4076,6 +5237,10 @@ export const sleepCommits: Commit[] = [
       'ffb0337'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '29a7212'
     ],
@@ -4090,6 +5255,10 @@ export const sleepCommits: Commit[] = [
       '5e7b005'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4c801b6'
     ],
@@ -4104,6 +5273,10 @@ export const sleepCommits: Commit[] = [
       '821fe5a'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ffb0337'
     ],
@@ -4118,6 +5291,10 @@ export const sleepCommits: Commit[] = [
       '732b304'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '2888162'
     ],
@@ -4132,6 +5309,10 @@ export const sleepCommits: Commit[] = [
       '732b304'
     ],
     branch: 'refs/heads/feature/parse-raw-data',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5e7b005'
     ],
@@ -4146,6 +5327,10 @@ export const sleepCommits: Commit[] = [
       'b9196fc'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '70437fd'
     ],
@@ -4161,6 +5346,10 @@ export const sleepCommits: Commit[] = [
       'b2bf478'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2888162',
       '7215477',
@@ -4177,6 +5366,10 @@ export const sleepCommits: Commit[] = [
       '4410cd7'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '732b304'
     ],
@@ -4191,6 +5384,10 @@ export const sleepCommits: Commit[] = [
       '0994f81'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5036be1'
     ],
@@ -4206,6 +5403,10 @@ export const sleepCommits: Commit[] = [
       '4410cd7'
     ],
     branch: 'refs/tags/v1.2.1',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '732b304'
     ],
@@ -4220,6 +5421,10 @@ export const sleepCommits: Commit[] = [
       'e8c2bfb'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b2bf478',
       'fbca587'
@@ -4236,6 +5441,10 @@ export const sleepCommits: Commit[] = [
       'e8c2bfb'
     ],
     branch: 'refs/tags/v1.2.1',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'fbca587'
     ],
@@ -4250,6 +5459,10 @@ export const sleepCommits: Commit[] = [
       '4d7a7e9'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4410cd7',
       'ff20995'
@@ -4265,6 +5478,10 @@ export const sleepCommits: Commit[] = [
       '69eaadc'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e8c2bfb'
     ],
@@ -4279,6 +5496,10 @@ export const sleepCommits: Commit[] = [
       'c31f162'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4d7a7e9'
     ],
@@ -4293,6 +5514,10 @@ export const sleepCommits: Commit[] = [
       '98ff75e'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '69eaadc'
     ],
@@ -4307,6 +5532,10 @@ export const sleepCommits: Commit[] = [
       '7e8868b'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c31f162'
     ],
@@ -4321,6 +5550,10 @@ export const sleepCommits: Commit[] = [
       '51f121d'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '98ff75e'
     ],
@@ -4335,6 +5568,10 @@ export const sleepCommits: Commit[] = [
       'bdaa4e4'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b9196fc'
     ],
@@ -4350,6 +5587,10 @@ export const sleepCommits: Commit[] = [
       '529c117'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7e8868b'
     ],
@@ -4365,6 +5606,10 @@ export const sleepCommits: Commit[] = [
       '5765026'
     ],
     branch: 'refs/tags/v1.2.1',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ff20995',
       '51f121d'
@@ -4380,6 +5625,10 @@ export const sleepCommits: Commit[] = [
       '0d12d74'
     ],
     branch: 'refs/tags/v1.2.1',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '529c117'
     ],
@@ -4394,6 +5643,10 @@ export const sleepCommits: Commit[] = [
       'e6ea316'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '51f121d'
     ],
@@ -4408,6 +5661,10 @@ export const sleepCommits: Commit[] = [
       'f7116d9'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '21678c9'
     ],
@@ -4422,6 +5679,10 @@ export const sleepCommits: Commit[] = [
       '87efebe'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e6ea316'
     ],
@@ -4436,6 +5697,10 @@ export const sleepCommits: Commit[] = [
       'd638b1e'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f7116d9'
     ],
@@ -4450,6 +5715,10 @@ export const sleepCommits: Commit[] = [
       '928a7f4'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '87efebe'
     ],
@@ -4464,6 +5733,10 @@ export const sleepCommits: Commit[] = [
       'd401424'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd638b1e'
     ],
@@ -4478,6 +5751,10 @@ export const sleepCommits: Commit[] = [
       '2f85544'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '928a7f4'
     ],
@@ -4492,6 +5769,10 @@ export const sleepCommits: Commit[] = [
       '6c77a6b'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0994f81'
     ],
@@ -4507,6 +5788,10 @@ export const sleepCommits: Commit[] = [
       '2f85544'
     ],
     branch: 'refs/tags/v1.2.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '529c117',
       '5765026'
@@ -4523,6 +5808,10 @@ export const sleepCommits: Commit[] = [
       '2c5082d'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd401424',
       '0d12d74'
@@ -4538,6 +5827,10 @@ export const sleepCommits: Commit[] = [
       '9676781'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2f85544'
     ],
@@ -4552,6 +5845,10 @@ export const sleepCommits: Commit[] = [
       '317a526'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2c5082d'
     ],
@@ -4566,6 +5863,10 @@ export const sleepCommits: Commit[] = [
       '66ac076'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9676781'
     ],
@@ -4580,6 +5881,10 @@ export const sleepCommits: Commit[] = [
       '415c1d1'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '317a526'
     ],
@@ -4594,6 +5899,10 @@ export const sleepCommits: Commit[] = [
       'c0dc79f'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '66ac076'
     ],
@@ -4608,6 +5917,10 @@ export const sleepCommits: Commit[] = [
       '0b9fad5'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '415c1d1'
     ],
@@ -4622,6 +5935,10 @@ export const sleepCommits: Commit[] = [
       '70164f4'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c0dc79f'
     ],
@@ -4636,6 +5953,10 @@ export const sleepCommits: Commit[] = [
       'bb29e00'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0b9fad5'
     ],
@@ -4650,6 +5971,10 @@ export const sleepCommits: Commit[] = [
       '6487f34'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '70164f4'
     ],
@@ -4664,6 +5989,10 @@ export const sleepCommits: Commit[] = [
       '18fdb81'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'bb29e00'
     ],
@@ -4678,6 +6007,10 @@ export const sleepCommits: Commit[] = [
       'e33383e'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6487f34'
     ],
@@ -4692,6 +6025,10 @@ export const sleepCommits: Commit[] = [
       '77adf46'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '18fdb81'
     ],
@@ -4706,6 +6043,10 @@ export const sleepCommits: Commit[] = [
       '1d30e95'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e33383e'
     ],
@@ -4720,6 +6061,10 @@ export const sleepCommits: Commit[] = [
       'd453692'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '77adf46'
     ],
@@ -4734,6 +6079,10 @@ export const sleepCommits: Commit[] = [
       '7ef626b'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1d30e95'
     ],
@@ -4748,6 +6097,10 @@ export const sleepCommits: Commit[] = [
       'b7851b4'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd453692'
     ],
@@ -4762,6 +6115,10 @@ export const sleepCommits: Commit[] = [
       '569f1d0'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7ef626b'
     ],
@@ -4776,6 +6133,10 @@ export const sleepCommits: Commit[] = [
       '72634f1'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b7851b4'
     ],
@@ -4790,6 +6151,10 @@ export const sleepCommits: Commit[] = [
       '6b2dfb3'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '569f1d0'
     ],
@@ -4804,6 +6169,10 @@ export const sleepCommits: Commit[] = [
       'a6ba004'
     ],
     branch: 'refs/heads/feature/stacked-view',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '72634f1'
     ],
@@ -4818,6 +6187,10 @@ export const sleepCommits: Commit[] = [
       '9de61dd'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2f85544',
       '6b2dfb3'
@@ -4834,6 +6207,10 @@ export const sleepCommits: Commit[] = [
       '5e1e15c'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a6ba004'
     ],
@@ -4848,6 +6225,10 @@ export const sleepCommits: Commit[] = [
       '61b38d9'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9de61dd'
     ],
@@ -4862,6 +6243,10 @@ export const sleepCommits: Commit[] = [
       'ed89441'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'bdaa4e4'
     ],
@@ -4877,6 +6262,10 @@ export const sleepCommits: Commit[] = [
       '61b38d9'
     ],
     branch: 'refs/tags/v1.1.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0d12d74',
       '9de61dd'
@@ -4892,6 +6281,10 @@ export const sleepCommits: Commit[] = [
       'a2db943'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e9d14e5',
       '5e1e15c'
@@ -4907,6 +6300,10 @@ export const sleepCommits: Commit[] = [
       '5a21429'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '61b38d9'
     ],
@@ -4921,6 +6318,10 @@ export const sleepCommits: Commit[] = [
       'a5425d1'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a2db943'
     ],
@@ -4935,6 +6336,10 @@ export const sleepCommits: Commit[] = [
       '2282d36'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5a21429'
     ],
@@ -4949,6 +6354,10 @@ export const sleepCommits: Commit[] = [
       'cba1df6'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a5425d1'
     ],
@@ -4963,6 +6372,10 @@ export const sleepCommits: Commit[] = [
       'da988de'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2282d36'
     ],
@@ -4977,6 +6390,10 @@ export const sleepCommits: Commit[] = [
       'edafbbf'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'cba1df6'
     ],
@@ -4992,6 +6409,10 @@ export const sleepCommits: Commit[] = [
       '7d545a5'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'da988de'
     ],
@@ -5006,6 +6427,10 @@ export const sleepCommits: Commit[] = [
       'cee6402'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'edafbbf'
     ],
@@ -5020,6 +6445,10 @@ export const sleepCommits: Commit[] = [
       '012ffe9'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'afd8749'
     ],
@@ -5034,6 +6463,10 @@ export const sleepCommits: Commit[] = [
       'bff2088'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'cee6402'
     ],
@@ -5048,6 +6481,10 @@ export const sleepCommits: Commit[] = [
       '21fecc1'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '012ffe9'
     ],
@@ -5062,6 +6499,10 @@ export const sleepCommits: Commit[] = [
       '9136c6b'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'bff2088'
     ],
@@ -5076,6 +6517,10 @@ export const sleepCommits: Commit[] = [
       '1b5c868'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6c77a6b'
     ],
@@ -5091,6 +6536,10 @@ export const sleepCommits: Commit[] = [
       'e27d91a'
     ],
     branch: 'refs/tags/v1.1.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5e1e15c',
       'edafbbf'
@@ -5106,6 +6555,10 @@ export const sleepCommits: Commit[] = [
       '7fc3850'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '21fecc1'
     ],
@@ -5120,6 +6573,10 @@ export const sleepCommits: Commit[] = [
       '7c9d0e2'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9136c6b'
     ],
@@ -5134,6 +6591,10 @@ export const sleepCommits: Commit[] = [
       '91ab124'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7fc3850'
     ],
@@ -5148,6 +6609,10 @@ export const sleepCommits: Commit[] = [
       'b9e9eaf'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7c9d0e2'
     ],
@@ -5162,6 +6627,10 @@ export const sleepCommits: Commit[] = [
       'bff718f'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ed89441'
     ],
@@ -5177,6 +6646,10 @@ export const sleepCommits: Commit[] = [
       'b9e9eaf'
     ],
     branch: 'refs/tags/v1.1.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7d545a5'
     ],
@@ -5191,6 +6664,10 @@ export const sleepCommits: Commit[] = [
       '1634ce3'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '91ab124',
       '3d3d5a2'
@@ -5206,6 +6683,10 @@ export const sleepCommits: Commit[] = [
       'fcc0e1c'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b9e9eaf'
     ],
@@ -5220,6 +6701,10 @@ export const sleepCommits: Commit[] = [
       'ef2cfc2'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1634ce3'
     ],
@@ -5234,6 +6719,10 @@ export const sleepCommits: Commit[] = [
       '76a2a2e'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'fcc0e1c'
     ],
@@ -5248,6 +6737,10 @@ export const sleepCommits: Commit[] = [
       '3f4402f'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ef2cfc2'
     ],
@@ -5262,6 +6755,10 @@ export const sleepCommits: Commit[] = [
       '184b081'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '76a2a2e'
     ],
@@ -5276,6 +6773,10 @@ export const sleepCommits: Commit[] = [
       'c9c48c0'
     ],
     branch: 'refs/tags/v1.1.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '7d545a5'
     ],
@@ -5290,6 +6791,10 @@ export const sleepCommits: Commit[] = [
       '8f95b4a'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1b5c868'
     ],
@@ -5305,6 +6810,10 @@ export const sleepCommits: Commit[] = [
       '184b081'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3d3d5a2',
       'e27d91a'
@@ -5320,6 +6829,10 @@ export const sleepCommits: Commit[] = [
       'eda1f0d'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3f4402f',
       'c9c48c0'
@@ -5335,6 +6848,10 @@ export const sleepCommits: Commit[] = [
       'b89ac17'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '184b081'
     ],
@@ -5349,6 +6866,10 @@ export const sleepCommits: Commit[] = [
       '15c8018'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'eda1f0d'
     ],
@@ -5363,6 +6884,10 @@ export const sleepCommits: Commit[] = [
       'b4a80bb'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b89ac17'
     ],
@@ -5377,6 +6902,10 @@ export const sleepCommits: Commit[] = [
       'e748aef'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '15c8018'
     ],
@@ -5391,6 +6920,10 @@ export const sleepCommits: Commit[] = [
       '46cfb4d'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b4a80bb'
     ],
@@ -5405,6 +6938,10 @@ export const sleepCommits: Commit[] = [
       'aaa16bf'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e748aef'
     ],
@@ -5419,6 +6956,10 @@ export const sleepCommits: Commit[] = [
       '05b7c89'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '46cfb4d'
     ],
@@ -5433,6 +6974,10 @@ export const sleepCommits: Commit[] = [
       '19e0968'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'aaa16bf'
     ],
@@ -5447,6 +6992,10 @@ export const sleepCommits: Commit[] = [
       '245c95a'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '05b7c89'
     ],
@@ -5461,6 +7010,10 @@ export const sleepCommits: Commit[] = [
       'ddca752'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '19e0968'
     ],
@@ -5475,6 +7028,10 @@ export const sleepCommits: Commit[] = [
       'f32e3d4'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '245c95a'
     ],
@@ -5489,6 +7046,10 @@ export const sleepCommits: Commit[] = [
       '01068d1'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ddca752'
     ],
@@ -5503,6 +7064,10 @@ export const sleepCommits: Commit[] = [
       'c61415e'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f32e3d4'
     ],
@@ -5517,6 +7082,10 @@ export const sleepCommits: Commit[] = [
       '66a1d30'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '01068d1'
     ],
@@ -5531,6 +7100,10 @@ export const sleepCommits: Commit[] = [
       '76baba0'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c61415e'
     ],
@@ -5545,6 +7118,10 @@ export const sleepCommits: Commit[] = [
       '9f93e5f'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'bff718f'
     ],
@@ -5560,6 +7137,10 @@ export const sleepCommits: Commit[] = [
       '76baba0'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c9c48c0'
     ],
@@ -5574,6 +7155,10 @@ export const sleepCommits: Commit[] = [
       'ae9b6bc'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '66a1d30',
       '5f4518b'
@@ -5589,6 +7174,10 @@ export const sleepCommits: Commit[] = [
       '924c8f9'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '76baba0'
     ],
@@ -5603,6 +7192,10 @@ export const sleepCommits: Commit[] = [
       '8abcdd6'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ae9b6bc'
     ],
@@ -5617,6 +7210,10 @@ export const sleepCommits: Commit[] = [
       'd4d645a'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '924c8f9'
     ],
@@ -5631,6 +7228,10 @@ export const sleepCommits: Commit[] = [
       '7a78b8d'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8abcdd6'
     ],
@@ -5645,6 +7246,10 @@ export const sleepCommits: Commit[] = [
       '827a805'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd4d645a'
     ],
@@ -5659,6 +7264,10 @@ export const sleepCommits: Commit[] = [
       '9950706'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '8f95b4a'
     ],
@@ -5674,6 +7283,10 @@ export const sleepCommits: Commit[] = [
       '827a805'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5f4518b'
     ],
@@ -5688,6 +7301,10 @@ export const sleepCommits: Commit[] = [
       '5ef49a3'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7a78b8d',
       '34aa1bf'
@@ -5703,6 +7320,10 @@ export const sleepCommits: Commit[] = [
       '38ff1c2'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9f93e5f'
     ],
@@ -5718,6 +7339,10 @@ export const sleepCommits: Commit[] = [
       '5ef49a3'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '34aa1bf'
     ],
@@ -5732,6 +7357,10 @@ export const sleepCommits: Commit[] = [
       '3270ffd'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '827a805',
       '6a66ec6'
@@ -5747,6 +7376,10 @@ export const sleepCommits: Commit[] = [
       '4bebfe5'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9950706'
     ],
@@ -5762,6 +7395,10 @@ export const sleepCommits: Commit[] = [
       '3270ffd'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6a66ec6'
     ],
@@ -5776,6 +7413,10 @@ export const sleepCommits: Commit[] = [
       'fb7455a'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5ef49a3',
       '46a65f9'
@@ -5791,6 +7432,10 @@ export const sleepCommits: Commit[] = [
       '1606c57'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3270ffd'
     ],
@@ -5805,6 +7450,10 @@ export const sleepCommits: Commit[] = [
       '5408eb4'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'fb7455a'
     ],
@@ -5819,6 +7468,10 @@ export const sleepCommits: Commit[] = [
       'adaf340'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1606c57'
     ],
@@ -5833,6 +7486,10 @@ export const sleepCommits: Commit[] = [
       '95dcf41'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5408eb4'
     ],
@@ -5847,6 +7504,10 @@ export const sleepCommits: Commit[] = [
       '28293da'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'adaf340'
     ],
@@ -5861,6 +7522,10 @@ export const sleepCommits: Commit[] = [
       'c27bf01'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '95dcf41'
     ],
@@ -5875,6 +7540,10 @@ export const sleepCommits: Commit[] = [
       'eb84e73'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '28293da'
     ],
@@ -5889,6 +7558,10 @@ export const sleepCommits: Commit[] = [
       '1a19a6a'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c27bf01'
     ],
@@ -5903,6 +7576,10 @@ export const sleepCommits: Commit[] = [
       'e28e441'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'eb84e73'
     ],
@@ -5917,6 +7594,10 @@ export const sleepCommits: Commit[] = [
       '7f58f11'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1a19a6a'
     ],
@@ -5931,6 +7612,10 @@ export const sleepCommits: Commit[] = [
       'b854f35'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e28e441'
     ],
@@ -5945,6 +7630,10 @@ export const sleepCommits: Commit[] = [
       'ddc31b5'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7f58f11'
     ],
@@ -5959,6 +7648,10 @@ export const sleepCommits: Commit[] = [
       '7e82560'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b854f35'
     ],
@@ -5973,6 +7666,10 @@ export const sleepCommits: Commit[] = [
       '55c405d'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ddc31b5'
     ],
@@ -5987,6 +7684,10 @@ export const sleepCommits: Commit[] = [
       '7d32883'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '38ff1c2'
     ],
@@ -6002,6 +7703,10 @@ export const sleepCommits: Commit[] = [
       '55c405d'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '46a65f9'
     ],
@@ -6016,6 +7721,10 @@ export const sleepCommits: Commit[] = [
       '758174d'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7e82560',
       '7125412'
@@ -6031,6 +7740,10 @@ export const sleepCommits: Commit[] = [
       'b081373'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '55c405d'
     ],
@@ -6045,6 +7758,10 @@ export const sleepCommits: Commit[] = [
       'e50f872'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '758174d'
     ],
@@ -6059,6 +7776,10 @@ export const sleepCommits: Commit[] = [
       '5b5f0a9'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b081373'
     ],
@@ -6073,6 +7794,10 @@ export const sleepCommits: Commit[] = [
       '9e6b6d9'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e50f872'
     ],
@@ -6087,6 +7812,10 @@ export const sleepCommits: Commit[] = [
       'e544bc3'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5b5f0a9'
     ],
@@ -6101,6 +7830,10 @@ export const sleepCommits: Commit[] = [
       'd683d57'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9e6b6d9'
     ],
@@ -6115,6 +7848,10 @@ export const sleepCommits: Commit[] = [
       '9744f6f'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4bebfe5'
     ],
@@ -6130,6 +7867,10 @@ export const sleepCommits: Commit[] = [
       'd683d57'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7125412'
     ],
@@ -6144,6 +7885,10 @@ export const sleepCommits: Commit[] = [
       '3a9d56e'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'e544bc3',
       '3cf1df4'
@@ -6159,6 +7904,10 @@ export const sleepCommits: Commit[] = [
       'e74f89d'
     ],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7d32883'
     ],
@@ -6171,6 +7920,10 @@ export const sleepCommits: Commit[] = [
     message: 'Initial gh-pages commit',
     parents: [],
     branch: 'refs/remotes/origin/gh-pages',
+    author: {
+      name: 'TomPlum',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9744f6f'
     ],
@@ -6186,6 +7939,10 @@ export const sleepCommits: Commit[] = [
       '3a9d56e'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3cf1df4'
     ],
@@ -6200,6 +7957,10 @@ export const sleepCommits: Commit[] = [
       '17b8e10'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd683d57',
       '67d24a6'
@@ -6216,6 +7977,10 @@ export const sleepCommits: Commit[] = [
       '17b8e10'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '67d24a6'
     ],
@@ -6230,6 +7995,10 @@ export const sleepCommits: Commit[] = [
       'fd2f791'
     ],
     branch: 'refs/tags/v2.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '3a9d56e',
       'bffed4c'
@@ -6246,6 +8015,10 @@ export const sleepCommits: Commit[] = [
       'a3aad32'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'bffed4c',
       '17b8e10'
@@ -6261,6 +8034,10 @@ export const sleepCommits: Commit[] = [
       'b166be8'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       'fd2f791'
     ],
@@ -6276,6 +8053,10 @@ export const sleepCommits: Commit[] = [
       '6376640'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'fd2f791',
       'a3aad32'
@@ -6291,6 +8072,10 @@ export const sleepCommits: Commit[] = [
       '30d449b'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b166be8'
     ],
@@ -6306,6 +8091,10 @@ export const sleepCommits: Commit[] = [
       '949b36d'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6376640'
     ],
@@ -6320,6 +8109,10 @@ export const sleepCommits: Commit[] = [
       'd399e92'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'renovate[bot]',
+      email: '29139614+renovate[bot]@users.noreply.github.com'
+    },
     children: [
       '30d449b'
     ],
@@ -6334,6 +8127,10 @@ export const sleepCommits: Commit[] = [
       '96d0ac5'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b166be8',
       '30d449b',
@@ -6350,6 +8147,10 @@ export const sleepCommits: Commit[] = [
       '1e65c1d'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd399e92'
     ],
@@ -6364,6 +8165,10 @@ export const sleepCommits: Commit[] = [
       '30dcafd'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '96d0ac5'
     ],
@@ -6378,6 +8183,10 @@ export const sleepCommits: Commit[] = [
       '72b1f86'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1e65c1d'
     ],
@@ -6392,6 +8201,10 @@ export const sleepCommits: Commit[] = [
       '2115a48'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '30dcafd'
     ],
@@ -6406,6 +8219,10 @@ export const sleepCommits: Commit[] = [
       '0bf74b1'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '72b1f86'
     ],
@@ -6420,6 +8237,10 @@ export const sleepCommits: Commit[] = [
       '5a6b882'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '2115a48'
     ],
@@ -6434,6 +8255,10 @@ export const sleepCommits: Commit[] = [
       '9cfcece'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '0bf74b1'
     ],
@@ -6448,6 +8273,10 @@ export const sleepCommits: Commit[] = [
       '603fbbc'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5a6b882'
     ],
@@ -6462,6 +8291,10 @@ export const sleepCommits: Commit[] = [
       'f892161'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9cfcece'
     ],
@@ -6476,6 +8309,10 @@ export const sleepCommits: Commit[] = [
       '9df8d6c'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '603fbbc'
     ],
@@ -6490,6 +8327,10 @@ export const sleepCommits: Commit[] = [
       'bb8d532'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'f892161'
     ],
@@ -6504,6 +8345,10 @@ export const sleepCommits: Commit[] = [
       '7955da7'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '9df8d6c'
     ],
@@ -6518,6 +8363,10 @@ export const sleepCommits: Commit[] = [
       '5109e9d'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'bb8d532'
     ],
@@ -6532,6 +8381,10 @@ export const sleepCommits: Commit[] = [
       'd160456'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7955da7'
     ],
@@ -6546,6 +8399,10 @@ export const sleepCommits: Commit[] = [
       'a09ca48'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '5109e9d'
     ],
@@ -6560,6 +8417,10 @@ export const sleepCommits: Commit[] = [
       'c2ed208'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd160456'
     ],
@@ -6574,6 +8435,10 @@ export const sleepCommits: Commit[] = [
       '4522569'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'a09ca48'
     ],
@@ -6588,6 +8453,10 @@ export const sleepCommits: Commit[] = [
       'eb371fa'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'c2ed208'
     ],
@@ -6602,6 +8471,10 @@ export const sleepCommits: Commit[] = [
       '6530e27'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '4522569'
     ],
@@ -6616,6 +8489,10 @@ export const sleepCommits: Commit[] = [
       'd94993e'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'eb371fa'
     ],
@@ -6630,6 +8507,10 @@ export const sleepCommits: Commit[] = [
       '72de5c9'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '6530e27'
     ],
@@ -6644,6 +8525,10 @@ export const sleepCommits: Commit[] = [
       '7e68687'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'd94993e'
     ],
@@ -6658,6 +8543,10 @@ export const sleepCommits: Commit[] = [
       'ab657c9'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '72de5c9'
     ],
@@ -6672,6 +8561,10 @@ export const sleepCommits: Commit[] = [
       'b3e99e8'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '7e68687'
     ],
@@ -6686,6 +8579,10 @@ export const sleepCommits: Commit[] = [
       '1e5c110'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'ab657c9'
     ],
@@ -6700,6 +8597,10 @@ export const sleepCommits: Commit[] = [
       '05d1859'
     ],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       'b3e99e8'
     ],
@@ -6712,6 +8613,10 @@ export const sleepCommits: Commit[] = [
     message: 'chore(setup): ran vite@latest with react-swc-ts template',
     parents: [],
     branch: 'refs/tags/v1.0.0',
+    author: {
+      name: 'Thomas Plumpton',
+      email: 'Thomas.Plumpton@hotmail.co.uk'
+    },
     children: [
       '1e5c110'
     ],

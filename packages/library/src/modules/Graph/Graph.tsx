@@ -9,6 +9,11 @@ import { useResize } from 'hooks/useResize'
 import { ROW_HEIGHT } from 'constants/constants'
 import { placeholderCommits } from 'modules/Graph/hooks/usePlaceholderData/data'
 
+/**
+ * To print columnData for graph column state
+ * for integration tests use
+ * console.log(JSON.stringify(Object.fromEntries(columnData), null, 2))
+ */
 export const Graph = () => {
   const {
     paging,

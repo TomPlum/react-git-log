@@ -106,6 +106,15 @@ export const Table = () => {
           <div
             className={styles.header}
             style={{ color: textColour }}
+            id='react-git-log-table-header-author'
+            data-testid='react-git-log-table-header-author'
+          >
+            Author
+          </div>
+
+          <div
+            className={styles.header}
+            style={{ color: textColour }}
             id='react-git-log-table-header-timestamp'
             data-testid='react-git-log-table-header-timestamp'
           >

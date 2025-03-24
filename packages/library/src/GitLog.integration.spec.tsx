@@ -3,7 +3,7 @@ import { parseGitLogOutput } from 'test/data/gitLogParser'
 import { sleepRepositoryRowColumnState } from 'test/data/sleepState'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { graphColumn } from 'test/elements/GraphColumn'
-import { describe } from 'vitest'
+import { afterEach, beforeEach, describe } from 'vitest'
 import { render, within } from '@testing-library/react'
 import { GitLog } from './GitLog'
 import { sleepCommits } from 'test/data/sleepCommits'
@@ -15,6 +15,17 @@ import { table } from 'test/elements/Table'
 import dayjs from 'dayjs'
 
 describe('Integration', () => {
+  const today = new Date(2025, 2, 24, 18, 0, 0)
+
+  beforeEach(() => {
+    vi.useFakeTimers()
+    vi.setSystemTime(today)
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
   const prepareCommits = (commits: Commit[]) => {
     const tagsSeen = new Map<string, boolean>()
 
@@ -83,6 +94,7 @@ describe('Integration', () => {
     expect(indexTableRow).toBeInTheDocument()
     expect(table.commitMessageData({ row: 0 })).toHaveTextContent('// Work in-progress in TomPlum/sleep...')
     expect(table.timestampData({ row: 0 })).toHaveTextContent('-')
+    expect(table.authorData({ row: 0 })).toHaveTextContent('-')
 
     // The row/column state is from index 1 on-wards,
     // since the index pseudo-commit is rendered separately.
@@ -180,12 +192,16 @@ describe('Integration', () => {
       // Check table state
       const tableRowElement = table.row({ row: rowIndex })
       expect(tableRowElement).toBeInTheDocument()
+
       expect(table.commitMessageData({ row: rowIndex })).toHaveTextContent(commit.message)
+
+      expect(table.authorData({ row: rowIndex })).toHaveTextContent(commit?.author?.name ?? '-')
 
       if (rowIndex > 1) {
         expect(table.timestampData({ row: rowIndex })).toHaveTextContent(formatTimestamp(commit.committerDate))
       } else {
-        expect(table.timestampData({ row: 1 })).toHaveTextContent('4 days ago')
+        // The first commit is an hour ago relative to the stubbed current time
+        expect(table.timestampData({ row: 1 })).toHaveTextContent('an hour ago')
       }
     })
 

@@ -20,7 +20,7 @@ export const IndexPseudoRow = ({ graphWidth }: IndexPseudoRowProps) => {
 
   return (
     <GraphRow
-      id={-1}
+      id={0}
       key={'index'}
       width={graphWidth}
       commit={indexCommit}

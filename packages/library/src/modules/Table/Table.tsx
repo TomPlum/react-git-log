@@ -77,21 +77,38 @@ export const Table = () => {
 
   return (
     <div
+      id='react-git-log-table'
+      data-testid='react-git-log-table'
       style={{
-        ...classes?.logTableStyles?.table,
+        ...classes?.tableStyles?.table,
         marginTop,
         gridTemplateRows,
         rowGap: rowSpacing
       }}
-      className={classNames(styles.table, classes?.logTableClass)}
+      className={classNames(styles.table, classes?.tableClass)}
     >
       {showTableHeaders && (
-        <div style={classes?.logTableStyles?.tr} className={styles.row}>
-          <div style={{ color: textColour }} className={styles.header}>
+        <div
+          className={styles.row}
+          id='react-git-log-table-head'
+          style={classes?.tableStyles?.thead}
+          data-testid='react-git-log-table-head'
+        >
+          <div
+            className={styles.header}
+            style={{ color: textColour }}
+            id='react-git-log-table-header-commit-message'
+            data-testid='react-git-log-table-header-commit-message'
+          >
             Commit message
           </div>
 
-          <div style={{ color: textColour }} className={styles.header}>
+          <div
+            className={styles.header}
+            style={{ color: textColour }}
+            id='react-git-log-table-header-timestamp'
+            data-testid='react-git-log-table-header-timestamp'
+          >
             Timestamp
           </div>
         </div>
@@ -99,18 +116,20 @@ export const Table = () => {
 
       {logData.length == 0 && placeholderData.map(({ commit }, i) => (
         <TableRow
+          index={i}
           isPlaceholder
           commit={commit}
-          data-testid={`git-log-empty-table-row-${i}`}
           key={`git-log-empty-table-row-${commit.hash}`}
+          data-testid={`react-git-log-empty-table-row-${i}`}
         />
       ))}
 
       {logData.map((commit, i) => (
         <TableRow
+          index={i}
           commit={commit}
-          data-testid={`git-log-table-row-${i}`}
           key={`git-log-table-row-${commit.hash}`}
+          data-testid={`react-git-log-table-row-${i}`}
         />
       ))}
     </div>

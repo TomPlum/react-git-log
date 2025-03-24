@@ -9,6 +9,8 @@ export const TagIcon = ({ className }: TagIconProps) => {
 
   return (
     <Icon
+      id='tag-icon'
+      data-testid='tag-icon'
       style={{ stroke: textColour }}
       className={classNames(styles.icon, className)}
     />

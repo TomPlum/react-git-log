@@ -26,7 +26,9 @@ export const BranchLabel = ({ name }: BranchLabelProps) => {
           className={styles.branchName}
         />
 
-        <BranchIcon className={styles.icon} />
+        <BranchIcon
+          className={styles.icon}
+        />
       </>
     )
   }
@@ -37,7 +39,9 @@ export const BranchLabel = ({ name }: BranchLabelProps) => {
         {displayName}
       </span>
 
-      <BranchIcon className={styles.icon} />
+      <BranchIcon
+        className={styles.icon}
+      />
     </>
   )
 }

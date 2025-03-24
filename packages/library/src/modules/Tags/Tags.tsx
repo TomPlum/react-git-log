@@ -84,8 +84,10 @@ export const Tags = () => {
         } else {
           return (
             <div
+              id={`empty-tag-${i}`}
+              key={`empty-tag-${i}`}
               className={styles.tag}
-              key={`empty_tag_${commit.hash}`}
+              data-testid={`empty-tag-${i}`}
               style={{ height: ROW_HEIGHT + rowSpacing }}
             />
           )

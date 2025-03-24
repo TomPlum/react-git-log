@@ -22,7 +22,8 @@ export default defineConfig({
       context: resolve(__dirname, '/src/context'),
       hooks: resolve(__dirname, '/src/hooks'),
       constants: resolve(__dirname, '/src/constants'),
-      data: resolve(__dirname, 'src/data')
+      data: resolve(__dirname, 'src/data'),
+      test: resolve(__dirname, 'src/_test'),
     }
   },
   build: {
@@ -59,11 +60,20 @@ export default defineConfig({
         classNameStrategy: 'non-scoped'
       }
     },
+    setupFiles: ['./src/_test/vitest.setup.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
+      cleanOnRerun: true,
+      clean: true,
+      reportOnFailure: true,
+      include: [
+        'src'
+      ],
       exclude: [
-        'node_modules/'
+        'node_modules/',
+        'dist',
+        'src/_test'
       ]
     }
   }

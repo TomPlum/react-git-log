@@ -8,11 +8,13 @@ export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {
   const { rowSpacing } = useGitContext()
 
   const borderStyle = isPlaceholder ? 'dotted' : 'solid'
-  
+
   return (
-    <>
+    <div id='left-down-curve' data-testid='left-down-curve' className={styles.container}>
       <div
-        className={styles.curve}
+        id='left-down-curve-bottom-line'
+        data-testid='left-down-curve-bottom-line'
+        className={styles.line}
         style={{
           bottom: 0,
           left: 'calc(50% - 1px)',
@@ -24,11 +26,14 @@ export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {
       <CurvedEdge
         colour={color}
         dashed={isPlaceholder}
+        id='left-down-curve-curved-line'
         path='M 0,53 A 50,50 0 0,1 50,100'
       />
 
       <div
-        className={styles.curve}
+        id='left-down-curve-left-line'
+        data-testid='left-down-curve-left-line'
+        className={styles.line}
         style={{
           left: 0,
           top: '50%',
@@ -37,6 +42,6 @@ export const LeftDownCurve = ({ color, isPlaceholder }: LeftDownCurveProps) => {
           width: `calc(50% - ${NODE_WIDTH / 2}px)`
         }}
       />
-    </>
+    </div>
   )
 }

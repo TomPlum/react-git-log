@@ -174,13 +174,13 @@ export interface GitLogStylingProps {
    * A class name passed to the table
    * element for the git log.
    */
-  logTableClass?: string
+  tableClass?: string
 
   /**
    * A React CSS styling object passed to
    * the table element for the git log.
    */
-  logTableStyles?: {
+  tableStyles?: {
     table?: CSSProperties
     thead?: CSSProperties
     tr?: CSSProperties

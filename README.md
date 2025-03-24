@@ -6,6 +6,8 @@
 # :seedling: React Git Log
 
 A flexible and interactive React component for visualising Git commit history. Displays a branching graph alongside commit, branch and tag metadata, with support for customised theming.
+
+# Contents
 <!-- TOC -->
 * [Features](#features)
 * [Using the component](#using-the-component)
@@ -168,21 +170,18 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 - And Iain Ballard for his experimental GUI [SnivellingGit](https://github.com/i-e-b/SnivellingGit/tree/master)
 
 # Roadmap
-- Filtering of branches
-- Filter by commit message search?
-- Filtering of date?
 - Show code in stories
-- Tests
 - Expose custom theme object off the Theme type
 - Performance testing on large repos
 - Can Zustand help us here to reduce re-renders with GitContext Provider?
 - Add error boundary
-- Add empty state
 - Expose component override props for things like CommitNode, CommitMessage etc.
 - Straight line prop to turn curves into right angles?
-- Add data-testids to all relevant elements for testing
 - Node size parameter to make the graph even more compact as it will reduce the minimum column width
 - Line curve radius prop?
 - Should we split the component in 3 sub-components with a wrapper, like `GitLog` and `GitLog.Graph` etc.?
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
 - Extract ThemeContext
+- Mobile responsiveness for the demo site
+- Add min width to commit message grid column
+- Add author to table

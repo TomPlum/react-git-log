@@ -9,6 +9,8 @@ export const GitIcon = ({ className }: GitIconProps) => {
 
   return (
     <Icon
+      id='git-icon'
+      data-testid='git-icon'
       style={{ fill: shiftAlphaChannel(textColour, 0.8) }}
       className={classNames(styles.icon, className)}
     />

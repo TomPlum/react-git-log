@@ -184,5 +184,3 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
 - Extract ThemeContext
 - Mobile responsiveness for the demo site
-- Add min width to commit message grid column
-- Add author to table

@@ -14,12 +14,12 @@
     "src/modules/Table/Table.tsx",
 
     "src/modules/Tags/index.ts",
-    "src/modules/Tags/types.ts",
     "src/modules/Tags/Tags.tsx",
 
     "src/types/svg.d.ts",
     "src/types/GitLogEntry.ts",
     "src/types/Commit.ts",
+    "src/hooks/useTheme/index.ts",
     "src/hooks/useTheme/types.ts"
   ],
   "exclude": [

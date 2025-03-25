@@ -14,8 +14,8 @@
       "hooks/*": ["src/hooks/*"],
       "constants/*": ["src/constants/*"],
       "types/*": ["src/types/*"],
-      "data": ["src/data/index.ts"],
-      "test/*": ["src/_test/*"]
+      "test/*": ["src/_test/*"],
+      "data": ["src/data/index.ts"]
     },
     "types": ["vitest/globals", "vite/client"],
 

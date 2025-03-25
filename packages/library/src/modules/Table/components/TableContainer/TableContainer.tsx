@@ -4,7 +4,7 @@ import { PropsWithChildren, useMemo } from 'react'
 import { useGitContext } from 'context/GitContext'
 import { placeholderCommits } from 'modules/Graph/hooks/usePlaceholderData/data'
 import { ROW_HEIGHT } from 'constants/constants'
-import { HEADER_ROW_HEIGHT, TABLE_MARGIN_TOP } from 'modules/Table'
+import { HEADER_ROW_HEIGHT, TABLE_MARGIN_TOP } from 'modules/Table/constants'
 import { TableContainerProps } from 'modules/Table/components/TableContainer/types'
 
 export const TableContainer = ({

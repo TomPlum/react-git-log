@@ -4,6 +4,7 @@ import DataIntervalTree from 'node-interval-tree'
 import { ThemeFunctions } from 'hooks/useTheme'
 import { GraphData } from 'data'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
+import { GraphContextBag } from 'modules/Graph/context'
 
 export const commit = (commit?: Partial<Commit>): Commit => ({
   hash: 'aa2c148',
@@ -33,28 +34,29 @@ export const entry = (entry?: Partial<GitLogEntry>): GitLogEntry => ({
 
 export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({
   currentBranch: 'main',
-  defaultGraphContainerWidth: 0,
-  graphContainerWidth: 0,
+  graphWidth: 0,
+  setGraphWidth: vi.fn(),
   indexCommit: commit({ hash: 'index' }),
   paging: { endIndex: 0, isIndexVisible: false, startIndex: 0 },
   rowSpacing: 0,
-  setGraphContainerWidth: vi.fn(),
   setPreviewedCommit: vi.fn(),
   setSelectedCommit: vi.fn(),
   showBranchesTags: false,
-  showCommitNodeHashes: false,
   theme: 'dark',
-  timestampFormat: '',
   showTable: true,
   selectedCommit: commit({ hash: 'selected' }),
   colours: ['white'],
   headCommit: commit({ hash: 'HEAD' }),
   graphData: graphData(),
-  nodeTheme: 'default',
-  showCommitNodeTooltips: false,
   enableExperimentalAnimation: false,
   showTableHeaders: true,
-  enableResize: false,
+  ...bag
+})
+
+export const graphContextBag = (bag?: Partial<GraphContextBag>): GraphContextBag => ({
+  nodeTheme: 'default',
+  showCommitNodeTooltips: false,
+  showCommitNodeHashes: false,
   ...bag
 })
 

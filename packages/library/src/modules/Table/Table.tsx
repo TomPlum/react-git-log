@@ -15,7 +15,9 @@ import { TableContext, TableContextBag } from './context'
 dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
 
-export const Table = ({ timestampFormat }: TableProps) => {
+export const Table = ({
+  timestampFormat = 'YYYY-MM-DD HH:mm:ss'
+}: TableProps) => {
   const { textColour, } = useTheme()
 
   const {

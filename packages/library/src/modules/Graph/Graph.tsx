@@ -17,10 +17,10 @@ import { GraphContext, GraphContextBag } from './context'
  * console.log(JSON.stringify(Object.fromEntries(columnData), null, 2))
  */
 export const Graph = ({
-  nodeTheme,
-  enableResize,
-  showCommitNodeHashes,
-  showCommitNodeTooltips
+  nodeTheme = 'default',
+  enableResize = false,
+  showCommitNodeHashes = false,
+  showCommitNodeTooltips = false
 }: GraphProps) => {
   const {
     paging,

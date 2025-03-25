@@ -62,13 +62,15 @@ describe('Integration', () => {
 
     render(
       <GitLog
-        showTable
-        showBranchesTags
         showTableHeaders
         currentBranch='release'
         entries={gitLogEntries}
         githubRepositoryUrl='https://github.com/TomPlum/sleep'
-      />
+      >
+        <GitLog.Tags />
+        <GitLog.Graph />
+        <GitLog.Table />
+      </GitLog>
     )
 
     const debugMetrics: Record<string, number> = {}

@@ -16,19 +16,13 @@ dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
 
 export const Table = ({
+  className,
+  styles: styleOverrides,
   timestampFormat = 'YYYY-MM-DD HH:mm:ss'
 }: TableProps) => {
   const { textColour, } = useTheme()
-
-  const {
-    showHeaders,
-    classes,
-    graphData,
-    paging,
-    indexCommit
-  } = useGitContext()
-
   const { placeholderData } = usePlaceholderData()
+  const { showHeaders, graphData, paging, indexCommit } = useGitContext()
 
   const tableData = useMemo<Commit[]>(() => {
     const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
@@ -46,12 +40,12 @@ export const Table = ({
 
   return (
     <TableContext value={tableContextValue}>
-      <TableContainer rowQuantity={tableData.length}>
+      <TableContainer rowQuantity={tableData.length} className={className} styleOverrides={styleOverrides?.table}>
         {showHeaders && (
           <div
             className={styles.head}
             id='react-git-log-table-head'
-            style={classes?.tableStyles?.thead}
+            style={styleOverrides?.thead}
             data-testid='react-git-log-table-head'
           >
             <div
@@ -88,6 +82,8 @@ export const Table = ({
             index={i}
             isPlaceholder
             commit={commit}
+            rowStyleOverrides={styleOverrides?.tr}
+            dataStyleOverrides={styleOverrides?.td}
             key={`git-log-empty-table-row-${commit.hash}`}
             data-testid={`react-git-log-empty-table-row-${i}`}
           />
@@ -97,6 +93,8 @@ export const Table = ({
           <TableRow
             index={i}
             commit={commit}
+            rowStyleOverrides={styleOverrides?.tr}
+            dataStyleOverrides={styleOverrides?.td}
             key={`git-log-table-row-${commit.hash}`}
             data-testid={`react-git-log-table-row-${i}`}
           />

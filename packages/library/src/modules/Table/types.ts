@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react'
+
 /**
  * The number of pixels that the header
  * row needs to be so that the first
@@ -23,4 +25,41 @@ export interface TableProps {
    * @default ISO-8601
    */
   timestampFormat?: string
+
+  /**
+   * A class name passed to the tables
+   * wrapping container element.
+   */
+  className?: string
+
+  /**
+   * A React CSS styling object passed to
+   * the various elements of the table.
+   */
+  styles?: {
+    /**
+     * A React CSS styling object passed to
+     * the container element of the table.
+     */
+    table?: CSSProperties
+
+    /**
+     * A React CSS styling object passed to
+     * the wrapping element around the table
+     * headers.
+     */
+    thead?: CSSProperties
+
+    /**
+     * A React CSS styling object passed to
+     * each table row element.
+     */
+    tr?: CSSProperties
+
+    /**
+     * A React CSS styling object passed to
+     * each table data element.
+     */
+    td?: CSSProperties
+  }
 }

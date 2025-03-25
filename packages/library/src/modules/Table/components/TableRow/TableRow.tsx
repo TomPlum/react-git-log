@@ -9,7 +9,14 @@ import dayjs from 'dayjs'
 import { ROW_HEIGHT } from 'constants/constants'
 import { useTableContext } from 'modules/Table/context'
 
-export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTableRowProps) => {
+export const TableRow = ({
+  index,
+  commit,
+  isPlaceholder,
+  rowStyleOverrides,
+  dataStyleOverrides,
+  ...props
+}: GitLogTableRowProps) => {
   const {
     textColour,
     hoverColour,
@@ -19,7 +26,7 @@ export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTable
   } = useTheme()
 
   const { timestampFormat } = useTableContext()
-  const { selectedCommit, previewedCommit, classes } = useGitContext()
+  const { selectedCommit, previewedCommit } = useGitContext()
 
   const isMergeCommit = commit.parents.length > 1
 
@@ -105,7 +112,7 @@ export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTable
     <div
       {...props}
       className={styles.row}
-      style={classes?.tableStyles?.tr}
+      style={rowStyleOverrides}
       id={`react-git-log-table-row-${index}`}
       onMouseOut={selectCommitHandler.onMouseOut}
       data-testid={`react-git-log-table-row-${index}`}
@@ -117,7 +124,7 @@ export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTable
         className={classNames(styles.td, styles.message)}
         id={`react-git-log-table-data-commit-message-${index}`}
         data-testid={`react-git-log-table-data-commit-message-${index}`}
-        style={{ ...tableDataStyle, ...backgroundStyles, ...classes?.tableStyles?.td }}
+        style={{ ...tableDataStyle, ...backgroundStyles, ...dataStyleOverrides }}
       >
         {commit.message}
       </div>
@@ -127,7 +134,7 @@ export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTable
         className={classNames(styles.td, styles.author)}
         id={`react-git-log-table-data-author-${index}`}
         data-testid={`react-git-log-table-data-author-${index}`}
-        style={{ ...tableDataStyle, ...backgroundStyles, ...classes?.tableStyles?.td }}
+        style={{ ...tableDataStyle, ...backgroundStyles, ...dataStyleOverrides }}
       >
         {shouldRenderHyphenValue ? '-' : author}
       </div>
@@ -136,7 +143,7 @@ export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTable
         className={classNames(styles.td, styles.date)}
         id={`react-git-log-table-data-timestamp-${index}`}
         data-testid={`react-git-log-table-data-timestamp-${index}`}
-        style={{ ...tableDataStyle, ...backgroundStyles, ...classes?.tableStyles?.td }}>
+        style={{ ...tableDataStyle, ...backgroundStyles, ...dataStyleOverrides }}>
         {shouldRenderHyphenValue ? '-' : formatTimestamp(commit.committerDate)}
       </div>
     </div>

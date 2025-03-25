@@ -285,8 +285,7 @@ export const Default: Story = {
               containerStyles: {
                 background: backgroundColour
               },
-              containerClass: styles.gitLogContainer,
-              tableClass: styles.table
+              containerClass: styles.gitLogContainer
             }}
           >
             {args.showBranchesTags && (
@@ -302,6 +301,7 @@ export const Default: Story = {
 
             {args.showTable && (
               <GitLog.Table
+                className={styles.table}
                 timestampFormat={args.timestampFormat}
               />
             )}

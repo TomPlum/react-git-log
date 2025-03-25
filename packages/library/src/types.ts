@@ -126,23 +126,6 @@ export interface GitLogStylingProps {
    * graph and the git log table.
    */
   containerStyles?: CSSProperties
-
-  /**
-   * A class name passed to the table
-   * element for the git log.
-   */
-  tableClass?: string
-
-  /**
-   * A React CSS styling object passed to
-   * the table element for the git log.
-   */
-  tableStyles?: {
-    table?: CSSProperties
-    thead?: CSSProperties
-    tr?: CSSProperties
-    td?: CSSProperties
-  }
 }
 
 export interface GitLogPaging {

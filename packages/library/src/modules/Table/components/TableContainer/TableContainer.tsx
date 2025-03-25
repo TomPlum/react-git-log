@@ -7,8 +7,13 @@ import { ROW_HEIGHT } from 'constants/constants'
 import { HEADER_ROW_HEIGHT, TABLE_MARGIN_TOP } from 'modules/Table'
 import { TableContainerProps } from 'modules/Table/components/TableContainer/types'
 
-export const TableContainer = ({ rowQuantity, children }: PropsWithChildren<TableContainerProps>) => {
-  const { classes, rowSpacing, showHeaders } = useGitContext()
+export const TableContainer = ({
+  rowQuantity,
+  children,
+  className,
+                                 styleOverrides
+}: PropsWithChildren<TableContainerProps>) => {
+  const { rowSpacing, showHeaders } = useGitContext()
 
   const gridTemplateRows = useMemo(() => {
     // If no commits are visible as we're showing
@@ -50,12 +55,12 @@ export const TableContainer = ({ rowQuantity, children }: PropsWithChildren<Tabl
       id='react-git-log-table'
       data-testid='react-git-log-table'
       style={{
-        ...classes?.tableStyles?.table,
+        ...styleOverrides,
         marginTop,
         gridTemplateRows,
         rowGap: rowSpacing
       }}
-      className={classNames(styles.tableContainer, classes?.tableClass)}
+      className={classNames(styles.tableContainer, className)}
     >
       {children}
     </div>

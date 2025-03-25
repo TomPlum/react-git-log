@@ -284,9 +284,19 @@ export const Default: Story = {
                 background: backgroundColour
               },
               containerClass: styles.gitLogContainer,
-              logTableClass: styles.table
+              tableClass: styles.table
             }}
-          />
+          >
+            {args.showBranchesTags && (
+              <GitLog.Tags />
+            )}
+
+            <GitLog.Graph />
+
+            {args.showTable && (
+              <GitLog.Table />
+            )}
+          </GitLog>
         )}
       </div>
     )

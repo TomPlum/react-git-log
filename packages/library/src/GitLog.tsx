@@ -1,12 +1,16 @@
 import { Commit, GitLogProps } from 'types'
-import { Layout } from './Layout'
-import { useCallback, useMemo, useState } from 'react'
+import { PropsWithChildren, useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context/GitContext'
 import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/useTheme'
 import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
-import { GraphData, temporalTopologicalSort, computeNodePositions, computeRelationships } from 'data'
+import { computeNodePositions, computeRelationships, GraphData, temporalTopologicalSort } from 'data'
+import { Tags } from 'modules/Tags'
+import { Graph } from 'modules/Graph'
+import { Table } from 'modules/Table'
+import { Layout } from 'components/Layout'
 
 export const GitLog = ({
+   children,
    entries,
    showTable = true,
    showBranchesTags = true,
@@ -26,7 +30,8 @@ export const GitLog = ({
    githubRepositoryUrl,
    currentBranch,
    paging
-}: GitLogProps) => {
+}: PropsWithChildren<GitLogProps>) => {
+
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
   const [graphContainerWidth, setGraphContainerWidth] = useState(defaultGraphContainerWidth)
@@ -172,7 +177,13 @@ export const GitLog = ({
   
   return (
     <GitContext.Provider value={value}>
-       <Layout />
+       <Layout>
+         {children}
+       </Layout>
     </GitContext.Provider>
   )
 }
+
+GitLog.Tags = Tags
+GitLog.Graph = Graph
+GitLog.Table = Table

@@ -11,7 +11,7 @@ export const TableContainer = ({
   rowQuantity,
   children,
   className,
-                                 styleOverrides
+  styleOverrides
 }: PropsWithChildren<TableContainerProps>) => {
   const { rowSpacing, showHeaders } = useGitContext()
 

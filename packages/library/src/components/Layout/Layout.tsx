@@ -5,7 +5,7 @@ import { useTheme } from 'hooks/useTheme'
 import { LayoutProps } from './types'
 
 export const Layout = ({ tags, graph, table }: LayoutProps) => {
-  const { classes, showTableHeaders } = useGitContext()
+  const { classes, showHeaders } = useGitContext()
 
   const { textColour } = useTheme()
 
@@ -18,7 +18,7 @@ export const Layout = ({ tags, graph, table }: LayoutProps) => {
     >
       {tags && (
         <div className={styles.tags}>
-          {showTableHeaders && (
+          {showHeaders && (
             <h4 style={{ color: textColour, marginLeft: 10 }} className={styles.title}>
               Branch / Tag
             </h4>
@@ -30,7 +30,7 @@ export const Layout = ({ tags, graph, table }: LayoutProps) => {
 
       {graph && (
         <div className={styles.graph}>
-          {showTableHeaders && (
+          {showHeaders && (
             <h4 style={{ color: textColour }} className={styles.title}>
               Graph
             </h4>

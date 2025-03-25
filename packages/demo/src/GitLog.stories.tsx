@@ -44,7 +44,7 @@ const meta: Meta<StoryProps> = {
     showBranchesTags: true,
     showCommitNodeHashes: false,
     showCommitNodeTooltips: false,
-    showTableHeaders: true,
+    showHeaders: true,
     enableResize: false,
     enableExperimentalAnimation: false,
     nodeTheme: 'default',
@@ -88,8 +88,8 @@ const meta: Meta<StoryProps> = {
         category: 'Visibility'
       }
     },
-    showTableHeaders: {
-      name: 'Show Table Headers',
+    showHeaders: {
+      name: 'Show Headers',
       table: {
         category: 'Visibility'
       }

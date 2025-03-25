@@ -62,7 +62,7 @@ describe('Integration', () => {
 
     render(
       <GitLog
-        showTableHeaders
+        showHeaders
         currentBranch='release'
         entries={gitLogEntries}
         githubRepositoryUrl='https://github.com/TomPlum/sleep'

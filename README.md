@@ -131,7 +131,7 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 | `showTable`                   | `boolean`                   | Whether to show a table of commit metadata on the right-hand side of the graph.                                                             |
 | `showCommitNodeHashes`        | `boolean`                   | Whether to show the commit hash next to the node in the graph.                                                                              |
 | `showCommitNodeTooltips`      | `boolean`                   | Whether to show tooltips when hovering over a commit node in the graph.                                                                     |
-| `showTableHeaders`            | `boolean`                   | Whether to show the names of the elements at the top of the component (e.g., "Graph", "Commit message").                                    |
+| `showHeaders`                 | `boolean`                   | Whether to show the names of the elements at the top of the component (e.g., "Graph", "Commit message").                                    |
 | `enableExperimentalAnimation` | `boolean`                   | Enables Framer Motion animation for simple fading transitions. Experimental feature.                                                        |
 | `enableResize`                | `boolean`                   | Enables the graph's horizontal width to be resized. (Default: `false`)                                                                      |
 | `rowSpacing`                  | `number`                    | The spacing between the rows of the log, affecting all elements across branches, graph, and table. (Default: `0`)                           |

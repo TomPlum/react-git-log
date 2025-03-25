@@ -21,7 +21,7 @@ export const Table = ({
   const { textColour, } = useTheme()
 
   const {
-    showTableHeaders,
+    showHeaders,
     classes,
     graphData,
     paging,
@@ -47,7 +47,7 @@ export const Table = ({
   return (
     <TableContext value={tableContextValue}>
       <TableContainer rowQuantity={tableData.length}>
-        {showTableHeaders && (
+        {showHeaders && (
           <div
             className={styles.head}
             id='react-git-log-table-head'

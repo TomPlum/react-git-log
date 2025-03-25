@@ -49,7 +49,7 @@ export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({
   headCommit: commit({ hash: 'HEAD' }),
   graphData: graphData(),
   enableExperimentalAnimation: false,
-  showTableHeaders: true,
+  showHeaders: true,
   ...bag
 })
 

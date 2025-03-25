@@ -74,7 +74,7 @@ export interface GitContextBag {
    * at the top of the component such as "Graph"
    * or "Commit message" etc.
    */
-  showTableHeaders?: boolean
+  showHeaders?: boolean
 
   /**
    * Enables framer motion animation for

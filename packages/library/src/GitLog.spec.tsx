@@ -60,7 +60,7 @@ describe('GitLog', () => {
         <GitLog
           currentBranch={'test'}
           entries={[entry({ branch: 'test' })]}
-          showTableHeaders
+          showHeaders
           classes={{
             tableStyles: {
               table: {

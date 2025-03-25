@@ -8,7 +8,7 @@ import { HEADER_ROW_HEIGHT, TABLE_MARGIN_TOP } from 'modules/Table'
 import { TableContainerProps } from 'modules/Table/components/TableContainer/types'
 
 export const TableContainer = ({ rowQuantity, children }: PropsWithChildren<TableContainerProps>) => {
-  const { classes, rowSpacing, showTableHeaders } = useGitContext()
+  const { classes, rowSpacing, showHeaders } = useGitContext()
 
   const gridTemplateRows = useMemo(() => {
     // If no commits are visible as we're showing
@@ -20,7 +20,7 @@ export const TableContainer = ({ rowQuantity, children }: PropsWithChildren<Tabl
 
     // If the table headers are turned off, then we simply
     // repeat the same row height for all rows.
-    if (!showTableHeaders) {
+    if (!showHeaders) {
       return `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
     }
 
@@ -35,15 +35,15 @@ export const TableContainer = ({ rowQuantity, children }: PropsWithChildren<Tabl
     const remainingRowsHeight = `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
 
     return `${headerRowHeight}px ${remainingRowsHeight}`
-  }, [rowQuantity, rowSpacing, showTableHeaders])
+  }, [rowQuantity, rowSpacing, showHeaders])
 
   const marginTop = useMemo(() => {
-    if (showTableHeaders) {
+    if (showHeaders) {
       return TABLE_MARGIN_TOP
     }
 
     return (rowSpacing / 2) + TABLE_MARGIN_TOP
-  }, [rowSpacing, showTableHeaders])
+  }, [rowSpacing, showHeaders])
   
   return (
     <div

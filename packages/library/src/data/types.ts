@@ -1,4 +1,4 @@
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 import DataIntervalTree from 'node-interval-tree'
 
 export interface GraphData {

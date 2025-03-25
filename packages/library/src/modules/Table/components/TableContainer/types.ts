@@ -1,3 +1,7 @@
+import { CSSProperties } from 'react'
+
 export interface TableContainerProps {
-  rowQuantity: number;
+  rowQuantity: number
+  className?: string
+  styleOverrides?: CSSProperties
 }

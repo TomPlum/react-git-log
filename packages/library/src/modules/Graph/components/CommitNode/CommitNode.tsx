@@ -3,15 +3,15 @@ import { CommitNodeProps } from './types'
 import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { useCallback, useMemo, useState } from 'react'
 import { useTheme } from 'hooks/useTheme'
-import { useGitContext } from 'context/GitContext'
 import { CommitNodeTooltip } from '../CommitNodeTooltip'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import { NODE_BORDER_WIDTH, NODE_WIDTH } from 'constants/constants'
+import { useGraphContext } from 'modules/Graph/context'
 
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { textColour, shiftAlphaChannel, theme } = useTheme()
-  const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme } = useGitContext()
+  const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme } = useGraphContext()
 
   const commitHashLabelHeight = 20
   const isMergeCommit = nodeTheme === 'default' && commit.parents.length > 1

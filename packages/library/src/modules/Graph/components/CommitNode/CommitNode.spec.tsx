@@ -1,7 +1,8 @@
+import * as graphContext from 'modules/Graph/context'
 import * as gitContext from 'context/GitContext'
 import * as selectCommit from 'hooks/useSelectCommit'
 import * as themeHook from 'hooks/useTheme'
-import { commit, gitContextBag, themeFunctions } from 'test/stubs'
+import { commit, gitContextBag, graphContextBag, themeFunctions } from 'test/stubs'
 import { render, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { CommitNode } from 'modules/Graph/components/CommitNode/CommitNode'
@@ -10,7 +11,7 @@ import { expect } from 'vitest'
 
 describe('CommitNode', () => {
   it('should render a tooltip on hover of the node if the prop is enabled', async () => {
-    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
       showCommitNodeTooltips: true
     }))
 
@@ -49,7 +50,7 @@ describe('CommitNode', () => {
   })
 
   it('should not render a tooltip on hover of the node if the prop is disabled', async () => {
-    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
       showCommitNodeTooltips: false
     }))
 
@@ -83,8 +84,11 @@ describe('CommitNode', () => {
   it('should render the commits hash next to the node if showCommitNodeHashes is true', () => {
     const rowSpacing = 12
     vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
-      showCommitNodeHashes: true,
       rowSpacing
+    }))
+
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
+      showCommitNodeHashes: true
     }))
 
     vi.spyOn(selectCommit, 'useSelectCommit').mockReturnValue({
@@ -125,7 +129,7 @@ describe('CommitNode', () => {
   })
 
   it('should render the commits hash with a light background if the theme is light', () => {
-    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
       showCommitNodeHashes: true
     }))
 
@@ -192,7 +196,7 @@ describe('CommitNode', () => {
   })
 
   it('should render an inner circle element when the commit is a merge commit and the node theme is default', async () => {
-    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
       nodeTheme: 'default'
     }))
 
@@ -228,7 +232,7 @@ describe('CommitNode', () => {
   })
 
   it('should not render an inner circle element when the commit is a merge commit but the node theme is plain', async () => {
-    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
       nodeTheme: 'plain'
     }))
 
@@ -259,7 +263,7 @@ describe('CommitNode', () => {
   })
 
   it('should render the commit node element with the correct styles', async () => {
-    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
       nodeTheme: 'plain'
     }))
 

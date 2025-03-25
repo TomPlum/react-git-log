@@ -1,5 +1,5 @@
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 
 export interface VerticalLineProps {
   isIndex: boolean

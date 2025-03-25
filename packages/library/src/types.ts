@@ -1,5 +1,7 @@
 import { CSSProperties } from 'react'
-import { NodeTheme, ThemeColours, ThemeMode } from './hooks/useTheme/types'
+import { ThemeColours, ThemeMode } from './hooks/useTheme/types'
+import { GitLogEntry } from './types/GitLogEntry'
+import { Commit } from './types/Commit'
 
 export interface GitLogProps {
   /**
@@ -21,12 +23,6 @@ export interface GitLogProps {
   theme?: ThemeMode
 
   /**
-   * The theme to apply the commit node
-   * elements in the graph.
-   */
-  nodeTheme?: NodeTheme
-
-  /**
    * An array of colours used to colour the
    * logs elements such as the graph.
    *
@@ -42,36 +38,11 @@ export interface GitLogProps {
   colours?: ThemeColours | string[]
 
   /**
-   * Whether to show labels for the nodes
-   * that are the tips of branches or
-   * tags with the graph.
-   */
-  showBranchesTags?: boolean
-
-  /**
-   * Whether to show a table of commit metadata
-   * on the right-hand side of the graph.
-   */
-  showTable?: boolean
-
-  /**
-   * Whether to show the commit hash
-   * to the side of the node in the graph.
-   */
-  showCommitNodeHashes?: boolean
-
-  /**
-   * Whether to show tooltips when hovering
-   * over a commit node in the graph.
-   */
-  showCommitNodeTooltips?: boolean
-
-  /**
    * Whether to show the names of the elements
    * at the top of the component such as "Graph"
    * or "Commit message" etc.
    */
-  showTableHeaders?: boolean
+  showHeaders?: boolean
 
   /**
    * Enables framer motion animation for
@@ -82,14 +53,6 @@ export interface GitLogProps {
    * have bugs.
    */
   enableExperimentalAnimation?: boolean
-
-  /**
-   * Enables the graphs horizontal width
-   * to be resized.
-   *
-   * @default false
-   */
-  enableResize?: boolean
 
   /**
    * The spacing between the rows of the log.
@@ -112,18 +75,12 @@ export interface GitLogProps {
   /**
    * The default width of the graph in pixels.
    *
+   * Can be changed dynamically if {@link enableResize}
+   * is true.
+   *
    * @default 300
    */
-  defaultGraphContainerWidth?: number
-
-  /**
-   * A timestamp format string passed to DayJS
-   * to format the timestamps of the commits
-   * in the log table.
-   *
-   * @default ISO-8601
-   */
-  timestampFormat?: string
+  defaultGraphWidth?: number
 
   /**
    * A callback function invoked when a commit
@@ -169,23 +126,6 @@ export interface GitLogStylingProps {
    * graph and the git log table.
    */
   containerStyles?: CSSProperties
-
-  /**
-   * A class name passed to the table
-   * element for the git log.
-   */
-  tableClass?: string
-
-  /**
-   * A React CSS styling object passed to
-   * the table element for the git log.
-   */
-  tableStyles?: {
-    table?: CSSProperties
-    thead?: CSSProperties
-    tr?: CSSProperties
-    td?: CSSProperties
-  }
 }
 
 export interface GitLogPaging {
@@ -200,129 +140,4 @@ export interface GitLogPaging {
    * The first page is page 0.
    */
   page: number
-}
-
-/**
- * Represents a commit in the Git history.
- */
-export interface Commit {
-  /**
-   * The unique hash (SHA) identifying the commit.
-   */
-  hash: string
-
-  /**
-   * An array of parent commit hashes (SHA) for this commit.
-   * A commit can have multiple parents in the case of merges.
-   */
-  parents: string[]
-
-  /**
-   * An array of child commit hashes (SHA) that
-   * reference this commit as a parent.
-   *
-   * This helps track descendants in the commit graph.
-   */
-  children: string[]
-
-  /**
-   * The name of the branch this commit belongs to.
-   */
-  branch: string
-
-  /**
-   * The commit message describing the changes
-   * introduced by this commit.
-   */
-  message: string
-
-  /**
-   * Details of the user who authored
-   * the commit.
-   */
-  author?: CommitAuthor
-
-  /**
-   * The date and time when the commit was
-   * made by the author, in ISO 8601 format.
-   */
-  authorDate?: string
-
-  /**
-   * The date and time when the commit was
-   * committed to the repository, in ISO 8601 format.
-   *
-   * This may differ from `authorDate` in cases
-   * like rebases or amend commits.
-   */
-  committerDate: string
-
-  /**
-   * Indicates whether this commit is the
-   * tip (latest commit) of its branch.
-   */
-  isBranchTip: boolean
-}
-
-/**
- * Represents the author of a Git commit.
- */
-export interface CommitAuthor {
-  /**
-   * The name of the commit author.
-   */
-  name?: string;
-
-  /**
-   * The email address of the commit author.
-   */
-  email?: string;
-}
-
-/**
- * Represents a single entry in the git log.
- */
-export interface GitLogEntry {
-  /**
-   * The unique hash identifier of the commit.
-   */
-  hash: string
-
-  /**
-   * The name of the branch this commit belongs to.
-   */
-  branch: string
-
-  /**
-   * An array of parent commit hashes.
-   *
-   * - If this commit is a merge commit, it will have multiple parents.
-   * - If this commit is an initial commit, it will have no parents.
-   */
-  parents: string[]
-
-  /**
-   * The commit message describing the changes made in this commit.
-   */
-  message: string
-
-  /**
-   * Details of the user who authored
-   * the commit.
-   */
-  author?: CommitAuthor
-
-  /**
-   * The date and time when the commit was applied by the committer.
-   *
-   * This is typically the timestamp when the commit was finalized.
-   */
-  committerDate: string
-
-  /**
-   * The date and time when the commit was originally authored.
-   *
-   * This may differ from `committerDate` if the commit was rebased or amended.
-   */
-  authorDate?: string
 }

@@ -1,6 +1,7 @@
 import { useTheme } from 'hooks/useTheme'
 import classNames from 'classnames'
 import styles from './GitIcon.module.scss'
+// eslint-disable-next-line import/extensions
 import Icon from 'assets/git.svg?react'
 import { GitIconProps } from './types'
 

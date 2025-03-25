@@ -1,18 +1,11 @@
-import styles from './Layout.module.scss'
-import { Table } from 'modules/Table'
-import { Tags } from 'modules/Tags'
-import { useGitContext } from 'context/GitContext'
 import classNames from 'classnames'
+import styles from './Layout.module.scss'
+import { useGitContext } from 'context/GitContext'
 import { useTheme } from 'hooks/useTheme'
-import { Graph } from 'modules/Graph'
+import { LayoutProps } from './types'
 
-export const Layout = () => {
-  const {
-    classes,
-    showTable,
-    showBranchesTags,
-    showTableHeaders
-  } = useGitContext()
+export const Layout = ({ tags, graph, table }: LayoutProps) => {
+  const { classes, showHeaders } = useGitContext()
 
   const { textColour } = useTheme()
 
@@ -23,31 +16,33 @@ export const Layout = () => {
       style={classes?.containerStyles}
       className={classNames(styles.container, classes?.containerClass)}
     >
-      {showBranchesTags && (
+      {tags && (
         <div className={styles.tags}>
-          {showTableHeaders && (
+          {showHeaders && (
             <h4 style={{ color: textColour, marginLeft: 10 }} className={styles.title}>
               Branch / Tag
             </h4>
           )}
 
-          <Tags />
+          {tags}
         </div>
       )}
 
-      <div className={styles.graph}>
-        {showTableHeaders && (
-          <h4 style={{ color: textColour }} className={styles.title}>
-            Graph
-          </h4>
-        )}
+      {graph && (
+        <div className={styles.graph}>
+          {showHeaders && (
+            <h4 style={{ color: textColour }} className={styles.title}>
+              Graph
+            </h4>
+          )}
 
-        <Graph />
-      </div>
+          {graph}
+        </div>
+      )}
 
-      {showTable && (
+      {table && (
         <div className={styles.table}>
-          <Table />
+          {table}
         </div>
       )}
     </div>

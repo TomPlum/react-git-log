@@ -1,7 +1,7 @@
 import { useGitContext } from 'context/GitContext'
 import { ThemeFunctions } from './types'
 import { useCallback, useMemo } from 'react'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 
 export const useTheme = (): ThemeFunctions => {
   const { theme, colours, graphData } = useGitContext()

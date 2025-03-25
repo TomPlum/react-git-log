@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+packages/library/tomplum-react-git-log-*
 
 # Editor directories and files
 .vscode/*

@@ -4,11 +4,16 @@ import { PropsWithChildren, useMemo } from 'react'
 import { useGitContext } from 'context/GitContext'
 import { placeholderCommits } from 'modules/Graph/hooks/usePlaceholderData/data'
 import { ROW_HEIGHT } from 'constants/constants'
-import { HEADER_ROW_HEIGHT, TABLE_MARGIN_TOP } from 'modules/Table'
+import { HEADER_ROW_HEIGHT, TABLE_MARGIN_TOP } from 'modules/Table/constants'
 import { TableContainerProps } from 'modules/Table/components/TableContainer/types'
 
-export const TableContainer = ({ rowQuantity, children }: PropsWithChildren<TableContainerProps>) => {
-  const { classes, rowSpacing, showTableHeaders } = useGitContext()
+export const TableContainer = ({
+  rowQuantity,
+  children,
+  className,
+  styleOverrides
+}: PropsWithChildren<TableContainerProps>) => {
+  const { rowSpacing, showHeaders } = useGitContext()
 
   const gridTemplateRows = useMemo(() => {
     // If no commits are visible as we're showing
@@ -20,7 +25,7 @@ export const TableContainer = ({ rowQuantity, children }: PropsWithChildren<Tabl
 
     // If the table headers are turned off, then we simply
     // repeat the same row height for all rows.
-    if (!showTableHeaders) {
+    if (!showHeaders) {
       return `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
     }
 
@@ -35,27 +40,27 @@ export const TableContainer = ({ rowQuantity, children }: PropsWithChildren<Tabl
     const remainingRowsHeight = `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
 
     return `${headerRowHeight}px ${remainingRowsHeight}`
-  }, [rowQuantity, rowSpacing, showTableHeaders])
+  }, [rowQuantity, rowSpacing, showHeaders])
 
   const marginTop = useMemo(() => {
-    if (showTableHeaders) {
+    if (showHeaders) {
       return TABLE_MARGIN_TOP
     }
 
     return (rowSpacing / 2) + TABLE_MARGIN_TOP
-  }, [rowSpacing, showTableHeaders])
+  }, [rowSpacing, showHeaders])
   
   return (
     <div
       id='react-git-log-table'
       data-testid='react-git-log-table'
       style={{
-        ...classes?.tableStyles?.table,
+        ...styleOverrides,
         marginTop,
         gridTemplateRows,
         rowGap: rowSpacing
       }}
-      className={classNames(styles.tableContainer, classes?.tableClass)}
+      className={classNames(styles.tableContainer, className)}
     >
       {children}
     </div>

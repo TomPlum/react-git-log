@@ -1,4 +1,4 @@
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 
 export const temporalTopologicalSort = (
   commits: Commit[],

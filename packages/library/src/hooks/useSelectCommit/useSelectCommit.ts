@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 import { useGitContext } from 'context/GitContext'
 import { SelectCommitHandler } from './types'
 

@@ -1,6 +1,7 @@
-import { Commit, GitLogStylingProps } from 'types'
+import { Commit } from 'types/Commit'
 import { ThemeMode } from 'hooks/useTheme'
 import { GraphData } from 'data'
+import { GitLogStylingProps } from '../../types'
 
 export interface GitContextBag {
   colours: string[]

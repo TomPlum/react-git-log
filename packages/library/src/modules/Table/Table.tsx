@@ -1,7 +1,7 @@
 import styles from './Table.module.scss'
 import dayjs from 'dayjs'
 import { useMemo } from 'react'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 import { useTheme } from 'hooks/useTheme'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'

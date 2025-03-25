@@ -13,9 +13,9 @@
       "context/*": ["src/context/*"],
       "hooks/*": ["src/hooks/*"],
       "constants/*": ["src/constants/*"],
+      "types/*": ["src/types/*"],
       "data": ["src/data/index.ts"],
-      "types": ["src/types.ts"],
-      "test/*": ["src/_test/*"],
+      "test/*": ["src/_test/*"]
     },
     "types": ["vitest/globals", "vite/client"],
 
@@ -42,7 +42,8 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx"
+    "src/**/*.tsx",
+    "src/types/svg.d.ts"
   ],
   "exclude": [
     "node_modules",

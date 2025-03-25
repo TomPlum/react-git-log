@@ -1,4 +1,4 @@
-import { Commit, GitLogProps } from 'types'
+import { GitLogProps } from './types'
 import { Children, isValidElement, PropsWithChildren, ReactElement, useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context/GitContext'
 import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/useTheme'
@@ -8,6 +8,7 @@ import { Tags } from 'modules/Tags'
 import { Graph } from 'modules/Graph'
 import { Table } from 'modules/Table'
 import { Layout } from 'components/Layout'
+import { Commit } from 'types/Commit'
 
 export const GitLog = ({
    children,

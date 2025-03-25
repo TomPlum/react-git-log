@@ -3,7 +3,7 @@ import { BranchTag } from './components/BranchTag'
 import { useGitContext } from 'context/GitContext'
 import { useCallback, useMemo } from 'react'
 import { ROW_HEIGHT } from 'constants/constants'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 
 const prepareCommits = (commits: Commit[]) => {
   const tagsSeen = new Map<string, boolean>()

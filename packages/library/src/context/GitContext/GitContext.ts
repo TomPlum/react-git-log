@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 import { GitContextBag } from './types'
 import { neonAuroraDarkColours } from 'hooks/useTheme'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 import DataIntervalTree from 'node-interval-tree'
 
 const defaultCommit: Commit = {

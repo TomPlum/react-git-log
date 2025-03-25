@@ -1,6 +1,6 @@
 import IntervalTree from 'node-interval-tree'
 import { CommitNodeLocation, EdgeType, GraphEdge } from './types'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 
 /**
  * Constructs a graph representation of commit relationships using an interval tree.

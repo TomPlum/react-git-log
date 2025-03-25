@@ -13,6 +13,7 @@ A flexible and interactive React component for visualising Git commit history. D
 * [Using the component](#using-the-component)
 * [Git Log Data](#git-log-data)
 * [Component Props](#component-props)
+* [Development](#development)
 * [References](#references)
 * [Roadmap](#roadmap)
 <!-- TOC -->
@@ -164,6 +165,8 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 | `default` | `string` | The default theme where nodes change their style based on their type. |
 | `plain`   | `string` | All nodes look the same, except for their colours.                    |
 
+# Development
+
 # References
 
 - Many thanks to Pierre Vigier for his fantastic [blog](https://pvigier.github.io/2019/05/06/commit-graph-drawing-algorithms.html) on Git algorithms and his Electron-based Git client [gitamine](https://github.com/pvigier/gitamine) for help and inspiration.
@@ -184,3 +187,4 @@ This will write `git-log.txt` in the directory where you ran the command. It can
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
 - Extract ThemeContext
 - Mobile responsiveness for the demo site
+- Framer motion is basically 90% of the bundle - remove it?

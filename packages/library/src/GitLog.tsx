@@ -12,17 +12,13 @@ import { Layout } from 'components/Layout'
 export const GitLog = ({
    children,
    entries,
-   showCommitNodeHashes = false,
    enableExperimentalAnimation = false,
-   showCommitNodeTooltips = false,
    showTableHeaders = false,
-   enableResize = false,
    rowSpacing = 0,
    theme = 'light',
-   nodeTheme = 'default',
    colours = 'rainbow-light',
-   defaultGraphContainerWidth = 300,
    classes,
+   defaultGraphWidth = 300,
    timestampFormat = 'YYYY-MM-DD HH:mm:ss',
    onSelectCommit,
    githubRepositoryUrl,
@@ -64,7 +60,7 @@ export const GitLog = ({
 
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
-  const [graphContainerWidth, setGraphContainerWidth] = useState(defaultGraphContainerWidth)
+  const [graphWidth, setGraphWidth] = useState(defaultGraphWidth)
 
   const { shiftAlphaChannel } = useTheme()
 
@@ -155,10 +151,8 @@ export const GitLog = ({
     colours: themeColours,
     showTable: Boolean(table),
     showBranchesTags: Boolean(tags),
-    showCommitNodeHashes,
     classes,
     theme,
-    nodeTheme,
     timestampFormat,
     selectedCommit,
     setSelectedCommit: handleSelectCommit,
@@ -166,40 +160,34 @@ export const GitLog = ({
     setPreviewedCommit,
     enableExperimentalAnimation,
     githubRepositoryUrl,
-    showCommitNodeTooltips,
     showTableHeaders,
-    defaultGraphContainerWidth: defaultGraphContainerWidth,
     currentBranch,
     headCommit,
     indexCommit,
     graphData,
     paging: pageIndices,
-    enableResize,
-    graphContainerWidth: defaultGraphContainerWidth ?? graphContainerWidth,
-    setGraphContainerWidth,
-    rowSpacing
+    rowSpacing,
+    graphWidth: defaultGraphWidth ?? graphWidth,
+    setGraphWidth
   }), [
-    showCommitNodeHashes,
     themeColours,
     classes,
     theme,
-    nodeTheme,
     timestampFormat,
     selectedCommit,
     previewedCommit,
     handleSelectCommit,
     enableExperimentalAnimation,
     githubRepositoryUrl,
-    showCommitNodeTooltips,
     showTableHeaders,
-    defaultGraphContainerWidth,
-    graphContainerWidth,
-    currentBranch,
     headCommit,
+    currentBranch,
     indexCommit,
     graphData,
     pageIndices,
-    enableResize,
+    graphWidth,
+    setGraphWidth,
+    defaultGraphWidth,
     rowSpacing,
     table,
     tags
@@ -207,11 +195,7 @@ export const GitLog = ({
   
   return (
     <GitContext.Provider value={value}>
-       <Layout
-         tags={tags}
-         graph={graph}
-         table={table}
-       />
+       <Layout tags={tags} graph={graph} table={table} />
     </GitContext.Provider>
   )
 }

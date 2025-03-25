@@ -31,7 +31,7 @@ export const Tags = () => {
     indexCommit,
     graphData,
     paging,
-    graphContainerWidth,
+    graphWidth,
     rowSpacing
   } = useGitContext()
 
@@ -46,7 +46,7 @@ export const Tags = () => {
   }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
 
   const tagLineWidth = useCallback((commit: Commit) => {
-    const columnWidth = graphContainerWidth / graphData.graphWidth
+    const columnWidth = graphWidth / graphData.graphWidth
 
     if (commit.hash === 'index') {
       return columnWidth / 2
@@ -55,7 +55,7 @@ export const Tags = () => {
     const columnIndex = graphData.positions.get(commit.hash)![1]
 
     return  (columnWidth * columnIndex) + (columnWidth / 2)
-  }, [graphContainerWidth, graphData.graphWidth, graphData.positions])
+  }, [graphWidth, graphData.graphWidth, graphData.positions])
 
   return (
     <div className={styles.container}>

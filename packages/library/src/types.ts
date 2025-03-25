@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { NodeTheme, ThemeColours, ThemeMode } from './hooks/useTheme/types'
+import { ThemeColours, ThemeMode } from './hooks/useTheme/types'
 
 export interface GitLogProps {
   /**
@@ -21,12 +21,6 @@ export interface GitLogProps {
   theme?: ThemeMode
 
   /**
-   * The theme to apply the commit node
-   * elements in the graph.
-   */
-  nodeTheme?: NodeTheme
-
-  /**
    * An array of colours used to colour the
    * logs elements such as the graph.
    *
@@ -40,18 +34,6 @@ export interface GitLogProps {
    * taking from the beginning of the array again.
    */
   colours?: ThemeColours | string[]
-
-  /**
-   * Whether to show the commit hash
-   * to the side of the node in the graph.
-   */
-  showCommitNodeHashes?: boolean
-
-  /**
-   * Whether to show tooltips when hovering
-   * over a commit node in the graph.
-   */
-  showCommitNodeTooltips?: boolean
 
   /**
    * Whether to show the names of the elements
@@ -69,14 +51,6 @@ export interface GitLogProps {
    * have bugs.
    */
   enableExperimentalAnimation?: boolean
-
-  /**
-   * Enables the graphs horizontal width
-   * to be resized.
-   *
-   * @default false
-   */
-  enableResize?: boolean
 
   /**
    * The spacing between the rows of the log.
@@ -99,9 +73,12 @@ export interface GitLogProps {
   /**
    * The default width of the graph in pixels.
    *
+   * Can be changed dynamically if {@link enableResize}
+   * is true.
+   *
    * @default 300
    */
-  defaultGraphContainerWidth?: number
+  defaultGraphWidth?: number
 
   /**
    * A timestamp format string passed to DayJS

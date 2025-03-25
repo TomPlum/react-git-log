@@ -8,7 +8,7 @@ export const useResize = (): ResizeState => {
   const [dragging, setDragging] = useState(false)
   const graphContainerRef = useRef<HTMLDivElement>(null)
 
-  const { graphContainerWidth, setGraphContainerWidth } = useGitContext()
+  const { graphWidth, setGraphWidth } = useGitContext()
 
   useEffect(() => {
     if (graphContainerRef.current && dragging) {
@@ -18,10 +18,10 @@ export const useResize = (): ResizeState => {
       const newWidth = containerWidth + (mouse.x - containerRight)
 
       if (newWidth < 800 && newWidth > 200) {
-        setGraphContainerWidth(newWidth)
+        setGraphWidth(newWidth)
       }
     }
-  }, [dragging, mouse.x, setGraphContainerWidth])
+  }, [dragging, mouse.x, setGraphWidth])
 
   useEffect(() => {
     const stopDragging = () => {
@@ -40,7 +40,7 @@ export const useResize = (): ResizeState => {
   }, [])
 
   return {
-    width: graphContainerWidth,
+    width: graphWidth,
     ref: graphContainerRef,
     startResizing
   }

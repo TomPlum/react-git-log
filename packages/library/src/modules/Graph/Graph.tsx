@@ -8,16 +8,22 @@ import { SkeletonGraph } from 'modules/Graph/components/SkeletonGraph'
 import { useResize } from 'hooks/useResize'
 import { ROW_HEIGHT } from 'constants/constants'
 import { placeholderCommits } from 'modules/Graph/hooks/usePlaceholderData/data'
+import { GraphProps } from './types'
+import { GraphContext, GraphContextBag } from './context'
 
 /**
  * To print columnData for graph column state
  * for integration tests use
  * console.log(JSON.stringify(Object.fromEntries(columnData), null, 2))
  */
-export const Graph = () => {
+export const Graph = ({
+  nodeTheme,
+  enableResize,
+  showCommitNodeHashes,
+  showCommitNodeTooltips
+}: GraphProps) => {
   const {
     paging,
-    enableResize,
     rowSpacing,
     graphData: { graphWidth, commits }
   } = useGitContext()
@@ -48,47 +54,55 @@ export const Graph = () => {
     return visibleCommits.length
   }, [paging.isIndexVisible, visibleCommits.length])
 
-  return (
-    <div className={styles.container} style={{ width }} ref={ref}>
-      <div
-        className={styles.graph}
-        style={{
-          gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
-          gridTemplateRows: `repeat(${commitQuantity}, ${ROW_HEIGHT + rowSpacing}px)`
-        }}
-      >
-        {visibleCommits.length === 0 && (
-          <SkeletonGraph />
-        )}
+  const contextValue = useMemo<GraphContextBag>(() => ({
+    showCommitNodeTooltips,
+    showCommitNodeHashes,
+    nodeTheme
+  }), [showCommitNodeHashes, showCommitNodeTooltips, nodeTheme])
 
-        {paging.isIndexVisible && (
-          <IndexPseudoRow
-            graphWidth={graphWidth}
+  return (
+    <GraphContext value={contextValue}>
+      <div className={styles.container} style={{ width }} ref={ref}>
+        <div
+          className={styles.graph}
+          style={{
+            gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
+            gridTemplateRows: `repeat(${commitQuantity}, ${ROW_HEIGHT + rowSpacing}px)`
+          }}
+        >
+          {visibleCommits.length === 0 && (
+            <SkeletonGraph />
+          )}
+
+          {paging.isIndexVisible && (
+            <IndexPseudoRow
+              graphWidth={graphWidth}
+            />
+          )}
+
+          {visibleCommits.map((commit, index) => {
+            const empty = getEmptyColumnState()
+            const columns = columnData.get(index + paging.startIndex + 1) ?? empty
+
+            return (
+              <GraphRow
+                id={index + 1}
+                commit={commit}
+                key={commit.hash}
+                columns={columns}
+                width={graphWidth}
+              />
+            )
+          })}
+        </div>
+
+        {enableResize && (
+          <div
+            onMouseDown={startResizing}
+            className={styles.dragHandle}
           />
         )}
-
-        {visibleCommits.map((commit, index) => {
-          const empty = getEmptyColumnState()
-          const columns = columnData.get(index + paging.startIndex + 1) ?? empty
-
-          return (
-            <GraphRow
-              id={index + 1}
-              commit={commit}
-              key={commit.hash}
-              columns={columns}
-              width={graphWidth}
-            />
-          )
-        })}
       </div>
-
-      {enableResize && (
-        <div
-          onMouseDown={startResizing}
-          className={styles.dragHandle}
-        />
-      )}
-    </div>
+    </GraphContext>
   )
 }

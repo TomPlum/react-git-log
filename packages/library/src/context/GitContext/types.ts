@@ -1,5 +1,5 @@
 import { Commit, GitLogStylingProps } from 'types'
-import { NodeTheme, ThemeMode } from 'hooks/useTheme'
+import { ThemeMode } from 'hooks/useTheme'
 import { GraphData } from 'data'
 
 export interface GitContextBag {
@@ -69,18 +69,6 @@ export interface GitContextBag {
   showTable: boolean
 
   /**
-   * Whether to show the commit hash
-   * to the side of the node in the graph.
-   */
-  showCommitNodeHashes: boolean
-
-  /**
-   * Whether to show tooltips when hovering
-   * over a commit node in the graph.
-   */
-  showCommitNodeTooltips?: boolean
-
-  /**
    * Whether to show the names of the elements
    * at the top of the component such as "Graph"
    * or "Commit message" etc.
@@ -96,12 +84,6 @@ export interface GitContextBag {
    * have bugs.
    */
   enableExperimentalAnimation?: boolean
-
-  /**
-   * Enables the graphs horizontal width
-   * to be resized.
-   */
-  enableResize?: boolean
 
   /**
    * A link to the GitHub repository from which
@@ -120,15 +102,10 @@ export interface GitContextBag {
   rowSpacing: number
 
   /**
-   * The default width of the graph in pixels.
-   */
-  defaultGraphContainerWidth: number
-
-  /**
    * The width of the graph
    * container in pixels.
    */
-  graphContainerWidth: number
+  graphWidth: number
 
   /**
    * Updates the width of the graph
@@ -136,7 +113,7 @@ export interface GitContextBag {
    *
    * @param width The new width, in pixels.
    */
-  setGraphContainerWidth: (width: number) => void
+  setGraphWidth: (width: number) => void
 
   /**
    * Data used to render the log
@@ -166,12 +143,6 @@ export interface GitContextBag {
    * array of {@link colours} are passed.
    */
   theme: ThemeMode
-
-  /**
-   * The theme to apply the commit node
-   * elements in the graph.
-   */
-  nodeTheme?: NodeTheme
 
   /**
    * Optional paging information to show

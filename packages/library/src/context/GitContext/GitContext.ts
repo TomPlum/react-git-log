@@ -17,7 +17,6 @@ const defaultCommit: Commit = {
 
 export const GitContext = createContext<GitContextBag>({
   colours: neonAuroraDarkColours,
-  showCommitNodeHashes: false,
   headCommit: defaultCommit,
   indexCommit: defaultCommit,
   currentBranch: 'master',
@@ -44,10 +43,9 @@ export const GitContext = createContext<GitContextBag>({
     hashToCommit: new Map()
   },
   rowSpacing: 0,
-  graphContainerWidth: 300,
-  defaultGraphContainerWidth: 300,
-  setGraphContainerWidth: (width: number) => {
-    console.debug(`Tried to invoke setGraphContainerWidth(${width}) before the GitContext was initialised.`)
+  graphWidth: 300,
+  setGraphWidth: (width: number) => {
+    console.debug(`Tried to invoke setGraphWidth(${width}) before the GitContext was initialised.`)
   },
   paging: {
     endIndex: 0,

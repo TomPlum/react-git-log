@@ -301,7 +301,9 @@ export const Default: Story = {
             />
 
             {args.showTable && (
-              <GitLog.Table />
+              <GitLog.Table
+                timestampFormat={args.timestampFormat}
+              />
             )}
           </GitLog>
         )}

@@ -23,7 +23,6 @@ export const GitContext = createContext<GitContextBag>({
   showTable: true,
   showBranchesTags: true,
   theme: 'light',
-  timestampFormat: 'YYYY-MM-DD HH:mm:ss',
   selectedCommit: undefined,
   setSelectedCommit: (commit?: Commit) => {
     console.debug(`Tried to invoke setSelectedCommit(${JSON.stringify(commit)}) before the GitContext was initialised.`)

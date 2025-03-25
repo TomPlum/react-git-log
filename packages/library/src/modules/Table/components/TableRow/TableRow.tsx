@@ -7,6 +7,7 @@ import { useGitContext } from 'context/GitContext'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import dayjs from 'dayjs'
 import { ROW_HEIGHT } from 'constants/constants'
+import { useTableContext } from 'modules/Table/context'
 
 export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTableRowProps) => {
   const {
@@ -17,12 +18,8 @@ export const TableRow = ({ index, commit, isPlaceholder, ...props }: GitLogTable
     shiftAlphaChannel
   } = useTheme()
 
-  const {
-    selectedCommit,
-    previewedCommit,
-    timestampFormat,
-    classes
-  } = useGitContext()
+  const { timestampFormat } = useTableContext()
+  const { selectedCommit, previewedCommit, classes } = useGitContext()
 
   const isMergeCommit = commit.parents.length > 1
 

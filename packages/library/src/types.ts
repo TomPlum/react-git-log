@@ -81,15 +81,6 @@ export interface GitLogProps {
   defaultGraphWidth?: number
 
   /**
-   * A timestamp format string passed to DayJS
-   * to format the timestamps of the commits
-   * in the log table.
-   *
-   * @default ISO-8601
-   */
-  timestampFormat?: string
-
-  /**
    * A callback function invoked when a commit
    * is selected from the graph or log table.
    *

@@ -36,30 +36,32 @@ export interface TableProps {
    * A React CSS styling object passed to
    * the various elements of the table.
    */
-  styles?: {
-    /**
-     * A React CSS styling object passed to
-     * the container element of the table.
-     */
-    table?: CSSProperties
+  styles?: GitLogTableStylingProps
+}
 
-    /**
-     * A React CSS styling object passed to
-     * the wrapping element around the table
-     * headers.
-     */
-    thead?: CSSProperties
+export interface GitLogTableStylingProps {
+  /**
+   * A React CSS styling object passed to
+   * the container element of the table.
+   */
+  table?: CSSProperties
 
-    /**
-     * A React CSS styling object passed to
-     * each table row element.
-     */
-    tr?: CSSProperties
+  /**
+   * A React CSS styling object passed to
+   * the wrapping element around the table
+   * headers.
+   */
+  thead?: CSSProperties
 
-    /**
-     * A React CSS styling object passed to
-     * each table data element.
-     */
-    td?: CSSProperties
-  }
+  /**
+   * A React CSS styling object passed to
+   * each table row element.
+   */
+  tr?: CSSProperties
+
+  /**
+   * A React CSS styling object passed to
+   * each table data element.
+   */
+  td?: CSSProperties
 }

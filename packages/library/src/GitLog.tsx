@@ -1,5 +1,5 @@
 import { Commit, GitLogProps } from 'types'
-import { PropsWithChildren, useCallback, useMemo, useState } from 'react'
+import { Children, isValidElement, PropsWithChildren, ReactElement, useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context/GitContext'
 import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/useTheme'
 import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
@@ -12,8 +12,6 @@ import { Layout } from 'components/Layout'
 export const GitLog = ({
    children,
    entries,
-   showTable = true,
-   showBranchesTags = true,
    showCommitNodeHashes = false,
    enableExperimentalAnimation = false,
    showCommitNodeTooltips = false,
@@ -31,6 +29,38 @@ export const GitLog = ({
    currentBranch,
    paging
 }: PropsWithChildren<GitLogProps>) => {
+  const { tags, graph, table } = useMemo(() => {
+    let tags: ReactElement | undefined = undefined
+    let graph: ReactElement | undefined = undefined
+    let table: ReactElement | undefined = undefined
+
+    Children.forEach(children, (child) => {
+      if (isValidElement(child)) {
+        if (child.type === GitLog.Tags) {
+          if (tags) {
+            throw new Error('<GitLog /> can only have one <GitLog.Tags /> child.')
+          }
+
+          tags = child
+        } else if (child.type === GitLog.Graph) {
+          if (graph) {
+            throw new Error('<GitLog /> can only have one <GitLog.Graph /> child.')
+          }
+
+          graph = child
+        } else if (child.type === GitLog.Table) {
+          if (table) throw new Error('<GitLog /> can only have one <GitLog.Table /> child.')
+          table = child
+        }
+      }
+    })
+
+    if (!graph) {
+      console.warn('react-git-log is not designed to work without a <GitLog.Graph /> component.')
+    }
+
+    return { tags, graph, table }
+  }, [children])
 
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
@@ -123,8 +153,8 @@ export const GitLog = ({
 
   const value = useMemo<GitContextBag>(() => ({
     colours: themeColours,
-    showTable,
-    showBranchesTags,
+    showTable: Boolean(table),
+    showBranchesTags: Boolean(tags),
     showCommitNodeHashes,
     classes,
     theme,
@@ -149,9 +179,7 @@ export const GitLog = ({
     setGraphContainerWidth,
     rowSpacing
   }), [
-    showBranchesTags,
     showCommitNodeHashes,
-    showTable,
     themeColours,
     classes,
     theme,
@@ -172,14 +200,18 @@ export const GitLog = ({
     graphData,
     pageIndices,
     enableResize,
-    rowSpacing
+    rowSpacing,
+    table,
+    tags
   ])
   
   return (
     <GitContext.Provider value={value}>
-       <Layout>
-         {children}
-       </Layout>
+       <Layout
+         tags={tags}
+         graph={graph}
+         table={table}
+       />
     </GitContext.Provider>
   )
 }

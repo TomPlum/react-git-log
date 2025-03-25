@@ -42,19 +42,6 @@ export interface GitLogProps {
   colours?: ThemeColours | string[]
 
   /**
-   * Whether to show labels for the nodes
-   * that are the tips of branches or
-   * tags with the graph.
-   */
-  showBranchesTags?: boolean
-
-  /**
-   * Whether to show a table of commit metadata
-   * on the right-hand side of the graph.
-   */
-  showTable?: boolean
-
-  /**
    * Whether to show the commit hash
    * to the side of the node in the graph.
    */

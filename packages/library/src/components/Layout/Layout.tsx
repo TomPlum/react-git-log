@@ -1,34 +1,10 @@
 import classNames from 'classnames'
 import styles from './Layout.module.scss'
-import { Children, isValidElement, PropsWithChildren, ReactElement, useMemo } from 'react'
-import { GitLog } from '../../GitLog'
 import { useGitContext } from 'context/GitContext'
 import { useTheme } from 'hooks/useTheme'
+import { LayoutProps } from './types'
 
-export const Layout = ({ children }: PropsWithChildren) => {
-  const { tags, graph, table } = useMemo(() => {
-    let tags: ReactElement | null = null
-    let graph: ReactElement | null = null
-    let table: ReactElement | null = null
-
-    Children.forEach(children, (child) => {
-      if (isValidElement(child)) {
-        if (child.type === GitLog.Tags) {
-          if (tags) throw new Error('<GitLog /> can only have one <GitLog.Tags /> child.')
-          tags = child
-        } else if (child.type === GitLog.Graph) {
-          if (graph) throw new Error('<GitLog /> can only have one <GitLog.Graph /> child.')
-          graph = child
-        } else if (child.type === GitLog.Table) {
-          if (table) throw new Error('<GitLog /> can only have one <GitLog.Table /> child.')
-          table = child
-        }
-      }
-    })
-
-    return { tags, graph, table }
-  }, [children])
-
+export const Layout = ({ tags, graph, table }: LayoutProps) => {
   const { classes, showTableHeaders } = useGitContext()
 
   const { textColour } = useTheme()

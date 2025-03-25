@@ -1,4 +1,5 @@
-import { Commit, GitLogEntry } from 'types'
+import { Commit } from 'types/Commit'
+import { GitLogEntry } from 'types/GitLogEntry'
 
 type RawCommit = Omit<Commit, 'isBranchTip' | 'children'>
 

@@ -9,7 +9,7 @@ import { GitLog } from './GitLog'
 import { sleepCommits } from 'test/data/sleepCommits'
 import { commitNode } from 'test/elements/CommitNode'
 import { tag } from 'test/elements/Tag'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 import { formatBranch } from 'modules/Tags/utils/formatBranch'
 import { table } from 'test/elements/Table'
 import dayjs from 'dayjs'
@@ -62,13 +62,15 @@ describe('Integration', () => {
 
     render(
       <GitLog
-        showTable
-        showBranchesTags
-        showTableHeaders
+        showHeaders
         currentBranch='release'
         entries={gitLogEntries}
         githubRepositoryUrl='https://github.com/TomPlum/sleep'
-      />
+      >
+        <GitLog.Tags />
+        <GitLog.Graph />
+        <GitLog.Table />
+      </GitLog>
     )
 
     const debugMetrics: Record<string, number> = {}

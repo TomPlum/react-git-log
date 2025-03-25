@@ -27,7 +27,9 @@ describe('GitLog', () => {
           currentBranch={'test'}
           entries={[entry({ branch: 'test' })]}
           classes={{ tableClass: 'styles.customLogTableClass' }}
-        />
+        >
+          <GitLog.Table />
+        </GitLog>
       )
 
       const gitLogTable = gitLog.table()
@@ -58,7 +60,7 @@ describe('GitLog', () => {
         <GitLog
           currentBranch={'test'}
           entries={[entry({ branch: 'test' })]}
-          showTableHeaders
+          showHeaders
           classes={{
             tableStyles: {
               table: {
@@ -75,7 +77,9 @@ describe('GitLog', () => {
               }
             }
           }}
-        />
+        >
+          <GitLog.Table />
+        </GitLog>
       )
 
       const gitLogTable = gitLog.table()

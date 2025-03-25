@@ -1,4 +1,4 @@
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 import { CommitNodeLocation } from './types'
 import { buildNodeGraph } from './buildNodeGraph'
 import { ActiveBranches } from './ActiveBranches'

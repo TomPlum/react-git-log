@@ -1,35 +1,66 @@
-import { Commit, GitLogProps } from 'types'
-import { Layout } from './Layout'
-import { useCallback, useMemo, useState } from 'react'
+import { GitLogProps } from './types'
+import { Children, isValidElement, PropsWithChildren, ReactElement, useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context/GitContext'
 import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/useTheme'
 import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
-import { GraphData, temporalTopologicalSort, computeNodePositions, computeRelationships } from 'data'
+import { computeNodePositions, computeRelationships, GraphData, temporalTopologicalSort } from 'data'
+import { Tags } from './modules/Tags'
+import { Graph } from './modules/Graph'
+import { Table } from './modules/Table'
+import { Layout } from 'components/Layout'
+import { Commit } from 'types/Commit'
 
 export const GitLog = ({
+   children,
    entries,
-   showTable = true,
-   showBranchesTags = true,
-   showCommitNodeHashes = false,
    enableExperimentalAnimation = false,
-   showCommitNodeTooltips = false,
-   showTableHeaders = false,
-   enableResize = false,
+   showHeaders = false,
    rowSpacing = 0,
    theme = 'light',
-   nodeTheme = 'default',
    colours = 'rainbow-light',
-   defaultGraphContainerWidth = 300,
    classes,
-   timestampFormat = 'YYYY-MM-DD HH:mm:ss',
+   defaultGraphWidth = 300,
    onSelectCommit,
    githubRepositoryUrl,
    currentBranch,
    paging
-}: GitLogProps) => {
+}: PropsWithChildren<GitLogProps>) => {
+  const { tags, graph, table } = useMemo(() => {
+    let tags: ReactElement | undefined = undefined
+    let graph: ReactElement | undefined = undefined
+    let table: ReactElement | undefined = undefined
+
+    Children.forEach(children, (child) => {
+      if (isValidElement(child)) {
+        if (child.type === GitLog.Tags) {
+          if (tags) {
+            throw new Error('<GitLog /> can only have one <GitLog.Tags /> child.')
+          }
+
+          tags = child
+        } else if (child.type === GitLog.Graph) {
+          if (graph) {
+            throw new Error('<GitLog /> can only have one <GitLog.Graph /> child.')
+          }
+
+          graph = child
+        } else if (child.type === GitLog.Table) {
+          if (table) throw new Error('<GitLog /> can only have one <GitLog.Table /> child.')
+          table = child
+        }
+      }
+    })
+
+    if (!graph) {
+      console.warn('react-git-log is not designed to work without a <GitLog.Graph /> component.')
+    }
+
+    return { tags, graph, table }
+  }, [children])
+
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
-  const [graphContainerWidth, setGraphContainerWidth] = useState(defaultGraphContainerWidth)
+  const [graphWidth, setGraphWidth] = useState(defaultGraphWidth)
 
   const { shiftAlphaChannel } = useTheme()
 
@@ -118,61 +149,55 @@ export const GitLog = ({
 
   const value = useMemo<GitContextBag>(() => ({
     colours: themeColours,
-    showTable,
-    showBranchesTags,
-    showCommitNodeHashes,
+    showTable: Boolean(table),
+    showBranchesTags: Boolean(tags),
     classes,
     theme,
-    nodeTheme,
-    timestampFormat,
     selectedCommit,
     setSelectedCommit: handleSelectCommit,
     previewedCommit,
     setPreviewedCommit,
     enableExperimentalAnimation,
     githubRepositoryUrl,
-    showCommitNodeTooltips,
-    showTableHeaders,
-    defaultGraphContainerWidth: defaultGraphContainerWidth,
+    showHeaders,
     currentBranch,
     headCommit,
     indexCommit,
     graphData,
     paging: pageIndices,
-    enableResize,
-    graphContainerWidth: defaultGraphContainerWidth ?? graphContainerWidth,
-    setGraphContainerWidth,
-    rowSpacing
+    rowSpacing,
+    graphWidth: defaultGraphWidth ?? graphWidth,
+    setGraphWidth
   }), [
-    showBranchesTags,
-    showCommitNodeHashes,
-    showTable,
     themeColours,
     classes,
     theme,
-    nodeTheme,
-    timestampFormat,
     selectedCommit,
     previewedCommit,
     handleSelectCommit,
     enableExperimentalAnimation,
     githubRepositoryUrl,
-    showCommitNodeTooltips,
-    showTableHeaders,
-    defaultGraphContainerWidth,
-    graphContainerWidth,
-    currentBranch,
+    showHeaders,
     headCommit,
+    currentBranch,
     indexCommit,
     graphData,
     pageIndices,
-    enableResize,
-    rowSpacing
+    graphWidth,
+    setGraphWidth,
+    defaultGraphWidth,
+    rowSpacing,
+    table,
+    tags
   ])
   
   return (
     <GitContext.Provider value={value}>
-       <Layout />
+       <Layout tags={tags} graph={graph} table={table} />
     </GitContext.Provider>
   )
 }
+
+GitLog.Tags = Tags
+GitLog.Graph = Graph
+GitLog.Table = Table

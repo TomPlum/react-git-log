@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react'
 import { useTheme } from './useTheme'
 import * as gitContext from 'context/GitContext/useGitContext'
 import { gitContextBag, graphData } from 'test/stubs'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 
 describe('useTheme', () => {
   beforeEach(() => {

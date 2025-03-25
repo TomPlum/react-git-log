@@ -4,7 +4,22 @@
     "src/index.ts",
     "src/types.ts",
     "src/GitLog.tsx",
-    "src/types/*",
+
+    "src/modules/Graph/index.ts",
+    "src/modules/Graph/types.ts",
+    "src/modules/Graph/Graph.tsx",
+
+    "src/modules/Table/index.ts",
+    "src/modules/Table/types.ts",
+    "src/modules/Table/Table.tsx",
+
+    "src/modules/Tags/index.ts",
+    "src/modules/Tags/Tags.tsx",
+
+    "src/types/svg.d.ts",
+    "src/types/GitLogEntry.ts",
+    "src/types/Commit.ts",
+    "src/hooks/useTheme/index.ts",
     "src/hooks/useTheme/types.ts"
   ],
   "exclude": [

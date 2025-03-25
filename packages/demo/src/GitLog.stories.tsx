@@ -6,7 +6,7 @@ import {
   type Commit,
   type GitLogEntry,
   type GitLogProps,
-  GitLog
+  GitLog, GraphProps
 } from '@tomplum/react-git-log'
 import { ColourSelection, ColourSelector } from 'components/ColourSelector'
 import { fetchLogEntryData } from 'utils/fetchLogEntryData'
@@ -23,10 +23,12 @@ const branches: Record<string, string> = {
   'TomPlum/advent-of-code-2019': 'master'
 }
 
-interface StoryProps extends GitLogProps {
+interface StoryProps extends GitLogProps, GraphProps {
   pageSize?: number
   page?: number
-  repository: string
+  showTable: boolean
+  showBranchesTags: boolean
+  showCommitNodeHashes: boolean
 }
 
 const meta: Meta<StoryProps> = {
@@ -42,7 +44,7 @@ const meta: Meta<StoryProps> = {
     showBranchesTags: true,
     showCommitNodeHashes: false,
     showCommitNodeTooltips: false,
-    showTableHeaders: true,
+    showHeaders: true,
     enableResize: false,
     enableExperimentalAnimation: false,
     nodeTheme: 'default',
@@ -50,7 +52,7 @@ const meta: Meta<StoryProps> = {
       console.info(`Selected commit ${commit?.hash}`)
     },
     githubRepositoryUrl: 'https://github.com/TomPlum/sleep',
-    defaultGraphContainerWidth: 200,
+    defaultGraphWidth: 200,
     rowSpacing: 0,
     page: 0,
     pageSize: 200
@@ -86,8 +88,8 @@ const meta: Meta<StoryProps> = {
         category: 'Visibility'
       }
     },
-    showTableHeaders: {
-      name: 'Show Table Headers',
+    showHeaders: {
+      name: 'Show Headers',
       table: {
         category: 'Visibility'
       }
@@ -160,7 +162,7 @@ const meta: Meta<StoryProps> = {
         max: 50
       }
     },
-    defaultGraphContainerWidth: {
+    defaultGraphWidth: {
       name: 'Graph Width',
       table: {
         category: 'Dimensions'
@@ -283,10 +285,27 @@ export const Default: Story = {
               containerStyles: {
                 background: backgroundColour
               },
-              containerClass: styles.gitLogContainer,
-              logTableClass: styles.table
+              containerClass: styles.gitLogContainer
             }}
-          />
+          >
+            {args.showBranchesTags && (
+              <GitLog.Tags />
+            )}
+
+            <GitLog.Graph
+              nodeTheme={args.nodeTheme}
+              enableResize={args.enableResize}
+              showCommitNodeHashes={args.showCommitNodeHashes}
+              showCommitNodeTooltips={args.showCommitNodeTooltips}
+            />
+
+            {args.showTable && (
+              <GitLog.Table
+                className={styles.table}
+                timestampFormat={args.timestampFormat}
+              />
+            )}
+          </GitLog>
         )}
       </div>
     )

@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 import { GitContextBag } from './types'
 import { neonAuroraDarkColours } from 'hooks/useTheme'
-import { Commit } from 'types'
+import { Commit } from 'types/Commit'
 import DataIntervalTree from 'node-interval-tree'
 
 const defaultCommit: Commit = {
@@ -17,14 +17,12 @@ const defaultCommit: Commit = {
 
 export const GitContext = createContext<GitContextBag>({
   colours: neonAuroraDarkColours,
-  showCommitNodeHashes: false,
   headCommit: defaultCommit,
   indexCommit: defaultCommit,
   currentBranch: 'master',
   showTable: true,
   showBranchesTags: true,
   theme: 'light',
-  timestampFormat: 'YYYY-MM-DD HH:mm:ss',
   selectedCommit: undefined,
   setSelectedCommit: (commit?: Commit) => {
     console.debug(`Tried to invoke setSelectedCommit(${JSON.stringify(commit)}) before the GitContext was initialised.`)
@@ -44,10 +42,9 @@ export const GitContext = createContext<GitContextBag>({
     hashToCommit: new Map()
   },
   rowSpacing: 0,
-  graphContainerWidth: 300,
-  defaultGraphContainerWidth: 300,
-  setGraphContainerWidth: (width: number) => {
-    console.debug(`Tried to invoke setGraphContainerWidth(${width}) before the GitContext was initialised.`)
+  graphWidth: 300,
+  setGraphWidth: (width: number) => {
+    console.debug(`Tried to invoke setGraphWidth(${width}) before the GitContext was initialised.`)
   },
   paging: {
     endIndex: 0,

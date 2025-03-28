@@ -1,29 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import styles from './GitLog.stories.module.scss'
-import { type Commit, GitLog, type GitLogProps, GraphProps } from '@tomplum/react-git-log'
+import { type Commit, GitLogPaged, GitLogPagedProps, GraphProps } from '@tomplum/react-git-log'
 import { Loading } from 'components/Loading'
-import { useStoryState } from 'hooks/useStoryState'
 import { StoryHeader } from 'components/StoryHeader'
+import { useStoryState } from 'hooks/useStoryState'
 import { useArgs } from '@storybook/preview-api'
 
-interface StoryProps extends GitLogProps, GraphProps {
-  pageSize?: number
-  page?: number
+interface StoryProps extends GitLogPagedProps, GraphProps {
   showTable: boolean
   showBranchesTags: boolean
   showCommitNodeHashes: boolean
 }
 
 const meta: Meta<StoryProps> = {
-  title: 'GitLog',
-  component: GitLog,
+  title: 'GitLogPaged',
+  component: GitLogPaged,
   parameters: {
     layout: 'fullscreen'
   },
   args: {
     entries: [],
     showTable: true,
-    currentBranch: 'release',
+    branchName: 'release',
     showBranchesTags: true,
     showCommitNodeHashes: false,
     showCommitNodeTooltips: false,
@@ -37,8 +35,6 @@ const meta: Meta<StoryProps> = {
     githubRepositoryUrl: 'https://github.com/TomPlum/sleep',
     defaultGraphWidth: 200,
     rowSpacing: 0,
-    page: 0,
-    pageSize: 200
   },
   argTypes: {
     entries: {
@@ -47,8 +43,8 @@ const meta: Meta<StoryProps> = {
         category: 'Required Props'
       }
     },
-    currentBranch: {
-      name: 'Current Branch',
+    branchName: {
+      name: 'Branch Name',
       table: {
         category: 'Required Props'
       }
@@ -106,28 +102,6 @@ const meta: Meta<StoryProps> = {
         Plain: 'plain'
       }
     },
-    pageSize: {
-      name: 'Page Size',
-      table: {
-        category: 'Pagination'
-      },
-      control: {
-        type: 'range',
-        min: 1,
-        max: 300
-      }
-    },
-    page: {
-      name: 'Page Number',
-      table: {
-        category: 'Pagination'
-      },
-      control: {
-        type: 'range',
-        min: 0,
-        max: 50
-      }
-    },
     enableResize: {
       name: 'Enable Resize',
       table: {
@@ -170,7 +144,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Demo: Story = {
   render: (args) => {
-    const [, updateArgs] = useArgs<GitLogProps>()
+    const [, updateArgs] = useArgs<GitLogPagedProps>()
 
     const {
       theme,
@@ -184,10 +158,11 @@ export const Demo: Story = {
       handleChangeColors,
       handleChangeRepository
     } = useStoryState({
+      page: 3,
       onChangeRepository: ({ repository, branchName }) => {
         updateArgs({
           githubRepositoryUrl: `https://github.com/${repository}`,
-          currentBranch: branchName
+          branchName
         })
       }
     })
@@ -210,16 +185,13 @@ export const Demo: Story = {
         )}
 
         {!loading && entries && (
-          <GitLog
+          <GitLogPaged
             {...args}
-            colours={colours.colors}
-            entries={entries}
             theme={theme}
-            currentBranch={branch}
-            paging={{
-              page: args.page ?? 0,
-              size: args.pageSize ?? entries.length
-            }}
+            entries={entries}
+            branchName={branch}
+            colours={colours.colors}
+            headCommitHash='1352f4c'
             classes={{
               containerStyles: {
                 background: backgroundColour
@@ -228,10 +200,10 @@ export const Demo: Story = {
             }}
           >
             {args.showBranchesTags && (
-              <GitLog.Tags />
+              <GitLogPaged.Tags />
             )}
 
-            <GitLog.Graph
+            <GitLogPaged.Graph
               nodeTheme={args.nodeTheme}
               enableResize={args.enableResize}
               showCommitNodeHashes={args.showCommitNodeHashes}
@@ -239,12 +211,12 @@ export const Demo: Story = {
             />
 
             {args.showTable && (
-              <GitLog.Table
+              <GitLogPaged.Table
                 className={styles.table}
                 timestampFormat={args.timestampFormat}
               />
             )}
-          </GitLog>
+          </GitLogPaged>
         )}
       </div>
     )

@@ -28,9 +28,30 @@ A flexible and interactive React component for visualising Git commit history. D
 
 ## Pagination
 
-Page a page size and number to render a window of the log. See the [paging](#gitlogpaging) properties for more details.
-
 ![pagination.gif](docs/images/pagination.gif)
+
+### Client-Side
+
+Pass a page size and number to render a window of the log. See the [paging](#gitlogpaging) properties for more details.
+This requires you to pass the entire git log history to the `entries` prop of the `GitLog` component.
+You can pass in history from every branch in the repository to this variant of the component.
+
+### Server-Side
+
+If you're managing page state yourself via something like server-side pagination from an API, then use the `GitLogPaged` variant of the component.
+This variant of the component only supports one branch (and any commits that merge into it from other branches).
+
+```typescript jsx
+import { GitLogPaged } from "@tomplum/react-git-log"
+
+const { entries, currentBranch } = useYourPaginatedDataSource()
+
+<GitLogPaged 
+  entries={entries} // <-- Pass it a page of your git log entries
+  branchName='main' // <-- Pass the branch name that the entries belong to
+  headCommitHash='abcd1234' // <-- Tell it the SHA1 commit hash of your branches HEAD commit
+/>
+```
 
 ## Grid System
 
@@ -139,10 +160,14 @@ The array of `GitLogEntry` objects is the source of data used by the `GitLog` co
 > Usually you'd be sourcing this data from a backend service like a web-api, but you can extract it from the command line with the following command.
 
 ```bash
-git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,msg:%s,cdate:%cd,adate:%ad,author:%an,email:%ae' --date=iso >> git-log.txt
+# For the entire Git log history across all branches
+git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,msg:%s,cdate:%cd,adate:%ad,author:%an,email:%ae' --date=iso >> git-log-all.txt
+
+# For the entire Git log history on a given <branch-name>
+git log <branch-name> --pretty=format:'hash:%h,parents:%p,branch:%S,msg:%s,cdate:%cd,adate:%ad,author:%an,email:%ae' --date=iso >> git-log.txt
 ```
 
-This will write `git-log.txt` in the directory where you ran the command. It can be passed to the `parseGitLog.ts` function from the library to produce an array of `GitLogEntry`.
+This will write `git-log.txt` or `git-log-all.txt` in the directory where you ran the command. It can be passed to the `parseGitLog.ts` function from the library to produce an array of `GitLogEntry`.
 
 # Component Props
 
@@ -234,15 +259,21 @@ All components have optional props to further configure the log.
 # Roadmap
 - Show code in stories
 - Expose custom theme object off the Theme type
-- Performance testing on large repos
 - Can Zustand help us here to reduce re-renders with GitContext Provider?
 - Add error boundary
 - Expose component override props for things like CommitNode, CommitMessage etc.
 - Straight line prop to turn curves into right angles?
 - Node size parameter to make the graph even more compact as it will reduce the minimum column width
 - Line curve radius prop?
-- Should we split the component in 3 sub-components with a wrapper, like `GitLog` and `GitLog.Graph` etc.?
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
 - Extract ThemeContext
 - Mobile responsiveness for the demo site
 - Framer motion is basically 90% of the bundle - remove it?
+- Add graph render strategy with a second option to use 2d rendering context (html canvas)
+- Graph direction? Right now its renders left-right, but do want to invert it in the y-axis?
+- Add eslint to pipeline
+- Fill in development section above in README
+
+For SS pagination
+- All branches are release on the server-side paginated log. I think we're just passing it bad data
+- Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch

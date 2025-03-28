@@ -1,4 +1,6 @@
-export const sleepRepositoryRowColumnState = {
+import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
+
+export const sleepRepositoryRowColumnState: Record<number, GraphColumnState[]> = {
   1: [
     {
       isVerticalLine: true,

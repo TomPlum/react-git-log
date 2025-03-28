@@ -40,7 +40,7 @@ export const computeNodePositions = (
     const branchChildren = childHashes.filter(childHash => parents.get(childHash)![0] === commitHash)
     const mergeChildren = childHashes.filter(childHash => parents.get(childHash)![0] !== commitHash)
 
-    // Compute forbidden column indices
+    // Compute invalid column indices
     let highestChild: string | undefined
     let iMin = Infinity
     for (const childSha of mergeChildren) {
@@ -52,7 +52,7 @@ export const computeNodePositions = (
     }
     const invalidIndices = highestChild ? activeNodes.get(highestChild)! : new Set<number>()
 
-    // Find a commit to replace
+    // Find a commit to replace as the active one
     let commitToReplaceHash: string | null = null
     let commitToReplaceColumn = Infinity
 

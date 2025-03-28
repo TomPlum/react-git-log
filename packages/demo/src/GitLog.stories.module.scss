@@ -24,19 +24,3 @@
     font-weight: 700;
   }
 }
-
-.header {
-  display: flex;
-  align-items: center;
-  padding-bottom: 20px;
-  margin-bottom: 8px;
-  width: 100%;
-  justify-content: space-between;
-  padding-left: 7px;
-
-  .controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-}

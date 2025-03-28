@@ -11,11 +11,6 @@ import { placeholderCommits } from 'modules/Graph/hooks/usePlaceholderData/data'
 import { GraphProps } from './types'
 import { GraphContext, GraphContextBag } from './context'
 
-/**
- * To print columnData for graph column state
- * for integration tests use
- * console.log(JSON.stringify(Object.fromEntries(columnData), null, 2))
- */
 export const Graph = ({
   nodeTheme = 'default',
   enableResize = false,
@@ -25,15 +20,23 @@ export const Graph = ({
   const {
     paging,
     rowSpacing,
+    isIndexVisible,
     graphData: { graphWidth, commits }
   } = useGitContext()
 
   const { width, ref, startResizing } = useResize()
-  const { columnData, getEmptyColumnState } = useColumnData()
 
   const visibleCommits = useMemo(() => {
-    return commits.slice(paging.startIndex, paging.endIndex)
+    if (paging) {
+      return commits.slice(paging.startIndex, paging.endIndex)
+    }
+
+    return commits
   }, [commits, paging])
+
+  const { columnData, getEmptyColumnState } = useColumnData({
+    visibleCommits: visibleCommits.length
+  })
 
   const commitQuantity = useMemo(() => {
     // If there is no data being shown, then we'll
@@ -45,14 +48,14 @@ export const Graph = ({
 
     // If the index node is visible then we show one
     // extra commit in the form of the index pseudo-node.
-    if (paging.isIndexVisible) {
+    if (isIndexVisible) {
       return visibleCommits.length + 1
     }
 
     // Else, just the number of visible commits, relative
     // to the current pagination configuration.
     return visibleCommits.length
-  }, [paging.isIndexVisible, visibleCommits.length])
+  }, [isIndexVisible, visibleCommits.length])
 
   const contextValue = useMemo<GraphContextBag>(() => ({
     showCommitNodeTooltips,
@@ -74,7 +77,7 @@ export const Graph = ({
             <SkeletonGraph />
           )}
 
-          {paging.isIndexVisible && (
+          {isIndexVisible && (
             <IndexPseudoRow
               graphWidth={graphWidth}
             />
@@ -82,7 +85,8 @@ export const Graph = ({
 
           {visibleCommits.map((commit, index) => {
             const empty = getEmptyColumnState()
-            const columns = columnData.get(index + paging.startIndex + 1) ?? empty
+            const rowIndex = paging ? index + paging?.startIndex + 1 : index
+            const columns = columnData.get(rowIndex) ?? empty
 
             return (
               <GraphRow

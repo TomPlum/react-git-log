@@ -1,22 +1,73 @@
-import sleepRepositoryData from 'test/data/sleep.txt?raw'
+// eslint-disable-next-line import/extensions
+import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
+// eslint-disable-next-line import/extensions
+import sleepRepositoryDataPaginated from 'test/data/sleep-paginated/sleep-paginated.txt?raw'
 import { parseGitLogOutput } from 'test/data/gitLogParser'
-import { sleepRepositoryRowColumnState } from 'test/data/sleepState'
+import { sleepRepositoryRowColumnState } from 'test/data/sleep/sleepState'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { graphColumn } from 'test/elements/GraphColumn'
 import { afterEach, beforeEach, describe } from 'vitest'
 import { render, within } from '@testing-library/react'
 import { GitLog } from './GitLog'
-import { sleepCommits } from 'test/data/sleepCommits'
+import { sleepCommits } from 'test/data/sleep/sleepCommits'
 import { commitNode } from 'test/elements/CommitNode'
 import { tag } from 'test/elements/Tag'
 import { Commit } from 'types/Commit'
 import { formatBranch } from 'modules/Tags/utils/formatBranch'
 import { table } from 'test/elements/Table'
 import dayjs from 'dayjs'
+import { sleepCommitsPaginated } from 'test/data/sleep-paginated/sleepCommitsPaginated'
+import { sleepRowColumnStatePaginated } from 'test/data/sleep-paginated/sleepStatePaginated'
+import { ElementType } from 'react'
+import { GitLogPaged } from './GitLogPaged'
 
-describe('Integration', () => {
-  const today = new Date(2025, 2, 24, 18, 0, 0)
+interface DecoratedCommit extends Commit {
+  isMostRecentTagInstance: boolean
+}
 
+interface IntegrationTestProps {
+  rowColumnState: Record<number, GraphColumnState[]>
+  repositoryCommits: Commit[]
+  Component: ElementType
+}
+
+const prepareCommits = (commits: Commit[]): DecoratedCommit[] => {
+  const tagsSeen = new Map<string, boolean>()
+
+  return commits.map(commit => {
+    const isTag = commit.branch.includes('tags/')
+    const hasBeenRendered = tagsSeen.has(commit.branch)
+
+    const shouldRenderTag = isTag && !hasBeenRendered
+    if (shouldRenderTag) {
+      tagsSeen.set(commit.branch, true)
+    }
+
+    return {
+      ...commit,
+      isMostRecentTagInstance: shouldRenderTag
+    }
+  })
+}
+
+const formatTimestamp = (dateString: string) => {
+  const commitDate = dayjs(dateString)
+
+  if (dayjs(new Date()).diff(commitDate, 'week') >= 1) {
+    return commitDate.format('YYYY-MM-DD HH:mm:ss')
+  }
+
+  return commitDate.fromNow()
+}
+
+const today = new Date(2025, 2, 24, 18, 0, 0)
+
+/**
+ * To print columnData for graph column state for integration tests use
+ *    console.log(JSON.stringify(Object.fromEntries(columnData), null, 2))
+ * in Graph.tsx.
+ */
+describe('GitLog Integration', () => {
   beforeEach(() => {
     vi.useFakeTimers()
     vi.setSystemTime(today)
@@ -26,52 +77,61 @@ describe('Integration', () => {
     vi.useRealTimers()
   })
 
-  const prepareCommits = (commits: Commit[]) => {
-    const tagsSeen = new Map<string, boolean>()
-
-    return commits.map(commit => {
-      const isTag = commit.branch.includes('tags/')
-      const hasBeenRendered = tagsSeen.has(commit.branch)
-
-      const shouldRenderTag = isTag && !hasBeenRendered
-      if (shouldRenderTag) {
-        tagsSeen.set(commit.branch, true)
-      }
-
-      return {
-        ...commit,
-        isMostRecentTagInstance: shouldRenderTag
-      }
-    })
-  }
-
-  const formatTimestamp = (dateString: string) => {
-    const commitDate = dayjs(dateString)
-
-    if (dayjs(new Date()).diff(commitDate, 'week') >= 1) {
-      return commitDate.format('YYYY-MM-DD HH:mm:ss')
-    }
-
-    return commitDate.fromNow()
-  }
-
   it('should render the correct elements in each column for the sleep repository git log entries', { timeout: 60 * 1000 * 5 }, () => {
     const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
-    const headCommit = sleepCommits.find(commit => commit.hash === '1352f4c')
-    const commits = prepareCommits(sleepCommits)
 
-    render(
-      <GitLog
-        showHeaders
-        currentBranch='release'
-        entries={gitLogEntries}
-        githubRepositoryUrl='https://github.com/TomPlum/sleep'
-      >
-        <GitLog.Tags />
-        <GitLog.Graph />
-        <GitLog.Table />
-      </GitLog>
-    )
+    runIntegrationTest({
+      repositoryCommits: sleepCommits,
+      rowColumnState: sleepRepositoryRowColumnState,
+      Component: () => (
+        <GitLog
+          showHeaders
+          currentBranch='release'
+          entries={gitLogEntries}
+          githubRepositoryUrl='https://github.com/TomPlum/sleep'
+        >
+          <GitLog.Tags />
+          <GitLog.Graph />
+          <GitLog.Table />
+        </GitLog>
+      )
+    })
+  })
+
+  it('should render the correct elements in each column for paginated sleep repository git log entries', { timeout: 60 * 1000 }, () => {
+    // This ensures that the graph renders correctly if the git log entry
+    // data is incomplete. This is usually because the consumer is using
+    // server-side pagination and has passed a set of entry data that references
+    // commits (usually parents) that do not exist in the given dataset. In these
+    // instances the graph will render differently by drawing vertical lines from
+    // orphaned commit nodes down the bottom of the graph.
+
+    const gitLogEntries = parseGitLogOutput(sleepRepositoryDataPaginated)
+
+    runIntegrationTest({
+      repositoryCommits: sleepCommitsPaginated,
+      rowColumnState: sleepRowColumnStatePaginated,
+      Component: () => (
+        <GitLogPaged
+          showHeaders
+          currentBranch='release'
+          headCommitHash='1352f4c'
+          entries={gitLogEntries}
+          githubRepositoryUrl='https://github.com/TomPlum/sleep'
+        >
+          <GitLogPaged.Tags />
+          <GitLogPaged.Graph />
+          <GitLogPaged.Table />
+        </GitLogPaged>
+      )
+    })
+  })
+
+  const runIntegrationTest = ({ Component, repositoryCommits, rowColumnState }: IntegrationTestProps) => {
+    const headCommit = repositoryCommits.find(commit => commit.hash === '1352f4c')
+    const commits = prepareCommits(repositoryCommits)
+
+    render(<Component />)
 
     const debugMetrics: Record<string, number> = {}
 
@@ -100,7 +160,7 @@ describe('Integration', () => {
 
     // The row/column state is from index 1 on-wards,
     // since the index pseudo-commit is rendered separately.
-    Object.entries(sleepRepositoryRowColumnState).forEach(([index, columnStates]: [string, GraphColumnState[]]) => {
+    Object.entries(rowColumnState).forEach(([index, columnStates]: [string, GraphColumnState[]]) => {
       const rowIndex = Number(index)
       const commit = commits[rowIndex - 1]
 
@@ -209,5 +269,5 @@ describe('Integration', () => {
 
     console.debug('Metrics from GitLog integration test for TomPlum/sleep @ release')
     console.debug(JSON.stringify(debugMetrics))
-  })
+  }
 })

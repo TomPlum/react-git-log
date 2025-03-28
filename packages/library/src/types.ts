@@ -3,7 +3,7 @@ import { ThemeColours, ThemeMode } from './hooks/useTheme/types'
 import { GitLogEntry } from './types/GitLogEntry'
 import { Commit } from './types/Commit'
 
-export interface GitLogProps {
+interface GitLogCommonProps {
   /**
    * The git log entries to visualise
    * on the graph.
@@ -98,13 +98,48 @@ export interface GitLogProps {
    * elements for custom styling.
    */
   classes?: GitLogStylingProps
+}
 
+export interface GitLogProps extends GitLogCommonProps {
   /**
    * Optional paging information to show
    * a window of the given size from the
    * set of git log entries.
+   *
+   * This property assumes you are using
+   * client-side pagination and that the
+   * given {@link entries} include the
+   * entire Git log history for the
+   * repository.
+   *
+   * If you wish to use server-side pagination
+   * and manage the state yourself, use the
+   * {@link GitLogPaged} variation of the
+   * component.
    */
   paging?: GitLogPaging
+}
+
+export interface GitLogPagedProps extends Omit<GitLogCommonProps, 'currentBranch'> {
+  /**
+   * The name of the branch in which the Git log
+   * entries belong to.
+   */
+  branchName: string
+
+  /**
+   * The SHA1 hash of the HEAD commit of
+   * the {@link currentBranch} that is checked
+   * out in the repository.
+   *
+   * Only needs to be passed in if you are
+   * passing in a sub-set of the Git log
+   * {@link entries} due to managing your
+   * own pagination.
+   *
+   * @see {paging} for more info.
+   */
+  headCommitHash: string
 }
 
 export interface GitLogStylingProps {

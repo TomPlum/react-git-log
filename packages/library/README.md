@@ -118,10 +118,14 @@ The array of `GitLogEntry` objects is the source of data used by the `GitLog` co
 > Usually you'd be sourcing this data from a backend service like a web-api, but you can extract it from the command line with the following command.
 
 ```bash
-git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,msg:%s,cdate:%cd,adate:%ad,author:%an,email:%ae' --date=iso >> git-log.txt
+# For the entire Git log history across all branches
+git log --all --pretty=format:'hash:%h,parents:%p,branch:%S,msg:%s,cdate:%cd,adate:%ad,author:%an,email:%ae' --date=iso >> git-log-all.txt
+
+# For the entire Git log history on a given <branch-name>
+git log <branch-name> --pretty=format:'hash:%h,parents:%p,branch:%S,msg:%s,cdate:%cd,adate:%ad,author:%an,email:%ae' --date=iso >> git-log.txt
 ```
 
-This will write `git-log.txt` in the directory where you ran the command. It can be passed to the `parseGitLog.ts` function from the library to produce an array of `GitLogEntry`.
+This will write `git-log.txt` or `git-log-all.txt` in the directory where you ran the command. It can be passed to the `parseGitLog.ts` function from the library to produce an array of `GitLogEntry`.
 
 # Component Props
 

@@ -60,8 +60,8 @@ describe('Table', () => {
       paging: {
         startIndex: 0,
         endIndex: 2,
-        isIndexVisible: false
       },
+      isIndexVisible: false,
       graphData: graphData({
         commits: [
           commit({

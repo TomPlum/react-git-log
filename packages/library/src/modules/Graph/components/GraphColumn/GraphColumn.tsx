@@ -32,7 +32,7 @@ export const GraphColumn = ({
   const indexCommitNodeBorder = shiftAlphaChannel(columnColour, 0.5)
   const rowsCommitMatchesPreviewed = previewedCommit?.hash === commit.hash
   const rowsCommitMatchesSelected = selectedCommit?.hash === commit.hash
-  const rowsCommitIsHead = commit.hash === headCommit.hash && state.isNode
+  const rowsCommitIsHead = commit.hash === headCommit?.hash && state.isNode
   
   const showPreviewBackground = useMemo(() => {
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash

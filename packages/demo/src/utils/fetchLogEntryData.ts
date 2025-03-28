@@ -7,11 +7,19 @@ const fetchEntries = async (name: string): Promise<GitLogEntry[]> => {
   return parseGitLogOutput(await response.text())
 }
 
-export  const fetchLogEntryData = async (repository: string) => {
-  const data = await fetchEntries(repository)
+export  const fetchLogEntryData = async (repository: string, pageNumber?: number) => {
+  const data = await fetchEntries(repository).then(entries => {
+    if (pageNumber) {
+      return entries.slice(20 * (pageNumber - 1), 20 * pageNumber)
+    }
+
+    return entries
+  })
+
   const headCommit = data[0]
   const today = dayjs(new Date())
   const daysSinceHeadCommit = Math.abs(dayjs(headCommit.committerDate).diff(today, 'days'))
+
   if (daysSinceHeadCommit > 1) {
     const shiftedData: GitLogEntry[] = data.map(entry => ({
       ...entry,

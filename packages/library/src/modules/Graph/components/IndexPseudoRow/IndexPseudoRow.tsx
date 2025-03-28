@@ -18,13 +18,17 @@ export const IndexPseudoRow = ({ graphWidth }: IndexPseudoRowProps) => {
     return columns
   }, [graphWidth])
 
-  return (
-    <GraphRow
-      id={0}
-      key={'index'}
-      width={graphWidth}
-      commit={indexCommit}
-      columns={indexColumns}
-    />
-  )
+  if (indexCommit) {
+    return (
+      <GraphRow
+        id={0}
+        key={'index'}
+        width={graphWidth}
+        commit={indexCommit}
+        columns={indexColumns}
+      />
+    )
+  }
+
+  return null
 }

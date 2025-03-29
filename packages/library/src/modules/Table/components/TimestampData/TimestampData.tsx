@@ -13,9 +13,9 @@ export const TimestampData = ({ index, timestamp, isPlaceholder, style }: Timest
   const { timestampFormat } = useTableContext()
 
   const formattedTimestamp = useMemo(() => {
-    const commitDate = dayjs(timestamp)
+    const commitDate = dayjs.utc(timestamp)
 
-    if (dayjs(new Date()).diff(commitDate, 'week') >= 1) {
+    if (dayjs.utc().diff(commitDate, 'week') >= 1) {
       return commitDate.format(timestampFormat)
     }
 

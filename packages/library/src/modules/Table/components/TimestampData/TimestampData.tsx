@@ -2,7 +2,12 @@ import styles from './TimestampData.module.scss'
 import { TimestampDataProps } from './types'
 import { useMemo } from 'react'
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import { useTableContext } from 'modules/Table/context'
+
+dayjs.extend(utc)
+dayjs.extend(relativeTime)
 
 export const TimestampData = ({ index, timestamp, isPlaceholder, style }: TimestampDataProps) => {
   const { timestampFormat } = useTableContext()

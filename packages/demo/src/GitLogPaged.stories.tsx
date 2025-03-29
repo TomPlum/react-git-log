@@ -6,6 +6,7 @@ import { StoryHeader } from 'components/StoryHeader'
 import { useStoryState } from 'hooks/useStoryState'
 import { useArgs } from '@storybook/preview-api'
 import { useState } from 'react'
+import { Pagination } from 'components/Pagination'
 
 interface StoryProps extends GitLogPagedProps, GraphProps {
   showTable: boolean
@@ -153,8 +154,7 @@ export const Demo: Story = {
       handleChangeColors,
       handleChangeRepository
     } = useStoryState({
-      page: pageNumber,
-      pageSize,
+      fromBranch: 'release',
       onChangeRepository: ({ repository, branchName }) => {
         updateArgs({
           githubRepositoryUrl: `https://github.com/${repository}`,
@@ -174,13 +174,14 @@ export const Demo: Story = {
           onChangeRepository={handleChangeRepository}
         >
           <div style={{ marginTop: 20 }}>
-            <button onClick={() => setPageNumber(pageNumber - 1)} disabled={pageNumber === 1}>
-              {'<'}
-            </button>
-
-            <button onClick={() => setPageNumber(pageNumber + 1)}>
-              {'>'}
-            </button>
+            <Pagination
+              theme={theme}
+              pageSize={pageSize}
+              currentPage={pageNumber}
+              total={entries?.length ?? 0}
+              onChangePage={newPage => setPageNumber(newPage)}
+              onChangePageSize={newSize => setPageSize(newSize)}
+            />
           </div>
         </StoryHeader>
 
@@ -194,7 +195,7 @@ export const Demo: Story = {
           <GitLogPaged
             {...args}
             theme={theme}
-            entries={entries}
+            entries={entries.slice(pageSize * (pageNumber - 1), pageSize * pageNumber)}
             branchName={branch}
             colours={colours.colors}
             headCommitHash='1352f4c'

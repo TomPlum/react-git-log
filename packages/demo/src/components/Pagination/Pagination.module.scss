@@ -1,0 +1,34 @@
+.pagination {
+  display: flex;
+  gap: 10px;
+  user-select: none;
+
+  .pages {
+    display: flex;
+    gap: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .pageButton {
+      all: unset;
+    }
+
+    .active {
+      color: #5ec1e7 !important;
+    }
+  }
+
+  .chevronButton {
+    all: unset;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .disabled {
+    opacity: 0.4;
+  }
+}

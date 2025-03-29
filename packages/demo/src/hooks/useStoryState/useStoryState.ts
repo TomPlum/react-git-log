@@ -11,7 +11,7 @@ const branches: Record<string, string> = {
   'TomPlum/advent-of-code-2019': 'master'
 }
 
-export const useStoryState = ({ page, pageSize, onChangeRepository }: StoryStateProps = {}) => {
+export const useStoryState = ({ fromBranch, onChangeRepository }: StoryStateProps = {}) => {
 
   const [loading, setLoading] = useState(true)
 
@@ -23,23 +23,23 @@ export const useStoryState = ({ page, pageSize, onChangeRepository }: StoryState
   const [colours, setColours] = useState<ColourSelection>({ id: 'rainbow', colors: rainbow })
 
   const getData = useCallback(async (repository: string) => {
-    return fetchLogEntryData(repository, page, pageSize)
-  }, [page, pageSize])
+    return fetchLogEntryData(repository)
+  }, [])
 
   useEffect(() => {
     setLoading(true)
 
-    const initialRepositoryName = page ? 'TomPlum/sleep-release' : 'TomPlum/sleep'
+    const initialRepositoryName = fromBranch ? `TomPlum/sleep-${fromBranch}` : 'TomPlum/sleep'
     getData(initialRepositoryName).then((data) => {
       setEntries(data)
     }).finally(() => {
       setLoading(false)
     })
-  }, [getData, page])
+  }, [getData, fromBranch])
 
   const handleChangeRepository = useCallback(async (selected: string) => {
     const newBranch = branches[selected]
-    const newEntries = await getData(page ? `${selected}-${newBranch}` : selected)
+    const newEntries = await getData(fromBranch ? `${selected}-${newBranch}` : selected)
 
     setEntries(newEntries)
     setRepository(selected)
@@ -49,7 +49,7 @@ export const useStoryState = ({ page, pageSize, onChangeRepository }: StoryState
       repository: selected,
       branchName: newBranch,
     })
-  }, [getData, onChangeRepository, page])
+  }, [getData, onChangeRepository, fromBranch])
 
   const handleChangeColors = useCallback((selected: ColourSelection) => {
     setColours(selected)

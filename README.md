@@ -273,6 +273,30 @@ All components have optional props to further configure the log.
 
 # Development
 
+1. Clone the repository from GitHub
+
+    ```shell
+    git clone git@github.com:TomPlum/react-git-log.git
+    ```
+   
+2. Install NPM dependencies
+
+    ```shell
+    npm install
+    ```
+   
+3. Start the library TSC build watcher
+
+    ```shell
+    npm run build:watch --workspace=@tomplum/react-git-log
+    ```   
+   
+4. Start the Storybook demo website dev server
+
+    ```shell
+    npm run storybook --workspace=@tomplum/react-git-log-demo
+    ```
+
 # References
 
 - Many thanks to Pierre Vigier for his fantastic [blog](https://pvigier.github.io/2019/05/06/commit-graph-drawing-algorithms.html) on Git algorithms and his Electron-based Git client [gitamine](https://github.com/pvigier/gitamine) for help and inspiration.
@@ -295,7 +319,6 @@ All components have optional props to further configure the log.
 - Add graph render strategy with a second option to use 2d rendering context (html canvas)
 - Graph direction? Right now its renders left-right, but do want to invert it in the y-axis?
 - Add eslint to pipeline
-- Fill in development section above in README
 - Update the WIP comment in the index pseudo commit to show files added/edited etc.
 - Add in prop to show-hide the index pseudo commit
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
@@ -304,5 +327,4 @@ All components have optional props to further configure the log.
 For SS pagination
 - All branches are release on the server-side paginated log. I think we're just passing it bad data
 - Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch
-- Updated READMEs for split prop tables between the two components
 - Check types are all exported okay

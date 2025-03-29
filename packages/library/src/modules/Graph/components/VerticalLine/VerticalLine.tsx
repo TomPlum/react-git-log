@@ -5,11 +5,35 @@ import { VerticalLineProps } from './types'
 import { useGitContext } from 'context/GitContext'
 
 export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCommitNodeBorder, isIndex }: VerticalLineProps) => {
-  const { headCommit } = useGitContext()
+  const { headCommit, isServerSidePaginated, headCommitHash } = useGitContext()
+
+  const border = useMemo<CSSProperties>(() => {
+    // Border is dotted for the index pseudo-node
+    // and the skeleton placeholder elements.
+    const borderStyle = isIndex || state.isPlaceholderSkeleton ? 'dotted' : 'solid'
+
+    const borderColour = isIndex ? indexCommitNodeBorder : columnColour
+
+    // If we're on the first or last row of a page of data,
+    // use the border-image trick to render a linear-gradient
+    // of the border colour so it fades out.
+    if ((state.isLastRow || state.isFirstRow) && !state.isVerticalIndexLine) {
+      const direction = state.isLastRow ? 'bottom' : 'top'
+      return {
+        borderRight: '2px solid transparent',
+        borderImage: `linear-gradient(to ${direction}, ${borderColour}, transparent) 1`
+      }
+    }
+
+    // Otherwise it's just a normal border
+    return {
+      borderRight: `2px ${borderStyle} ${borderColour}`
+    }
+  }, [columnColour, indexCommitNodeBorder, isIndex, state.isFirstRow, state.isLastRow, state.isPlaceholderSkeleton, state.isVerticalIndexLine])
   
   const { style, variant } = useMemo<{ style: CSSProperties, variant: string }>(() => {
     const isRowCommitIndexNode = commit.hash === 'index'
-    const rowsCommitIsHead = commit.hash === headCommit.hash && state.isNode
+    const rowsCommitIsHead = commit.hash === headCommit?.hash && state.isNode
 
     // If the current column is the index pseudo-node
     // then draw a dotted line underneath it that will
@@ -51,20 +75,19 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
           top: 0,
           height: '50%',
           zIndex: columnIndex + 1,
-          borderRight: `2px solid ${columnColour}`
+          ...border
         }
       }
     }
-
-    // Border is dotted for the index pseudo-node
-    // and the skeleton placeholder elements.
-    const borderStyle = isIndex || state.isPlaceholderSkeleton ? 'dotted' : 'solid'
 
     // If this column contains a commit node, and
     // it is the tip of its branch, then just draw
     // a line underneath the node. Same goes for a
     // column that an empty one in the row above.
-    const isBranchTip = commit.isBranchTip && state.isNode
+    const isBranchTip = isServerSidePaginated
+      ? commit.hash === headCommitHash
+      : commit.isBranchTip && state.isNode
+
     if (isBranchTip || state.isColumnAboveEmpty) {
       return {
         variant: 'bottom-half',
@@ -72,7 +95,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
           top: '50%',
           height: '50%',
           zIndex: columnIndex + 1,
-          borderRight: `2px ${borderStyle} ${columnColour}`
+          ...border
         }
       }
     }
@@ -86,10 +109,10 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
         top: 0,
         height: '100%',
         zIndex: columnIndex + 1,
-        borderRight: `2px ${borderStyle} ${isIndex ? indexCommitNodeBorder : columnColour}`
+        ...border
       }
     }
-  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit.hash, state.isNode, state.isColumnBelowEmpty, state.isPlaceholderSkeleton, state.isColumnAboveEmpty, isIndex, columnIndex, indexCommitNodeBorder, columnColour])
+  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, isServerSidePaginated, headCommitHash, columnIndex, border, indexCommitNodeBorder])
 
   
   return (

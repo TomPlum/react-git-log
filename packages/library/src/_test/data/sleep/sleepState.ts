@@ -1,20 +1,34 @@
-export const sleepRepositoryRowColumnState = {
+import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
+
+export const sleepRepositoryRowColumnState: Record<number, GraphColumnState[]> = {
   1: [
     {
       isVerticalLine: true,
-      isVerticalIndexLine: true
+      isVerticalIndexLine: true,
+      isFirstRow: true
     },
     {
       isVerticalLine: true,
       isNode: true,
       isColumnAboveEmpty: false,
-      isColumnBelowEmpty: false
+      isColumnBelowEmpty: false,
+      isFirstRow: true
     },
-    {},
-    {},
-    {},
-    {},
-    {}
+    {
+      isFirstRow: true
+    },
+    {
+      isFirstRow: true
+    },
+    {
+      isFirstRow: true
+    },
+    {
+      isFirstRow: true
+    },
+    {
+      isFirstRow: true
+    }
   ],
   2: [
     {
@@ -9672,13 +9686,26 @@ export const sleepRepositoryRowColumnState = {
       isVerticalLine: true,
       isNode: true,
       isColumnAboveEmpty: false,
-      isColumnBelowEmpty: false
+      isColumnBelowEmpty: false,
+      isLastRow: true
     },
-    {},
-    {},
-    {},
-    {},
-    {},
-    {}
+    {
+      isLastRow: true
+    },
+    {
+      isLastRow: true
+    },
+    {
+      isLastRow: true
+    },
+    {
+      isLastRow: true
+    },
+    {
+      isLastRow: true
+    },
+    {
+      isLastRow: true
+    }
   ]
 }

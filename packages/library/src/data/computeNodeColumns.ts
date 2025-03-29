@@ -4,8 +4,6 @@ import { buildNodeGraph } from './buildNodeGraph'
 import { ActiveBranches } from './ActiveBranches'
 import { ActiveNodes } from './ActiveNodes'
 
-const activeBranches = new ActiveBranches()
-
 /**
  * Computes the visual positions of commits in a Git log visualization.
  *
@@ -21,16 +19,20 @@ export const computeNodePositions = (
   children: Map<string, string[]>,
   parents: Map<string, string[]>
 ) => {
+  const activeBranches = new ActiveBranches()
   const positions: Map<string, CommitNodeLocation> = new Map<string, CommitNodeLocation>()
 
   const hashToIndex = new Map(commits.map((entry, i) => [entry.hash, i]))
 
-  const headCommitHash = commits.find(commit => commit.branch.includes(currentBranch))!.hash
+  const headCommit = commits.find(commit => commit.branch.includes(currentBranch))
   let rowIndex = 1
 
   // Active nodes track in-progress branches
-  const headCommitIndex = hashToIndex.get(headCommitHash)!
-  const activeNodes = new ActiveNodes(headCommitIndex)
+  const activeNodes = new ActiveNodes()
+
+  if (headCommit) {
+    activeNodes.enqueue([hashToIndex.get(headCommit.hash)!, 'index'])
+  }
 
   for (const commit of commits) {
     let columnIndex = -1
@@ -40,7 +42,7 @@ export const computeNodePositions = (
     const branchChildren = childHashes.filter(childHash => parents.get(childHash)![0] === commitHash)
     const mergeChildren = childHashes.filter(childHash => parents.get(childHash)![0] !== commitHash)
 
-    // Compute forbidden column indices
+    // Compute invalid column indices
     let highestChild: string | undefined
     let iMin = Infinity
     for (const childSha of mergeChildren) {
@@ -52,11 +54,11 @@ export const computeNodePositions = (
     }
     const invalidIndices = highestChild ? activeNodes.get(highestChild)! : new Set<number>()
 
-    // Find a commit to replace
+    // Find a commit to replace as the active one
     let commitToReplaceHash: string | null = null
     let commitToReplaceColumn = Infinity
 
-    if (commitHash === headCommitHash) {
+    if (commitHash === headCommit?.hash) {
       commitToReplaceHash = 'index'
       commitToReplaceColumn = 0
     } else {

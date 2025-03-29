@@ -19,9 +19,18 @@ export const buildNodeGraph = (
     const parentHashes = commits.find(it => it.hash === commitHash)!.parents
 
     for (const [parentIndex, parentHash] of parentHashes.entries()) {
-      const [rowTarget, columnTarget] = positions.get(parentHash)!
-      const edgeType = parentIndex > 0 ? EdgeType.Merge : EdgeType.Normal
-      graph.insert(rowStart, rowTarget, [[rowStart, columnStart], [rowTarget, columnTarget], edgeType])
+      const position = positions.get(parentHash)
+
+      // If we have a position, add it to the graph.
+      // The only time we won't have a position is if the log has
+      // been passed an incomplete set of entry data (like via
+      // server-side pagination) and so the parent hash does not
+      // exist in the positions map.
+      if (position) {
+        const [rowTarget, columnTarget] = position
+        const edgeType = parentIndex > 0 ? EdgeType.Merge : EdgeType.Normal
+        graph.insert(rowStart, rowTarget, [[rowStart, columnStart], [rowTarget, columnTarget], edgeType])
+      }
     }
   }
 

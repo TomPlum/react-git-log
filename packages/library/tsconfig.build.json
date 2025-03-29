@@ -4,6 +4,7 @@
     "src/index.ts",
     "src/types.ts",
     "src/GitLog.tsx",
+    "src/GitLogPaged.tsx",
 
     "src/modules/Graph/index.ts",
     "src/modules/Graph/types.ts",

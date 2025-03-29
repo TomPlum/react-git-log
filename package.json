@@ -7,7 +7,7 @@
     "packages/demo"
   ],
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint packages/{library,demo}/src/**/*.{ts,tsx}",
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {

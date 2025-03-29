@@ -66,6 +66,26 @@ export interface GraphColumnState {
   isVerticalIndexLine?: boolean
 
   /**
+   * Indicates that this column is included in
+   * the last row of all visible commits that
+   * are currently being rendered.
+   *
+   * This should be false if the last row is
+   * actually the first commit in the git log entries.
+   */
+  isLastRow?: boolean
+
+  /**
+   * Indicates that this column is included in
+   * the first row of all visible commits that
+   * are currently being rendered.
+   *
+   * This should be false if the first row is
+   * actually the last commit in the git log entries.
+   */
+  isFirstRow?: boolean
+
+  /**
    * The graph row column indices of the commit
    * nodes that a merge came from.
    *

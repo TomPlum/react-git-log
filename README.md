@@ -173,12 +173,22 @@ This will write `git-log.txt` or `git-log-all.txt` in the directory where you ra
 
 ## Required
 
-Only the core `GitLog` parent component has required props.
+Only the core parent components have required props.
+
+#### GitLog
 
 | Prop            | Type            | Description                                           |
 |-----------------|-----------------|-------------------------------------------------------|
 | `entries`       | `GitLogEntry[]` | The git log entries to visualize on the graph.        |
 | `currentBranch` | `string`        | The name of the branch that is currently checked out. |
+
+#### GitLogPaged
+
+| Prop             | Type            | Description                                              |
+|------------------|-----------------|----------------------------------------------------------|
+| `entries`        | `GitLogEntry[]` | The git log entries to visualize on the graph.           |
+| `branchName`     | `string`        | The name of the branch whose entries are being rendered. |
+| `headCommitHash` | `string`        | The SHA1 commit hash of the HEAD commit of the branch.   |
 
 ## Optional
 
@@ -188,8 +198,6 @@ All components have optional props to further configure the log.
 
 | Property                      | Type                        | Description                                                                                              |
 |-------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------|
-| `entries`                     | `GitLogEntry[]`             | The git log entries to visualize on the graph.                                                           |
-| `currentBranch`               | `string`                    | The name of the branch that is currently checked out.                                                    |
 | `theme`                       | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                              |
 | `colours`                     | `ThemeColours \| string[]`  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.    |
 | `showHeaders`                 | `boolean`                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.              |
@@ -200,6 +208,21 @@ All components have optional props to further configure the log.
 | `onSelectCommit`              | `(commit?: Commit) => void` | Callback function when a commit is selected. `commit` is `undefined` if unselected.                      |
 | `classes`                     | `GitLogStylingProps`        | CSS classes for various elements to enable custom styling.                                               |
 | `paging`                      | `GitLogPaging`              | Optional paging settings for displaying a subset of log entries.                                         |
+
+
+### GitLogPaged
+
+| Property                      | Type                        | Description                                                                                              |
+|-------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------|
+| `theme`                       | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                              |
+| `colours`                     | `ThemeColours \| string[]`  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.    |
+| `showHeaders`                 | `boolean`                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.              |
+| `enableExperimentalAnimation` | `boolean`                   | Enables Framer Motion animation for fade transitions. Experimental feature.                              |
+| `rowSpacing`                  | `number`                    | The spacing between log rows, affecting branches, graph, and table. Default: `0`.                        |
+| `githubRepositoryUrl`         | `string`                    | URL of the GitHub repository where `entries` came from. Enables links for commits, tags, and PRs.        |
+| `defaultGraphWidth`           | `number`                    | Default width of the graph in pixels. Can be changed dynamically if resizing is enabled. Default: `300`. |
+| `onSelectCommit`              | `(commit?: Commit) => void` | Callback function when a commit is selected. `commit` is `undefined` if unselected.                      |
+| `classes`                     | `GitLogStylingProps`        | CSS classes for various elements to enable custom styling.                                               |
 
 
 #### **GitLogStylingProps**
@@ -281,6 +304,5 @@ All components have optional props to further configure the log.
 For SS pagination
 - All branches are release on the server-side paginated log. I think we're just passing it bad data
 - Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch
-- Add other data files to storybook for their default branches
-- Fix vertical line issue (Data might fix this here since other branches wont be tips)
 - Updated READMEs for split prop tables between the two components
+- Check types are all exported okay

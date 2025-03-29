@@ -11,12 +11,6 @@ interface GitLogCommonProps {
   entries: GitLogEntry[]
 
   /**
-   * The name of the branch that is
-   * currently checked out.
-   */
-  currentBranch: string
-
-  /**
    * The variant of the default colour
    * them to apply to the log.
    */
@@ -102,6 +96,12 @@ interface GitLogCommonProps {
 
 export interface GitLogProps extends GitLogCommonProps {
   /**
+   * The name of the branch that is
+   * currently checked out.
+   */
+  currentBranch: string
+
+  /**
    * Optional paging information to show
    * a window of the given size from the
    * set of git log entries.
@@ -120,7 +120,7 @@ export interface GitLogProps extends GitLogCommonProps {
   paging?: GitLogPaging
 }
 
-export interface GitLogPagedProps extends Omit<GitLogCommonProps, 'currentBranch'> {
+export interface GitLogPagedProps extends GitLogCommonProps {
   /**
    * The name of the branch in which the Git log
    * entries belong to.

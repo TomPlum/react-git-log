@@ -4,7 +4,6 @@ import { type Commit, GitLog, type GitLogProps, GraphProps } from '@tomplum/reac
 import { Loading } from 'components/Loading'
 import { useStoryState } from 'hooks/useStoryState'
 import { StoryHeader } from 'components/StoryHeader'
-import { useArgs } from '@storybook/preview-api'
 
 interface StoryProps extends GitLogProps, GraphProps {
   pageSize?: number
@@ -170,8 +169,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Demo: Story = {
   render: (args) => {
-    const [, updateArgs] = useArgs<GitLogProps>()
-
     const {
       theme,
       loading,
@@ -183,14 +180,7 @@ export const Demo: Story = {
       handleChangeTheme,
       handleChangeColors,
       handleChangeRepository
-    } = useStoryState({
-      onChangeRepository: ({ repository, branchName }) => {
-        updateArgs({
-          githubRepositoryUrl: `https://github.com/${repository}`,
-          currentBranch: branchName
-        })
-      }
-    })
+    } = useStoryState()
 
     return (
       <div style={{ background: backgroundColour }} className={styles.container}>

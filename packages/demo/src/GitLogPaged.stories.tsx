@@ -4,7 +4,6 @@ import { type Commit, GitLogPaged, GitLogPagedProps, GraphProps } from '@tomplum
 import { Loading } from 'components/Loading'
 import { StoryHeader } from 'components/StoryHeader'
 import { useStoryState } from 'hooks/useStoryState'
-import { useArgs } from '@storybook/preview-api'
 import { useState } from 'react'
 import { Pagination } from 'components/Pagination'
 
@@ -138,7 +137,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Demo: Story = {
   render: (args) => {
-    const [, updateArgs] = useArgs<GitLogPagedProps>()
     const [pageNumber, setPageNumber] = useState(1)
     const [pageSize, setPageSize] = useState(20)
 
@@ -149,18 +147,13 @@ export const Demo: Story = {
       entries,
       branch,
       repository,
+      headCommitHash,
       backgroundColour,
       handleChangeTheme,
       handleChangeColors,
       handleChangeRepository
     } = useStoryState({
-      fromBranch: 'release',
-      onChangeRepository: ({ repository, branchName }) => {
-        updateArgs({
-          githubRepositoryUrl: `https://github.com/${repository}`,
-          branchName
-        })
-      }
+      isServerSidePaginated: true
     })
 
     return (
@@ -198,7 +191,7 @@ export const Demo: Story = {
             entries={entries.slice(pageSize * (pageNumber - 1), pageSize * pageNumber)}
             branchName={branch}
             colours={colours.colors}
-            headCommitHash='1352f4c'
+            headCommitHash={headCommitHash}
             classes={{
               containerStyles: {
                 background: backgroundColour

@@ -1,5 +1,5 @@
 export interface StoryStateProps {
-  fromBranch?: string
+  isServerSidePaginated?: boolean
   onChangeRepository?: (event: RepositoryChangedEvent) => void
 }
 

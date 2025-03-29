@@ -275,13 +275,12 @@ All components have optional props to further configure the log.
 - Fill in development section above in README
 - Update the WIP comment in the index pseudo commit to show files added/edited etc.
 - Add in prop to show-hide the index pseudo commit
+- Tags should be independent. Add a new optional field to the log entry / commit objects.
+- Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
 
 For SS pagination
 - All branches are release on the server-side paginated log. I think we're just passing it bad data
 - Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch
 - Add other data files to storybook for their default branches
-- Add pagination to paged demo storybook
 - Fix vertical line issue (Data might fix this here since other branches wont be tips)
-- Fix integration test for the new paged component once its working
-- Tags should be independent. Add a new optional field to the log entry / commit objects.
-- Switching between both stories causing the graph and colours to be rendered differently
+- Updated READMEs for split prop tables between the two components

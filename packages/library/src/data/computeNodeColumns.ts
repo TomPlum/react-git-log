@@ -24,12 +24,15 @@ export const computeNodePositions = (
 
   const hashToIndex = new Map(commits.map((entry, i) => [entry.hash, i]))
 
-  const headCommitHash = commits.find(commit => commit.branch.includes(currentBranch))!.hash
+  const headCommit = commits.find(commit => commit.branch.includes(currentBranch))
   let rowIndex = 1
 
   // Active nodes track in-progress branches
-  const headCommitIndex = hashToIndex.get(headCommitHash)!
-  const activeNodes = new ActiveNodes(headCommitIndex)
+  const activeNodes = new ActiveNodes()
+
+  if (headCommit) {
+    activeNodes.enqueue([hashToIndex.get(headCommit.hash)!, 'index'])
+  }
 
   for (const commit of commits) {
     let columnIndex = -1
@@ -55,7 +58,7 @@ export const computeNodePositions = (
     let commitToReplaceHash: string | null = null
     let commitToReplaceColumn = Infinity
 
-    if (commitHash === headCommitHash) {
+    if (commitHash === headCommit?.hash) {
       commitToReplaceHash = 'index'
       commitToReplaceColumn = 0
     } else {

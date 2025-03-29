@@ -2,54 +2,51 @@ import { useCallback, useEffect, useState } from 'react'
 import type { GitLogEntry, ThemeMode } from '@tomplum/react-git-log'
 import { ColourSelection } from 'components/ColourSelector'
 import { rainbow } from 'themes.ts'
-import { fetchLogEntryData } from 'utils/fetchLogEntryData'
 import { StoryStateProps } from './types'
+import { useGitLogEntries } from 'hooks/useGitLogEntries'
 
-const branches: Record<string, string> = {
-  'TomPlum/sleep': 'release',
-  'TomPlum/learn-japanese': 'feature/JPUI-51',
-  'TomPlum/advent-of-code-2019': 'master'
+const getRepositoryConfig = (name: string) => {
+  switch (name) {
+    case 'TomPlum/sleep': {
+      return {
+        branchName: 'release',
+        fileNameEntireHistory: 'sleep.txt',
+        fileNameCheckedOutBranch: 'sleep-release.txt',
+        headCommitHash: '1352f4c'
+      }
+    }
+    case 'TomPlum/advent-of-code-2019': {
+      return {
+        branchName: 'master',
+        fileNameEntireHistory: 'advent-of-code-2019.txt',
+        fileNameCheckedOutBranch: 'advent-of-code-2019-master.txt',
+        headCommitHash: 'c88f0b9'
+      }
+    }
+    case 'TomPlum/learn-japanese': {
+      return {
+        branchName: 'feature/JPUI-51',
+        fileNameEntireHistory: 'learn-japanese.txt',
+        fileNameCheckedOutBranch: 'learn-japanese-feature.txt',
+        headCommitHash: 'de80ee8'
+      }
+    }
+    default: {
+      throw Error(`Invalid repository name '${name}'`)
+    }
+  }
 }
 
-export const useStoryState = ({ fromBranch, onChangeRepository }: StoryStateProps = {}) => {
+export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: StoryStateProps = {}) => {
+  const [repository, setRepository] = useState('TomPlum/sleep')
+  const { branchName, fileNameEntireHistory, fileNameCheckedOutBranch, headCommitHash } = getRepositoryConfig(repository)
 
-  const [loading, setLoading] = useState(true)
-
-  const [branch, setBranch] = useState('release')
-  const [entries, setEntries] = useState<GitLogEntry[]>()
+  const { data, isLoading } = useGitLogEntries({
+    fileName: isServerSidePaginated ? fileNameCheckedOutBranch : fileNameEntireHistory
+  })
 
   const [theme, setTheme] = useState<ThemeMode>('dark')
-  const [repository, setRepository] = useState('TomPlum/sleep')
   const [colours, setColours] = useState<ColourSelection>({ id: 'rainbow', colors: rainbow })
-
-  const getData = useCallback(async (repository: string) => {
-    return fetchLogEntryData(repository)
-  }, [])
-
-  useEffect(() => {
-    setLoading(true)
-
-    const initialRepositoryName = fromBranch ? `TomPlum/sleep-${fromBranch}` : 'TomPlum/sleep'
-    getData(initialRepositoryName).then((data) => {
-      setEntries(data)
-    }).finally(() => {
-      setLoading(false)
-    })
-  }, [getData, fromBranch])
-
-  const handleChangeRepository = useCallback(async (selected: string) => {
-    const newBranch = branches[selected]
-    const newEntries = await getData(fromBranch ? `${selected}-${newBranch}` : selected)
-
-    setEntries(newEntries)
-    setRepository(selected)
-    setBranch(newBranch)
-
-    onChangeRepository?.({
-      repository: selected,
-      branchName: newBranch,
-    })
-  }, [getData, onChangeRepository, fromBranch])
 
   const handleChangeColors = useCallback((selected: ColourSelection) => {
     setColours(selected)
@@ -61,16 +58,24 @@ export const useStoryState = ({ fromBranch, onChangeRepository }: StoryStateProp
     setTheme(newTheme)
   }, [])
 
+  useEffect(() => {
+    onChangeRepository?.({
+      repository,
+      branchName
+    })
+  }, [branchName, onChangeRepository, repository])
+
   return {
-    loading,
-    branch,
-    entries,
+    loading: isLoading,
+    branch: branchName,
+    headCommitHash,
+    entries: data,
     theme,
     colours,
     repository,
     backgroundColour,
     handleChangeColors,
     handleChangeTheme,
-    handleChangeRepository
+    handleChangeRepository: setRepository
   }
 }

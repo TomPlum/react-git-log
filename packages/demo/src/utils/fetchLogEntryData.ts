@@ -3,7 +3,7 @@ import { parseGitLogOutput } from './gitLogParser'
 import { GitLogEntry } from '@tomplum/react-git-log'
 
 const fetchEntries = async (name: string): Promise<GitLogEntry[]> => {
-  const response = await fetch(`${import.meta.env.STORYBOOK_BASE}${name.split('/')[1]}.txt`)
+  const response = await fetch(`${import.meta.env.STORYBOOK_BASE}${name}`)
   const output = await response.text()
   return parseGitLogOutput(output)
 }

@@ -15,16 +15,38 @@ export interface GitContextBag {
   /**
    * Details of the HEAD commit
    * of the {@link currentBranch}.
+   *
+   * Can be undefined if the given git
+   * log entries do not include the HEAD
+   * commit (probably due to server-side
+   * pagination being used)
    */
-  headCommit: Commit
+  headCommit?: Commit
+
+  /**
+   * The SHA1 hash of the HEAD commit of
+   * the {@link currentBranch} that is checked
+   * out in the repository.
+   *
+   * Only needs to be passed in if you are
+   * passing in a sub-set of the Git log
+   * {@link entries} due to managing your
+   * own pagination.
+   *
+   * @see {paging} for more info.
+   */
+  headCommitHash?: string
 
   /**
    * A pseudo-commit that represents
    * the Git index. Most details
    * here are faked so that it can
    * be rendered nicely on the graph.
+   *
+   * Will be undefined if the
+   * {@link headCommit} is undefined.
    */
-  indexCommit: Commit
+  indexCommit?: Commit
 
   /**
    * The currently selected commit that
@@ -139,11 +161,17 @@ export interface GitContextBag {
   theme: ThemeMode
 
   /**
+   * Indicates whether the GitLogPaged
+   * variant of the component is being used.
+   */
+  isServerSidePaginated: boolean
+
+  /**
    * Optional paging information to show
    * a window of the given size from the
    * set of git log entries.
    */
-  paging: {
+  paging?: {
     /**
      * The zero-based index of the row
      * to show from in the log.
@@ -155,13 +183,13 @@ export interface GitContextBag {
      * to show to in the log.
      */
     endIndex: number
-
-    /**
-     * Whether the git index pseudo-commit
-     * node is visible. In other words, is
-     * index 0 present based on the current
-     * pagination config.
-     */
-    isIndexVisible: boolean
   }
+
+  /**
+   * Whether the git index pseudo-commit
+   * node is visible. In other words, is
+   * index 0 present based on the current
+   * pagination config.
+   */
+  isIndexVisible: boolean
 }

@@ -3,6 +3,9 @@ import { render } from '@testing-library/react'
 import { GitLog } from './GitLog'
 import { entry } from 'test/stubs'
 import { gitLog } from 'test/elements/GitLog'
+import { parseGitLogOutput } from 'test/data/gitLogParser'
+// eslint-disable-next-line import/extensions
+import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
 
 describe('GitLog', () => {
   describe('Classes & Style Objects', () => {
@@ -37,5 +40,24 @@ describe('GitLog', () => {
       expect(gitLogContainer).toBeInTheDocument()
       expect(gitLogContainer?.style.background).toBe('purple')
     })
+  })
+
+  it('should render correctly and match the snapshot the standard GitLog component', () => {
+    const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
+
+    const { asFragment } = render(
+      <GitLog
+        showHeaders
+        currentBranch='release'
+        entries={gitLogEntries}
+        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+      >
+        <GitLog.Tags />
+        <GitLog.Graph />
+        <GitLog.Table />
+      </GitLog>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
   })
 })

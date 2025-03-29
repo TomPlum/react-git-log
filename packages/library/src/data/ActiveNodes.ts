@@ -4,9 +4,8 @@ export class ActiveNodes {
   private activeNodes = new Map<string, Set<number>>()
   private activeNodesQueue = new FastPriorityQueue<[number, string]>((lhs, rhs) => lhs[0] < rhs[0])
 
-  constructor(headCommitIndex: number) {
+  constructor() {
     this.activeNodes.set('index', new Set<number>())
-    this.activeNodesQueue.add([headCommitIndex, 'index'])
   }
 
   public removeOutdatedNodes(rowIndex: number) {

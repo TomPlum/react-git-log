@@ -1,6 +1,7 @@
-// Core component
+// Core components
 export * from './types'
 export * from './GitLog'
+export * from './GitLogPaged'
 
 // Sub-components
 export * from './modules/Tags'

@@ -118,7 +118,7 @@ const meta: Meta<StoryProps> = {
       },
       control: {
         type: 'range',
-        min: 200,
+        min: 100,
         max: 500
       }
     },

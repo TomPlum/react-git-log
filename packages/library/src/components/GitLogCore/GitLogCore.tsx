@@ -9,6 +9,7 @@ import { Graph } from 'modules/Graph'
 import { Table } from 'modules/Table'
 import { Layout } from 'components/Layout'
 import { Commit } from 'types/Commit'
+import { NODE_WIDTH } from 'constants/constants'
 
 export const GitLogCore = ({
   children,
@@ -19,7 +20,7 @@ export const GitLogCore = ({
   theme = 'light',
   colours = 'rainbow-light',
   classes,
-  defaultGraphWidth = 300,
+  defaultGraphWidth,
   onSelectCommit,
   githubRepositoryUrl,
   currentBranch,
@@ -61,12 +62,6 @@ export const GitLogCore = ({
     return { tags, graph, table }
   }, [children, componentName])
 
-  const [selectedCommit, setSelectedCommit] = useState<Commit>()
-  const [previewedCommit, setPreviewedCommit] = useState<Commit>()
-  const [graphWidth, setGraphWidth] = useState(defaultGraphWidth)
-
-  const { shiftAlphaChannel } = useTheme()
-
   const graphData = useMemo<GraphData>(() => {
     const { children, parents, hashToCommit } = computeRelationships(entries, headCommitHash)
     const sortedCommits = temporalTopologicalSort([...hashToCommit.values()], children, hashToCommit)
@@ -81,7 +76,16 @@ export const GitLogCore = ({
       edges,
       commits: sortedCommits
     }
-  }, [currentBranch, entries])
+  }, [currentBranch, entries, headCommitHash])
+
+  const [selectedCommit, setSelectedCommit] = useState<Commit>()
+  const [previewedCommit, setPreviewedCommit] = useState<Commit>()
+
+  const smallestAvailableGraphWidth = graphData.graphWidth * NODE_WIDTH
+  // TODO: Are we using graphWidth here or just ditching enableResize?
+  const [, setGraphWidth] = useState(defaultGraphWidth ?? smallestAvailableGraphWidth)
+
+  const { shiftAlphaChannel } = useTheme()
 
   const themeColours = useMemo<string[]>(() => {
     switch (colours) {
@@ -168,6 +172,14 @@ export const GitLogCore = ({
     return true
   }, [entries, headCommitHash, isServerSidePaginated, pageIndices.startIndex, paging])
 
+  const graphContainerWidthValue = useMemo<number>(() => {
+    if (defaultGraphWidth && defaultGraphWidth >= smallestAvailableGraphWidth) {
+      return defaultGraphWidth
+    }
+
+    return smallestAvailableGraphWidth
+  }, [defaultGraphWidth, smallestAvailableGraphWidth])
+
   const value = useMemo<GitContextBag>(() => ({
     colours: themeColours,
     showTable: Boolean(table),
@@ -187,7 +199,7 @@ export const GitLogCore = ({
     graphData,
     paging: pageIndices,
     rowSpacing,
-    graphWidth: defaultGraphWidth ?? graphWidth,
+    graphWidth: graphContainerWidthValue,
     setGraphWidth,
     headCommitHash,
     isServerSidePaginated,
@@ -207,9 +219,8 @@ export const GitLogCore = ({
     indexCommit,
     graphData,
     pageIndices,
-    graphWidth,
+    graphContainerWidthValue,
     setGraphWidth,
-    defaultGraphWidth,
     rowSpacing,
     table,
     tags,

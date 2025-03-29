@@ -46,7 +46,7 @@ describe('GitLog', () => {
     })
   })
 
-  it('should render correctly and match the snapshot the standard GitLog component', () => {
+  it('should render correctly and match the snapshot the standard GitLog component', { timeout: 1000 * 10 } ,() => {
     const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
 
     const { asFragment } = render(

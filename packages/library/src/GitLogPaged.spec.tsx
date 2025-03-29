@@ -24,4 +24,77 @@ describe('GitLogPaged', () => {
 
     expect(asFragment()).toMatchSnapshot()
   })
+
+  it('should log a warning if the graph subcomponent is not rendered', () => {
+    const consoleWarn = vi.spyOn(console, 'warn')
+
+    render(
+      <GitLogPaged
+        entries={[]}
+        branchName='main'
+        headCommitHash='123'
+      />
+    )
+
+    expect(consoleWarn).toHaveBeenCalledExactlyOnceWith(
+      'react-git-log is not designed to work without a <GitLogPaged.Graph /> component.'
+    )
+  })
+
+  it('should throw an error if the tags subcomponent is rendered twice', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLogPaged
+          entries={[]}
+          branchName='main'
+          headCommitHash='123'
+        >
+          <GitLogPaged.Tags />
+          <GitLogPaged.Tags />
+        </GitLogPaged>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLogPaged /> can only have one <GitLogPaged.Tags /> child.'
+    )
+  })
+
+  it('should throw an error if the table subcomponent is rendered twice', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLogPaged
+          entries={[]}
+          branchName='main'
+          headCommitHash='123'
+        >
+          <GitLogPaged.Table />
+          <GitLogPaged.Table />
+        </GitLogPaged>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLogPaged /> can only have one <GitLogPaged.Table /> child.'
+    )
+  })
+
+  it('should throw an error if the graph subcomponent is rendered twice', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLogPaged
+          entries={[]}
+          branchName='main'
+          headCommitHash='123'
+        >
+          <GitLogPaged.Graph />
+          <GitLogPaged.Graph />
+        </GitLogPaged>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLogPaged /> can only have one <GitLogPaged.Graph /> child.'
+    )
+  })
 })

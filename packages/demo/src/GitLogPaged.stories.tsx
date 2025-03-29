@@ -5,6 +5,7 @@ import { Loading } from 'components/Loading'
 import { StoryHeader } from 'components/StoryHeader'
 import { useStoryState } from 'hooks/useStoryState'
 import { useArgs } from '@storybook/preview-api'
+import { useState } from 'react'
 
 interface StoryProps extends GitLogPagedProps, GraphProps {
   showTable: boolean
@@ -31,7 +32,7 @@ const meta: Meta<StoryProps> = {
       console.info(`Selected commit ${commit?.hash}`)
     },
     githubRepositoryUrl: 'https://github.com/TomPlum/sleep',
-    defaultGraphWidth: 200,
+    defaultGraphWidth: 120,
     rowSpacing: 0,
   },
   argTypes: {
@@ -137,6 +138,8 @@ type Story = StoryObj<typeof meta>;
 export const Demo: Story = {
   render: (args) => {
     const [, updateArgs] = useArgs<GitLogPagedProps>()
+    const [pageNumber, setPageNumber] = useState(1)
+    const [pageSize, setPageSize] = useState(20)
 
     const {
       theme,
@@ -150,7 +153,8 @@ export const Demo: Story = {
       handleChangeColors,
       handleChangeRepository
     } = useStoryState({
-      page: 3,
+      page: pageNumber,
+      pageSize,
       onChangeRepository: ({ repository, branchName }) => {
         updateArgs({
           githubRepositoryUrl: `https://github.com/${repository}`,
@@ -168,7 +172,17 @@ export const Demo: Story = {
           onChangeTheme={handleChangeTheme}
           onChangeColours={handleChangeColors}
           onChangeRepository={handleChangeRepository}
-        />
+        >
+          <div style={{ marginTop: 20 }}>
+            <button onClick={() => setPageNumber(pageNumber - 1)} disabled={pageNumber === 1}>
+              {'<'}
+            </button>
+
+            <button onClick={() => setPageNumber(pageNumber + 1)}>
+              {'>'}
+            </button>
+          </div>
+        </StoryHeader>
 
         {loading && (
           <div className={styles.loading}>

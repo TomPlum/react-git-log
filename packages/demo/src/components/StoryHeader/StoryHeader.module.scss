@@ -1,15 +1,21 @@
 .header {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   padding-bottom: 20px;
   margin-bottom: 8px;
   width: 100%;
   justify-content: space-between;
   padding-left: 7px;
 
-  .controls {
+  .top {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
   }
 }

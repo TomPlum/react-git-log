@@ -56,4 +56,8 @@ describe('isColumnEmpty', () => {
     }
     expect(isColumnEmpty(state)).toBe(true)
   })
+
+  it('handles an undefined object', () => {
+    expect(isColumnEmpty(undefined)).toBe(true)
+  })
 })

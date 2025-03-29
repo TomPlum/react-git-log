@@ -4,8 +4,6 @@ import { buildNodeGraph } from './buildNodeGraph'
 import { ActiveBranches } from './ActiveBranches'
 import { ActiveNodes } from './ActiveNodes'
 
-const activeBranches = new ActiveBranches()
-
 /**
  * Computes the visual positions of commits in a Git log visualization.
  *
@@ -21,6 +19,7 @@ export const computeNodePositions = (
   children: Map<string, string[]>,
   parents: Map<string, string[]>
 ) => {
+  const activeBranches = new ActiveBranches()
   const positions: Map<string, CommitNodeLocation> = new Map<string, CommitNodeLocation>()
 
   const hashToIndex = new Map(commits.map((entry, i) => [entry.hash, i]))

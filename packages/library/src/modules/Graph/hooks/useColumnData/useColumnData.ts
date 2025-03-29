@@ -227,6 +227,9 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
             let targetColumnIndex = columnIndex
 
             // Find the nearest column to the right that is empty
+            if (columnStates[targetColumnIndex] === undefined) {
+              console.log(`${orphan.hash} has undefined state in column ${targetColumnIndex}`)
+            }
             while(!isColumnEmpty(columnStates[targetColumnIndex])) {
               targetColumnIndex++
             }

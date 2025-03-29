@@ -1,5 +1,6 @@
 export interface StoryStateProps {
   page?: number
+  pageSize?: number
   onChangeRepository?: (event: RepositoryChangedEvent) => void
 }
 

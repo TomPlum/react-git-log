@@ -11,7 +11,7 @@ const branches: Record<string, string> = {
   'TomPlum/advent-of-code-2019': 'master'
 }
 
-export const useStoryState = ({ page, onChangeRepository }: StoryStateProps = {}) => {
+export const useStoryState = ({ page, pageSize, onChangeRepository }: StoryStateProps = {}) => {
 
   const [loading, setLoading] = useState(true)
 
@@ -23,8 +23,8 @@ export const useStoryState = ({ page, onChangeRepository }: StoryStateProps = {}
   const [colours, setColours] = useState<ColourSelection>({ id: 'rainbow', colors: rainbow })
 
   const getData = useCallback(async (repository: string) => {
-    return fetchLogEntryData(repository, page)
-  }, [page])
+    return fetchLogEntryData(repository, page, pageSize)
+  }, [page, pageSize])
 
   useEffect(() => {
     setLoading(true)

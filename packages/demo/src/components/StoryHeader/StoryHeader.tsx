@@ -4,8 +4,9 @@ import { ColourSelector } from 'components/ColourSelector'
 import { ThemeToggle } from 'components/ThemeToggle'
 import { PackageInfo } from 'components/PackageInfo'
 import { StoryHeaderProps } from 'components/StoryHeader/types'
+import { PropsWithChildren } from 'react'
 
-export const StoryHeader = ({ theme, repository, colours, onChangeColours, onChangeRepository, onChangeTheme }: StoryHeaderProps) => {
+export const StoryHeader = ({ children, theme, repository, colours, onChangeColours, onChangeRepository, onChangeTheme }: PropsWithChildren<StoryHeaderProps>) => {
   return (
     <div
       className={styles.header}
@@ -13,26 +14,32 @@ export const StoryHeader = ({ theme, repository, colours, onChangeColours, onCha
         borderBottom: `1px solid ${theme === 'dark' ? 'rgb(112,112,112)' : 'rgb(42,42,42)'}`
       }}
     >
-      <div className={styles.controls}>
-        <RepositorySelector
-          theme={theme}
-          selected={repository}
-          onSelect={onChangeRepository}
-        />
+      <div className={styles.top}>
+        <div className={styles.controls}>
+          <RepositorySelector
+            theme={theme}
+            selected={repository}
+            onSelect={onChangeRepository}
+          />
 
-        <ColourSelector
-          theme={theme}
-          selected={colours.id}
-          onChange={onChangeColours}
-        />
+          <ColourSelector
+            theme={theme}
+            selected={colours.id}
+            onChange={onChangeColours}
+          />
 
-        <ThemeToggle
-          theme={theme}
-          onChange={onChangeTheme}
-        />
+          <ThemeToggle
+            theme={theme}
+            onChange={onChangeTheme}
+          />
+        </div>
+
+        <PackageInfo theme={theme} />
       </div>
 
-      <PackageInfo theme={theme} />
+      <div>
+        {children}
+      </div>
     </div>
   )
 }

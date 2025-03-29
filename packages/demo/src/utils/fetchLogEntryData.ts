@@ -8,17 +8,17 @@ const fetchEntries = async (name: string): Promise<GitLogEntry[]> => {
   return parseGitLogOutput(output)
 }
 
-const applyPagination = <T>(array: T[], pageNumber?: number) => {
-  if (pageNumber) {
-    return array.slice(20 * (pageNumber - 1), 20 * pageNumber)
+const applyPagination = <T>(array: T[], pageNumber?: number, pageSize?: number) => {
+  if (pageNumber && pageSize) {
+    return array.slice(pageSize * (pageNumber - 1), pageSize * pageNumber)
   }
 
   return array
 }
 
-export  const fetchLogEntryData = async (repository: string, pageNumber?: number) => {
+export  const fetchLogEntryData = async (repository: string, pageNumber?: number, pageSize?: number) => {
   const data: GitLogEntry[] = await fetchEntries(repository).then(entries => {
-    return applyPagination(entries, pageNumber)
+    return applyPagination(entries, pageNumber, pageSize)
   })
 
   const headCommit = data[0]

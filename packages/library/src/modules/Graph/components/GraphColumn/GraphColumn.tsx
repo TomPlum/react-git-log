@@ -12,6 +12,7 @@ import { HorizontalLine } from 'modules/Graph/components/HorizontalLine'
 import { VerticalLine } from 'modules/Graph/components/VerticalLine'
 import { HeadCommitVerticalLine } from 'src/modules/Graph/components/HeadCommitVerticalLine'
 import { IndexPseudoCommitNode } from 'modules/Graph/components/IndexPseudoCommitNode'
+import { NODE_WIDTH } from 'constants/constants'
 
 export const GraphColumn = ({
   index,
@@ -66,6 +67,7 @@ export const GraphColumn = ({
   return (
     <div
       className={styles.column}
+      style={{ minWidth: NODE_WIDTH }}
       id={`graph-column-row-${rowIndex}-col-${index}`}
       onMouseOut={() => selectCommitHandler.onMouseOut()}
       onClick={() => selectCommitHandler.onClick(commit)}

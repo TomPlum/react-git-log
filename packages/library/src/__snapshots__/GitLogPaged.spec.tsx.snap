@@ -272,7 +272,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
       </h4>
       <div
         class="container"
-        style="width: 300px;"
+        style="width: 120px;"
       >
         <div
           class="graph"
@@ -282,6 +282,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-1-col-0"
             id="graph-column-row-1-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -300,6 +301,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-1-col-1"
             id="graph-column-row-1-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -312,21 +314,25 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-1-col-2"
             id="graph-column-row-1-col-2"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-1-col-3"
             id="graph-column-row-1-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-1-col-4"
             id="graph-column-row-1-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-2-col-0"
             id="graph-column-row-2-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -339,6 +345,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-2-col-1"
             id="graph-column-row-2-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -357,21 +364,25 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-2-col-2"
             id="graph-column-row-2-col-2"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-2-col-3"
             id="graph-column-row-2-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-2-col-4"
             id="graph-column-row-2-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-3-col-0"
             id="graph-column-row-3-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -403,6 +414,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-3-col-1"
             id="graph-column-row-3-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="container"
@@ -479,21 +491,25 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-3-col-2"
             id="graph-column-row-3-col-2"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-3-col-3"
             id="graph-column-row-3-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-3-col-4"
             id="graph-column-row-3-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-4-col-0"
             id="graph-column-row-4-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -506,6 +522,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-4-col-1"
             id="graph-column-row-4-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -524,21 +541,25 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-4-col-2"
             id="graph-column-row-4-col-2"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-4-col-3"
             id="graph-column-row-4-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-4-col-4"
             id="graph-column-row-4-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-5-col-0"
             id="graph-column-row-5-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -551,6 +572,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-5-col-1"
             id="graph-column-row-5-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -576,21 +598,25 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-5-col-2"
             id="graph-column-row-5-col-2"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-5-col-3"
             id="graph-column-row-5-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-5-col-4"
             id="graph-column-row-5-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-6-col-0"
             id="graph-column-row-6-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -622,6 +648,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-6-col-1"
             id="graph-column-row-6-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -675,6 +702,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-6-col-2"
             id="graph-column-row-6-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="container"
@@ -716,16 +744,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-6-col-3"
             id="graph-column-row-6-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-6-col-4"
             id="graph-column-row-6-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-7-col-0"
             id="graph-column-row-7-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -738,6 +769,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-7-col-1"
             id="graph-column-row-7-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -750,6 +782,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-7-col-2"
             id="graph-column-row-7-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -768,16 +801,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-7-col-3"
             id="graph-column-row-7-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-7-col-4"
             id="graph-column-row-7-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-8-col-0"
             id="graph-column-row-8-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -790,6 +826,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-8-col-1"
             id="graph-column-row-8-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -808,6 +845,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-8-col-2"
             id="graph-column-row-8-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -820,16 +858,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-8-col-3"
             id="graph-column-row-8-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-8-col-4"
             id="graph-column-row-8-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-9-col-0"
             id="graph-column-row-9-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -842,6 +883,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-9-col-1"
             id="graph-column-row-9-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -867,6 +909,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-9-col-2"
             id="graph-column-row-9-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -879,16 +922,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-9-col-3"
             id="graph-column-row-9-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-9-col-4"
             id="graph-column-row-9-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-10-col-0"
             id="graph-column-row-10-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -920,6 +966,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-10-col-1"
             id="graph-column-row-10-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -973,6 +1020,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-10-col-2"
             id="graph-column-row-10-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="container"
@@ -1049,16 +1097,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-10-col-3"
             id="graph-column-row-10-col-3"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-10-col-4"
             id="graph-column-row-10-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-11-col-0"
             id="graph-column-row-11-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -1090,6 +1141,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-11-col-1"
             id="graph-column-row-11-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1108,6 +1160,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-11-col-2"
             id="graph-column-row-11-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1126,6 +1179,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-11-col-3"
             id="graph-column-row-11-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line horizontal"
@@ -1138,6 +1192,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-11-col-4"
             id="graph-column-row-11-col-4"
+            style="min-width: 24px;"
           >
             <div
               class="container"
@@ -1179,6 +1234,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-0"
             id="graph-column-row-12-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -1210,6 +1266,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-1"
             id="graph-column-row-12-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1228,6 +1285,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-2"
             id="graph-column-row-12-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1246,6 +1304,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-3"
             id="graph-column-row-12-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="container"
@@ -1287,6 +1346,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-4"
             id="graph-column-row-12-col-4"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1299,6 +1359,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-0"
             id="graph-column-row-13-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1311,6 +1372,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-1"
             id="graph-column-row-13-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -1336,6 +1398,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-2"
             id="graph-column-row-13-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1348,6 +1411,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-3"
             id="graph-column-row-13-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1360,6 +1424,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-4"
             id="graph-column-row-13-col-4"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1372,6 +1437,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-0"
             id="graph-column-row-14-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1384,6 +1450,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-1"
             id="graph-column-row-14-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1396,6 +1463,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-2"
             id="graph-column-row-14-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -1414,6 +1482,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-3"
             id="graph-column-row-14-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1426,6 +1495,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-4"
             id="graph-column-row-14-col-4"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1438,6 +1508,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-0"
             id="graph-column-row-15-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -1469,6 +1540,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-1"
             id="graph-column-row-15-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1522,6 +1594,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-2"
             id="graph-column-row-15-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="container"
@@ -1598,6 +1671,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-3"
             id="graph-column-row-15-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1610,6 +1684,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-4"
             id="graph-column-row-15-col-4"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1622,6 +1697,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-0"
             id="graph-column-row-16-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1634,6 +1710,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-1"
             id="graph-column-row-16-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1646,6 +1723,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-2"
             id="graph-column-row-16-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -1664,6 +1742,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-3"
             id="graph-column-row-16-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1676,6 +1755,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-4"
             id="graph-column-row-16-col-4"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1688,6 +1768,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-0"
             id="graph-column-row-17-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1700,6 +1781,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-1"
             id="graph-column-row-17-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1712,6 +1794,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-2"
             id="graph-column-row-17-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1724,6 +1807,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-3"
             id="graph-column-row-17-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -1742,6 +1826,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-4"
             id="graph-column-row-17-col-4"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1754,6 +1839,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-0"
             id="graph-column-row-18-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1766,6 +1852,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-1"
             id="graph-column-row-18-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1778,6 +1865,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-2"
             id="graph-column-row-18-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1790,6 +1878,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-3"
             id="graph-column-row-18-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1802,6 +1891,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-4"
             id="graph-column-row-18-col-4"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -1820,6 +1910,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-0"
             id="graph-column-row-19-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -1851,6 +1942,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-1"
             id="graph-column-row-19-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -1869,6 +1961,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-2"
             id="graph-column-row-19-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line horizontal"
@@ -1916,6 +2009,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-3"
             id="graph-column-row-19-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line horizontal"
@@ -1998,6 +2092,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-4"
             id="graph-column-row-19-col-4"
+            style="min-width: 24px;"
           >
             <div
               class="container"
@@ -2039,6 +2134,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-20-col-0"
             id="graph-column-row-20-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2051,6 +2147,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-20-col-1"
             id="graph-column-row-20-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2069,11 +2166,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-20-col-2"
             id="graph-column-row-20-col-2"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-20-col-3"
             id="graph-column-row-20-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2086,11 +2185,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-20-col-4"
             id="graph-column-row-20-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-21-col-0"
             id="graph-column-row-21-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2103,6 +2204,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-21-col-1"
             id="graph-column-row-21-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2128,11 +2230,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-21-col-2"
             id="graph-column-row-21-col-2"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-21-col-3"
             id="graph-column-row-21-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2145,11 +2249,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-21-col-4"
             id="graph-column-row-21-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-22-col-0"
             id="graph-column-row-22-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2181,6 +2287,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-22-col-1"
             id="graph-column-row-22-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2234,6 +2341,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-22-col-2"
             id="graph-column-row-22-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="container"
@@ -2275,6 +2383,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-22-col-3"
             id="graph-column-row-22-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2287,11 +2396,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-22-col-4"
             id="graph-column-row-22-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-23-col-0"
             id="graph-column-row-23-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2304,6 +2415,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-23-col-1"
             id="graph-column-row-23-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2316,6 +2428,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-23-col-2"
             id="graph-column-row-23-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2334,6 +2447,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-23-col-3"
             id="graph-column-row-23-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2346,11 +2460,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-23-col-4"
             id="graph-column-row-23-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-24-col-0"
             id="graph-column-row-24-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2363,6 +2479,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-24-col-1"
             id="graph-column-row-24-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2375,6 +2492,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-24-col-2"
             id="graph-column-row-24-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2387,6 +2505,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-24-col-3"
             id="graph-column-row-24-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2405,11 +2524,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-24-col-4"
             id="graph-column-row-24-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-25-col-0"
             id="graph-column-row-25-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2422,6 +2543,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-25-col-1"
             id="graph-column-row-25-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2440,6 +2562,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-25-col-2"
             id="graph-column-row-25-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2452,6 +2575,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-25-col-3"
             id="graph-column-row-25-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2464,11 +2588,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-25-col-4"
             id="graph-column-row-25-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-26-col-0"
             id="graph-column-row-26-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2481,6 +2607,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-26-col-1"
             id="graph-column-row-26-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2499,6 +2626,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-26-col-2"
             id="graph-column-row-26-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2511,6 +2639,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-26-col-3"
             id="graph-column-row-26-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2523,11 +2652,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-26-col-4"
             id="graph-column-row-26-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-27-col-0"
             id="graph-column-row-27-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2540,6 +2671,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-27-col-1"
             id="graph-column-row-27-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2558,6 +2690,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-27-col-2"
             id="graph-column-row-27-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2570,6 +2703,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-27-col-3"
             id="graph-column-row-27-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2582,11 +2716,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-27-col-4"
             id="graph-column-row-27-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-28-col-0"
             id="graph-column-row-28-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2599,6 +2735,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-28-col-1"
             id="graph-column-row-28-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2617,6 +2754,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-28-col-2"
             id="graph-column-row-28-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2629,6 +2767,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-28-col-3"
             id="graph-column-row-28-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2641,11 +2780,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-28-col-4"
             id="graph-column-row-28-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-29-col-0"
             id="graph-column-row-29-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2658,6 +2799,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-29-col-1"
             id="graph-column-row-29-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2676,6 +2818,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-29-col-2"
             id="graph-column-row-29-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2688,6 +2831,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-29-col-3"
             id="graph-column-row-29-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2700,11 +2844,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-29-col-4"
             id="graph-column-row-29-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-30-col-0"
             id="graph-column-row-30-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2717,6 +2863,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-30-col-1"
             id="graph-column-row-30-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2735,6 +2882,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-30-col-2"
             id="graph-column-row-30-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2747,6 +2895,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-30-col-3"
             id="graph-column-row-30-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2759,11 +2908,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-30-col-4"
             id="graph-column-row-30-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-31-col-0"
             id="graph-column-row-31-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2776,6 +2927,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-31-col-1"
             id="graph-column-row-31-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2794,6 +2946,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-31-col-2"
             id="graph-column-row-31-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2806,6 +2959,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-31-col-3"
             id="graph-column-row-31-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2818,11 +2972,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-31-col-4"
             id="graph-column-row-31-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-32-col-0"
             id="graph-column-row-32-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2835,6 +2991,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-32-col-1"
             id="graph-column-row-32-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2853,6 +3010,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-32-col-2"
             id="graph-column-row-32-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2865,6 +3023,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-32-col-3"
             id="graph-column-row-32-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2877,11 +3036,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-32-col-4"
             id="graph-column-row-32-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-33-col-0"
             id="graph-column-row-33-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2894,6 +3055,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-33-col-1"
             id="graph-column-row-33-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2912,6 +3074,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-33-col-2"
             id="graph-column-row-33-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2924,6 +3087,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-33-col-3"
             id="graph-column-row-33-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2936,11 +3100,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-33-col-4"
             id="graph-column-row-33-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-34-col-0"
             id="graph-column-row-34-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2953,6 +3119,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-34-col-1"
             id="graph-column-row-34-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -2971,6 +3138,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-34-col-2"
             id="graph-column-row-34-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2983,6 +3151,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-34-col-3"
             id="graph-column-row-34-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -2995,11 +3164,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-34-col-4"
             id="graph-column-row-34-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-35-col-0"
             id="graph-column-row-35-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3012,6 +3183,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-35-col-1"
             id="graph-column-row-35-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -3030,6 +3202,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-35-col-2"
             id="graph-column-row-35-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3042,6 +3215,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-35-col-3"
             id="graph-column-row-35-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3054,11 +3228,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-35-col-4"
             id="graph-column-row-35-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-36-col-0"
             id="graph-column-row-36-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3071,6 +3247,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-36-col-1"
             id="graph-column-row-36-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -3089,6 +3266,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-36-col-2"
             id="graph-column-row-36-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3101,6 +3279,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-36-col-3"
             id="graph-column-row-36-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3113,11 +3292,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-36-col-4"
             id="graph-column-row-36-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-37-col-0"
             id="graph-column-row-37-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3130,6 +3311,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-37-col-1"
             id="graph-column-row-37-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -3148,6 +3330,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-37-col-2"
             id="graph-column-row-37-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3160,6 +3343,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-37-col-3"
             id="graph-column-row-37-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3172,11 +3356,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-37-col-4"
             id="graph-column-row-37-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-38-col-0"
             id="graph-column-row-38-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3189,6 +3375,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-38-col-1"
             id="graph-column-row-38-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -3207,6 +3394,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-38-col-2"
             id="graph-column-row-38-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3219,6 +3407,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-38-col-3"
             id="graph-column-row-38-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3231,11 +3420,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-38-col-4"
             id="graph-column-row-38-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-39-col-0"
             id="graph-column-row-39-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3248,6 +3439,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-39-col-1"
             id="graph-column-row-39-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -3266,6 +3458,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-39-col-2"
             id="graph-column-row-39-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3278,6 +3471,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-39-col-3"
             id="graph-column-row-39-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3290,11 +3484,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-39-col-4"
             id="graph-column-row-39-col-4"
+            style="min-width: 24px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-40-col-0"
             id="graph-column-row-40-col-0"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3307,6 +3503,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-40-col-1"
             id="graph-column-row-40-col-1"
+            style="min-width: 24px;"
           >
             <div
               class="commitNode"
@@ -3325,6 +3522,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-40-col-2"
             id="graph-column-row-40-col-2"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3337,6 +3535,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-40-col-3"
             id="graph-column-row-40-col-3"
+            style="min-width: 24px;"
           >
             <div
               class="line vertical"
@@ -3349,6 +3548,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-40-col-4"
             id="graph-column-row-40-col-4"
+            style="min-width: 24px;"
           />
         </div>
       </div>

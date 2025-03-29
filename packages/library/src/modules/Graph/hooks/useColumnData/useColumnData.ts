@@ -3,6 +3,7 @@ import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { useGitContext } from 'context/GitContext'
 import { GraphColumnData, GraphColumnDataProps } from './types'
 import { isColumnEmpty } from 'modules/Graph/utility/isColumnEmpty'
+import { getEmptyColumnState as createEmptyColumn } from 'modules/Graph/utility/getEmptyColumnState'
 
 export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphColumnData => {
   const {
@@ -14,10 +15,10 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
   } = useGitContext()
 
   const getEmptyColumnState = useCallback(() => {
-    return new Array<GraphColumnState>(graphWidth).fill({})
+    return createEmptyColumn({ columns: graphWidth })
   }, [graphWidth])
 
-  const columnData = useMemo(() => {
+  const { rowToColumnState, virtualColumns } = useMemo(() => {
     // Maps the one-based row index to an array of column state data
     const rowToColumnState = new Map<number, GraphColumnState[]>()
 
@@ -172,6 +173,13 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
       }
     }
 
+    // If, while server-side paginated, we find commits that need to draw
+    // lines to nodes that lie outside of this page of data, and those lines
+    // need to be drawn into columns that are beyond the current graph width,
+    // then we track the number of new "virtual" columns here that will be injected
+    // in the graph.
+    let virtualColumns = 0
+
     if (isServerSidePaginated) {
       // Any commits who have parent hashes that are not present in the graph
       // must have vertical lines drawn from them down to the bottom row to indicate
@@ -227,9 +235,6 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
             let targetColumnIndex = columnIndex
 
             // Find the nearest column to the right that is empty
-            if (columnStates[targetColumnIndex] === undefined) {
-              console.log(`${orphan.hash} has undefined state in column ${targetColumnIndex}`)
-            }
             while(!isColumnEmpty(columnStates[targetColumnIndex])) {
               targetColumnIndex++
             }
@@ -263,6 +268,15 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
 
                 rowToColumnState.set(targetRowIndex, targetRowColumnStates)
               }
+            }
+
+            // If we've had to draw outside the graph then add enough virtual
+            // columns to support the new horizontal -> curve -> vertical merge lines.
+            const maxColumnIndex = graphWidth - 1
+            if (targetColumnIndex > maxColumnIndex) {
+              // Add a virtual column for each horizontal line drawn,
+              // plus the column with the curve and vertical lines
+              virtualColumns = targetColumnIndex - maxColumnIndex
             }
           }
 
@@ -312,11 +326,15 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
     }
     rowToColumnState.set(lastVisibleRowIndex, lastRow)
 
-    return rowToColumnState
-  }, [positions, edges, commits, headCommit, isServerSidePaginated, paging, getEmptyColumnState, visibleCommits, headCommitHash])
+    return {
+      rowToColumnState,
+      virtualColumns
+    }
+  }, [positions, edges, commits, headCommit, isServerSidePaginated, paging, getEmptyColumnState, visibleCommits, graphWidth, headCommitHash])
 
   return {
     getEmptyColumnState,
-    columnData
+    columnData: rowToColumnState,
+    virtualColumns
   }
 }

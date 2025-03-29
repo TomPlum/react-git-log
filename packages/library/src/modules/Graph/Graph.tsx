@@ -34,9 +34,11 @@ export const Graph = ({
     return commits
   }, [commits, paging])
 
-  const { columnData, getEmptyColumnState } = useColumnData({
+  const { columnData, getEmptyColumnState, virtualColumns } = useColumnData({
     visibleCommits: visibleCommits.length
   })
+
+  const virtualisedGraphWidth = graphWidth + virtualColumns
 
   const commitQuantity = useMemo(() => {
     // If there is no data being shown, then we'll
@@ -69,7 +71,7 @@ export const Graph = ({
         <div
           className={styles.graph}
           style={{
-            gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
+            gridTemplateColumns: `repeat(${virtualisedGraphWidth}, 1fr)`,
             gridTemplateRows: `repeat(${commitQuantity}, ${ROW_HEIGHT + rowSpacing}px)`
           }}
         >
@@ -79,7 +81,7 @@ export const Graph = ({
 
           {isIndexVisible && (
             <IndexPseudoRow
-              graphWidth={graphWidth}
+              graphWidth={virtualisedGraphWidth}
             />
           )}
 
@@ -94,7 +96,7 @@ export const Graph = ({
                 commit={commit}
                 key={commit.hash}
                 columns={columns}
-                width={graphWidth}
+                width={virtualisedGraphWidth}
               />
             )
           })}

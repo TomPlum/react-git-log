@@ -58,6 +58,7 @@ describe('isColumnEmpty', () => {
   })
 
   it('handles an undefined object', () => {
-    expect(isColumnEmpty(undefined)).toBe(true)
+    const state = undefined as unknown as GraphColumnState
+    expect(isColumnEmpty(state)).toBe(true)
   })
 })

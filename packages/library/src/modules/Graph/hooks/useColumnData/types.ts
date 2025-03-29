@@ -6,5 +6,6 @@ export interface GraphColumnDataProps {
 
 export interface GraphColumnData {
   columnData: Map<number, GraphColumnState[]>
+  virtualColumns: number
   getEmptyColumnState: () => GraphColumnState[]
 }

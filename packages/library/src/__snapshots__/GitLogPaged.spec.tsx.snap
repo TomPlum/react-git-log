@@ -1,0 +1,4679 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`GitLogPaged > should render correctly and match the snapshot the paginated GitLogPaged component 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+    data-testid="react-git-log"
+    id="react-git-log"
+  >
+    <div
+      class="tags"
+    >
+      <h4
+        class="title"
+        style="color: rgb(0, 0, 0); margin-left: 10px;"
+      >
+        Branch / Tag
+      </h4>
+      <div
+        class="container"
+      >
+        <div
+          class="tag"
+          data-testid="empty-tag-0"
+          id="empty-tag-0"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-1"
+          id="empty-tag-1"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-2"
+          id="empty-tag-2"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-3"
+          id="empty-tag-3"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-4"
+          id="empty-tag-4"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-5"
+          id="empty-tag-5"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-6"
+          id="empty-tag-6"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-7"
+          id="empty-tag-7"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-8"
+          id="empty-tag-8"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-9"
+          id="empty-tag-9"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-10"
+          id="empty-tag-10"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-11"
+          id="empty-tag-11"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-12"
+          id="empty-tag-12"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-13"
+          id="empty-tag-13"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-14"
+          id="empty-tag-14"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-15"
+          id="empty-tag-15"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-16"
+          id="empty-tag-16"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-17"
+          id="empty-tag-17"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-18"
+          id="empty-tag-18"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-19"
+          id="empty-tag-19"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-20"
+          id="empty-tag-20"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-21"
+          id="empty-tag-21"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-22"
+          id="empty-tag-22"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-23"
+          id="empty-tag-23"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-24"
+          id="empty-tag-24"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-25"
+          id="empty-tag-25"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-26"
+          id="empty-tag-26"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-27"
+          id="empty-tag-27"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-28"
+          id="empty-tag-28"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-29"
+          id="empty-tag-29"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-30"
+          id="empty-tag-30"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-31"
+          id="empty-tag-31"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-32"
+          id="empty-tag-32"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-33"
+          id="empty-tag-33"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-34"
+          id="empty-tag-34"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-35"
+          id="empty-tag-35"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-36"
+          id="empty-tag-36"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-37"
+          id="empty-tag-37"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-38"
+          id="empty-tag-38"
+          style="height: 40px;"
+        />
+        <div
+          class="tag"
+          data-testid="empty-tag-39"
+          id="empty-tag-39"
+          style="height: 40px;"
+        />
+      </div>
+    </div>
+    <div
+      class="graph"
+    >
+      <h4
+        class="title"
+        style="color: rgb(0, 0, 0);"
+      >
+        Graph
+      </h4>
+      <div
+        class="container"
+        style="width: 300px;"
+      >
+        <div
+          class="graph"
+          style="grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(40, 40px);"
+        >
+          <div
+            class="column"
+            data-testid="graph-column-row-1-col-0"
+            id="graph-column-row-1-col-0"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-867c511"
+              id="commit-node-867c511"
+              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid transparent; border-image: linear-gradient(to top, rgb(255, 0, 0), transparent) 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-1-col-1"
+            id="graph-column-row-1-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid transparent; border-image: linear-gradient(to top, rgb(204, 255, 0), transparent) 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-1-col-2"
+            id="graph-column-row-1-col-2"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-1-col-3"
+            id="graph-column-row-1-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-1-col-4"
+            id="graph-column-row-1-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-2-col-0"
+            id="graph-column-row-2-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-2-col-1"
+            id="graph-column-row-2-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-f157195"
+              id="commit-node-f157195"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-2-col-2"
+            id="graph-column-row-2-col-2"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-2-col-3"
+            id="graph-column-row-2-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-2-col-4"
+            id="graph-column-row-2-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-3-col-0"
+            id="graph-column-row-3-col-0"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-5525ed5"
+              id="commit-node-5525ed5"
+              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-5525ed5"
+                id="commit-node-merge-circle-5525ed5"
+                style="background: rgb(255, 0, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-right-half"
+              id="horizontal-line-right-half"
+              style="border-top: 2px solid rgb(204, 255, 0); width: 50%; right: 0px; z-index: 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-3-col-1"
+            id="graph-column-row-3-col-1"
+          >
+            <div
+              class="container"
+              data-testid="left-down-curve"
+              id="left-down-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-down-curve-bottom-line"
+                id="left-down-curve-bottom-line"
+                style="bottom: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(204, 255, 0); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-down-curve-curved-line"
+                height="24"
+                id="left-down-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,1 50,100"
+                  fill="transparent"
+                  stroke="rgb(204, 255, 0)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-down-curve-left-line"
+                id="left-down-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(204, 255, 0); width: calc(50% - 12px);"
+              />
+            </div>
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(204, 255, 0); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(204, 255, 0)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(204, 255, 0); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-3-col-2"
+            id="graph-column-row-3-col-2"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-3-col-3"
+            id="graph-column-row-3-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-3-col-4"
+            id="graph-column-row-3-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-4-col-0"
+            id="graph-column-row-4-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-4-col-1"
+            id="graph-column-row-4-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-081b2d3"
+              id="commit-node-081b2d3"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-4-col-2"
+            id="graph-column-row-4-col-2"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-4-col-3"
+            id="graph-column-row-4-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-4-col-4"
+            id="graph-column-row-4-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-5-col-0"
+            id="graph-column-row-5-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-5-col-1"
+            id="graph-column-row-5-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-a10ab03"
+              id="commit-node-a10ab03"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-a10ab03"
+                id="commit-node-merge-circle-a10ab03"
+                style="background: rgb(204, 255, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-5-col-2"
+            id="graph-column-row-5-col-2"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-5-col-3"
+            id="graph-column-row-5-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-5-col-4"
+            id="graph-column-row-5-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-6-col-0"
+            id="graph-column-row-6-col-0"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-5862498"
+              id="commit-node-5862498"
+              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-5862498"
+                id="commit-node-merge-circle-5862498"
+                style="background: rgb(255, 0, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-right-half"
+              id="horizontal-line-right-half"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 50%; right: 0px; z-index: 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-6-col-1"
+            id="graph-column-row-6-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2;"
+            />
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(204, 255, 0); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(204, 255, 0)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(204, 255, 0); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-6-col-2"
+            id="graph-column-row-6-col-2"
+          >
+            <div
+              class="container"
+              data-testid="left-down-curve"
+              id="left-down-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-down-curve-bottom-line"
+                id="left-down-curve-bottom-line"
+                style="bottom: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 255, 102); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-down-curve-curved-line"
+                height="24"
+                id="left-down-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,1 50,100"
+                  fill="transparent"
+                  stroke="rgb(0, 255, 102)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-down-curve-left-line"
+                id="left-down-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 255, 102); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-6-col-3"
+            id="graph-column-row-6-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-6-col-4"
+            id="graph-column-row-6-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-7-col-0"
+            id="graph-column-row-7-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-7-col-1"
+            id="graph-column-row-7-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-7-col-2"
+            id="graph-column-row-7-col-2"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-eeeb1f2"
+              id="commit-node-eeeb1f2"
+              style="background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-7-col-3"
+            id="graph-column-row-7-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-7-col-4"
+            id="graph-column-row-7-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-8-col-0"
+            id="graph-column-row-8-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-8-col-1"
+            id="graph-column-row-8-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-55ec23e"
+              id="commit-node-55ec23e"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-8-col-2"
+            id="graph-column-row-8-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-8-col-3"
+            id="graph-column-row-8-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-8-col-4"
+            id="graph-column-row-8-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-9-col-0"
+            id="graph-column-row-9-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-9-col-1"
+            id="graph-column-row-9-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-75fea53"
+              id="commit-node-75fea53"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-75fea53"
+                id="commit-node-merge-circle-75fea53"
+                style="background: rgb(204, 255, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-9-col-2"
+            id="graph-column-row-9-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-9-col-3"
+            id="graph-column-row-9-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-9-col-4"
+            id="graph-column-row-9-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-10-col-0"
+            id="graph-column-row-10-col-0"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-27d7e9e"
+              id="commit-node-27d7e9e"
+              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-27d7e9e"
+                id="commit-node-merge-circle-27d7e9e"
+                style="background: rgb(255, 0, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-right-half"
+              id="horizontal-line-right-half"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 50%; right: 0px; z-index: 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-10-col-1"
+            id="graph-column-row-10-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2;"
+            />
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(204, 255, 0); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(204, 255, 0)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(204, 255, 0); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-10-col-2"
+            id="graph-column-row-10-col-2"
+          >
+            <div
+              class="container"
+              data-testid="left-down-curve"
+              id="left-down-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-down-curve-bottom-line"
+                id="left-down-curve-bottom-line"
+                style="bottom: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 255, 102); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-down-curve-curved-line"
+                height="24"
+                id="left-down-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,1 50,100"
+                  fill="transparent"
+                  stroke="rgb(0, 255, 102)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-down-curve-left-line"
+                id="left-down-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 255, 102); width: calc(50% - 12px);"
+              />
+            </div>
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 255, 102); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(0, 255, 102)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 255, 102); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-10-col-3"
+            id="graph-column-row-10-col-3"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-10-col-4"
+            id="graph-column-row-10-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-11-col-0"
+            id="graph-column-row-11-col-0"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-338b505"
+              id="commit-node-338b505"
+              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-338b505"
+                id="commit-node-merge-circle-338b505"
+                style="background: rgb(255, 0, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-right-half"
+              id="horizontal-line-right-half"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 50%; right: 0px; z-index: 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-11-col-1"
+            id="graph-column-row-11-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 2;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-11-col-2"
+            id="graph-column-row-11-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 3;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-11-col-3"
+            id="graph-column-row-11-col-3"
+          >
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 4;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-11-col-4"
+            id="graph-column-row-11-col-4"
+          >
+            <div
+              class="container"
+              data-testid="left-down-curve"
+              id="left-down-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-down-curve-bottom-line"
+                id="left-down-curve-bottom-line"
+                style="bottom: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(204, 0, 255); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-down-curve-curved-line"
+                height="24"
+                id="left-down-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,1 50,100"
+                  fill="transparent"
+                  stroke="rgb(204, 0, 255)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-down-curve-left-line"
+                id="left-down-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(204, 0, 255); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-12-col-0"
+            id="graph-column-row-12-col-0"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-988bf8d"
+              id="commit-node-988bf8d"
+              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-988bf8d"
+                id="commit-node-merge-circle-988bf8d"
+                style="background: rgb(255, 0, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-right-half"
+              id="horizontal-line-right-half"
+              style="border-top: 2px solid rgb(0, 102, 255); width: 50%; right: 0px; z-index: 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-12-col-1"
+            id="graph-column-row-12-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(0, 102, 255); width: 100%; z-index: 2;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-12-col-2"
+            id="graph-column-row-12-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(0, 102, 255); width: 100%; z-index: 3;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-12-col-3"
+            id="graph-column-row-12-col-3"
+          >
+            <div
+              class="container"
+              data-testid="left-down-curve"
+              id="left-down-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-down-curve-bottom-line"
+                id="left-down-curve-bottom-line"
+                style="bottom: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 102, 255); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-down-curve-curved-line"
+                height="24"
+                id="left-down-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,1 50,100"
+                  fill="transparent"
+                  stroke="rgb(0, 102, 255)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-down-curve-left-line"
+                id="left-down-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 102, 255); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-12-col-4"
+            id="graph-column-row-12-col-4"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 5; border-right: 2px solid rgb(204, 0, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-13-col-0"
+            id="graph-column-row-13-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-13-col-1"
+            id="graph-column-row-13-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-e11674d"
+              id="commit-node-e11674d"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-e11674d"
+                id="commit-node-merge-circle-e11674d"
+                style="background: rgb(204, 255, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-13-col-2"
+            id="graph-column-row-13-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-13-col-3"
+            id="graph-column-row-13-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-13-col-4"
+            id="graph-column-row-13-col-4"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 5; border-right: 2px solid rgb(204, 0, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-14-col-0"
+            id="graph-column-row-14-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-14-col-1"
+            id="graph-column-row-14-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-14-col-2"
+            id="graph-column-row-14-col-2"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-0577e9d"
+              id="commit-node-0577e9d"
+              style="background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-14-col-3"
+            id="graph-column-row-14-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-14-col-4"
+            id="graph-column-row-14-col-4"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 5; border-right: 2px solid rgb(204, 0, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-15-col-0"
+            id="graph-column-row-15-col-0"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-b35728b"
+              id="commit-node-b35728b"
+              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-b35728b"
+                id="commit-node-merge-circle-b35728b"
+                style="background: rgb(255, 0, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-right-half"
+              id="horizontal-line-right-half"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 50%; right: 0px; z-index: 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-15-col-1"
+            id="graph-column-row-15-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2;"
+            />
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(204, 255, 0); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(204, 255, 0)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(204, 255, 0); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-15-col-2"
+            id="graph-column-row-15-col-2"
+          >
+            <div
+              class="container"
+              data-testid="left-down-curve"
+              id="left-down-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-down-curve-bottom-line"
+                id="left-down-curve-bottom-line"
+                style="bottom: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 255, 102); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-down-curve-curved-line"
+                height="24"
+                id="left-down-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,1 50,100"
+                  fill="transparent"
+                  stroke="rgb(0, 255, 102)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-down-curve-left-line"
+                id="left-down-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 255, 102); width: calc(50% - 12px);"
+              />
+            </div>
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 255, 102); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(0, 255, 102)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 255, 102); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-15-col-3"
+            id="graph-column-row-15-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-15-col-4"
+            id="graph-column-row-15-col-4"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 5; border-right: 2px solid rgb(204, 0, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-16-col-0"
+            id="graph-column-row-16-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-16-col-1"
+            id="graph-column-row-16-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-16-col-2"
+            id="graph-column-row-16-col-2"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-0f5ae74"
+              id="commit-node-0f5ae74"
+              style="background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-16-col-3"
+            id="graph-column-row-16-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-16-col-4"
+            id="graph-column-row-16-col-4"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 5; border-right: 2px solid rgb(204, 0, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-17-col-0"
+            id="graph-column-row-17-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-17-col-1"
+            id="graph-column-row-17-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-17-col-2"
+            id="graph-column-row-17-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-17-col-3"
+            id="graph-column-row-17-col-3"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-648f6e9"
+              id="commit-node-648f6e9"
+              style="background-color: rgb(217, 232, 255); border: 2px solid rgb(0, 102, 255);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-17-col-4"
+            id="graph-column-row-17-col-4"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 5; border-right: 2px solid rgb(204, 0, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-18-col-0"
+            id="graph-column-row-18-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-18-col-1"
+            id="graph-column-row-18-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-18-col-2"
+            id="graph-column-row-18-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-18-col-3"
+            id="graph-column-row-18-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-18-col-4"
+            id="graph-column-row-18-col-4"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-ca136bf"
+              id="commit-node-ca136bf"
+              style="background-color: rgb(247, 217, 255); border: 2px solid rgb(204, 0, 255);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 5; border-right: 2px solid rgb(204, 0, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-19-col-0"
+            id="graph-column-row-19-col-0"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-09e615d"
+              id="commit-node-09e615d"
+              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-09e615d"
+                id="commit-node-merge-circle-09e615d"
+                style="background: rgb(255, 0, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-right-half"
+              id="horizontal-line-right-half"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 50%; right: 0px; z-index: 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-19-col-1"
+            id="graph-column-row-19-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 2;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-19-col-2"
+            id="graph-column-row-19-col-2"
+          >
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 3;"
+            />
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 255, 102); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(0, 255, 102)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 255, 102); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-19-col-3"
+            id="graph-column-row-19-col-3"
+          >
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 4;"
+            />
+            <div
+              class="container"
+              data-testid="left-down-curve"
+              id="left-down-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-down-curve-bottom-line"
+                id="left-down-curve-bottom-line"
+                style="bottom: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 102, 255); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-down-curve-curved-line"
+                height="24"
+                id="left-down-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,1 50,100"
+                  fill="transparent"
+                  stroke="rgb(0, 102, 255)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-down-curve-left-line"
+                id="left-down-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 102, 255); width: calc(50% - 12px);"
+              />
+            </div>
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 102, 255); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(0, 102, 255)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 102, 255); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-19-col-4"
+            id="graph-column-row-19-col-4"
+          >
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(204, 0, 255); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(204, 0, 255)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(204, 0, 255); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-20-col-0"
+            id="graph-column-row-20-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-20-col-1"
+            id="graph-column-row-20-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-72a5dbb"
+              id="commit-node-72a5dbb"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-20-col-2"
+            id="graph-column-row-20-col-2"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-20-col-3"
+            id="graph-column-row-20-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-20-col-4"
+            id="graph-column-row-20-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-21-col-0"
+            id="graph-column-row-21-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-21-col-1"
+            id="graph-column-row-21-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-5281010"
+              id="commit-node-5281010"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-5281010"
+                id="commit-node-merge-circle-5281010"
+                style="background: rgb(204, 255, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-21-col-2"
+            id="graph-column-row-21-col-2"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-21-col-3"
+            id="graph-column-row-21-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-21-col-4"
+            id="graph-column-row-21-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-22-col-0"
+            id="graph-column-row-22-col-0"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-b7ec825"
+              id="commit-node-b7ec825"
+              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+            >
+              <div
+                class="mergeCommitInner"
+                data-testid="commit-node-merge-circle-b7ec825"
+                id="commit-node-merge-circle-b7ec825"
+                style="background: rgb(255, 0, 0);"
+              />
+            </div>
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-right-half"
+              id="horizontal-line-right-half"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 50%; right: 0px; z-index: 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-22-col-1"
+            id="graph-column-row-22-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line horizontal"
+              data-testid="horizontal-line-full-width"
+              id="horizontal-line-full-width"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2;"
+            />
+            <div
+              class="container"
+              data-testid="left-up-curve"
+              id="left-up-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-up-curve-top-line"
+                id="left-up-curve-top-line"
+                style="top: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(204, 255, 0); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-up-curve-curved-line"
+                height="24"
+                id="left-up-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,0 50,0"
+                  fill="transparent"
+                  stroke="rgb(204, 255, 0)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-up-curve-left-line"
+                id="left-up-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(204, 255, 0); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-22-col-2"
+            id="graph-column-row-22-col-2"
+          >
+            <div
+              class="container"
+              data-testid="left-down-curve"
+              id="left-down-curve"
+            >
+              <div
+                class="line"
+                data-testid="left-down-curve-bottom-line"
+                id="left-down-curve-bottom-line"
+                style="bottom: 0px; left: calc(50% - 1px); border-right: 2px solid rgb(0, 255, 102); height: 8px;"
+              />
+              <svg
+                class="curve"
+                data-testid="left-down-curve-curved-line"
+                height="24"
+                id="left-down-curve-curved-line"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                width="24"
+              >
+                <path
+                  d="M 0,53 A 50,50 0 0,1 50,100"
+                  fill="transparent"
+                  stroke="rgb(0, 255, 102)"
+                  stroke-width="2"
+                  vector-effect="non-scaling-stroke"
+                />
+              </svg>
+              <div
+                class="line"
+                data-testid="left-down-curve-left-line"
+                id="left-down-curve-left-line"
+                style="left: 0px; top: 50%; height: 0px; border-bottom: 2px solid rgb(0, 255, 102); width: calc(50% - 12px);"
+              />
+            </div>
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-22-col-3"
+            id="graph-column-row-22-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-22-col-4"
+            id="graph-column-row-22-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-23-col-0"
+            id="graph-column-row-23-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-23-col-1"
+            id="graph-column-row-23-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-23-col-2"
+            id="graph-column-row-23-col-2"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-3d680fd"
+              id="commit-node-3d680fd"
+              style="background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-23-col-3"
+            id="graph-column-row-23-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-23-col-4"
+            id="graph-column-row-23-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-24-col-0"
+            id="graph-column-row-24-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-24-col-1"
+            id="graph-column-row-24-col-1"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-24-col-2"
+            id="graph-column-row-24-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-24-col-3"
+            id="graph-column-row-24-col-3"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-2b85a9e"
+              id="commit-node-2b85a9e"
+              style="background-color: rgb(217, 232, 255); border: 2px solid rgb(0, 102, 255);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-24-col-4"
+            id="graph-column-row-24-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-25-col-0"
+            id="graph-column-row-25-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-25-col-1"
+            id="graph-column-row-25-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-000b3aa"
+              id="commit-node-000b3aa"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-25-col-2"
+            id="graph-column-row-25-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-25-col-3"
+            id="graph-column-row-25-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-25-col-4"
+            id="graph-column-row-25-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-26-col-0"
+            id="graph-column-row-26-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-26-col-1"
+            id="graph-column-row-26-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-45dbbde"
+              id="commit-node-45dbbde"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-26-col-2"
+            id="graph-column-row-26-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-26-col-3"
+            id="graph-column-row-26-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-26-col-4"
+            id="graph-column-row-26-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-27-col-0"
+            id="graph-column-row-27-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-27-col-1"
+            id="graph-column-row-27-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-2c60633"
+              id="commit-node-2c60633"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-27-col-2"
+            id="graph-column-row-27-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-27-col-3"
+            id="graph-column-row-27-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-27-col-4"
+            id="graph-column-row-27-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-28-col-0"
+            id="graph-column-row-28-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-28-col-1"
+            id="graph-column-row-28-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-7f60983"
+              id="commit-node-7f60983"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-28-col-2"
+            id="graph-column-row-28-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-28-col-3"
+            id="graph-column-row-28-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-28-col-4"
+            id="graph-column-row-28-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-29-col-0"
+            id="graph-column-row-29-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-29-col-1"
+            id="graph-column-row-29-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-cebb57d"
+              id="commit-node-cebb57d"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-29-col-2"
+            id="graph-column-row-29-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-29-col-3"
+            id="graph-column-row-29-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-29-col-4"
+            id="graph-column-row-29-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-30-col-0"
+            id="graph-column-row-30-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-30-col-1"
+            id="graph-column-row-30-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-33c38c5"
+              id="commit-node-33c38c5"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-30-col-2"
+            id="graph-column-row-30-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-30-col-3"
+            id="graph-column-row-30-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-30-col-4"
+            id="graph-column-row-30-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-31-col-0"
+            id="graph-column-row-31-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-31-col-1"
+            id="graph-column-row-31-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-f19e207"
+              id="commit-node-f19e207"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-31-col-2"
+            id="graph-column-row-31-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-31-col-3"
+            id="graph-column-row-31-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-31-col-4"
+            id="graph-column-row-31-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-32-col-0"
+            id="graph-column-row-32-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-32-col-1"
+            id="graph-column-row-32-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-b9bc1dc"
+              id="commit-node-b9bc1dc"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-32-col-2"
+            id="graph-column-row-32-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-32-col-3"
+            id="graph-column-row-32-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-32-col-4"
+            id="graph-column-row-32-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-33-col-0"
+            id="graph-column-row-33-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-33-col-1"
+            id="graph-column-row-33-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-9c65959"
+              id="commit-node-9c65959"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-33-col-2"
+            id="graph-column-row-33-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-33-col-3"
+            id="graph-column-row-33-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-33-col-4"
+            id="graph-column-row-33-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-34-col-0"
+            id="graph-column-row-34-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-34-col-1"
+            id="graph-column-row-34-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-a172219"
+              id="commit-node-a172219"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-34-col-2"
+            id="graph-column-row-34-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-34-col-3"
+            id="graph-column-row-34-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-34-col-4"
+            id="graph-column-row-34-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-35-col-0"
+            id="graph-column-row-35-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-35-col-1"
+            id="graph-column-row-35-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-a3af060"
+              id="commit-node-a3af060"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-35-col-2"
+            id="graph-column-row-35-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-35-col-3"
+            id="graph-column-row-35-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-35-col-4"
+            id="graph-column-row-35-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-36-col-0"
+            id="graph-column-row-36-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-36-col-1"
+            id="graph-column-row-36-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-363c60d"
+              id="commit-node-363c60d"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-36-col-2"
+            id="graph-column-row-36-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-36-col-3"
+            id="graph-column-row-36-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-36-col-4"
+            id="graph-column-row-36-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-37-col-0"
+            id="graph-column-row-37-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-37-col-1"
+            id="graph-column-row-37-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-cc0598b"
+              id="commit-node-cc0598b"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-37-col-2"
+            id="graph-column-row-37-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-37-col-3"
+            id="graph-column-row-37-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-37-col-4"
+            id="graph-column-row-37-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-38-col-0"
+            id="graph-column-row-38-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-38-col-1"
+            id="graph-column-row-38-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-6e89c11"
+              id="commit-node-6e89c11"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-38-col-2"
+            id="graph-column-row-38-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-38-col-3"
+            id="graph-column-row-38-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-38-col-4"
+            id="graph-column-row-38-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-39-col-0"
+            id="graph-column-row-39-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid rgb(255, 0, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-39-col-1"
+            id="graph-column-row-39-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-6904884"
+              id="commit-node-6904884"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid rgb(204, 255, 0);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-39-col-2"
+            id="graph-column-row-39-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid rgb(0, 255, 102);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-39-col-3"
+            id="graph-column-row-39-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid rgb(0, 102, 255);"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-39-col-4"
+            id="graph-column-row-39-col-4"
+          />
+          <div
+            class="column"
+            data-testid="graph-column-row-40-col-0"
+            id="graph-column-row-40-col-0"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 1; border-right: 2px solid transparent; border-image: linear-gradient(to bottom, rgb(255, 0, 0), transparent) 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-40-col-1"
+            id="graph-column-row-40-col-1"
+          >
+            <div
+              class="commitNode"
+              data-testid="commit-node-94b945f"
+              id="commit-node-94b945f"
+              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+            />
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 2; border-right: 2px solid transparent; border-image: linear-gradient(to bottom, rgb(204, 255, 0), transparent) 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-40-col-2"
+            id="graph-column-row-40-col-2"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 3; border-right: 2px solid transparent; border-image: linear-gradient(to bottom, rgb(0, 255, 102), transparent) 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-40-col-3"
+            id="graph-column-row-40-col-3"
+          >
+            <div
+              class="line vertical"
+              data-testid="vertical-line-full-height"
+              id="vertical-line-full-height"
+              style="top: 0px; height: 100%; z-index: 4; border-right: 2px solid transparent; border-image: linear-gradient(to bottom, rgb(0, 102, 255), transparent) 1;"
+            />
+          </div>
+          <div
+            class="column"
+            data-testid="graph-column-row-40-col-4"
+            id="graph-column-row-40-col-4"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="table"
+    >
+      <div
+        class="tableContainer"
+        data-testid="react-git-log-table"
+        id="react-git-log-table"
+        style="margin-top: 12px; grid-template-rows: 47px repeat(40, 40px); row-gap: 0;"
+      >
+        <div
+          class="head"
+          data-testid="react-git-log-table-head"
+          id="react-git-log-table-head"
+        >
+          <div
+            class="header"
+            data-testid="react-git-log-table-header-commit-message"
+            id="react-git-log-table-header-commit-message"
+            style="color: rgb(0, 0, 0);"
+          >
+            Commit message
+          </div>
+          <div
+            class="header"
+            data-testid="react-git-log-table-header-author"
+            id="react-git-log-table-header-author"
+            style="color: rgb(0, 0, 0);"
+          >
+            Author
+          </div>
+          <div
+            class="header"
+            data-testid="react-git-log-table-header-timestamp"
+            id="react-git-log-table-header-timestamp"
+            style="color: rgb(0, 0, 0);"
+          >
+            Timestamp
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-0"
+          id="react-git-log-table-row-0"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-0"
+            id="react-git-log-table-data-commit-message-0"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="chore(deps): update dependency vite to v6"
+          >
+            chore(deps): update dependency vite to v6
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-0"
+            id="react-git-log-table-data-author-0"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
+          >
+            renovate[bot]
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-0"
+            id="react-git-log-table-data-timestamp-0"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-02-16 15:21:55
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-1"
+          id="react-git-log-table-row-1"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-1"
+            id="react-git-log-table-data-commit-message-1"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="fix(deps): update all non-major dependencies"
+          >
+            fix(deps): update all non-major dependencies
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-1"
+            id="react-git-log-table-data-author-1"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
+          >
+            renovate[bot]
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-1"
+            id="react-git-log-table-data-timestamp-1"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-02-16 15:21:05
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-2"
+          id="react-git-log-table-row-2"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-2"
+            id="react-git-log-table-data-commit-message-2"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge pull request #38 from TomPlum/develop"
+          >
+            Merge pull request #38 from TomPlum/develop
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-2"
+            id="react-git-log-table-data-author-2"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-2"
+            id="react-git-log-table-data-timestamp-2"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-02-16 15:20:20
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-3"
+          id="react-git-log-table-row-3"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-3"
+            id="react-git-log-table-data-commit-message-3"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="chore(data): added latest pillow data 16/02/2025"
+          >
+            chore(data): added latest pillow data 16/02/2025
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-3"
+            id="react-git-log-table-data-author-3"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-3"
+            id="react-git-log-table-data-timestamp-3"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-02-16 15:16:44
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-4"
+          id="react-git-log-table-row-4"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-4"
+            id="react-git-log-table-data-commit-message-4"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge branch 'release' into develop"
+          >
+            Merge branch 'release' into develop
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-4"
+            id="react-git-log-table-data-author-4"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-4"
+            id="react-git-log-table-data-timestamp-4"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-02-16 15:02:17
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-5"
+          id="react-git-log-table-row-5"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-5"
+            id="react-git-log-table-data-commit-message-5"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge pull request #46 from TomPlum/renovate/all-minor-patch"
+          >
+            Merge pull request #46 from TomPlum/renovate/all-minor-patch
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-5"
+            id="react-git-log-table-data-author-5"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-5"
+            id="react-git-log-table-data-timestamp-5"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-02-16 15:00:05
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-6"
+          id="react-git-log-table-row-6"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-6"
+            id="react-git-log-table-data-commit-message-6"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="fix(deps): update all non-major dependencies"
+          >
+            fix(deps): update all non-major dependencies
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-6"
+            id="react-git-log-table-data-author-6"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
+          >
+            renovate[bot]
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-6"
+            id="react-git-log-table-data-timestamp-6"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-02-14 01:53:30
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-7"
+          id="react-git-log-table-row-7"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-7"
+            id="react-git-log-table-data-commit-message-7"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="fix(deps): npm install to fix lockfile issues"
+          >
+            fix(deps): npm install to fix lockfile issues
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-7"
+            id="react-git-log-table-data-author-7"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-7"
+            id="react-git-log-table-data-timestamp-7"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-02-01 15:22:07
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-8"
+          id="react-git-log-table-row-8"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-8"
+            id="react-git-log-table-data-commit-message-8"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge branch 'refs/heads/release' into develop"
+          >
+            Merge branch 'refs/heads/release' into develop
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-8"
+            id="react-git-log-table-data-author-8"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-8"
+            id="react-git-log-table-data-timestamp-8"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-02-01 15:21:44
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-9"
+          id="react-git-log-table-row-9"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-9"
+            id="react-git-log-table-data-commit-message-9"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge pull request #45 from TomPlum/renovate/major-eslint-stylistic-monorepo"
+          >
+            Merge pull request #45 from TomPlum/renovate/major-eslint-stylistic-monorepo
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-9"
+            id="react-git-log-table-data-author-9"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-9"
+            id="react-git-log-table-data-timestamp-9"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-02-01 15:21:11
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-10"
+          id="react-git-log-table-row-10"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-10"
+            id="react-git-log-table-data-commit-message-10"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge pull request #43 from TomPlum/renovate/jsdom-26.x"
+          >
+            Merge pull request #43 from TomPlum/renovate/jsdom-26.x
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-10"
+            id="react-git-log-table-data-author-10"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-10"
+            id="react-git-log-table-data-timestamp-10"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-02-01 15:20:55
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-11"
+          id="react-git-log-table-row-11"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-11"
+            id="react-git-log-table-data-commit-message-11"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge pull request #44 from TomPlum/renovate/major-vitest-monorepo"
+          >
+            Merge pull request #44 from TomPlum/renovate/major-vitest-monorepo
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-11"
+            id="react-git-log-table-data-author-11"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-11"
+            id="react-git-log-table-data-timestamp-11"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-02-01 15:20:45
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-12"
+          id="react-git-log-table-row-12"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-12"
+            id="react-git-log-table-data-commit-message-12"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge branch 'release' into develop"
+          >
+            Merge branch 'release' into develop
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-12"
+            id="react-git-log-table-data-author-12"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-12"
+            id="react-git-log-table-data-timestamp-12"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-02-01 15:17:11
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-13"
+          id="react-git-log-table-row-13"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-13"
+            id="react-git-log-table-data-commit-message-13"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="chore(deps): update dependency @stylistic/eslint-plugin to v3"
+          >
+            chore(deps): update dependency @stylistic/eslint-plugin to v3
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-13"
+            id="react-git-log-table-data-author-13"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
+          >
+            renovate[bot]
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-13"
+            id="react-git-log-table-data-timestamp-13"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-02-01 15:16:12
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-14"
+          id="react-git-log-table-row-14"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-14"
+            id="react-git-log-table-data-commit-message-14"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge pull request #42 from TomPlum/renovate/all-minor-patch"
+          >
+            Merge pull request #42 from TomPlum/renovate/all-minor-patch
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-14"
+            id="react-git-log-table-data-author-14"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-14"
+            id="react-git-log-table-data-timestamp-14"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-02-01 15:15:42
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-15"
+          id="react-git-log-table-row-15"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-15"
+            id="react-git-log-table-data-commit-message-15"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="fix(deps): update all non-major dependencies"
+          >
+            fix(deps): update all non-major dependencies
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-15"
+            id="react-git-log-table-data-author-15"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
+          >
+            renovate[bot]
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-15"
+            id="react-git-log-table-data-timestamp-15"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-01-31 21:51:43
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-16"
+          id="react-git-log-table-row-16"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-16"
+            id="react-git-log-table-data-commit-message-16"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="chore(deps): update vitest monorepo to v3"
+          >
+            chore(deps): update vitest monorepo to v3
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-16"
+            id="react-git-log-table-data-author-16"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
+          >
+            renovate[bot]
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-16"
+            id="react-git-log-table-data-timestamp-16"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-01-19 09:39:08
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-17"
+          id="react-git-log-table-row-17"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-17"
+            id="react-git-log-table-data-commit-message-17"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="chore(deps): update dependency jsdom to v26"
+          >
+            chore(deps): update dependency jsdom to v26
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-17"
+            id="react-git-log-table-data-author-17"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
+          >
+            renovate[bot]
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-17"
+            id="react-git-log-table-data-timestamp-17"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-01-11 01:17:46
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-18"
+          id="react-git-log-table-row-18"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-18"
+            id="react-git-log-table-data-commit-message-18"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge pull request #41 from TomPlum/renovate/react-error-boundary-5.x"
+          >
+            Merge pull request #41 from TomPlum/renovate/react-error-boundary-5.x
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-18"
+            id="react-git-log-table-data-author-18"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-18"
+            id="react-git-log-table-data-timestamp-18"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-01-09 20:17:13
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-19"
+          id="react-git-log-table-row-19"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-19"
+            id="react-git-log-table-data-commit-message-19"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="fix(deps): removed redundant package-lock.json entries"
+          >
+            fix(deps): removed redundant package-lock.json entries
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-19"
+            id="react-git-log-table-data-author-19"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-19"
+            id="react-git-log-table-data-timestamp-19"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-01-09 20:16:59
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-20"
+          id="react-git-log-table-row-20"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-20"
+            id="react-git-log-table-data-commit-message-20"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge branch 'release' into develop"
+          >
+            Merge branch 'release' into develop
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-20"
+            id="react-git-log-table-data-author-20"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-20"
+            id="react-git-log-table-data-timestamp-20"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-01-09 20:15:57
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-21"
+          id="react-git-log-table-row-21"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-21"
+            id="react-git-log-table-data-commit-message-21"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Merge pull request #35 from TomPlum/renovate/all-minor-patch"
+          >
+            Merge pull request #35 from TomPlum/renovate/all-minor-patch
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-21"
+            id="react-git-log-table-data-author-21"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-21"
+            id="react-git-log-table-data-timestamp-21"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+          >
+            2025-01-09 20:14:48
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-22"
+          id="react-git-log-table-row-22"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-22"
+            id="react-git-log-table-data-commit-message-22"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="fix(deps): update all non-major dependencies"
+          >
+            fix(deps): update all non-major dependencies
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-22"
+            id="react-git-log-table-data-author-22"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
+          >
+            renovate[bot]
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-22"
+            id="react-git-log-table-data-timestamp-22"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2025-01-08 22:25:06
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-23"
+          id="react-git-log-table-row-23"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-23"
+            id="react-git-log-table-data-commit-message-23"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="fix(deps): update dependency react-error-boundary to v5"
+          >
+            fix(deps): update dependency react-error-boundary to v5
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-23"
+            id="react-git-log-table-data-author-23"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
+          >
+            renovate[bot]
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-23"
+            id="react-git-log-table-data-timestamp-23"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-12-21 21:55:38
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-24"
+          id="react-git-log-table-row-24"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-24"
+            id="react-git-log-table-data-commit-message-24"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="fix(graph): filtered out metric nodes that have a value of 0"
+          >
+            fix(graph): filtered out metric nodes that have a value of 0
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-24"
+            id="react-git-log-table-data-author-24"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-24"
+            id="react-git-log-table-data-timestamp-24"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 19:10:41
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-25"
+          id="react-git-log-table-row-25"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-25"
+            id="react-git-log-table-data-commit-message-25"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): minor styling consistency improvements to the ascii inputs"
+          >
+            feat(graph): minor styling consistency improvements to the ascii inputs
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-25"
+            id="react-git-log-table-data-author-25"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-25"
+            id="react-git-log-table-data-timestamp-25"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 19:08:06
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-26"
+          id="react-git-log-table-row-26"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-26"
+            id="react-git-log-table-data-commit-message-26"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): moved stats ui to bottom right and updated ascii checkbox checked mark"
+          >
+            feat(graph): moved stats ui to bottom right and updated ascii checkbox checked mark
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-26"
+            id="react-git-log-table-data-author-26"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-26"
+            id="react-git-log-table-data-timestamp-26"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 18:50:33
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-27"
+          id="react-git-log-table-row-27"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-27"
+            id="react-git-log-table-data-commit-message-27"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): reduced scene cooldown time to stop node drift and improve performance on first render"
+          >
+            feat(graph): reduced scene cooldown time to stop node drift and improve performance on first render
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-27"
+            id="react-git-log-table-data-author-27"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-27"
+            id="react-git-log-table-data-timestamp-27"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 18:26:08
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-28"
+          id="react-git-log-table-row-28"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-28"
+            id="react-git-log-table-data-commit-message-28"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="chore(deps): removed react-force-graph and replaced with 3d standalone package and bumped three back to latest"
+          >
+            chore(deps): removed react-force-graph and replaced with 3d standalone package and bumped three back to latest
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-28"
+            id="react-git-log-table-data-author-28"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-28"
+            id="react-git-log-table-data-timestamp-28"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 17:57:17
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-29"
+          id="react-git-log-table-row-29"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-29"
+            id="react-git-log-table-data-commit-message-29"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="chore(graph): removed redundant import file extensions"
+          >
+            chore(graph): removed redundant import file extensions
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-29"
+            id="react-git-log-table-data-author-29"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-29"
+            id="react-git-log-table-data-timestamp-29"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 16:27:32
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-30"
+          id="react-git-log-table-row-30"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-30"
+            id="react-git-log-table-data-commit-message-30"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="chore(graph): renamed three scene folder to match module name"
+          >
+            chore(graph): renamed three scene folder to match module name
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-30"
+            id="react-git-log-table-data-author-30"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-30"
+            id="react-git-log-table-data-timestamp-30"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 16:26:50
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-31"
+          id="react-git-log-table-row-31"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-31"
+            id="react-git-log-table-data-commit-message-31"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): added root node link directional particles and arrows to indicate the passage of time"
+          >
+            feat(graph): added root node link directional particles and arrows to indicate the passage of time
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-31"
+            id="react-git-log-table-data-author-31"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-31"
+            id="react-git-log-table-data-timestamp-31"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 16:24:07
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-32"
+          id="react-git-log-table-row-32"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-32"
+            id="react-git-log-table-data-commit-message-32"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): fixed ref typing and reset camera loading state"
+          >
+            feat(graph): fixed ref typing and reset camera loading state
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-32"
+            id="react-git-log-table-data-author-32"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-32"
+            id="react-git-log-table-data-timestamp-32"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 11:57:08
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-33"
+          id="react-git-log-table-row-33"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-33"
+            id="react-git-log-table-data-commit-message-33"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): renamed and structured three chart component"
+          >
+            feat(graph): renamed and structured three chart component
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-33"
+            id="react-git-log-table-data-author-33"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-33"
+            id="react-git-log-table-data-timestamp-33"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 11:37:49
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-34"
+          id="react-git-log-table-row-34"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-34"
+            id="react-git-log-table-data-commit-message-34"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): reworked three scene component structure for better use of context + added ascii button"
+          >
+            feat(graph): reworked three scene component structure for better use of context + added ascii button
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-34"
+            id="react-git-log-table-data-author-34"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-34"
+            id="react-git-log-table-data-timestamp-34"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-28 11:35:52
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-35"
+          id="react-git-log-table-row-35"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-35"
+            id="react-git-log-table-data-commit-message-35"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): added draggable nodes button and dynamic node sizes based on percentage"
+          >
+            feat(graph): added draggable nodes button and dynamic node sizes based on percentage
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-35"
+            id="react-git-log-table-data-author-35"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-35"
+            id="react-git-log-table-data-timestamp-35"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-27 17:24:13
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-36"
+          id="react-git-log-table-row-36"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-36"
+            id="react-git-log-table-data-commit-message-36"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): added new three context and toggle for the scene"
+          >
+            feat(graph): added new three context and toggle for the scene
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-36"
+            id="react-git-log-table-data-author-36"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-36"
+            id="react-git-log-table-data-timestamp-36"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-27 16:50:40
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-37"
+          id="react-git-log-table-row-37"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-37"
+            id="react-git-log-table-data-commit-message-37"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): started adding controls menu for 3d graph"
+          >
+            feat(graph): started adding controls menu for 3d graph
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-37"
+            id="react-git-log-table-data-author-37"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-37"
+            id="react-git-log-table-data-timestamp-37"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-27 16:31:13
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-38"
+          id="react-git-log-table-row-38"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-38"
+            id="react-git-log-table-data-commit-message-38"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): minor styling improvements on ascii checkbox and turned checked 'x' to 'o'"
+          >
+            feat(graph): minor styling improvements on ascii checkbox and turned checked 'x' to 'o'
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-38"
+            id="react-git-log-table-data-author-38"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-38"
+            id="react-git-log-table-data-timestamp-38"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-27 16:30:28
+          </div>
+        </div>
+        <div
+          class="row"
+          data-testid="react-git-log-table-row-39"
+          id="react-git-log-table-row-39"
+        >
+          <div
+            class="message"
+            data-testid="react-git-log-table-data-commit-message-39"
+            id="react-git-log-table-data-commit-message-39"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="feat(graph): more experimentation with 3d force graph"
+          >
+            feat(graph): more experimentation with 3d force graph
+          </div>
+          <div
+            class="author"
+            data-testid="react-git-log-table-data-author-39"
+            id="react-git-log-table-data-author-39"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
+          >
+            Thomas Plumpton
+          </div>
+          <div
+            class="timestamp"
+            data-testid="react-git-log-table-data-timestamp-39"
+            id="react-git-log-table-data-timestamp-39"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+          >
+            2024-11-27 16:17:49
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

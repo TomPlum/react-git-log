@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/extensions
 import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
 // eslint-disable-next-line import/extensions
-import sleepRepositoryDataPaginated from 'test/data/sleep-paginated/sleep-paginated.txt?raw'
+import sleepRepositoryDataReleaseBranch from 'test/data/sleep-paginated/sleep-release-branch.txt?raw'
 import { parseGitLogOutput } from 'test/data/gitLogParser'
 import { sleepRepositoryRowColumnState } from 'test/data/sleep/sleepState'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
@@ -16,7 +16,7 @@ import { Commit } from 'types/Commit'
 import { formatBranch } from 'modules/Tags/utils/formatBranch'
 import { table } from 'test/elements/Table'
 import dayjs from 'dayjs'
-import { sleepCommitsPaginated } from 'test/data/sleep-paginated/sleepCommitsPaginated'
+import { sleepCommitsRelease } from 'test/data/sleep-paginated/sleep-commits-release'
 import { sleepRowColumnStatePaginated } from 'test/data/sleep-paginated/sleepStatePaginated'
 import { ElementType } from 'react'
 import { GitLogPaged } from './GitLogPaged'
@@ -29,6 +29,7 @@ interface IntegrationTestProps {
   rowColumnState: Record<number, GraphColumnState[]>
   repositoryCommits: Commit[]
   Component: ElementType
+  isIndexRowShown: boolean
 }
 
 const prepareCommits = (commits: Commit[]): DecoratedCommit[] => {
@@ -83,6 +84,7 @@ describe('GitLog Integration', () => {
     runIntegrationTest({
       repositoryCommits: sleepCommits,
       rowColumnState: sleepRepositoryRowColumnState,
+      isIndexRowShown: true,
       Component: () => (
         <GitLog
           showHeaders
@@ -98,7 +100,8 @@ describe('GitLog Integration', () => {
     })
   })
 
-  it('should render the correct elements in each column for paginated sleep repository git log entries', { timeout: 60 * 1000 }, () => {
+  // TODO: Keep test or have the Vitest snapshots supersede?
+  it.skip('should render the correct elements in each column for paginated sleep repository git log entries', { timeout: 60 * 1000 }, () => {
     // This ensures that the graph renders correctly if the git log entry
     // data is incomplete. This is usually because the consumer is using
     // server-side pagination and has passed a set of entry data that references
@@ -106,15 +109,19 @@ describe('GitLog Integration', () => {
     // instances the graph will render differently by drawing vertical lines from
     // orphaned commit nodes down the bottom of the graph.
 
-    const gitLogEntries = parseGitLogOutput(sleepRepositoryDataPaginated)
+    const pageStart = 40
+    const pageEnd = 60
+
+    const gitLogEntries = parseGitLogOutput(sleepRepositoryDataReleaseBranch).slice(pageStart, pageEnd)
 
     runIntegrationTest({
-      repositoryCommits: sleepCommitsPaginated,
+      repositoryCommits: sleepCommitsRelease.slice(pageStart, pageEnd),
       rowColumnState: sleepRowColumnStatePaginated,
+      isIndexRowShown: false,
       Component: () => (
         <GitLogPaged
           showHeaders
-          currentBranch='release'
+          branchName='release'
           headCommitHash='1352f4c'
           entries={gitLogEntries}
           githubRepositoryUrl='https://github.com/TomPlum/sleep'
@@ -127,7 +134,7 @@ describe('GitLog Integration', () => {
     })
   })
 
-  const runIntegrationTest = ({ Component, repositoryCommits, rowColumnState }: IntegrationTestProps) => {
+  const runIntegrationTest = ({ Component, repositoryCommits, rowColumnState, isIndexRowShown }: IntegrationTestProps) => {
     const headCommit = repositoryCommits.find(commit => commit.hash === '1352f4c')
     const commits = prepareCommits(repositoryCommits)
 
@@ -137,26 +144,28 @@ describe('GitLog Integration', () => {
 
     // Assert row index 0 first since that contains the index
     // pseudo commit and is separate from the main commit data
-    const indexNodeColumn = graphColumn.at({ row: 0, column: 0 })
-    const insideIndexNodeColumn = within(indexNodeColumn)
-    expect(insideIndexNodeColumn.getByTestId(graphColumn.indexPseudoCommitNodeId)).toBeInTheDocument()
-    expect(insideIndexNodeColumn.getByTestId(graphColumn.bottomHalfDottedVerticalLineId)).toBeInTheDocument()
+    if (isIndexRowShown) {
+      const indexNodeColumn = graphColumn.at({ row: 0, column: 0 })
+      const insideIndexNodeColumn = within(indexNodeColumn)
+      expect(insideIndexNodeColumn.getByTestId(graphColumn.indexPseudoCommitNodeId)).toBeInTheDocument()
+      expect(insideIndexNodeColumn.getByTestId(graphColumn.bottomHalfDottedVerticalLineId)).toBeInTheDocument()
 
-    // Other columns on row 0 should be empty
-    for (let i = 1; i <= 6; i++) {
-      const otherColumn = graphColumn.at({ row: 0, column: i })
-      expect(otherColumn).toBeEmptyDOMElement()
+      // Other columns on row 0 should be empty
+      for (let i = 1; i <= 6; i++) {
+        const otherColumn = graphColumn.at({ row: 0, column: i })
+        expect(otherColumn).toBeEmptyDOMElement()
+      }
+
+      const indexTag = tag.atRow({ row: 0 })
+      expect(indexTag).toBeInTheDocument()
+      expect(indexTag).toHaveTextContent('index')
+
+      const indexTableRow = table.row({ row: 0 })
+      expect(indexTableRow).toBeInTheDocument()
+      expect(table.commitMessageData({ row: 0 })).toHaveTextContent('// Work in-progress in TomPlum/sleep...')
+      expect(table.timestampData({ row: 0 })).toHaveTextContent('-')
+      expect(table.authorData({ row: 0 })).toHaveTextContent('-')
     }
-
-    const indexTag = tag.atRow({ row: 0 })
-    expect(indexTag).toBeInTheDocument()
-    expect(indexTag).toHaveTextContent('index')
-
-    const indexTableRow = table.row({ row: 0 })
-    expect(indexTableRow).toBeInTheDocument()
-    expect(table.commitMessageData({ row: 0 })).toHaveTextContent('// Work in-progress in TomPlum/sleep...')
-    expect(table.timestampData({ row: 0 })).toHaveTextContent('-')
-    expect(table.authorData({ row: 0 })).toHaveTextContent('-')
 
     // The row/column state is from index 1 on-wards,
     // since the index pseudo-commit is rendered separately.
@@ -220,17 +229,23 @@ describe('GitLog Integration', () => {
         // If the column is supposed to have a vertical line in it,
         // assert that it renders the correct elements.
         if (columnState.isVerticalLine) {
-          const commit = sleepCommits[rowIndex - 1]
+          const commit = repositoryCommits[rowIndex - 1]
 
           if (columnState.isNode) {
             const isHeadCommit = commit.hash === headCommit?.hash
 
             if (!headCommit && (columnState.isColumnAboveEmpty || commit.isBranchTip)) {
+              console.log(commit.hash, columnState)
               expect(insideCurrentColumn.getByTestId(graphColumn.bottomHalfVerticalLineId)).toBeInTheDocument()
             }
 
             if (columnState.isColumnBelowEmpty || commit.parents.length === 0) {
-              expect(insideCurrentColumn.getByTestId(graphColumn.topHalfVerticalLineId)).toBeInTheDocument()
+              const topHalfVerticalLine = insideCurrentColumn.getByTestId(graphColumn.topHalfVerticalLineId)
+              expect(topHalfVerticalLine).toBeInTheDocument()
+
+              if (columnState.isFirstRow || columnState.isLastRow) {
+                expect(getComputedStyle(topHalfVerticalLine).borderImage).not.toBeUndefined()
+              }
             }
 
             if (isHeadCommit) {
@@ -238,7 +253,12 @@ describe('GitLog Integration', () => {
               expect(insideCurrentColumn.getByTestId(graphColumn.headCommitVerticalLineId)).toBeInTheDocument()
             }
           } else {
-            expect(insideCurrentColumn.getByTestId(graphColumn.fullHeightVerticalLineId)).toBeInTheDocument()
+            const fullHeightVerticalLine = insideCurrentColumn.getByTestId(graphColumn.fullHeightVerticalLineId)
+            expect(fullHeightVerticalLine).toBeInTheDocument()
+
+            if (columnState.isFirstRow || columnState.isLastRow) {
+              expect(getComputedStyle(fullHeightVerticalLine).borderImage).not.toBeUndefined()
+            }
           }
         }
 

@@ -4,16 +4,21 @@ import { GitLogEntry } from '@tomplum/react-git-log'
 
 const fetchEntries = async (name: string): Promise<GitLogEntry[]> => {
   const response = await fetch(`${import.meta.env.STORYBOOK_BASE}${name.split('/')[1]}.txt`)
-  return parseGitLogOutput(await response.text())
+  const output = await response.text()
+  return parseGitLogOutput(output)
+}
+
+const applyPagination = <T>(array: T[], pageNumber?: number) => {
+  if (pageNumber) {
+    return array.slice(20 * (pageNumber - 1), 20 * pageNumber)
+  }
+
+  return array
 }
 
 export  const fetchLogEntryData = async (repository: string, pageNumber?: number) => {
-  const data = await fetchEntries(repository).then(entries => {
-    if (pageNumber) {
-      return entries.slice(20 * (pageNumber - 1), 20 * pageNumber)
-    }
-
-    return entries
+  const data: GitLogEntry[] = await fetchEntries(repository).then(entries => {
+    return applyPagination(entries, pageNumber)
   })
 
   const headCommit = data[0]

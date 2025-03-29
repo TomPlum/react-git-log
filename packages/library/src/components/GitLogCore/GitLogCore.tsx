@@ -68,7 +68,7 @@ export const GitLogCore = ({
   const { shiftAlphaChannel } = useTheme()
 
   const graphData = useMemo<GraphData>(() => {
-    const { children, parents, hashToCommit } = computeRelationships(entries)
+    const { children, parents, hashToCommit } = computeRelationships(entries, headCommitHash)
     const sortedCommits = temporalTopologicalSort([...hashToCommit.values()], children, hashToCommit)
     const { graphWidth, positions, edges } = computeNodePositions(sortedCommits, currentBranch, children, parents)
 
@@ -113,11 +113,19 @@ export const GitLogCore = ({
     onSelectCommit?.(commit)
   }, [onSelectCommit])
 
-  const headCommit = useMemo<Commit>(() => {
-    return graphData.commits.find(it => it.branch.includes(currentBranch))!
-  }, [currentBranch, graphData.commits])
+  const headCommit = useMemo<Commit | undefined>(() => {
+    if (isServerSidePaginated) {
+      return graphData.commits.find(it => it.hash === headCommitHash)
+    }
 
-  const indexCommit = useMemo<Commit>(() => {
+    return graphData.commits.find(it => it.branch.includes(currentBranch))
+  }, [currentBranch, graphData.commits, headCommitHash, isServerSidePaginated])
+
+  const indexCommit = useMemo<Commit | undefined>(() => {
+    if (!headCommit) {
+      return undefined
+    }
+
     const repositorySegments = githubRepositoryUrl?.split('/')
     const slashes = repositorySegments?.length ?? 0
     const lastTwoSegments = repositorySegments?.slice(slashes - 2, slashes)

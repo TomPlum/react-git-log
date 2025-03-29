@@ -203,7 +203,7 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
       })
 
       // Merge commits may have lines coming out horizontally and then down to the bottom.
-      // Or they may find they can draw straight down if there is free space
+      // Or we may find they can draw straight down if there is free space below to the bottom.
       commitsWithUntrackedParents
         .filter(commit => commit.parents.length > 1)
         .sort((a, b) => positions.get(a.hash)![0] < positions.get(b.hash)![0] ? -1 : 1)

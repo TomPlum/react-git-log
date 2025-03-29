@@ -8,7 +8,6 @@ import { useArgs } from '@storybook/preview-api'
 
 interface StoryProps extends GitLogPagedProps, GraphProps {
   showTable: boolean
-  showBranchesTags: boolean
   showCommitNodeHashes: boolean
 }
 
@@ -22,7 +21,6 @@ const meta: Meta<StoryProps> = {
     entries: [],
     showTable: true,
     branchName: 'release',
-    showBranchesTags: true,
     showCommitNodeHashes: false,
     showCommitNodeTooltips: false,
     showHeaders: true,
@@ -57,12 +55,6 @@ const meta: Meta<StoryProps> = {
     },
     showTable: {
       name: 'Show Table',
-      table: {
-        category: 'Visibility'
-      }
-    },
-    showBranchesTags: {
-      name: 'Show Branches / Tags',
       table: {
         category: 'Visibility'
       }
@@ -199,10 +191,6 @@ export const Demo: Story = {
               containerClass: styles.gitLogContainer
             }}
           >
-            {args.showBranchesTags && (
-              <GitLogPaged.Tags />
-            )}
-
             <GitLogPaged.Graph
               nodeTheme={args.nodeTheme}
               enableResize={args.enableResize}

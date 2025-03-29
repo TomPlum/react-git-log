@@ -5,7 +5,7 @@ import { VerticalLineProps } from './types'
 import { useGitContext } from 'context/GitContext'
 
 export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCommitNodeBorder, isIndex }: VerticalLineProps) => {
-  const { headCommit } = useGitContext()
+  const { headCommit, isServerSidePaginated, headCommitHash } = useGitContext()
 
   const border = useMemo<CSSProperties>(() => {
     // Border is dotted for the index pseudo-node
@@ -84,7 +84,10 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
     // it is the tip of its branch, then just draw
     // a line underneath the node. Same goes for a
     // column that an empty one in the row above.
-    const isBranchTip = commit.isBranchTip && state.isNode
+    const isBranchTip = isServerSidePaginated
+      ? commit.hash === headCommitHash
+      : commit.isBranchTip && state.isNode
+
     if (isBranchTip || state.isColumnAboveEmpty) {
       return {
         variant: 'bottom-half',
@@ -109,7 +112,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
         ...border
       }
     }
-  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, columnIndex, border, indexCommitNodeBorder])
+  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, isServerSidePaginated, headCommitHash, columnIndex, border, indexCommitNodeBorder])
 
   
   return (

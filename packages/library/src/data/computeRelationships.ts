@@ -3,7 +3,7 @@ import { GitLogEntry } from 'types/GitLogEntry'
 
 type RawCommit = Omit<Commit, 'isBranchTip' | 'children'>
 
-export const computeRelationships = (entries: GitLogEntry[]) => {
+export const computeRelationships = (entries: GitLogEntry[], headCommitHash?: string) => {
   const children = new Map<string, string[]>()
   const parents = new Map<string, string[]>()
   const hashToRawCommit = new Map<string, RawCommit>()
@@ -53,7 +53,7 @@ export const computeRelationships = (entries: GitLogEntry[]) => {
     hashToCommit.set(hash, {
       ...rawCommit,
       children: children.get(hash) ?? [],
-      isBranchTip: children.get(hash)?.length === 0
+      isBranchTip: headCommitHash ? hash === headCommitHash : children.get(hash)?.length === 0
     })
   }
 

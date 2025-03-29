@@ -1,19 +1,24 @@
 import { useCallback, useMemo } from 'react'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { useGitContext } from 'context/GitContext'
-import { GraphColumnData } from './types'
+import { GraphColumnData, GraphColumnDataProps } from './types'
+import { isColumnEmpty } from 'modules/Graph/utility/isColumnEmpty'
+import { getEmptyColumnState as createEmptyColumn } from 'modules/Graph/utility/getEmptyColumnState'
 
-export const useColumnData = (): GraphColumnData => {
+export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphColumnData => {
   const {
+    paging,
     headCommit,
+    headCommitHash,
+    isServerSidePaginated,
     graphData: { graphWidth, positions, edges, commits }
   } = useGitContext()
 
   const getEmptyColumnState = useCallback(() => {
-    return new Array<GraphColumnState>(graphWidth).fill({})
+    return createEmptyColumn({ columns: graphWidth })
   }, [graphWidth])
 
-  const columnData = useMemo(() => {
+  const { rowToColumnState, virtualColumns } = useMemo(() => {
     // Maps the one-based row index to an array of column state data
     const rowToColumnState = new Map<number, GraphColumnState[]>()
 
@@ -136,11 +141,11 @@ export const useColumnData = (): GraphColumnData => {
       const columnState = rowToColumnState.get(row) ?? getEmptyColumnState()
 
       const isColumnAboveEmpty = rowToColumnState.has(row - 1)
-        ? Object.values(rowToColumnState.get(row - 1)![column]).every(value => !value)
+        ? isColumnEmpty(rowToColumnState.get(row - 1)![column])
         : false
 
       const isColumnBelowEmpty = rowToColumnState.has(row + 1)
-        ? Object.values(rowToColumnState.get(row + 1)![column]).every(value => !value)
+        ? isColumnEmpty(rowToColumnState.get(row + 1)![column])
         : false
 
       columnState[column] = {
@@ -155,22 +160,181 @@ export const useColumnData = (): GraphColumnData => {
 
     // Add the vertical branch lines in from the current branches
     // HEAD commit up to the index pseudo commit node.
-    const headCommitRowIndex = positions.get(headCommit.hash)![0]
-    for (let rowIndex = 0; rowIndex <= headCommitRowIndex; rowIndex++) {
-      const columnState = rowToColumnState.get(rowIndex) ?? getEmptyColumnState()
+    if (headCommit) {
+      const headCommitRowIndex = positions.get(headCommit.hash)![0]
+      for (let rowIndex = 0; rowIndex <= headCommitRowIndex; rowIndex++) {
+        const columnState = rowToColumnState.get(rowIndex) ?? getEmptyColumnState()
 
-      columnState[0] = {
-        ...columnState[0],
-        isVerticalLine: true,
-        isVerticalIndexLine: true
+        columnState[0] = {
+          ...columnState[0],
+          isVerticalLine: true,
+          isVerticalIndexLine: true
+        }
       }
     }
 
-    return rowToColumnState
-  }, [positions, edges, commits.length, getEmptyColumnState, headCommit.hash])
+    // If, while server-side paginated, we find commits that need to draw
+    // lines to nodes that lie outside of this page of data, and those lines
+    // need to be drawn into columns that are beyond the current graph width,
+    // then we track the number of new "virtual" columns here that will be injected
+    // in the graph.
+    let virtualColumns = 0
+
+    if (isServerSidePaginated) {
+      // Any commits who have parent hashes that are not present in the graph
+      // must have vertical lines drawn from them down to the bottom row to indicate
+      // that the parent commit node lies beyond the rows currently shown.
+      const commitsWithUntrackedParents = commits.filter(({ parents }) => {
+        return parents.some(parentHash => {
+          return !positions.has(parentHash)
+        })
+      })
+
+      const drawVerticalLineToBottom = (fromCommitHash: string) => {
+        const [rowIndex, columnIndex] = positions.get(fromCommitHash)!
+        for (let targetRowIndex = rowIndex; targetRowIndex <= visibleCommits; targetRowIndex++) {
+          const columnState = rowToColumnState.get(targetRowIndex) ?? getEmptyColumnState()
+
+          columnState[columnIndex] = {
+            ...columnState[columnIndex],
+            isVerticalLine: true,
+            isColumnBelowEmpty: false
+          }
+
+          rowToColumnState.set(targetRowIndex, columnState)
+        }
+      }
+
+      // Non-merge commits we can just draw straight down to the edge of the graph
+      commitsWithUntrackedParents.filter(commit => commit.parents.length === 1).forEach(orphan => {
+        drawVerticalLineToBottom(orphan.hash)
+      })
+
+      // Merge commits may have lines coming out horizontally and then down to the bottom.
+      // Or we may find they can draw straight down if there is free space below to the bottom.
+      commitsWithUntrackedParents
+        .filter(commit => commit.parents.length > 1)
+        .sort((a, b) => positions.get(a.hash)![0] < positions.get(b.hash)![0] ? -1 : 1)
+        .forEach(orphan => {
+          const [rowIndex, columnIndex] = positions.get(orphan.hash)!
+          const columnStates = rowToColumnState.get(rowIndex) ?? getEmptyColumnState()
+
+          // Can we just draw straight down in the current column?
+          let columnsBelowContainNode = false
+          let targetRowIndex = rowIndex + 1
+          while(targetRowIndex <= visibleCommits) {
+            if (rowToColumnState.get(targetRowIndex)![columnIndex].isNode) {
+              columnsBelowContainNode = true
+            }
+            targetRowIndex++
+          }
+
+          if (!columnsBelowContainNode && rowIndex != visibleCommits) {
+            drawVerticalLineToBottom(orphan.hash)
+          } else {
+            let targetColumnIndex = columnIndex
+
+            // Find the nearest column to the right that is empty
+            while(!isColumnEmpty(columnStates[targetColumnIndex])) {
+              targetColumnIndex++
+            }
+
+            // For all columns in this row up until the target, draw a horizontal line
+            for (let colIndex = columnIndex; colIndex < targetColumnIndex; colIndex++) {
+              columnStates[colIndex] = {
+                ...columnStates[colIndex],
+                isHorizontalLine: true,
+                mergeSourceColumns: [targetColumnIndex]
+              }
+            }
+
+            // Add the curve at the target index
+            columnStates[targetColumnIndex] = {
+              ...columnStates[targetColumnIndex],
+              isLeftDownCurve: true,
+              mergeSourceColumns: [targetColumnIndex]
+            }
+
+            // Finally, add vertical lines from below the curve to the bottom of the graph
+            if (rowIndex < visibleCommits) {
+              for (let targetRowIndex = rowIndex + 1; targetRowIndex <= visibleCommits; targetRowIndex++) {
+                const targetRowColumnStates = rowToColumnState.get(targetRowIndex) ?? getEmptyColumnState()
+
+                targetRowColumnStates[targetColumnIndex] = {
+                  ...targetRowColumnStates[targetColumnIndex],
+                  isVerticalLine: true,
+                  mergeSourceColumns: [targetColumnIndex]
+                }
+
+                rowToColumnState.set(targetRowIndex, targetRowColumnStates)
+              }
+            }
+
+            // If we've had to draw outside the graph then add enough virtual
+            // columns to support the new horizontal -> curve -> vertical merge lines.
+            const maxColumnIndex = graphWidth - 1
+            if (targetColumnIndex > maxColumnIndex) {
+              // Add a virtual column for each horizontal line drawn,
+              // plus the column with the curve and vertical lines
+              virtualColumns = targetColumnIndex - maxColumnIndex
+            }
+          }
+
+          rowToColumnState.set(rowIndex, columnStates)
+        })
+
+      // Any commits who have child hashes that are not present in the graph and
+      // are not the HEAD commit, must have vertical lines drawn from them up to
+      // the top row to indicate that the child commit node is before the rows currently shown.
+      commits.filter(commit => {
+        return commit.children.length === 0 && commit.hash !== headCommitHash
+      }).forEach(commitWithNoChildren => {
+        const [rowIndex, columnIndex] = positions.get(commitWithNoChildren.hash)!
+        for (let targetRowIndex = rowIndex; targetRowIndex >= 1; targetRowIndex--) {
+          const columnState = rowToColumnState.get(targetRowIndex) ?? getEmptyColumnState()
+
+          columnState[columnIndex] = {
+            ...columnState[columnIndex],
+            isVerticalLine: true,
+            isColumnAboveEmpty: false
+          }
+
+          rowToColumnState.set(targetRowIndex, columnState)
+        }
+      })
+    }
+
+    // The first row is told that its first so it can render with a gradient
+    const firstVisibleRowIndex = paging ? paging.startIndex + 1 : 1
+    const firstRow = rowToColumnState.get(firstVisibleRowIndex) ?? getEmptyColumnState()
+    for(let firstRowColumn = 0; firstRowColumn < firstRow.length; firstRowColumn++) {
+      firstRow[firstRowColumn] = {
+        ...firstRow[firstRowColumn],
+        isFirstRow: true,
+      }
+    }
+    rowToColumnState.set(firstVisibleRowIndex, firstRow)
+
+    // The last row is told that its last so it can render with a gradient
+    const lastVisibleRowIndex = paging ? paging.endIndex : visibleCommits
+    const lastRow = rowToColumnState.get(lastVisibleRowIndex) ?? getEmptyColumnState()
+    for(let lastRowColumn = 0; lastRowColumn < lastRow.length; lastRowColumn++) {
+      lastRow[lastRowColumn] = {
+        ...lastRow[lastRowColumn],
+        isLastRow: true,
+      }
+    }
+    rowToColumnState.set(lastVisibleRowIndex, lastRow)
+
+    return {
+      rowToColumnState,
+      virtualColumns
+    }
+  }, [positions, edges, commits, headCommit, isServerSidePaginated, paging, getEmptyColumnState, visibleCommits, graphWidth, headCommitHash])
 
   return {
     getEmptyColumnState,
-    columnData
+    columnData: rowToColumnState,
+    virtualColumns
   }
 }

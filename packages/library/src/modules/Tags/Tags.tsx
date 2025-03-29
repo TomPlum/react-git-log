@@ -32,18 +32,19 @@ export const Tags = () => {
     graphData,
     paging,
     graphWidth,
-    rowSpacing
+    rowSpacing,
+    isIndexVisible
   } = useGitContext()
 
   const preparedCommits = useMemo(() => {
-    const data = graphData.commits.slice(paging.startIndex, paging.endIndex)
+    const data = graphData.commits.slice(paging?.startIndex, paging?.endIndex)
 
-    if (paging.isIndexVisible) {
+    if (isIndexVisible && indexCommit) {
       data.unshift(indexCommit)
     }
 
     return prepareCommits(data)
-  }, [graphData.commits, indexCommit, paging.endIndex, paging.isIndexVisible, paging.startIndex])
+  }, [graphData.commits, indexCommit, paging?.endIndex, isIndexVisible, paging?.startIndex])
 
   const tagLineWidth = useCallback((commit: Commit) => {
     const columnWidth = graphWidth / graphData.graphWidth
@@ -62,7 +63,7 @@ export const Tags = () => {
       {preparedCommits.map((commit, i) => {
         const shouldPreviewBranch = previewedCommit && commit.hash === previewedCommit.hash
         const selectedIsNotTip = selectedCommit && commit.hash === selectedCommit.hash
-        const isIndexCommit = commit.hash === indexCommit.hash
+        const isIndexCommit = commit.hash === indexCommit?.hash
 
         const showRenderBranchTag = commit.isBranchTip
           || shouldPreviewBranch

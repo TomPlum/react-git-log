@@ -46,9 +46,10 @@ export const GitContext = createContext<GitContextBag>({
   setGraphWidth: (width: number) => {
     console.debug(`Tried to invoke setGraphWidth(${width}) before the GitContext was initialised.`)
   },
+  isServerSidePaginated: false,
   paging: {
     endIndex: 0,
     startIndex: 0,
-    isIndexVisible: true
-  }
+  },
+  isIndexVisible: true
 })

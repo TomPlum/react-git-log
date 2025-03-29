@@ -1,13 +1,13 @@
 import styles from './TableRow.module.scss'
-import classNames from 'classnames'
 import { GitLogTableRowProps } from './types'
-import { useCallback, useMemo } from 'react'
+import { CSSProperties, useMemo } from 'react'
 import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context/GitContext'
 import { useSelectCommit } from 'hooks/useSelectCommit'
-import dayjs from 'dayjs'
 import { ROW_HEIGHT } from 'constants/constants'
-import { useTableContext } from 'modules/Table/context'
+import { CommitMessageData } from 'modules/Table/components/CommitMessageData'
+import { AuthorData } from 'modules/Table/components/AuthorData'
+import { TimestampData } from 'modules/Table/components/TimestampData'
 
 export const TableRow = ({
   index,
@@ -25,13 +25,11 @@ export const TableRow = ({
     shiftAlphaChannel
   } = useTheme()
 
-  const { timestampFormat } = useTableContext()
+  const { selectCommitHandler } = useSelectCommit()
   const { selectedCommit, previewedCommit } = useGitContext()
 
   const isMergeCommit = commit.parents.length > 1
 
-  const { selectCommitHandler } = useSelectCommit()
-  
   const backgroundStyles = useMemo(() => {
     const colour = getCommitColour(commit)
 
@@ -64,48 +62,14 @@ export const TableRow = ({
     }
   }, [isPlaceholder, getCommitColour, commit, selectedCommit?.hash, previewedCommit?.hash, reduceOpacity, hoverColour])
 
-  const formatTimestamp = useCallback((dateString: string) => {
-    const commitDate = dayjs(dateString)
-
-    if (dayjs(new Date()).diff(commitDate, 'week') >= 1) {
-      return commitDate.format(timestampFormat)
-    }
-
-    return commitDate.fromNow()
-  }, [timestampFormat])
-
-  const author = useMemo(() => {
-    if (commit.author && commit.author.name) {
-      return commit.author.name
-    }
-
-    return ''
-  }, [commit.author])
-
-  const authorTitle = useMemo(() => {
-    if (commit.author) {
-      if (commit.author.name && commit.author.name) {
-        return `${commit.author.name} (${commit.author.email})`
-      }
-
-      if (commit.author.name && !commit.author.email) {
-        return commit.author.name
-      }
-
-      if (commit.author.email && !commit.author.name) {
-        return commit.author.email
-      }
-    }
-
-    return undefined
-  }, [commit.author])
-
-  const shouldRenderHyphenValue = commit.hash === 'index' || isPlaceholder
+  const shouldRenderHyphenValue = commit.hash === 'index' || Boolean(isPlaceholder)
   const shouldReduceOpacity = !isPlaceholder && (isMergeCommit || commit.hash === 'index')
 
-  const tableDataStyle = {
+  const tableDataStyle: CSSProperties = {
     lineHeight: `${ROW_HEIGHT}px`,
-    color: shiftAlphaChannel(textColour, shouldReduceOpacity ? 0.4 : 1)
+    color: shiftAlphaChannel(textColour, shouldReduceOpacity ? 0.4 : 1),
+    ...backgroundStyles,
+    ...dataStyleOverrides
   }
 
   return (
@@ -119,33 +83,25 @@ export const TableRow = ({
       onClick={() => selectCommitHandler.onClick(commit)}
       onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
     >
-      <div
-        title={commit.message}
-        className={classNames(styles.td, styles.message)}
-        id={`react-git-log-table-data-commit-message-${index}`}
-        data-testid={`react-git-log-table-data-commit-message-${index}`}
-        style={{ ...tableDataStyle, ...backgroundStyles, ...dataStyleOverrides }}
-      >
-        {commit.message}
-      </div>
+      <CommitMessageData
+        index={index}
+        style={tableDataStyle}
+        commitMessage={commit.message}
+      />
 
-      <div
-        title={authorTitle}
-        className={classNames(styles.td, styles.author)}
-        id={`react-git-log-table-data-author-${index}`}
-        data-testid={`react-git-log-table-data-author-${index}`}
-        style={{ ...tableDataStyle, ...backgroundStyles, ...dataStyleOverrides }}
-      >
-        {shouldRenderHyphenValue ? '-' : author}
-      </div>
+      <AuthorData
+        index={index}
+        author={commit.author}
+        style={tableDataStyle}
+        isPlaceholder={shouldRenderHyphenValue}
+      />
 
-      <div
-        className={classNames(styles.td, styles.date)}
-        id={`react-git-log-table-data-timestamp-${index}`}
-        data-testid={`react-git-log-table-data-timestamp-${index}`}
-        style={{ ...tableDataStyle, ...backgroundStyles, ...dataStyleOverrides }}>
-        {shouldRenderHyphenValue ? '-' : formatTimestamp(commit.committerDate)}
-      </div>
+      <TimestampData
+        index={index}
+        style={tableDataStyle}
+        timestamp={commit.committerDate}
+        isPlaceholder={shouldRenderHyphenValue}
+      />
     </div>
   )
 }

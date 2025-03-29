@@ -3,6 +3,9 @@ import { render } from '@testing-library/react'
 import { GitLog } from './GitLog'
 import { entry } from 'test/stubs'
 import { gitLog } from 'test/elements/GitLog'
+import { parseGitLogOutput } from 'test/data/gitLogParser'
+// eslint-disable-next-line import/extensions
+import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
 
 describe('GitLog', () => {
   describe('Classes & Style Objects', () => {
@@ -12,7 +15,9 @@ describe('GitLog', () => {
           currentBranch={'test'}
           entries={[entry({ branch: 'test' })]}
           classes={{ containerClass: 'styles.customContainerClass' }}
-        />
+        >
+          <GitLog.Graph />
+        </GitLog>
       )
 
       const gitLogContainer = gitLog.container()
@@ -30,12 +35,102 @@ describe('GitLog', () => {
               background: 'purple'
             }
           }}
-        />
+        >
+          <GitLog.Graph />
+        </GitLog>
       )
 
       const gitLogContainer = gitLog.container()
       expect(gitLogContainer).toBeInTheDocument()
       expect(gitLogContainer?.style.background).toBe('purple')
     })
+  })
+
+  it('should render correctly and match the snapshot the standard GitLog component', { timeout: 1000 * 10 } ,() => {
+    const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
+
+    const { asFragment } = render(
+      <GitLog
+        showHeaders
+        currentBranch='release'
+        entries={gitLogEntries}
+        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+      >
+        <GitLog.Tags />
+        <GitLog.Graph />
+        <GitLog.Table />
+      </GitLog>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should log a warning if the graph subcomponent is not rendered', () => {
+    const consoleWarn = vi.spyOn(console, 'warn')
+
+    render(
+      <GitLog
+        entries={[]}
+        currentBranch='main'
+      />
+    )
+
+    expect(consoleWarn).toHaveBeenCalledExactlyOnceWith(
+      'react-git-log is not designed to work without a <GitLog.Graph /> component.'
+    )
+  })
+
+  it('should throw an error if the tags subcomponent is rendered twice', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLog
+          entries={[]}
+          currentBranch='main'
+        >
+          <GitLog.Tags />
+          <GitLog.Tags />
+        </GitLog>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLog /> can only have one <GitLog.Tags /> child.'
+    )
+  })
+
+  it('should throw an error if the table subcomponent is rendered twice', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLog
+          entries={[]}
+          currentBranch='main'
+        >
+          <GitLog.Table />
+          <GitLog.Table />
+        </GitLog>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLog /> can only have one <GitLog.Table /> child.'
+    )
+  })
+
+  it('should throw an error if the graph subcomponent is rendered twice', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLog
+          entries={[]}
+          currentBranch='main'
+        >
+          <GitLog.Graph />
+          <GitLog.Graph />
+        </GitLog>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLog /> can only have one <GitLog.Graph /> child.'
+    )
   })
 })

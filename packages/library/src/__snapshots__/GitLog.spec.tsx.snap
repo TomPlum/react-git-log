@@ -42654,7 +42654,7 @@ exports[`GitLog > should render correctly and match the snapshot the standard Gi
             id="react-git-log-table-data-timestamp-1"
             style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
           >
-            5 days ago
+            an hour ago
           </div>
         </div>
         <div
@@ -42686,7 +42686,7 @@ exports[`GitLog > should render correctly and match the snapshot the standard Gi
             id="react-git-log-table-data-timestamp-2"
             style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
           >
-            2025-03-22 02:47:00
+            3 days ago
           </div>
         </div>
         <div

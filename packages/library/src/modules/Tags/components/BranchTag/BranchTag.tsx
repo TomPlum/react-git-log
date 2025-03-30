@@ -3,7 +3,6 @@ import styles from './BranchTag.module.scss'
 import { ArrowContainer, Popover, PopoverState } from 'react-tiny-popover'
 import { CSSProperties, useCallback, useMemo, useState } from 'react'
 import { useTheme } from 'hooks/useTheme'
-import { FadingDiv } from 'components/FadingDiv'
 import { BranchLabel } from '../BranchLabel'
 import { TagLabel } from '../TagLabel'
 import { IndexLabel } from 'modules/Tags/components/IndexLabel'
@@ -98,7 +97,7 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
         </ArrowContainer>
       )}
     >
-      <FadingDiv
+      <div
         id={`tag-${id}`}
         style={{ height }}
         data-testid={`tag-${id}`}
@@ -123,7 +122,7 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
           data-testid={`tag-line-${id}`}
           key={`tag-line-${commit.branch}`}
         />
-      </FadingDiv>
+      </div>
     </Popover>
   )
 }

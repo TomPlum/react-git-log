@@ -1,7 +1,6 @@
 import { ColumnBackgroundProps } from './types'
 import classNames from 'classnames'
 import styles from './ColumnBackground.module.scss'
-import { FadingDiv } from 'components/FadingDiv'
 import { CSSProperties, useMemo } from 'react'
 import { NODE_BORDER_WIDTH, NODE_WIDTH, ROW_HEIGHT } from 'constants/constants'
 import { useGitContext } from 'context/GitContext'
@@ -34,7 +33,7 @@ export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnB
   }, [commitNodeIndex, colour, index, showTable])
   
   return (
-    <FadingDiv
+    <div
       id={`column-background-${index}-${id}`}
       data-testid={`column-background-${index}-${id}`}
       style={style}

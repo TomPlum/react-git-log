@@ -26,7 +26,6 @@ const meta: Meta<StoryProps> = {
     showCommitNodeTooltips: false,
     showHeaders: true,
     enableResize: false,
-    enableExperimentalAnimation: false,
     nodeTheme: 'default',
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
@@ -68,12 +67,6 @@ const meta: Meta<StoryProps> = {
     },
     showCommitNodeTooltips: {
       name: 'Show Commit Tooltips',
-      table: {
-        category: 'Visibility'
-      }
-    },
-    enableExperimentalAnimation: {
-      name: 'Enable Animation (Experimental)',
       table: {
         category: 'Visibility'
       }

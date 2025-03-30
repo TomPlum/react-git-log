@@ -1,4 +1,4 @@
-import { describe } from 'vitest'
+import { afterEach, beforeEach, describe } from 'vitest'
 import { render } from '@testing-library/react'
 import { GitLog } from './GitLog'
 import { entry } from 'test/stubs'
@@ -7,7 +7,19 @@ import { parseGitLogOutput } from 'test/data/gitLogParser'
 // eslint-disable-next-line import/extensions
 import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
 
+const today = Date.UTC(2025, 2, 24, 18, 0, 0)
+
 describe('GitLog', () => {
+
+  beforeEach(() => {
+    vi.useFakeTimers()
+    vi.setSystemTime(today)
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
   describe('Classes & Style Objects', () => {
     it('should pass the given container class to the git log layout container element', () => {
       render(

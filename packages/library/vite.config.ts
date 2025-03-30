@@ -14,7 +14,7 @@ export default defineConfig({
     dts({
       tsconfigPath: 'tsconfig.build.json'
     }),
-    libInjectCss(),
+    libInjectCss()
   ],
   resolve: {
     alias: {

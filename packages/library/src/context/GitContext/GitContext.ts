@@ -31,7 +31,6 @@ export const GitContext = createContext<GitContextBag>({
   setPreviewedCommit: (commit?: Commit) => {
     console.debug(`Tried to invoke setPreviewedCommit(${JSON.stringify(commit)}) before the GitContext was initialised.`)
   },
-  enableExperimentalAnimation: false,
   graphData: {
     children: new Map(),
     edges: new DataIntervalTree(),

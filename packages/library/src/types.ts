@@ -39,16 +39,6 @@ interface GitLogCommonProps {
   showHeaders?: boolean
 
   /**
-   * Enables framer motion animation for
-   * simple fading transitions when interacting
-   * with the graph or log.
-   *
-   * This feature is experimental and may
-   * have bugs.
-   */
-  enableExperimentalAnimation?: boolean
-
-  /**
    * The spacing between the rows of the log.
    * Effects all elements across the branches,
    * graph and table.

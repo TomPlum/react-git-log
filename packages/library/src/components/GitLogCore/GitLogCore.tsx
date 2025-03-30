@@ -14,7 +14,6 @@ import { NODE_WIDTH } from 'constants/constants'
 export const GitLogCore = ({
   children,
   entries,
-  enableExperimentalAnimation = false,
   showHeaders = false,
   rowSpacing = 0,
   theme = 'light',
@@ -190,7 +189,6 @@ export const GitLogCore = ({
     setSelectedCommit: handleSelectCommit,
     previewedCommit,
     setPreviewedCommit,
-    enableExperimentalAnimation,
     githubRepositoryUrl,
     showHeaders,
     currentBranch,
@@ -211,7 +209,6 @@ export const GitLogCore = ({
     selectedCommit,
     previewedCommit,
     handleSelectCommit,
-    enableExperimentalAnimation,
     githubRepositoryUrl,
     showHeaders,
     headCommit,

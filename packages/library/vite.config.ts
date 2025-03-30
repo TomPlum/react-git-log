@@ -5,6 +5,7 @@ import svgr from 'vite-plugin-svgr'
 import dts from 'vite-plugin-dts'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import { resolve } from 'path'
+import { analyzer } from 'vite-bundle-analyzer'
 
 export default defineConfig({
   plugins: [
@@ -15,6 +16,7 @@ export default defineConfig({
       tsconfigPath: 'tsconfig.build.json'
     }),
     libInjectCss(),
+    analyzer({ analyzerPort: 8889 })
   ],
   resolve: {
     alias: {

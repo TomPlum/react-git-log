@@ -99,16 +99,6 @@ export interface GitContextBag {
   showHeaders?: boolean
 
   /**
-   * Enables framer motion animation for
-   * simple fading transitions when interacting
-   * with the graph or log.
-   *
-   * This feature is experimental and may
-   * have bugs.
-   */
-  enableExperimentalAnimation?: boolean
-
-  /**
    * A link to the GitHub repository from which
    * the {@link entries} came from. When passed,
    * link so commits, tags and PRs will be rendered.

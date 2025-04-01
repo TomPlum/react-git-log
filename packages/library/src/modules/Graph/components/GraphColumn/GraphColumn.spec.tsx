@@ -519,11 +519,12 @@ describe('GraphColumn', () => {
 
       // Since this is the nodes column, the background should be rounded
       const backgroundStyle = getComputedStyle(background)
-      expect(background).toHaveClass('backgroundBehindNode')
-      expect(backgroundStyle.width).toBe('calc(50% + 24px - 4px)')
+      expect(backgroundStyle.right).toBe('0px')
+      expect(backgroundStyle.borderTopLeftRadius).toBe('50%')
+      expect(backgroundStyle.borderBottomLeftRadius).toBe('50%')
+      expect(backgroundStyle.width).toBe('calc(50% + 12px + 8px)')
       expect(backgroundStyle.background).toBe(expectedBackgroundColour)
       expect(backgroundStyle.height).toBe('40px')
-      expect(backgroundStyle.left).toBe('calc(50% - 24px + 4px)')
 
       expect(graphColumn.withSelectedBackground({ column: 3, shouldExist: false })).not.toBeInTheDocument()
     })

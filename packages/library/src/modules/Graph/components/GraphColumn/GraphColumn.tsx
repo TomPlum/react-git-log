@@ -12,7 +12,7 @@ import { HorizontalLine } from 'modules/Graph/components/HorizontalLine'
 import { VerticalLine } from 'modules/Graph/components/VerticalLine'
 import { HeadCommitVerticalLine } from 'src/modules/Graph/components/HeadCommitVerticalLine'
 import { IndexPseudoCommitNode } from 'modules/Graph/components/IndexPseudoCommitNode'
-import { NODE_WIDTH } from 'constants/constants'
+import { useGraphContext } from 'modules/Graph/context'
 
 export const GraphColumn = ({
   index,
@@ -21,6 +21,7 @@ export const GraphColumn = ({
   commit,
   commitNodeIndex
 }: GraphColumnProps) => {
+  const { nodeSize } = useGraphContext()
   const { selectCommitHandler } = useSelectCommit()
   const { headCommit, selectedCommit, previewedCommit, showTable } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, textColour, hoverColour, reduceOpacity } = useTheme()
@@ -67,7 +68,7 @@ export const GraphColumn = ({
   return (
     <div
       className={styles.column}
-      style={{ minWidth: NODE_WIDTH }}
+      style={{ minWidth: nodeSize }}
       id={`graph-column-row-${rowIndex}-col-${index}`}
       onMouseOut={() => selectCommitHandler.onMouseOut()}
       onClick={() => selectCommitHandler.onClick(commit)}

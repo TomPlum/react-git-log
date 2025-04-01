@@ -27,6 +27,7 @@ const meta: Meta<StoryProps> = {
     showHeaders: true,
     enableResize: false,
     nodeTheme: 'default',
+    nodeSize: 20,
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
@@ -116,6 +117,18 @@ const meta: Meta<StoryProps> = {
         max: 500
       }
     },
+    nodeSize: {
+      name: 'Graph Node Size',
+      table: {
+        category: 'Dimensions'
+      },
+      control: {
+        type: 'range',
+        min: 8,
+        max: 30,
+        step: 2
+      }
+    },
     onSelectCommit: {
       name: 'onSelectCommit',
       table: {
@@ -193,6 +206,7 @@ export const Demo: Story = {
             }}
           >
             <GitLogPaged.Graph
+              nodeSize={args.nodeSize}
               nodeTheme={args.nodeTheme}
               enableResize={args.enableResize}
               showCommitNodeHashes={args.showCommitNodeHashes}

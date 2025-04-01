@@ -3,6 +3,7 @@ import { GitContextBag } from './types'
 import { neonAuroraDarkColours } from 'hooks/useTheme'
 import { Commit } from 'types/Commit'
 import DataIntervalTree from 'node-interval-tree'
+import { DEFAULT_NODE_SIZE } from 'constants/constants'
 
 const defaultCommit: Commit = {
   hash: 'defaultCommit',
@@ -42,6 +43,10 @@ export const GitContext = createContext<GitContextBag>({
   },
   rowSpacing: 0,
   graphWidth: 300,
+  nodeSize: DEFAULT_NODE_SIZE,
+  setNodeSize: (size: number) => {
+    console.debug(`Tried to invoke setNodeSize(${size}) before the GitContext was initialised.`)
+  },
   setGraphWidth: (width: number) => {
     console.debug(`Tried to invoke setGraphWidth(${width}) before the GitContext was initialised.`)
   },

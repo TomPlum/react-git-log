@@ -121,6 +121,15 @@ export interface GitContextBag {
   graphWidth: number
 
   /**
+   * The diameter, in pixels, of the
+   * commit node elements rendered on
+   * the graph.
+   */
+  nodeSize: number
+
+  setNodeSize: (size: number) => void
+
+  /**
    * Updates the width of the graph
    * container.
    *

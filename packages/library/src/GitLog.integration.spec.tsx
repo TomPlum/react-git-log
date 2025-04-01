@@ -16,10 +16,15 @@ import { Commit } from 'types/Commit'
 import { formatBranch } from 'modules/Tags/utils/formatBranch'
 import { table } from 'test/elements/Table'
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import { sleepCommitsRelease } from 'test/data/sleep-paginated/sleep-commits-release'
 import { sleepRowColumnStatePaginated } from 'test/data/sleep-paginated/sleepStatePaginated'
 import { ElementType } from 'react'
 import { GitLogPaged } from './GitLogPaged'
+
+dayjs.extend(utc)
+dayjs.extend(relativeTime)
 
 interface DecoratedCommit extends Commit {
   isMostRecentTagInstance: boolean
@@ -52,9 +57,9 @@ const prepareCommits = (commits: Commit[]): DecoratedCommit[] => {
 }
 
 const formatTimestamp = (dateString: string) => {
-  const commitDate = dayjs(dateString)
+  const commitDate = dayjs.utc(dateString)
 
-  if (dayjs(new Date()).diff(commitDate, 'week') >= 1) {
+  if (dayjs.utc(new Date()).diff(commitDate, 'week') >= 1) {
     return commitDate.format('YYYY-MM-DD HH:mm:ss')
   }
 

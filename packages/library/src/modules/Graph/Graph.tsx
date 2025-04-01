@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { GraphRow } from 'modules/Graph/components/GraphRow'
 import styles from './Graph.module.scss'
 import { useGitContext } from 'context/GitContext'
@@ -6,12 +6,13 @@ import { IndexPseudoRow } from 'modules/Graph/components/IndexPseudoRow'
 import { useColumnData } from 'modules/Graph/hooks/useColumnData'
 import { SkeletonGraph } from 'modules/Graph/components/SkeletonGraph'
 import { useResize } from 'hooks/useResize'
-import { ROW_HEIGHT } from 'constants/constants'
+import { DEFAULT_NODE_SIZE, ROW_HEIGHT } from 'constants/constants'
 import { placeholderCommits } from 'modules/Graph/hooks/usePlaceholderData/data'
 import { GraphProps } from './types'
 import { GraphContext, GraphContextBag } from './context'
 
 export const Graph = ({
+  nodeSize = DEFAULT_NODE_SIZE,
   nodeTheme = 'default',
   enableResize = false,
   showCommitNodeHashes = false,
@@ -20,9 +21,14 @@ export const Graph = ({
   const {
     paging,
     rowSpacing,
+    setNodeSize,
     isIndexVisible,
     graphData: { graphWidth, commits }
   } = useGitContext()
+
+  useEffect(() => {
+    setNodeSize(nodeSize)
+  }, [nodeSize, setNodeSize])
 
   const { width, ref, startResizing } = useResize()
 
@@ -62,8 +68,9 @@ export const Graph = ({
   const contextValue = useMemo<GraphContextBag>(() => ({
     showCommitNodeTooltips,
     showCommitNodeHashes,
-    nodeTheme
-  }), [showCommitNodeHashes, showCommitNodeTooltips, nodeTheme])
+    nodeTheme,
+    nodeSize
+  }), [showCommitNodeHashes, showCommitNodeTooltips, nodeTheme, nodeSize])
 
   return (
     <GraphContext value={contextValue}>

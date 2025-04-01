@@ -26,4 +26,11 @@ export interface GraphProps {
    * @default false
    */
   enableResize?: boolean
+
+  /**
+   * The diameter, in pixels, of the
+   * commit node elements rendered on
+   * the graph.
+   */
+  nodeSize?: number
 }

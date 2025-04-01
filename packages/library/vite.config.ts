@@ -32,9 +32,10 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     lib: {
+      formats: ['es'],
       name: 'react-git-log',
-      entry: resolve(__dirname, '/src/index.ts'),
-      fileName: (format) => `react-git-log.${format}.js`
+      fileName: 'react-git-log',
+      entry: resolve(__dirname, '/src/index.ts')
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

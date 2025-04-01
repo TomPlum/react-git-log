@@ -201,7 +201,6 @@ All components have optional props to further configure the log.
 | `theme`                       | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                              |
 | `colours`                     | `ThemeColours \| string[]`  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.    |
 | `showHeaders`                 | `boolean`                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.              |
-| `enableExperimentalAnimation` | `boolean`                   | Enables Framer Motion animation for fade transitions. Experimental feature.                              |
 | `rowSpacing`                  | `number`                    | The spacing between log rows, affecting branches, graph, and table. Default: `0`.                        |
 | `githubRepositoryUrl`         | `string`                    | URL of the GitHub repository where `entries` came from. Enables links for commits, tags, and PRs.        |
 | `defaultGraphWidth`           | `number`                    | Default width of the graph in pixels. Can be changed dynamically if resizing is enabled. Default: `300`. |
@@ -217,7 +216,6 @@ All components have optional props to further configure the log.
 | `theme`                       | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                              |
 | `colours`                     | `ThemeColours \| string[]`  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.    |
 | `showHeaders`                 | `boolean`                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.              |
-| `enableExperimentalAnimation` | `boolean`                   | Enables Framer Motion animation for fade transitions. Experimental feature.                              |
 | `rowSpacing`                  | `number`                    | The spacing between log rows, affecting branches, graph, and table. Default: `0`.                        |
 | `githubRepositoryUrl`         | `string`                    | URL of the GitHub repository where `entries` came from. Enables links for commits, tags, and PRs.        |
 | `defaultGraphWidth`           | `number`                    | Default width of the graph in pixels. Can be changed dynamically if resizing is enabled. Default: `300`. |
@@ -240,12 +238,13 @@ All components have optional props to further configure the log.
 
 ### Graph
 
-| Property                 | Type        | Description                                                 |
-|--------------------------|-------------|-------------------------------------------------------------|
-| `showCommitNodeHashes`   | `boolean`   | Whether to show the commit hash next to nodes in the graph. |
-| `showCommitNodeTooltips` | `boolean`   | Whether to show tooltips when hovering over a commit node.  |
-| `nodeTheme`              | `NodeTheme` | Theme applied to commit node elements in the graph.         |
-| `enableResize`           | `boolean`   | Enables horizontal resizing of the graph. Default: `false`. |
+| Property                 | Type        | Description                                                                                                    |
+|--------------------------|-------------|----------------------------------------------------------------------------------------------------------------|
+| `showCommitNodeHashes`   | `boolean`   | Whether to show the commit hash next to nodes in the graph.                                                    |
+| `showCommitNodeTooltips` | `boolean`   | Whether to show tooltips when hovering over a commit node.                                                     |
+| `nodeTheme`              | `NodeTheme` | Theme applied to commit node elements in the graph.                                                            |
+| `nodeSize`               | `number`    | The diameter, in pixels, of the commits nodes. Should be divisible by 2 and between 8 and 30 to render nicely. |
+| `enableResize`           | `boolean`   | Enables horizontal resizing of the graph. Default: `false`.                                                    |
 
 #### NodeTheme
 
@@ -307,7 +306,6 @@ All components have optional props to further configure the log.
 - Show code in stories
 - Expose custom theme object off the Theme type
 - Can Zustand help us here to reduce re-renders with GitContext Provider?
-- Add error boundary
 - Expose component override props for things like CommitNode, CommitMessage etc.
 - Straight line prop to turn curves into right angles?
 - Node size parameter to make the graph even more compact as it will reduce the minimum column width
@@ -315,7 +313,6 @@ All components have optional props to further configure the log.
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
 - Extract ThemeContext
 - Mobile responsiveness for the demo site
-- Framer motion is basically 90% of the bundle - remove it?
 - Add graph render strategy with a second option to use 2d rendering context (html canvas)
 - Graph direction? Right now its renders left-right, but do want to invert it in the y-axis?
 - Add eslint to pipeline
@@ -323,8 +320,4 @@ All components have optional props to further configure the log.
 - Add in prop to show-hide the index pseudo commit
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
-
-For SS pagination
-- All branches are release on the server-side paginated log. I think we're just passing it bad data
 - Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch
-- Check types are all exported okay

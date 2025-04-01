@@ -7,13 +7,16 @@
     "build": "tsc -b && vite build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "NODE_ENV=production storybook build",
-    "test": "vitest src"
+    "test": "vitest src",
+    "clean": "rm -rf node_modules"
   },
   "dependencies": {
     "@theme-toggles/react": "^4.1.0",
     "@tomplum/react-git-log": "*",
     "classnames": "^2.5.1",
-    "dayjs": "^1.11.13"
+    "dayjs": "^1.11.13",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
@@ -29,8 +32,6 @@
     "@types/react-dom": "^19.0.4",
     "gh-pages": "^6.3.0",
     "playwright": "^1.51.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "storybook": "^8.6.4",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",

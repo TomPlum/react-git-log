@@ -282,13 +282,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-1-col-0"
             id="graph-column-row-1-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-867c511"
               id="commit-node-867c511"
-              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
             />
             <div
               class="line vertical"
@@ -301,7 +301,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-1-col-1"
             id="graph-column-row-1-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -314,25 +314,25 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-1-col-2"
             id="graph-column-row-1-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-1-col-3"
             id="graph-column-row-1-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-1-col-4"
             id="graph-column-row-1-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-2-col-0"
             id="graph-column-row-2-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -345,13 +345,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-2-col-1"
             id="graph-column-row-2-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-f157195"
               id="commit-node-f157195"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -364,37 +364,37 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-2-col-2"
             id="graph-column-row-2-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-2-col-3"
             id="graph-column-row-2-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-2-col-4"
             id="graph-column-row-2-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-3-col-0"
             id="graph-column-row-3-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-5525ed5"
               id="commit-node-5525ed5"
-              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-5525ed5"
                 id="commit-node-merge-circle-5525ed5"
-                style="background: rgb(255, 0, 0);"
+                style="background: rgb(255, 0, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -414,7 +414,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-3-col-1"
             id="graph-column-row-3-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="container"
@@ -491,25 +491,25 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-3-col-2"
             id="graph-column-row-3-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-3-col-3"
             id="graph-column-row-3-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-3-col-4"
             id="graph-column-row-3-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-4-col-0"
             id="graph-column-row-4-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -522,13 +522,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-4-col-1"
             id="graph-column-row-4-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-081b2d3"
               id="commit-node-081b2d3"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -541,25 +541,25 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-4-col-2"
             id="graph-column-row-4-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-4-col-3"
             id="graph-column-row-4-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-4-col-4"
             id="graph-column-row-4-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-5-col-0"
             id="graph-column-row-5-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -572,19 +572,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-5-col-1"
             id="graph-column-row-5-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-a10ab03"
               id="commit-node-a10ab03"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-a10ab03"
                 id="commit-node-merge-circle-a10ab03"
-                style="background: rgb(204, 255, 0);"
+                style="background: rgb(204, 255, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -598,37 +598,37 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-5-col-2"
             id="graph-column-row-5-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-5-col-3"
             id="graph-column-row-5-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-5-col-4"
             id="graph-column-row-5-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-6-col-0"
             id="graph-column-row-6-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-5862498"
               id="commit-node-5862498"
-              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-5862498"
                 id="commit-node-merge-circle-5862498"
-                style="background: rgb(255, 0, 0);"
+                style="background: rgb(255, 0, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -648,7 +648,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-6-col-1"
             id="graph-column-row-6-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -702,7 +702,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-6-col-2"
             id="graph-column-row-6-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="container"
@@ -744,19 +744,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-6-col-3"
             id="graph-column-row-6-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-6-col-4"
             id="graph-column-row-6-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-7-col-0"
             id="graph-column-row-7-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -769,7 +769,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-7-col-1"
             id="graph-column-row-7-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -782,13 +782,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-7-col-2"
             id="graph-column-row-7-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-eeeb1f2"
               id="commit-node-eeeb1f2"
-              style="background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
+              style="width: 20px; height: 20px; background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
             />
             <div
               class="line vertical"
@@ -801,19 +801,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-7-col-3"
             id="graph-column-row-7-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-7-col-4"
             id="graph-column-row-7-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-8-col-0"
             id="graph-column-row-8-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -826,13 +826,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-8-col-1"
             id="graph-column-row-8-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-55ec23e"
               id="commit-node-55ec23e"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -845,7 +845,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-8-col-2"
             id="graph-column-row-8-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -858,19 +858,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-8-col-3"
             id="graph-column-row-8-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-8-col-4"
             id="graph-column-row-8-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-9-col-0"
             id="graph-column-row-9-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -883,19 +883,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-9-col-1"
             id="graph-column-row-9-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-75fea53"
               id="commit-node-75fea53"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-75fea53"
                 id="commit-node-merge-circle-75fea53"
-                style="background: rgb(204, 255, 0);"
+                style="background: rgb(204, 255, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -909,7 +909,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-9-col-2"
             id="graph-column-row-9-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -922,31 +922,31 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-9-col-3"
             id="graph-column-row-9-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-9-col-4"
             id="graph-column-row-9-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-10-col-0"
             id="graph-column-row-10-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-27d7e9e"
               id="commit-node-27d7e9e"
-              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-27d7e9e"
                 id="commit-node-merge-circle-27d7e9e"
-                style="background: rgb(255, 0, 0);"
+                style="background: rgb(255, 0, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -966,7 +966,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-10-col-1"
             id="graph-column-row-10-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1020,7 +1020,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-10-col-2"
             id="graph-column-row-10-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="container"
@@ -1097,31 +1097,31 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-10-col-3"
             id="graph-column-row-10-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-10-col-4"
             id="graph-column-row-10-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-11-col-0"
             id="graph-column-row-11-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-338b505"
               id="commit-node-338b505"
-              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-338b505"
                 id="commit-node-merge-circle-338b505"
-                style="background: rgb(255, 0, 0);"
+                style="background: rgb(255, 0, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -1141,7 +1141,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-11-col-1"
             id="graph-column-row-11-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1160,7 +1160,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-11-col-2"
             id="graph-column-row-11-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1179,7 +1179,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-11-col-3"
             id="graph-column-row-11-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line horizontal"
@@ -1192,7 +1192,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-11-col-4"
             id="graph-column-row-11-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="container"
@@ -1234,19 +1234,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-0"
             id="graph-column-row-12-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-988bf8d"
               id="commit-node-988bf8d"
-              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-988bf8d"
                 id="commit-node-merge-circle-988bf8d"
-                style="background: rgb(255, 0, 0);"
+                style="background: rgb(255, 0, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -1266,7 +1266,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-1"
             id="graph-column-row-12-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1285,7 +1285,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-2"
             id="graph-column-row-12-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1304,7 +1304,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-3"
             id="graph-column-row-12-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="container"
@@ -1346,7 +1346,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-12-col-4"
             id="graph-column-row-12-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1359,7 +1359,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-0"
             id="graph-column-row-13-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1372,19 +1372,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-1"
             id="graph-column-row-13-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-e11674d"
               id="commit-node-e11674d"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-e11674d"
                 id="commit-node-merge-circle-e11674d"
-                style="background: rgb(204, 255, 0);"
+                style="background: rgb(204, 255, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -1398,7 +1398,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-2"
             id="graph-column-row-13-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1411,7 +1411,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-3"
             id="graph-column-row-13-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1424,7 +1424,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-13-col-4"
             id="graph-column-row-13-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1437,7 +1437,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-0"
             id="graph-column-row-14-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1450,7 +1450,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-1"
             id="graph-column-row-14-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1463,13 +1463,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-2"
             id="graph-column-row-14-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-0577e9d"
               id="commit-node-0577e9d"
-              style="background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
+              style="width: 20px; height: 20px; background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
             />
             <div
               class="line vertical"
@@ -1482,7 +1482,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-3"
             id="graph-column-row-14-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1495,7 +1495,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-14-col-4"
             id="graph-column-row-14-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1508,19 +1508,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-0"
             id="graph-column-row-15-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-b35728b"
               id="commit-node-b35728b"
-              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-b35728b"
                 id="commit-node-merge-circle-b35728b"
-                style="background: rgb(255, 0, 0);"
+                style="background: rgb(255, 0, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -1540,7 +1540,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-1"
             id="graph-column-row-15-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1594,7 +1594,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-2"
             id="graph-column-row-15-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="container"
@@ -1671,7 +1671,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-3"
             id="graph-column-row-15-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1684,7 +1684,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-15-col-4"
             id="graph-column-row-15-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1697,7 +1697,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-0"
             id="graph-column-row-16-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1710,7 +1710,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-1"
             id="graph-column-row-16-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1723,13 +1723,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-2"
             id="graph-column-row-16-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-0f5ae74"
               id="commit-node-0f5ae74"
-              style="background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
+              style="width: 20px; height: 20px; background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
             />
             <div
               class="line vertical"
@@ -1742,7 +1742,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-3"
             id="graph-column-row-16-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1755,7 +1755,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-16-col-4"
             id="graph-column-row-16-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1768,7 +1768,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-0"
             id="graph-column-row-17-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1781,7 +1781,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-1"
             id="graph-column-row-17-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1794,7 +1794,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-2"
             id="graph-column-row-17-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1807,13 +1807,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-3"
             id="graph-column-row-17-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-648f6e9"
               id="commit-node-648f6e9"
-              style="background-color: rgb(217, 232, 255); border: 2px solid rgb(0, 102, 255);"
+              style="width: 20px; height: 20px; background-color: rgb(217, 232, 255); border: 2px solid rgb(0, 102, 255);"
             />
             <div
               class="line vertical"
@@ -1826,7 +1826,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-17-col-4"
             id="graph-column-row-17-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1839,7 +1839,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-0"
             id="graph-column-row-18-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1852,7 +1852,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-1"
             id="graph-column-row-18-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1865,7 +1865,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-2"
             id="graph-column-row-18-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1878,7 +1878,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-3"
             id="graph-column-row-18-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1891,13 +1891,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-18-col-4"
             id="graph-column-row-18-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-ca136bf"
               id="commit-node-ca136bf"
-              style="background-color: rgb(247, 217, 255); border: 2px solid rgb(204, 0, 255);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 217, 255); border: 2px solid rgb(204, 0, 255);"
             />
             <div
               class="line vertical"
@@ -1910,19 +1910,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-0"
             id="graph-column-row-19-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-09e615d"
               id="commit-node-09e615d"
-              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-09e615d"
                 id="commit-node-merge-circle-09e615d"
-                style="background: rgb(255, 0, 0);"
+                style="background: rgb(255, 0, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -1942,7 +1942,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-1"
             id="graph-column-row-19-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -1961,7 +1961,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-2"
             id="graph-column-row-19-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line horizontal"
@@ -2009,7 +2009,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-3"
             id="graph-column-row-19-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line horizontal"
@@ -2092,7 +2092,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-19-col-4"
             id="graph-column-row-19-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="container"
@@ -2134,7 +2134,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-20-col-0"
             id="graph-column-row-20-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2147,13 +2147,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-20-col-1"
             id="graph-column-row-20-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-72a5dbb"
               id="commit-node-72a5dbb"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -2166,13 +2166,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-20-col-2"
             id="graph-column-row-20-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-20-col-3"
             id="graph-column-row-20-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2185,13 +2185,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-20-col-4"
             id="graph-column-row-20-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-21-col-0"
             id="graph-column-row-21-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2204,19 +2204,19 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-21-col-1"
             id="graph-column-row-21-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-5281010"
               id="commit-node-5281010"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-5281010"
                 id="commit-node-merge-circle-5281010"
-                style="background: rgb(204, 255, 0);"
+                style="background: rgb(204, 255, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -2230,13 +2230,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-21-col-2"
             id="graph-column-row-21-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-21-col-3"
             id="graph-column-row-21-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2249,25 +2249,25 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-21-col-4"
             id="graph-column-row-21-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-22-col-0"
             id="graph-column-row-22-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-b7ec825"
               id="commit-node-b7ec825"
-              style="background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(255, 217, 217); border: 2px solid rgb(255, 0, 0);"
             >
               <div
                 class="mergeCommitInner"
                 data-testid="commit-node-merge-circle-b7ec825"
                 id="commit-node-merge-circle-b7ec825"
-                style="background: rgb(255, 0, 0);"
+                style="background: rgb(255, 0, 0); width: 14px; height: 14px; top: calc(50% - 7px); left: calc(50% - 7px);"
               />
             </div>
             <div
@@ -2287,7 +2287,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-22-col-1"
             id="graph-column-row-22-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2341,7 +2341,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-22-col-2"
             id="graph-column-row-22-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="container"
@@ -2383,7 +2383,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-22-col-3"
             id="graph-column-row-22-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2396,13 +2396,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-22-col-4"
             id="graph-column-row-22-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-23-col-0"
             id="graph-column-row-23-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2415,7 +2415,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-23-col-1"
             id="graph-column-row-23-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2428,13 +2428,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-23-col-2"
             id="graph-column-row-23-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-3d680fd"
               id="commit-node-3d680fd"
-              style="background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
+              style="width: 20px; height: 20px; background-color: rgb(217, 255, 232); border: 2px solid rgb(0, 255, 102);"
             />
             <div
               class="line vertical"
@@ -2447,7 +2447,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-23-col-3"
             id="graph-column-row-23-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2460,13 +2460,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-23-col-4"
             id="graph-column-row-23-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-24-col-0"
             id="graph-column-row-24-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2479,7 +2479,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-24-col-1"
             id="graph-column-row-24-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2492,7 +2492,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-24-col-2"
             id="graph-column-row-24-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2505,13 +2505,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-24-col-3"
             id="graph-column-row-24-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-2b85a9e"
               id="commit-node-2b85a9e"
-              style="background-color: rgb(217, 232, 255); border: 2px solid rgb(0, 102, 255);"
+              style="width: 20px; height: 20px; background-color: rgb(217, 232, 255); border: 2px solid rgb(0, 102, 255);"
             />
             <div
               class="line vertical"
@@ -2524,13 +2524,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-24-col-4"
             id="graph-column-row-24-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-25-col-0"
             id="graph-column-row-25-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2543,13 +2543,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-25-col-1"
             id="graph-column-row-25-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-000b3aa"
               id="commit-node-000b3aa"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -2562,7 +2562,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-25-col-2"
             id="graph-column-row-25-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2575,7 +2575,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-25-col-3"
             id="graph-column-row-25-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2588,13 +2588,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-25-col-4"
             id="graph-column-row-25-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-26-col-0"
             id="graph-column-row-26-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2607,13 +2607,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-26-col-1"
             id="graph-column-row-26-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-45dbbde"
               id="commit-node-45dbbde"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -2626,7 +2626,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-26-col-2"
             id="graph-column-row-26-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2639,7 +2639,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-26-col-3"
             id="graph-column-row-26-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2652,13 +2652,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-26-col-4"
             id="graph-column-row-26-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-27-col-0"
             id="graph-column-row-27-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2671,13 +2671,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-27-col-1"
             id="graph-column-row-27-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-2c60633"
               id="commit-node-2c60633"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -2690,7 +2690,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-27-col-2"
             id="graph-column-row-27-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2703,7 +2703,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-27-col-3"
             id="graph-column-row-27-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2716,13 +2716,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-27-col-4"
             id="graph-column-row-27-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-28-col-0"
             id="graph-column-row-28-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2735,13 +2735,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-28-col-1"
             id="graph-column-row-28-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-7f60983"
               id="commit-node-7f60983"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -2754,7 +2754,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-28-col-2"
             id="graph-column-row-28-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2767,7 +2767,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-28-col-3"
             id="graph-column-row-28-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2780,13 +2780,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-28-col-4"
             id="graph-column-row-28-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-29-col-0"
             id="graph-column-row-29-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2799,13 +2799,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-29-col-1"
             id="graph-column-row-29-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-cebb57d"
               id="commit-node-cebb57d"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -2818,7 +2818,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-29-col-2"
             id="graph-column-row-29-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2831,7 +2831,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-29-col-3"
             id="graph-column-row-29-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2844,13 +2844,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-29-col-4"
             id="graph-column-row-29-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-30-col-0"
             id="graph-column-row-30-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2863,13 +2863,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-30-col-1"
             id="graph-column-row-30-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-33c38c5"
               id="commit-node-33c38c5"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -2882,7 +2882,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-30-col-2"
             id="graph-column-row-30-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2895,7 +2895,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-30-col-3"
             id="graph-column-row-30-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2908,13 +2908,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-30-col-4"
             id="graph-column-row-30-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-31-col-0"
             id="graph-column-row-31-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2927,13 +2927,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-31-col-1"
             id="graph-column-row-31-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-f19e207"
               id="commit-node-f19e207"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -2946,7 +2946,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-31-col-2"
             id="graph-column-row-31-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2959,7 +2959,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-31-col-3"
             id="graph-column-row-31-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2972,13 +2972,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-31-col-4"
             id="graph-column-row-31-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-32-col-0"
             id="graph-column-row-32-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -2991,13 +2991,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-32-col-1"
             id="graph-column-row-32-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-b9bc1dc"
               id="commit-node-b9bc1dc"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -3010,7 +3010,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-32-col-2"
             id="graph-column-row-32-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3023,7 +3023,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-32-col-3"
             id="graph-column-row-32-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3036,13 +3036,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-32-col-4"
             id="graph-column-row-32-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-33-col-0"
             id="graph-column-row-33-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3055,13 +3055,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-33-col-1"
             id="graph-column-row-33-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-9c65959"
               id="commit-node-9c65959"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -3074,7 +3074,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-33-col-2"
             id="graph-column-row-33-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3087,7 +3087,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-33-col-3"
             id="graph-column-row-33-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3100,13 +3100,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-33-col-4"
             id="graph-column-row-33-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-34-col-0"
             id="graph-column-row-34-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3119,13 +3119,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-34-col-1"
             id="graph-column-row-34-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-a172219"
               id="commit-node-a172219"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -3138,7 +3138,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-34-col-2"
             id="graph-column-row-34-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3151,7 +3151,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-34-col-3"
             id="graph-column-row-34-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3164,13 +3164,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-34-col-4"
             id="graph-column-row-34-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-35-col-0"
             id="graph-column-row-35-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3183,13 +3183,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-35-col-1"
             id="graph-column-row-35-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-a3af060"
               id="commit-node-a3af060"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -3202,7 +3202,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-35-col-2"
             id="graph-column-row-35-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3215,7 +3215,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-35-col-3"
             id="graph-column-row-35-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3228,13 +3228,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-35-col-4"
             id="graph-column-row-35-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-36-col-0"
             id="graph-column-row-36-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3247,13 +3247,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-36-col-1"
             id="graph-column-row-36-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-363c60d"
               id="commit-node-363c60d"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -3266,7 +3266,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-36-col-2"
             id="graph-column-row-36-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3279,7 +3279,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-36-col-3"
             id="graph-column-row-36-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3292,13 +3292,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-36-col-4"
             id="graph-column-row-36-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-37-col-0"
             id="graph-column-row-37-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3311,13 +3311,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-37-col-1"
             id="graph-column-row-37-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-cc0598b"
               id="commit-node-cc0598b"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -3330,7 +3330,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-37-col-2"
             id="graph-column-row-37-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3343,7 +3343,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-37-col-3"
             id="graph-column-row-37-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3356,13 +3356,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-37-col-4"
             id="graph-column-row-37-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-38-col-0"
             id="graph-column-row-38-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3375,13 +3375,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-38-col-1"
             id="graph-column-row-38-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-6e89c11"
               id="commit-node-6e89c11"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -3394,7 +3394,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-38-col-2"
             id="graph-column-row-38-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3407,7 +3407,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-38-col-3"
             id="graph-column-row-38-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3420,13 +3420,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-38-col-4"
             id="graph-column-row-38-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-39-col-0"
             id="graph-column-row-39-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3439,13 +3439,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-39-col-1"
             id="graph-column-row-39-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-6904884"
               id="commit-node-6904884"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -3458,7 +3458,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-39-col-2"
             id="graph-column-row-39-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3471,7 +3471,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-39-col-3"
             id="graph-column-row-39-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3484,13 +3484,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-39-col-4"
             id="graph-column-row-39-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
           <div
             class="column"
             data-testid="graph-column-row-40-col-0"
             id="graph-column-row-40-col-0"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3503,13 +3503,13 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-40-col-1"
             id="graph-column-row-40-col-1"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="commitNode"
               data-testid="commit-node-94b945f"
               id="commit-node-94b945f"
-              style="background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
+              style="width: 20px; height: 20px; background-color: rgb(247, 255, 217); border: 2px solid rgb(204, 255, 0);"
             />
             <div
               class="line vertical"
@@ -3522,7 +3522,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-40-col-2"
             id="graph-column-row-40-col-2"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3535,7 +3535,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-40-col-3"
             id="graph-column-row-40-col-3"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           >
             <div
               class="line vertical"
@@ -3548,7 +3548,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="column"
             data-testid="graph-column-row-40-col-4"
             id="graph-column-row-40-col-4"
-            style="min-width: 24px;"
+            style="min-width: 20px;"
           />
         </div>
       </div>
@@ -3601,7 +3601,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-0"
             id="react-git-log-table-data-commit-message-0"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="chore(deps): update dependency vite to v6"
           >
             chore(deps): update dependency vite to v6
@@ -3610,7 +3610,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-0"
             id="react-git-log-table-data-author-0"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
           >
             renovate[bot]
@@ -3619,7 +3619,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-0"
             id="react-git-log-table-data-timestamp-0"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-16 15:21:55
           </div>
@@ -3633,7 +3633,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-1"
             id="react-git-log-table-data-commit-message-1"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="fix(deps): update all non-major dependencies"
           >
             fix(deps): update all non-major dependencies
@@ -3642,7 +3642,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-1"
             id="react-git-log-table-data-author-1"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
           >
             renovate[bot]
@@ -3651,7 +3651,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-1"
             id="react-git-log-table-data-timestamp-1"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-16 15:21:05
           </div>
@@ -3665,7 +3665,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-2"
             id="react-git-log-table-data-commit-message-2"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge pull request #38 from TomPlum/develop"
           >
             Merge pull request #38 from TomPlum/develop
@@ -3674,7 +3674,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-2"
             id="react-git-log-table-data-author-2"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -3683,7 +3683,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-2"
             id="react-git-log-table-data-timestamp-2"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-16 15:20:20
           </div>
@@ -3697,7 +3697,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-3"
             id="react-git-log-table-data-commit-message-3"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="chore(data): added latest pillow data 16/02/2025"
           >
             chore(data): added latest pillow data 16/02/2025
@@ -3706,7 +3706,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-3"
             id="react-git-log-table-data-author-3"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -3715,7 +3715,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-3"
             id="react-git-log-table-data-timestamp-3"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-16 15:16:44
           </div>
@@ -3729,7 +3729,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-4"
             id="react-git-log-table-data-commit-message-4"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge branch 'release' into develop"
           >
             Merge branch 'release' into develop
@@ -3738,7 +3738,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-4"
             id="react-git-log-table-data-author-4"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -3747,7 +3747,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-4"
             id="react-git-log-table-data-timestamp-4"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-16 15:02:17
           </div>
@@ -3761,7 +3761,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-5"
             id="react-git-log-table-data-commit-message-5"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge pull request #46 from TomPlum/renovate/all-minor-patch"
           >
             Merge pull request #46 from TomPlum/renovate/all-minor-patch
@@ -3770,7 +3770,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-5"
             id="react-git-log-table-data-author-5"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -3779,7 +3779,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-5"
             id="react-git-log-table-data-timestamp-5"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-16 15:00:05
           </div>
@@ -3793,7 +3793,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-6"
             id="react-git-log-table-data-commit-message-6"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="fix(deps): update all non-major dependencies"
           >
             fix(deps): update all non-major dependencies
@@ -3802,7 +3802,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-6"
             id="react-git-log-table-data-author-6"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
           >
             renovate[bot]
@@ -3811,7 +3811,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-6"
             id="react-git-log-table-data-timestamp-6"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-14 01:53:30
           </div>
@@ -3825,7 +3825,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-7"
             id="react-git-log-table-data-commit-message-7"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="fix(deps): npm install to fix lockfile issues"
           >
             fix(deps): npm install to fix lockfile issues
@@ -3834,7 +3834,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-7"
             id="react-git-log-table-data-author-7"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -3843,7 +3843,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-7"
             id="react-git-log-table-data-timestamp-7"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-01 15:22:07
           </div>
@@ -3857,7 +3857,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-8"
             id="react-git-log-table-data-commit-message-8"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge branch 'refs/heads/release' into develop"
           >
             Merge branch 'refs/heads/release' into develop
@@ -3866,7 +3866,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-8"
             id="react-git-log-table-data-author-8"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -3875,7 +3875,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-8"
             id="react-git-log-table-data-timestamp-8"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-01 15:21:44
           </div>
@@ -3889,7 +3889,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-9"
             id="react-git-log-table-data-commit-message-9"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge pull request #45 from TomPlum/renovate/major-eslint-stylistic-monorepo"
           >
             Merge pull request #45 from TomPlum/renovate/major-eslint-stylistic-monorepo
@@ -3898,7 +3898,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-9"
             id="react-git-log-table-data-author-9"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -3907,7 +3907,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-9"
             id="react-git-log-table-data-timestamp-9"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-01 15:21:11
           </div>
@@ -3921,7 +3921,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-10"
             id="react-git-log-table-data-commit-message-10"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge pull request #43 from TomPlum/renovate/jsdom-26.x"
           >
             Merge pull request #43 from TomPlum/renovate/jsdom-26.x
@@ -3930,7 +3930,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-10"
             id="react-git-log-table-data-author-10"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -3939,7 +3939,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-10"
             id="react-git-log-table-data-timestamp-10"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-01 15:20:55
           </div>
@@ -3953,7 +3953,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-11"
             id="react-git-log-table-data-commit-message-11"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge pull request #44 from TomPlum/renovate/major-vitest-monorepo"
           >
             Merge pull request #44 from TomPlum/renovate/major-vitest-monorepo
@@ -3962,7 +3962,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-11"
             id="react-git-log-table-data-author-11"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -3971,7 +3971,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-11"
             id="react-git-log-table-data-timestamp-11"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-01 15:20:45
           </div>
@@ -3985,7 +3985,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-12"
             id="react-git-log-table-data-commit-message-12"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge branch 'release' into develop"
           >
             Merge branch 'release' into develop
@@ -3994,7 +3994,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-12"
             id="react-git-log-table-data-author-12"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4003,7 +4003,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-12"
             id="react-git-log-table-data-timestamp-12"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-01 15:17:11
           </div>
@@ -4017,7 +4017,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-13"
             id="react-git-log-table-data-commit-message-13"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="chore(deps): update dependency @stylistic/eslint-plugin to v3"
           >
             chore(deps): update dependency @stylistic/eslint-plugin to v3
@@ -4026,7 +4026,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-13"
             id="react-git-log-table-data-author-13"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
           >
             renovate[bot]
@@ -4035,7 +4035,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-13"
             id="react-git-log-table-data-timestamp-13"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-01 15:16:12
           </div>
@@ -4049,7 +4049,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-14"
             id="react-git-log-table-data-commit-message-14"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge pull request #42 from TomPlum/renovate/all-minor-patch"
           >
             Merge pull request #42 from TomPlum/renovate/all-minor-patch
@@ -4058,7 +4058,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-14"
             id="react-git-log-table-data-author-14"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4067,7 +4067,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-14"
             id="react-git-log-table-data-timestamp-14"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-02-01 15:15:42
           </div>
@@ -4081,7 +4081,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-15"
             id="react-git-log-table-data-commit-message-15"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="fix(deps): update all non-major dependencies"
           >
             fix(deps): update all non-major dependencies
@@ -4090,7 +4090,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-15"
             id="react-git-log-table-data-author-15"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
           >
             renovate[bot]
@@ -4099,7 +4099,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-15"
             id="react-git-log-table-data-timestamp-15"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-01-31 21:51:43
           </div>
@@ -4113,7 +4113,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-16"
             id="react-git-log-table-data-commit-message-16"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="chore(deps): update vitest monorepo to v3"
           >
             chore(deps): update vitest monorepo to v3
@@ -4122,7 +4122,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-16"
             id="react-git-log-table-data-author-16"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
           >
             renovate[bot]
@@ -4131,7 +4131,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-16"
             id="react-git-log-table-data-timestamp-16"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-01-19 09:39:08
           </div>
@@ -4145,7 +4145,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-17"
             id="react-git-log-table-data-commit-message-17"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="chore(deps): update dependency jsdom to v26"
           >
             chore(deps): update dependency jsdom to v26
@@ -4154,7 +4154,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-17"
             id="react-git-log-table-data-author-17"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
           >
             renovate[bot]
@@ -4163,7 +4163,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-17"
             id="react-git-log-table-data-timestamp-17"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-01-11 01:17:46
           </div>
@@ -4177,7 +4177,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-18"
             id="react-git-log-table-data-commit-message-18"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge pull request #41 from TomPlum/renovate/react-error-boundary-5.x"
           >
             Merge pull request #41 from TomPlum/renovate/react-error-boundary-5.x
@@ -4186,7 +4186,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-18"
             id="react-git-log-table-data-author-18"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4195,7 +4195,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-18"
             id="react-git-log-table-data-timestamp-18"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-01-09 20:17:13
           </div>
@@ -4209,7 +4209,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-19"
             id="react-git-log-table-data-commit-message-19"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="fix(deps): removed redundant package-lock.json entries"
           >
             fix(deps): removed redundant package-lock.json entries
@@ -4218,7 +4218,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-19"
             id="react-git-log-table-data-author-19"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4227,7 +4227,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-19"
             id="react-git-log-table-data-timestamp-19"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-01-09 20:16:59
           </div>
@@ -4241,7 +4241,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-20"
             id="react-git-log-table-data-commit-message-20"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge branch 'release' into develop"
           >
             Merge branch 'release' into develop
@@ -4250,7 +4250,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-20"
             id="react-git-log-table-data-author-20"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4259,7 +4259,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-20"
             id="react-git-log-table-data-timestamp-20"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-01-09 20:15:57
           </div>
@@ -4273,7 +4273,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-21"
             id="react-git-log-table-data-commit-message-21"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Merge pull request #35 from TomPlum/renovate/all-minor-patch"
           >
             Merge pull request #35 from TomPlum/renovate/all-minor-patch
@@ -4282,7 +4282,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-21"
             id="react-git-log-table-data-author-21"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4291,7 +4291,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-21"
             id="react-git-log-table-data-timestamp-21"
-            style="line-height: 40px; color: rgb(153, 153, 153); background: transparent;"
+            style="line-height: 40px; color: rgb(153, 153, 153); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-01-09 20:14:48
           </div>
@@ -4305,7 +4305,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-22"
             id="react-git-log-table-data-commit-message-22"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="fix(deps): update all non-major dependencies"
           >
             fix(deps): update all non-major dependencies
@@ -4314,7 +4314,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-22"
             id="react-git-log-table-data-author-22"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
           >
             renovate[bot]
@@ -4323,7 +4323,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-22"
             id="react-git-log-table-data-timestamp-22"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2025-01-08 22:25:06
           </div>
@@ -4337,7 +4337,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-23"
             id="react-git-log-table-data-commit-message-23"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="fix(deps): update dependency react-error-boundary to v5"
           >
             fix(deps): update dependency react-error-boundary to v5
@@ -4346,7 +4346,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-23"
             id="react-git-log-table-data-author-23"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="renovate[bot] (29139614+renovate[bot]@users.noreply.github.com)"
           >
             renovate[bot]
@@ -4355,7 +4355,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-23"
             id="react-git-log-table-data-timestamp-23"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-12-21 21:55:38
           </div>
@@ -4369,7 +4369,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-24"
             id="react-git-log-table-data-commit-message-24"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="fix(graph): filtered out metric nodes that have a value of 0"
           >
             fix(graph): filtered out metric nodes that have a value of 0
@@ -4378,7 +4378,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-24"
             id="react-git-log-table-data-author-24"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4387,7 +4387,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-24"
             id="react-git-log-table-data-timestamp-24"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 19:10:41
           </div>
@@ -4401,7 +4401,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-25"
             id="react-git-log-table-data-commit-message-25"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): minor styling consistency improvements to the ascii inputs"
           >
             feat(graph): minor styling consistency improvements to the ascii inputs
@@ -4410,7 +4410,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-25"
             id="react-git-log-table-data-author-25"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4419,7 +4419,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-25"
             id="react-git-log-table-data-timestamp-25"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 19:08:06
           </div>
@@ -4433,7 +4433,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-26"
             id="react-git-log-table-data-commit-message-26"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): moved stats ui to bottom right and updated ascii checkbox checked mark"
           >
             feat(graph): moved stats ui to bottom right and updated ascii checkbox checked mark
@@ -4442,7 +4442,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-26"
             id="react-git-log-table-data-author-26"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4451,7 +4451,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-26"
             id="react-git-log-table-data-timestamp-26"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 18:50:33
           </div>
@@ -4465,7 +4465,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-27"
             id="react-git-log-table-data-commit-message-27"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): reduced scene cooldown time to stop node drift and improve performance on first render"
           >
             feat(graph): reduced scene cooldown time to stop node drift and improve performance on first render
@@ -4474,7 +4474,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-27"
             id="react-git-log-table-data-author-27"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4483,7 +4483,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-27"
             id="react-git-log-table-data-timestamp-27"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 18:26:08
           </div>
@@ -4497,7 +4497,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-28"
             id="react-git-log-table-data-commit-message-28"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="chore(deps): removed react-force-graph and replaced with 3d standalone package and bumped three back to latest"
           >
             chore(deps): removed react-force-graph and replaced with 3d standalone package and bumped three back to latest
@@ -4506,7 +4506,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-28"
             id="react-git-log-table-data-author-28"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4515,7 +4515,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-28"
             id="react-git-log-table-data-timestamp-28"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 17:57:17
           </div>
@@ -4529,7 +4529,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-29"
             id="react-git-log-table-data-commit-message-29"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="chore(graph): removed redundant import file extensions"
           >
             chore(graph): removed redundant import file extensions
@@ -4538,7 +4538,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-29"
             id="react-git-log-table-data-author-29"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4547,7 +4547,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-29"
             id="react-git-log-table-data-timestamp-29"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 16:27:32
           </div>
@@ -4561,7 +4561,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-30"
             id="react-git-log-table-data-commit-message-30"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="chore(graph): renamed three scene folder to match module name"
           >
             chore(graph): renamed three scene folder to match module name
@@ -4570,7 +4570,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-30"
             id="react-git-log-table-data-author-30"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4579,7 +4579,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-30"
             id="react-git-log-table-data-timestamp-30"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 16:26:50
           </div>
@@ -4593,7 +4593,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-31"
             id="react-git-log-table-data-commit-message-31"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): added root node link directional particles and arrows to indicate the passage of time"
           >
             feat(graph): added root node link directional particles and arrows to indicate the passage of time
@@ -4602,7 +4602,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-31"
             id="react-git-log-table-data-author-31"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4611,7 +4611,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-31"
             id="react-git-log-table-data-timestamp-31"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 16:24:07
           </div>
@@ -4625,7 +4625,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-32"
             id="react-git-log-table-data-commit-message-32"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): fixed ref typing and reset camera loading state"
           >
             feat(graph): fixed ref typing and reset camera loading state
@@ -4634,7 +4634,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-32"
             id="react-git-log-table-data-author-32"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4643,7 +4643,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-32"
             id="react-git-log-table-data-timestamp-32"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 11:57:08
           </div>
@@ -4657,7 +4657,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-33"
             id="react-git-log-table-data-commit-message-33"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): renamed and structured three chart component"
           >
             feat(graph): renamed and structured three chart component
@@ -4666,7 +4666,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-33"
             id="react-git-log-table-data-author-33"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4675,7 +4675,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-33"
             id="react-git-log-table-data-timestamp-33"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 11:37:49
           </div>
@@ -4689,7 +4689,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-34"
             id="react-git-log-table-data-commit-message-34"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): reworked three scene component structure for better use of context + added ascii button"
           >
             feat(graph): reworked three scene component structure for better use of context + added ascii button
@@ -4698,7 +4698,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-34"
             id="react-git-log-table-data-author-34"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4707,7 +4707,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-34"
             id="react-git-log-table-data-timestamp-34"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-28 11:35:52
           </div>
@@ -4721,7 +4721,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-35"
             id="react-git-log-table-data-commit-message-35"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): added draggable nodes button and dynamic node sizes based on percentage"
           >
             feat(graph): added draggable nodes button and dynamic node sizes based on percentage
@@ -4730,7 +4730,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-35"
             id="react-git-log-table-data-author-35"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4739,7 +4739,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-35"
             id="react-git-log-table-data-timestamp-35"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-27 17:24:13
           </div>
@@ -4753,7 +4753,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-36"
             id="react-git-log-table-data-commit-message-36"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): added new three context and toggle for the scene"
           >
             feat(graph): added new three context and toggle for the scene
@@ -4762,7 +4762,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-36"
             id="react-git-log-table-data-author-36"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4771,7 +4771,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-36"
             id="react-git-log-table-data-timestamp-36"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-27 16:50:40
           </div>
@@ -4785,7 +4785,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-37"
             id="react-git-log-table-data-commit-message-37"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): started adding controls menu for 3d graph"
           >
             feat(graph): started adding controls menu for 3d graph
@@ -4794,7 +4794,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-37"
             id="react-git-log-table-data-author-37"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4803,7 +4803,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-37"
             id="react-git-log-table-data-timestamp-37"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-27 16:31:13
           </div>
@@ -4817,7 +4817,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-38"
             id="react-git-log-table-data-commit-message-38"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): minor styling improvements on ascii checkbox and turned checked 'x' to 'o'"
           >
             feat(graph): minor styling improvements on ascii checkbox and turned checked 'x' to 'o'
@@ -4826,7 +4826,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-38"
             id="react-git-log-table-data-author-38"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4835,7 +4835,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-38"
             id="react-git-log-table-data-timestamp-38"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-27 16:30:28
           </div>
@@ -4849,7 +4849,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="message"
             data-testid="react-git-log-table-data-commit-message-39"
             id="react-git-log-table-data-commit-message-39"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="feat(graph): more experimentation with 3d force graph"
           >
             feat(graph): more experimentation with 3d force graph
@@ -4858,7 +4858,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="author"
             data-testid="react-git-log-table-data-author-39"
             id="react-git-log-table-data-author-39"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
             title="Thomas Plumpton (Thomas.Plumpton@hotmail.co.uk)"
           >
             Thomas Plumpton
@@ -4867,7 +4867,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
             class="timestamp"
             data-testid="react-git-log-table-data-timestamp-39"
             id="react-git-log-table-data-timestamp-39"
-            style="line-height: 40px; color: rgb(0, 0, 0); background: transparent;"
+            style="line-height: 40px; color: rgb(0, 0, 0); background: linear-gradient( to bottom, transparent 2px, transparent 2px, transparent 38px, transparent 38px );"
           >
             2024-11-27 16:17:49
           </div>

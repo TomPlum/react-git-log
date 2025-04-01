@@ -6,13 +6,12 @@
   "version": "2.2.0",
   "license": "Apache-2.0",
   "type": "module",
-  "main": "dist/react-git-log.umd.js",
-  "module": "dist/react-git-log.es.js",
+  "main": "dist/react-git-log.js",
+  "module": "dist/react-git-log.js",
   "types": "dist/index.d.ts",
   "exports": {
     "types": "./dist/index.d.ts",
-    "import": "./dist/react-git-log.es.js",
-    "require": "./dist/react-git-log.umd.js"
+    "import": "./dist/react-git-log.js"
   },
   "files": [
     "dist/",
@@ -35,7 +34,8 @@
     "test:integration:ci": "vitest --run --reporter=verbose .integration.spec.tsx",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release:local": "npm run build && npm pack"
+    "release:local": "npm run build && npm pack",
+    "clean": "rm -rf node_modules dist coverage"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",

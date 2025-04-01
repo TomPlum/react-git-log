@@ -1,5 +1,5 @@
 import styles from './LeftUpCurve.module.scss'
-import { NODE_WIDTH, ROW_HEIGHT } from 'constants/constants'
+import { CURVE_SIZE, ROW_HEIGHT } from 'constants/constants'
 import { CurvedEdge } from 'modules/Graph/components/CurvedEdge'
 import { useGitContext } from 'context/GitContext'
 import { LeftUpCurveProps } from './types'
@@ -19,7 +19,7 @@ export const LeftUpCurve = ({ color, isPlaceholder }: LeftUpCurveProps) => {
           top: 0,
           left: 'calc(50% - 1px)',
           borderRight: `2px ${borderStyle} ${color}`,
-          height: (ROW_HEIGHT + rowSpacing - NODE_WIDTH) / 2
+          height: (ROW_HEIGHT + rowSpacing - CURVE_SIZE) / 2
         }}
       />
 
@@ -39,7 +39,7 @@ export const LeftUpCurve = ({ color, isPlaceholder }: LeftUpCurveProps) => {
           top: '50%',
           height: 0,
           borderBottom: `2px ${borderStyle} ${color}`,
-          width: `calc(50% - ${NODE_WIDTH / 2}px)`
+          width: `calc(50% - ${CURVE_SIZE / 2}px)`
         }}
       />
     </div>

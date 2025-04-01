@@ -4,7 +4,7 @@ import { CSSProperties, useMemo } from 'react'
 import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context/GitContext'
 import { useSelectCommit } from 'hooks/useSelectCommit'
-import { ROW_HEIGHT } from 'constants/constants'
+import { BACKGROUND_HEIGHT_OFFSET, ROW_HEIGHT } from 'constants/constants'
 import { CommitMessageData } from 'modules/Table/components/CommitMessageData'
 import { AuthorData } from 'modules/Table/components/AuthorData'
 import { TimestampData } from 'modules/Table/components/TimestampData'
@@ -26,41 +26,47 @@ export const TableRow = ({
   } = useTheme()
 
   const { selectCommitHandler } = useSelectCommit()
-  const { selectedCommit, previewedCommit } = useGitContext()
+  const { selectedCommit, previewedCommit, nodeSize } = useGitContext()
 
   const isMergeCommit = commit.parents.length > 1
 
-  const backgroundStyles = useMemo(() => {
+  const backgroundColour = useMemo(() => {
     const colour = getCommitColour(commit)
 
     if (selectedCommit?.hash === commit.hash) {
       if (isPlaceholder) {
-        return {
-          background: hoverColour
-        }
+        return hoverColour
       }
 
-      return {
-        background: reduceOpacity(colour, 0.15)
-      }
+      return  reduceOpacity(colour, 0.15)
     }
 
     if (previewedCommit?.hash === commit.hash) {
       if (isPlaceholder) {
-        return {
-          background: hoverColour
-        }
+        return hoverColour
       }
 
-      return {
-        background: hoverColour
-      }
+      return hoverColour
     }
+
+    return 'transparent'
+  }, [getCommitColour, commit, selectedCommit?.hash, previewedCommit?.hash, isPlaceholder, reduceOpacity, hoverColour])
+
+  const backgroundStyles = useMemo(() => {
+    const height = nodeSize + BACKGROUND_HEIGHT_OFFSET
+    const padding = (ROW_HEIGHT - height) / 2
+    const end = padding + height
 
     return {
-      background: 'transparent'
+      background: `linear-gradient(
+        to bottom, 
+        transparent ${padding}px, 
+        ${backgroundColour} ${padding}px,
+        ${backgroundColour} ${end}px,
+        transparent ${end}px
+      )`
     }
-  }, [isPlaceholder, getCommitColour, commit, selectedCommit?.hash, previewedCommit?.hash, reduceOpacity, hoverColour])
+  }, [backgroundColour, nodeSize])
 
   const shouldRenderHyphenValue = commit.hash === 'index' || Boolean(isPlaceholder)
   const shouldReduceOpacity = !isPlaceholder && (isMergeCommit || commit.hash === 'index')

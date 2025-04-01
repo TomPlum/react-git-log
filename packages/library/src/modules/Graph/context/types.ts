@@ -18,4 +18,11 @@ export interface GraphContextBag {
    * elements in the graph.
    */
   nodeTheme?: NodeTheme
+
+  /**
+   * The diameter, in pixels, of the
+   * commit node elements rendered on
+   * the graph.
+   */
+  nodeSize: number
 }

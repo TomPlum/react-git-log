@@ -9,7 +9,7 @@ import { Graph } from 'modules/Graph'
 import { Table } from 'modules/Table'
 import { Layout } from 'components/Layout'
 import { Commit } from 'types/Commit'
-import { NODE_WIDTH } from 'constants/constants'
+import { DEFAULT_NODE_SIZE, NODE_BORDER_WIDTH } from 'constants/constants'
 
 export const GitLogCore = ({
   children,
@@ -77,10 +77,12 @@ export const GitLogCore = ({
     }
   }, [currentBranch, entries, headCommitHash])
 
+  const [nodeSize, setNodeSize] = useState(DEFAULT_NODE_SIZE)
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
 
-  const smallestAvailableGraphWidth = graphData.graphWidth * NODE_WIDTH
+  const smallestAvailableGraphWidth = graphData.graphWidth * (nodeSize + (NODE_BORDER_WIDTH * 2))
+
   // TODO: Are we using graphWidth here or just ditching enableResize?
   const [, setGraphWidth] = useState(defaultGraphWidth ?? smallestAvailableGraphWidth)
 
@@ -201,7 +203,9 @@ export const GitLogCore = ({
     setGraphWidth,
     headCommitHash,
     isServerSidePaginated,
-    isIndexVisible
+    isIndexVisible,
+    nodeSize,
+    setNodeSize
   }), [
     themeColours,
     classes,
@@ -223,7 +227,8 @@ export const GitLogCore = ({
     tags,
     headCommitHash,
     isServerSidePaginated,
-    isIndexVisible
+    isIndexVisible,
+    nodeSize
   ])
 
   return (

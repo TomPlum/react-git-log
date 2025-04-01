@@ -88,7 +88,8 @@ describe('CommitNode', () => {
     }))
 
     vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
-      showCommitNodeHashes: true
+      showCommitNodeHashes: true,
+      nodeSize: 24
     }))
 
     vi.spyOn(selectCommit, 'useSelectCommit').mockReturnValue({
@@ -197,7 +198,8 @@ describe('CommitNode', () => {
 
   it('should render an inner circle element when the commit is a merge commit and the node theme is default', async () => {
     vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
-      nodeTheme: 'default'
+      nodeTheme: 'default',
+      nodeSize: 24
     }))
 
     vi.spyOn(selectCommit, 'useSelectCommit').mockReturnValue({

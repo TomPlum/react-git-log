@@ -2,35 +2,50 @@ import { ColumnBackgroundProps } from './types'
 import classNames from 'classnames'
 import styles from './ColumnBackground.module.scss'
 import { CSSProperties, useMemo } from 'react'
-import { NODE_BORDER_WIDTH, NODE_WIDTH, ROW_HEIGHT } from 'constants/constants'
+import { BACKGROUND_HEIGHT_OFFSET, ROW_HEIGHT } from 'constants/constants'
 import { useGitContext } from 'context/GitContext'
+import { useGraphContext } from 'modules/Graph/context'
 
 export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnBackgroundProps) => {
   const { showTable } = useGitContext()
+  const { nodeSize } = useGraphContext()
 
   const style = useMemo<CSSProperties>(() => {
-    // 8 pixels either side of the node
-    const offset = 8 * 2
-    const widthOffset = offset / (NODE_BORDER_WIDTH * 2)
+    // 4 or 8 pixels either side of the node
+    const offset = (nodeSize <= 16 ? 6 : 8) * 2
 
-    const width = showTable
-      ? `calc(50% + ${NODE_WIDTH}px - ${widthOffset}px)`
-      : NODE_WIDTH + offset
+    if (!showTable) {
+      const backgroundSize = nodeSize + offset
+
+      return {
+        borderRadius: '50%',
+        height: `${backgroundSize}px`,
+        width: `${backgroundSize}px`,
+        background: colour,
+        left: `calc(50% - ${backgroundSize / 2}px)`
+      }
+    }
+
+    const dynamicHeight = nodeSize + BACKGROUND_HEIGHT_OFFSET
+    const height = dynamicHeight > ROW_HEIGHT ? ROW_HEIGHT : dynamicHeight
+
 
     if (index === commitNodeIndex) {
       return {
-        width,
+        width: `calc(50% + ${nodeSize / 2}px + ${offset / 2}px)`,
+        height,
         background: colour,
-        height: ROW_HEIGHT,
-        left: `calc(50% - ${NODE_WIDTH}px + ${widthOffset}px)`
+        right: 0,
+        borderTopLeftRadius: '50%',
+        borderBottomLeftRadius: '50%'
       }
     }
 
     return {
-      height: ROW_HEIGHT,
+      height,
       background: colour
     }
-  }, [commitNodeIndex, colour, index, showTable])
+  }, [showTable, nodeSize, index, commitNodeIndex, colour])
   
   return (
     <div
@@ -39,9 +54,7 @@ export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnB
       style={style}
       className={classNames(
         styles.background,
-        { [styles.noLogBackground]: !showTable },
-        { [styles.backgroundSquare]: index > commitNodeIndex },
-        { [styles.backgroundBehindNode]: index === commitNodeIndex }
+        { [styles.backgroundSquare]: index > commitNodeIndex }
       )}
     />
   )

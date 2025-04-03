@@ -1,4 +1,5 @@
 import { NodeTheme } from 'hooks/useTheme'
+import { GraphOrientation } from 'modules/Graph'
 
 export interface GraphContextBag {
   /**
@@ -25,4 +26,26 @@ export interface GraphContextBag {
    * the graph.
    */
   nodeSize: number
+
+  /**
+   * The width of the graph. A number
+   * that is the maximum concurrent active
+   * branches at any one time from all
+   * git log entries passed the log.
+   */
+  graphWidth: number
+
+  /**
+   * The orientation of the graph.
+   *
+   * Normal mode draws the graph from
+   * left to right so the checked-out
+   * branch is on the left-hand side.
+   *
+   * Flipped mode inverts the graph
+   * in the y-axios so it's drawn from
+   * right to left with the checked-out
+   * branch on the right-hand side.
+   */
+  orientation?: GraphOrientation
 }

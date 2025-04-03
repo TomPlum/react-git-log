@@ -1,5 +1,7 @@
 import { NodeTheme } from '../../hooks/useTheme'
 
+export type GraphOrientation = 'normal' | 'flipped'
+
 export interface GraphProps {
   /**
    * Whether to show the commit hash
@@ -33,4 +35,18 @@ export interface GraphProps {
    * the graph.
    */
   nodeSize?: number
+
+  /**
+   * The orientation of the graph.
+   *
+   * Normal mode draws the graph from
+   * left to right so the checked-out
+   * branch is on the left-hand side.
+   *
+   * Flipped mode inverts the graph
+   * in the y-axios so it's drawn from
+   * right to left with the checked-out
+   * branch on the right-hand side.
+   */
+  orientation?: GraphOrientation
 }

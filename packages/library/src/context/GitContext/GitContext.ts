@@ -4,6 +4,7 @@ import { neonAuroraDarkColours } from 'hooks/useTheme'
 import { Commit } from 'types/Commit'
 import DataIntervalTree from 'node-interval-tree'
 import { DEFAULT_NODE_SIZE } from 'constants/constants'
+import { GraphOrientation } from 'modules/Graph'
 
 const defaultCommit: Commit = {
   hash: 'defaultCommit',
@@ -31,6 +32,10 @@ export const GitContext = createContext<GitContextBag>({
   previewedCommit: undefined,
   setPreviewedCommit: (commit?: Commit) => {
     console.debug(`Tried to invoke setPreviewedCommit(${JSON.stringify(commit)}) before the GitContext was initialised.`)
+  },
+  graphOrientation: 'normal',
+  setGraphOrientation: (orientation: GraphOrientation) => {
+    console.debug(`Tried to invoke setGraphOrientation(${orientation}) before the GitContext was initialised.`)
   },
   graphData: {
     children: new Map(),

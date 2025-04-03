@@ -5,7 +5,7 @@ import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/u
 import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
 import { computeNodePositions, computeRelationships, GraphData, temporalTopologicalSort } from 'data'
 import { Tags } from 'modules/Tags'
-import { Graph } from 'modules/Graph'
+import { Graph, GraphOrientation } from 'modules/Graph'
 import { Table } from 'modules/Table'
 import { Layout } from 'components/Layout'
 import { Commit } from 'types/Commit'
@@ -78,6 +78,7 @@ export const GitLogCore = ({
   }, [currentBranch, entries, headCommitHash])
 
   const [nodeSize, setNodeSize] = useState(DEFAULT_NODE_SIZE)
+  const [graphOrientation, setGraphOrientation] = useState<GraphOrientation>('normal')
   const [selectedCommit, setSelectedCommit] = useState<Commit>()
   const [previewedCommit, setPreviewedCommit] = useState<Commit>()
 
@@ -205,7 +206,9 @@ export const GitLogCore = ({
     isServerSidePaginated,
     isIndexVisible,
     nodeSize,
-    setNodeSize
+    setNodeSize,
+    graphOrientation,
+    setGraphOrientation
   }), [
     themeColours,
     classes,
@@ -228,7 +231,8 @@ export const GitLogCore = ({
     headCommitHash,
     isServerSidePaginated,
     isIndexVisible,
-    nodeSize
+    nodeSize,
+    graphOrientation
   ])
 
   return (

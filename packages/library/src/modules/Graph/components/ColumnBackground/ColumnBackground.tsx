@@ -8,7 +8,7 @@ import { useGraphContext } from 'modules/Graph/context'
 
 export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnBackgroundProps) => {
   const { showTable } = useGitContext()
-  const { nodeSize } = useGraphContext()
+  const { nodeSize, orientation } = useGraphContext()
 
   const style = useMemo<CSSProperties>(() => {
     // 4 or 8 pixels either side of the node
@@ -29,7 +29,6 @@ export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnB
     const dynamicHeight = nodeSize + BACKGROUND_HEIGHT_OFFSET
     const height = dynamicHeight > ROW_HEIGHT ? ROW_HEIGHT : dynamicHeight
 
-
     if (index === commitNodeIndex) {
       return {
         width: `calc(50% + ${nodeSize / 2}px + ${offset / 2}px)`,
@@ -46,6 +45,10 @@ export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnB
       background: colour
     }
   }, [showTable, nodeSize, index, commitNodeIndex, colour])
+
+  const shouldShowFullBackground = orientation === 'normal'
+    ? index > commitNodeIndex
+    : index < commitNodeIndex
   
   return (
     <div
@@ -54,7 +57,7 @@ export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnB
       style={style}
       className={classNames(
         styles.background,
-        { [styles.backgroundSquare]: index > commitNodeIndex }
+        { [styles.backgroundSquare]: shouldShowFullBackground }
       )}
     />
   )

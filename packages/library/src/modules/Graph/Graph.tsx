@@ -14,6 +14,7 @@ import { GraphContext, GraphContextBag } from './context'
 export const Graph = ({
   nodeSize = DEFAULT_NODE_SIZE,
   nodeTheme = 'default',
+  orientation = 'normal',
   enableResize = false,
   showCommitNodeHashes = false,
   showCommitNodeTooltips = false
@@ -23,12 +24,16 @@ export const Graph = ({
     rowSpacing,
     setNodeSize,
     isIndexVisible,
+    setGraphOrientation,
     graphData: { graphWidth, commits }
   } = useGitContext()
 
   useEffect(() => {
+    // Informs the wrapping GitContext about the
+    // change in certain props so other components can respond.
     setNodeSize(nodeSize)
-  }, [nodeSize, setNodeSize])
+    setGraphOrientation(orientation)
+  }, [nodeSize, orientation, setGraphOrientation, setNodeSize])
 
   const { width, ref, startResizing } = useResize()
 
@@ -69,8 +74,10 @@ export const Graph = ({
     showCommitNodeTooltips,
     showCommitNodeHashes,
     nodeTheme,
-    nodeSize
-  }), [showCommitNodeHashes, showCommitNodeTooltips, nodeTheme, nodeSize])
+    nodeSize,
+    graphWidth: virtualisedGraphWidth,
+    orientation
+  }), [showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, virtualisedGraphWidth, orientation])
 
   return (
     <GraphContext value={contextValue}>
@@ -87,9 +94,7 @@ export const Graph = ({
           )}
 
           {isIndexVisible && (
-            <IndexPseudoRow
-              graphWidth={virtualisedGraphWidth}
-            />
+            <IndexPseudoRow />
           )}
 
           {visibleCommits.map((commit, index) => {
@@ -103,7 +108,6 @@ export const Graph = ({
                 commit={commit}
                 key={commit.hash}
                 columns={columns}
-                width={virtualisedGraphWidth}
               />
             )
           })}

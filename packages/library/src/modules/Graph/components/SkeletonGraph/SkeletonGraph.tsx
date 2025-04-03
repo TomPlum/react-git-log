@@ -9,7 +9,6 @@ export const SkeletonGraph = () => {
       {placeholderData.map(({ commit, columns }, i) => (
         <GraphRow
           id={i}
-          width={7}
           commit={commit}
           columns={columns}
           key={`skeleton_row_${i}`}

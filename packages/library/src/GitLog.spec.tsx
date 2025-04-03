@@ -58,7 +58,7 @@ describe('GitLog', () => {
     })
   })
 
-  it('should render correctly and match the snapshot the standard GitLog component', { timeout: 1000 * 10 } ,() => {
+  it('should render correctly and match the snapshot of the GitLog component', { timeout: 1000 * 10 } ,() => {
     const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
 
     const { asFragment } = render(
@@ -66,6 +66,62 @@ describe('GitLog', () => {
         showHeaders
         currentBranch='release'
         entries={gitLogEntries}
+        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+      >
+        <GitLog.Tags />
+        <GitLog.Graph />
+        <GitLog.Table />
+      </GitLog>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should render correctly and match the snapshot of the GitLog component in flipped orientation', { timeout: 1000 * 10 } ,() => {
+    const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
+
+    const { asFragment } = render(
+      <GitLog
+        showHeaders
+        currentBranch='release'
+        entries={gitLogEntries}
+        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+      >
+        <GitLog.Tags />
+        <GitLog.Graph orientation='flipped' />
+        <GitLog.Table />
+      </GitLog>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should render correctly and match the snapshot of the GitLog component with a custom node size', { timeout: 1000 * 10 } ,() => {
+    const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
+
+    const { asFragment } = render(
+      <GitLog
+        showHeaders
+        currentBranch='release'
+        entries={gitLogEntries}
+        defaultGraphWidth={100}
+        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+      >
+        <GitLog.Tags />
+        <GitLog.Graph nodeSize={12} />
+        <GitLog.Table />
+      </GitLog>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should render correctly and match the snapshot of the GitLog component when there is no data', { timeout: 1000 * 10 } ,() => {
+    const { asFragment } = render(
+      <GitLog
+        showHeaders
+        entries={[]}
+        currentBranch='release'
         githubRepositoryUrl='https://github.com/TomPlum/sleep'
       >
         <GitLog.Tags />

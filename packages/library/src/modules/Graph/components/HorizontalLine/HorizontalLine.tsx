@@ -3,8 +3,10 @@ import styles from './HorizontalLine.module.scss'
 import { CSSProperties, useMemo } from 'react'
 import { HorizontalLineProps } from 'modules/Graph/components/HorizontalLine/types'
 import { useTheme } from 'hooks/useTheme'
+import { useGraphContext } from 'modules/Graph/context'
 
 export const HorizontalLine = ({ state, columnIndex, commitNodeIndex, columnColour }: HorizontalLineProps) => {
+  const { orientation } = useGraphContext()
   const { getGraphColumnColour } = useTheme()
 
   const { style, variant } = useMemo<{ style: CSSProperties, variant: string }>(() => {
@@ -21,15 +23,17 @@ export const HorizontalLine = ({ state, columnIndex, commitNodeIndex, columnColo
     const borderStyle = state.isPlaceholderSkeleton ? 'dotted' : 'solid'
 
     // If this column has a node and is being merged into from another,
-    // then we don't need to draw to the left of the node, just connect
-    // to the right side horizontal line.
+    // then we don't need to draw behind the node off the edge of the graph,
+    // just connect to the horizontal line that wants to connect to it.
     if (state.isNode && state.mergeSourceColumns) {
+      const isNormalOrientation = orientation === 'normal'
+      const variant = isNormalOrientation ? 'right-half' : 'left-half'
       return {
-        variant: 'right-half',
+        variant,
         style: {
           borderTop: `2px ${borderStyle} ${borderColour}`,
           width: '50%',
-          right: 0,
+          right: isNormalOrientation ? 0 : '50%',
           zIndex: columnIndex + 1
         }
       }
@@ -44,10 +48,11 @@ export const HorizontalLine = ({ state, columnIndex, commitNodeIndex, columnColo
       style: {
         borderTop: `2px ${borderStyle} ${borderColour}`,
         width: isInFirstColumn ? '50%' : '100%',
-        zIndex: columnIndex + 1
+        zIndex: columnIndex + 1,
+        right: 0
       }
     }
-  }, [columnColour, commitNodeIndex, getGraphColumnColour, columnIndex, state.isNode, state.isPlaceholderSkeleton, state.mergeSourceColumns])
+  }, [state.mergeSourceColumns, state.isPlaceholderSkeleton, state.isNode, columnColour, getGraphColumnColour, commitNodeIndex, columnIndex, orientation])
 
 
   return (

@@ -1,15 +1,19 @@
 import { render } from '@testing-library/react'
 import { GraphRow } from './GraphRow'
-import { commit, graphColumnState, themeFunctions } from 'test/stubs'
+import { commit, graphColumnState, graphContextBag, themeFunctions } from 'test/stubs'
 import { graphColumn } from 'test/elements/GraphColumn'
 import * as themeHook from 'hooks/useTheme'
+import * as graphContext from 'modules/Graph/context'
 
 describe('GraphRow', () => {
   it('should render a column for each one in the columns property', () => {
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValueOnce(graphContextBag({
+      graphWidth: 3
+    }))
+
     render(
       <GraphRow
         id={0}
-        width={3}
         commit={commit()}
         columns={[
           graphColumnState(),
@@ -25,6 +29,10 @@ describe('GraphRow', () => {
   })
 
   it('should pass the column index that the node for this row is in to the columns', () => {
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValueOnce(graphContextBag({
+      graphWidth: 3
+    }))
+    
     const graphColumnColour = 'rgb(56, 56, 56)'
     const getGraphColumnColour = vi.fn().mockImplementation(index => {
       // Commit node is at index 2, so return a unique colour here
@@ -42,7 +50,6 @@ describe('GraphRow', () => {
     render(
       <GraphRow
         id={0}
-        width={3}
         commit={commit()}
         columns={[
           graphColumnState(),

@@ -2,7 +2,7 @@ import { GraphColumnProps } from './types'
 import { CommitNode } from 'modules/Graph/components/CommitNode'
 import styles from './GraphColumn.module.scss'
 import { useTheme } from 'hooks/useTheme'
-import { useMemo } from 'react'
+import { CSSProperties, useMemo } from 'react'
 import { useGitContext } from 'context/GitContext'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import { ColumnBackground } from 'modules/Graph/components/ColumnBackground'
@@ -21,8 +21,8 @@ export const GraphColumn = ({
   commit,
   commitNodeIndex
 }: GraphColumnProps) => {
-  const { nodeSize } = useGraphContext()
   const { selectCommitHandler } = useSelectCommit()
+  const { nodeSize, orientation } = useGraphContext()
   const { headCommit, selectedCommit, previewedCommit, showTable } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, textColour, hoverColour, reduceOpacity } = useTheme()
 
@@ -65,10 +65,25 @@ export const GraphColumn = ({
     return rowsCommitMatchesSelected && commitNodeIndex === index
   }, [commitNodeIndex, index, rowsCommitMatchesSelected, showTable])
 
+  const style = useMemo<CSSProperties>(() => {
+    const isCurve = state.isLeftDownCurve || state.isLeftUpCurve
+
+    if (orientation === 'flipped' && isCurve) {
+      return {
+        minWidth: nodeSize,
+        transform:'scale(-1, 1)'
+      }
+    }
+
+    return {
+      minWidth: nodeSize,
+    }
+  }, [nodeSize, orientation, state.isLeftDownCurve, state.isLeftUpCurve])
+
   return (
     <div
+      style={style}
       className={styles.column}
-      style={{ minWidth: nodeSize }}
       id={`graph-column-row-${rowIndex}-col-${index}`}
       onMouseOut={() => selectCommitHandler.onMouseOut()}
       onClick={() => selectCommitHandler.onClick(commit)}

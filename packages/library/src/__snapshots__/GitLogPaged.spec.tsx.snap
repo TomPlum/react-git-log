@@ -660,7 +660,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2;"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2; right: 0px;"
             />
             <div
               class="container"
@@ -978,7 +978,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2;"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2; right: 0px;"
             />
             <div
               class="container"
@@ -1153,7 +1153,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 2;"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 2; right: 0px;"
             />
           </div>
           <div
@@ -1172,7 +1172,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 3;"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 3; right: 0px;"
             />
           </div>
           <div
@@ -1185,7 +1185,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 4;"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 4; right: 0px;"
             />
           </div>
           <div
@@ -1278,7 +1278,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(0, 102, 255); width: 100%; z-index: 2;"
+              style="border-top: 2px solid rgb(0, 102, 255); width: 100%; z-index: 2; right: 0px;"
             />
           </div>
           <div
@@ -1297,7 +1297,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(0, 102, 255); width: 100%; z-index: 3;"
+              style="border-top: 2px solid rgb(0, 102, 255); width: 100%; z-index: 3; right: 0px;"
             />
           </div>
           <div
@@ -1552,7 +1552,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2;"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2; right: 0px;"
             />
             <div
               class="container"
@@ -1954,7 +1954,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 2;"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 2; right: 0px;"
             />
           </div>
           <div
@@ -1967,7 +1967,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 3;"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 3; right: 0px;"
             />
             <div
               class="container"
@@ -2015,7 +2015,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 4;"
+              style="border-top: 2px solid rgb(204, 0, 255); width: 100%; z-index: 4; right: 0px;"
             />
             <div
               class="container"
@@ -2299,7 +2299,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
               class="line horizontal"
               data-testid="horizontal-line-full-width"
               id="horizontal-line-full-width"
-              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2;"
+              style="border-top: 2px solid rgb(0, 255, 102); width: 100%; z-index: 2; right: 0px;"
             />
             <div
               class="container"

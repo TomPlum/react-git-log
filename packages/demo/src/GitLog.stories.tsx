@@ -30,6 +30,7 @@ const meta: Meta<StoryProps> = {
     enableResize: false,
     nodeTheme: 'default',
     nodeSize: 20,
+    orientation: 'normal',
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
@@ -161,6 +162,17 @@ const meta: Meta<StoryProps> = {
         step: 2
       }
     },
+    orientation: {
+      name: 'Graph Orientation',
+      table: {
+        category: 'Dimensions'
+      },
+      control: 'radio',
+      options: {
+        Normal: 'normal',
+        Flipped: 'flipped'
+      }
+    },
     onSelectCommit: {
       name: 'onSelectCommit',
       table: {
@@ -230,6 +242,7 @@ export const Demo: Story = {
             <GitLog.Graph
               nodeSize={args.nodeSize}
               nodeTheme={args.nodeTheme}
+              orientation={args.orientation}
               enableResize={args.enableResize}
               showCommitNodeHashes={args.showCommitNodeHashes}
               showCommitNodeTooltips={args.showCommitNodeTooltips}

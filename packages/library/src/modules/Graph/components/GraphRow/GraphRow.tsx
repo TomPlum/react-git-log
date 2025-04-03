@@ -1,20 +1,27 @@
 import { GraphRowProps } from './types'
 import { GraphColumn } from 'modules/Graph/components/GraphColumn'
 import { getEmptyColumnState } from 'modules/Graph/utility/getEmptyColumnState'
+import { useGraphContext } from 'modules/Graph/context'
 
-export const GraphRow = ({ id, commit, width, columns }: GraphRowProps) => {
+export const GraphRow = ({ id, commit, columns }: GraphRowProps) => {
+  const { graphWidth, orientation } = useGraphContext()
+
   return (
     <>
-      {new Array(width).fill(0).map((_, index) => {
+      {new Array(graphWidth).fill(0).map((_, index) => {
+        const normalisedIndex = orientation === 'normal'
+        ? index
+        : graphWidth - 1 - index
+
         return (
           <GraphColumn
-            index={index}
             rowIndex={id}
             commit={commit}
+            index={normalisedIndex}
             commitNodeIndex={columns.findIndex(col => col.isNode)!}
-            key={`row_${commit ? commit.hash : 'index'}_column_${index}}`}
+            key={`row_${commit ? commit.hash : 'index'}_column_${normalisedIndex}}`}
             // If there is no state for the given index, then we're in a virtual column, so use an empty state
-            state={columns[index] ?? getEmptyColumnState({ columns: width })}
+            state={columns[normalisedIndex] ?? getEmptyColumnState({ columns: graphWidth })}
           />
         )
       })}

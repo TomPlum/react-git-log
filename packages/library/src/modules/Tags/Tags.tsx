@@ -33,7 +33,8 @@ export const Tags = () => {
     paging,
     graphWidth,
     rowSpacing,
-    isIndexVisible
+    isIndexVisible,
+    graphOrientation
   } = useGitContext()
 
   const preparedCommits = useMemo(() => {
@@ -47,16 +48,23 @@ export const Tags = () => {
   }, [graphData.commits, indexCommit, paging?.endIndex, isIndexVisible, paging?.startIndex])
 
   const tagLineWidth = useCallback((commit: Commit) => {
-    const columnWidth = graphWidth / graphData.graphWidth
+    const isNormalOrientation = graphOrientation === 'normal'
+    const numberOfColumns = graphData.graphWidth
+    const columnWidth = graphWidth / numberOfColumns
 
     if (commit.hash === 'index') {
-      return columnWidth / 2
+      return isNormalOrientation
+        ? columnWidth / 2
+        : ((numberOfColumns - 1) * columnWidth) + (columnWidth / 2)
     }
 
     const columnIndex = graphData.positions.get(commit.hash)![1]
+    const normalisedColumnIndex = isNormalOrientation
+      ? columnIndex
+      : numberOfColumns - 1 - columnIndex
 
-    return  (columnWidth * columnIndex) + (columnWidth / 2)
-  }, [graphWidth, graphData.graphWidth, graphData.positions])
+    return (columnWidth * normalisedColumnIndex) + (columnWidth / 2)
+  }, [graphWidth, graphData.graphWidth, graphData.positions, graphOrientation])
 
   return (
     <div className={styles.container}>

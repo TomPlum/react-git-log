@@ -2,6 +2,7 @@ import { Commit } from 'types/Commit'
 import { ThemeMode } from 'hooks/useTheme'
 import { GraphData } from 'data'
 import { GitLogStylingProps } from '../../types'
+import { GraphOrientation } from 'modules/Graph'
 
 export interface GitContextBag {
   colours: string[]
@@ -121,12 +122,38 @@ export interface GitContextBag {
   graphWidth: number
 
   /**
+   * The orientation of the graph.
+   *
+   * Normal mode draws the graph from
+   * left to right so the checked-out
+   * branch is on the left-hand side.
+   *
+   * Flipped mode inverts the graph
+   * in the y-axios so it's drawn from
+   * right to left with the checked-out
+   * branch on the right-hand side.
+   */
+  graphOrientation?: GraphOrientation
+
+  /**
+   * Sets a new orientation for the graph.
+   *
+   * @param orientation The new orientation.
+   */
+  setGraphOrientation: (orientation: GraphOrientation) => void
+
+  /**
    * The diameter, in pixels, of the
    * commit node elements rendered on
    * the graph.
    */
   nodeSize: number
 
+  /**
+   * Sets the size of the nodes on the graph.
+   *
+   * @param size The new size in pixels.
+   */
   setNodeSize: (size: number) => void
 
   /**

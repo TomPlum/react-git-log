@@ -24,7 +24,6 @@ export const IndexPseudoRow = () => {
       <GraphRow
         id={0}
         key={'index'}
-        width={graphWidth}
         commit={indexCommit}
         columns={indexColumns}
       />

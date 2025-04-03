@@ -116,6 +116,23 @@ describe('GitLog', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
+  it('should render correctly and match the snapshot of the GitLog component when there is no data', { timeout: 1000 * 10 } ,() => {
+    const { asFragment } = render(
+      <GitLog
+        showHeaders
+        entries={[]}
+        currentBranch='release'
+        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+      >
+        <GitLog.Tags />
+        <GitLog.Graph />
+        <GitLog.Table />
+      </GitLog>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
   it('should log a warning if the graph subcomponent is not rendered', () => {
     const consoleWarn = vi.spyOn(console, 'warn')
 

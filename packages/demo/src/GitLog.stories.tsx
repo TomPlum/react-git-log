@@ -27,6 +27,7 @@ const meta: Meta<StoryProps> = {
     showCommitNodeHashes: false,
     showCommitNodeTooltips: false,
     showHeaders: true,
+    showGitIndex: true,
     enableResize: false,
     nodeTheme: 'default',
     nodeSize: 20,
@@ -98,6 +99,12 @@ const meta: Meta<StoryProps> = {
       options: {
         Default: 'default',
         Plain: 'plain'
+      }
+    },
+    showGitIndex: {
+      name: 'Show Git Index',
+      table: {
+        category: 'Visibility'
       }
     },
     pageSize: {

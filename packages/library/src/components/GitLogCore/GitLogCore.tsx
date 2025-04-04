@@ -27,7 +27,8 @@ export const GitLogCore = ({
   headCommitHash,
   componentName,
   indexStatus,
-  isServerSidePaginated = false
+  isServerSidePaginated = false,
+  showGitIndex = true
 }: PropsWithChildren<GitLogCoreProps>) => {
   const { tags, graph, table } = useMemo(() => {
     let tags: ReactElement | undefined = undefined
@@ -158,6 +159,10 @@ export const GitLogCore = ({
   }, [entries.length, paging])
 
   const isIndexVisible = useMemo<boolean>(() => {
+    if (!showGitIndex) {
+      return false
+    }
+
     if (isServerSidePaginated) {
       return entries.some(({ hash }) => hash === headCommitHash)
     }
@@ -167,7 +172,7 @@ export const GitLogCore = ({
     }
 
     return true
-  }, [entries, headCommitHash, isServerSidePaginated, pageIndices.startIndex, paging])
+  }, [entries, headCommitHash, isServerSidePaginated, pageIndices.startIndex, paging, showGitIndex])
 
   const graphContainerWidthValue = useMemo<number>(() => {
     if (defaultGraphWidth && defaultGraphWidth >= smallestAvailableGraphWidth) {

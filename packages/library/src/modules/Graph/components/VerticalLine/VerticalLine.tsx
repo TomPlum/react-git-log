@@ -5,12 +5,12 @@ import { VerticalLineProps } from './types'
 import { useGitContext } from 'context/GitContext'
 
 export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCommitNodeBorder, isIndex }: VerticalLineProps) => {
-  const { headCommit, isServerSidePaginated, headCommitHash } = useGitContext()
+  const { headCommit, isServerSidePaginated, headCommitHash, isIndexVisible } = useGitContext()
 
   const border = useMemo<CSSProperties>(() => {
     // Border is dotted for the index pseudo-node
     // and the skeleton placeholder elements.
-    const borderStyle = isIndex || state.isPlaceholderSkeleton ? 'dotted' : 'solid'
+    const borderStyle = (isIndex) || state.isPlaceholderSkeleton ? 'dotted' : 'solid'
 
     const borderColour = isIndex ? indexCommitNodeBorder : columnColour
 
@@ -53,7 +53,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
     // If this column has the HEAD commit node in it,
     // just draw a dotted line on top of it which will
     // ultimately hit the index pseudo-node above.
-    if (rowsCommitIsHead) {
+    if (rowsCommitIsHead && isIndexVisible) {
       return {
         variant: 'top-half-dotted',
         style: {

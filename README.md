@@ -223,6 +223,7 @@ All components have optional props to further configure the log.
 | `onSelectCommit`      | `(commit?: Commit) => void` | Callback function when a commit is selected. `commit` is `undefined` if unselected.                      |
 | `classes`             | `GitLogStylingProps`        | CSS classes for various elements to enable custom styling.                                               |
 | `indexStatus`         | `GitLogIndexStatus`         | Renders information about added, deleted and modified files to the index pseudo-commit entry.            |
+| `showGitIndex`        | `boolean`                   | Enables the Git index "pseudo-commit' entry above the HEAD commit.                                       |
 
 
 #### GitLogStylingProps
@@ -325,7 +326,6 @@ All components have optional props to further configure the log.
 - Mobile responsiveness for the demo site
 - Add graph render strategy with a second option to use 2d rendering context (html canvas)
 - Add eslint to pipeline
-- Add in prop to show-hide the index pseudo commit
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
 - Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch

@@ -67,6 +67,11 @@ describe('GitLog', () => {
         currentBranch='release'
         entries={gitLogEntries}
         githubRepositoryUrl='https://github.com/TomPlum/sleep'
+        indexStatus={{
+          added: 2,
+          deleted: 1,
+          modified: 10
+        }}
       >
         <GitLog.Tags />
         <GitLog.Graph />
@@ -122,6 +127,26 @@ describe('GitLog', () => {
         showHeaders
         entries={[]}
         currentBranch='release'
+        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+      >
+        <GitLog.Tags />
+        <GitLog.Graph />
+        <GitLog.Table />
+      </GitLog>
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should render correctly and match the snapshot of the GitLog component when the index is disabled', { timeout: 1000 * 10 } ,() => {
+    const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
+
+    const { asFragment } = render(
+      <GitLog
+        showHeaders
+        showGitIndex={false}
+        currentBranch='release'
+        entries={gitLogEntries}
         githubRepositoryUrl='https://github.com/TomPlum/sleep'
       >
         <GitLog.Tags />

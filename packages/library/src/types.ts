@@ -73,6 +73,18 @@ interface GitLogCommonProps {
   indexStatus?: GitLogIndexStatus
 
   /**
+   * Whether to show the Git index
+   * "pseudo-commit" entry at the top
+   * of the log above the HEAD commit.
+   *
+   * Represents the local working directory
+   * and Git index of the currently checked-out
+   * branch. Can optionally show metadata of
+   * file statuses via {@link indexStatus}
+   */
+  showGitIndex?: boolean
+
+  /**
    * A callback function invoked when a commit
    * is selected from the graph or log table.
    *

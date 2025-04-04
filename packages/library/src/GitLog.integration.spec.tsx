@@ -167,7 +167,7 @@ describe('GitLog Integration', () => {
 
       const indexTableRow = table.row({ row: 0 })
       expect(indexTableRow).toBeInTheDocument()
-      expect(table.commitMessageData({ row: 0 })).toHaveTextContent('// Work in-progress in TomPlum/sleep...')
+      expect(table.commitMessageData({ row: 0 })).toHaveTextContent('// WIP')
       expect(table.timestampData({ row: 0 })).toHaveTextContent('-')
       expect(table.authorData({ row: 0 })).toHaveTextContent('-')
     }

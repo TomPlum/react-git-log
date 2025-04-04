@@ -51,6 +51,16 @@ export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({
   headCommit: commit({ hash: 'HEAD' }),
   graphData: graphData(),
   showHeaders: true,
+  graphOrientation: 'normal',
+  setGraphOrientation: vi.fn(),
+  nodeSize: 20,
+  setNodeSize: vi.fn(),
+  headCommitHash: '123',
+  indexStatus: {
+    deleted: 0,
+    modified: 0,
+    added: 0
+  },
   ...bag
 })
 
@@ -58,6 +68,9 @@ export const graphContextBag = (bag?: Partial<GraphContextBag>): GraphContextBag
   nodeTheme: 'default',
   showCommitNodeTooltips: false,
   showCommitNodeHashes: false,
+  graphWidth: 200,
+  nodeSize: 20,
+  orientation: 'normal',
   ...bag
 })
 

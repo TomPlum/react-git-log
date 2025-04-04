@@ -67,6 +67,12 @@ interface GitLogCommonProps {
   defaultGraphWidth?: number
 
   /**
+   * The status of changed files in the
+   * Git index.
+   */
+  indexStatus?: GitLogIndexStatus
+
+  /**
    * A callback function invoked when a commit
    * is selected from the graph or log table.
    *
@@ -165,4 +171,10 @@ export interface GitLogPaging {
    * The first page is page 0.
    */
   page: number
+}
+
+export interface GitLogIndexStatus {
+  modified: number
+  added: number
+  deleted: number
 }

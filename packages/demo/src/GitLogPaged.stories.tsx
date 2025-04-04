@@ -216,6 +216,11 @@ export const Demo: Story = {
               },
               containerClass: styles.gitLogContainer
             }}
+            indexStatus={{
+              added: 0,
+              modified: 2,
+              deleted: 3
+            }}
           >
             <GitLogPaged.Graph
               nodeSize={args.nodeSize}

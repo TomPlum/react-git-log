@@ -26,6 +26,7 @@ export const GitLogCore = ({
   paging,
   headCommitHash,
   componentName,
+  indexStatus,
   isServerSidePaginated = false
 }: PropsWithChildren<GitLogCoreProps>) => {
   const { tags, graph, table } = useMemo(() => {
@@ -132,25 +133,19 @@ export const GitLogCore = ({
       return undefined
     }
 
-    const repositorySegments = githubRepositoryUrl?.split('/')
-    const slashes = repositorySegments?.length ?? 0
-    const lastTwoSegments = repositorySegments?.slice(slashes - 2, slashes)
-    const repositoryName = lastTwoSegments?.join('/')
-    const withRepoMessage = ` in ${repositoryName}...`
-
     return ({
       hash: 'index',
       branch: headCommit.branch,
       parents: [headCommit.hash],
       children: [],
       authorDate: new Date().toString(),
-      message: `// Work in-progress${githubRepositoryUrl ? withRepoMessage : '...'}`,
+      message: '// WIP',
       committerDate: new Date().toString(),
       isBranchTip: false,
       x: 0,
       y: 0
     })
-  }, [githubRepositoryUrl, headCommit])
+  }, [headCommit])
 
   const pageIndices = useMemo(() => {
     const page = paging?.page ?? 0
@@ -208,7 +203,8 @@ export const GitLogCore = ({
     nodeSize,
     setNodeSize,
     graphOrientation,
-    setGraphOrientation
+    setGraphOrientation,
+    indexStatus
   }), [
     themeColours,
     classes,
@@ -232,7 +228,8 @@ export const GitLogCore = ({
     isServerSidePaginated,
     isIndexVisible,
     nodeSize,
-    graphOrientation
+    graphOrientation,
+    indexStatus
   ])
 
   return (

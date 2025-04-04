@@ -1,7 +1,8 @@
 import { CSSProperties } from 'react'
 
 export interface CommitMessageDataProps {
-  index: number;
+  index: number
+  isIndex: boolean
   style: CSSProperties
   commitMessage: string
 }

@@ -234,6 +234,11 @@ export const Demo: Story = {
               },
               containerClass: styles.gitLogContainer
             }}
+            indexStatus={{
+              added: 2,
+              modified: 5,
+              deleted: 1
+            }}
           >
             {args.showBranchesTags && (
               <GitLog.Tags />

@@ -93,6 +93,7 @@ export const TableRow = ({
         index={index}
         style={tableDataStyle}
         commitMessage={commit.message}
+        isIndex={commit.hash === 'index'}
       />
 
       <AuthorData

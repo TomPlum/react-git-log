@@ -196,34 +196,36 @@ All components have optional props to further configure the log.
 
 ### GitLog
 
-| Property                      | Type                        | Description                                                                                              |
-|-------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------|
-| `theme`                       | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                              |
-| `colours`                     | `ThemeColours \| string[]`  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.    |
-| `showHeaders`                 | `boolean`                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.              |
-| `rowSpacing`                  | `number`                    | The spacing between log rows, affecting branches, graph, and table. Default: `0`.                        |
-| `githubRepositoryUrl`         | `string`                    | URL of the GitHub repository where `entries` came from. Enables links for commits, tags, and PRs.        |
-| `defaultGraphWidth`           | `number`                    | Default width of the graph in pixels. Can be changed dynamically if resizing is enabled. Default: `300`. |
-| `onSelectCommit`              | `(commit?: Commit) => void` | Callback function when a commit is selected. `commit` is `undefined` if unselected.                      |
-| `classes`                     | `GitLogStylingProps`        | CSS classes for various elements to enable custom styling.                                               |
-| `paging`                      | `GitLogPaging`              | Optional paging settings for displaying a subset of log entries.                                         |
+| Property              | Type                        | Description                                                                                              |
+|-----------------------|-----------------------------|----------------------------------------------------------------------------------------------------------|
+| `theme`               | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                              |
+| `colours`             | `ThemeColours \| string[]`  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.    |
+| `showHeaders`         | `boolean`                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.              |
+| `rowSpacing`          | `number`                    | The spacing between log rows, affecting branches, graph, and table. Default: `0`.                        |
+| `githubRepositoryUrl` | `string`                    | URL of the GitHub repository where `entries` came from. Enables links for commits, tags, and PRs.        |
+| `defaultGraphWidth`   | `number`                    | Default width of the graph in pixels. Can be changed dynamically if resizing is enabled. Default: `300`. |
+| `onSelectCommit`      | `(commit?: Commit) => void` | Callback function when a commit is selected. `commit` is `undefined` if unselected.                      |
+| `classes`             | `GitLogStylingProps`        | CSS classes for various elements to enable custom styling.                                               |
+| `paging`              | `GitLogPaging`              | Optional paging settings for displaying a subset of log entries.                                         |
+| `indexStatus`         | `GitLogIndexStatus`         | Renders information about added, deleted and modified files to the index pseudo-commit entry.            |
 
 
 ### GitLogPaged
 
-| Property                      | Type                        | Description                                                                                              |
-|-------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------|
-| `theme`                       | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                              |
-| `colours`                     | `ThemeColours \| string[]`  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.    |
-| `showHeaders`                 | `boolean`                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.              |
-| `rowSpacing`                  | `number`                    | The spacing between log rows, affecting branches, graph, and table. Default: `0`.                        |
-| `githubRepositoryUrl`         | `string`                    | URL of the GitHub repository where `entries` came from. Enables links for commits, tags, and PRs.        |
-| `defaultGraphWidth`           | `number`                    | Default width of the graph in pixels. Can be changed dynamically if resizing is enabled. Default: `300`. |
-| `onSelectCommit`              | `(commit?: Commit) => void` | Callback function when a commit is selected. `commit` is `undefined` if unselected.                      |
-| `classes`                     | `GitLogStylingProps`        | CSS classes for various elements to enable custom styling.                                               |
+| Property              | Type                        | Description                                                                                              |
+|-----------------------|-----------------------------|----------------------------------------------------------------------------------------------------------|
+| `theme`               | `ThemeMode`                 | The variant of the default color theme to apply to the log.                                              |
+| `colours`             | `ThemeColours \| string[]`  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.    |
+| `showHeaders`         | `boolean`                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.              |
+| `rowSpacing`          | `number`                    | The spacing between log rows, affecting branches, graph, and table. Default: `0`.                        |
+| `githubRepositoryUrl` | `string`                    | URL of the GitHub repository where `entries` came from. Enables links for commits, tags, and PRs.        |
+| `defaultGraphWidth`   | `number`                    | Default width of the graph in pixels. Can be changed dynamically if resizing is enabled. Default: `300`. |
+| `onSelectCommit`      | `(commit?: Commit) => void` | Callback function when a commit is selected. `commit` is `undefined` if unselected.                      |
+| `classes`             | `GitLogStylingProps`        | CSS classes for various elements to enable custom styling.                                               |
+| `indexStatus`         | `GitLogIndexStatus`         | Renders information about added, deleted and modified files to the index pseudo-commit entry.            |
 
 
-#### **GitLogStylingProps**
+#### GitLogStylingProps
 | Property          | Type            | Description                                                                    |
 |-------------------|-----------------|--------------------------------------------------------------------------------|
 | `containerClass`  | `string`        | Class name for the wrapping `<div>` containing branches, graph, and log table. |
@@ -235,6 +237,14 @@ All components have optional props to further configure the log.
 |--------|----------|-------------------------------------------------|
 | `size` | `number` | The number of rows to show per page.            |
 | `page` | `number` | The page number to display (first page is `0`). |
+
+#### GitLogIndexStatus
+
+| Prop       | Type     | Description                                                               |
+|------------|----------|---------------------------------------------------------------------------|
+| `added`    | `number` | The number of added files in the git index for the checked-out branch.    |
+| `deleted`  | `number` | The number of deleted files in the git index for the checked-out branch.  |
+| `modified` | `number` | The number of modified files in the git index for the checked-out branch. |
 
 ### Graph
 
@@ -309,16 +319,14 @@ All components have optional props to further configure the log.
 - Can Zustand help us here to reduce re-renders with GitContext Provider?
 - Expose component override props for things like CommitNode, CommitMessage etc.
 - Straight line prop to turn curves into right angles?
-- Node size parameter to make the graph even more compact as it will reduce the minimum column width
 - Line curve radius prop?
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
 - Extract ThemeContext
 - Mobile responsiveness for the demo site
 - Add graph render strategy with a second option to use 2d rendering context (html canvas)
-- Graph direction? Right now its renders left-right, but do want to invert it in the y-axis?
 - Add eslint to pipeline
-- Update the WIP comment in the index pseudo commit to show files added/edited etc.
 - Add in prop to show-hide the index pseudo commit
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
 - Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch
+- Make repository URL a function that generates the URL

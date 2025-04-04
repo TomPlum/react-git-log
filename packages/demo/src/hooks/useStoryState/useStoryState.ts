@@ -12,7 +12,8 @@ const getRepositoryConfig = (name: string) => {
         branchName: 'release',
         fileNameEntireHistory: 'sleep.txt',
         fileNameCheckedOutBranch: 'sleep-release.txt',
-        headCommitHash: '1352f4c'
+        headCommitHash: '1352f4c',
+        headCommitCheckoutOutBranch: 'e059c28'
       }
     }
     case 'TomPlum/advent-of-code-2019': {
@@ -20,7 +21,8 @@ const getRepositoryConfig = (name: string) => {
         branchName: 'master',
         fileNameEntireHistory: 'advent-of-code-2019.txt',
         fileNameCheckedOutBranch: 'advent-of-code-2019-master.txt',
-        headCommitHash: 'c88f0b9'
+        headCommitHash: 'c88f0b9',
+        headCommitCheckoutOutBranch: '12d47cc'
       }
     }
     case 'TomPlum/learn-japanese': {
@@ -28,7 +30,8 @@ const getRepositoryConfig = (name: string) => {
         branchName: 'feature/JPUI-51',
         fileNameEntireHistory: 'learn-japanese.txt',
         fileNameCheckedOutBranch: 'learn-japanese-feature.txt',
-        headCommitHash: 'de80ee8'
+        headCommitHash: 'de80ee8',
+        headCommitCheckoutOutBranch: 'de80ee8d'
       }
     }
     default: {
@@ -39,7 +42,13 @@ const getRepositoryConfig = (name: string) => {
 
 export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: StoryStateProps = {}) => {
   const [repository, setRepository] = useState('TomPlum/sleep')
-  const { branchName, fileNameEntireHistory, fileNameCheckedOutBranch, headCommitHash } = getRepositoryConfig(repository)
+  const {
+    branchName,
+    fileNameEntireHistory,
+    fileNameCheckedOutBranch,
+    headCommitHash,
+    headCommitCheckoutOutBranch
+  } = getRepositoryConfig(repository)
 
   const { data, isLoading } = useGitLogEntries({
     fileName: isServerSidePaginated ? fileNameCheckedOutBranch : fileNameEntireHistory
@@ -68,7 +77,7 @@ export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: Sto
   return {
     loading: isLoading,
     branch: branchName,
-    headCommitHash,
+    headCommitHash: isServerSidePaginated ? headCommitCheckoutOutBranch : headCommitHash,
     entries: data,
     theme,
     colours,

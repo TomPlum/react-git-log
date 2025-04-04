@@ -10,6 +10,7 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
     paging,
     headCommit,
     headCommitHash,
+    isIndexVisible,
     isServerSidePaginated,
     graphData: { graphWidth, positions, edges, commits }
   } = useGitContext()
@@ -160,7 +161,7 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
 
     // Add the vertical branch lines in from the current branches
     // HEAD commit up to the index pseudo commit node.
-    if (headCommit) {
+    if (headCommit && isIndexVisible) {
       const headCommitRowIndex = positions.get(headCommit.hash)![0]
       for (let rowIndex = 0; rowIndex <= headCommitRowIndex; rowIndex++) {
         const columnState = rowToColumnState.get(rowIndex) ?? getEmptyColumnState()

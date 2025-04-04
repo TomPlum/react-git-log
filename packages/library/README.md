@@ -181,6 +181,7 @@ All components have optional props to further configure the log.
 | `onSelectCommit`      | `(commit?: Commit) => void` | Callback function when a commit is selected. `commit` is `undefined` if unselected.                      |
 | `classes`             | `GitLogStylingProps`        | CSS classes for various elements to enable custom styling.                                               |
 | `indexStatus`         | `GitLogIndexStatus`         | Renders information about added, deleted and modified files to the index pseudo-commit entry.            |
+| `showGitIndex`        | `boolean`                   | Enables the Git index "pseudo-commit' entry above the HEAD commit.                                       |
 
 
 #### GitLogStylingProps

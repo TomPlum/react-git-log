@@ -1,0 +1,42 @@
+.pencil, .plus, .minus {
+  height: 15px;
+  width: 15px;
+  margin-left: 2px;
+}
+
+.indexStatus {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  opacity: 0.8;
+  transition: opacity ease-in-out 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.value {
+  margin-left: 15px;
+}
+
+.iconWrapper {
+  margin-top: 2px;
+}
+
+.modified {
+  color: #e5a935;
+}
+
+.deleted {
+  color: #FF757C;
+}
+
+.added {
+  color: #5dc044;
+}

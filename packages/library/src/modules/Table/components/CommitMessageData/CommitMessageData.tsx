@@ -1,7 +1,8 @@
 import styles from './CommitMessageData.module.scss'
 import { CommitMessageDataProps } from './types'
+import { IndexStatus } from 'modules/Table/components/IndexStatus'
 
-export const CommitMessageData = ({ index, commitMessage, style }: CommitMessageDataProps) => {
+export const CommitMessageData = ({ index, isIndex, commitMessage, style }: CommitMessageDataProps) => {
   return (
     <div
       style={style}
@@ -11,6 +12,10 @@ export const CommitMessageData = ({ index, commitMessage, style }: CommitMessage
       data-testid={`react-git-log-table-data-commit-message-${index}`}
     >
       {commitMessage}
+
+      {isIndex && (
+        <IndexStatus />
+      )}
     </div>
   )
 }

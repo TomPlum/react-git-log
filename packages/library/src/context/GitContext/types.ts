@@ -1,7 +1,7 @@
 import { Commit } from 'types/Commit'
 import { ThemeMode } from 'hooks/useTheme'
 import { GraphData } from 'data'
-import { GitLogStylingProps } from '../../types'
+import { GitLogIndexStatus, GitLogStylingProps } from '../../types'
 import { GraphOrientation } from 'modules/Graph'
 
 export interface GitContextBag {
@@ -185,6 +185,12 @@ export interface GitContextBag {
    * array of {@link colours} are passed.
    */
   theme: ThemeMode
+
+  /**
+   * The status of changed files in the
+   * Git index.
+   */
+  indexStatus?: GitLogIndexStatus
 
   /**
    * Indicates whether the GitLogPaged

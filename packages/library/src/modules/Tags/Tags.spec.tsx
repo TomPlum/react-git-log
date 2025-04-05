@@ -4,8 +4,34 @@ import { Tags } from './Tags'
 import { render } from '@testing-library/react'
 import { CommitNodeLocation } from 'data'
 import { tag } from 'test/elements/Tag'
+import { sleepCommits } from 'test/data/sleep/sleepCommits'
 
 describe('Tags', () => {
+  it('should render correctly when the URL builder function is passed in', () => {
+    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+      graphData: graphData({
+        commits: sleepCommits,
+        positions: new Map<string, CommitNodeLocation>(
+          sleepCommits.map((commit, index) => (
+            [commit.hash, [index, 0]]
+          ))
+        )
+      }),
+      paging: {
+        startIndex: 0,
+        endIndex: sleepCommits.length,
+      },
+      remoteProviderUrlBuilder: ({ commit }) => ({
+        branch: `https://github.com/TomPlum/test/${commit.branch}`,
+        commit: `https://github.com/TomPlum/test/${commit.hash}`
+      })
+    }))
+
+    const { asFragment } = render(<Tags />)
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
   it('should render a tag for the row that has the selected commit', () => {
     const selectedCommit = commit({
       hash: 'selected'

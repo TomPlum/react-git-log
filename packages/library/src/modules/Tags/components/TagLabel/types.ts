@@ -1,4 +1,6 @@
+import { Commit } from 'types/Commit'
+
 export interface TagLabelProps {
-  name: string
+  commit: Commit
   className?: string
 }

@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useState } from 'react'
-import type { GitLogEntry, ThemeMode } from '@tomplum/react-git-log'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import type { ThemeMode } from '@tomplum/react-git-log'
 import { ColourSelection } from 'components/ColourSelector'
 import { rainbow } from 'themes.ts'
 import { StoryStateProps } from './types'
 import { useGitLogEntries } from 'hooks/useGitLogEntries'
+import { GitLogUrlBuilder, GitLogUrlBuilderArgs } from '@tomplum/react-git-log/dist'
 
 const getRepositoryConfig = (name: string) => {
   switch (name) {
@@ -13,7 +14,8 @@ const getRepositoryConfig = (name: string) => {
         fileNameEntireHistory: 'sleep.txt',
         fileNameCheckedOutBranch: 'sleep-release.txt',
         headCommitHash: '1352f4c',
-        headCommitCheckoutOutBranch: 'e059c28'
+        headCommitCheckoutOutBranch: 'e059c28',
+        url: 'https://github.com/TomPlum/sleep'
       }
     }
     case 'TomPlum/advent-of-code-2019': {
@@ -22,7 +24,8 @@ const getRepositoryConfig = (name: string) => {
         fileNameEntireHistory: 'advent-of-code-2019.txt',
         fileNameCheckedOutBranch: 'advent-of-code-2019-master.txt',
         headCommitHash: 'c88f0b9',
-        headCommitCheckoutOutBranch: '12d47cc'
+        headCommitCheckoutOutBranch: '12d47cc',
+        url: 'https://github.com/TomPlum/advent-of-code-2019'
       }
     }
     case 'TomPlum/learn-japanese': {
@@ -31,7 +34,8 @@ const getRepositoryConfig = (name: string) => {
         fileNameEntireHistory: 'learn-japanese.txt',
         fileNameCheckedOutBranch: 'learn-japanese-feature.txt',
         headCommitHash: 'de80ee8',
-        headCommitCheckoutOutBranch: 'de80ee8d'
+        headCommitCheckoutOutBranch: 'de80ee8d',
+        url: 'https://github.com/TomPlum/learn-japanese'
       }
     }
     default: {
@@ -42,12 +46,14 @@ const getRepositoryConfig = (name: string) => {
 
 export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: StoryStateProps = {}) => {
   const [repository, setRepository] = useState('TomPlum/sleep')
+
   const {
     branchName,
     fileNameEntireHistory,
     fileNameCheckedOutBranch,
     headCommitHash,
-    headCommitCheckoutOutBranch
+    headCommitCheckoutOutBranch,
+    url
   } = getRepositoryConfig(repository)
 
   const { data, isLoading } = useGitLogEntries({
@@ -67,6 +73,20 @@ export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: Sto
     setTheme(newTheme)
   }, [])
 
+  const buildUrls = useMemo<GitLogUrlBuilder>(() => {
+    return ({ commit }: GitLogUrlBuilderArgs) => {
+      const formattedBranch = commit.branch
+        .replace('refs/heads/', '')
+        .replace('refs/remotes/origin/', '')
+        .replace('refs/tags/', '')
+
+      return {
+        branch: `${url}/tree/${formattedBranch}`,
+        commit: `${url}/tree/${commit.hash}`
+      }
+    }
+  }, [url])
+
   useEffect(() => {
     onChangeRepository?.({
       repository,
@@ -85,6 +105,7 @@ export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: Sto
     backgroundColour,
     handleChangeColors,
     handleChangeTheme,
-    handleChangeRepository: setRepository
+    handleChangeRepository: setRepository,
+    buildUrls
   }
 }

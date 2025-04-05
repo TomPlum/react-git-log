@@ -14,7 +14,6 @@ describe('GitLogPaged', () => {
         branchName='release'
         headCommitHash='1352f4c'
         entries={gitLogEntries}
-        githubRepositoryUrl='https://github.com/TomPlum/sleep'
       >
         <GitLogPaged.Tags />
         <GitLogPaged.Graph />

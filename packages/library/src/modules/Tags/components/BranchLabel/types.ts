@@ -1,3 +1,5 @@
+import { Commit } from 'types/Commit'
+
 export interface BranchLabelProps {
-  name: string
+  commit: Commit
 }

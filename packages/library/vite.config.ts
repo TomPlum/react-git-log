@@ -77,7 +77,8 @@ export default defineConfig({
       exclude: [
         'node_modules/',
         'dist',
-        'src/_test'
+        'src/_test',
+        'src/types'
       ]
     }
   }

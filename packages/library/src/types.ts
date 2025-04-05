@@ -186,7 +186,24 @@ export interface GitLogPaging {
 }
 
 export interface GitLogIndexStatus {
+  /**
+   * The number of modified files on
+   * the checked-out branch according
+   * to the Git index.
+   */
   modified: number
+
+  /**
+   * The number of added files on
+   * the checked-out branch according
+   * to the Git index.
+   */
   added: number
+
+  /**
+   * The number of deleted files on
+   * the checked-out branch according
+   * to the Git index.
+   */
   deleted: number
 }

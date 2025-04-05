@@ -5,6 +5,7 @@ import { ThemeFunctions } from 'hooks/useTheme'
 import { GraphData } from 'data'
 import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
 import { GraphContextBag } from 'modules/Graph/context'
+import { ThemeContextBag } from 'context/ThemeContext'
 
 export const commit = (commit?: Partial<Commit>): Commit => ({
   hash: 'aa2c148',
@@ -44,10 +45,8 @@ export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({
   setPreviewedCommit: vi.fn(),
   setSelectedCommit: vi.fn(),
   showBranchesTags: false,
-  theme: 'dark',
   showTable: true,
   selectedCommit: commit({ hash: 'selected' }),
-  colours: ['white'],
   headCommit: commit({ hash: 'HEAD' }),
   graphData: graphData(),
   showHeaders: true,
@@ -61,6 +60,12 @@ export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({
     modified: 0,
     added: 0
   },
+  ...bag
+})
+
+export const themeContextBag = (bag?: Partial<ThemeContextBag>): ThemeContextBag => ({
+  theme: 'dark',
+  colours: ['white'],
   ...bag
 })
 

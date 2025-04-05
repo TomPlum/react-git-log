@@ -1,12 +1,9 @@
 import { Commit } from 'types/Commit'
-import { ThemeMode } from 'hooks/useTheme'
 import { GraphData } from 'data'
 import { GitLogIndexStatus, GitLogStylingProps } from '../../types'
 import { GraphOrientation } from 'modules/Graph'
 
 export interface GitContextBag {
-  colours: string[]
-
   /**
    * The name of the branch that is
    * currently checked out.
@@ -176,15 +173,6 @@ export interface GitContextBag {
    * elements for custom styling.
    */
   classes?: GitLogStylingProps
-
-  /**
-   * The variant of the default colour
-   * them to apply to the log.
-   *
-   * Does not take effect if a custom
-   * array of {@link colours} are passed.
-   */
-  theme: ThemeMode
 
   /**
    * The status of changed files in the

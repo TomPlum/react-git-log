@@ -2,7 +2,8 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { renderHook } from '@testing-library/react'
 import { useTheme } from './useTheme'
 import * as gitContext from 'context/GitContext/useGitContext'
-import { gitContextBag, graphData } from 'test/stubs'
+import * as themeContext from 'context/ThemeContext/useThemeContext'
+import { gitContextBag, graphData, themeContextBag } from 'test/stubs'
 import { Commit } from 'types/Commit'
 
 describe('useTheme', () => {
@@ -22,7 +23,7 @@ describe('useTheme', () => {
     })
 
     it('returns theme background color when opacity is 0 in dark mode', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
         theme: 'dark'
       }))
 
@@ -32,7 +33,7 @@ describe('useTheme', () => {
     })
 
     it('correctly blends colors based on opacity in dark mode', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
         theme: 'dark'
       }))
 
@@ -42,7 +43,7 @@ describe('useTheme', () => {
     })
 
     it('correctly blends colors based on opacity in light mode', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
         theme: 'light'
       }))
 
@@ -66,13 +67,17 @@ describe('useTheme', () => {
 
   describe('hoverColour', () => {
     it('returns correct hover colour for dark theme', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({ theme: 'dark' }))
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        theme: 'dark'
+      }))
       const { result } = renderHook(useTheme)
       expect(result.current.hoverColour).toBe('rgba(70,70,70,0.8)')
     })
 
     it('returns correct hover colour for light theme', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({ theme: 'light' }))
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        theme: 'light'
+      }))
       const { result } = renderHook(useTheme)
       expect(result.current.hoverColour).toBe('rgba(231, 231, 231, 0.5)')
     })
@@ -80,13 +85,17 @@ describe('useTheme', () => {
 
   describe('textColour', () => {
     it('returns correct text colour for dark theme', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({ theme: 'dark' }))
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        theme: 'dark'
+      }))
       const { result } = renderHook(useTheme)
       expect(result.current.textColour).toBe('rgb(255, 255, 255)')
     })
 
     it('returns correct text colour for light theme', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({ theme: 'light' }))
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        theme: 'light'
+      }))
       const { result } = renderHook(useTheme)
       expect(result.current.textColour).toBe('rgb(0, 0, 0)')
     })
@@ -101,13 +110,17 @@ describe('useTheme', () => {
 
   describe('getGraphColumnColour', () => {
     it('returns the correct colour when the index exists in colours array', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({ colours: ['red', 'green', 'blue'] }))
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        colours: ['red', 'green', 'blue']
+      }))
       const { result } = renderHook(useTheme)
       expect(result.current.getGraphColumnColour(1)).toBe('green')
     })
 
     it('returns a repeated colour when index is beyond the array length', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({ colours: ['red', 'green', 'blue'] }))
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        colours: ['red', 'green', 'blue']
+      }))
       const { result } = renderHook(useTheme)
       expect(result.current.getGraphColumnColour(5)).toBe('blue') // 5 % 3 === 2, so should return 'blue'
     })
@@ -115,15 +128,20 @@ describe('useTheme', () => {
 
   describe('getCommitColour', () => {
     it('returns the first column colour for index commit', () => {
-      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({ colours: ['red', 'green', 'blue'] }))
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        colours: ['red', 'green', 'blue']
+      }))
       const { result } = renderHook(useTheme)
       expect(result.current.getCommitColour({ hash: 'index' } as Commit)).toBe('red')
     })
 
     it('returns correct column colour based on commit position', () => {
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        colours: ['red', 'green', 'blue']
+      }))
+
       vi.spyOn(gitContext, 'useGitContext').mockReturnValue(
         gitContextBag({
-          colours: ['red', 'green', 'blue'],
           graphData: graphData({
             positions: new Map([['abc123', [0, 1]]])
           })
@@ -135,10 +153,13 @@ describe('useTheme', () => {
     })
 
     it('logs a warning and returns default black for unmapped commit', () => {
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        colours: ['red', 'green', 'blue']
+      }))
+
       const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
       vi.spyOn(gitContext, 'useGitContext').mockReturnValue(
         gitContextBag({
-          colours: ['red', 'green', 'blue'],
           graphData: graphData({
             positions: new Map()
           })
@@ -155,10 +176,13 @@ describe('useTheme', () => {
 
   describe('getTooltipBackground', () => {
     it('returns correctly adjusted background colour for dark theme', () => {
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        colours: ['rgb(100, 150, 200)'],
+        theme: 'dark'
+      }))
+
       vi.spyOn(gitContext, 'useGitContext').mockReturnValue(
         gitContextBag({
-          theme: 'dark',
-          colours: ['rgb(100, 150, 200)'],
           graphData: graphData({
             positions: new Map([['abc123', [0, 0]]])
           })
@@ -170,10 +194,13 @@ describe('useTheme', () => {
     })
 
     it('returns correctly adjusted background colour for light theme', () => {
+      vi.spyOn(themeContext, 'useThemeContext').mockReturnValue(themeContextBag({
+        theme: 'light',
+        colours: ['rgb(100, 150, 200)']
+      }))
+
       vi.spyOn(gitContext, 'useGitContext').mockReturnValue(
         gitContextBag({
-          theme: 'light',
-          colours: ['rgb(100, 150, 200)'],
           graphData: graphData({
             positions: new Map([['abc123', [0, 0]]])
           })

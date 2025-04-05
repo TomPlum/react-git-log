@@ -2,9 +2,11 @@ import { useGitContext } from 'context/GitContext'
 import { ThemeFunctions } from './types'
 import { useCallback, useMemo } from 'react'
 import { Commit } from 'types/Commit'
+import { useThemeContext } from 'context/ThemeContext'
 
 export const useTheme = (): ThemeFunctions => {
-  const { theme, colours, graphData } = useGitContext()
+  const { graphData } = useGitContext()
+  const { theme, colours } = useThemeContext()
 
   const hoverColour = useMemo(() => {
     if (theme === 'dark') {

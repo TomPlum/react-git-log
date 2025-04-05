@@ -1,6 +1,5 @@
 import { createContext } from 'react'
 import { GitContextBag } from './types'
-import { neonAuroraDarkColours } from 'hooks/useTheme'
 import { Commit } from 'types/Commit'
 import DataIntervalTree from 'node-interval-tree'
 import { DEFAULT_NODE_SIZE } from 'constants/constants'
@@ -18,13 +17,11 @@ const defaultCommit: Commit = {
 }
 
 export const GitContext = createContext<GitContextBag>({
-  colours: neonAuroraDarkColours,
   headCommit: defaultCommit,
   indexCommit: defaultCommit,
   currentBranch: 'master',
   showTable: true,
   showBranchesTags: true,
-  theme: 'light',
   selectedCommit: undefined,
   setSelectedCommit: (commit?: Commit) => {
     console.debug(`Tried to invoke setSelectedCommit(${JSON.stringify(commit)}) before the GitContext was initialised.`)

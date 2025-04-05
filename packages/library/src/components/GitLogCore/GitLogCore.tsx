@@ -1,8 +1,6 @@
 import { GitLogCoreProps } from './types'
 import { Children, isValidElement, PropsWithChildren, ReactElement, useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context/GitContext'
-import { neonAuroraDarkColours, neonAuroraLightColours, useTheme } from 'hooks/useTheme'
-import { generateRainbowGradient } from 'hooks/useTheme/createRainbowTheme'
 import { computeNodePositions, computeRelationships, GraphData, temporalTopologicalSort } from 'data'
 import { Tags } from 'modules/Tags'
 import { Graph, GraphOrientation } from 'modules/Graph'
@@ -10,6 +8,7 @@ import { Table } from 'modules/Table'
 import { Layout } from 'components/Layout'
 import { Commit } from 'types/Commit'
 import { DEFAULT_NODE_SIZE, NODE_BORDER_WIDTH } from 'constants/constants'
+import { ThemeContextProvider } from 'context/ThemeContext'
 
 export const GitLogCore = ({
   children,
@@ -89,33 +88,6 @@ export const GitLogCore = ({
   // TODO: Are we using graphWidth here or just ditching enableResize?
   const [, setGraphWidth] = useState(defaultGraphWidth ?? smallestAvailableGraphWidth)
 
-  const { shiftAlphaChannel } = useTheme()
-
-  const themeColours = useMemo<string[]>(() => {
-    switch (colours) {
-      case 'rainbow-light': {
-        return generateRainbowGradient(graphData.graphWidth + 1)
-      }
-      case 'rainbow-dark': {
-        return generateRainbowGradient(graphData.graphWidth + 1)
-          .map(colour => shiftAlphaChannel(colour, 0.6))
-      }
-      case 'neon-aurora-dark': {
-        return neonAuroraDarkColours
-      }
-      case 'neon-aurora-light': {
-        return neonAuroraLightColours
-      }
-      default: {
-        if (theme === 'light') {
-          return colours
-        }
-
-        return colours.map(colour => shiftAlphaChannel(colour, 0.6))
-      }
-    }
-  }, [colours, graphData.graphWidth, shiftAlphaChannel, theme])
-
   const handleSelectCommit = useCallback((commit?: Commit) => {
     setSelectedCommit(commit)
     onSelectCommit?.(commit)
@@ -183,11 +155,9 @@ export const GitLogCore = ({
   }, [defaultGraphWidth, smallestAvailableGraphWidth])
 
   const value = useMemo<GitContextBag>(() => ({
-    colours: themeColours,
     showTable: Boolean(table),
     showBranchesTags: Boolean(tags),
     classes,
-    theme,
     selectedCommit,
     setSelectedCommit: handleSelectCommit,
     previewedCommit,
@@ -211,9 +181,7 @@ export const GitLogCore = ({
     setGraphOrientation,
     indexStatus
   }), [
-    themeColours,
     classes,
-    theme,
     selectedCommit,
     previewedCommit,
     handleSelectCommit,
@@ -239,7 +207,9 @@ export const GitLogCore = ({
 
   return (
     <GitContext.Provider value={value}>
-      <Layout tags={tags} graph={graph} table={table} />
+      <ThemeContextProvider theme={theme} colours={colours} graphWidth={graphData.graphWidth}>
+        <Layout tags={tags} graph={graph} table={table} />
+      </ThemeContextProvider>
     </GitContext.Provider>
   )
 }

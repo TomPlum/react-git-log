@@ -1,8 +1,9 @@
 import * as gitContext from 'context/GitContext'
 import { commit, gitContextBag, graphData } from 'test/stubs'
 import { Tags } from './Tags'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { CommitNodeLocation } from 'data'
+import { tag } from 'test/elements/Tag'
 
 describe('Tags', () => {
   it('should render a tag for the row that has the selected commit', () => {
@@ -24,7 +25,7 @@ describe('Tags', () => {
 
     render(<Tags />)
 
-    expect(screen.getByTestId('tag-selected')).toBeInTheDocument()
+    expect(tag.atRow({ row: 0 })).toBeInTheDocument()
   })
 
   it('should render a tag for the row that has the previewed commit', () => {
@@ -46,6 +47,6 @@ describe('Tags', () => {
 
     render(<Tags />)
 
-    expect(screen.getByTestId('tag-previewed')).toBeInTheDocument()
+    expect(tag.atRow({ row: 0 })).toBeInTheDocument()
   })
 })

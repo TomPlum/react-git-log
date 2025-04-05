@@ -83,7 +83,7 @@ export const Tags = () => {
           return (
             <BranchTag
               commit={commit}
-              id={i.toString()}
+              id={commit.hash}
               key={`tag_${commit.hash}`}
               height={ROW_HEIGHT + rowSpacing}
               lineWidth={tagLineWidth(commit)}

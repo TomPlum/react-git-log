@@ -13,7 +13,7 @@ const today = Date.UTC(2025, 2, 24, 18, 0, 0)
 
 const urlBuilderFunction: GitLogUrlBuilder = ({ commit }) => ({
   branch: `https://github.com/TomPlum/sleep/tree/${formatBranch(commit.branch)}`,
-  commit: `https://github.com/TomPlum/sleep/tree/${commit.hash}`
+  commit: `https://github.com/TomPlum/sleep/commits/${commit.hash}`
 })
 
 describe('GitLog', () => {

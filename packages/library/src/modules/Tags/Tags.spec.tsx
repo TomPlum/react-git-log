@@ -22,8 +22,8 @@ describe('Tags', () => {
         endIndex: sleepCommits.length,
       },
       remoteProviderUrlBuilder: ({ commit }) => ({
-        branch: `https://github.com/TomPlum/test/${commit.branch}`,
-        commit: `https://github.com/TomPlum/test/${commit.hash}`
+        branch: `https://github.com/TomPlum/tree/${commit.branch}`,
+        commit: `https://github.com/TomPlum/commits/${commit.hash}`
       })
     }))
 

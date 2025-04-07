@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import type { ThemeMode } from '@tomplum/react-git-log'
+import type { ThemeMode, GitLogUrlBuilder, GitLogUrlBuilderArgs } from '@tomplum/react-git-log'
 import { ColourSelection } from 'components/ColourSelector'
 import { rainbow } from 'themes.ts'
 import { StoryStateProps } from './types'
 import { useGitLogEntries } from 'hooks/useGitLogEntries'
-import { GitLogUrlBuilder, GitLogUrlBuilderArgs } from '@tomplum/react-git-log/dist'
 
 const getRepositoryConfig = (name: string) => {
   switch (name) {

@@ -82,7 +82,7 @@ export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: Sto
 
       return {
         branch: `${url}/tree/${formattedBranch}`,
-        commit: `${url}/commits/${commit.hash}`
+        commit: `${url}/commit/${commit.hash}`
       }
     }
   }, [url])

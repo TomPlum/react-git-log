@@ -7,14 +7,17 @@ import { CommitNodeTooltip } from '../CommitNodeTooltip'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import { NODE_BORDER_WIDTH } from 'constants/constants'
 import { useGraphContext } from 'modules/Graph/context'
+import { useGitContext } from 'context/GitContext'
 
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
+  const { remoteProviderUrlBuilder } = useGitContext()
   const { textColour, shiftAlphaChannel, theme } = useTheme()
   const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize } = useGraphContext()
 
   const commitHashLabelHeight = 20
   const isMergeCommit = nodeTheme === 'default' && commit.parents.length > 1
+  const commitUrl = remoteProviderUrlBuilder?.({ commit })?.commit
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -48,6 +51,14 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
     }
   }, [colour, nodeSize])
 
+  const handleClickNode = useCallback(() => {
+    selectCommitHandler.onClick(commit)
+
+    if (commitUrl) {
+      window.open(commitUrl, '_blank')
+    }
+  }, [commit, commitUrl, selectCommitHandler])
+
   return (
     <Popover
       padding={0}
@@ -72,12 +83,13 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
       <div
         key={commit.hash}
         style={nodeStyles}
+        onClick={handleClickNode}
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
         className={styles.commitNode}
         id={`commit-node-${commit.hash}`}
         data-testid={`commit-node-${commit.hash}`}
-        onClick={() => selectCommitHandler.onClick(commit)}
+        title={commitUrl ? 'View Commit' : undefined}
       >
         {isMergeCommit && (
           <div

@@ -208,7 +208,7 @@ All components have optional props to further configure the log.
 | `classes`           | `GitLogStylingProps`        | CSS classes for various elements to enable custom styling.                                               |
 | `paging`            | `GitLogPaging`              | Optional paging settings for displaying a subset of log entries.                                         |
 | `indexStatus`       | `GitLogIndexStatus`         | Renders information about added, deleted and modified files to the index pseudo-commit entry.            |
-
+| `showGitIndex`      | `boolean`                   | Enables the Git index "pseudo-commit' entry above the HEAD commit.                                       |
 
 ### GitLogPaged
 

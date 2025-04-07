@@ -33,7 +33,6 @@ const meta: Meta<StoryProps> = {
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
-    githubRepositoryUrl: 'https://github.com/TomPlum/sleep',
     defaultGraphWidth: 120,
     rowSpacing: 0,
   },
@@ -70,12 +69,6 @@ const meta: Meta<StoryProps> = {
     },
     showCommitNodeTooltips: {
       name: 'Show Commit Tooltips',
-      table: {
-        category: 'Visibility'
-      }
-    },
-    githubRepositoryUrl: {
-      name: 'Github Repository',
       table: {
         category: 'Visibility'
       }
@@ -171,6 +164,7 @@ export const Demo: Story = {
       colours,
       entries,
       branch,
+      buildUrls,
       repository,
       headCommitHash,
       backgroundColour,
@@ -228,6 +222,7 @@ export const Demo: Story = {
               modified: 2,
               deleted: 3
             }}
+            urls={buildUrls}
           >
             <GitLogPaged.Graph
               nodeSize={args.nodeSize}

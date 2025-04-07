@@ -6,18 +6,20 @@ import { Link } from '../Link'
 import { BranchIcon } from '../BranchIcon'
 import { BranchLabelProps } from './types'
 
-export const BranchLabel = ({ name }: BranchLabelProps) => {
-  const { githubRepositoryUrl } = useGitContext()
+export const BranchLabel = ({ commit }: BranchLabelProps) => {
+  const { remoteProviderUrlBuilder } = useGitContext()
 
-  const displayName = formatBranch(name)
+  const displayName = formatBranch(commit.branch)
 
   const linkHref = useMemo(() => {
-    if (githubRepositoryUrl) {
-      return `${githubRepositoryUrl}/tree/${displayName}`
-    }
-  }, [displayName, githubRepositoryUrl])
+    const branchLink = remoteProviderUrlBuilder?.({ commit }).branch
 
-  if (githubRepositoryUrl) {
+    if (branchLink) {
+      return branchLink
+    }
+  }, [commit, remoteProviderUrlBuilder])
+
+  if (linkHref) {
     return (
       <>
         <Link

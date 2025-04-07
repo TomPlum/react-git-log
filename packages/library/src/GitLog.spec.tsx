@@ -6,8 +6,15 @@ import { gitLog } from 'test/elements/GitLog'
 import { parseGitLogOutput } from 'test/data/gitLogParser'
 // eslint-disable-next-line import/extensions
 import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
+import { formatBranch } from 'modules/Tags/utils/formatBranch'
+import { GitLogUrlBuilder } from './types'
 
 const today = Date.UTC(2025, 2, 24, 18, 0, 0)
+
+const urlBuilderFunction: GitLogUrlBuilder = ({ commit }) => ({
+  branch: `https://github.com/TomPlum/sleep/tree/${formatBranch(commit.branch)}`,
+  commit: `https://github.com/TomPlum/sleep/commits/${commit.hash}`
+})
 
 describe('GitLog', () => {
 
@@ -66,12 +73,12 @@ describe('GitLog', () => {
         showHeaders
         currentBranch='release'
         entries={gitLogEntries}
-        githubRepositoryUrl='https://github.com/TomPlum/sleep'
         indexStatus={{
           added: 2,
           deleted: 1,
           modified: 10
         }}
+        urls={urlBuilderFunction}
       >
         <GitLog.Tags />
         <GitLog.Graph />
@@ -90,7 +97,7 @@ describe('GitLog', () => {
         showHeaders
         currentBranch='release'
         entries={gitLogEntries}
-        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+        urls={urlBuilderFunction}
       >
         <GitLog.Tags />
         <GitLog.Graph orientation='flipped' />
@@ -110,7 +117,7 @@ describe('GitLog', () => {
         currentBranch='release'
         entries={gitLogEntries}
         defaultGraphWidth={100}
-        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+        urls={urlBuilderFunction}
       >
         <GitLog.Tags />
         <GitLog.Graph nodeSize={12} />
@@ -127,7 +134,7 @@ describe('GitLog', () => {
         showHeaders
         entries={[]}
         currentBranch='release'
-        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+        urls={urlBuilderFunction}
       >
         <GitLog.Tags />
         <GitLog.Graph />
@@ -147,7 +154,7 @@ describe('GitLog', () => {
         showGitIndex={false}
         currentBranch='release'
         entries={gitLogEntries}
-        githubRepositoryUrl='https://github.com/TomPlum/sleep'
+        urls={urlBuilderFunction}
       >
         <GitLog.Tags />
         <GitLog.Graph />

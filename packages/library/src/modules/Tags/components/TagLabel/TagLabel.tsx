@@ -6,18 +6,18 @@ import { Link } from '../Link'
 import { TagIcon } from '../TagIcon'
 import { TagLabelProps } from './types'
 
-export const TagLabel = ({ name }: TagLabelProps) => {
-  const { githubRepositoryUrl } = useGitContext()
+export const TagLabel = ({ commit }: TagLabelProps) => {
+  const { remoteProviderUrlBuilder } = useGitContext()
 
-  const displayName = formatBranch(name)
+  const displayName = formatBranch(commit.branch)
 
   const linkHref = useMemo(() => {
-    if (githubRepositoryUrl) {
-      return `${githubRepositoryUrl}/tree/${displayName}`
+    if (remoteProviderUrlBuilder) {
+      return remoteProviderUrlBuilder({ commit }).branch
     }
-  }, [githubRepositoryUrl, displayName])
+  }, [commit, remoteProviderUrlBuilder])
 
-  if (githubRepositoryUrl) {
+  if (linkHref) {
     return (
       <>
         <Link

@@ -48,13 +48,11 @@ interface GitLogCommonProps {
   rowSpacing?: number
 
   /**
-   * A link to the GitHub repository from which
-   * the {@link entries} came from. When passed,
-   * link so commits, tags and PRs will be rendered.
-   *
-   * @example https://github.com/TomPlum/react-git-log
+   * A function that returns build URI strings
+   * to link out to the remote repository on
+   * the external Git provider.
    */
-  githubRepositoryUrl?: string
+  urls?: GitLogUrlBuilder
 
   /**
    * The default width of the graph in pixels.
@@ -207,3 +205,35 @@ export interface GitLogIndexStatus {
    */
   deleted: number
 }
+
+export interface GitLogUrls {
+  /**
+   * A resolved URL to a particular commit hash
+   * on the external Git providers remote website.
+   */
+  commit?: string
+
+  /**
+   * A resolved URL to a branch on the external
+   * Git providers remote website.
+   */
+  branch?: string
+}
+
+export interface GitLogUrlBuilderArgs {
+  /**
+   * Details of the given commit in context
+   * of a URL. E.g. the one you clicked on
+   * to link out to the external provider.
+   */
+  commit: Commit
+}
+
+/**
+ * A function that builds up URLs to the external
+ * Git providers website to the remote repository
+ * of this log.
+ *
+ * @param args Contextual commit information to help build the URLs.
+ */
+export type GitLogUrlBuilder = (args: GitLogUrlBuilderArgs) => GitLogUrls

@@ -3,7 +3,7 @@ import * as gitContext from 'context/GitContext'
 import * as selectCommit from 'hooks/useSelectCommit'
 import * as themeHook from 'hooks/useTheme'
 import { commit, gitContextBag, graphContextBag, themeFunctions } from 'test/stubs'
-import { render, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { CommitNode } from 'modules/Graph/components/CommitNode/CommitNode'
 import { commitNode } from 'test/elements/CommitNode'
@@ -302,5 +302,37 @@ describe('CommitNode', () => {
     expect(commitNodeStyle.borderWidth).toBe('2px')
     expect(commitNodeStyle.borderColor).toBe(commitColour)
     expect(commitNodeStyle.borderStyle).toBe('solid')
+  })
+
+  it('should render a title and link out to the commit if the commit URL is defined in the builder', async () => {
+    const mockUrlBuilder = vi.fn().mockReturnValue({
+      commit: 'https://github.com/TomPlum/commit/test-commit-id'
+    })
+
+    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+      remoteProviderUrlBuilder: mockUrlBuilder
+    }))
+
+    const windowOpenSpy = vi.spyOn(window, 'open').mockImplementation(() => null)
+
+    const testCommit = commit({ hash: 'abc1234567' })
+
+    render(
+      <CommitNode
+        colour={'red'}
+        commit={testCommit}
+      />
+    )
+
+    const commitNode = screen.getByTitle('View Commit')
+    expect(commitNode).toBeInTheDocument()
+
+    await userEvent.click(commitNode)
+
+    expect(mockUrlBuilder).toHaveBeenCalledWith({ commit : testCommit })
+    expect(windowOpenSpy).toHaveBeenCalledExactlyOnceWith(
+      'https://github.com/TomPlum/commit/test-commit-id',
+      '_blank'
+    )
   })
 })

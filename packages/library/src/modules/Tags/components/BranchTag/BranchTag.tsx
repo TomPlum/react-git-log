@@ -68,14 +68,14 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
     
     if (commit.branch.includes('tags/')) {
       return (
-        <TagLabel name={commit.branch} />
+        <TagLabel commit={commit} />
       )
     }
 
     return (
-      <BranchLabel name={commit.branch} />
+      <BranchLabel commit={commit} />
     )
-  }, [commit.branch, commit.hash])
+  }, [commit])
 
   return (
     <Popover

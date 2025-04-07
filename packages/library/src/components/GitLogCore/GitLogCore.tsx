@@ -20,7 +20,7 @@ export const GitLogCore = ({
   classes,
   defaultGraphWidth,
   onSelectCommit,
-  githubRepositoryUrl,
+  urls,
   currentBranch,
   paging,
   headCommitHash,
@@ -154,6 +154,7 @@ export const GitLogCore = ({
     return smallestAvailableGraphWidth
   }, [defaultGraphWidth, smallestAvailableGraphWidth])
 
+
   const value = useMemo<GitContextBag>(() => ({
     showTable: Boolean(table),
     showBranchesTags: Boolean(tags),
@@ -162,7 +163,7 @@ export const GitLogCore = ({
     setSelectedCommit: handleSelectCommit,
     previewedCommit,
     setPreviewedCommit,
-    githubRepositoryUrl,
+    remoteProviderUrlBuilder: urls,
     showHeaders,
     currentBranch,
     headCommit,
@@ -185,7 +186,7 @@ export const GitLogCore = ({
     selectedCommit,
     previewedCommit,
     handleSelectCommit,
-    githubRepositoryUrl,
+    urls,
     showHeaders,
     headCommit,
     currentBranch,

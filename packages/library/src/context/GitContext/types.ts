@@ -1,6 +1,6 @@
 import { Commit } from 'types/Commit'
 import { GraphData } from 'data'
-import { GitLogIndexStatus, GitLogStylingProps } from '../../types'
+import { GitLogIndexStatus, GitLogStylingProps, GitLogUrlBuilder } from '../../types'
 import { GraphOrientation } from 'modules/Graph'
 
 export interface GitContextBag {
@@ -97,11 +97,10 @@ export interface GitContextBag {
   showHeaders?: boolean
 
   /**
-   * A link to the GitHub repository from which
-   * the {@link entries} came from. When passed,
-   * link so commits, tags and PRs will be rendered.
+   * A function that builds links to the remote
+   * repository on the external Git provider.
    */
-  githubRepositoryUrl?: string
+  remoteProviderUrlBuilder?: GitLogUrlBuilder
 
   /**
    * The spacing between the rows of the log.

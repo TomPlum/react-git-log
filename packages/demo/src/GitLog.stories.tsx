@@ -11,6 +11,7 @@ interface StoryProps extends GitLogProps, HTMLGridGraphProps, Canvas2DGraphProps
   showTable: boolean
   showBranchesTags: boolean
   showCommitNodeHashes: boolean
+  renderStrategy: 'html-grid' | 'canvas'
 }
 
 const meta: Meta<StoryProps> = {
@@ -30,6 +31,7 @@ const meta: Meta<StoryProps> = {
     showGitIndex: true,
     enableResize: false,
     nodeTheme: 'default',
+    renderStrategy: 'html-grid',
     nodeSize: 20,
     orientation: 'normal',
     onSelectCommit: (commit?: Commit) => {

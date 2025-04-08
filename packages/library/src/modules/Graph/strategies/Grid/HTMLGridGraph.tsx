@@ -1,4 +1,4 @@
-import styles from 'modules/Graph/Graph.module.scss'
+import styles from 'modules/Graph/core/GraphCore.module.scss'
 import { ROW_HEIGHT } from 'constants/constants'
 import { SkeletonGraph } from 'modules/Graph/strategies/Grid/components/SkeletonGraph'
 import { IndexPseudoRow } from 'modules/Graph/strategies/Grid/components/IndexPseudoRow'

@@ -61,7 +61,7 @@ export const Canvas2DGraph = () => {
       colours: getNodeColours,
       commits: visibleCommits
     })
-  }, [canvasHeight, canvasWidth, getCommitNodeColours, graphData, paging, rowSpacing, visibleCommits, nodeSize, getNodeColours, isIndexVisible])
+  }, [canvasHeight, canvasWidth, getCommitNodeColours, graphData, paging, rowSpacing, visibleCommits, nodeSize, getNodeColours, isIndexVisible, headCommit])
   
   return (
     <canvas

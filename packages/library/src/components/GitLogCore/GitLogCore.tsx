@@ -3,7 +3,7 @@ import { Children, isValidElement, PropsWithChildren, ReactElement, useCallback,
 import { GitContext, GitContextBag } from 'context/GitContext'
 import { computeNodePositions, computeRelationships, GraphData, temporalTopologicalSort } from 'data'
 import { Tags } from 'modules/Tags'
-import { Graph, GraphOrientation } from 'modules/Graph'
+import { GraphCanvas2D, GraphHTMLGrid, GraphOrientation } from 'modules/Graph'
 import { Table } from 'modules/Table'
 import { Layout } from 'components/Layout'
 import { Commit } from 'types/Commit'
@@ -42,21 +42,32 @@ export const GitLogCore = ({
           }
 
           tags = child
-        } else if (child.type === GitLogCore.Graph) {
-          if (graph) {
-            throw new Error(`<${componentName} /> can only have one <${componentName}.Graph /> child.`)
+        } else if (child.type === GitLogCore.GraphCanvas2D || child.type === GitLogCore.GraphHTMLGrid) {
+          if (graph && graph.type === GitLogCore.GraphCanvas2D && child.type === GitLogCore.GraphCanvas2D) {
+            throw new Error(`<${componentName} /> can only have one <${componentName}.GraphCanvas2D /> child.`)
+          }
+
+          if (graph && graph.type === GitLogCore.GraphHTMLGrid && child.type === GitLogCore.GraphHTMLGrid) {
+            throw new Error(`<${componentName} /> can only have one <${componentName}.GraphHTMLGrid /> child.`)
+          }
+
+          if (graph && graph.type !== child.type) {
+            throw new Error(`<${componentName} /> can only have one <${componentName}.GraphHTMLGrid /> or <${componentName}.GraphCanvas2D /> child.`)
           }
 
           graph = child
         } else if (child.type === GitLogCore.Table) {
-          if (table) throw new Error(`<${componentName} /> can only have one <${componentName}.Table /> child.`)
+          if (table) {
+            throw new Error(`<${componentName} /> can only have one <${componentName}.Table /> child.`)
+          }
+
           table = child
         }
       }
     })
 
     if (!graph) {
-      console.warn(`react-git-log is not designed to work without a <${componentName}.Graph /> component.`)
+      console.warn(`react-git-log is not designed to work without a <${componentName}.GraphCanvas2D /> or a <${componentName}.GraphHTMLGrid /> component.`)
     }
 
     return { tags, graph, table }
@@ -216,5 +227,6 @@ export const GitLogCore = ({
 }
 
 GitLogCore.Tags = Tags
-GitLogCore.Graph = Graph
+GitLogCore.GraphCanvas2D = GraphCanvas2D
+GitLogCore.GraphHTMLGrid = GraphHTMLGrid
 GitLogCore.Table = Table

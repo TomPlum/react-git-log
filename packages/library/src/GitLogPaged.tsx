@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { GitLogPagedProps } from './types'
 import { Tags } from './modules/Tags'
-import { Graph } from './modules/Graph'
+import { GraphCanvas2D, GraphHTMLGrid } from './modules/Graph'
 import { Table } from './modules/Table'
 import { GitLogCore } from './components/GitLogCore'
 
@@ -19,5 +19,6 @@ export const GitLogPaged = ({ children, branchName, ...props }: PropsWithChildre
 }
 
 GitLogPaged.Tags = Tags
-GitLogPaged.Graph = Graph
+GitLogPaged.GraphCanvas2D = GraphCanvas2D
+GitLogPaged.GraphHTMLGrid = GraphHTMLGrid
 GitLogPaged.Table = Table

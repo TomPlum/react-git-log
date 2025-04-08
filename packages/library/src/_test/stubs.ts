@@ -91,6 +91,10 @@ export const themeFunctions = (response?: Partial<ThemeFunctions>): ThemeFunctio
   getCommitColour: vi.fn(),
   getTooltipBackground: vi.fn(),
   hoverTransitionDuration: 500,
+  getCommitNodeColours: vi.fn().mockReturnValue({
+    borderColour: 'black',
+    backgroundColor: 'gray'
+  }),
   ...response
 })
 

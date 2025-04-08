@@ -1,23 +1,21 @@
-import { useEffect, useMemo } from 'react'
-import styles from './Graph.module.scss'
+import { PropsWithChildren, useEffect, useMemo } from 'react'
+import styles from './GraphCore.module.scss'
 import { useGitContext } from 'context/GitContext'
 import { useColumnData } from 'modules/Graph/strategies/Grid/hooks/useColumnData'
 import { useResize } from 'hooks/useResize'
 import { DEFAULT_NODE_SIZE } from 'constants/constants'
-import { GraphProps } from './types'
-import { GraphContext, GraphContextBag } from './context'
-import { Canvas2DGraph } from 'modules/Graph/strategies/Canvas'
-import { HTMLGridGraph } from 'src/modules/Graph/strategies/Grid'
+import { GraphContext, GraphContextBag } from '../context'
+import { GraphCoreProps } from 'modules/Graph/core/types'
 
-export const Graph = ({
+export const GraphCore = ({
+  children,
   nodeSize = DEFAULT_NODE_SIZE,
   nodeTheme = 'default',
   orientation = 'normal',
-  renderStrategy = 'html-grid',
   enableResize = false,
   showCommitNodeHashes = false,
   showCommitNodeTooltips = false
-}: GraphProps) => {
+}: PropsWithChildren<GraphCoreProps>) => {
   const {
     paging,
     setNodeSize,
@@ -57,18 +55,10 @@ export const Graph = ({
     columnData
   }), [showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData])
 
-  const graph = useMemo(() => {
-    if (renderStrategy === 'canvas') {
-      return <Canvas2DGraph />
-    }
-
-    return <HTMLGridGraph />
-  }, [renderStrategy])
-
   return (
     <GraphContext value={contextValue}>
       <div className={styles.container} style={{ width }} ref={ref}>
-        {graph}
+        {children}
 
         {enableResize && (
           <div

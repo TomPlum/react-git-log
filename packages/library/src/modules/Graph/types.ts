@@ -1,16 +1,18 @@
-import { NodeTheme } from '../../hooks/useTheme'
+import { NodeTheme } from 'hooks/useTheme'
 
 export type GraphOrientation = 'normal' | 'flipped'
 
-export type GraphRenderStrategy = 'html-grid' | 'canvas'
+export type Canvas2DGraphProps = GraphPropsCommon
 
-export interface GraphProps {
+export interface HTMLGridGraphProps extends GraphPropsCommon {
   /**
    * Whether to show the commit hash
    * to the side of the node in the graph.
    */
   showCommitNodeHashes?: boolean
+}
 
+interface GraphPropsCommon {
   /**
    * Whether to show tooltips when hovering
    * over a commit node in the graph.
@@ -51,24 +53,4 @@ export interface GraphProps {
    * branch on the right-hand side.
    */
   orientation?: GraphOrientation
-
-  /**
-   * Determines how the graph is rendered.
-   *
-   * HTML Grid mode renders the graph using
-   * styled divs and SVG elements for the
-   * curved lines. This uses a grid system
-   * to make it look like a complete graph.
-   * This strategy is less performant as its
-   * heavier on the DOM, but is easier to
-   * programmatically test and assert on via
-   * attributes on each row, column and its
-   * contents.
-   *
-   * Canvas mode uses a flat 2D HTML
-   * canvas element. This strategy is more
-   * performant, but harder to test and not
-   * as feature rich.
-   */
-  renderStrategy?: GraphRenderStrategy
 }

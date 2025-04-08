@@ -210,7 +210,15 @@ describe('CommitNode', () => {
       }
     })
 
-    vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions())
+    const expectedBackgroundColour = 'rgb(56, 79, 240)'
+    const expectedBorderColour = 'rgb(28, 66, 146)'
+    const getCommitNodeColours = vi.fn().mockReturnValue({
+      backgroundColour: expectedBackgroundColour,
+      borderColour: expectedBorderColour
+    })
+    vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
+      getCommitNodeColours: getCommitNodeColours
+    }))
 
     const commitObject = commit({
       hash: '0e22d17a',
@@ -230,7 +238,8 @@ describe('CommitNode', () => {
 
     const mergeCircle = commitNode.mergeCircle({ hash: '0e22d17a' })
     expect(mergeCircle).toBeInTheDocument()
-    expect(getComputedStyle(mergeCircle).background).toBe(commitColour)
+    expect(getCommitNodeColours).toHaveBeenCalledWith({ columnColour: commitColour })
+    expect(getComputedStyle(mergeCircle).background).toBe(expectedBorderColour)
   })
 
   it('should not render an inner circle element when the commit is a merge commit but the node theme is plain', async () => {
@@ -278,9 +287,13 @@ describe('CommitNode', () => {
     })
 
     const expectedNodeBackgroundColour = 'rgb(254, 200, 67)'
-    const shiftAlphaChannel = vi.fn().mockReturnValue(expectedNodeBackgroundColour)
+    const expectedNodeBorderColour = 'rgb(28, 66, 146)'
+    const getCommitNodeColours = vi.fn().mockReturnValue({
+      backgroundColour: expectedNodeBackgroundColour,
+      borderColour: expectedNodeBorderColour
+    })
     vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
-      shiftAlphaChannel
+      getCommitNodeColours: getCommitNodeColours
     }))
 
     const commitColour = 'rgb(78, 12, 90)'
@@ -292,7 +305,7 @@ describe('CommitNode', () => {
       />
     )
 
-    expect(shiftAlphaChannel).toHaveBeenCalledWith(commitColour, 0.15)
+    expect(getCommitNodeColours).toHaveBeenCalledWith({ columnColour: commitColour })
 
     const commitNodeElement = commitNode.withHash({ hash: 'abc123' })
     expect(commitNodeElement).toBeInTheDocument()
@@ -300,7 +313,7 @@ describe('CommitNode', () => {
     const commitNodeStyle = getComputedStyle(commitNodeElement)
     expect(commitNodeStyle.backgroundColor).toBe(expectedNodeBackgroundColour)
     expect(commitNodeStyle.borderWidth).toBe('2px')
-    expect(commitNodeStyle.borderColor).toBe(commitColour)
+    expect(commitNodeStyle.borderColor).toBe(expectedNodeBorderColour)
     expect(commitNodeStyle.borderStyle).toBe('solid')
   })
 

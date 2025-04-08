@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import styles from './GitLog.stories.module.scss'
-import { type Commit, GitLog, type GitLogProps, GraphProps } from '@tomplum/react-git-log'
+import { type Commit, GitLog, type GitLogProps, HTMLGridGraphProps, Canvas2DGraphProps } from '@tomplum/react-git-log'
 import { Loading } from 'components/Loading'
 import { useStoryState } from 'hooks/useStoryState'
 import { StoryHeader } from 'components/StoryHeader'
 
-interface StoryProps extends GitLogProps, GraphProps {
+interface StoryProps extends GitLogProps, HTMLGridGraphProps, Canvas2DGraphProps {
   pageSize?: number
   page?: number
   showTable: boolean
@@ -30,7 +30,6 @@ const meta: Meta<StoryProps> = {
     showGitIndex: true,
     enableResize: false,
     nodeTheme: 'default',
-    renderStrategy: 'html-grid',
     nodeSize: 20,
     orientation: 'normal',
     onSelectCommit: (commit?: Commit) => {
@@ -258,15 +257,26 @@ export const Demo: Story = {
               <GitLog.Tags />
             )}
 
-            <GitLog.Graph
-              nodeSize={args.nodeSize}
-              nodeTheme={args.nodeTheme}
-              orientation={args.orientation}
-              enableResize={args.enableResize}
-              renderStrategy={args.renderStrategy}
-              showCommitNodeHashes={args.showCommitNodeHashes}
-              showCommitNodeTooltips={args.showCommitNodeTooltips}
-            />
+            {args.renderStrategy === 'html-grid' && (
+              <GitLog.GraphHTMLGrid
+                nodeSize={args.nodeSize}
+                nodeTheme={args.nodeTheme}
+                orientation={args.orientation}
+                enableResize={args.enableResize}
+                showCommitNodeHashes={args.showCommitNodeHashes}
+                showCommitNodeTooltips={args.showCommitNodeTooltips}
+              />
+            )}
+
+            {args.renderStrategy === 'canvas' && (
+              <GitLog.GraphCanvas2D
+                nodeSize={args.nodeSize}
+                nodeTheme={args.nodeTheme}
+                orientation={args.orientation}
+                enableResize={args.enableResize}
+                showCommitNodeTooltips={args.showCommitNodeTooltips}
+              />
+            )}
 
             {args.showTable && (
               <GitLog.Table

@@ -97,7 +97,7 @@ describe('GitLog Integration', () => {
           entries={gitLogEntries}
         >
           <GitLog.Tags />
-          <GitLog.Graph />
+          <GitLog.GraphHTMLGrid />
           <GitLog.Table />
         </GitLog>
       )
@@ -130,7 +130,7 @@ describe('GitLog Integration', () => {
           entries={gitLogEntries}
         >
           <GitLogPaged.Tags />
-          <GitLogPaged.Graph />
+          <GitLogPaged.GraphHTMLGrid />
           <GitLogPaged.Table />
         </GitLogPaged>
       )

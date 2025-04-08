@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import styles from './GitLog.stories.module.scss'
-import { type Commit, GitLogPaged, GitLogPagedProps, GraphProps } from '@tomplum/react-git-log'
+import { type Commit, GitLog, GitLogPaged, GitLogPagedProps, HTMLGridGraphProps, Canvas2DGraphProps } from '@tomplum/react-git-log'
 import { Loading } from 'components/Loading'
 import { StoryHeader } from 'components/StoryHeader'
 import { useStoryState } from 'hooks/useStoryState'
 import { useState } from 'react'
 import { Pagination } from 'components/Pagination'
 
-interface StoryProps extends GitLogPagedProps, GraphProps {
+interface StoryProps extends GitLogPagedProps, HTMLGridGraphProps, Canvas2DGraphProps {
   showTable: boolean
   showCommitNodeHashes: boolean
 }
@@ -27,7 +27,6 @@ const meta: Meta<StoryProps> = {
     showHeaders: true,
     enableResize: false,
     nodeTheme: 'default',
-    renderStrategy: 'html-grid',
     showGitIndex: true,
     nodeSize: 20,
     orientation: 'normal',
@@ -236,15 +235,26 @@ export const Demo: Story = {
             }}
             urls={buildUrls}
           >
-            <GitLogPaged.Graph
-              nodeSize={args.nodeSize}
-              nodeTheme={args.nodeTheme}
-              orientation={args.orientation}
-              enableResize={args.enableResize}
-              renderStrategy={args.renderStrategy}
-              showCommitNodeHashes={args.showCommitNodeHashes}
-              showCommitNodeTooltips={args.showCommitNodeTooltips}
-            />
+            {args.renderStrategy === 'html-grid' && (
+              <GitLog.GraphHTMLGrid
+                nodeSize={args.nodeSize}
+                nodeTheme={args.nodeTheme}
+                orientation={args.orientation}
+                enableResize={args.enableResize}
+                showCommitNodeHashes={args.showCommitNodeHashes}
+                showCommitNodeTooltips={args.showCommitNodeTooltips}
+              />
+            )}
+
+            {args.renderStrategy === 'canvas' && (
+              <GitLog.GraphCanvas2D
+                nodeSize={args.nodeSize}
+                nodeTheme={args.nodeTheme}
+                orientation={args.orientation}
+                enableResize={args.enableResize}
+                showCommitNodeTooltips={args.showCommitNodeTooltips}
+              />
+            )}
 
             {args.showTable && (
               <GitLogPaged.Table

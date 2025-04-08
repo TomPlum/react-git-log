@@ -1,5 +1,5 @@
 import { useGitContext } from 'context/GitContext'
-import { ThemeFunctions } from './types'
+import { GetCommitNodeColoursArgs, ThemeFunctions } from './types'
 import { useCallback, useMemo } from 'react'
 import { Commit } from 'types/Commit'
 import { useThemeContext } from 'context/ThemeContext'
@@ -72,6 +72,13 @@ export const useTheme = (): ThemeFunctions => {
     return 'rgb(0, 0, 0)'
   }, [getGraphColumnColour, graphData.positions])
 
+  const getCommitNodeColours = useCallback((args: GetCommitNodeColoursArgs) => {
+    return {
+      backgroundColour: shiftAlphaChannel(args.columnColour, 0.15),
+      borderColour: args.columnColour
+    }
+  }, [shiftAlphaChannel])
+
   const getTooltipBackground = useCallback((commit: Commit) => {
     if (theme === 'dark') {
       return shiftAlphaChannel(getCommitColour(commit), 0.2)
@@ -89,6 +96,7 @@ export const useTheme = (): ThemeFunctions => {
     getCommitColour,
     shiftAlphaChannel,
     getGraphColumnColour,
+    getCommitNodeColours,
     hoverTransitionDuration: 0.3
   }
 }

@@ -1,6 +1,6 @@
 import { useGitContext } from 'context/GitContext'
 import { useGraphContext } from 'modules/Graph/context'
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { ROW_HEIGHT } from 'constants/constants'
 import { draw } from 'modules/Graph/strategies/Canvas/draw'
 import { useTheme } from 'hooks/useTheme'
@@ -8,7 +8,13 @@ import { useTheme } from 'hooks/useTheme'
 export const Canvas2DGraph = () => {
   const { isIndexVisible, rowSpacing, paging, graphData } = useGitContext()
   const { graphWidth, visibleCommits, nodeSize } = useGraphContext()
-  const { getGraphColumnColour } = useTheme()
+  const { getCommitNodeColours, getGraphColumnColour } = useTheme()
+
+  const getNodeColours = useCallback((columnIndex: number) => {
+    return getCommitNodeColours({
+      columnColour: getGraphColumnColour(columnIndex)
+    })
+  }, [getCommitNodeColours, getGraphColumnColour])
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasWidth = (4 + nodeSize) * graphWidth
@@ -40,10 +46,10 @@ export const Canvas2DGraph = () => {
       paging,
       graphData,
       nodeSize,
-      getGraphColumnColour,
+      colours: getNodeColours,
       commits: visibleCommits
     })
-  }, [canvasHeight, canvasWidth, getGraphColumnColour, graphData, paging, rowSpacing, visibleCommits, nodeSize])
+  }, [canvasHeight, canvasWidth, getCommitNodeColours, graphData, paging, rowSpacing, visibleCommits, nodeSize, getNodeColours])
   
   return (
     <canvas

@@ -37,6 +37,17 @@ export interface ThemeFunctions {
   getCommitColour: (commit: Commit) => string
 
   getGraphColumnColour: (columnIndex: number) => string
+
+  getCommitNodeColours: (args: GetCommitNodeColoursArgs) => CommitNodeColours
+}
+
+export interface GetCommitNodeColoursArgs {
+  columnColour: string
+}
+
+export interface CommitNodeColours {
+  backgroundColour: string
+  borderColour: string
 }
 
 export type ThemeMode = 'light' | 'dark'

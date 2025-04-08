@@ -12,12 +12,13 @@ import { useGitContext } from 'context/GitContext'
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { remoteProviderUrlBuilder } = useGitContext()
-  const { textColour, shiftAlphaChannel, theme } = useTheme()
+  const { textColour, theme, getCommitNodeColours } = useTheme()
   const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize } = useGraphContext()
 
   const commitHashLabelHeight = 20
   const isMergeCommit = nodeTheme === 'default' && commit.parents.length > 1
   const commitUrl = remoteProviderUrlBuilder?.({ commit })?.commit
+  const { borderColour, backgroundColour } = getCommitNodeColours({ columnColour: colour })
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -35,21 +36,21 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
     return {
       width: nodeSize,
       height: nodeSize,
-      backgroundColor: shiftAlphaChannel(colour, 0.15),
-      border: `${NODE_BORDER_WIDTH}px solid ${colour}`,
+      backgroundColor: backgroundColour,
+      border: `${NODE_BORDER_WIDTH}px solid ${borderColour}`,
     }
-  }, [colour, nodeSize, shiftAlphaChannel])
+  }, [borderColour, nodeSize, backgroundColour])
 
   const mergeInnerNodeStyles = useMemo<CSSProperties>(() => {
     const diameter = nodeSize > 10 ? nodeSize - 6 : nodeSize - 2
     return {
-      background: colour,
+      background: borderColour,
       width: diameter,
       height: diameter,
       top: `calc(50% - ${diameter / 2}px)`,
       left: `calc(50% - ${diameter / 2}px)`
     }
-  }, [colour, nodeSize])
+  }, [borderColour, nodeSize])
 
   const handleClickNode = useCallback(() => {
     selectCommitHandler.onClick(commit)
@@ -68,14 +69,14 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
       content={({ position, childRect, popoverRect }: PopoverState) => (
         <ArrowContainer
           arrowSize={10}
-          arrowColor={colour}
+          arrowColor={borderColour}
           position={position}
           childRect={childRect}
           popoverRect={popoverRect}
         >
           <CommitNodeTooltip
             commit={commit}
-            color={colour}
+            color={borderColour}
           />
         </ArrowContainer>
       )}

@@ -1,5 +1,7 @@
 import { NodeTheme } from 'hooks/useTheme'
 import { GraphOrientation } from 'modules/Graph'
+import { Commit } from 'types/Commit'
+import { RowIndexToColumnStates } from 'modules/Graph/hooks/useColumnData'
 
 export interface GraphContextBag {
   /**
@@ -48,4 +50,17 @@ export interface GraphContextBag {
    * branch on the right-hand side.
    */
   orientation?: GraphOrientation
+
+  /**
+   * The commits that are currently being
+   * rendered on the graph relative to the
+   * pagination configuration.
+   */
+  visibleCommits: Commit[]
+
+  /**
+   * A map of row indices to their
+   * respective column states.
+   */
+  columnData: RowIndexToColumnStates
 }

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import styles from './HorizontalLine.module.scss'
 import { CSSProperties, useMemo } from 'react'
-import { HorizontalLineProps } from 'modules/Graph/components/HorizontalLine/types'
+import { HorizontalLineProps } from 'modules/Graph/strategies/Grid/components/HorizontalLine/types'
 import { useTheme } from 'hooks/useTheme'
 import { useGraphContext } from 'modules/Graph/context'
 

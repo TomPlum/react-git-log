@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react'
-import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
+import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/GraphColumn'
 import { useGitContext } from 'context/GitContext'
 import { GraphColumnData, GraphColumnDataProps } from './types'
 import { isColumnEmpty } from 'modules/Graph/utility/isColumnEmpty'
@@ -331,7 +331,7 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
       rowToColumnState,
       virtualColumns
     }
-  }, [positions, edges, commits, headCommit, isServerSidePaginated, paging, getEmptyColumnState, visibleCommits, graphWidth, headCommitHash])
+  }, [positions, edges, commits, headCommit, isIndexVisible, isServerSidePaginated, paging, getEmptyColumnState, visibleCommits, graphWidth, headCommitHash])
 
   return {
     getEmptyColumnState,

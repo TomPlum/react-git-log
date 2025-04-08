@@ -1,5 +1,5 @@
-import { GraphRow } from 'modules/Graph/components/GraphRow'
-import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
+import { GraphRow } from 'modules/Graph/strategies/Grid/components/GraphRow'
+import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/GraphColumn'
 import { useMemo } from 'react'
 import { useGitContext } from 'context/GitContext'
 import { useGraphContext } from 'modules/Graph/context'

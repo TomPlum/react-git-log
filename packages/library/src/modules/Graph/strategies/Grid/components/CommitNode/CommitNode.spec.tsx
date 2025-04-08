@@ -5,7 +5,7 @@ import * as themeHook from 'hooks/useTheme'
 import { commit, gitContextBag, graphContextBag, themeFunctions } from 'test/stubs'
 import { render, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { CommitNode } from 'modules/Graph/components/CommitNode/CommitNode'
+import { CommitNode } from 'modules/Graph/strategies/Grid/components/CommitNode/CommitNode'
 import { commitNode } from 'test/elements/CommitNode'
 import { expect } from 'vitest'
 

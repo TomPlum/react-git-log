@@ -30,6 +30,7 @@ const meta: Meta<StoryProps> = {
     showGitIndex: true,
     enableResize: false,
     nodeTheme: 'default',
+    renderStrategy: 'html-dom',
     nodeSize: 20,
     orientation: 'normal',
     onSelectCommit: (commit?: Commit) => {
@@ -98,6 +99,17 @@ const meta: Meta<StoryProps> = {
       name: 'Show Git Index',
       table: {
         category: 'Visibility'
+      }
+    },
+    renderStrategy: {
+      name: 'Graph Render Strategy',
+      table: {
+        category: 'Visibility'
+      },
+      control: 'radio',
+      options: {
+        'HTML DOM': 'html-dom',
+        'HTML 2D Canvas': 'html-canvas'
       }
     },
     pageSize: {
@@ -251,6 +263,7 @@ export const Demo: Story = {
               nodeTheme={args.nodeTheme}
               orientation={args.orientation}
               enableResize={args.enableResize}
+              renderStrategy={args.renderStrategy}
               showCommitNodeHashes={args.showCommitNodeHashes}
               showCommitNodeTooltips={args.showCommitNodeTooltips}
             />

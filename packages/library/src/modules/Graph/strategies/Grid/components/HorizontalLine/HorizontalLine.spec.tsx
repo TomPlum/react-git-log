@@ -1,6 +1,6 @@
 import { describe } from 'vitest'
 import { render } from '@testing-library/react'
-import { HorizontalLine } from 'modules/Graph/components/HorizontalLine/HorizontalLine'
+import { HorizontalLine } from 'modules/Graph/strategies/Grid/components/HorizontalLine/HorizontalLine'
 import { graphColumn } from 'test/elements/GraphColumn'
 import * as themeHook from 'hooks/useTheme'
 import { ThemeFunctions } from 'hooks/useTheme'

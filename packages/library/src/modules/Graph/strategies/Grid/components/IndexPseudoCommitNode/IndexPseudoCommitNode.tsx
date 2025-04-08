@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import styles from './IndexPseudoCommitNode.module.scss'
 import { useTheme } from 'hooks/useTheme'
-import { IndexPseudoCommitNodeProps } from 'modules/Graph/components/IndexPseudoCommitNode/types'
+import { IndexPseudoCommitNodeProps } from 'modules/Graph/strategies/Grid/components/IndexPseudoCommitNode/types'
 import { useGraphContext } from 'modules/Graph/context'
 
 export const IndexPseudoCommitNode = ({ animate, columnColour }: IndexPseudoCommitNodeProps) => {

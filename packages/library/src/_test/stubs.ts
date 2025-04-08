@@ -3,7 +3,7 @@ import { GitContextBag } from 'context/GitContext'
 import DataIntervalTree from 'node-interval-tree'
 import { ThemeFunctions } from 'hooks/useTheme'
 import { GraphData } from 'data'
-import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
+import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/GraphColumn'
 import { GraphContextBag } from 'modules/Graph/context'
 import { ThemeContextBag } from 'context/ThemeContext'
 
@@ -76,6 +76,8 @@ export const graphContextBag = (bag?: Partial<GraphContextBag>): GraphContextBag
   graphWidth: 200,
   nodeSize: 20,
   orientation: 'normal',
+  visibleCommits: [],
+  columnData: new Map(),
   ...bag
 })
 

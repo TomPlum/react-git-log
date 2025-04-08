@@ -1,4 +1,4 @@
-import { GraphRow } from 'modules/Graph/components/GraphRow'
+import { GraphRow } from 'modules/Graph/strategies/Grid/components/GraphRow'
 import { usePlaceholderData } from 'modules/Graph/hooks/usePlaceholderData'
 
 export const SkeletonGraph = () => {

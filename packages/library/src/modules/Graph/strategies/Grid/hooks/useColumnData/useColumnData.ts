@@ -2,8 +2,8 @@ import { useCallback, useMemo } from 'react'
 import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/GraphColumn'
 import { useGitContext } from 'context/GitContext'
 import { GraphColumnData, GraphColumnDataProps } from './types'
-import { isColumnEmpty } from 'modules/Graph/utility/isColumnEmpty'
-import { getEmptyColumnState as createEmptyColumn } from 'modules/Graph/utility/getEmptyColumnState'
+import { isColumnEmpty } from 'modules/Graph/strategies/Grid/utility/isColumnEmpty'
+import { getEmptyColumnState as createEmptyColumn } from 'modules/Graph/strategies/Grid/utility/getEmptyColumnState'
 
 export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphColumnData => {
   const {

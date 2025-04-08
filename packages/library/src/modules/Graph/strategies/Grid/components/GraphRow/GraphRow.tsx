@@ -1,6 +1,6 @@
 import { GraphRowProps } from './types'
 import { GraphColumn } from 'modules/Graph/strategies/Grid/components/GraphColumn'
-import { getEmptyColumnState } from 'modules/Graph/utility/getEmptyColumnState'
+import { getEmptyColumnState } from 'modules/Graph/strategies/Grid/utility/getEmptyColumnState'
 import { useGraphContext } from 'modules/Graph/context'
 
 export const GraphRow = ({ id, commit, columns }: GraphRowProps) => {

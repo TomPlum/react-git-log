@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import styles from './Graph.module.scss'
 import { useGitContext } from 'context/GitContext'
-import { useColumnData } from 'modules/Graph/hooks/useColumnData'
+import { useColumnData } from 'modules/Graph/strategies/Grid/hooks/useColumnData'
 import { useResize } from 'hooks/useResize'
 import { DEFAULT_NODE_SIZE } from 'constants/constants'
 import { GraphProps } from './types'

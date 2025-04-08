@@ -1,7 +1,7 @@
 import { NodeTheme } from 'hooks/useTheme'
 import { GraphOrientation } from 'modules/Graph'
 import { Commit } from 'types/Commit'
-import { RowIndexToColumnStates } from 'modules/Graph/hooks/useColumnData'
+import { RowIndexToColumnStates } from 'modules/Graph/strategies/Grid/hooks/useColumnData'
 
 export interface GraphContextBag {
   /**

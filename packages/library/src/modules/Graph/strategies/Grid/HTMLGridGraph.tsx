@@ -5,9 +5,9 @@ import { IndexPseudoRow } from 'modules/Graph/strategies/Grid/components/IndexPs
 import { GraphRow } from 'modules/Graph/strategies/Grid/components/GraphRow'
 import { useGraphContext } from 'modules/Graph/context'
 import { useGitContext } from 'context/GitContext'
-import { getEmptyColumnState } from 'modules/Graph/utility/getEmptyColumnState'
+import { getEmptyColumnState } from 'modules/Graph/strategies/Grid/utility/getEmptyColumnState'
 import { useMemo } from 'react'
-import { placeholderCommits } from 'modules/Graph/hooks/usePlaceholderData/data'
+import { placeholderCommits } from 'modules/Graph/strategies/Grid/hooks/usePlaceholderData/data'
 
 export const HTMLGridGraph = () => {
   const { isIndexVisible, rowSpacing, paging } = useGitContext()

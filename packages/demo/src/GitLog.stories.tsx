@@ -30,7 +30,7 @@ const meta: Meta<StoryProps> = {
     showGitIndex: true,
     enableResize: false,
     nodeTheme: 'default',
-    renderStrategy: 'html-dom',
+    renderStrategy: 'html-grid',
     nodeSize: 20,
     orientation: 'normal',
     onSelectCommit: (commit?: Commit) => {
@@ -108,8 +108,8 @@ const meta: Meta<StoryProps> = {
       },
       control: 'radio',
       options: {
-        'HTML DOM': 'html-dom',
-        'HTML 2D Canvas': 'html-canvas'
+        'HTML Grid': 'html-grid',
+        Canvas2D: 'canvas'
       }
     },
     pageSize: {

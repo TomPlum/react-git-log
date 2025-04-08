@@ -13,7 +13,7 @@ export const Graph = ({
   nodeSize = DEFAULT_NODE_SIZE,
   nodeTheme = 'default',
   orientation = 'normal',
-  renderStrategy = 'html-dom',
+  renderStrategy = 'html-grid',
   enableResize = false,
   showCommitNodeHashes = false,
   showCommitNodeTooltips = false
@@ -58,7 +58,7 @@ export const Graph = ({
   }), [showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData])
 
   const graph = useMemo(() => {
-    if (renderStrategy === 'html-canvas') {
+    if (renderStrategy === 'canvas') {
       return <Canvas2DGraph />
     }
 

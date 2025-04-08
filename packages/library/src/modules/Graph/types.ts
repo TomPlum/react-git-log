@@ -2,7 +2,7 @@ import { NodeTheme } from '../../hooks/useTheme'
 
 export type GraphOrientation = 'normal' | 'flipped'
 
-export type GraphRenderStrategy = 'html-dom' | 'html-canvas'
+export type GraphRenderStrategy = 'html-grid' | 'canvas'
 
 export interface GraphProps {
   /**
@@ -55,7 +55,7 @@ export interface GraphProps {
   /**
    * Determines how the graph is rendered.
    *
-   * HTML DOM mode renders the graph using
+   * HTML Grid mode renders the graph using
    * styled divs and SVG elements for the
    * curved lines. This uses a grid system
    * to make it look like a complete graph.
@@ -65,7 +65,7 @@ export interface GraphProps {
    * attributes on each row, column and its
    * contents.
    *
-   * HTML Canvas mode uses a flat 2D HTML
+   * Canvas mode uses a flat 2D HTML
    * canvas element. This strategy is more
    * performant, but harder to test and not
    * as feature rich.

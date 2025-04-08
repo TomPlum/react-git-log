@@ -27,6 +27,7 @@ const meta: Meta<StoryProps> = {
     showHeaders: true,
     enableResize: false,
     nodeTheme: 'default',
+    renderStrategy: 'html-grid',
     showGitIndex: true,
     nodeSize: 20,
     orientation: 'normal',
@@ -88,6 +89,17 @@ const meta: Meta<StoryProps> = {
       name: 'Show Git Index',
       table: {
         category: 'Visibility'
+      }
+    },
+    renderStrategy: {
+      name: 'Graph Render Strategy',
+      table: {
+        category: 'Visibility'
+      },
+      control: 'radio',
+      options: {
+        'HTML Grid': 'html-grid',
+        Canvas2D: 'canvas'
       }
     },
     enableResize: {
@@ -229,6 +241,7 @@ export const Demo: Story = {
               nodeTheme={args.nodeTheme}
               orientation={args.orientation}
               enableResize={args.enableResize}
+              renderStrategy={args.renderStrategy}
               showCommitNodeHashes={args.showCommitNodeHashes}
               showCommitNodeTooltips={args.showCommitNodeTooltips}
             />

@@ -11,6 +11,7 @@ export interface DrawProps {
   paging?: GraphPaging,
   graphData: GraphData
   nodeSize: number
+  isIndexVisible: boolean
   colours: (columnIndex: number) => CommitNodeColours
 }
 
@@ -24,6 +25,7 @@ export interface DrawGitIndexProps {
 
 export const draw = (props: DrawProps) => {
   props.ctx.lineWidth = NODE_BORDER_WIDTH
+  console.log(props.commits)
   drawEdges(props)
   drawCommitNodes(props)
 }
@@ -38,7 +40,8 @@ export const drawGitIndex = ({ ctx, rowSpacing, nodeSize, colours, headCommitLoc
     nodeSize,
     columnIndex: y,
     rowIndex: x,
-    rowSpacing
+    rowSpacing,
+    isIndexVisible: true
   })
   ctx.moveTo(xStart, yStart)
 
@@ -46,7 +49,8 @@ export const drawGitIndex = ({ ctx, rowSpacing, nodeSize, colours, headCommitLoc
     nodeSize,
     columnIndex: headCommitLocation[1],
     rowSpacing,
-    rowIndex: headCommitLocation[0]
+    rowIndex: headCommitLocation[0],
+    isIndexVisible: true
   })
   ctx.lineTo(xHead, yHead)
   ctx.strokeStyle = colours(y).borderColour
@@ -61,12 +65,13 @@ export const drawGitIndex = ({ ctx, rowSpacing, nodeSize, colours, headCommitLoc
     rowSpacing,
     rowIndex: x,
     columnIndex: y,
-    lineStyle: lineDash
+    lineStyle: lineDash,
+    isIndexVisible: true
   })
   ctx.fill()
 }
 
-const drawCommitNodes = ({ ctx, graphData, colours, rowSpacing, nodeSize }: DrawProps) => {
+const drawCommitNodes = ({ ctx, graphData, colours, rowSpacing, nodeSize, isIndexVisible }: DrawProps) => {
   graphData.positions.forEach(([rowIndex, columnIndex]) => {
     ctx.beginPath()
 
@@ -76,18 +81,20 @@ const drawCommitNodes = ({ ctx, graphData, colours, rowSpacing, nodeSize }: Draw
       rowIndex,
       nodeSize,
       rowSpacing,
-      columnIndex
+      columnIndex,
+      isIndexVisible
     })
   })
 }
 
-const drawEdges = ({ ctx, graphData, commits, rowSpacing, nodeSize, colours }: DrawProps) => {
+const drawEdges = ({ ctx, graphData, commits, rowSpacing, nodeSize, colours, isIndexVisible }: DrawProps) => {
   graphData.edges.search(0, commits.length).forEach(([[rowStart, colStart], [rowEnd, colEnd], edgeType]) => {
     ctx.beginPath()
 
     const { x: x0, y: y0, r } = getNodeCoordinates({
       rowIndex: rowStart,
       columnIndex: colStart,
+      isIndexVisible,
       rowSpacing,
       nodeSize
     })
@@ -95,6 +102,7 @@ const drawEdges = ({ ctx, graphData, commits, rowSpacing, nodeSize, colours }: D
     const { x: x1, y: y1 } = getNodeCoordinates({
       rowIndex: rowEnd,
       columnIndex: colEnd,
+      isIndexVisible,
       rowSpacing,
       nodeSize
     })
@@ -102,7 +110,29 @@ const drawEdges = ({ ctx, graphData, commits, rowSpacing, nodeSize, colours }: D
     ctx.moveTo(x0, y0)
 
     const strokeColumn = colStart != colEnd && edgeType === 'Merge' ? colEnd : colStart
-    ctx.strokeStyle = colours(strokeColumn).borderColour
+    const strokeColour = colours(strokeColumn).borderColour
+
+    if (rowEnd >= commits.length - 1) {
+      const dx = x1 - x0
+      const dy = y1 - y0
+      const length = Math.hypot(dx, dy)
+
+      if (length === 0) return
+
+      const ux = dx / length
+      const uy = dy / length
+
+      const fadeLength = ROW_HEIGHT
+      const fadeStartX = x1 - ux * fadeLength
+      const fadeStartY = y1 - uy * fadeLength
+
+      const gradient = ctx.createLinearGradient(fadeStartX, fadeStartY, x1, y1)
+      gradient.addColorStop(0, strokeColour)
+      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
+      ctx.strokeStyle = gradient
+    } else {
+      ctx.strokeStyle = strokeColour
+    }
 
     // If we're drawing a line between two nodes that
     // are in different branches (columns)
@@ -132,13 +162,14 @@ const drawEdges = ({ ctx, graphData, commits, rowSpacing, nodeSize, colours }: D
   })
 }
 
-const getNodeCoordinates = ({ nodeSize, columnIndex, rowIndex, rowSpacing }: { nodeSize: number, rowSpacing: number, rowIndex: number, columnIndex: number}) => {
+const getNodeCoordinates = ({ nodeSize, columnIndex, rowIndex, rowSpacing, isIndexVisible }: { nodeSize: number, rowSpacing: number, rowIndex: number, columnIndex: number, isIndexVisible: boolean }) => {
   const xOffset = 4
   const leftOffset = (nodeSize / 2) + NODE_BORDER_WIDTH
   const x = leftOffset + ((xOffset + nodeSize) * columnIndex)
 
   const yOffset = (ROW_HEIGHT / 2) + rowSpacing
-  const y = yOffset + (rowIndex * ROW_HEIGHT)
+  const rowIndex2 = isIndexVisible ? rowIndex : rowIndex - 1
+  const y = yOffset + (rowIndex2 * ROW_HEIGHT)
 
   const nodeRadius = nodeSize / 2 // nodeSize is diameter
 
@@ -156,11 +187,12 @@ interface DrawCommitNodeProps {
   rowIndex: number
   rowSpacing: number
   lineStyle?: number[]
+  isIndexVisible: boolean
   colours: (columnIndex: number) => CommitNodeColours
 }
 
-const drawCommitNode = ({ ctx, nodeSize, columnIndex, rowIndex, rowSpacing, colours, lineStyle }: DrawCommitNodeProps) => {
-  const { x, y, r } = getNodeCoordinates({ nodeSize, columnIndex, rowIndex, rowSpacing })
+const drawCommitNode = ({ ctx, nodeSize, columnIndex, rowIndex, rowSpacing, colours, lineStyle, isIndexVisible }: DrawCommitNodeProps) => {
+  const { x, y, r } = getNodeCoordinates({ nodeSize, columnIndex, rowIndex, rowSpacing, isIndexVisible })
   ctx.arc(x, y, r, 0, 2 * Math.PI)
 
   const { backgroundColour, borderColour } = colours(columnIndex)

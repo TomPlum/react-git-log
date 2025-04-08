@@ -18,7 +18,7 @@ export const Canvas2DGraph = () => {
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasWidth = (4 + nodeSize) * graphWidth
-  const canvasHeight = (ROW_HEIGHT + rowSpacing) * visibleCommits.length
+  const canvasHeight = (ROW_HEIGHT + rowSpacing) * (visibleCommits.length + (isIndexVisible ? 1 : 0))
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -58,6 +58,7 @@ export const Canvas2DGraph = () => {
       paging,
       graphData,
       nodeSize,
+      isIndexVisible,
       colours: getNodeColours,
       commits: visibleCommits
     })

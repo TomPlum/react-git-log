@@ -7,11 +7,11 @@ import { useTheme } from 'hooks/useTheme'
 
 export const Canvas2DGraph = () => {
   const { isIndexVisible, rowSpacing, paging, graphData } = useGitContext()
-  const { graphWidth, visibleCommits, columnData, nodeSize } = useGraphContext()
+  const { graphWidth, visibleCommits, nodeSize } = useGraphContext()
   const { getGraphColumnColour } = useTheme()
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const canvasWidth = graphWidth * nodeSize
+  const canvasWidth = (4 + nodeSize) * graphWidth
   const canvasHeight = (ROW_HEIGHT + rowSpacing) * visibleCommits.length
 
   useEffect(() => {
@@ -36,15 +36,14 @@ export const Canvas2DGraph = () => {
 
     draw({
       ctx,
-      columnData,
       rowSpacing,
-      graphWidth,
       paging,
       graphData,
+      nodeSize,
       getGraphColumnColour,
       commits: visibleCommits
     })
-  }, [canvasHeight, canvasWidth, columnData, getGraphColumnColour, graphData, graphWidth, paging, rowSpacing, visibleCommits])
+  }, [canvasHeight, canvasWidth, getGraphColumnColour, graphData, paging, rowSpacing, visibleCommits, nodeSize])
   
   return (
     <canvas

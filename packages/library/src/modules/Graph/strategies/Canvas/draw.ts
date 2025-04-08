@@ -1,18 +1,15 @@
-import { RowIndexToColumnStates } from 'modules/Graph/hooks/useColumnData'
 import { Commit } from 'types/Commit'
 import { ROW_HEIGHT } from 'constants/constants'
-import { getEmptyColumnState } from 'modules/Graph/utility/getEmptyColumnState'
 import { GraphPaging } from 'context/GitContext'
-import { CommitNodeLocation, GraphData } from 'data'
+import { GraphData } from 'data'
 
 export interface DrawProps {
   ctx: CanvasRenderingContext2D
-  columnData: RowIndexToColumnStates
   commits: Commit[]
   rowSpacing: number
   paging?: GraphPaging,
-  graphWidth: number
   graphData: GraphData
+  nodeSize: number
   getGraphColumnColour: (index: number) => string
 }
 
@@ -21,15 +18,19 @@ export const draw = (props: DrawProps) => {
   drawCommitNodes(props)
 }
 
-const drawCommitNodes = ({ ctx, graphData, getGraphColumnColour }: DrawProps) => {
+const drawCommitNodes = ({ ctx, graphData, getGraphColumnColour, rowSpacing, nodeSize }: DrawProps) => {
   graphData.positions.forEach(([rowIndex, columnIndex]) => {
     ctx.beginPath()
 
-    const x = 10 * columnIndex
-    const yOffset = ROW_HEIGHT / 2
+    const xOffset = 4
+    const leftOffset = nodeSize / 2
+    const x = leftOffset + ((xOffset + nodeSize) * columnIndex)
+    const yOffset = (ROW_HEIGHT / 2) + rowSpacing
     const y = yOffset + (rowIndex * ROW_HEIGHT)
-    ctx.arc(x, y, 5, 0, 2 * Math.PI)
+    const nodeRadius = nodeSize / 2 // nodeSize is diameter
+    ctx.arc(x, y, nodeRadius, 0, 2 * Math.PI)
     ctx.fillStyle = getGraphColumnColour(columnIndex)
+
     ctx.fill()
   })
 }

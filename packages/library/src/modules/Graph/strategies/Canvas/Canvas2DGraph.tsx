@@ -2,13 +2,13 @@ import { useGitContext } from 'context/GitContext'
 import { useGraphContext } from 'modules/Graph/context'
 import { useCallback, useEffect, useRef } from 'react'
 import { ROW_HEIGHT } from 'constants/constants'
-import { draw } from 'modules/Graph/strategies/Canvas/draw'
+import { draw, drawGitIndex } from 'modules/Graph/strategies/Canvas/draw'
 import { useTheme } from 'hooks/useTheme'
 
 export const Canvas2DGraph = () => {
-  const { isIndexVisible, rowSpacing, paging, graphData } = useGitContext()
-  const { graphWidth, visibleCommits, nodeSize } = useGraphContext()
   const { getCommitNodeColours, getGraphColumnColour } = useTheme()
+  const { graphWidth, visibleCommits, nodeSize } = useGraphContext()
+  const { isIndexVisible, rowSpacing, paging, graphData, headCommit } = useGitContext()
 
   const getNodeColours = useCallback((columnIndex: number) => {
     return getCommitNodeColours({
@@ -40,6 +40,18 @@ export const Canvas2DGraph = () => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
+    if (isIndexVisible && headCommit) {
+      const headCommitLocation = graphData.positions.get(headCommit.hash)!
+
+      drawGitIndex({
+        ctx,
+        nodeSize,
+        rowSpacing,
+        headCommitLocation,
+        colours: getNodeColours,
+      })
+    }
+
     draw({
       ctx,
       rowSpacing,
@@ -49,7 +61,7 @@ export const Canvas2DGraph = () => {
       colours: getNodeColours,
       commits: visibleCommits
     })
-  }, [canvasHeight, canvasWidth, getCommitNodeColours, graphData, paging, rowSpacing, visibleCommits, nodeSize, getNodeColours])
+  }, [canvasHeight, canvasWidth, getCommitNodeColours, graphData, paging, rowSpacing, visibleCommits, nodeSize, getNodeColours, isIndexVisible])
   
   return (
     <canvas

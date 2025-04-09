@@ -351,4 +351,4 @@ Canvas2D
 - Hover effect and click effect
 - Tooltips?
 - Row spacing support
-- Graph flipped orientation support
+- Update README docs with new graph subcomponent variants

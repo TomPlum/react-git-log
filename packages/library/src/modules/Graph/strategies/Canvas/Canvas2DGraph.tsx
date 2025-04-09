@@ -7,8 +7,8 @@ import { CanvasRenderer } from 'modules/Graph/strategies/Canvas/CanvasRenderer'
 
 export const Canvas2DGraph = () => {
   const { getCommitNodeColours, getGraphColumnColour } = useTheme()
-  const { graphWidth, visibleCommits, nodeSize, nodeTheme } = useGraphContext()
   const { isIndexVisible, rowSpacing, paging, graphData, headCommit } = useGitContext()
+  const { graphWidth, visibleCommits, nodeSize, nodeTheme, orientation } = useGraphContext()
 
   const getNodeColours = useCallback((columnIndex: number) => {
     return getCommitNodeColours({
@@ -46,6 +46,7 @@ export const Canvas2DGraph = () => {
       graphData,
       nodeTheme,
       rowSpacing,
+      orientation,
       canvasHeight,
       isIndexVisible,
       colours: getNodeColours,

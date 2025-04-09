@@ -3,6 +3,7 @@ import { CommitNodeLocation, GraphData } from 'data'
 import { CommitNodeColours, NodeTheme } from 'hooks/useTheme'
 import { NODE_BORDER_WIDTH, ROW_HEIGHT } from 'constants/constants'
 import { getMergeNodeInnerSize } from 'modules/Graph/utils/getMergeNodeInnerSize'
+import { GraphOrientation } from 'modules/Graph'
 
 export interface CanvasRendererProps {
   ctx: CanvasRenderingContext2D
@@ -12,6 +13,7 @@ export interface CanvasRendererProps {
   nodeSize: number
   nodeTheme: NodeTheme
   canvasHeight: number
+  orientation: GraphOrientation
   isIndexVisible: boolean
   colours: (columnIndex: number) => CommitNodeColours
 }
@@ -23,6 +25,7 @@ export class CanvasRenderer {
   private readonly canvasHeight: number
   private readonly graphData: GraphData
   private readonly nodeTheme: NodeTheme
+  private readonly orientation: GraphOrientation
   private readonly isIndexVisible: boolean
   private readonly ctx: CanvasRenderingContext2D
   private readonly colours: (columnIndex: number) => CommitNodeColours
@@ -34,6 +37,7 @@ export class CanvasRenderer {
     this.graphData = props.graphData
     this.nodeSize = props.nodeSize
     this.nodeTheme = props.nodeTheme
+    this.orientation = props.orientation
     this.isIndexVisible = props.isIndexVisible
     this.colours = props.colours
     this.canvasHeight = props.canvasHeight
@@ -92,47 +96,31 @@ export class CanvasRenderer {
       const edgeIsTargetingOffScreenNode = rowEnd > this.commits.length
 
       if (edgeIsTargetingOffScreenNode) {
-        const dx = x1 - x0
-        const dy = y1 - y0
-        const length = Math.hypot(dx, dy)
-
-        const ux = dx / length
-        const uy = dy / length
-
-        const fadeLength = ROW_HEIGHT
-        const fadeStartX = x1 - ux * fadeLength
-        const fadeStartY = y1 - uy * fadeLength
-
-        const gradient = this.ctx.createLinearGradient(fadeStartX, fadeStartY, x1, y1)
-        gradient.addColorStop(0, strokeColour)
-        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
-        this.ctx.strokeStyle = gradient
+        this.ctx.strokeStyle = this.createFadeGradient(x1, x0, y1, y0, strokeColour)
       } else {
         this.ctx.strokeStyle = strokeColour
       }
 
       // If we're drawing a line between two nodes that
       // are in different branches (columns)
-      if (colStart != colEnd) {
-        if (edgeType === 'Merge') {
-          if (colStart < colEnd) {
-            this.ctx.lineTo(x1 - r, y0)
-            this.ctx.quadraticCurveTo(x1, y0, x1, y0 + r)
-          } else {
-            this.ctx.lineTo(x1 + r, y0)
-            this.ctx.quadraticCurveTo(x1, y0, x1, y0 + r)
-          }
+      if (colStart !== colEnd) {
+        const isNormal = this.orientation === 'normal'
+        const isMerge = edgeType === 'Merge'
+        const isForward = colStart < colEnd
+
+        const dir = isForward ? 1 : -1
+        const flip = isNormal ? 1 : -1
+
+        if (isMerge) {
+          this.ctx.lineTo(x1 - r * dir * flip, y0)
+          this.ctx.quadraticCurveTo(x1, y0, x1, y0 + r)
         } else {
-          if (colStart < colEnd) {
-            this.ctx.lineTo(x0, y1 - r)
-            this.ctx.quadraticCurveTo(x0, y1, x0 + r, y1)
-          } else {
-            this.ctx.lineTo(x0, y1 - r)
-            this.ctx.quadraticCurveTo(x0, y1, x0 - r, y1)
-          }
+          this.ctx.lineTo(x0, y1 - r)
+          this.ctx.quadraticCurveTo(x0, y1, x0 + r * dir * flip, y1)
         }
       }
 
+      // Else, we're drawing a straight line down one column.
       if (edgeIsTargetingOffScreenNode) {
         this.ctx.lineTo(x1, this.canvasHeight)
       } else {
@@ -144,10 +132,32 @@ export class CanvasRenderer {
     })
   }
 
+  private createFadeGradient(x1: number, x0: number, y1: number, y0: number, strokeColour: string) {
+    const dx = x1 - x0
+    const dy = y1 - y0
+    const length = Math.hypot(dx, dy)
+
+    const ux = dx / length
+    const uy = dy / length
+
+    const fadeLength = ROW_HEIGHT
+    const fadeStartX = x1 - ux * fadeLength
+    const fadeStartY = y1 - uy * fadeLength
+
+    const gradient = this.ctx.createLinearGradient(fadeStartX, fadeStartY, x1, y1)
+    gradient.addColorStop(0, strokeColour)
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
+
+    return gradient
+  }
+
   private getNodeCoordinates(rowIndex: number, columnIndex: number) {
     const xOffset = 4
     const leftOffset = (this.nodeSize / 2) + NODE_BORDER_WIDTH
-    const x = leftOffset + ((xOffset + this.nodeSize) * columnIndex)
+    const normalisedColIndex = this.orientation === 'normal'
+      ? columnIndex
+      : this.graphData.graphWidth - 1 - columnIndex
+    const x = leftOffset + ((xOffset + this.nodeSize) * normalisedColIndex)
 
     const yOffset = (ROW_HEIGHT / 2) + this.rowSpacing
     const rowIndex2 = this.isIndexVisible ? rowIndex : rowIndex - 1

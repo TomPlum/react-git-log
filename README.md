@@ -351,4 +351,6 @@ Canvas2D
 - Hover effect and click effect
 - Tooltips?
 - Row spacing support
+- First row background cut off by canvas
+- Branch/tag lines to lining up with nodes.
 - Update README docs with new graph subcomponent variants

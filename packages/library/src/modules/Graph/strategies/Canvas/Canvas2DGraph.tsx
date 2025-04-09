@@ -1,14 +1,29 @@
 import { useGitContext } from 'context/GitContext'
 import { useGraphContext } from 'modules/Graph/context'
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { ROW_HEIGHT } from 'constants/constants'
 import { useTheme } from 'hooks/useTheme'
 import { CanvasRenderer } from 'modules/Graph/strategies/Canvas/CanvasRenderer'
+import { useSelectCommit } from 'hooks/useSelectCommit'
+import styles from './Canvas2DGraph.module.scss'
 
 export const Canvas2DGraph = () => {
-  const { getCommitNodeColours, getGraphColumnColour } = useTheme()
-  const { isIndexVisible, rowSpacing, paging, graphData, headCommit } = useGitContext()
+  const [xHover, setXHover] = useState<number>()
+  const [yHover, setYHover] = useState<number>()
+
+  const { selectCommitHandler } = useSelectCommit()
+  const { getCommitNodeColours, getGraphColumnColour, hoverColour } = useTheme()
   const { graphWidth, visibleCommits, nodeSize, nodeTheme, orientation } = useGraphContext()
+
+  const {
+    paging,
+    graphData,
+    rowSpacing,
+    headCommit,
+    isIndexVisible,
+    selectedCommit,
+    previewedCommit,
+  } = useGitContext()
 
   const getNodeColours = useCallback((columnIndex: number) => {
     return getCommitNodeColours({
@@ -47,10 +62,14 @@ export const Canvas2DGraph = () => {
       nodeTheme,
       rowSpacing,
       orientation,
+      canvasWidth,
       canvasHeight,
       isIndexVisible,
+      selectedCommit,
+      previewedCommit,
       colours: getNodeColours,
-      commits: visibleCommits
+      commits: visibleCommits,
+      previewBackgroundColour: hoverColour
     })
 
     if (isIndexVisible && headCommit) {
@@ -58,14 +77,50 @@ export const Canvas2DGraph = () => {
       canvasRenderer.drawGitIndex(headCommitLocation)
     }
 
+    if (xHover && yHover) {
+      const { commit } = canvasRenderer.drawBackground(xHover, yHover)
+      selectCommitHandler.onMouseOver(commit)
+    }
+
     canvasRenderer.draw()
-  }, [canvasHeight, canvasWidth, getCommitNodeColours, graphData, paging, rowSpacing, visibleCommits, nodeSize, getNodeColours, isIndexVisible, headCommit])
-  
+  }, [canvasHeight, canvasWidth, getCommitNodeColours, graphData, paging, rowSpacing, visibleCommits, nodeSize, getNodeColours, isIndexVisible, headCommit, nodeTheme, orientation, xHover, yHover, hoverColour, selectCommitHandler, selectedCommit, previewedCommit])
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) {
+      return
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+
+      setXHover(x)
+      setYHover(y)
+    }
+
+    const handleMouseOut = () => {
+      setXHover(undefined)
+      setYHover(undefined)
+      selectCommitHandler.onMouseOut()
+    }
+
+    canvas.addEventListener('mousemove', handleMouseMove)
+    canvas.addEventListener('mouseout', handleMouseOut)
+    
+    return () => {
+      canvas.removeEventListener('mousemove', handleMouseMove)
+      canvas.removeEventListener('mouseout', handleMouseOut)
+    }
+  }, [selectCommitHandler])
+
   return (
     <canvas
       ref={canvasRef}
       width={canvasWidth}
       height={canvasHeight}
+      className={styles.canvas}
     />
   )
 }

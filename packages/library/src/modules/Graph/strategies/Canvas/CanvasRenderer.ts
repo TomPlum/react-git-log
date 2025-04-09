@@ -13,6 +13,10 @@ export interface CanvasRendererProps {
   nodeSize: number
   nodeTheme: NodeTheme
   canvasHeight: number
+  canvasWidth: number
+  selectedCommit?: Commit
+  previewedCommit?: Commit
+  previewBackgroundColour: string
   orientation: GraphOrientation
   isIndexVisible: boolean
   colours: (columnIndex: number) => CommitNodeColours
@@ -23,12 +27,20 @@ export class CanvasRenderer {
   private readonly commits: Commit[]
   private readonly rowSpacing: number
   private readonly canvasHeight: number
+  private readonly canvasWidth: number
   private readonly graphData: GraphData
   private readonly nodeTheme: NodeTheme
   private readonly orientation: GraphOrientation
   private readonly isIndexVisible: boolean
+  private readonly previewBackgroundColour: string
   private readonly ctx: CanvasRenderingContext2D
   private readonly colours: (columnIndex: number) => CommitNodeColours
+
+  private readonly rowToCommitHash = new Map<number, string>
+  private readonly rowToCommitColumn = new Map<number, number>
+
+  private readonly previewedCommit: Commit | undefined
+  private readonly selectedCommit: Commit | undefined
 
   constructor(props: CanvasRendererProps) {
     this.ctx = props.ctx
@@ -41,17 +53,37 @@ export class CanvasRenderer {
     this.isIndexVisible = props.isIndexVisible
     this.colours = props.colours
     this.canvasHeight = props.canvasHeight
+    this.canvasWidth = props.canvasWidth
+    this.previewedCommit = props.previewedCommit
+    this.selectedCommit = props.selectedCommit
+    this.previewBackgroundColour = props.previewBackgroundColour;
+
+    [...props.graphData.positions.entries()].forEach(([hash, location]) => {
+      this.rowToCommitColumn.set(location[0], location[1])
+      this.rowToCommitHash.set(location[0], hash)
+    })
   }
 
   public draw() {
     this.ctx.lineWidth = NODE_BORDER_WIDTH
+
+    // Backgrounds are drawn first so they're underneath other elements
+    if (this.previewedCommit) {
+      this.drawBackgroundForCommit(this.previewedCommit, this.previewBackgroundColour)
+    }
+
+    if (this.selectedCommit) {
+      const commitColourIndex = this.graphData.positions.get(this.selectedCommit.hash)![1]
+      this.drawBackgroundForCommit(this.selectedCommit, this.colours(commitColourIndex).backgroundColour)
+    }
+
     this.drawEdges()
     this.drawCommitNodes()
   }
 
   public drawGitIndex(headCommitLocation: CommitNodeLocation) {
     const [x, y] = [0, 0]
-    const lineDash = [2, 1]
+    const lineDash = [2, 2]
 
     this.ctx.beginPath()
 
@@ -66,6 +98,53 @@ export class CanvasRenderer {
 
     this.ctx.beginPath()
     this.drawCommitNode(x, y, lineDash)
+    this.ctx.fill()
+  }
+
+  public drawBackground(xHover: number, yHover: number) {
+    const location = this.getRowColFromCoordinates(xHover, yHover)
+
+    if (location !== null) {
+      this.drawColumnBackground(location.rowIndex, this.previewBackgroundColour)
+    }
+
+    return {
+      location,
+      commit: this.graphData.hashToCommit.get(this.rowToCommitHash.get(location!.rowIndex)!)!
+    }
+  }
+
+  public drawBackgroundForCommit(commit: Commit, colour: string) {
+    if (commit.hash === 'index') {
+      this.drawColumnBackground(0, colour)
+    } else {
+      const location = this.graphData.positions.get(commit.hash)
+
+      if (location) {
+        this.drawColumnBackground(location[0], colour)
+      }
+    }
+  }
+
+  private drawColumnBackground(rowIndex: number, colour: string) {
+    const nodeColumn = this.rowToCommitColumn.get(rowIndex)!
+    const nodeCoordinates = this.getNodeCoordinates(rowIndex, nodeColumn)
+    const height = ROW_HEIGHT - 4 // Doesn't seem to be correct in the canvas
+    const leftOffset = 8
+    const cornerRadius = height / 2
+    const x = nodeCoordinates.x - (this.nodeSize / 2) - leftOffset
+    const y = nodeCoordinates.y - (height / 2)
+
+    this.ctx.beginPath()
+    this.ctx.moveTo(x + cornerRadius, y)
+    this.ctx.lineTo(this.canvasWidth, y)
+    this.ctx.lineTo(this.canvasWidth, y + height)
+    this.ctx.lineTo(x + cornerRadius, y + height)
+    this.ctx.arcTo(x, y + height, x, y + height - cornerRadius, cornerRadius)
+    this.ctx.lineTo(x, y + cornerRadius)
+    this.ctx.arcTo(x, y, x + cornerRadius, y, cornerRadius)
+    this.ctx.closePath()
+    this.ctx.fillStyle = colour
     this.ctx.fill()
   }
 
@@ -169,6 +248,36 @@ export class CanvasRenderer {
       x,
       y,
       r: nodeRadius
+    }
+  }
+
+  private getRowColFromCoordinates(x: number, y: number): { rowIndex: number, columnIndex: number } | null {
+    const xOffset = 4
+    const leftOffset = (this.nodeSize / 2) + NODE_BORDER_WIDTH
+    const nodeStrideX = this.nodeSize + xOffset
+
+    const yOffset = (ROW_HEIGHT / 2) + this.rowSpacing
+    const nodeStrideY = ROW_HEIGHT
+
+    const normalisedColIndex = Math.floor((x - leftOffset + (nodeStrideX / 2)) / nodeStrideX)
+    if (normalisedColIndex < 0 || normalisedColIndex >= this.graphData.graphWidth) {
+      return null
+    }
+
+    const columnIndex = this.orientation === 'normal'
+      ? normalisedColIndex
+      : this.graphData.graphWidth - 1 - normalisedColIndex
+
+    const rawRowIndex = Math.floor((y - yOffset + (ROW_HEIGHT / 2)) / nodeStrideY)
+    const rowIndex = this.isIndexVisible ? rawRowIndex : rawRowIndex + 1
+
+    if (rowIndex < 0 || rowIndex >= this.canvasHeight) {
+      return null
+    }
+
+    return {
+      rowIndex,
+      columnIndex
     }
   }
 

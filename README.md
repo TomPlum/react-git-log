@@ -352,4 +352,3 @@ Canvas2D
 - Tooltips?
 - Row spacing support
 - Graph flipped orientation support
-- Node theme support

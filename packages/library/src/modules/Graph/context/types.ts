@@ -20,7 +20,7 @@ export interface GraphContextBag {
    * The theme to apply the commit node
    * elements in the graph.
    */
-  nodeTheme?: NodeTheme
+  nodeTheme: NodeTheme
 
   /**
    * The diameter, in pixels, of the

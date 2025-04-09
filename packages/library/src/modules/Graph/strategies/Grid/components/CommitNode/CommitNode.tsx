@@ -8,6 +8,7 @@ import { useSelectCommit } from 'hooks/useSelectCommit'
 import { NODE_BORDER_WIDTH } from 'constants/constants'
 import { useGraphContext } from 'modules/Graph/context'
 import { useGitContext } from 'context/GitContext'
+import { getMergeNodeInnerSize } from 'modules/Graph/utils/getMergeNodeInnerSize'
 
 export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
@@ -42,7 +43,7 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   }, [borderColour, nodeSize, backgroundColour])
 
   const mergeInnerNodeStyles = useMemo<CSSProperties>(() => {
-    const diameter = nodeSize > 10 ? nodeSize - 6 : nodeSize - 2
+    const diameter = getMergeNodeInnerSize({ nodeSize })
     return {
       background: borderColour,
       width: diameter,

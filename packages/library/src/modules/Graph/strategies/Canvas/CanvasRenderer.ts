@@ -1,7 +1,8 @@
 import { Commit } from 'types/Commit'
 import { CommitNodeLocation, GraphData } from 'data'
-import { CommitNodeColours } from 'hooks/useTheme'
+import { CommitNodeColours, NodeTheme } from 'hooks/useTheme'
 import { NODE_BORDER_WIDTH, ROW_HEIGHT } from 'constants/constants'
+import { getMergeNodeInnerSize } from 'modules/Graph/utils/getMergeNodeInnerSize'
 
 export interface CanvasRendererProps {
   ctx: CanvasRenderingContext2D
@@ -9,6 +10,7 @@ export interface CanvasRendererProps {
   rowSpacing: number
   graphData: GraphData
   nodeSize: number
+  nodeTheme: NodeTheme
   canvasHeight: number
   isIndexVisible: boolean
   colours: (columnIndex: number) => CommitNodeColours
@@ -20,6 +22,7 @@ export class CanvasRenderer {
   private readonly rowSpacing: number
   private readonly canvasHeight: number
   private readonly graphData: GraphData
+  private readonly nodeTheme: NodeTheme
   private readonly isIndexVisible: boolean
   private readonly ctx: CanvasRenderingContext2D
   private readonly colours: (columnIndex: number) => CommitNodeColours
@@ -30,6 +33,7 @@ export class CanvasRenderer {
     this.rowSpacing = props.rowSpacing
     this.graphData = props.graphData
     this.nodeSize = props.nodeSize
+    this.nodeTheme = props.nodeTheme
     this.isIndexVisible = props.isIndexVisible
     this.colours = props.colours
     this.canvasHeight = props.canvasHeight
@@ -62,9 +66,14 @@ export class CanvasRenderer {
   }
 
   private drawCommitNodes() {
-    this.graphData.positions.forEach(([rowIndex, columnIndex]) => {
-      this.ctx.beginPath()
+    this.graphData.positions.forEach(([rowIndex, columnIndex], hash) => {
       this.drawCommitNode(rowIndex, columnIndex)
+
+      const commit = this.graphData.hashToCommit.get(hash)!
+      const isMergeCommit = commit.parents.length > 1 && this.nodeTheme === 'default'
+      if (isMergeCommit) {
+        this.drawMergeNodeInner(rowIndex, columnIndex)
+      }
     })
   }
 
@@ -154,6 +163,8 @@ export class CanvasRenderer {
   }
 
   private drawCommitNode(rowIndex: number, columnIndex: number, lineStyle: number[] = []) {
+    this.ctx.beginPath()
+
     const { x, y, r } = this.getNodeCoordinates(rowIndex, columnIndex)
     this.ctx.arc(x, y, r, 0, 2 * Math.PI)
 
@@ -165,5 +176,16 @@ export class CanvasRenderer {
     this.ctx.strokeStyle = borderColour
     this.ctx.setLineDash(lineStyle)
     this.ctx.stroke()
+  }
+
+  private drawMergeNodeInner(rowIndex: number, columnIndex: number) {
+    this.ctx.beginPath()
+    const { x, y } = this.getNodeCoordinates(rowIndex, columnIndex)
+    const innerDiameter = getMergeNodeInnerSize({ nodeSize: this.nodeSize })
+    this.ctx.arc(x, y, innerDiameter / 2, 0, 2 * Math.PI)
+
+    const { borderColour } = this.colours(columnIndex)
+    this.ctx.fillStyle = borderColour
+    this.ctx.fill()
   }
 }

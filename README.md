@@ -344,3 +344,12 @@ Returns an object of type `GitLogUrls` with the following fields.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
 - Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch
 - Make repository URL a function that generates the URL
+
+Canvas2D
+- Paginated variant needs to add in lines off-screen in the virtual columns
+- Fade out of line at bottom
+- Hover effect and click effect
+- Tooltips?
+- Row spacing support
+- Graph flipped orientation support
+- Node theme support

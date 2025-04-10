@@ -4,6 +4,7 @@ import { CommitNodeColours, NodeTheme } from 'hooks/useTheme'
 import { NODE_BORDER_WIDTH, ROW_HEIGHT } from 'constants/constants'
 import { getMergeNodeInnerSize } from 'modules/Graph/utils/getMergeNodeInnerSize'
 import { GraphOrientation } from 'modules/Graph'
+import { getColumnBackgroundSize } from 'modules/Graph/utils/getColumnBackgroundSize'
 
 export interface CanvasRendererProps {
   ctx: CanvasRenderingContext2D
@@ -14,6 +15,7 @@ export interface CanvasRendererProps {
   nodeTheme: NodeTheme
   canvasHeight: number
   canvasWidth: number
+  showTable: boolean
   selectedCommit?: Commit
   previewedCommit?: Commit
   previewBackgroundColour: string
@@ -32,6 +34,7 @@ export class CanvasRenderer {
   private readonly nodeTheme: NodeTheme
   private readonly orientation: GraphOrientation
   private readonly isIndexVisible: boolean
+  private readonly showTable: boolean
   private readonly previewBackgroundColour: string
   private readonly ctx: CanvasRenderingContext2D
   private readonly colours: (columnIndex: number) => CommitNodeColours
@@ -51,6 +54,7 @@ export class CanvasRenderer {
     this.nodeTheme = props.nodeTheme
     this.orientation = props.orientation
     this.isIndexVisible = props.isIndexVisible
+    this.showTable = props.showTable
     this.colours = props.colours
     this.canvasHeight = props.canvasHeight
     this.canvasWidth = props.canvasWidth
@@ -127,23 +131,35 @@ export class CanvasRenderer {
   private drawColumnBackground(rowIndex: number, colour: string) {
     const nodeColumn = this.rowToCommitColumn.get(rowIndex)!
     const nodeCoordinates = this.getNodeCoordinates(rowIndex, nodeColumn)
-    const height = ROW_HEIGHT - 4 // Doesn't seem to be correct in the canvas
-    const leftOffset = 8
-    const cornerRadius = height / 2
-    const x = nodeCoordinates.x - (this.nodeSize / 2) - leftOffset
-    const y = nodeCoordinates.y - (height / 2)
 
-    this.ctx.beginPath()
-    this.ctx.moveTo(x + cornerRadius, y)
-    this.ctx.lineTo(this.canvasWidth, y)
-    this.ctx.lineTo(this.canvasWidth, y + height)
-    this.ctx.lineTo(x + cornerRadius, y + height)
-    this.ctx.arcTo(x, y + height, x, y + height - cornerRadius, cornerRadius)
-    this.ctx.lineTo(x, y + cornerRadius)
-    this.ctx.arcTo(x, y, x + cornerRadius, y, cornerRadius)
-    this.ctx.closePath()
-    this.ctx.fillStyle = colour
-    this.ctx.fill()
+    if (this.showTable) {
+      const height = ROW_HEIGHT - 4 // Doesn't seem to be correct in the canvas
+      const leftOffset = 8
+      const cornerRadius = height / 2
+      const nodeRadius = this.nodeSize / 2
+      const x = nodeCoordinates.x - nodeRadius - leftOffset
+      const y = nodeCoordinates.y - (height / 2)
+
+      this.ctx.beginPath()
+      this.ctx.moveTo(x + cornerRadius, y)
+      this.ctx.lineTo(this.canvasWidth, y)
+      this.ctx.lineTo(this.canvasWidth, y + height)
+      this.ctx.lineTo(x + cornerRadius, y + height)
+      this.ctx.arcTo(x, y + height, x, y + height - cornerRadius, cornerRadius)
+      this.ctx.lineTo(x, y + cornerRadius)
+      this.ctx.arcTo(x, y, x + cornerRadius, y, cornerRadius)
+      this.ctx.closePath()
+      this.ctx.fillStyle = colour
+      this.ctx.fill()
+    } else {
+      const radius = getColumnBackgroundSize({ nodeSize: this.nodeSize })
+      
+      this.ctx.beginPath()
+      this.ctx.arc(nodeCoordinates.x, nodeCoordinates.y, radius, 0, 2 * Math.PI)
+      this.ctx.closePath()
+      this.ctx.fillStyle = colour
+      this.ctx.fill()
+    }
   }
 
   private drawCommitNodes() {

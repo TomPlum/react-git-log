@@ -14,6 +14,7 @@ export const Canvas2DGraph = () => {
   const [xClick, setXClick] = useState<number>()
   const [yClick, setYClick] = useState<number>()
 
+  const { showTable } = useGitContext()
   const { selectCommitHandler } = useSelectCommit()
   const { getCommitNodeColours, getGraphColumnColour, hoverColour } = useTheme()
   const { graphWidth, visibleCommits, nodeSize, nodeTheme, orientation } = useGraphContext()
@@ -63,6 +64,7 @@ export const Canvas2DGraph = () => {
       nodeSize,
       graphData,
       nodeTheme,
+      showTable,
       rowSpacing,
       orientation,
       canvasWidth,

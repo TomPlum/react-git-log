@@ -5,14 +5,14 @@ import { CSSProperties, useMemo } from 'react'
 import { BACKGROUND_HEIGHT_OFFSET, ROW_HEIGHT } from 'constants/constants'
 import { useGitContext } from 'context/GitContext'
 import { useGraphContext } from 'modules/Graph/context'
+import { getColumnBackgroundSize } from 'modules/Graph/utils/getColumnBackgroundSize'
 
 export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnBackgroundProps) => {
   const { showTable } = useGitContext()
   const { nodeSize, orientation } = useGraphContext()
 
   const style = useMemo<CSSProperties>(() => {
-    // 4 or 8 pixels either side of the node
-    const offset = (nodeSize <= 16 ? 6 : 8) * 2
+    const offset = getColumnBackgroundSize({ nodeSize })
 
     if (!showTable) {
       const backgroundSize = nodeSize + offset

@@ -101,33 +101,15 @@ export class CanvasRenderer {
     this.ctx.fill()
   }
 
-  public drawBackground(xHover: number, yHover: number, colour: string) {
-    const location = this.getRowColFromCoordinates(xHover, yHover)
+  public getCommitAtPosition(x: number, y: number) {
+    const location = this.getRowColFromCoordinates(x, y)
 
     if (location !== null) {
-      this.drawColumnBackground(location.rowIndex, colour)
-
       const commitHash = this.rowToCommitHash.get(location.rowIndex)
-
-      return {
-        location,
-        commit: commitHash ? this.graphData.hashToCommit.get(commitHash) : undefined
-      }
+      return commitHash ? this.graphData.hashToCommit.get(commitHash) : undefined
     }
 
-    return {
-      location,
-      commit: undefined
-    }
-  }
-
-  public drawPreviewBackground(xHover: number, yHover: number) {
-    return this.drawBackground(xHover, yHover, this.previewBackgroundColour)
-  }
-
-  public drawSelectedBackground(xHover: number, yHover: number) {
-    const location = this.getRowColFromCoordinates(xHover, yHover)
-    return this.drawBackground(xHover, yHover, this.colours(location?.columnIndex ?? 0).backgroundColour)
+    return undefined
   }
 
   public drawBackgroundForCommit(commit: Commit, colour: string) {

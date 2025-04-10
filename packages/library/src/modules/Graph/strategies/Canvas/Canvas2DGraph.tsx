@@ -81,15 +81,15 @@ export const Canvas2DGraph = () => {
     }
 
     if (xHover && yHover) {
-      const { commit } = canvasRenderer.drawPreviewBackground(xHover, yHover)
+      const commit = canvasRenderer.getCommitAtPosition(xHover, yHover)
 
-      if (commit) {
+      if (commit && previewedCommit?.hash !== commit.hash) {
         selectCommitHandler.onMouseOver(commit)
       }
     }
 
     if (xClick && yClick) {
-      const { commit } = canvasRenderer.drawSelectedBackground(xClick, yClick)
+      const commit = canvasRenderer.getCommitAtPosition(xClick, yClick)
 
       if (commit) {
         selectCommitHandler.onClick(commit)

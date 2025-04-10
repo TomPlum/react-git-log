@@ -1,6 +1,6 @@
 import { useGitContext } from 'context/GitContext'
 import { useGraphContext } from 'modules/Graph/context'
-import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { ROW_HEIGHT } from 'constants/constants'
 import { useTheme } from 'hooks/useTheme'
 import { CanvasRenderer } from 'modules/Graph/strategies/Canvas/CanvasRenderer'

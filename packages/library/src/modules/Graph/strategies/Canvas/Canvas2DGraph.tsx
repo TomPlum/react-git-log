@@ -1,6 +1,6 @@
 import { useGitContext } from 'context/GitContext'
 import { useGraphContext } from 'modules/Graph/context'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react'
 import { ROW_HEIGHT } from 'constants/constants'
 import { useTheme } from 'hooks/useTheme'
 import { CanvasRenderer } from 'modules/Graph/strategies/Canvas/CanvasRenderer'
@@ -10,6 +10,9 @@ import styles from './Canvas2DGraph.module.scss'
 export const Canvas2DGraph = () => {
   const [xHover, setXHover] = useState<number>()
   const [yHover, setYHover] = useState<number>()
+
+  const [xClick, setXClick] = useState<number>()
+  const [yClick, setYClick] = useState<number>()
 
   const { selectCommitHandler } = useSelectCommit()
   const { getCommitNodeColours, getGraphColumnColour, hoverColour } = useTheme()
@@ -78,14 +81,26 @@ export const Canvas2DGraph = () => {
     }
 
     if (xHover && yHover) {
-      const { commit } = canvasRenderer.drawBackground(xHover, yHover)
+      const { commit } = canvasRenderer.drawPreviewBackground(xHover, yHover)
+
       if (commit) {
         selectCommitHandler.onMouseOver(commit)
       }
     }
 
+    if (xClick && yClick) {
+      const { commit } = canvasRenderer.drawSelectedBackground(xClick, yClick)
+
+      if (commit) {
+        selectCommitHandler.onClick(commit)
+      }
+
+      setXClick(undefined)
+      setYClick(undefined)
+    }
+
     canvasRenderer.draw()
-  }, [canvasHeight, canvasWidth, getCommitNodeColours, graphData, paging, rowSpacing, visibleCommits, nodeSize, getNodeColours, isIndexVisible, headCommit, nodeTheme, orientation, xHover, yHover, hoverColour, selectCommitHandler, selectedCommit, previewedCommit])
+  }, [canvasHeight, canvasWidth, getCommitNodeColours, graphData, paging, rowSpacing, visibleCommits, nodeSize, getNodeColours, isIndexVisible, headCommit, nodeTheme, orientation, xHover, yHover, hoverColour, selectCommitHandler, selectedCommit, previewedCommit, xClick, yClick])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -108,12 +123,23 @@ export const Canvas2DGraph = () => {
       selectCommitHandler.onMouseOut()
     }
 
+    const handleClick = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+
+      setXClick(x)
+      setYClick(y)
+    }
+
     canvas.addEventListener('mousemove', handleMouseMove)
     canvas.addEventListener('mouseout', handleMouseOut)
-    
+    canvas.addEventListener('click', handleClick)
+
     return () => {
       canvas.removeEventListener('mousemove', handleMouseMove)
       canvas.removeEventListener('mouseout', handleMouseOut)
+      canvas.removeEventListener('click', handleClick)
     }
   }, [selectCommitHandler])
 

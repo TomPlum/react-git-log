@@ -106,11 +106,18 @@ export class CanvasRenderer {
 
     if (location !== null) {
       this.drawColumnBackground(location.rowIndex, this.previewBackgroundColour)
+
+      const commitHash = this.rowToCommitHash.get(location.rowIndex)
+
+      return {
+        location,
+        commit: commitHash ? this.graphData.hashToCommit.get(commitHash) : undefined
+      }
     }
 
     return {
       location,
-      commit: this.graphData.hashToCommit.get(this.rowToCommitHash.get(location!.rowIndex)!)!
+      commit: undefined
     }
   }
 

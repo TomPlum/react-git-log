@@ -79,7 +79,9 @@ export const Canvas2DGraph = () => {
 
     if (xHover && yHover) {
       const { commit } = canvasRenderer.drawBackground(xHover, yHover)
-      selectCommitHandler.onMouseOver(commit)
+      if (commit) {
+        selectCommitHandler.onMouseOver(commit)
+      }
     }
 
     canvasRenderer.draw()

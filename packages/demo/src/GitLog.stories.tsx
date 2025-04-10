@@ -37,7 +37,7 @@ const meta: Meta<StoryProps> = {
     onSelectCommit: (commit?: Commit) => {
       console.info(`Selected commit ${commit?.hash}`)
     },
-    defaultGraphWidth: 200,
+    defaultGraphWidth: 120,
     rowSpacing: 0,
     page: 0,
     pageSize: 200

@@ -7,8 +7,10 @@ export const useSelectCommit = (): SelectCommitHandler => {
   const { selectedCommit, previewedCommit, setPreviewedCommit, setSelectedCommit } = useGitContext()
   
   const handleMouseOver = useCallback((commit: Commit) => {
-    setPreviewedCommit(commit)
-  }, [setPreviewedCommit])
+    if (commit.hash !== selectedCommit?.hash) {
+      setPreviewedCommit(commit)
+    }
+  }, [selectedCommit?.hash, setPreviewedCommit])
 
   const handleMouseOut = useCallback(() => {
     setPreviewedCommit(undefined)

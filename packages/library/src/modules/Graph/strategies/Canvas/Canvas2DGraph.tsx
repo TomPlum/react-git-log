@@ -1,17 +1,13 @@
 import { useGitContext } from 'context/GitContext'
 import { useGraphContext } from 'modules/Graph/context'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { ROW_HEIGHT } from 'constants/constants'
 import { useTheme } from 'hooks/useTheme'
 import { CanvasRenderer } from 'modules/Graph/strategies/Canvas/CanvasRenderer'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import styles from './Canvas2DGraph.module.scss'
-import { MousePosition } from 'modules/Graph/strategies/Canvas/types'
 
 export const Canvas2DGraph = () => {
-  const [hoverPosition, setHoverPosition] = useState<MousePosition>()
-  const [clickPosition, setClickPosition] = useState<MousePosition>()
-
   const { showTable } = useGitContext()
   const { selectCommitHandler } = useSelectCommit()
   const { getCommitNodeColours, getGraphColumnColour, hoverColour } = useTheme()
@@ -99,49 +95,42 @@ export const Canvas2DGraph = () => {
   ])
 
   useEffect(() => {
-    const canvasRenderer = rendererRef.current
-    if (!hoverPosition || !canvasRenderer) return
-
-    const commit = canvasRenderer.getCommitAtPosition(hoverPosition)
-
-    if (commit && previewedCommit?.hash !== commit.hash && selectedCommit?.hash !== commit.hash) {
-      selectCommitHandler.onMouseOver(commit)
-    }
-  }, [hoverPosition, previewedCommit?.hash, selectedCommit?.hash, selectCommitHandler])
-
-  useEffect(() => {
-    const canvasRenderer = rendererRef.current
-    if (!clickPosition || !canvasRenderer) return
-
-    const commit = canvasRenderer.getCommitAtPosition(clickPosition)
-    if (commit) {
-      selectCommitHandler.onClick(commit)
-    }
-
-    setClickPosition(undefined)
-  }, [clickPosition, selectCommitHandler])
-
-  useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (!rendererRef.current) return
+
       const rect = canvas.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
-      setHoverPosition({ x, y })
+
+      const commit = rendererRef.current.getCommitAtPosition({ x, y })
+
+      const hoveredIsNotPreviewed = previewedCommit?.hash !== commit?.hash
+      const hoveredIsNotSelected = selectedCommit?.hash !== commit?.hash
+
+      if (commit && hoveredIsNotPreviewed && hoveredIsNotSelected) {
+        selectCommitHandler.onMouseOver(commit)
+      }
     }
 
     const handleMouseOut = () => {
-      setHoverPosition(undefined)
       selectCommitHandler.onMouseOut()
     }
 
     const handleClick = (e: MouseEvent) => {
+      if (!rendererRef.current) return
+
       const rect = canvas.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
-      setClickPosition({ x, y })
+
+      const commit = rendererRef.current.getCommitAtPosition({ x, y })
+
+      if (commit) {
+        selectCommitHandler.onClick(commit)
+      }
     }
 
     canvas.addEventListener('mousemove', handleMouseMove)
@@ -153,7 +142,7 @@ export const Canvas2DGraph = () => {
       canvas.removeEventListener('mouseout', handleMouseOut)
       canvas.removeEventListener('click', handleClick)
     }
-  }, [selectCommitHandler])
+  }, [previewedCommit?.hash, selectCommitHandler, selectedCommit?.hash])
 
   return (
     <canvas

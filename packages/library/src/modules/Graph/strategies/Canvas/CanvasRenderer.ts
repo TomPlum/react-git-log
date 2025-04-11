@@ -77,12 +77,16 @@ export class CanvasRenderer {
       this.drawBackgroundForCommit(this.previewedCommit, this.previewBackgroundColour)
     }
 
+    // Backgrounds are drawn first so they're underneath other elements
     if (this.selectedCommit) {
       const commitColourIndex = this.graphData.positions.get(this.selectedCommit.hash)![1]
       this.drawBackgroundForCommit(this.selectedCommit, this.colours(commitColourIndex).backgroundColour)
     }
 
+    // Then edges, so they sit under the commit nodes
     this.drawEdges()
+
+    // Then finally the commit nodes on top
     this.drawCommitNodes()
   }
 

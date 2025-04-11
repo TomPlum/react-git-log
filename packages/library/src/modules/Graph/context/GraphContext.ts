@@ -7,5 +7,7 @@ export const GraphContext = createContext<GraphContextBag>({
   nodeTheme: 'default',
   nodeSize: 24,
   graphWidth: 0,
-  orientation: 'normal'
+  orientation: 'normal',
+  visibleCommits: [],
+  columnData: new Map()
 })

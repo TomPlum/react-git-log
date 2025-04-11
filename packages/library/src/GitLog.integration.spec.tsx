@@ -4,7 +4,7 @@ import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
 import sleepRepositoryDataReleaseBranch from 'test/data/sleep-paginated/sleep-release-branch.txt?raw'
 import { parseGitLogOutput } from 'test/data/gitLogParser'
 import { sleepRepositoryRowColumnState } from 'test/data/sleep/sleepState'
-import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
+import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/GraphColumn'
 import { graphColumn } from 'test/elements/GraphColumn'
 import { afterEach, beforeEach, describe } from 'vitest'
 import { render, within } from '@testing-library/react'
@@ -97,7 +97,7 @@ describe('GitLog Integration', () => {
           entries={gitLogEntries}
         >
           <GitLog.Tags />
-          <GitLog.Graph />
+          <GitLog.GraphHTMLGrid />
           <GitLog.Table />
         </GitLog>
       )
@@ -130,7 +130,7 @@ describe('GitLog Integration', () => {
           entries={gitLogEntries}
         >
           <GitLogPaged.Tags />
-          <GitLogPaged.Graph />
+          <GitLogPaged.GraphHTMLGrid />
           <GitLogPaged.Table />
         </GitLogPaged>
       )

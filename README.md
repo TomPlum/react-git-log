@@ -53,10 +53,14 @@ const { entries, currentBranch } = useYourPaginatedDataSource()
 />
 ```
 
-## Grid System
+## Graph Rendering Strategies
 
-The implementation of the graph was designed with testing in mind. 
-The traditional way to draw such an image would with a HTML `canvas` element. Which, while efficient (and probably easier to implement), is hard to programmatically assert its correctness.
+The commit history graph visual can be rendered in different ways depending on your needs.
+
+### HTML Grid
+
+This implementation of the graph was designed with testing in mind. 
+The traditional way to draw such an image would with a HTML `canvas` element. Which, while efficient (and easier to implement), is hard to programmatically assert its correctness.
 
 This graph uses a grid system. Each row has N number of columns rendered in it, where N is equal to the maximum number of concurrent active branches in the given git log entry data.
 This means that each column is aware of its state and what needs to be drawn (A commit node, vertical line, curved merge line etc.).
@@ -64,6 +68,26 @@ This means that each column is aware of its state and what needs to be drawn (A 
 Each column is responsive as its row is stretched vertically or horizontally.
 
 ![grid-system.gif](docs/images/grid-system.gif)
+
+This strategy can be used by rendering the `<GitLog.GraphHTMLGrid />` subcomponent under the `<GitLog />`.
+
+```typescript jsx
+<GitLog entries={[]} branchName='main'>
+  <GitLog.GraphHTMLGrid />
+</GitLog>
+```
+
+### Canvas 2D
+
+This implementation uses a standard HTML `canvas` element with a `2d` rendering context.
+
+This strategy can be used by rendering the `<GitLog.Canvas2D />` subcomponent under the `<GitLog />`.
+
+```typescript jsx
+<GitLog entries={[]} branchName='main'>
+  <GitLog.Canvas2D />
+</GitLog>
+```
 
 # Using the component
 
@@ -336,11 +360,17 @@ Returns an object of type `GitLogUrls` with the following fields.
 - Straight line prop to turn curves into right angles?
 - Line curve radius prop?
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
-- Extract ThemeContext
 - Mobile responsiveness for the demo site
-- Add graph render strategy with a second option to use 2d rendering context (html canvas)
 - Add eslint to pipeline
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
-- Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch
-- Make repository URL a function that generates the URL
+
+Canvas2D
+- Paginated variant needs to add in lines off-screen in the virtual columns
+- Fade out of line at bottom
+- Tooltips?
+- Row spacing support
+- First col background cut off by canvas
+- Branch/tag lines to lining up with nodes.
+- Bump to v3
+- Selected node BG colour still isn't right...

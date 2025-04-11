@@ -11,7 +11,6 @@ import { useSelectCommit } from 'hooks/useSelectCommit'
 import styles from './Canvas2DGraph.module.scss'
 
 export const Canvas2DGraph = () => {
-  const { showTable, indexCommit } = useGitContext()
   const { selectCommitHandler } = useSelectCommit()
   const { graphWidth, visibleCommits, nodeSize, nodeTheme, orientation } = useGraphContext()
 
@@ -25,11 +24,13 @@ export const Canvas2DGraph = () => {
 
   const {
     graphData,
+    showTable,
     rowSpacing,
     headCommit,
+    indexCommit,
     isIndexVisible,
     selectedCommit,
-    previewedCommit,
+    previewedCommit
   } = useGitContext()
 
   const getNodeColours = useCallback<GetCanvasRendererColoursFunction>((columnIndex: number) => {
@@ -79,11 +80,11 @@ export const Canvas2DGraph = () => {
       canvasHeight,
       indexCommit,
       isIndexVisible,
-      selectedCommit,
-      previewedCommit,
       commits: visibleCommits,
       getColours: getNodeColours,
-      previewBackgroundColour: hoverColour
+      previewBackgroundColour: hoverColour,
+      selectedCommitHash: selectedCommit?.hash,
+      previewedCommitHash: previewedCommit?.hash
     })
 
     rendererRef.current = canvasRenderer
@@ -99,9 +100,9 @@ export const Canvas2DGraph = () => {
     rowSpacing,
     orientation,
     isIndexVisible,
-    selectedCommit,
-    previewedCommit,
     getNodeColours,
+    selectedCommit?.hash,
+    previewedCommit?.hash,
     visibleCommits,
     hoverColour,
     headCommit,

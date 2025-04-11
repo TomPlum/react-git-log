@@ -360,21 +360,17 @@ Returns an object of type `GitLogUrls` with the following fields.
 - Straight line prop to turn curves into right angles?
 - Line curve radius prop?
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
-- Extract ThemeContext
 - Mobile responsiveness for the demo site
-- Add graph render strategy with a second option to use 2d rendering context (html canvas)
 - Add eslint to pipeline
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
-- Is the SS paginated log gonna accept data from multiple branches? Because then we need the HEAD commits of each branch
-- Make repository URL a function that generates the URL
 
 Canvas2D
 - Paginated variant needs to add in lines off-screen in the virtual columns
 - Fade out of line at bottom
-- Hover effect and click effect
 - Tooltips?
 - Row spacing support
-- First row background cut off by canvas
+- First col background cut off by canvas
 - Branch/tag lines to lining up with nodes.
-- Update README docs with new graph subcomponent variants
+- Bump to v3
+- Selected node BG colour still isn't right...

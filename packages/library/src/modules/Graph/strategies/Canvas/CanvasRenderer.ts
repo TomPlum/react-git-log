@@ -22,26 +22,36 @@ export interface CanvasRendererProps {
   previewBackgroundColour: string
   orientation: GraphOrientation
   isIndexVisible: boolean
-  colours: (columnIndex: number) => CommitNodeColours
+  getColours: GetCanvasRendererColoursFunction
+}
+
+export type GetCanvasRendererColoursFunction = (columnIndex: number) => CanvasRenderersColours
+
+export interface CanvasRenderersColours {
+  commitNode: CommitNodeColours
+  selectedColumnBackgroundColour: string
 }
 
 export class CanvasRenderer {
-  private readonly nodeSize: number
+  private readonly ctx: CanvasRenderingContext2D
+
   private readonly commits: Commit[]
-  private readonly rowSpacing: number
-  private readonly canvasHeight: number
-  private readonly canvasWidth: number
   private readonly graphData: GraphData
+  private readonly rowToCommitHash = new Map<number, string>
+  private readonly rowToCommitColumn = new Map<number, number>
+
+  private readonly nodeSize: number
   private readonly nodeTheme: NodeTheme
+  private readonly rowSpacing: number
   private readonly orientation: GraphOrientation
   private readonly isIndexVisible: boolean
   private readonly showTable: boolean
-  private readonly previewBackgroundColour: string
-  private readonly ctx: CanvasRenderingContext2D
-  private readonly colours: (columnIndex: number) => CommitNodeColours
 
-  private readonly rowToCommitHash = new Map<number, string>
-  private readonly rowToCommitColumn = new Map<number, number>
+  private readonly canvasHeight: number
+  private readonly canvasWidth: number
+
+  private readonly getColours: GetCanvasRendererColoursFunction
+  private readonly previewBackgroundColour: string
 
   private readonly previewedCommit: Commit | undefined
   private readonly selectedCommit: Commit | undefined
@@ -56,7 +66,7 @@ export class CanvasRenderer {
     this.orientation = props.orientation
     this.isIndexVisible = props.isIndexVisible
     this.showTable = props.showTable
-    this.colours = props.colours
+    this.getColours = props.getColours
     this.canvasHeight = props.canvasHeight
     this.canvasWidth = props.canvasWidth
     this.previewedCommit = props.previewedCommit
@@ -80,7 +90,8 @@ export class CanvasRenderer {
     // Backgrounds are drawn first so they're underneath other elements
     if (this.selectedCommit) {
       const commitColourIndex = this.graphData.positions.get(this.selectedCommit.hash)![1]
-      this.drawBackgroundForCommit(this.selectedCommit, this.colours(commitColourIndex).backgroundColour)
+      const backgroundColour = this.getColours(commitColourIndex).selectedColumnBackgroundColour
+      this.drawBackgroundForCommit(this.selectedCommit, backgroundColour)
     }
 
     // Then edges, so they sit under the commit nodes
@@ -101,7 +112,7 @@ export class CanvasRenderer {
 
     const { x: xHead, y: yHead } = this.getNodeCoordinates(headCommitLocation[0], headCommitLocation[1])
     this.ctx.lineTo(xHead, yHead)
-    this.ctx.strokeStyle = this.colours(y).borderColour
+    this.ctx.strokeStyle = this.getColours(y).commitNode.borderColour
     this.ctx.setLineDash(lineDash)
     this.ctx.stroke()
 
@@ -134,7 +145,6 @@ export class CanvasRenderer {
   }
 
   private drawColumnBackground(rowIndex: number, colour: string) {
-    console.log('Drawing BG...')
     const nodeColumn = this.rowToCommitColumn.get(rowIndex)!
     const nodeCoordinates = this.getNodeCoordinates(rowIndex, nodeColumn)
 
@@ -155,6 +165,7 @@ export class CanvasRenderer {
       this.ctx.lineTo(x, y + cornerRadius)
       this.ctx.arcTo(x, y, x + cornerRadius, y, cornerRadius)
       this.ctx.closePath()
+      this.ctx.globalAlpha = 1
       this.ctx.fillStyle = colour
       this.ctx.fill()
     } else {
@@ -190,7 +201,7 @@ export class CanvasRenderer {
       this.ctx.moveTo(x0, y0)
 
       const strokeColumn = colStart != colEnd && edgeType === 'Merge' ? colEnd : colStart
-      const strokeColour = this.colours(strokeColumn).borderColour
+      const strokeColour = this.getColours(strokeColumn).commitNode.borderColour
 
       const edgeIsTargetingOffScreenNode = rowEnd > this.commits.length
 
@@ -307,7 +318,7 @@ export class CanvasRenderer {
     const { x, y, r } = this.getNodeCoordinates(rowIndex, columnIndex)
     this.ctx.arc(x, y, r, 0, 2 * Math.PI)
 
-    const { backgroundColour, borderColour } = this.colours(columnIndex)
+    const { backgroundColour, borderColour } = this.getColours(columnIndex).commitNode
 
     this.ctx.fillStyle = backgroundColour
     this.ctx.fill()
@@ -323,7 +334,7 @@ export class CanvasRenderer {
     const innerDiameter = getMergeNodeInnerSize({ nodeSize: this.nodeSize })
     this.ctx.arc(x, y, innerDiameter / 2, 0, 2 * Math.PI)
 
-    const { borderColour } = this.colours(columnIndex)
+    const { borderColour } = this.getColours(columnIndex).commitNode
     this.ctx.fillStyle = borderColour
     this.ctx.fill()
   }

@@ -24,7 +24,7 @@ export const GraphColumn = ({
   const { selectCommitHandler } = useSelectCommit()
   const { nodeSize, orientation } = useGraphContext()
   const { headCommit, selectedCommit, previewedCommit, showTable } = useGitContext()
-  const { getGraphColumnColour, shiftAlphaChannel, textColour, hoverColour, reduceOpacity } = useTheme()
+  const { getGraphColumnColour, shiftAlphaChannel, textColour, hoverColour, getGraphColumnSelectedBackgroundColour } = useTheme()
 
   const columnColour = state.isPlaceholderSkeleton
     ? shiftAlphaChannel(textColour, 0.8)
@@ -144,7 +144,7 @@ export const GraphColumn = ({
           commitNodeIndex={commitNodeIndex}
           colour={state.isPlaceholderSkeleton
             ? hoverColour
-            : reduceOpacity(getGraphColumnColour(commitNodeIndex), 0.15)
+            : getGraphColumnSelectedBackgroundColour(commitNodeIndex)
           }
         />
       )}

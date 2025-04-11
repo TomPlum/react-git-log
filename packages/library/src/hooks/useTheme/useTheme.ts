@@ -79,6 +79,10 @@ export const useTheme = (): ThemeFunctions => {
     }
   }, [shiftAlphaChannel])
 
+  const getGraphColumnSelectedBackgroundColour = useCallback((columnIndex: number) => {
+    return reduceOpacity(getGraphColumnColour(columnIndex), 0.15)
+  }, [getGraphColumnColour, reduceOpacity])
+
   const getTooltipBackground = useCallback((commit: Commit) => {
     if (theme === 'dark') {
       return shiftAlphaChannel(getCommitColour(commit), 0.2)
@@ -97,6 +101,7 @@ export const useTheme = (): ThemeFunctions => {
     shiftAlphaChannel,
     getGraphColumnColour,
     getCommitNodeColours,
+    getGraphColumnSelectedBackgroundColour,
     hoverTransitionDuration: 0.3
   }
 }

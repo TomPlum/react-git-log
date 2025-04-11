@@ -88,6 +88,14 @@ export interface ThemeFunctions {
    * @param args Args to get the colour.
    */
   getCommitNodeColours: (args: GetCommitNodeColoursArgs) => CommitNodeColours
+
+  /**
+   * Gets an rgb() colour string for the background
+   * colour of a graph column when its row is selected.
+   *
+   * @param columnIndex The index of the column where the node is.
+   */
+  getGraphColumnSelectedBackgroundColour: (columnIndex: number) => string
 }
 
 export interface GetCommitNodeColoursArgs {

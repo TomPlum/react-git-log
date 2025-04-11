@@ -10,7 +10,7 @@ import styles from './Canvas2DGraph.module.scss'
 export const Canvas2DGraph = () => {
   const { showTable } = useGitContext()
   const { selectCommitHandler } = useSelectCommit()
-  const { getCommitNodeColours, getGraphColumnColour, hoverColour } = useTheme()
+  const { getCommitNodeColours, getGraphColumnColour, hoverColour, getGraphColumnSelectedBackgroundColour } = useTheme()
   const { graphWidth, visibleCommits, nodeSize, nodeTheme, orientation } = useGraphContext()
 
   const {
@@ -23,10 +23,13 @@ export const Canvas2DGraph = () => {
   } = useGitContext()
 
   const getNodeColours = useCallback((columnIndex: number) => {
-    return getCommitNodeColours({
-      columnColour: getGraphColumnColour(columnIndex)
-    })
-  }, [getCommitNodeColours, getGraphColumnColour])
+    return {
+      commitNode: getCommitNodeColours({
+        columnColour: getGraphColumnColour(columnIndex)
+      }),
+      selectedColumnBackgroundColour: getGraphColumnSelectedBackgroundColour(columnIndex)
+    }
+  }, [getCommitNodeColours, getGraphColumnColour, getGraphColumnSelectedBackgroundColour])
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const rendererRef = useRef<CanvasRenderer | null>(null)
@@ -63,8 +66,8 @@ export const Canvas2DGraph = () => {
       isIndexVisible,
       selectedCommit,
       previewedCommit,
-      colours: getNodeColours,
       commits: visibleCommits,
+      getColours: getNodeColours,
       previewBackgroundColour: hoverColour
     })
 

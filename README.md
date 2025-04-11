@@ -53,10 +53,14 @@ const { entries, currentBranch } = useYourPaginatedDataSource()
 />
 ```
 
-## Grid System
+## Graph Rendering Strategies
 
-The implementation of the graph was designed with testing in mind. 
-The traditional way to draw such an image would with a HTML `canvas` element. Which, while efficient (and probably easier to implement), is hard to programmatically assert its correctness.
+The commit history graph visual can be rendered in different ways depending on your needs.
+
+### HTML Grid
+
+This implementation of the graph was designed with testing in mind. 
+The traditional way to draw such an image would with a HTML `canvas` element. Which, while efficient (and easier to implement), is hard to programmatically assert its correctness.
 
 This graph uses a grid system. Each row has N number of columns rendered in it, where N is equal to the maximum number of concurrent active branches in the given git log entry data.
 This means that each column is aware of its state and what needs to be drawn (A commit node, vertical line, curved merge line etc.).
@@ -64,6 +68,26 @@ This means that each column is aware of its state and what needs to be drawn (A 
 Each column is responsive as its row is stretched vertically or horizontally.
 
 ![grid-system.gif](docs/images/grid-system.gif)
+
+This strategy can be used by rendering the `<GitLog.GraphHTMLGrid />` subcomponent under the `<GitLog />`.
+
+```typescript jsx
+<GitLog entries={[]} branchName='main'>
+  <GitLog.GraphHTMLGrid />
+</GitLog>
+```
+
+### Canvas 2D
+
+This implementation uses a standard HTML `canvas` element with a `2d` rendering context.
+
+This strategy can be used by rendering the `<GitLog.Canvas2D />` subcomponent under the `<GitLog />`.
+
+```typescript jsx
+<GitLog entries={[]} branchName='main'>
+  <GitLog.Canvas2D />
+</GitLog>
+```
 
 # Using the component
 

@@ -112,7 +112,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
         ...border
       }
     }
-  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, isServerSidePaginated, headCommitHash, columnIndex, border, indexCommitNodeBorder])
+  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, isIndexVisible, isServerSidePaginated, headCommitHash, columnIndex, border, indexCommitNodeBorder])
 
   
   return (

@@ -22,6 +22,8 @@ export interface CanvasRendererProps {
   previewBackgroundColour: string
   orientation: GraphOrientation
   isIndexVisible: boolean
+  indexCommit?: Commit
+  headCommit?: Commit
   getColours: GetCanvasRendererColoursFunction
 }
 
@@ -30,6 +32,7 @@ export type GetCanvasRendererColoursFunction = (columnIndex: number) => CanvasRe
 export interface CanvasRenderersColours {
   commitNode: CommitNodeColours
   selectedColumnBackgroundColour: string
+  indexCommitColour: string
 }
 
 export class CanvasRenderer {
@@ -55,6 +58,9 @@ export class CanvasRenderer {
 
   private readonly previewedCommit: Commit | undefined
   private readonly selectedCommit: Commit | undefined
+  private readonly headCommit: Commit | undefined
+  private readonly indexCommit: Commit | undefined
+  private readonly indexCommitLocation: CommitNodeLocation = [0, 0]
 
   constructor(props: CanvasRendererProps) {
     this.ctx = props.ctx
@@ -71,6 +77,8 @@ export class CanvasRenderer {
     this.canvasWidth = props.canvasWidth
     this.previewedCommit = props.previewedCommit
     this.selectedCommit = props.selectedCommit
+    this.headCommit = props.headCommit
+    this.indexCommit = props.indexCommit
     this.previewBackgroundColour = props.previewBackgroundColour;
 
     [...props.graphData.positions.entries()].forEach(([hash, location]) => {
@@ -84,14 +92,17 @@ export class CanvasRenderer {
 
     // Backgrounds are drawn first so they're underneath other elements
     if (this.previewedCommit) {
-      this.drawBackgroundForCommit(this.previewedCommit, this.previewBackgroundColour)
+      this.drawColumnBackground(this.previewedCommit, this.previewBackgroundColour)
     }
 
     // Backgrounds are drawn first so they're underneath other elements
     if (this.selectedCommit) {
-      const commitColourIndex = this.graphData.positions.get(this.selectedCommit.hash)![1]
-      const backgroundColour = this.getColours(commitColourIndex).selectedColumnBackgroundColour
-      this.drawBackgroundForCommit(this.selectedCommit, backgroundColour)
+      const backgroundColour = this.getSelectedCommitBackgroundColour(this.selectedCommit)
+      this.drawColumnBackground(this.selectedCommit, backgroundColour)
+    }
+
+    if (this.isIndexVisible) {
+      this.drawGitIndex()
     }
 
     // Then edges, so they sit under the commit nodes
@@ -101,30 +112,14 @@ export class CanvasRenderer {
     this.drawCommitNodes()
   }
 
-  public drawGitIndex(headCommitLocation: CommitNodeLocation) {
-    const [x, y] = [0, 0]
-    const lineDash = [2, 2]
-
-    this.ctx.beginPath()
-
-    const { x: xStart, y: yStart } = this.getNodeCoordinates(x, y)
-    this.ctx.moveTo(xStart, yStart)
-
-    const { x: xHead, y: yHead } = this.getNodeCoordinates(headCommitLocation[0], headCommitLocation[1])
-    this.ctx.lineTo(xHead, yHead)
-    this.ctx.strokeStyle = this.getColours(y).commitNode.borderColour
-    this.ctx.setLineDash(lineDash)
-    this.ctx.stroke()
-
-    this.ctx.beginPath()
-    this.drawCommitNode(x, y, lineDash)
-    this.ctx.fill()
-  }
-
   public getCommitAtPosition(position: MousePosition) {
     const location = this.getRowColFromCoordinates(position.x, position.y)
 
     if (location !== null) {
+      if (location.rowIndex === 0 && this.indexCommit) {
+        return this.indexCommit
+      }
+
       const commitHash = this.rowToCommitHash.get(location.rowIndex)
       return commitHash ? this.graphData.hashToCommit.get(commitHash) : undefined
     }
@@ -132,20 +127,40 @@ export class CanvasRenderer {
     return undefined
   }
 
-  public drawBackgroundForCommit(commit: Commit, colour: string) {
-    if (commit.hash === 'index') {
-      this.drawColumnBackground(0, colour)
-    } else {
-      const location = this.graphData.positions.get(commit.hash)
+  private drawGitIndex() {
+    const [x, y] = this.indexCommitLocation
+    const lineDash = [2, 2]
 
-      if (location) {
-        this.drawColumnBackground(location[0], colour)
-      }
-    }
+    this.ctx.beginPath()
+
+    const { x: xStart, y: yStart } = this.getNodeCoordinates(x, y)
+    this.ctx.moveTo(xStart, yStart)
+
+    const [headRow, headCol] = this.graphData.positions.get(this.headCommit!.hash)!
+    const { x: xHead, y: yHead } = this.getNodeCoordinates(headRow, headCol)
+
+    this.ctx.lineTo(xHead, yHead)
+    this.ctx.strokeStyle = this.getColours(y).indexCommitColour
+    this.ctx.setLineDash(lineDash)
+    this.ctx.stroke()
+
+    this.ctx.beginPath()
+    this.drawCommitNode(x, y, lineDash, true)
+    this.ctx.fill()
   }
 
-  private drawColumnBackground(rowIndex: number, colour: string) {
-    const nodeColumn = this.rowToCommitColumn.get(rowIndex)!
+  private drawColumnBackground(commit: Commit, colour: string) {
+    const location = commit.hash === 'index'
+      ? this.indexCommitLocation
+      : this.graphData.positions.get(commit.hash)
+
+    if (!location) {
+      return
+    }
+
+    const rowIndex = location[0]
+    const gitIndexColumn = this.normaliseColumnIndex(0)
+    const nodeColumn = commit.hash === 'index' ? gitIndexColumn : this.rowToCommitColumn.get(rowIndex)!
     const nodeCoordinates = this.getNodeCoordinates(rowIndex, nodeColumn)
 
     if (this.showTable) {
@@ -214,12 +229,12 @@ export class CanvasRenderer {
       // If we're drawing a line between two nodes that
       // are in different branches (columns)
       if (colStart !== colEnd) {
-        const isNormal = this.orientation === 'normal'
+        const isNormalOrientation = this.orientation === 'normal'
         const isMerge = edgeType === 'Merge'
         const isForward = colStart < colEnd
 
         const dir = isForward ? 1 : -1
-        const flip = isNormal ? 1 : -1
+        const flip = isNormalOrientation ? 1 : -1
 
         if (isMerge) {
           this.ctx.lineTo(x1 - r * dir * flip, y0)
@@ -264,9 +279,7 @@ export class CanvasRenderer {
   private getNodeCoordinates(rowIndex: number, columnIndex: number) {
     const xOffset = 4
     const leftOffset = (this.nodeSize / 2) + NODE_BORDER_WIDTH
-    const normalisedColIndex = this.orientation === 'normal'
-      ? columnIndex
-      : this.graphData.graphWidth - 1 - columnIndex
+    const normalisedColIndex = this.normaliseColumnIndex(columnIndex)
     const x = leftOffset + ((xOffset + this.nodeSize) * normalisedColIndex)
 
     const yOffset = (ROW_HEIGHT / 2) + this.rowSpacing
@@ -290,14 +303,12 @@ export class CanvasRenderer {
     const yOffset = (ROW_HEIGHT / 2) + this.rowSpacing
     const nodeStrideY = ROW_HEIGHT
 
-    const normalisedColIndex = Math.floor((x - leftOffset + (nodeStrideX / 2)) / nodeStrideX)
-    if (normalisedColIndex < 0 || normalisedColIndex >= this.graphData.graphWidth) {
+    const columnIndex = Math.floor((x - leftOffset + (nodeStrideX / 2)) / nodeStrideX)
+    if (columnIndex < 0 || columnIndex >= this.graphData.graphWidth) {
       return null
     }
 
-    const columnIndex = this.orientation === 'normal'
-      ? normalisedColIndex
-      : this.graphData.graphWidth - 1 - normalisedColIndex
+    const normalisedColIndex = this.normaliseColumnIndex(columnIndex)
 
     const rawRowIndex = Math.floor((y - yOffset + (ROW_HEIGHT / 2)) / nodeStrideY)
     const rowIndex = this.isIndexVisible ? rawRowIndex : rawRowIndex + 1
@@ -308,17 +319,20 @@ export class CanvasRenderer {
 
     return {
       rowIndex,
-      columnIndex
+      columnIndex: normalisedColIndex
     }
   }
 
-  private drawCommitNode(rowIndex: number, columnIndex: number, lineStyle: number[] = []) {
+  private drawCommitNode(rowIndex: number, columnIndex: number, lineStyle: number[] = [], isIndex: boolean = false) {
     this.ctx.beginPath()
 
     const { x, y, r } = this.getNodeCoordinates(rowIndex, columnIndex)
     this.ctx.arc(x, y, r, 0, 2 * Math.PI)
 
-    const { backgroundColour, borderColour } = this.getColours(columnIndex).commitNode
+    const defaultColours = this.getColours(columnIndex)
+    const { backgroundColour, borderColour } = isIndex
+      ? { backgroundColour: defaultColours.commitNode.backgroundColour, borderColour: defaultColours.indexCommitColour }
+      : defaultColours.commitNode
 
     this.ctx.fillStyle = backgroundColour
     this.ctx.fill()
@@ -337,5 +351,20 @@ export class CanvasRenderer {
     const { borderColour } = this.getColours(columnIndex).commitNode
     this.ctx.fillStyle = borderColour
     this.ctx.fill()
+  }
+
+  private getSelectedCommitBackgroundColour(selectedCommit: Commit) {
+    if (selectedCommit.hash === 'index') {
+      return this.getColours(0).selectedColumnBackgroundColour
+    }
+
+    const commitColourIndex = this.graphData.positions.get(selectedCommit.hash)![1]
+    return this.getColours(commitColourIndex).selectedColumnBackgroundColour
+  }
+
+  private normaliseColumnIndex(columnIndex: number) {
+    return this.orientation === 'normal'
+      ? columnIndex
+      : this.graphData.graphWidth - 1 - columnIndex
   }
 }

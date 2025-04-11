@@ -3,15 +3,25 @@ import { useGraphContext } from 'modules/Graph/context'
 import { useCallback, useEffect, useRef } from 'react'
 import { ROW_HEIGHT } from 'constants/constants'
 import { useTheme } from 'hooks/useTheme'
-import { CanvasRenderer } from 'modules/Graph/strategies/Canvas/CanvasRenderer'
+import {
+  CanvasRenderer,
+  GetCanvasRendererColoursFunction
+} from 'modules/Graph/strategies/Canvas/CanvasRenderer'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import styles from './Canvas2DGraph.module.scss'
 
 export const Canvas2DGraph = () => {
-  const { showTable } = useGitContext()
+  const { showTable, indexCommit } = useGitContext()
   const { selectCommitHandler } = useSelectCommit()
-  const { getCommitNodeColours, getGraphColumnColour, hoverColour, getGraphColumnSelectedBackgroundColour } = useTheme()
   const { graphWidth, visibleCommits, nodeSize, nodeTheme, orientation } = useGraphContext()
+
+  const {
+    hoverColour,
+    shiftAlphaChannel,
+    getGraphColumnColour,
+    getCommitNodeColours,
+    getGraphColumnSelectedBackgroundColour
+  } = useTheme()
 
   const {
     graphData,
@@ -22,14 +32,17 @@ export const Canvas2DGraph = () => {
     previewedCommit,
   } = useGitContext()
 
-  const getNodeColours = useCallback((columnIndex: number) => {
+  const getNodeColours = useCallback<GetCanvasRendererColoursFunction>((columnIndex: number) => {
+    const graphColumnColour = getGraphColumnColour(columnIndex)
+
     return {
       commitNode: getCommitNodeColours({
-        columnColour: getGraphColumnColour(columnIndex)
+        columnColour: graphColumnColour
       }),
-      selectedColumnBackgroundColour: getGraphColumnSelectedBackgroundColour(columnIndex)
+      selectedColumnBackgroundColour: getGraphColumnSelectedBackgroundColour(columnIndex),
+      indexCommitColour: shiftAlphaChannel(graphColumnColour, 0.5)
     }
-  }, [getCommitNodeColours, getGraphColumnColour, getGraphColumnSelectedBackgroundColour])
+  }, [getCommitNodeColours, getGraphColumnColour, getGraphColumnSelectedBackgroundColour, shiftAlphaChannel])
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const rendererRef = useRef<CanvasRenderer | null>(null)
@@ -60,9 +73,11 @@ export const Canvas2DGraph = () => {
       nodeTheme,
       showTable,
       rowSpacing,
+      headCommit,
       orientation,
       canvasWidth,
       canvasHeight,
+      indexCommit,
       isIndexVisible,
       selectedCommit,
       previewedCommit,
@@ -72,11 +87,6 @@ export const Canvas2DGraph = () => {
     })
 
     rendererRef.current = canvasRenderer
-
-    if (isIndexVisible && headCommit) {
-      const headCommitLocation = graphData.positions.get(headCommit.hash)!
-      canvasRenderer.drawGitIndex(headCommitLocation)
-    }
 
     canvasRenderer.draw()
   }, [
@@ -94,7 +104,8 @@ export const Canvas2DGraph = () => {
     getNodeColours,
     visibleCommits,
     hoverColour,
-    headCommit
+    headCommit,
+    indexCommit
   ])
 
   useEffect(() => {

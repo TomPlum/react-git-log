@@ -342,13 +342,10 @@ describe('GraphColumn', () => {
 
       const commitNodeIndex = 3
       const expectedColour = 'rgb(123, 123, 123)'
-      const graphColumnColour = 'graph-column-colour'
-      const getGraphColumnColour = vi.fn().mockReturnValue(graphColumnColour)
-      const reduceOpacity = vi.fn().mockReturnValue(expectedColour)
+      const getGraphColumnSelectedBackgroundColour = vi.fn().mockReturnValue(expectedColour)
 
       vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
-        getGraphColumnColour,
-        reduceOpacity
+        getGraphColumnSelectedBackgroundColour
       }))
 
       render(
@@ -361,8 +358,7 @@ describe('GraphColumn', () => {
         />
       )
 
-      expect(getGraphColumnColour).toHaveBeenCalledWith(commitNodeIndex)
-      expect(reduceOpacity).toHaveBeenCalledWith(graphColumnColour, 0.15)
+      expect(getGraphColumnSelectedBackgroundColour).toHaveBeenCalledWith(commitNodeIndex)
 
       const background = graphColumn.withSelectedBackground({ column: 5 })
       expect(background).toBeInTheDocument()
@@ -629,6 +625,8 @@ describe('GraphColumn', () => {
       const getGraphColumnColour = vi.fn()
       vi.spyOn(themeHook, 'useTheme').mockReturnValue({
         getGraphColumnColour,
+        getGraphColumnSelectedBackgroundColour: vi.fn(),
+        getCommitNodeColours: vi.fn(),
         shiftAlphaChannel: vi.fn(),
         hoverColour: 'hoverColour',
         theme: 'dark',
@@ -689,17 +687,9 @@ describe('GraphColumn', () => {
 
     it('should render a dotted left-down curve if the column has a left down curve element and is a placeholder', () => {
       const shiftAlphaChannel = vi.fn()
-      vi.spyOn(themeHook, 'useTheme').mockReturnValue({
-        getGraphColumnColour: vi.fn(),
-        shiftAlphaChannel,
-        hoverColour: 'hoverColour',
-        theme: 'dark',
-        textColour: 'textColour',
-        reduceOpacity: vi.fn(),
-        getCommitColour: vi.fn(),
-        getTooltipBackground: vi.fn(),
-        hoverTransitionDuration: 500
-      })
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
+        shiftAlphaChannel
+      }))
 
       const placeholderColour = 'rgb(255, 255, 255)'
       shiftAlphaChannel.mockReturnValue(placeholderColour)
@@ -749,17 +739,9 @@ describe('GraphColumn', () => {
   describe('Left Up Curve', () => {
     it('should render a left-up curve if the column has a left up curve element', () => {
       const getGraphColumnColour = vi.fn()
-      vi.spyOn(themeHook, 'useTheme').mockReturnValue({
-        getGraphColumnColour,
-        shiftAlphaChannel: vi.fn(),
-        hoverColour: 'hoverColour',
-        theme: 'dark',
-        textColour: 'textColour',
-        reduceOpacity: vi.fn(),
-        getCommitColour: vi.fn(),
-        getTooltipBackground: vi.fn(),
-        hoverTransitionDuration: 500
-      })
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
+        getGraphColumnColour
+      }))
 
       const graphColumnColour = 'rgb(124, 6, 168)'
       getGraphColumnColour.mockReturnValue(graphColumnColour)
@@ -811,17 +793,9 @@ describe('GraphColumn', () => {
 
     it('should render a dotted left-up curve if the column has a left up curve element and is a placeholder', () => {
       const shiftAlphaChannel = vi.fn()
-      vi.spyOn(themeHook, 'useTheme').mockReturnValue({
-        getGraphColumnColour: vi.fn(),
-        shiftAlphaChannel,
-        hoverColour: 'hoverColour',
-        theme: 'dark',
-        textColour: 'textColour',
-        reduceOpacity: vi.fn(),
-        getCommitColour: vi.fn(),
-        getTooltipBackground: vi.fn(),
-        hoverTransitionDuration: 500
-      })
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
+        shiftAlphaChannel
+      }))
 
       const placeholderColour = 'rgb(255, 255, 255)'
       shiftAlphaChannel.mockReturnValue(placeholderColour)

@@ -95,6 +95,7 @@ export const themeFunctions = (response?: Partial<ThemeFunctions>): ThemeFunctio
     borderColour: 'black',
     backgroundColor: 'gray'
   }),
+  getGraphColumnSelectedBackgroundColour: vi.fn(),
   ...response
 })
 

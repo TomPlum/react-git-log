@@ -5,6 +5,7 @@ import { NODE_BORDER_WIDTH, ROW_HEIGHT } from 'constants/constants'
 import { getMergeNodeInnerSize } from 'modules/Graph/utils/getMergeNodeInnerSize'
 import { GraphOrientation } from 'modules/Graph'
 import { getColumnBackgroundSize } from 'modules/Graph/utils/getColumnBackgroundSize'
+import { MousePosition } from 'modules/Graph/strategies/Canvas/types'
 
 export interface CanvasRendererProps {
   ctx: CanvasRenderingContext2D
@@ -105,8 +106,8 @@ export class CanvasRenderer {
     this.ctx.fill()
   }
 
-  public getCommitAtPosition(x: number, y: number) {
-    const location = this.getRowColFromCoordinates(x, y)
+  public getCommitAtPosition(position: MousePosition) {
+    const location = this.getRowColFromCoordinates(position.x, position.y)
 
     if (location !== null) {
       const commitHash = this.rowToCommitHash.get(location.rowIndex)
@@ -129,6 +130,7 @@ export class CanvasRenderer {
   }
 
   private drawColumnBackground(rowIndex: number, colour: string) {
+    console.log('Drawing BG...')
     const nodeColumn = this.rowToCommitColumn.get(rowIndex)!
     const nodeCoordinates = this.getNodeCoordinates(rowIndex, nodeColumn)
 

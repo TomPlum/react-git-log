@@ -10,15 +10,15 @@ export interface HTMLGridGraphProps extends GraphPropsCommon {
    * to the side of the node in the graph.
    */
   showCommitNodeHashes?: boolean
-}
 
-interface GraphPropsCommon {
   /**
    * Whether to show tooltips when hovering
    * over a commit node in the graph.
    */
   showCommitNodeTooltips?: boolean
+}
 
+interface GraphPropsCommon {
   /**
    * The theme to apply the commit node
    * elements in the graph.

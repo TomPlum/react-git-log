@@ -65,7 +65,7 @@ A flexible and interactive React component for visualising Git commit history. D
       return (
         <GitLog entries={entries} currentBranch={currentBranch}>
           <GitLog.Tags />
-          <GitLog.Graph />
+          <GitLog.GraphCanvas2D />
           <GitLog.Table />
         </GitLog>
       )
@@ -85,7 +85,7 @@ A flexible and interactive React component for visualising Git commit history. D
         <GitLog entries={entries} currentBranch={currentBranch}>
           <GitLog.Tags />
    
-          <GitLog.Graph
+          <GitLog.GraphHTMLGrid
             enableResize           
             nodeTheme='plain'
             showCommitNodeTooltips

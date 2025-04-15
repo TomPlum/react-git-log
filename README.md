@@ -81,11 +81,11 @@ This strategy can be used by rendering the `<GitLog.GraphHTMLGrid />` subcompone
 
 This implementation uses a standard HTML `canvas` element with a `2d` rendering context.
 
-This strategy can be used by rendering the `<GitLog.Canvas2D />` subcomponent under the `<GitLog />`.
+This strategy can be used by rendering the `<GitLog.GraphCanvas2D />` subcomponent under the `<GitLog />`.
 
 ```typescript jsx
 <GitLog entries={[]} branchName='main'>
-  <GitLog.Canvas2D />
+  <GitLog.GraphCanvas2D />
 </GitLog>
 ```
 
@@ -131,7 +131,7 @@ This strategy can be used by rendering the `<GitLog.Canvas2D />` subcomponent un
       return (
         <GitLog entries={entries} currentBranch={currentBranch}>
           <GitLog.Tags />
-          <GitLog.Graph />
+          <GitLog.GraphCanvas2D />
           <GitLog.Table />
         </GitLog>
       )
@@ -151,7 +151,7 @@ This strategy can be used by rendering the `<GitLog.Canvas2D />` subcomponent un
         <GitLog entries={entries} currentBranch={currentBranch}>
           <GitLog.Tags />
    
-          <GitLog.Graph
+          <GitLog.GraphHTMLGrid
             enableResize           
             nodeTheme='plain'
             showCommitNodeTooltips

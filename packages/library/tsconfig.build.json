@@ -8,7 +8,8 @@
 
     "src/modules/Graph/index.ts",
     "src/modules/Graph/types.ts",
-    "src/modules/Graph/Graph.tsx",
+    "src/modules/Graph/GraphCanvas2D.tsx",
+    "src/modules/Graph/GraphHTMLGrid.tsx",
 
     "src/modules/Table/index.ts",
     "src/modules/Table/types.ts",

@@ -16,7 +16,7 @@ describe('GitLogPaged', () => {
         entries={gitLogEntries}
       >
         <GitLogPaged.Tags />
-        <GitLogPaged.Graph />
+        <GitLogPaged.GraphHTMLGrid />
         <GitLogPaged.Table />
       </GitLogPaged>
     )
@@ -36,7 +36,7 @@ describe('GitLogPaged', () => {
     )
 
     expect(consoleWarn).toHaveBeenCalledExactlyOnceWith(
-      'react-git-log is not designed to work without a <GitLogPaged.Graph /> component.'
+      'react-git-log is not designed to work without a <GitLogPaged.GraphCanvas2D /> or a <GitLogPaged.GraphHTMLGrid /> component.'
     )
   })
 
@@ -78,7 +78,7 @@ describe('GitLogPaged', () => {
     )
   })
 
-  it('should throw an error if the graph subcomponent is rendered twice', () => {
+  it('should throw an error if the HTML grid graph subcomponent is rendered twice', () => {
     const renderBadComponent = () => {
       render(
         <GitLogPaged
@@ -86,14 +86,52 @@ describe('GitLogPaged', () => {
           branchName='main'
           headCommitHash='123'
         >
-          <GitLogPaged.Graph />
-          <GitLogPaged.Graph />
+          <GitLogPaged.GraphHTMLGrid />
+          <GitLogPaged.GraphHTMLGrid />
         </GitLogPaged>
       )
     }
 
     expect(renderBadComponent).toThrow(
-      '<GitLogPaged /> can only have one <GitLogPaged.Graph /> child.'
+      '<GitLogPaged /> can only have one <GitLogPaged.GraphHTMLGrid /> child.'
+    )
+  })
+
+  it('should throw an error if the canvas graph subcomponent is rendered twice', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLogPaged
+          entries={[]}
+          branchName='main'
+          headCommitHash='123'
+        >
+          <GitLogPaged.GraphCanvas2D />
+          <GitLogPaged.GraphCanvas2D />
+        </GitLogPaged>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLogPaged /> can only have one <GitLogPaged.GraphCanvas2D /> child.'
+    )
+  })
+
+  it('should throw an error if the graph subcomponent is rendered twice with different variants', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLogPaged
+          entries={[]}
+          branchName='main'
+          headCommitHash='123'
+        >
+          <GitLogPaged.GraphCanvas2D />
+          <GitLogPaged.GraphHTMLGrid />
+        </GitLogPaged>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLogPaged /> can only have one <GitLogPaged.GraphHTMLGrid /> or <GitLogPaged.GraphCanvas2D /> child.'
     )
   })
 })

@@ -43,13 +43,13 @@
     "dayjs": "^1.11.13",
     "fastpriorityqueue": "^0.7.5",
     "node-interval-tree": "^2.1.2",
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0",
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0",
     "react-tiny-popover": "^8.1.6"
   },
   "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
   },
   "peerDependenciesMeta": {
     "react": {

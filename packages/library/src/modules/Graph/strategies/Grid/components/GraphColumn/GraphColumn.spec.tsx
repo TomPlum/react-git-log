@@ -518,7 +518,7 @@ describe('GraphColumn', () => {
       expect(backgroundStyle.right).toBe('0px')
       expect(backgroundStyle.borderTopLeftRadius).toBe('50%')
       expect(backgroundStyle.borderBottomLeftRadius).toBe('50%')
-      expect(backgroundStyle.width).toBe('calc(50% + 12px + 8px)')
+      expect(backgroundStyle.width).toBe('calc(50% + 20px)')
       expect(backgroundStyle.background).toBe(expectedBackgroundColour)
       expect(backgroundStyle.height).toBe('40px')
 

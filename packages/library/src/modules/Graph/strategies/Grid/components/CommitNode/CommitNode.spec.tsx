@@ -125,7 +125,7 @@ describe('CommitNode', () => {
     expect(hashLabelStyle.color).toBe(expectedTextColour)
     expect(hashLabelStyle.top).toBe('calc(50% - 10px)')
     expect(hashLabelStyle.height).toBe('20px')
-    expect(hashLabelStyle.left).toBe('calc(50% + 12px + 5px)')
+    expect(hashLabelStyle.left).toBe('calc(50% + 17px)')
     expect(hashLabelStyle.background).toBe('rgb(26, 26, 26)')
   })
 

@@ -35,7 +35,7 @@ describe('GitLog', () => {
           entries={[entry({ branch: 'test' })]}
           classes={{ containerClass: 'styles.customContainerClass' }}
         >
-          <GitLog.Graph />
+          <GitLog.GraphHTMLGrid />
         </GitLog>
       )
 
@@ -55,7 +55,7 @@ describe('GitLog', () => {
             }
           }}
         >
-          <GitLog.Graph />
+          <GitLog.GraphHTMLGrid />
         </GitLog>
       )
 
@@ -81,7 +81,7 @@ describe('GitLog', () => {
         urls={urlBuilderFunction}
       >
         <GitLog.Tags />
-        <GitLog.Graph />
+        <GitLog.GraphHTMLGrid />
         <GitLog.Table />
       </GitLog>
     )
@@ -100,7 +100,7 @@ describe('GitLog', () => {
         urls={urlBuilderFunction}
       >
         <GitLog.Tags />
-        <GitLog.Graph orientation='flipped' />
+        <GitLog.GraphHTMLGrid orientation='flipped' />
         <GitLog.Table />
       </GitLog>
     )
@@ -120,7 +120,7 @@ describe('GitLog', () => {
         urls={urlBuilderFunction}
       >
         <GitLog.Tags />
-        <GitLog.Graph nodeSize={12} />
+        <GitLog.GraphHTMLGrid nodeSize={12} />
         <GitLog.Table />
       </GitLog>
     )
@@ -137,7 +137,7 @@ describe('GitLog', () => {
         urls={urlBuilderFunction}
       >
         <GitLog.Tags />
-        <GitLog.Graph />
+        <GitLog.GraphHTMLGrid />
         <GitLog.Table />
       </GitLog>
     )
@@ -157,7 +157,7 @@ describe('GitLog', () => {
         urls={urlBuilderFunction}
       >
         <GitLog.Tags />
-        <GitLog.Graph />
+        <GitLog.GraphHTMLGrid />
         <GitLog.Table />
       </GitLog>
     )
@@ -176,7 +176,7 @@ describe('GitLog', () => {
     )
 
     expect(consoleWarn).toHaveBeenCalledExactlyOnceWith(
-      'react-git-log is not designed to work without a <GitLog.Graph /> component.'
+      'react-git-log is not designed to work without a <GitLog.GraphCanvas2D /> or a <GitLog.GraphHTMLGrid /> component.'
     )
   })
 
@@ -216,21 +216,57 @@ describe('GitLog', () => {
     )
   })
 
-  it('should throw an error if the graph subcomponent is rendered twice', () => {
+  it('should throw an error if the HTML grid graph subcomponent is rendered twice', () => {
     const renderBadComponent = () => {
       render(
         <GitLog
           entries={[]}
           currentBranch='main'
         >
-          <GitLog.Graph />
-          <GitLog.Graph />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.GraphHTMLGrid />
         </GitLog>
       )
     }
 
     expect(renderBadComponent).toThrow(
-      '<GitLog /> can only have one <GitLog.Graph /> child.'
+      '<GitLog /> can only have one <GitLog.GraphHTMLGrid /> child.'
+    )
+  })
+
+  it('should throw an error if the canvas graph subcomponent is rendered twice', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLog
+          entries={[]}
+          currentBranch='main'
+        >
+          <GitLog.GraphCanvas2D />
+          <GitLog.GraphCanvas2D />
+        </GitLog>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLog /> can only have one <GitLog.GraphCanvas2D /> child.'
+    )
+  })
+
+  it('should throw an error if graph subcomponent is rendered twice with different variants', () => {
+    const renderBadComponent = () => {
+      render(
+        <GitLog
+          entries={[]}
+          currentBranch='main'
+        >
+          <GitLog.GraphCanvas2D />
+          <GitLog.GraphHTMLGrid />
+        </GitLog>
+      )
+    }
+
+    expect(renderBadComponent).toThrow(
+      '<GitLog /> can only have one <GitLog.GraphHTMLGrid /> or <GitLog.GraphCanvas2D /> child.'
     )
   })
 })

@@ -1,4 +1,4 @@
-import { GraphColumnState } from 'modules/Graph/components/GraphColumn'
+import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/GraphColumn'
 
 export const sleepRowColumnStatePaginated: Record<number, GraphColumnState[]> = {
   1: [

@@ -1,8 +1,10 @@
-import { NodeTheme } from '../../hooks/useTheme'
+import { NodeTheme } from 'hooks/useTheme'
 
 export type GraphOrientation = 'normal' | 'flipped'
 
-export interface GraphProps {
+export type Canvas2DGraphProps = GraphPropsCommon
+
+export interface HTMLGridGraphProps extends GraphPropsCommon {
   /**
    * Whether to show the commit hash
    * to the side of the node in the graph.
@@ -14,7 +16,9 @@ export interface GraphProps {
    * over a commit node in the graph.
    */
   showCommitNodeTooltips?: boolean
+}
 
+interface GraphPropsCommon {
   /**
    * The theme to apply the commit node
    * elements in the graph.

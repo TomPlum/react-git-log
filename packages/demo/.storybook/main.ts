@@ -11,9 +11,8 @@ const config: StorybookConfig = {
     disableWhatsNewNotifications: true
   },
   addons: [
-    '@storybook/addon-essentials',
     '@chromatic-com/storybook',
-    '@storybook/experimental-addon-test',
+    '@storybook/addon-vitest',
     '@storybook/addon-docs'
   ],
   typescript: {

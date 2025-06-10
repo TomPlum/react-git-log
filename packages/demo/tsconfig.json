@@ -28,6 +28,9 @@
     "noUncheckedSideEffectImports": true
   },
   "include": [
-    "src"
+    "src",
+    ".storybook",
+    "vitest.workspace.ts",
+    "vite.config.ts"
   ]
 }

@@ -3,7 +3,7 @@
   "author": "Thomas Plumpton",
   "repository": "https://github.com/TomPlum/react-git-log",
   "description": "A flexible, themable, React component for visualising Git commit history, branch and tag metadata.",
-  "version": "2.5.0",
+  "version": "3.0.0",
   "license": "Apache-2.0",
   "type": "module",
   "main": "dist/react-git-log.js",
@@ -43,13 +43,13 @@
     "dayjs": "^1.11.13",
     "fastpriorityqueue": "^0.7.5",
     "node-interval-tree": "^2.1.2",
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0",
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0",
     "react-tiny-popover": "^8.1.6"
   },
   "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -83,7 +83,7 @@
     "vitest": "^3.0.9"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.0.0"
   },
   "browserslist": [
     "defaults",

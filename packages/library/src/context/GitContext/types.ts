@@ -190,19 +190,7 @@ export interface GitContextBag {
    * a window of the given size from the
    * set of git log entries.
    */
-  paging?: {
-    /**
-     * The zero-based index of the row
-     * to show from in the log.
-     */
-    startIndex: number
-
-    /**
-     * The zero-based index of the row
-     * to show to in the log.
-     */
-    endIndex: number
-  }
+  paging?: GraphPaging
 
   /**
    * Whether the git index pseudo-commit
@@ -211,4 +199,18 @@ export interface GitContextBag {
    * pagination config.
    */
   isIndexVisible: boolean
+}
+
+export interface GraphPaging {
+  /**
+   * The zero-based index of the row
+   * to show from in the log.
+   */
+  startIndex: number
+
+  /**
+   * The zero-based index of the row
+   * to show to in the log.
+   */
+  endIndex: number
 }

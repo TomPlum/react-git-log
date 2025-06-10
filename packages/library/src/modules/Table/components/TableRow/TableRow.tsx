@@ -38,7 +38,7 @@ export const TableRow = ({
         return hoverColour
       }
 
-      return  reduceOpacity(colour, 0.15)
+      return reduceOpacity(colour, 0.15)
     }
 
     if (previewedCommit?.hash === commit.hash) {

@@ -65,7 +65,7 @@ A flexible and interactive React component for visualising Git commit history. D
       return (
         <GitLog entries={entries} currentBranch={currentBranch}>
           <GitLog.Tags />
-          <GitLog.Graph />
+          <GitLog.GraphCanvas2D />
           <GitLog.Table />
         </GitLog>
       )
@@ -85,7 +85,7 @@ A flexible and interactive React component for visualising Git commit history. D
         <GitLog entries={entries} currentBranch={currentBranch}>
           <GitLog.Tags />
    
-          <GitLog.Graph
+          <GitLog.GraphHTMLGrid
             enableResize           
             nodeTheme='plain'
             showCommitNodeTooltips
@@ -218,12 +218,21 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `commit`   | `string` | A resolved URL to a particular commit hash on the external Git providers remote website. |
 | `branch`   | `string` | A resolved URL to a branch on the external Git providers remote website.                 |
 
-### Graph
+### GraphHTMLGrid
 
 | Property                 | Type                | Description                                                                                                    |
 |--------------------------|---------------------|----------------------------------------------------------------------------------------------------------------|
 | `showCommitNodeHashes`   | `boolean`           | Whether to show the commit hash next to nodes in the graph.                                                    |
 | `showCommitNodeTooltips` | `boolean`           | Whether to show tooltips when hovering over a commit node.                                                     |
+| `nodeTheme`              | `NodeTheme`         | Theme applied to commit node elements in the graph.                                                            |
+| `nodeSize`               | `number`            | The diameter, in pixels, of the commits nodes. Should be divisible by 2 and between 8 and 30 to render nicely. |
+| `orientation`            | `normal \| flipped` | The orientation of the graph. Normal renders the checked-out branch on the left, flipped on the right.         |
+| `enableResize`           | `boolean`           | Enables horizontal resizing of the graph. Default: `false`.                                                    |
+
+### GraphCanvas2D
+
+| Property                 | Type                | Description                                                                                                    |
+|--------------------------|---------------------|----------------------------------------------------------------------------------------------------------------|
 | `nodeTheme`              | `NodeTheme`         | Theme applied to commit node elements in the graph.                                                            |
 | `nodeSize`               | `number`            | The diameter, in pixels, of the commits nodes. Should be divisible by 2 and between 8 and 30 to render nicely. |
 | `orientation`            | `normal \| flipped` | The orientation of the graph. Normal renders the checked-out branch on the left, flipped on the right.         |

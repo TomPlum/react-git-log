@@ -1,24 +1,26 @@
 import { NodeTheme } from 'hooks/useTheme'
 import { GraphOrientation } from 'modules/Graph'
+import { Commit } from 'types/Commit'
+import { RowIndexToColumnStates } from 'modules/Graph/strategies/Grid/hooks/useColumnData'
 
 export interface GraphContextBag {
   /**
    * Whether to show the commit hash
    * to the side of the node in the graph.
    */
-  showCommitNodeHashes?: boolean
+  showCommitNodeHashes: boolean
 
   /**
    * Whether to show tooltips when hovering
    * over a commit node in the graph.
    */
-  showCommitNodeTooltips?: boolean
+  showCommitNodeTooltips: boolean
 
   /**
    * The theme to apply the commit node
    * elements in the graph.
    */
-  nodeTheme?: NodeTheme
+  nodeTheme: NodeTheme
 
   /**
    * The diameter, in pixels, of the
@@ -47,5 +49,18 @@ export interface GraphContextBag {
    * right to left with the checked-out
    * branch on the right-hand side.
    */
-  orientation?: GraphOrientation
+  orientation: GraphOrientation
+
+  /**
+   * The commits that are currently being
+   * rendered on the graph relative to the
+   * pagination configuration.
+   */
+  visibleCommits: Commit[]
+
+  /**
+   * A map of row indices to their
+   * respective column states.
+   */
+  columnData: RowIndexToColumnStates
 }

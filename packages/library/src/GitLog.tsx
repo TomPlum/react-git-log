@@ -1,7 +1,7 @@
 import { GitLogProps } from './types'
 import { PropsWithChildren } from 'react'
 import { Tags } from './modules/Tags'
-import { Graph } from './modules/Graph'
+import { GraphCanvas2D, GraphHTMLGrid } from './modules/Graph'
 import { Table } from './modules/Table'
 import { GitLogCore } from './components/GitLogCore'
 
@@ -17,5 +17,6 @@ export const GitLog = ({ children, ...props }: PropsWithChildren<GitLogProps>) =
 }
 
 GitLog.Tags = Tags
-GitLog.Graph = Graph
+GitLog.GraphCanvas2D = GraphCanvas2D
+GitLog.GraphHTMLGrid = GraphHTMLGrid
 GitLog.Table = Table

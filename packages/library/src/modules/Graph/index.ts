@@ -1,2 +1,3 @@
 export * from './types'
-export * from './Graph'
+export * from './GraphCanvas2D'
+export * from './GraphHTMLGrid'

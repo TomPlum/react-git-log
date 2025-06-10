@@ -1,10 +1,39 @@
 import { Commit } from 'types/Commit'
 
 export interface ThemeFunctions {
+  /**
+   * The current active theme mode.
+   * @xample light, dark
+   */
   theme: ThemeMode
+
+  /**
+   * An rgb() colour string for
+   * text that is being hovered over
+   * relative to the currently active
+   * {@link theme}.
+   */
   hoverColour: string
+
+  /**
+   * An rgb() colour string for
+   * text relative to the currently
+   * active {@link theme}.
+   */
   textColour: string
+
+  /**
+   * An rgb() colour string for
+   * background of a tooltip relative
+   * to the currently active {@link theme}.
+   */
   getTooltipBackground: (commit: Commit) => string
+
+  /**
+   * The duration, in milliseconds, of
+   * the animation for hover transition
+   * effects.
+   */
   hoverTransitionDuration: number
 
   /**
@@ -34,9 +63,48 @@ export interface ThemeFunctions {
    */
   reduceOpacity: (rbg: string, opacity: number) => string
 
+  /**
+   * Gets an rgb() colour string for the
+   * given {@link Commit} relative to the
+   * given colours of the git log.
+   *
+   * @param commit The commit to get the colour for.
+   */
   getCommitColour: (commit: Commit) => string
 
+  /**
+   * Gets an rgb() colour string for the
+   * given column index relative to the
+   * given colours of the git log.
+   *
+   * @param columnIndex The index to get the colour for.
+   */
   getGraphColumnColour: (columnIndex: number) => string
+
+  /**
+   * Gets rgb() colour strings for styling a commit node
+   * from the given base column colour.
+   *
+   * @param args Args to get the colour.
+   */
+  getCommitNodeColours: (args: GetCommitNodeColoursArgs) => CommitNodeColours
+
+  /**
+   * Gets an rgb() colour string for the background
+   * colour of a graph column when its row is selected.
+   *
+   * @param columnIndex The index of the column where the node is.
+   */
+  getGraphColumnSelectedBackgroundColour: (columnIndex: number) => string
+}
+
+export interface GetCommitNodeColoursArgs {
+  columnColour: string
+}
+
+export interface CommitNodeColours {
+  backgroundColour: string
+  borderColour: string
 }
 
 export type ThemeMode = 'light' | 'dark'

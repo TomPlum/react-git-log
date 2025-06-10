@@ -24,7 +24,6 @@ const meta: Meta<StoryProps> = {
     showTable: true,
     branchName: 'release',
     showCommitNodeHashes: false,
-    showCommitNodeTooltips: false,
     showHeaders: true,
     enableResize: false,
     nodeTheme: 'default',
@@ -65,12 +64,6 @@ const meta: Meta<StoryProps> = {
     },
     showHeaders: {
       name: 'Show Headers',
-      table: {
-        category: 'Visibility'
-      }
-    },
-    showCommitNodeTooltips: {
-      name: 'Show Commit Tooltips',
       table: {
         category: 'Visibility'
       }
@@ -254,7 +247,6 @@ export const Demo: Story = {
                 nodeTheme={args.nodeTheme}
                 orientation={args.orientation}
                 enableResize={args.enableResize}
-                showCommitNodeTooltips={args.showCommitNodeTooltips}
               />
             )}
 

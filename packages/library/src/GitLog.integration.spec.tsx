@@ -72,8 +72,10 @@ const today = new Date(2025, 2, 24, 18, 0, 0)
  * To print columnData for graph column state for integration tests use
  *    console.log(JSON.stringify(Object.fromEntries(columnData), null, 2))
  * in Graph.tsx.
+ *
+ * Skipped in favour of the Vitest snapshot tests for now.
  */
-describe('GitLog Integration', () => {
+describe.skip('GitLog Integration', () => {
   beforeEach(() => {
     vi.useFakeTimers()
     vi.setSystemTime(today)

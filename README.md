@@ -381,5 +381,4 @@ Canvas2D
 - Row spacing support
 - First col background cut off by canvas
 - Branch/tag lines to lining up with nodes.
-- Bump to v3
 - Selected node BG colour still isn't right...

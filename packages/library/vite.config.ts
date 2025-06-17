@@ -26,7 +26,7 @@ export default defineConfig({
       constants: resolve(__dirname, '/src/constants'),
       data: resolve(__dirname, 'src/data'),
       test: resolve(__dirname, 'src/_test'),
-      types: resolve(__dirname, 'src/types'),
+      types: resolve(__dirname, 'src/types')
     }
   },
   build: {

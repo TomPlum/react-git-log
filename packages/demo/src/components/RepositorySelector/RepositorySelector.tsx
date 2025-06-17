@@ -1,9 +1,9 @@
-import { CustomSelect } from 'components/CustomSelect'
+import { CustomSelect } from '@components/CustomSelect'
 import { RepositorySelectorProps } from './types'
-import { RepositoryItem } from 'components/RepositoryItem'
-import JapaneseLantern from 'assets/lantern.svg?react'
-import SleepIcon from 'assets/sleep.svg?react'
-import StarIcon from 'assets/star.svg?react'
+import { RepositoryItem } from '@components/RepositoryItem'
+import JapaneseLantern from '@assets/lantern.svg?react'
+import SleepIcon from '@assets/sleep.svg?react'
+import StarIcon from '@assets/star.svg?react'
 import styles from './RepositorySelector.module.scss'
 
 export const RepositorySelector = ({ selected, onSelect, theme }: RepositorySelectorProps) => {

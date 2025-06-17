@@ -9,7 +9,16 @@ import { getColumnBackgroundSize } from 'modules/Graph/utils/getColumnBackground
 
 export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnBackgroundProps) => {
   const { showTable } = useGitContext()
-  const { nodeSize, orientation } = useGraphContext()
+  const { nodeSize, orientation, highlightedBackgroundHeight } = useGraphContext()
+
+  const height = useMemo<number>(() => {
+    if (highlightedBackgroundHeight) {
+      return highlightedBackgroundHeight
+    }
+
+    const dynamicHeight = nodeSize + BACKGROUND_HEIGHT_OFFSET
+    return dynamicHeight > ROW_HEIGHT ? ROW_HEIGHT : dynamicHeight
+  }, [highlightedBackgroundHeight, nodeSize])
 
   const style = useMemo<CSSProperties>(() => {
     const offset = getColumnBackgroundSize({ nodeSize })
@@ -26,8 +35,6 @@ export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnB
       }
     }
 
-    const dynamicHeight = nodeSize + BACKGROUND_HEIGHT_OFFSET
-    const height = dynamicHeight > ROW_HEIGHT ? ROW_HEIGHT : dynamicHeight
 
     if (index === commitNodeIndex) {
       return {
@@ -44,7 +51,7 @@ export const ColumnBackground = ({ id, index, colour, commitNodeIndex }: ColumnB
       height,
       background: colour
     }
-  }, [showTable, nodeSize, index, commitNodeIndex, colour])
+  }, [nodeSize, showTable, index, commitNodeIndex, height, colour])
 
   const shouldShowFullBackground = orientation === 'normal'
     ? index > commitNodeIndex

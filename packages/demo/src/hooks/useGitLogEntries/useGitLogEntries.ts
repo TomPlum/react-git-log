@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useCallback } from 'react'
-import { fetchLogEntryData } from 'utils/fetchLogEntryData'
+import { fetchLogEntryData } from '@utils/fetchLogEntryData'
 import { GetLogEntriesProps } from './types'
 
 export const useGitLogEntries = ({ fileName }: GetLogEntriesProps) => {

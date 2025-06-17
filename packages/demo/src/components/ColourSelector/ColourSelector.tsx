@@ -1,8 +1,8 @@
 import { ThemeSelectorProps } from './types'
 import { useCallback } from 'react'
 import { cyberpunkNeon, natureEssence, neonAurora, rainbow, retroPop, solarFlare } from 'themes'
-import { CustomSelect } from 'components/CustomSelect'
-import { ColourItem } from 'components/ColourItem'
+import { CustomSelect } from '@components/CustomSelect'
+import { ColourItem } from '@components/ColourItem'
 import styles from './ColourSelector.module.scss'
 
 const getTheme = (name: string) => {

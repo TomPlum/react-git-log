@@ -11,7 +11,7 @@ export const ROW_HEIGHT = 40
 export const DEFAULT_NODE_SIZE = 20
 
 /**
- * The width  of the borders on a commit node.
+ * The width of the borders on a commit node.
  */
 export const NODE_BORDER_WIDTH = 2
 

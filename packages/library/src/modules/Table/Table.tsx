@@ -16,6 +16,7 @@ dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
 
 export const Table = ({
+  row,
   className,
   styles: styleOverrides,
   timestampFormat = 'YYYY-MM-DD HH:mm:ss'
@@ -40,7 +41,12 @@ export const Table = ({
 
   return (
     <TableContext value={tableContextValue}>
-      <TableContainer rowQuantity={tableData.length} className={className} styleOverrides={styleOverrides?.table}>
+      <TableContainer
+        row={row}
+        className={className}
+        rowQuantity={tableData.length}
+        styleOverrides={styleOverrides?.table}
+      >
         {showHeaders && (
           <div
             className={styles.head}
@@ -91,6 +97,7 @@ export const Table = ({
 
         {tableData.map((commit, i) => (
           <TableRow
+            row={row}
             index={i}
             commit={commit}
             rowStyleOverrides={styleOverrides?.tr}

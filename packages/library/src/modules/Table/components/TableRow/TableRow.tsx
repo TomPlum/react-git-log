@@ -1,6 +1,6 @@
 import styles from './TableRow.module.scss'
 import { GitLogTableRowProps } from './types'
-import { CSSProperties, useMemo } from 'react'
+import { cloneElement, CSSProperties, useMemo } from 'react'
 import { useTheme } from 'hooks/useTheme'
 import { useGitContext } from 'context/GitContext'
 import { useSelectCommit } from 'hooks/useSelectCommit'
@@ -10,6 +10,7 @@ import { AuthorData } from 'modules/Table/components/AuthorData'
 import { TimestampData } from 'modules/Table/components/TimestampData'
 
 export const TableRow = ({
+  row,
   index,
   commit,
   isPlaceholder,
@@ -28,12 +29,14 @@ export const TableRow = ({
   const { selectCommitHandler } = useSelectCommit()
   const { selectedCommit, previewedCommit, nodeSize } = useGitContext()
 
+  const isRowSelected = selectedCommit?.hash === commit.hash
+  const isRowPreviewed = previewedCommit?.hash === commit.hash
   const isMergeCommit = commit.parents.length > 1
 
   const backgroundColour = useMemo(() => {
     const colour = getCommitColour(commit)
 
-    if (selectedCommit?.hash === commit.hash) {
+    if (isRowSelected) {
       if (isPlaceholder) {
         return hoverColour
       }
@@ -41,7 +44,7 @@ export const TableRow = ({
       return reduceOpacity(colour, 0.15)
     }
 
-    if (previewedCommit?.hash === commit.hash) {
+    if (isRowPreviewed) {
       if (isPlaceholder) {
         return hoverColour
       }
@@ -50,7 +53,7 @@ export const TableRow = ({
     }
 
     return 'transparent'
-  }, [getCommitColour, commit, selectedCommit?.hash, previewedCommit?.hash, isPlaceholder, reduceOpacity, hoverColour])
+  }, [getCommitColour, commit, isRowSelected, isRowPreviewed, isPlaceholder, reduceOpacity, hoverColour])
 
   const backgroundStyles = useMemo(() => {
     const height = nodeSize + BACKGROUND_HEIGHT_OFFSET
@@ -77,17 +80,32 @@ export const TableRow = ({
     ...backgroundStyles,
     ...dataStyleOverrides
   }
+  
+  const rowContainerProps = {
+    id: `react-git-log-table-row-${index}`,
+    onMouseOut: selectCommitHandler.onMouseOut,
+    'data-testid': `react-git-log-table-row-${index}`,
+    onClick: () => selectCommitHandler.onClick(commit),
+    onMouseOver: () => selectCommitHandler.onMouseOver(commit)
+  }
+
+  if (row) {
+    const customRowElement = row({
+      commit,
+      selected: isRowSelected,
+      previewed: isRowPreviewed,
+      backgroundColour
+    })
+
+    return cloneElement(customRowElement, rowContainerProps)
+  }
 
   return (
     <div
-      {...props}
-      className={styles.row}
+      {...rowContainerProps}
       style={rowStyleOverrides}
-      id={`react-git-log-table-row-${index}`}
-      onMouseOut={selectCommitHandler.onMouseOut}
-      data-testid={`react-git-log-table-row-${index}`}
-      onClick={() => selectCommitHandler.onClick(commit)}
-      onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
+      className={styles.row}
+      {...props}
     >
       <CommitMessageData
         index={index}

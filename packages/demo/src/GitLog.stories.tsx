@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import styles from './GitLog.stories.module.scss'
 import { type Commit, GitLog, type GitLogProps, HTMLGridGraphProps, Canvas2DGraphProps } from '@tomplum/react-git-log'
-import { Loading } from 'components/Loading'
-import { useStoryState } from 'hooks/useStoryState'
-import { StoryHeader } from 'components/StoryHeader'
+import { Loading } from '@components/Loading'
+import { useStoryState } from '@hooks/useStoryState'
+import { StoryHeader } from '@components/StoryHeader'
 
 interface StoryProps extends GitLogProps, HTMLGridGraphProps, Canvas2DGraphProps {
   pageSize?: number
@@ -291,4 +291,106 @@ export const Demo: Story = {
       </div>
     )
   }
+}
+
+export const CustomTableRow = () => {
+  const {
+    theme,
+    loading,
+    colours,
+    entries,
+    branch,
+    buildUrls,
+    repository,
+    backgroundColour,
+    handleChangeTheme,
+    handleChangeColors,
+    handleChangeRepository
+  } = useStoryState()
+
+  return (
+    <div style={{ background: backgroundColour }} className={styles.container}>
+      <StoryHeader
+        theme={theme}
+        colours={colours}
+        repository={repository}
+        onChangeTheme={handleChangeTheme}
+        onChangeColours={handleChangeColors}
+        onChangeRepository={handleChangeRepository}
+      />
+
+      {loading && (
+        <div className={styles.loading}>
+          <Loading theme={theme} />
+        </div>
+      )}
+
+      {!loading && entries && (
+        <GitLog
+          colours={colours.colors}
+          entries={entries}
+          theme={theme}
+          currentBranch={branch}
+          showGitIndex={false}
+          rowSpacing={80}
+          classes={{
+            containerStyles: {
+              background: backgroundColour
+            },
+            containerClass: styles.gitLogContainer
+          }}
+          indexStatus={{
+            added: 2,
+            modified: 5,
+            deleted: 1
+          }}
+          urls={buildUrls}
+        >
+          <GitLog.GraphHTMLGrid
+            highlightedBackgroundHeight={120}
+          />
+
+          <GitLog.Table
+            className={styles.table}
+            row={({ commit, backgroundColour }) => (
+              <div
+                className={styles.customRow}
+                style={{
+                  color: theme === 'dark' ? 'white': 'black',
+                  backgroundColor: backgroundColour
+                }}
+              >
+                <div className={styles.top}>
+                  <p className={styles.message}>
+                    {commit.message}
+                  </p>
+                </div>
+
+                <div className={styles.bottom}>
+                  <p
+                    className={styles.author}
+                    style={{
+                      color: theme === 'dark' ? 'rgb(203,203,203)': 'rgb(56,56,56)',
+                    }}
+                  >
+                    {commit.author?.name}
+                  </p>
+
+                  <p
+                    className={styles.hash}
+                    style={{
+                      color: theme === 'dark' ? 'white': 'rgb(56,56,56)',
+                      background: theme === 'dark' ? 'grey': 'rgb(224,224,224)',
+                    }}
+                  >
+                    #{commit.hash}
+                  </p>
+                </div>
+              </div>
+            )}
+          />
+        </GitLog>
+      )}
+    </div>
+  )
 }

@@ -16,6 +16,18 @@ export interface HTMLGridGraphProps extends GraphPropsCommon {
    * over a commit node in the graph.
    */
   showCommitNodeTooltips?: boolean
+
+  /**
+   * The height, in pixels, of the background
+   * colour of a row that is being previewed
+   * or has been selected.
+   *
+   * You probably only want to set this if
+   * you have passed a custom row implementation
+   * into the table component that has a different
+   * height from the default.
+   */
+  highlightedBackgroundHeight?: number
 }
 
 interface GraphPropsCommon {

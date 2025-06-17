@@ -14,7 +14,8 @@ export const GraphCore = ({
   orientation = 'normal',
   enableResize = false,
   showCommitNodeHashes = false,
-  showCommitNodeTooltips = false
+  showCommitNodeTooltips = false,
+  highlightedBackgroundHeight
 }: PropsWithChildren<GraphCoreProps>) => {
   const {
     paging,
@@ -52,8 +53,9 @@ export const GraphCore = ({
     graphWidth: graphWidth + virtualColumns,
     orientation,
     visibleCommits,
-    columnData
-  }), [showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData])
+    columnData,
+    highlightedBackgroundHeight
+  }), [showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
 
   return (
     <GraphContext value={contextValue}>

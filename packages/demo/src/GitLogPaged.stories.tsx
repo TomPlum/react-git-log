@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import styles from './GitLog.stories.module.scss'
 import { type Commit, GitLog, GitLogPaged, GitLogPagedProps, HTMLGridGraphProps, Canvas2DGraphProps } from '@tomplum/react-git-log'
-import { Loading } from 'components/Loading'
-import { StoryHeader } from 'components/StoryHeader'
-import { useStoryState } from 'hooks/useStoryState'
+import { Loading } from '@components/Loading'
+import { StoryHeader } from '@components/StoryHeader'
+import { useStoryState } from '@hooks/useStoryState'
 import { useState } from 'react'
-import { Pagination } from 'components/Pagination'
+import { Pagination } from '@components/Pagination'
 
 interface StoryProps extends GitLogPagedProps, HTMLGridGraphProps, Canvas2DGraphProps {
   showTable: boolean

@@ -1,4 +1,5 @@
-import { Commit, GitLogEntry } from 'types'
+import { Commit } from 'types/Commit'
+import { GitLogEntry } from 'types/GitLogEntry'
 import { GitContextBag } from 'context/GitContext'
 import DataIntervalTree from 'node-interval-tree'
 import { ThemeFunctions } from 'hooks/useTheme'

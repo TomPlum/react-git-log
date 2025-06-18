@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions
 import Icon from 'assets/tag.svg?react'
 import { useTheme } from 'hooks/useTheme'
 import styles from './TagIcon.module.scss'

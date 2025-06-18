@@ -1,20 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import styles from './GitLog.stories.module.scss'
-import { type Commit, GitLog, type GitLogProps, HTMLGridGraphProps, Canvas2DGraphProps } from '@tomplum/react-git-log'
+import { type Commit, GitLog } from '@tomplum/react-git-log'
 import { Loading } from '@components/Loading'
 import { useStoryState } from '@hooks/useStoryState'
 import { StoryHeader } from '@components/StoryHeader'
+import { GitLogDemo, GitLogStoryProps } from '@components/GitLogDemo'
 
-interface StoryProps extends GitLogProps, HTMLGridGraphProps, Canvas2DGraphProps {
-  pageSize?: number
-  page?: number
-  showTable: boolean
-  showBranchesTags: boolean
-  showCommitNodeHashes: boolean
-  renderStrategy: 'html-grid' | 'canvas'
-}
-
-const meta: Meta<StoryProps> = {
+const meta: Meta<GitLogStoryProps> = {
   title: 'GitLog',
   component: GitLog,
   parameters: {
@@ -193,104 +185,13 @@ const meta: Meta<StoryProps> = {
       }
     }
   }
-} satisfies Meta<StoryProps>
+} satisfies Meta<GitLogStoryProps>
 
 export default meta
 type Story = StoryObj<typeof meta>;
 
 export const Demo: Story = {
-  render: (args) => {
-    const {
-      theme,
-      loading,
-      colours,
-      entries,
-      branch,
-      buildUrls,
-      repository,
-      backgroundColour,
-      handleChangeTheme,
-      handleChangeColors,
-      handleChangeRepository
-    } = useStoryState()
-
-    return (
-      <div style={{ background: backgroundColour }} className={styles.container}>
-        <StoryHeader
-          theme={theme}
-          colours={colours}
-          repository={repository}
-          onChangeTheme={handleChangeTheme}
-          onChangeColours={handleChangeColors}
-          onChangeRepository={handleChangeRepository}
-        />
-
-        {loading && (
-          <div className={styles.loading}>
-            <Loading theme={theme} />
-          </div>
-        )}
-
-        {!loading && entries && (
-          <GitLog
-            {...args}
-            colours={colours.colors}
-            entries={entries}
-            theme={theme}
-            currentBranch={branch}
-            paging={{
-              page: args.page ?? 0,
-              size: args.pageSize ?? entries.length
-            }}
-            classes={{
-              containerStyles: {
-                background: backgroundColour
-              },
-              containerClass: styles.gitLogContainer
-            }}
-            indexStatus={{
-              added: 2,
-              modified: 5,
-              deleted: 1
-            }}
-            urls={buildUrls}
-          >
-            {args.showBranchesTags && (
-              <GitLog.Tags />
-            )}
-
-            {args.renderStrategy === 'html-grid' && (
-              <GitLog.GraphHTMLGrid
-                nodeSize={args.nodeSize}
-                nodeTheme={args.nodeTheme}
-                orientation={args.orientation}
-                enableResize={args.enableResize}
-                showCommitNodeHashes={args.showCommitNodeHashes}
-                showCommitNodeTooltips={args.showCommitNodeTooltips}
-              />
-            )}
-
-            {args.renderStrategy === 'canvas' && (
-              <GitLog.GraphCanvas2D
-                nodeSize={args.nodeSize}
-                nodeTheme={args.nodeTheme}
-                orientation={args.orientation}
-                enableResize={args.enableResize}
-                showCommitNodeTooltips={args.showCommitNodeTooltips}
-              />
-            )}
-
-            {args.showTable && (
-              <GitLog.Table
-                className={styles.table}
-                timestampFormat={args.timestampFormat}
-              />
-            )}
-          </GitLog>
-        )}
-      </div>
-    )
-  }
+  render: (args) => <GitLogDemo {...args} />
 }
 
 export const CustomTableRow = () => {

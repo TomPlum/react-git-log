@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions
 import Icon from 'assets/branch.svg?react'
 import { useTheme } from 'hooks/useTheme'
 import styles from './BranchIcon.module.scss'

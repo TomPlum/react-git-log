@@ -34,6 +34,9 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook --workspace=@tomplum/react-git-log-demo
 
+      - name: ESLint Check
+        run: npm run lint
+
       - name: Run Unit Tests
         env:
           TZ: UTC

@@ -47,7 +47,7 @@ describe('Table', () => {
 
     expect(table.container()?.style.background).toBe('blueviolet')
     expect(table.head()?.style.background).toBe('darkolivegreen')
-    expect(table.row({ row: 0 })?.style.background).toBe('lightgoldenrodyellow')
+    expect(table.emptyRow({ row: 0 })?.style.background).toBe('lightgoldenrodyellow')
     expect(table.timestampData({ row: 0 })?.style.background).toBe('mediumvioletred')
     expect(table.commitMessageData({ row: 0 })?.style.background).toBe('mediumvioletred')
   })

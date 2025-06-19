@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Table Container > should render a wrapping div element with the correct styles when a custom row is used 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="react-git-log-table"
+    id="react-git-log-table"
+    style="margin-top: 12px;"
+  >
+    <div>
+      Stubbed Table Contents
+    </div>
+  </div>
+</DocumentFragment>
+`;

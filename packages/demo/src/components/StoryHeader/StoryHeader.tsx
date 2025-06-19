@@ -1,9 +1,9 @@
 import styles from './StoryHeader.module.scss'
-import { RepositorySelector } from 'components/RepositorySelector'
-import { ColourSelector } from 'components/ColourSelector'
-import { ThemeToggle } from 'components/ThemeToggle'
-import { PackageInfo } from 'components/PackageInfo'
-import { StoryHeaderProps } from 'components/StoryHeader/types'
+import { RepositorySelector } from '@components/RepositorySelector'
+import { ColourSelector } from '@components/ColourSelector'
+import { ThemeToggle } from '@components/ThemeToggle'
+import { PackageInfo } from '@components/PackageInfo'
+import { StoryHeaderProps } from '@components/StoryHeader/types'
 import { PropsWithChildren } from 'react'
 
 export const StoryHeader = ({ children, theme, repository, colours, onChangeColours, onChangeRepository, onChangeTheme }: PropsWithChildren<StoryHeaderProps>) => {

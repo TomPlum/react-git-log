@@ -1,2 +1,2 @@
 export * from './types'
-export * from './Pagination.tsx'
+export * from './Pagination'

@@ -1,6 +1,4 @@
-// eslint-disable-next-line import/extensions
 import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
-// eslint-disable-next-line import/extensions
 import sleepRepositoryDataReleaseBranch from 'test/data/sleep-paginated/sleep-release-branch.txt?raw'
 import { parseGitLogOutput } from 'test/data/gitLogParser'
 import { sleepRepositoryRowColumnState } from 'test/data/sleep/sleepState'

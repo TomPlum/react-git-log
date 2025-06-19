@@ -4,7 +4,6 @@ import { GitLog } from './GitLog'
 import { entry } from 'test/stubs'
 import { gitLog } from 'test/elements/GitLog'
 import { parseGitLogOutput } from 'test/data/gitLogParser'
-// eslint-disable-next-line import/extensions
 import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
 import { formatBranch } from 'modules/Tags/utils/formatBranch'
 import { GitLogUrlBuilder } from './types'

@@ -1,4 +1,4 @@
-import { ColourSelection } from 'components/ColourSelector'
+import { ColourSelection } from '@components/ColourSelector'
 import { ThemeMode } from '@tomplum/react-git-log'
 
 export interface StoryHeaderProps {

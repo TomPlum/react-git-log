@@ -287,14 +287,15 @@ Returns an object of type `GitLogUrls` with the following fields.
 
 ### GraphHTMLGrid
 
-| Property                 | Type                | Description                                                                                                    |
-|--------------------------|---------------------|----------------------------------------------------------------------------------------------------------------|
-| `showCommitNodeHashes`   | `boolean`           | Whether to show the commit hash next to nodes in the graph.                                                    |
-| `showCommitNodeTooltips` | `boolean`           | Whether to show tooltips when hovering over a commit node.                                                     |
-| `nodeTheme`              | `NodeTheme`         | Theme applied to commit node elements in the graph.                                                            |
-| `nodeSize`               | `number`            | The diameter, in pixels, of the commits nodes. Should be divisible by 2 and between 8 and 30 to render nicely. |
-| `orientation`            | `normal \| flipped` | The orientation of the graph. Normal renders the checked-out branch on the left, flipped on the right.         |
-| `enableResize`           | `boolean`           | Enables horizontal resizing of the graph. Default: `false`.                                                    |
+| Property                      | Type                | Description                                                                                                    |
+|-------------------------------|---------------------|----------------------------------------------------------------------------------------------------------------|
+| `showCommitNodeHashes`        | `boolean`           | Whether to show the commit hash next to nodes in the graph.                                                    |
+| `showCommitNodeTooltips`      | `boolean`           | Whether to show tooltips when hovering over a commit node.                                                     |
+| `nodeTheme`                   | `NodeTheme`         | Theme applied to commit node elements in the graph.                                                            |
+| `nodeSize`                    | `number`            | The diameter, in pixels, of the commits nodes. Should be divisible by 2 and between 8 and 30 to render nicely. |
+| `orientation`                 | `normal \| flipped` | The orientation of the graph. Normal renders the checked-out branch on the left, flipped on the right.         |
+| `enableResize`                | `boolean`           | Enables horizontal resizing of the graph. Default: `false`.                                                    |
+| `highlightedBackgroundHeight` | `number`            | The height, in pixels, of the background colour of a row that is being previewed or has been selected..        |
 
 ### GraphCanvas2D
 
@@ -319,6 +320,7 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `timestampFormat` | `string`                  | A timestamp format string for DayJS to format commit timestamps. Default: `ISO-8601`. |
 | `className`       | `string`                  | A class name for the table's wrapping container.                                      |
 | `styles`          | `GitLogTableStylingProps` | A React CSS styling object for the table elements.                                    |
+| `row`             | `CustomTableRow`          | A function that returns a custom implementation for the table row element.            |
 
 #### GitLogTableStylingProps
 
@@ -328,6 +330,15 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `thead`  | `CSSProperties` | Styles for the table header wrapper.    |
 | `tr`     | `CSSProperties` | Styles for each table row.              |
 | `td`     | `CSSProperties` | Styles for each table cell.             |
+
+#### CustomTableRow
+
+| Property           | Type      | Description                                                           |
+|--------------------|-----------|-----------------------------------------------------------------------|
+| `commit`           | `Commit`  | Details of the commit belonging to the row.                           |
+| `selected`         | `boolean` | Whether the row is selected (has been clicked).                       |
+| `previewed`        | `boolean` | Whether the row is previewed (is being hovered over).                 |
+| `backgroundColour` | `string`  | The colour of the background as is normally applied to the table row. |
 
 # Development
 

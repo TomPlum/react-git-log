@@ -8,35 +8,53 @@ import imports from 'eslint-plugin-import'
 import storybook from 'eslint-plugin-storybook'
 
 export default tseslint.config(
+  storybook.configs['flat/recommended'],
+  js.configs.recommended,
+  tseslint.configs.recommended,
+  reactHooks.configs['recommended-latest'],
+  reactRefresh.configs.vite,
+  imports.flatConfigs.recommended,
   {
-    ignores: ['**/dist']
-  },
-  {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
+    name: 'react-git-log',
+    files: ['packages/**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
     },
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      '@stylistic': stylistic,
-      'import': imports
+      '@stylistic': stylistic
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
       'semi': ['error', 'never'],
       '@typescript-eslint/semi': 'off',
       'object-curly-spacing': ['error', 'always'],
       'quotes': ['error', 'single'],
       'quote-props': ['error', 'as-needed'],
-      'import/extensions': ['error', 'never', { 'json': 'always', 'scss': 'always' }],
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
+      'import/extensions': [
+        'error',
+        'ignorePackages',
+        {
+          ts: 'never',
+          tsx: 'never',
+          js: 'never',
+          jsx: 'never',
+          svg: 'always',
+          json: 'always',
+          'scss': 'always'
+        },
       ]
+    },
+    ignores: ['**/dist'],
+    settings: {
+      "import/resolver": {
+        typescript: {
+          noWarnOnMultipleProjects: true,
+          project: [
+            './packages/library/tsconfig.json',
+            './packages/demo/tsconfig.json',
+          ]
+        }
+      }
     }
-  },
-  ...storybook.configs['flat/recommended']
+  }
 )

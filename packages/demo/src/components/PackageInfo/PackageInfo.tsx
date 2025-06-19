@@ -1,4 +1,4 @@
-import GitHubLogo from 'assets/github-mark.svg?react'
+import GitHubLogo from '@assets/github-mark.svg?react'
 import styles from './PackageInfo.module.scss'
 import { PackageInfoProps } from './types'
 

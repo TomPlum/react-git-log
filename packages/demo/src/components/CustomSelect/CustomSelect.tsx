@@ -1,7 +1,7 @@
 import { CSSProperties, useState } from 'react'
 import { Popover } from 'react-tiny-popover'
 import { CustomSelectProps } from './types'
-import Chevron from 'assets/chevron.svg?react'
+import Chevron from '@assets/chevron.svg?react'
 import styles from './CustomSelect.module.scss'
 import classNames from 'classnames'
 

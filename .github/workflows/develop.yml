@@ -22,7 +22,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: 'npm'
 
       - name: Install Dependencies
@@ -30,6 +30,12 @@ jobs:
 
       - name: Build
         run: npm run build --workspace=@tomplum/react-git-log
+
+      - name: Build Storybook
+        run: npm run build-storybook --workspace=@tomplum/react-git-log-demo
+
+      - name: ESLint Check
+        run: npm run lint
 
       - name: Run Unit Tests
         env:

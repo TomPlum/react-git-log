@@ -7,6 +7,7 @@ interface HasRow<T> extends ShouldExist<T> {
 
 export class Table {
   private getElement<T extends boolean>(testId: string, shouldExist: T = true as T): T extends true ? HTMLElement : HTMLElement | null {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (shouldExist ? screen.getByTestId(testId) : screen.queryByTestId(testId)) as any
   }
 
@@ -32,6 +33,10 @@ export class Table {
 
   public row<T extends boolean = true>({ row, shouldExist }: HasRow<T> = {} as HasRow<T>) {
     return this.getElement(`react-git-log-table-row-${row}`, shouldExist)
+  }
+
+  public emptyRow<T extends boolean = true>({ row, shouldExist }: HasRow<T> = {} as HasRow<T>) {
+    return this.getElement(`react-git-log-empty-table-row-${row}`, shouldExist)
   }
 
   public commitMessageData<T extends boolean = true>({ row, shouldExist }: HasRow<T> = {} as HasRow<T>) {

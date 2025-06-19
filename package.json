@@ -8,18 +8,21 @@
   ],
   "scripts": {
     "lint": "eslint packages/{library,demo}/src/**/*.{ts,tsx}",
-    "lint:fix": "eslint . --fix",
+    "lint:fix": "eslint packages/{library,demo}/src/**/*.{ts,tsx} --fix",
     "clean": "npm run clean --workspace=*"
   },
   "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^8.34.0",
     "eslint": "^9.21.0",
+    "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
-    "eslint-plugin-storybook": "^0.12.0",
-    "@stylistic/eslint-plugin": "^4.2.0",
-    "@eslint/js": "^9.21.0",
-    "typescript-eslint": "^8.24.1"
+    "eslint-plugin-storybook": "^9.0.8",
+    "globals": "^16.2.0",
+    "typescript-eslint": "^8.34.1"
   },
   "overrides": {
     "react": "19.1.0",

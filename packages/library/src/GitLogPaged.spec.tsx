@@ -1,6 +1,5 @@
 import { parseGitLogOutput } from 'test/data/gitLogParser'
 import { render } from '@testing-library/react'
-// eslint-disable-next-line import/extensions
 import sleepRepositoryDataReleaseBranch from 'test/data/sleep-paginated/sleep-release-branch.txt?raw'
 import { GitLogPaged } from './GitLogPaged'
 

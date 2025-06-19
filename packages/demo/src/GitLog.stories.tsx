@@ -1,20 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import styles from './GitLog.stories.module.scss'
-import { type Commit, GitLog, type GitLogProps, HTMLGridGraphProps, Canvas2DGraphProps } from '@tomplum/react-git-log'
-import { Loading } from 'components/Loading'
-import { useStoryState } from 'hooks/useStoryState'
-import { StoryHeader } from 'components/StoryHeader'
+import { type Commit, GitLog } from '@tomplum/react-git-log'
+import { Loading } from '@components/Loading'
+import { useStoryState } from '@hooks/useStoryState'
+import { StoryHeader } from '@components/StoryHeader'
+import { GitLogDemo, GitLogStoryProps } from '@components/GitLogDemo'
 
-interface StoryProps extends GitLogProps, HTMLGridGraphProps, Canvas2DGraphProps {
-  pageSize?: number
-  page?: number
-  showTable: boolean
-  showBranchesTags: boolean
-  showCommitNodeHashes: boolean
-  renderStrategy: 'html-grid' | 'canvas'
-}
-
-const meta: Meta<StoryProps> = {
+const meta: Meta<GitLogStoryProps> = {
   title: 'GitLog',
   component: GitLog,
   parameters: {
@@ -40,7 +32,10 @@ const meta: Meta<StoryProps> = {
     defaultGraphWidth: 120,
     rowSpacing: 0,
     page: 0,
-    pageSize: 200
+    pageSize: 200,
+    indexStatusFilesModified: 5,
+    indexStatusFilesAdded: 2,
+    indexStatusFilesDeleted: 1
   },
   argTypes: {
     entries: {
@@ -75,6 +70,7 @@ const meta: Meta<StoryProps> = {
     },
     showHeaders: {
       name: 'Show Headers',
+      type: 'boolean',
       table: {
         category: 'Visibility'
       }
@@ -98,6 +94,7 @@ const meta: Meta<StoryProps> = {
     },
     showGitIndex: {
       name: 'Show Git Index',
+      type: 'boolean',
       table: {
         category: 'Visibility'
       }
@@ -191,104 +188,176 @@ const meta: Meta<StoryProps> = {
       table: {
         category: 'Callback Functions'
       }
+    },
+
+    // Index Status
+    indexStatusFilesModified: {
+      name: 'Modified Files',
+      type: {
+        name: 'number',
+      },
+      table: {
+        category: 'Git Index Status'
+      }
+    },
+    indexStatusFilesAdded: {
+      name: 'Added Files',
+      type: {
+        name: 'number',
+      },
+      table: {
+        category: 'Git Index Status'
+      }
+    },
+    indexStatusFilesDeleted: {
+      name: 'Deleted Files',
+      type: {
+        name: 'number',
+      },
+      table: {
+        category: 'Git Index Status'
+      }
+    },
+
+    // Hiding defaults that have custom props to drive them
+    paging: {
+      table: {
+        disable: true
+      }
+    },
+    theme: {
+      table: {
+        disable: true
+      }
+    },
+    colours: {
+      table: {
+        disable: true
+      }
+    },
+    urls: {
+      table: {
+        disable: true
+      }
+    },
+    classes: {
+      table: {
+        disable: true
+      }
+    },
+    indexStatus: {
+      table: {
+        disable: true
+      }
     }
   }
-} satisfies Meta<StoryProps>
+} satisfies Meta<GitLogStoryProps>
 
 export default meta
 type Story = StoryObj<typeof meta>;
 
 export const Demo: Story = {
-  render: (args) => {
-    const {
-      theme,
-      loading,
-      colours,
-      entries,
-      branch,
-      buildUrls,
-      repository,
-      backgroundColour,
-      handleChangeTheme,
-      handleChangeColors,
-      handleChangeRepository
-    } = useStoryState()
+  render: (args) => <GitLogDemo {...args} />
+}
 
-    return (
-      <div style={{ background: backgroundColour }} className={styles.container}>
-        <StoryHeader
+export const CustomTableRow = () => {
+  const {
+    theme,
+    loading,
+    colours,
+    entries,
+    branch,
+    buildUrls,
+    repository,
+    backgroundColour,
+    handleChangeTheme,
+    handleChangeColors,
+    handleChangeRepository
+  } = useStoryState()
+
+  return (
+    <div style={{ background: backgroundColour }} className={styles.container}>
+      <StoryHeader
+        theme={theme}
+        colours={colours}
+        repository={repository}
+        onChangeTheme={handleChangeTheme}
+        onChangeColours={handleChangeColors}
+        onChangeRepository={handleChangeRepository}
+      />
+
+      {loading && (
+        <div className={styles.loading}>
+          <Loading theme={theme} />
+        </div>
+      )}
+
+      {!loading && entries && (
+        <GitLog
+          colours={colours.colors}
+          entries={entries}
           theme={theme}
-          colours={colours}
-          repository={repository}
-          onChangeTheme={handleChangeTheme}
-          onChangeColours={handleChangeColors}
-          onChangeRepository={handleChangeRepository}
-        />
+          currentBranch={branch}
+          showGitIndex={false}
+          rowSpacing={80}
+          classes={{
+            containerStyles: {
+              background: backgroundColour
+            },
+            containerClass: styles.gitLogContainer
+          }}
+          indexStatus={{
+            added: 2,
+            modified: 5,
+            deleted: 1
+          }}
+          urls={buildUrls}
+        >
+          <GitLog.GraphHTMLGrid
+            highlightedBackgroundHeight={120}
+          />
 
-        {loading && (
-          <div className={styles.loading}>
-            <Loading theme={theme} />
-          </div>
-        )}
+          <GitLog.Table
+            className={styles.table}
+            row={({ commit, backgroundColour }) => (
+              <div
+                className={styles.customRow}
+                style={{
+                  color: theme === 'dark' ? 'white': 'black',
+                  backgroundColor: backgroundColour
+                }}
+              >
+                <div className={styles.top}>
+                  <p className={styles.message}>
+                    {commit.message}
+                  </p>
+                </div>
 
-        {!loading && entries && (
-          <GitLog
-            {...args}
-            colours={colours.colors}
-            entries={entries}
-            theme={theme}
-            currentBranch={branch}
-            paging={{
-              page: args.page ?? 0,
-              size: args.pageSize ?? entries.length
-            }}
-            classes={{
-              containerStyles: {
-                background: backgroundColour
-              },
-              containerClass: styles.gitLogContainer
-            }}
-            indexStatus={{
-              added: 2,
-              modified: 5,
-              deleted: 1
-            }}
-            urls={buildUrls}
-          >
-            {args.showBranchesTags && (
-              <GitLog.Tags />
+                <div className={styles.bottom}>
+                  <p
+                    className={styles.author}
+                    style={{
+                      color: theme === 'dark' ? 'rgb(203,203,203)': 'rgb(56,56,56)',
+                    }}
+                  >
+                    {commit.author?.name}
+                  </p>
+
+                  <p
+                    className={styles.hash}
+                    style={{
+                      color: theme === 'dark' ? 'white': 'rgb(56,56,56)',
+                      background: theme === 'dark' ? 'grey': 'rgb(224,224,224)',
+                    }}
+                  >
+                    #{commit.hash}
+                  </p>
+                </div>
+              </div>
             )}
-
-            {args.renderStrategy === 'html-grid' && (
-              <GitLog.GraphHTMLGrid
-                nodeSize={args.nodeSize}
-                nodeTheme={args.nodeTheme}
-                orientation={args.orientation}
-                enableResize={args.enableResize}
-                showCommitNodeHashes={args.showCommitNodeHashes}
-                showCommitNodeTooltips={args.showCommitNodeTooltips}
-              />
-            )}
-
-            {args.renderStrategy === 'canvas' && (
-              <GitLog.GraphCanvas2D
-                nodeSize={args.nodeSize}
-                nodeTheme={args.nodeTheme}
-                orientation={args.orientation}
-                enableResize={args.enableResize}
-                showCommitNodeTooltips={args.showCommitNodeTooltips}
-              />
-            )}
-
-            {args.showTable && (
-              <GitLog.Table
-                className={styles.table}
-                timestampFormat={args.timestampFormat}
-              />
-            )}
-          </GitLog>
-        )}
-      </div>
-    )
-  }
+          />
+        </GitLog>
+      )}
+    </div>
+  )
 }

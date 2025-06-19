@@ -17,6 +17,13 @@ export interface GraphContextBag {
   showCommitNodeTooltips: boolean
 
   /**
+   * The height, in pixels, of the background
+   * colour of a row that is being previewed
+   * or has been selected.
+   */
+  highlightedBackgroundHeight?: number
+
+  /**
    * The theme to apply the commit node
    * elements in the graph.
    */

@@ -8,6 +8,7 @@ import { HEADER_ROW_HEIGHT, TABLE_MARGIN_TOP } from 'modules/Table/constants'
 import { TableContainerProps } from 'modules/Table/components/TableContainer/types'
 
 export const TableContainer = ({
+  row,
   rowQuantity,
   children,
   className,
@@ -49,6 +50,21 @@ export const TableContainer = ({
 
     return (rowSpacing / 2) + TABLE_MARGIN_TOP
   }, [rowSpacing, showHeaders])
+
+  if (row) {
+    return (
+      <div
+        id='react-git-log-table'
+        data-testid='react-git-log-table'
+        style={{
+          marginTop: TABLE_MARGIN_TOP,
+          ...styleOverrides
+        }}
+      >
+        {children}
+      </div>
+    )
+  }
   
   return (
     <div

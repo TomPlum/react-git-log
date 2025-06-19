@@ -21,7 +21,7 @@ export const HTMLGridGraph = () => {
       return placeholderCommits.length
     }
 
-    // If the index node is visible then we show one
+    // If the index node is visible, then we show one
     // extra commit in the form of the index pseudo-node.
     if (isIndexVisible) {
       return visibleCommits.length + 1

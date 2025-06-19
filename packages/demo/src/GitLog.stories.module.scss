@@ -24,3 +24,40 @@
     font-weight: 700;
   }
 }
+
+.customRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 10px 10px 20px;
+  height: 120px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .top {
+    .message {
+      margin: 0;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .hash {
+      margin: 0;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    .author {
+      margin: 0;
+    }
+  }
+}

@@ -7,6 +7,7 @@ interface HasRow<T> extends ShouldExist<T> {
 
 export class Table {
   private getElement<T extends boolean>(testId: string, shouldExist: T = true as T): T extends true ? HTMLElement : HTMLElement | null {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (shouldExist ? screen.getByTestId(testId) : screen.queryByTestId(testId)) as any
   }
 

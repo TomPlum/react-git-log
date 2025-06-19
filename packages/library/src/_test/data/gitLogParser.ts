@@ -1,4 +1,4 @@
-import { GitLogEntry } from 'types'
+import { GitLogEntry } from 'types/GitLogEntry'
 
 export const parseGitLogOutput = (output: string): GitLogEntry[] => {
   const commits = output.trim().split('\n')

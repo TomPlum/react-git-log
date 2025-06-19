@@ -56,7 +56,6 @@ export const TableContainer = ({
       <div
         id='react-git-log-table'
         data-testid='react-git-log-table'
-        className={styles.customRowContainer}
         style={{
           marginTop: TABLE_MARGIN_TOP,
           ...styleOverrides

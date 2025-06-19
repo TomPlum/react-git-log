@@ -35,6 +35,10 @@ export class Table {
     return this.getElement(`react-git-log-table-row-${row}`, shouldExist)
   }
 
+  public emptyRow<T extends boolean = true>({ row, shouldExist }: HasRow<T> = {} as HasRow<T>) {
+    return this.getElement(`react-git-log-empty-table-row-${row}`, shouldExist)
+  }
+
   public commitMessageData<T extends boolean = true>({ row, shouldExist }: HasRow<T> = {} as HasRow<T>) {
     return this.getElement(`react-git-log-table-data-commit-message-${row}`, shouldExist)
   }

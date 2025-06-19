@@ -319,6 +319,7 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `timestampFormat` | `string`                  | A timestamp format string for DayJS to format commit timestamps. Default: `ISO-8601`. |
 | `className`       | `string`                  | A class name for the table's wrapping container.                                      |
 | `styles`          | `GitLogTableStylingProps` | A React CSS styling object for the table elements.                                    |
+| `row`             | `CustomTableRow`          | A function that returns a custom implementation for the table row element.            |
 
 #### GitLogTableStylingProps
 
@@ -328,6 +329,15 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `thead`  | `CSSProperties` | Styles for the table header wrapper.    |
 | `tr`     | `CSSProperties` | Styles for each table row.              |
 | `td`     | `CSSProperties` | Styles for each table cell.             |
+
+#### CustomTableRow
+
+| Property           | Type      | Description                                                           |
+|--------------------|-----------|-----------------------------------------------------------------------|
+| `commit`           | `Commit`  | Details of the commit belonging to the row.                           |
+| `selected`         | `boolean` | Whether the row is selected (has been clicked).                       |
+| `previewed`        | `boolean` | Whether the row is previewed (is being hovered over).                 |
+| `backgroundColour` | `string`  | The colour of the background as is normally applied to the table row. |
 
 # Development
 

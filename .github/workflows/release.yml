@@ -24,10 +24,15 @@ jobs:
       - name: Build Library
         run: npm run build --workspace=@tomplum/react-git-log
 
-      - name: Run Unit Tests
+      - name: Run Library Unit Tests
         env:
           TZ: UTC
         run: npm run test:unit:ci --workspace=@tomplum/react-git-log
+
+      - name: Run Demo Unit Tests
+        env:
+          TZ: UTC
+        run: npm run test --workspace=@tomplum/react-git-log-demo
 
       - name: Run Integration Tests
         env:

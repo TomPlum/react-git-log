@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { ThemeMode, GitLogUrlBuilder, GitLogUrlBuilderArgs } from '@tomplum/react-git-log'
 import { ColourSelection } from '@components/ColourSelector'
-import { rainbow } from 'themes.ts'
+import { rainbow } from 'themes'
 import { StoryStateProps } from './types'
 import { useGitLogEntries } from '@hooks/useGitLogEntries'
 

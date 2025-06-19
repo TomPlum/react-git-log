@@ -1,2 +1,2 @@
 export * from './types'
-export * from './ColourSelector.tsx'
+export * from './ColourSelector'

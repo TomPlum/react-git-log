@@ -1,14 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { type Commit, GitLogPaged, GitLogPagedProps, HTMLGridGraphProps, Canvas2DGraphProps } from '@tomplum/react-git-log'
-import { GitLogPagedDemo } from '@components/GitLogPagedDemo'
+import { type Commit, GitLogPaged } from '@tomplum/react-git-log'
+import { GitLogPagedDemo, GitLogPagedStoryProps } from '@components/GitLogPagedDemo'
 
-interface StoryProps extends GitLogPagedProps, HTMLGridGraphProps, Canvas2DGraphProps {
-  showTable: boolean
-  showCommitNodeHashes: boolean
-  renderStrategy: 'html-grid' | 'canvas'
-}
 
-const meta: Meta<StoryProps> = {
+const meta: Meta<GitLogPagedStoryProps> = {
   title: 'GitLogPaged',
   component: GitLogPaged,
   parameters: {
@@ -59,6 +54,7 @@ const meta: Meta<StoryProps> = {
     },
     showHeaders: {
       name: 'Show Headers',
+      type: 'boolean',
       table: {
         category: 'Visibility'
       }
@@ -76,6 +72,7 @@ const meta: Meta<StoryProps> = {
     },
     showGitIndex: {
       name: 'Show Git Index',
+      type: 'boolean',
       table: {
         category: 'Visibility'
       }
@@ -147,9 +144,41 @@ const meta: Meta<StoryProps> = {
       table: {
         category: 'Callback Functions'
       }
+    },
+
+    // Hiding defaults that have custom props to drive them
+    theme: {
+      table: {
+        disable: true
+      }
+    },
+    colours: {
+      table: {
+        disable: true
+      }
+    },
+    urls: {
+      table: {
+        disable: true
+      }
+    },
+    classes: {
+      table: {
+        disable: true
+      }
+    },
+    indexStatus: {
+      table: {
+        disable: true
+      }
+    },
+    headCommitHash: {
+      table: {
+        disable: true
+      }
     }
   }
-} satisfies Meta<StoryProps>
+} satisfies Meta<GitLogPagedStoryProps>
 
 export default meta
 type Story = StoryObj<typeof meta>;

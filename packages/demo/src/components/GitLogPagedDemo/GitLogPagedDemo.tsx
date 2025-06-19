@@ -71,9 +71,9 @@ export const GitLogPagedDemo = (args: GitLogPagedStoryProps) => {
             containerClass: styles.gitLogContainer
           }}
           indexStatus={{
-            added: 0,
-            modified: 2,
-            deleted: 3
+            added: args.indexStatusFilesAdded,
+            modified: args.indexStatusFilesModified,
+            deleted: args.indexStatusFilesDeleted
           }}
           urls={buildUrls}
         >

@@ -55,9 +55,9 @@ export const GitLogDemo = (args: GitLogStoryProps) => {
             containerClass: styles.gitLogContainer
           }}
           indexStatus={{
-            added: 2,
-            modified: 5,
-            deleted: 1
+            added: args.indexStatusFilesAdded,
+            modified: args.indexStatusFilesModified,
+            deleted: args.indexStatusFilesDeleted
           }}
           urls={buildUrls}
         >

@@ -32,7 +32,10 @@ const meta: Meta<GitLogStoryProps> = {
     defaultGraphWidth: 120,
     rowSpacing: 0,
     page: 0,
-    pageSize: 200
+    pageSize: 200,
+    indexStatusFilesModified: 5,
+    indexStatusFilesAdded: 2,
+    indexStatusFilesDeleted: 1
   },
   argTypes: {
     entries: {
@@ -67,6 +70,7 @@ const meta: Meta<GitLogStoryProps> = {
     },
     showHeaders: {
       name: 'Show Headers',
+      type: 'boolean',
       table: {
         category: 'Visibility'
       }
@@ -90,6 +94,7 @@ const meta: Meta<GitLogStoryProps> = {
     },
     showGitIndex: {
       name: 'Show Git Index',
+      type: 'boolean',
       table: {
         category: 'Visibility'
       }
@@ -182,6 +187,67 @@ const meta: Meta<GitLogStoryProps> = {
       name: 'onSelectCommit',
       table: {
         category: 'Callback Functions'
+      }
+    },
+
+    // Index Status
+    indexStatusFilesModified: {
+      name: 'Modified Files',
+      type: {
+        name: 'number',
+      },
+      table: {
+        category: 'Git Index Status'
+      }
+    },
+    indexStatusFilesAdded: {
+      name: 'Added Files',
+      type: {
+        name: 'number',
+      },
+      table: {
+        category: 'Git Index Status'
+      }
+    },
+    indexStatusFilesDeleted: {
+      name: 'Deleted Files',
+      type: {
+        name: 'number',
+      },
+      table: {
+        category: 'Git Index Status'
+      }
+    },
+
+    // Hiding defaults that have custom props to drive them
+    paging: {
+      table: {
+        disable: true
+      }
+    },
+    theme: {
+      table: {
+        disable: true
+      }
+    },
+    colours: {
+      table: {
+        disable: true
+      }
+    },
+    urls: {
+      table: {
+        disable: true
+      }
+    },
+    classes: {
+      table: {
+        disable: true
+      }
+    },
+    indexStatus: {
+      table: {
+        disable: true
       }
     }
   }

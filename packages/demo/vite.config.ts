@@ -36,5 +36,11 @@ export default defineConfig(({ mode }) => ({
         api: 'modern-compiler'
       }
     }
+  },
+  test: {
+    environment: 'jsdom',
+    include: ['**/*.spec.{ts,tsx}'],
+    globals: true,
+    mockReset: true
   }
 }))

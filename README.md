@@ -45,10 +45,15 @@ A flexible and interactive React component for visualising Git commit history. D
 # Features
 
 :seedling: Responsive commit history graph
+
 :computer: Dual rendering strategy support
+
 :memo: Table with commit message and date
+
 :bookmark: Branch and tagging information
+
 :art: Custom theming API
+
 :waning_crescent_moon: Dark and light modes
 
 ## Pagination

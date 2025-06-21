@@ -333,6 +333,40 @@ Returns an object of type `GitLogUrls` with the following fields.
 
 #### CustomTableRow
 
+A function with the following signature:
+```typescript
+type CustomTableRow = (props: CustomTableRowProps) => ReactElement<HTMLElement>
+```
+
+For example:
+```typescript jsx
+<GitLog.Table
+  className={styles.table}
+  row={({ commit, backgroundColour }) => (
+    <div
+      className={styles.CustomRow}
+      style={{
+        color: theme === 'dark' ? 'white': 'black',
+        backgroundColor: backgroundColour
+      }}
+    >
+      <div className={styles.CustomRow__Top}>
+        <p className={styles.message}>
+          {commit.message}
+        </p>
+      </div>
+
+      <div className={styles.CustomRow__Bottom}>
+        <p>{commit.author?.name}</p>
+        <p>#{commit.hash}</p>
+      </div>
+    </div>
+  )}
+/>
+```
+
+The following properties are injected into the functions `props` argument:
+
 | Property           | Type      | Description                                                           |
 |--------------------|-----------|-----------------------------------------------------------------------|
 | `commit`           | `Commit`  | Details of the commit belonging to the row.                           |

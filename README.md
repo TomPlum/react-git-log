@@ -381,12 +381,10 @@ Returns an object of type `GitLogUrls` with the following fields.
 - Line curve radius prop?
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
 - Mobile responsiveness for the demo site
-- Add eslint to pipeline
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
 
 Canvas2D
-- Paginated variant needs to add in lines off-screen in the virtual columns
 - Fade out of line at bottom
 - Tooltips?
 - Row spacing support

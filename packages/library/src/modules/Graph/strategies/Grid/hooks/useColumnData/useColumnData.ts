@@ -233,6 +233,7 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
           if (!columnsBelowContainNode && rowIndex != visibleCommits) {
             drawVerticalLineToBottom(orphan.hash)
           } else {
+            // If not, we'll have to find a column to the side
             let targetColumnIndex = columnIndex
 
             // Find the nearest column to the right that is empty
@@ -271,7 +272,7 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
               }
             }
 
-            // If we've had to draw outside the graph then add enough virtual
+            // If we've had to draw outside the graph, then add enough virtual
             // columns to support the new horizontal -> curve -> vertical merge lines.
             const maxColumnIndex = graphWidth - 1
             if (targetColumnIndex > maxColumnIndex) {

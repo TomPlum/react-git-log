@@ -12,6 +12,7 @@ import styles from './Canvas2DGraph.module.scss'
 
 export const Canvas2DGraph = () => {
   const { selectCommitHandler } = useSelectCommit()
+  const { isServerSidePaginated } = useGitContext()
   const { graphWidth, visibleCommits, nodeSize, nodeTheme, orientation } = useGraphContext()
 
   const {
@@ -80,6 +81,7 @@ export const Canvas2DGraph = () => {
       canvasHeight,
       indexCommit,
       isIndexVisible,
+      isServerSidePaginated,
       commits: visibleCommits,
       getColours: getNodeColours,
       previewBackgroundColour: hoverColour,
@@ -106,7 +108,8 @@ export const Canvas2DGraph = () => {
     visibleCommits,
     hoverColour,
     headCommit,
-    indexCommit
+    indexCommit,
+    isServerSidePaginated
   ])
 
   useEffect(() => {

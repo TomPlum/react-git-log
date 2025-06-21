@@ -1,5 +1,5 @@
 import { Commit } from 'types/Commit'
-import { CommitNodeLocation, GraphData } from 'data'
+import { CommitNodeLocation, EdgeType, GraphData } from 'data'
 import { CommitNodeColours, NodeTheme } from 'hooks/useTheme'
 import { NODE_BORDER_WIDTH, ROW_HEIGHT } from 'constants/constants'
 import { getMergeNodeInnerSize } from 'modules/Graph/utils/getMergeNodeInnerSize'
@@ -22,6 +22,7 @@ export interface CanvasRendererProps {
   previewBackgroundColour: string
   orientation: GraphOrientation
   isIndexVisible: boolean
+  isServerSidePaginated: boolean
   indexCommit?: Commit
   headCommit?: Commit
   getColours: GetCanvasRendererColoursFunction
@@ -49,6 +50,7 @@ export class CanvasRenderer {
   private readonly orientation: GraphOrientation
   private readonly isIndexVisible: boolean
   private readonly showTable: boolean
+  private readonly isServerSidePaginated: boolean
 
   private readonly canvasHeight: number
   private readonly canvasWidth: number
@@ -72,6 +74,7 @@ export class CanvasRenderer {
     this.orientation = props.orientation
     this.isIndexVisible = props.isIndexVisible
     this.showTable = props.showTable
+    this.isServerSidePaginated = props.isServerSidePaginated
     this.getColours = props.getColours
     this.canvasHeight = props.canvasHeight
     this.canvasWidth = props.canvasWidth
@@ -107,6 +110,11 @@ export class CanvasRenderer {
 
     // Then edges, so they sit under the commit nodes
     this.drawEdges()
+
+    // Then draw edges for nodes referenced off the page
+    if (this.isServerSidePaginated) {
+      this.drawVirtualNodeEdges()
+    }
 
     // Then finally the commit nodes on top
     this.drawCommitNodes()
@@ -164,7 +172,7 @@ export class CanvasRenderer {
     const nodeCoordinates = this.getNodeCoordinates(rowIndex, nodeColumn)
 
     if (this.showTable) {
-      const height = ROW_HEIGHT - 4 // Doesn't seem to be correct in the canvas
+      const height = ROW_HEIGHT - 4 // Doesn't seem correct in the canvas
       const leftOffset = 8
       const cornerRadius = height / 2
       const nodeRadius = this.nodeSize / 2
@@ -207,54 +215,130 @@ export class CanvasRenderer {
   }
 
   private drawEdges() {
-    this.graphData.edges.search(0, this.commits.length).forEach(([[rowStart, colStart], [rowEnd, colEnd], edgeType]) => {
-      this.ctx.beginPath()
+    this.graphData
+      .edges
+      .search(0, this.commits.length)
+      .forEach(([[rowStart, colStart], [rowEnd, colEnd], edgeType]) => {
+        this.drawEdgeBetweenNodes(rowStart, colStart, rowEnd, colEnd, edgeType)
+      })
+  }
 
-      const { x: x0, y: y0, r } = this.getNodeCoordinates(rowStart, colStart)
-      const { x: x1, y: y1 } = this.getNodeCoordinates(rowEnd, colEnd)
+  private drawVirtualNodeEdges() {
+    let virtualColumns = 0
 
-      this.ctx.moveTo(x0, y0)
-
-      const strokeColumn = colStart != colEnd && edgeType === 'Merge' ? colEnd : colStart
-      const strokeColour = this.getColours(strokeColumn).commitNode.borderColour
-
-      const edgeIsTargetingOffScreenNode = rowEnd > this.commits.length
-
-      if (edgeIsTargetingOffScreenNode) {
-        this.ctx.strokeStyle = this.createFadeGradient(x1, x0, y1, y0, strokeColour)
-      } else {
-        this.ctx.strokeStyle = strokeColour
-      }
-
-      // If we're drawing a line between two nodes that
-      // are in different branches (columns)
-      if (colStart !== colEnd) {
-        const isNormalOrientation = this.orientation === 'normal'
-        const isMerge = edgeType === 'Merge'
-        const isForward = colStart < colEnd
-
-        const dir = isForward ? 1 : -1
-        const flip = isNormalOrientation ? 1 : -1
-
-        if (isMerge) {
-          this.ctx.lineTo(x1 - r * dir * flip, y0)
-          this.ctx.quadraticCurveTo(x1, y0, x1, y0 + r)
-        } else {
-          this.ctx.lineTo(x0, y1 - r)
-          this.ctx.quadraticCurveTo(x0, y1, x0 + r * dir * flip, y1)
-        }
-      }
-
-      // Else, we're drawing a straight line down one column.
-      if (edgeIsTargetingOffScreenNode) {
-        this.ctx.lineTo(x1, this.canvasHeight)
-      } else {
-        this.ctx.lineTo(x1, y1)
-      }
-
-      this.ctx.setLineDash([])
-      this.ctx.stroke()
+    const commitsWithUntrackedParents = this.graphData.commits.filter(({ parents }) => {
+      return parents.some(parentHash => {
+        return !this.graphData.positions.has(parentHash)
+      })
     })
+
+    const drawVerticalLineToBottom = (fromCommitHash: string) => {
+      const [rowIndex, columnIndex] = this.graphData.positions.get(fromCommitHash)!
+      const bottomRowIndex = this.commits.length + 1
+      this.drawEdgeBetweenNodes(rowIndex, columnIndex, bottomRowIndex, columnIndex, EdgeType.Normal)
+    }
+
+    // Non-merge commits we can just draw straight down to the edge of the graph
+    commitsWithUntrackedParents.filter(commit => commit.parents.length === 1).forEach(orphan => {
+      drawVerticalLineToBottom(orphan.hash)
+    })
+
+    // Merge commits may have lines coming out horizontally and then down to the bottom.
+    // Or we may find they can draw straight down if there is free space below to the bottom.
+    commitsWithUntrackedParents
+      .filter(commit => commit.parents.length > 1)
+      .sort((a, b) => {
+        const aPosition = this.graphData.positions.get(a.hash)![0]
+        const bPosition = this.graphData.positions.get(b.hash)![0]
+        return aPosition < bPosition ? -1 : 1
+      })
+      .forEach(orphan => {
+        const [rowIndex, columnIndex] = this.graphData.positions.get(orphan.hash)!
+
+        // Can we just draw straight down in the current column?
+        let columnsBelowContainNode = false
+        let targetRowIndex = rowIndex + 1
+        while(targetRowIndex <= this.commits.length) {
+          if (this.rowToCommitColumn.get(targetRowIndex) === columnIndex) {
+            columnsBelowContainNode = true
+          }
+
+          targetRowIndex++
+        }
+
+        if (!columnsBelowContainNode && rowIndex != this.commits.length) {
+          drawVerticalLineToBottom(orphan.hash)
+        } else {
+          // Find the nearest column to the right that is empty
+          const virtualColumnTargetIndex = (this.graphData.graphWidth - 1) + virtualColumns
+          this.drawEdgeBetweenNodes(rowIndex, columnIndex, targetRowIndex, virtualColumnTargetIndex, EdgeType.Merge)
+          virtualColumns++
+        }
+      })
+
+    // Any commits who have child hashes that are not present in the graph and
+    // are not the HEAD commit, must have vertical lines drawn from them up to
+    // the top row to indicate that the child commit node is before the rows currently shown.
+    this.graphData.commits.filter(commit => {
+      return commit.children.length === 0 && commit.hash !== this.headCommit?.hash
+    }).forEach(commitWithNoChildren => {
+      const [rowIndex, columnIndex] = this.graphData.positions.get(commitWithNoChildren.hash)!
+      this.drawEdgeBetweenNodes(rowIndex, columnIndex, 0, columnIndex, EdgeType.Normal)
+    })
+
+    // TODO: First and last nodes dont draw their vertical lines up or down?
+  }
+
+  private drawEdgeBetweenNodes(rowStart: number, colStart: number, rowEnd: number, colEnd: number, edgeType: EdgeType) {
+    this.ctx.beginPath()
+
+    const { x: x0, y: y0, r } = this.getNodeCoordinates(rowStart, colStart)
+    const { x: x1, y: y1 } = this.getNodeCoordinates(rowEnd, colEnd)
+
+    this.ctx.moveTo(x0, y0)
+
+    const strokeColumn = colStart != colEnd && edgeType === 'Merge' ? colEnd : colStart
+    const strokeColour = this.getColours(strokeColumn).commitNode.borderColour
+
+    const edgeRunsOffTheBottom = rowEnd > this.commits.length
+    const edgeRunsOffTheTop = rowEnd <= 0
+
+    if (edgeRunsOffTheBottom) {
+      this.ctx.strokeStyle = this.createFadeGradient(x1, x0, y1, y0, strokeColour)
+    } else if (edgeRunsOffTheTop) {
+      this.ctx.strokeStyle = this.createFadeGradient(x0, x1, y1, y0, strokeColour)
+    } else {
+      this.ctx.strokeStyle = strokeColour
+    }
+
+    // If we're drawing a line between two nodes that
+    // are in different branches (columns)
+    if (colStart !== colEnd) {
+      const isNormalOrientation = this.orientation === 'normal'
+      const isMerge = edgeType === 'Merge'
+      const isForward = colStart < colEnd
+
+      const dir = isForward ? 1 : -1
+      const flip = isNormalOrientation ? 1 : -1
+
+      if (isMerge) {
+        this.ctx.lineTo(x1 - r * dir * flip, y0)
+        this.ctx.quadraticCurveTo(x1, y0, x1, y0 + r)
+      } else {
+        this.ctx.lineTo(x0, y1 - r)
+        this.ctx.quadraticCurveTo(x0, y1, x0 + r * dir * flip, y1)
+      }
+    }
+
+    // Else, we're drawing a straight line down one column.
+    if (edgeRunsOffTheBottom) {
+      this.ctx.lineTo(x1, this.canvasHeight)
+    } else {
+      this.ctx.lineTo(x1, y1)
+    }
+
+    this.ctx.setLineDash([])
+    this.ctx.stroke()
   }
 
   private createFadeGradient(x1: number, x0: number, y1: number, y0: number, strokeColour: string) {

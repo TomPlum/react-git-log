@@ -9,10 +9,34 @@ A flexible and interactive React component for visualising Git commit history. D
 
 # Contents
 <!-- TOC -->
+* [:seedling: React Git Log](#seedling-react-git-log)
+* [Contents](#contents)
 * [Features](#features)
+  * [Pagination](#pagination)
+    * [Client-Side](#client-side)
+    * [Server-Side](#server-side)
+  * [Graph Rendering Strategies](#graph-rendering-strategies)
+    * [HTML Grid](#html-grid)
+    * [Canvas 2D](#canvas-2d)
 * [Using the component](#using-the-component)
 * [Git Log Data](#git-log-data)
 * [Component Props](#component-props)
+  * [Required](#required)
+      * [GitLog](#gitlog)
+      * [GitLogPaged](#gitlogpaged)
+  * [Optional](#optional)
+    * [GitLog](#gitlog-1)
+    * [GitLogPaged](#gitlogpaged-1)
+      * [GitLogStylingProps](#gitlogstylingprops)
+      * [GitLogPaging](#gitlogpaging)
+      * [GitLogIndexStatus](#gitlogindexstatus)
+      * [GitLogUrlBuilder](#gitlogurlbuilder)
+    * [GraphHTMLGrid](#graphhtmlgrid)
+    * [GraphCanvas2D](#graphcanvas2d)
+      * [NodeTheme](#nodetheme)
+    * [Table](#table)
+      * [GitLogTableStylingProps](#gitlogtablestylingprops)
+      * [CustomTableRow](#customtablerow)
 * [Development](#development)
 * [References](#references)
 * [Roadmap](#roadmap)
@@ -20,11 +44,12 @@ A flexible and interactive React component for visualising Git commit history. D
 
 # Features
 
-- :seedling: Responsive commit history graph
-- :memo: Table with commit message and date
-- :bookmark: Branch and tagging information
-- :art: Custom theming API
-- :waning_crescent_moon: Dark and light modes
+:seedling: Responsive commit history graph
+:computer: Dual rendering strategy support
+:memo: Table with commit message and date
+:bookmark: Branch and tagging information
+:art: Custom theming API
+:waning_crescent_moon: Dark and light modes
 
 ## Pagination
 

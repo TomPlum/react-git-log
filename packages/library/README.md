@@ -8,11 +8,29 @@ A flexible and interactive React component for visualising Git commit history. D
 
 # Contents
 <!-- TOC -->
+* [:seedling: React Git Log](#seedling-react-git-log)
 * [Contents](#contents)
 * [Features](#features)
 * [Using the component](#using-the-component)
 * [Git Log Data](#git-log-data)
 * [Component Props](#component-props)
+  * [Required](#required)
+      * [GitLog](#gitlog)
+      * [GitLogPaged](#gitlogpaged)
+  * [Optional](#optional)
+    * [GitLog](#gitlog-1)
+    * [GitLogPaged](#gitlogpaged-1)
+      * [GitLogStylingProps](#gitlogstylingprops)
+      * [GitLogPaging](#gitlogpaging)
+      * [GitLogIndexStatus](#gitlogindexstatus)
+      * [GitLogUrlBuilder](#gitlogurlbuilder)
+    * [GraphHTMLGrid](#graphhtmlgrid)
+    * [GraphCanvas2D](#graphcanvas2d)
+      * [NodeTheme](#nodetheme)
+    * [Table](#table)
+      * [GitLogTableStylingProps](#gitlogtablestylingprops)
+      * [CustomTableRow](#customtablerow)
+      * [CustomCommitNode](#customcommitnode)
 <!-- TOC -->
 
 # Features
@@ -228,7 +246,8 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `nodeSize`                    | `number`            | The diameter, in pixels, of the commits nodes. Should be divisible by 2 and between 8 and 30 to render nicely. |
 | `orientation`                 | `normal \| flipped` | The orientation of the graph. Normal renders the checked-out branch on the left, flipped on the right.         |
 | `enableResize`                | `boolean`           | Enables horizontal resizing of the graph. Default: `false`.                                                    |
-| `highlightedBackgroundHeight` | `number`            | The height, in pixels, of the background colour of a row that is being previewed or has been selected..        |
+| `highlightedBackgroundHeight` | `number`            | The height, in pixels, of the background colour of a row that is being previewed or has been selected.         |
+| `node`                        | `CustomCommitNode`  | A function that returns a custom commit node implementation used by the graph. See [here](#customcommitnode).  |
 
 ### GraphCanvas2D
 
@@ -248,12 +267,12 @@ Returns an object of type `GitLogUrls` with the following fields.
 
 ### Table
 
-| Property          | Type                      | Description                                                                           |
-|-------------------|---------------------------|---------------------------------------------------------------------------------------|
-| `timestampFormat` | `string`                  | A timestamp format string for DayJS to format commit timestamps. Default: `ISO-8601`. |
-| `className`       | `string`                  | A class name for the table's wrapping container.                                      |
-| `styles`          | `GitLogTableStylingProps` | A React CSS styling object for the table elements.                                    |
-| `row`             | `CustomTableRow`          | A function that returns a custom implementation for the table row element.            |
+| Property          | Type                      | Description                                                                                             |
+|-------------------|---------------------------|---------------------------------------------------------------------------------------------------------|
+| `timestampFormat` | `string`                  | A timestamp format string for DayJS to format commit timestamps. Default: `ISO-8601`.                   |
+| `className`       | `string`                  | A class name for the table's wrapping container.                                                        |
+| `styles`          | `GitLogTableStylingProps` | A React CSS styling object for the table elements.                                                      |
+| `row`             | `CustomTableRow`          | A function that returns a custom implementation for the table row element. See [here](#customtablerow). |
 
 #### GitLogTableStylingProps
 
@@ -306,3 +325,39 @@ The following properties are injected into the functions `props` argument:
 | `selected`         | `boolean` | Whether the row is selected (has been clicked).                       |
 | `previewed`        | `boolean` | Whether the row is previewed (is being hovered over).                 |
 | `backgroundColour` | `string`  | The colour of the background as is normally applied to the table row. |
+
+#### CustomCommitNode
+
+A function with the following signature:
+```typescript
+type CustomCommitNode = (props: CustomCommitNodeProps) => ReactElement
+```
+
+For example:
+```typescript jsx
+ <GitLog.GraphHTMLGrid
+  nodeSize={25}
+  node={({ nodeSize, colour, isIndexPseudoNode, rowIndex }) => (
+    <div
+      className={styles.Node}
+      style={{
+        width: nodeSize,
+        height: nodeSize,
+        background: `url('https://placecats.com/${images[rowIndex % images.length]}/50/50?fit=contain&position=top') 50% 50%`,
+        border: `2px ${isIndexPseudoNode ? 'dotted' : 'solid'} ${colour}`
+      }}
+    />
+  )}
+/>
+```
+
+The following properties are injected into the functions `props` argument:
+
+| Property            | Type      | Description                                                                                             |
+|---------------------|-----------|---------------------------------------------------------------------------------------------------------|
+| `commit`            | `Commit`  | Details of the commit that the node is being rendered for.                                              |
+| `colour`            | `string`  | The colour of the commit based on the column in its and the theme.                                      |
+| `rowIndex`          | `number`  | The (zero-based) index of the row that the node is in.                                                  |
+| `columnIndex`       | `number`  | The (zero-based) index of the column that the node is in.                                               |
+| `nodeSize`          | `number`  | The diameter (in pixels) of the node. This defaults but can be changed in the graph props.              |
+| `isIndexPseudoNode` | `boolean` | Denotes whether the node is the "pseudo node" added above the head to represent the working tree index. |

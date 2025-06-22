@@ -9,10 +9,34 @@ A flexible and interactive React component for visualising Git commit history. D
 
 # Contents
 <!-- TOC -->
+* [:seedling: React Git Log](#seedling-react-git-log)
+* [Contents](#contents)
 * [Features](#features)
+  * [Pagination](#pagination)
+    * [Client-Side](#client-side)
+    * [Server-Side](#server-side)
+  * [Graph Rendering Strategies](#graph-rendering-strategies)
+    * [HTML Grid](#html-grid)
+    * [Canvas 2D](#canvas-2d)
 * [Using the component](#using-the-component)
 * [Git Log Data](#git-log-data)
 * [Component Props](#component-props)
+  * [Required](#required)
+      * [GitLog](#gitlog)
+      * [GitLogPaged](#gitlogpaged)
+  * [Optional](#optional)
+    * [GitLog](#gitlog-1)
+    * [GitLogPaged](#gitlogpaged-1)
+      * [GitLogStylingProps](#gitlogstylingprops)
+      * [GitLogPaging](#gitlogpaging)
+      * [GitLogIndexStatus](#gitlogindexstatus)
+      * [GitLogUrlBuilder](#gitlogurlbuilder)
+    * [GraphHTMLGrid](#graphhtmlgrid)
+    * [GraphCanvas2D](#graphcanvas2d)
+      * [NodeTheme](#nodetheme)
+    * [Table](#table)
+      * [GitLogTableStylingProps](#gitlogtablestylingprops)
+      * [CustomTableRow](#customtablerow)
 * [Development](#development)
 * [References](#references)
 * [Roadmap](#roadmap)
@@ -21,6 +45,7 @@ A flexible and interactive React component for visualising Git commit history. D
 # Features
 
 - :seedling: Responsive commit history graph
+- :computer: Dual rendering strategy support
 - :memo: Table with commit message and date
 - :bookmark: Branch and tagging information
 - :art: Custom theming API
@@ -333,6 +358,40 @@ Returns an object of type `GitLogUrls` with the following fields.
 
 #### CustomTableRow
 
+A function with the following signature:
+```typescript
+type CustomTableRow = (props: CustomTableRowProps) => ReactElement<HTMLElement>
+```
+
+For example:
+```typescript jsx
+<GitLog.Table
+  className={styles.table}
+  row={({ commit, backgroundColour }) => (
+    <div
+      className={styles.CustomRow}
+      style={{
+        color: theme === 'dark' ? 'white': 'black',
+        backgroundColor: backgroundColour
+      }}
+    >
+      <div className={styles.CustomRow__Top}>
+        <p className={styles.message}>
+          {commit.message}
+        </p>
+      </div>
+
+      <div className={styles.CustomRow__Bottom}>
+        <p>{commit.author?.name}</p>
+        <p>#{commit.hash}</p>
+      </div>
+    </div>
+  )}
+/>
+```
+
+The following properties are injected into the functions `props` argument:
+
 | Property           | Type      | Description                                                           |
 |--------------------|-----------|-----------------------------------------------------------------------|
 | `commit`           | `Commit`  | Details of the commit belonging to the row.                           |
@@ -381,12 +440,10 @@ Returns an object of type `GitLogUrls` with the following fields.
 - Line curve radius prop?
 - Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
 - Mobile responsiveness for the demo site
-- Add eslint to pipeline
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
 
 Canvas2D
-- Paginated variant needs to add in lines off-screen in the virtual columns
 - Fade out of line at bottom
 - Tooltips?
 - Row spacing support

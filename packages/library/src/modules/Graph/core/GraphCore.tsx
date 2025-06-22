@@ -8,6 +8,7 @@ import { GraphContext, GraphContextBag } from '../context'
 import { GraphCoreProps } from 'modules/Graph/core/types'
 
 export const GraphCore = ({
+  node,
   children,
   nodeSize = DEFAULT_NODE_SIZE,
   nodeTheme = 'default',
@@ -46,6 +47,7 @@ export const GraphCore = ({
   })
 
   const contextValue = useMemo<GraphContextBag>(() => ({
+    node,
     showCommitNodeTooltips,
     showCommitNodeHashes,
     nodeTheme,
@@ -55,7 +57,7 @@ export const GraphCore = ({
     visibleCommits,
     columnData,
     highlightedBackgroundHeight
-  }), [showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
+  }), [node, showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
 
   return (
     <GraphContext value={contextValue}>

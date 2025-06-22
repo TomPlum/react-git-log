@@ -361,3 +361,80 @@ export const CustomTableRow = () => {
     </div>
   )
 }
+
+const nodeImages = ['millie', 'neo', 'millie_neo', 'neo_banana', 'neo_2', 'bella']
+
+export const CustomCommitNode = () => {
+  const {
+    theme,
+    loading,
+    colours,
+    entries,
+    branch,
+    buildUrls,
+    repository,
+    backgroundColour,
+    handleChangeTheme,
+    handleChangeColors,
+    handleChangeRepository
+  } = useStoryState()
+
+  return (
+    <div style={{ background: backgroundColour }} className={styles.container}>
+      <StoryHeader
+        theme={theme}
+        colours={colours}
+        repository={repository}
+        onChangeTheme={handleChangeTheme}
+        onChangeColours={handleChangeColors}
+        onChangeRepository={handleChangeRepository}
+      />
+
+      {loading && (
+        <div className={styles.loading}>
+          <Loading theme={theme} />
+        </div>
+      )}
+
+      {!loading && entries && (
+        <GitLog
+          colours={colours.colors}
+          entries={entries}
+          theme={theme}
+          currentBranch={branch}
+          classes={{
+            containerStyles: {
+              background: backgroundColour
+            },
+            containerClass: styles.gitLogContainer
+          }}
+          indexStatus={{
+            added: 2,
+            modified: 5,
+            deleted: 1
+          }}
+          urls={buildUrls}
+        >
+          <GitLog.GraphHTMLGrid
+            nodeSize={25}
+            node={({ nodeSize, colour, isIndexPseudoNode, rowIndex }) => (
+              <div
+                className={styles.Node}
+                style={{
+                  width: nodeSize,
+                  height: nodeSize,
+                  background: `url('https://placecats.com/${nodeImages[rowIndex % nodeImages.length]}/50/50?fit=contain&position=top') 50% 50%`,
+                  border: `2px ${isIndexPseudoNode ? 'dotted' : 'solid'} ${colour}`
+                }}
+              />
+            )}
+          />
+
+          <GitLog.Table
+            className={styles.table}
+          />
+        </GitLog>
+      )}
+    </div>
+  )
+}

@@ -1,4 +1,5 @@
-import { NodeTheme } from 'hooks/useTheme'
+import { NodeTheme } from '../../hooks/useTheme'
+import { CustomCommitNode } from '../Graph/strategies/Grid'
 
 export type GraphOrientation = 'normal' | 'flipped'
 
@@ -16,6 +17,12 @@ export interface HTMLGridGraphProps extends GraphPropsCommon {
    * over a commit node in the graph.
    */
   showCommitNodeTooltips?: boolean
+
+  /**
+   * Overrides the commit nodes with a
+   * custom implementation.
+   */
+  node?: CustomCommitNode
 
   /**
    * The height, in pixels, of the background

@@ -12,7 +12,7 @@ interface GitLogCommonProps {
 
   /**
    * The variant of the default colour
-   * them to apply to the log.
+   * theme to apply to the log.
    */
   theme?: ThemeMode
 
@@ -25,7 +25,7 @@ interface GitLogCommonProps {
    * equal to the maximum number of concurrent
    * active branches in the log.
    *
-   * If the number of colours passed is not enough
+   * If the number of colours passed is not enough,
    * then the columns will loop back round and start
    * taking from the beginning of the array again.
    */
@@ -40,8 +40,8 @@ interface GitLogCommonProps {
 
   /**
    * The spacing between the rows of the log.
-   * Effects all elements across the branches,
-   * graph and table.
+   * Affects all elements across the branches,
+   * graph, and table.
    *
    * @default 0
    */

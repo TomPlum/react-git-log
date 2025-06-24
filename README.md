@@ -2,6 +2,7 @@
 ![GitHub Release](https://img.shields.io/github/v/release/TomPlum/react-git-log?style=for-the-badge&logo=github&color=green)
 ![NPM Type Definitions](https://img.shields.io/npm/types/%40tomplum%2Freact-git-log?style=for-the-badge&logo=typescript)
 ![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40tomplum%2Freact-git-log?style=for-the-badge&logo=vite&color=gold&logoColor=gold)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=TomPlum_react-git-log&metric=coverage&style=for-the-badge)](https://sonarcloud.io/summary/new_code?id=TomPlum_react-git-log)
 
 # :seedling: React Git Log
 

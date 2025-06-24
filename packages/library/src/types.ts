@@ -87,11 +87,23 @@ interface GitLogCommonProps {
    * is selected from the graph or log table.
    *
    * The commit is undefined if it has been
-   * un-selected.
+   * unselected.
    *
    * @param commit Details of the selected commit.
    */
   onSelectCommit?: (commit?: Commit) => void
+
+  /**
+   * A callback function invoked when a commit
+   * is previewed from the graph or log table.
+   *
+   * The commit is undefined if a commit stops
+   * being previewed (e.g. the user has stopped
+   * hovering their mouse over a row).
+   *
+   * @param commit Details of the previewed commit.
+   */
+  onPreviewCommit?: (commit?: Commit) => void
 
   /**
    * CSS Classes to pass to various underlying

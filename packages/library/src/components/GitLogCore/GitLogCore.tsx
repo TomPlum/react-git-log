@@ -117,7 +117,7 @@ export const GitLogCore = ({
       return undefined
     }
 
-    return ({
+    return {
       hash: 'index',
       branch: headCommit.branch,
       parents: [headCommit.hash],
@@ -125,10 +125,8 @@ export const GitLogCore = ({
       authorDate: new Date().toString(),
       message: '// WIP',
       committerDate: new Date().toString(),
-      isBranchTip: false,
-      x: 0,
-      y: 0
-    })
+      isBranchTip: false
+    } as Commit
   }, [headCommit])
 
   const pageIndices = useMemo(() => {

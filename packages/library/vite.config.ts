@@ -67,7 +67,7 @@ export default defineConfig({
     setupFiles: ['./src/_test/vitest.setup.ts'],
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'html'],
+      reporter: ['text', 'html', 'lcov'],
       cleanOnRerun: true,
       clean: true,
       reportOnFailure: true,

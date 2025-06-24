@@ -39,6 +39,11 @@ jobs:
           TZ: UTC
         run: npm run test:integration:ci --workspace=@tomplum/react-git-log
 
+      - name: Upload SonarCloud analysis
+        uses: SonarSource/sonarqube-scan-action@v5.2.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
       - name: Build Storybook
         run: npm run build-storybook --workspace=@tomplum/react-git-log-demo
 

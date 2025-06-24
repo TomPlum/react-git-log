@@ -71,13 +71,17 @@ This variant of the component only supports one branch (and any commits that mer
 ```typescript jsx
 import { GitLogPaged } from "@tomplum/react-git-log"
 
-const { entries, currentBranch } = useYourPaginatedDataSource()
-
-<GitLogPaged 
-  entries={entries} // <-- Pass it a page of your git log entries
-  branchName='main' // <-- Pass the branch name that the entries belong to
-  headCommitHash='abcd1234' // <-- Tell it the SHA1 commit hash of your branches HEAD commit
-/>
+const YourComponent = () => {
+  const { entries, currentBranch } = useYourPaginatedDataSource()
+  
+  return (
+    <GitLogPaged
+      entries={entries} // <-- Pass it a page of your git log entries
+      branchName='main' // <-- Pass the branch name that the entries belong to
+      headCommitHash='abcd1234' // <-- Tell it the SHA1 commit hash of your branches HEAD commit
+    />
+  )
+}
 ```
 
 ## Graph Rendering Strategies
@@ -165,7 +169,7 @@ This strategy can be used by rendering the `<GitLog.GraphCanvas2D />` subcompone
     }
     ```
 
-    Below is another example that is passing in optional props to configure the log. See the [optional](#optional) props for further configuration and theming.
+    Below is another example that passes in optional props to configure the log. See the [optional](#optional) props for further configuration and theming.
     
     ```typescript jsx
     import styles from './YourConsumer.module.scss'
@@ -452,13 +456,7 @@ The following properties are injected into the functions `props` argument:
     npm install
     ```
    
-3. Start the library TSC build watcher
-
-    ```shell
-    npm run build:watch --workspace=@tomplum/react-git-log
-    ```   
-   
-4. Start the Storybook demo website dev server
+3. Start the Storybook demo website dev server
 
     ```shell
     npm run storybook --workspace=@tomplum/react-git-log-demo

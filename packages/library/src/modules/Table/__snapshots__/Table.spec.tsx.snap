@@ -1,0 +1,92 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Table > should render a custom table row if one is passed 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="react-git-log-table"
+    id="react-git-log-table"
+    style="margin-top: 12px;"
+  >
+    <div
+      class="head"
+      data-testid="react-git-log-table-head"
+      id="react-git-log-table-head"
+    >
+      <div
+        class="header"
+        data-testid="react-git-log-table-header-commit-message"
+        id="react-git-log-table-header-commit-message"
+        style="color: rgb(0, 0, 0);"
+      >
+        Commit message
+      </div>
+      <div
+        class="header"
+        data-testid="react-git-log-table-header-author"
+        id="react-git-log-table-header-author"
+        style="color: rgb(0, 0, 0);"
+      >
+        Author
+      </div>
+      <div
+        class="header"
+        data-testid="react-git-log-table-header-timestamp"
+        id="react-git-log-table-header-timestamp"
+        style="color: rgb(0, 0, 0);"
+      >
+        Timestamp
+      </div>
+    </div>
+    <div
+      data-testid="custom-table-row-1"
+      id="react-git-log-table-row-0"
+    >
+      <p
+        data-testid="custom-message-1"
+      >
+        feat(graph): example commit message
+      </p>
+      <p
+        data-testid="custom-selected-1"
+      >
+        yes
+      </p>
+      <p
+        data-testid="custom-previewed-1"
+      >
+        no
+      </p>
+      <p
+        data-testid="custom-bg-colour-1"
+      >
+        rgba(41, 121, 255, 0.15)
+      </p>
+    </div>
+    <div
+      data-testid="custom-table-row-2"
+      id="react-git-log-table-row-1"
+    >
+      <p
+        data-testid="custom-message-2"
+      >
+        feat(graph): example commit message
+      </p>
+      <p
+        data-testid="custom-selected-2"
+      >
+        no
+      </p>
+      <p
+        data-testid="custom-previewed-2"
+      >
+        yes
+      </p>
+      <p
+        data-testid="custom-bg-colour-2"
+      >
+        rgba(231, 231, 231, 0.5)
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

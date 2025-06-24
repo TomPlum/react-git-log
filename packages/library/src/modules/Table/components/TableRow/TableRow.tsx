@@ -97,7 +97,10 @@ export const TableRow = ({
       backgroundColour
     })
 
-    return cloneElement(customRowElement, rowContainerProps)
+    return cloneElement(customRowElement, {
+      ...rowContainerProps,
+      ...customRowElement.props
+    })
   }
 
   return (

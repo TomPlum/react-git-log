@@ -22,7 +22,7 @@ export const GraphColumn = ({
   commitNodeIndex
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
-  const { nodeSize, orientation } = useGraphContext()
+  const { nodeSize, orientation, node } = useGraphContext()
   const { headCommit, selectedCommit, previewedCommit, showTable } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, textColour, hoverColour, getGraphColumnSelectedBackgroundColour } = useTheme()
 
@@ -80,6 +80,15 @@ export const GraphColumn = ({
     }
   }, [nodeSize, orientation, state.isLeftDownCurve, state.isLeftUpCurve])
 
+  const CustomCommitNode = node?.({
+    commit,
+    nodeSize,
+    rowIndex,
+    columnIndex: index,
+    isIndexPseudoNode: isRowCommitIndexNode,
+    colour: isRowCommitIndexNode ? shiftAlphaChannel(columnColour, 0.5) : columnColour,
+  })
+
   return (
     <div
       style={style}
@@ -92,18 +101,22 @@ export const GraphColumn = ({
     >
       {/* This column contains a node (and it's not the git index pseudo-node) */}
       {state.isNode && !isRowCommitIndexNode && (
-        <CommitNode
-          commit={commit}
-          colour={columnColour}
-        />
+        CustomCommitNode ?? (
+          <CommitNode
+            commit={commit}
+            colour={columnColour}
+          />
+        )
       )}
 
       {/* This column contains a node (and it's the git index pseudo-node) */}
       {state.isNode && isRowCommitIndexNode && (
-        <IndexPseudoCommitNode
-          columnColour={columnColour}
-          animate={rowsCommitMatchesPreviewed || rowsCommitMatchesSelected}
-        />
+        CustomCommitNode ?? (
+          <IndexPseudoCommitNode
+            columnColour={columnColour}
+            animate={rowsCommitMatchesPreviewed || rowsCommitMatchesSelected}
+          />
+        )
       )}
 
       {/* This column contains the HEAD commit, so only draw below a vertical line below the node */}
@@ -114,7 +127,7 @@ export const GraphColumn = ({
       )}
 
       {/* This column contains a vertical branching line (full column height) */}
-      {/* OR - This column contains a vertical branching line but its from the HEAD commit to the index node */}
+      {/* OR - This column contains a vertical branching line, but its from the HEAD commit to the index node */}
       {state.isVerticalLine && (
         <VerticalLine
           state={state}

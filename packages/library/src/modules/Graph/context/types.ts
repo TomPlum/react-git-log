@@ -2,6 +2,7 @@ import { NodeTheme } from 'hooks/useTheme'
 import { GraphOrientation } from 'modules/Graph'
 import { Commit } from 'types/Commit'
 import { RowIndexToColumnStates } from 'modules/Graph/strategies/Grid/hooks/useColumnData'
+import { CustomCommitNode } from 'modules/Graph/strategies/Grid'
 
 export interface GraphContextBag {
   /**
@@ -15,6 +16,11 @@ export interface GraphContextBag {
    * over a commit node in the graph.
    */
   showCommitNodeTooltips: boolean
+
+  /**
+   * A custom commit node implementation.
+   */
+  node?: CustomCommitNode
 
   /**
    * The height, in pixels, of the background

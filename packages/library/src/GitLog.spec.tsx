@@ -11,6 +11,10 @@ import { graphColumn } from 'test/elements/GraphColumn'
 import { act } from 'react'
 import { Commit } from 'types/Commit'
 import { table } from 'test/elements/Table'
+import utc from 'dayjs/plugin/utc'
+import dayjs from 'dayjs'
+
+dayjs.extend(utc)
 
 const today = Date.UTC(2025, 2, 24, 18, 0, 0)
 

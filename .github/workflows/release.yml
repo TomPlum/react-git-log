@@ -45,8 +45,11 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5.2.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Store Coverage Report
+        uses: actions/upload-artifact@v4
         with:
-          name: lcov.info
+          name: coverage-report
           path: packages/library/coverage/lcov.info
 
       - name: Build Storybook

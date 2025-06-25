@@ -9,6 +9,10 @@ import { Layout } from 'components/Layout'
 import { Commit } from 'types/Commit'
 import { DEFAULT_NODE_SIZE, NODE_BORDER_WIDTH } from 'constants/constants'
 import { ThemeContextProvider } from 'context/ThemeContext'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+
+dayjs.extend(utc)
 
 export const GitLogCore = ({
   children,
@@ -20,6 +24,7 @@ export const GitLogCore = ({
   classes,
   defaultGraphWidth,
   onSelectCommit,
+  onPreviewCommit,
   urls,
   currentBranch,
   paging,
@@ -104,6 +109,11 @@ export const GitLogCore = ({
     onSelectCommit?.(commit)
   }, [onSelectCommit])
 
+  const handlePreviewCommit = useCallback((commit?: Commit) => {
+    setPreviewedCommit(commit)
+    onPreviewCommit?.(commit)
+  }, [onPreviewCommit])
+
   const headCommit = useMemo<Commit | undefined>(() => {
     if (isServerSidePaginated) {
       return graphData.commits.find(it => it.hash === headCommitHash)
@@ -117,18 +127,18 @@ export const GitLogCore = ({
       return undefined
     }
 
-    return ({
+    const today = dayjs.utc().toISOString()
+
+    return {
       hash: 'index',
       branch: headCommit.branch,
       parents: [headCommit.hash],
       children: [],
-      authorDate: new Date().toString(),
+      authorDate: today,
       message: '// WIP',
-      committerDate: new Date().toString(),
-      isBranchTip: false,
-      x: 0,
-      y: 0
-    })
+      committerDate: today,
+      isBranchTip: false
+    } as Commit
   }, [headCommit])
 
   const pageIndices = useMemo(() => {
@@ -173,7 +183,7 @@ export const GitLogCore = ({
     selectedCommit,
     setSelectedCommit: handleSelectCommit,
     previewedCommit,
-    setPreviewedCommit,
+    setPreviewedCommit: handlePreviewCommit,
     remoteProviderUrlBuilder: urls,
     showHeaders,
     currentBranch,
@@ -197,6 +207,7 @@ export const GitLogCore = ({
     selectedCommit,
     previewedCommit,
     handleSelectCommit,
+    handlePreviewCommit,
     urls,
     showHeaders,
     headCommit,

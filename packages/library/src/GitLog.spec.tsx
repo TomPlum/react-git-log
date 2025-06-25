@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe } from 'vitest'
-import { render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { GitLog } from './GitLog'
 import { entry } from 'test/stubs'
 import { gitLog } from 'test/elements/GitLog'
@@ -7,6 +7,10 @@ import { parseGitLogOutput } from 'test/data/gitLogParser'
 import sleepRepositoryData from 'test/data/sleep/sleep.txt?raw'
 import { formatBranch } from 'modules/Tags/utils/formatBranch'
 import { GitLogUrlBuilder } from './types'
+import { graphColumn } from 'test/elements/GraphColumn'
+import { act } from 'react'
+import { Commit } from 'types/Commit'
+import { table } from 'test/elements/Table'
 
 const today = Date.UTC(2025, 2, 24, 18, 0, 0)
 
@@ -14,6 +18,14 @@ const urlBuilderFunction: GitLogUrlBuilder = ({ commit }) => ({
   branch: `https://github.com/TomPlum/sleep/tree/${formatBranch(commit.branch)}`,
   commit: `https://github.com/TomPlum/sleep/commits/${commit.hash}`
 })
+
+const sleepRepositoryLogEntries = parseGitLogOutput(sleepRepositoryData)
+
+const getSleepRepositoriesLogEntries = (quantity: number) => {
+  const entries = sleepRepositoryLogEntries.slice(0, quantity + 1)
+  entries[quantity - 1].parents = []
+  return entries
+}
 
 describe('GitLog', () => {
 
@@ -65,13 +77,11 @@ describe('GitLog', () => {
   })
 
   it('should render correctly and match the snapshot of the GitLog component', { timeout: 1000 * 10 } ,() => {
-    const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
-
     const { asFragment } = render(
       <GitLog
         showHeaders
         currentBranch='release'
-        entries={gitLogEntries}
+        entries={sleepRepositoryLogEntries}
         indexStatus={{
           added: 2,
           deleted: 1,
@@ -89,13 +99,12 @@ describe('GitLog', () => {
   })
 
   it('should render correctly and match the snapshot of the GitLog component in flipped orientation', { timeout: 1000 * 10 } ,() => {
-    const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
 
     const { asFragment } = render(
       <GitLog
         showHeaders
         currentBranch='release'
-        entries={gitLogEntries}
+        entries={sleepRepositoryLogEntries}
         urls={urlBuilderFunction}
       >
         <GitLog.Tags />
@@ -108,13 +117,11 @@ describe('GitLog', () => {
   })
 
   it('should render correctly and match the snapshot of the GitLog component with a custom node size', { timeout: 1000 * 10 } ,() => {
-    const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
-
     const { asFragment } = render(
       <GitLog
         showHeaders
         currentBranch='release'
-        entries={gitLogEntries}
+        entries={sleepRepositoryLogEntries}
         defaultGraphWidth={100}
         urls={urlBuilderFunction}
       >
@@ -145,15 +152,13 @@ describe('GitLog', () => {
   })
 
   it('should render correctly and match the snapshot of the GitLog component when the index is disabled', { timeout: 1000 * 10 } ,() => {
-    const gitLogEntries = parseGitLogOutput(sleepRepositoryData)
-
     const { asFragment } = render(
       <GitLog
         showHeaders
         showGitIndex={false}
         currentBranch='release'
-        entries={gitLogEntries}
         urls={urlBuilderFunction}
+        entries={sleepRepositoryLogEntries}
       >
         <GitLog.Tags />
         <GitLog.GraphHTMLGrid />
@@ -267,5 +272,295 @@ describe('GitLog', () => {
     expect(renderBadComponent).toThrow(
       '<GitLog /> can only have one <GitLog.GraphHTMLGrid /> or <GitLog.GraphCanvas2D /> child.'
     )
+  })
+
+  describe('onSelectCommit Callback', () => {
+    it.each([0, 1, 2])('should call onSelectCommit with the commit details when clicking on column index [%s] in the index pseudo-commits row', (columnIndex: number) => {
+      const handleSelectCommit = vi.fn()
+
+      render(
+        <GitLog
+          showGitIndex
+          currentBranch='release'
+          onSelectCommit={handleSelectCommit}
+          entries={getSleepRepositoriesLogEntries(6)}
+        >
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handleSelectCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        graphColumn.at({ row: 0, column: columnIndex })?.click()
+      })
+
+      expect(handleSelectCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-24T18:00:00.000Z',
+        branch: 'refs/remotes/origin/release',
+        children: [],
+        committerDate: '2025-03-24T18:00:00.000Z',
+        hash: 'index',
+        isBranchTip: false,
+        message: '// WIP',
+        parents: [
+          '1352f4c',
+        ]
+      })
+    })
+
+    it.each([0, 1, 2])('should call onSelectCommit with the commit details when clicking on column index [%s] in a commits row', (columnIndex: number) => {
+      const handleSelectCommit = vi.fn()
+
+      render(
+        <GitLog
+          currentBranch='release'
+          onSelectCommit={handleSelectCommit}
+          entries={getSleepRepositoriesLogEntries(2)}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handleSelectCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        graphColumn.at({ row: 1, column: columnIndex })?.click()
+      })
+
+      expect(handleSelectCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-24 17:03:58 +0000',
+        branch: 'refs/remotes/origin/renovate/all-minor-patch',
+        author: {
+          name: 'renovate[bot]',
+          email: '29139614+renovate[bot]@users.noreply.github.com',
+        },
+        children: [],
+        committerDate: '2025-03-24 17:03:58 +0000',
+        hash: '2079fb6',
+        isBranchTip: true,
+        message: 'fix(deps): update all non-major dependencies',
+        parents: ['1352f4c']
+      })
+    })
+
+    it('should call onSelectCommit with the commit details when clicking on one of the table columns of the index pseudo-commit row', () => {
+      const handleSelectCommit = vi.fn()
+
+      render(
+        <GitLog
+          showGitIndex
+          currentBranch='release'
+          onSelectCommit={handleSelectCommit}
+          entries={getSleepRepositoriesLogEntries(6)}
+        >
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handleSelectCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        table.row({ row: 0 })?.click()
+      })
+
+      expect(handleSelectCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-24T18:00:00.000Z',
+        branch: 'refs/remotes/origin/release',
+        children: [],
+        committerDate: '2025-03-24T18:00:00.000Z',
+        hash: 'index',
+        isBranchTip: false,
+        message: '// WIP',
+        parents: [
+          '1352f4c',
+        ]
+      })
+    })
+
+    it('should call onSelectCommit with the commit details when clicking on one of the table columns', () => {
+      const handleSelectCommit = vi.fn()
+
+      render(
+        <GitLog
+          currentBranch='release'
+          onSelectCommit={handleSelectCommit}
+          entries={getSleepRepositoriesLogEntries(2)}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handleSelectCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        table.row({ row: 1 })?.click()
+      })
+
+      expect(handleSelectCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-22 02:47:00 +0000',
+        branch: 'refs/remotes/origin/renovate/ant-design-icons-6.x',
+        author: {
+          name: 'renovate[bot]',
+          email: '29139614+renovate[bot]@users.noreply.github.com',
+        },
+        children: [],
+        committerDate: '2025-03-22 02:47:00 +0000',
+        hash: '6d76309',
+        isBranchTip: true,
+        message: 'fix(deps): update dependency @ant-design/icons to v6',
+        parents: []
+      })
+    })
+  })
+
+  describe('onPreviewCommit Callback', () => {
+    it.each([0, 1, 2])('should call onPreviewCommit with the commit details when mousing over column index [%s] in the index pseudo-commits row', (columnIndex: number) => {
+      const handlePreviewCommit = vi.fn()
+
+      render(
+        <GitLog
+          showGitIndex
+          currentBranch='release'
+          onPreviewCommit={handlePreviewCommit}
+          entries={getSleepRepositoriesLogEntries(6)}
+        >
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handlePreviewCommit).not.toHaveBeenCalled()
+
+      fireEvent.mouseOver(graphColumn.at({ row: 0, column: columnIndex }))
+
+      expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-24T18:00:00.000Z',
+        branch: 'refs/remotes/origin/release',
+        children: [],
+        committerDate: '2025-03-24T18:00:00.000Z',
+        hash: 'index',
+        isBranchTip: false,
+        message: '// WIP',
+        parents: [
+          '1352f4c',
+        ]
+      })
+    })
+
+    it.each([0, 1, 2])('should call onPreviewCommit with the commit details when mousing over column index [%s] in a commits row', (columnIndex: number) => {
+      const handlePreviewCommit = vi.fn()
+
+      render(
+        <GitLog
+          currentBranch='release'
+          onPreviewCommit={handlePreviewCommit}
+          entries={getSleepRepositoriesLogEntries(2)}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handlePreviewCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        fireEvent.mouseOver(graphColumn.at({ row: 1, column: columnIndex }))
+      })
+
+      expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-24 17:03:58 +0000',
+        branch: 'refs/remotes/origin/renovate/all-minor-patch',
+        author: {
+          name: 'renovate[bot]',
+          email: '29139614+renovate[bot]@users.noreply.github.com',
+        },
+        children: [],
+        committerDate: '2025-03-24 17:03:58 +0000',
+        hash: '2079fb6',
+        isBranchTip: true,
+        message: 'fix(deps): update all non-major dependencies',
+        parents: ['1352f4c']
+      })
+    })
+
+    it('should call onPreviewCommit with the commit details when mousing over on one of the table columns of the index pseudo-commit row', () => {
+      const handlePreviewCommit = vi.fn()
+
+      render(
+        <GitLog
+          showGitIndex
+          currentBranch='release'
+          onPreviewCommit={handlePreviewCommit}
+          entries={getSleepRepositoriesLogEntries(6)}
+        >
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handlePreviewCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        fireEvent.mouseOver(table.row({ row: 0 }))
+      })
+
+      expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-24T18:00:00.000Z',
+        branch: 'refs/remotes/origin/release',
+        children: [],
+        committerDate: '2025-03-24T18:00:00.000Z',
+        hash: 'index',
+        isBranchTip: false,
+        message: '// WIP',
+        parents: [
+          '1352f4c',
+        ]
+      })
+    })
+
+    it('should call onPreviewCommit with the commit details when mousing over on one of the table columns', () => {
+      const handlePreviewCommit = vi.fn()
+
+      render(
+        <GitLog
+          currentBranch='release'
+          onPreviewCommit={handlePreviewCommit}
+          entries={getSleepRepositoriesLogEntries(2)}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handlePreviewCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        fireEvent.mouseOver(table.row({ row: 1 }))
+      })
+
+      expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-22 02:47:00 +0000',
+        branch: 'refs/remotes/origin/renovate/ant-design-icons-6.x',
+        author: {
+          name: 'renovate[bot]',
+          email: '29139614+renovate[bot]@users.noreply.github.com',
+        },
+        children: [],
+        committerDate: '2025-03-22 02:47:00 +0000',
+        hash: '6d76309',
+        isBranchTip: true,
+        message: 'fix(deps): update dependency @ant-design/icons to v6',
+        parents: []
+      })
+    })
   })
 })

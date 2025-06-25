@@ -31,7 +31,7 @@
     "test:unit:ui": "vitest --watch --coverage --ui --exclude '**/*.integration.spec.tsx'",
     "test:integration": "vitest --watch --coverage .integration.spec.tsx",
     "test:unit:ci": "vitest --run --coverage --reporter=verbose --exclude '**/*.integration.spec.tsx'",
-    "test:integration:ci": "vitest --run --coverage --reporter=verbose .integration.spec.tsx",
+    "test:integration:ci": "vitest --run --coverage --coverage.reportsDirectory=coverage/integration --reporter=verbose .integration.spec.tsx",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release:local": "npm run build && npm pack",

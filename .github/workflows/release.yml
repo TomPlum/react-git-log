@@ -30,21 +30,30 @@ jobs:
         env:
           TZ: UTC
         run: npm run test:unit:ci --workspace=@tomplum/react-git-log
+        working-directory: packages/library
 
       - name: Run Demo Unit Tests
         env:
           TZ: UTC
         run: npm run test --workspace=@tomplum/react-git-log-demo
+        working-directory: packages/demo
 
       - name: Run Integration Tests
         env:
           TZ: UTC
         run: npm run test:integration:ci --workspace=@tomplum/react-git-log
+        working-directory: packages/library
 
       - name: Upload SonarCloud analysis
         uses: SonarSource/sonarqube-scan-action@v5.2.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Store Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: packages/library/coverage/lcov.info
 
       - name: Build Storybook
         run: npm run build-storybook --workspace=@tomplum/react-git-log-demo

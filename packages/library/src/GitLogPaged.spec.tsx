@@ -4,7 +4,34 @@ import sleepRepositoryDataReleaseBranch from 'test/data/sleep-paginated/sleep-re
 import { GitLogPaged } from './GitLogPaged'
 
 describe('GitLogPaged', () => {
-  it('should render correctly and match the snapshot the paginated GitLogPaged component', () => {
+  const paginationTests = [
+    { start: 0, end: 20 },
+    { start: 20, end: 40 },
+    { start: 40, end: 80 },
+  ]
+
+  paginationTests.forEach(({ start, end }) => {
+    it(`should render correctly and match the snapshot the paginated GitLogPaged component with a GraphHTMLGrid with paging [${start}, ${end}]`, () => {
+      const gitLogEntries = parseGitLogOutput(sleepRepositoryDataReleaseBranch).slice(start, end)
+
+      const { asFragment } = render(
+        <GitLogPaged
+          showHeaders
+          branchName='release'
+          headCommitHash='1352f4c'
+          entries={gitLogEntries}
+        >
+          <GitLogPaged.Tags />
+          <GitLogPaged.GraphHTMLGrid />
+          <GitLogPaged.Table />
+        </GitLogPaged>
+      )
+
+      expect(asFragment()).toMatchSnapshot()
+    })
+  })
+
+  it('should render correctly and match the snapshot the paginated GitLogPaged component with a GraphCanvas2D', () => {
     const gitLogEntries = parseGitLogOutput(sleepRepositoryDataReleaseBranch).slice(30, 70)
 
     const { asFragment } = render(
@@ -15,7 +42,7 @@ describe('GitLogPaged', () => {
         entries={gitLogEntries}
       >
         <GitLogPaged.Tags />
-        <GitLogPaged.GraphHTMLGrid />
+        <GitLogPaged.GraphCanvas2D />
         <GitLogPaged.Table />
       </GitLogPaged>
     )

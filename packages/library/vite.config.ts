@@ -66,19 +66,20 @@ export default defineConfig({
     },
     setupFiles: ['./src/_test/vitest.setup.ts'],
     coverage: {
+      all: true,
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
       cleanOnRerun: true,
       clean: true,
       reportOnFailure: true,
-      include: [
-        'src'
-      ],
+      include: ['src/**/*.{ts,tsx}'],
       exclude: [
         'node_modules/',
         'dist',
         'src/_test',
-        'src/types'
+        'src/types',
+        'src/index.ts',
+        'src/types.ts'
       ]
     }
   }

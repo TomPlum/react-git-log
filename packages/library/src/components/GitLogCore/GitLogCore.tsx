@@ -20,6 +20,7 @@ export const GitLogCore = ({
   classes,
   defaultGraphWidth,
   onSelectCommit,
+  onPreviewCommit,
   urls,
   currentBranch,
   paging,
@@ -104,6 +105,11 @@ export const GitLogCore = ({
     onSelectCommit?.(commit)
   }, [onSelectCommit])
 
+  const handlePreviewCommit = useCallback((commit?: Commit) => {
+    setPreviewedCommit(commit)
+    onPreviewCommit?.(commit)
+  }, [onPreviewCommit])
+
   const headCommit = useMemo<Commit | undefined>(() => {
     if (isServerSidePaginated) {
       return graphData.commits.find(it => it.hash === headCommitHash)
@@ -171,7 +177,7 @@ export const GitLogCore = ({
     selectedCommit,
     setSelectedCommit: handleSelectCommit,
     previewedCommit,
-    setPreviewedCommit,
+    setPreviewedCommit: handlePreviewCommit,
     remoteProviderUrlBuilder: urls,
     showHeaders,
     currentBranch,
@@ -195,6 +201,7 @@ export const GitLogCore = ({
     selectedCommit,
     previewedCommit,
     handleSelectCommit,
+    handlePreviewCommit,
     urls,
     showHeaders,
     headCommit,

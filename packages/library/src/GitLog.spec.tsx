@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe } from 'vitest'
-import { render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { GitLog } from './GitLog'
 import { entry } from 'test/stubs'
 import { gitLog } from 'test/elements/GitLog'
@@ -404,6 +404,150 @@ describe('GitLog', () => {
       })
 
       expect(handleSelectCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-22 02:47:00 +0000',
+        branch: 'refs/remotes/origin/renovate/ant-design-icons-6.x',
+        author: {
+          name: 'renovate[bot]',
+          email: '29139614+renovate[bot]@users.noreply.github.com',
+        },
+        children: [],
+        committerDate: '2025-03-22 02:47:00 +0000',
+        hash: '6d76309',
+        isBranchTip: true,
+        message: 'fix(deps): update dependency @ant-design/icons to v6',
+        parents: []
+      })
+    })
+  })
+
+  describe('onPreviewCommit Callback', () => {
+    it.each([0, 1, 2])('should call onPreviewCommit with the commit details when mousing over column index [%s] in the index pseudo-commits row', (columnIndex: number) => {
+      const handlePreviewCommit = vi.fn()
+
+      render(
+        <GitLog
+          showGitIndex
+          currentBranch='release'
+          onPreviewCommit={handlePreviewCommit}
+          entries={getSleepRepositoriesLogEntries(6)}
+        >
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handlePreviewCommit).not.toHaveBeenCalled()
+
+      fireEvent.mouseOver(graphColumn.at({ row: 0, column: columnIndex }))
+
+      expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        branch: 'refs/remotes/origin/release',
+        children: [],
+        committerDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        hash: 'index',
+        isBranchTip: false,
+        message: '// WIP',
+        parents: [
+          '1352f4c',
+        ]
+      })
+    })
+
+    it.each([0, 1, 2])('should call onPreviewCommit with the commit details when mousing over column index [%s] in a commits row', (columnIndex: number) => {
+      const handlePreviewCommit = vi.fn()
+
+      render(
+        <GitLog
+          currentBranch='release'
+          onPreviewCommit={handlePreviewCommit}
+          entries={getSleepRepositoriesLogEntries(2)}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handlePreviewCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        fireEvent.mouseOver(graphColumn.at({ row: 1, column: columnIndex }))
+      })
+
+      expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: '2025-03-24 17:03:58 +0000',
+        branch: 'refs/remotes/origin/renovate/all-minor-patch',
+        author: {
+          name: 'renovate[bot]',
+          email: '29139614+renovate[bot]@users.noreply.github.com',
+        },
+        children: [],
+        committerDate: '2025-03-24 17:03:58 +0000',
+        hash: '2079fb6',
+        isBranchTip: true,
+        message: 'fix(deps): update all non-major dependencies',
+        parents: ['1352f4c']
+      })
+    })
+
+    it('should call onPreviewCommit with the commit details when mousing over on one of the table columns of the index pseudo-commit row', () => {
+      const handlePreviewCommit = vi.fn()
+
+      render(
+        <GitLog
+          showGitIndex
+          currentBranch='release'
+          onPreviewCommit={handlePreviewCommit}
+          entries={getSleepRepositoriesLogEntries(6)}
+        >
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handlePreviewCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        fireEvent.mouseOver(table.row({ row: 0 }))
+      })
+
+      expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
+        authorDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        branch: 'refs/remotes/origin/release',
+        children: [],
+        committerDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        hash: 'index',
+        isBranchTip: false,
+        message: '// WIP',
+        parents: [
+          '1352f4c',
+        ]
+      })
+    })
+
+    it('should call onPreviewCommit with the commit details when mousing over on one of the table columns', () => {
+      const handlePreviewCommit = vi.fn()
+
+      render(
+        <GitLog
+          currentBranch='release'
+          onPreviewCommit={handlePreviewCommit}
+          entries={getSleepRepositoriesLogEntries(2)}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handlePreviewCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        fireEvent.mouseOver(table.row({ row: 1 }))
+      })
+
+      expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
         authorDate: '2025-03-22 02:47:00 +0000',
         branch: 'refs/remotes/origin/renovate/ant-design-icons-6.x',
         author: {

@@ -45,6 +45,9 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5.2.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          name: lcov.info
+          path: packages/library/coverage/lcov.info
 
       - name: Build Storybook
         run: npm run build-storybook --workspace=@tomplum/react-git-log-demo

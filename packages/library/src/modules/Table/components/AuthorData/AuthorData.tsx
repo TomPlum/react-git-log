@@ -5,7 +5,7 @@ import { useMemo } from 'react'
 export const AuthorData = ({ author, index, style, isPlaceholder }: AuthorDataProps) => {
   const authorTitle = useMemo(() => {
     if (author) {
-      if (author.name && author.name) {
+      if (author.name && author.email) {
         return `${author.name} (${author.email})`
       }
 
@@ -22,7 +22,7 @@ export const AuthorData = ({ author, index, style, isPlaceholder }: AuthorDataPr
   }, [author])
 
   const authorName = useMemo(() => {
-    if (author && author.name) {
+    if (author?.name) {
       return author.name
     }
 

@@ -11,6 +11,7 @@ import { graphColumn } from 'test/elements/GraphColumn'
 import { act } from 'react'
 import { Commit } from 'types/Commit'
 import { table } from 'test/elements/Table'
+import { createCanvas } from 'canvas'
 
 const today = Date.UTC(2025, 2, 24, 18, 0, 0)
 
@@ -38,135 +39,169 @@ describe('GitLog', () => {
     vi.useRealTimers()
   })
 
-  describe('Classes & Style Objects', () => {
-    it('should pass the given container class to the git log layout container element', () => {
-      render(
-        <GitLog
-          currentBranch={'test'}
-          entries={[entry({ branch: 'test' })]}
-          classes={{ containerClass: 'styles.customContainerClass' }}
-        >
-          <GitLog.GraphHTMLGrid />
-        </GitLog>
-      )
+  describe('HTML Grid Graph', () => {
+    describe('Classes & Style Objects', () => {
+      it('should pass the given container class to the git log layout container element', () => {
+        render(
+          <GitLog
+            currentBranch={'test'}
+            entries={[entry({ branch: 'test' })]}
+            classes={{ containerClass: 'styles.customContainerClass' }}
+          >
+            <GitLog.GraphHTMLGrid />
+          </GitLog>
+        )
 
-      const gitLogContainer = gitLog.container()
-      expect(gitLogContainer).toBeInTheDocument()
-      expect(gitLogContainer.className).toContain('styles.customContainerClass')
+        const gitLogContainer = gitLog.container()
+        expect(gitLogContainer).toBeInTheDocument()
+        expect(gitLogContainer.className).toContain('styles.customContainerClass')
+      })
+
+      it('should pass the given container style object to the git log layout container element', () => {
+        render(
+          <GitLog
+            currentBranch={'test'}
+            entries={[entry({ branch: 'test' })]}
+            classes={{
+              containerStyles: {
+                background: 'purple'
+              }
+            }}
+          >
+            <GitLog.GraphHTMLGrid />
+          </GitLog>
+        )
+
+        const gitLogContainer = gitLog.container()
+        expect(gitLogContainer).toBeInTheDocument()
+        expect(gitLogContainer?.style.background).toBe('purple')
+      })
     })
 
-    it('should pass the given container style object to the git log layout container element', () => {
-      render(
+    it('should render correctly and match the snapshot of the GitLog component', { timeout: 1000 * 10 } ,() => {
+      const { asFragment } = render(
         <GitLog
-          currentBranch={'test'}
-          entries={[entry({ branch: 'test' })]}
-          classes={{
-            containerStyles: {
-              background: 'purple'
-            }
+          showHeaders
+          currentBranch='release'
+          entries={sleepRepositoryLogEntries}
+          indexStatus={{
+            added: 2,
+            deleted: 1,
+            modified: 10
           }}
+          urls={urlBuilderFunction}
         >
+          <GitLog.Tags />
           <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
         </GitLog>
       )
 
-      const gitLogContainer = gitLog.container()
-      expect(gitLogContainer).toBeInTheDocument()
-      expect(gitLogContainer?.style.background).toBe('purple')
+      expect(asFragment()).toMatchSnapshot()
+    })
+
+    it('should render correctly and match the snapshot of the GitLog component in flipped orientation', { timeout: 1000 * 10 } ,() => {
+
+      const { asFragment } = render(
+        <GitLog
+          showHeaders
+          currentBranch='release'
+          entries={sleepRepositoryLogEntries}
+          urls={urlBuilderFunction}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid orientation='flipped' />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(asFragment()).toMatchSnapshot()
+    })
+
+    it('should render correctly and match the snapshot of the GitLog component with a custom node size', { timeout: 1000 * 10 } ,() => {
+      const { asFragment } = render(
+        <GitLog
+          showHeaders
+          currentBranch='release'
+          entries={sleepRepositoryLogEntries}
+          defaultGraphWidth={100}
+          urls={urlBuilderFunction}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid nodeSize={12} />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(asFragment()).toMatchSnapshot()
+    })
+
+    it('should render correctly and match the snapshot of the GitLog component when there is no data', { timeout: 1000 * 10 } ,() => {
+      const { asFragment } = render(
+        <GitLog
+          showHeaders
+          entries={[]}
+          currentBranch='release'
+          urls={urlBuilderFunction}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(asFragment()).toMatchSnapshot()
+    })
+
+    it('should render correctly and match the snapshot of the GitLog component when the index is disabled', { timeout: 1000 * 10 } ,() => {
+      const { asFragment } = render(
+        <GitLog
+          showHeaders
+          showGitIndex={false}
+          currentBranch='release'
+          urls={urlBuilderFunction}
+          entries={sleepRepositoryLogEntries}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(asFragment()).toMatchSnapshot()
     })
   })
 
-  it('should render correctly and match the snapshot of the GitLog component', { timeout: 1000 * 10 } ,() => {
-    const { asFragment } = render(
-      <GitLog
-        showHeaders
-        currentBranch='release'
-        entries={sleepRepositoryLogEntries}
-        indexStatus={{
-          added: 2,
-          deleted: 1,
-          modified: 10
-        }}
-        urls={urlBuilderFunction}
-      >
-        <GitLog.Tags />
-        <GitLog.GraphHTMLGrid />
-        <GitLog.Table />
-      </GitLog>
-    )
+  describe('Canvas2D Graph', () => {
+    beforeAll(() => {
+      // @ts-expect-error Only mocking some props for the sake of the test
+      HTMLCanvasElement.prototype.getContext = function () {
+        const canvas = createCanvas(this.width, this.height)
+        return canvas.getContext('2d')
+      }
+    })
 
-    expect(asFragment()).toMatchSnapshot()
-  })
+    it('should render correctly and match the snapshot of the GitLog component', { timeout: 1000 * 10 } ,() => {
+      const { asFragment } = render(
+        <GitLog
+          showHeaders
+          currentBranch='release'
+          entries={sleepRepositoryLogEntries}
+          indexStatus={{
+            added: 2,
+            deleted: 1,
+            modified: 10
+          }}
+          urls={urlBuilderFunction}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphCanvas2D />
+          <GitLog.Table />
+        </GitLog>
+      )
 
-  it('should render correctly and match the snapshot of the GitLog component in flipped orientation', { timeout: 1000 * 10 } ,() => {
-
-    const { asFragment } = render(
-      <GitLog
-        showHeaders
-        currentBranch='release'
-        entries={sleepRepositoryLogEntries}
-        urls={urlBuilderFunction}
-      >
-        <GitLog.Tags />
-        <GitLog.GraphHTMLGrid orientation='flipped' />
-        <GitLog.Table />
-      </GitLog>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should render correctly and match the snapshot of the GitLog component with a custom node size', { timeout: 1000 * 10 } ,() => {
-    const { asFragment } = render(
-      <GitLog
-        showHeaders
-        currentBranch='release'
-        entries={sleepRepositoryLogEntries}
-        defaultGraphWidth={100}
-        urls={urlBuilderFunction}
-      >
-        <GitLog.Tags />
-        <GitLog.GraphHTMLGrid nodeSize={12} />
-        <GitLog.Table />
-      </GitLog>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should render correctly and match the snapshot of the GitLog component when there is no data', { timeout: 1000 * 10 } ,() => {
-    const { asFragment } = render(
-      <GitLog
-        showHeaders
-        entries={[]}
-        currentBranch='release'
-        urls={urlBuilderFunction}
-      >
-        <GitLog.Tags />
-        <GitLog.GraphHTMLGrid />
-        <GitLog.Table />
-      </GitLog>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should render correctly and match the snapshot of the GitLog component when the index is disabled', { timeout: 1000 * 10 } ,() => {
-    const { asFragment } = render(
-      <GitLog
-        showHeaders
-        showGitIndex={false}
-        currentBranch='release'
-        urls={urlBuilderFunction}
-        entries={sleepRepositoryLogEntries}
-      >
-        <GitLog.Tags />
-        <GitLog.GraphHTMLGrid />
-        <GitLog.Table />
-      </GitLog>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
+      expect(asFragment()).toMatchSnapshot()
+    })
   })
 
   it('should log a warning if the graph subcomponent is not rendered', () => {

@@ -77,7 +77,9 @@ export default defineConfig({
         'node_modules/',
         'dist',
         'src/_test',
-        'src/types'
+        'src/types',
+        'src/index.ts',
+        'src/types.ts'
       ]
     }
   }

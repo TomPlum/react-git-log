@@ -13,7 +13,7 @@ export const parseGitLogOutput = (output: string): GitLogEntry[] => {
 
   const parsed = commits
     .map(commit => {
-      const match = commit.trim().match(logRegex)
+      const match = RegExp(logRegex).exec(commit.trim())
 
       if (match?.groups) {
         return {

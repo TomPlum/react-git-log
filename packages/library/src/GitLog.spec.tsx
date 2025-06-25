@@ -11,10 +11,6 @@ import { graphColumn } from 'test/elements/GraphColumn'
 import { act } from 'react'
 import { Commit } from 'types/Commit'
 import { table } from 'test/elements/Table'
-import utc from 'dayjs/plugin/utc'
-import dayjs from 'dayjs'
-
-dayjs.extend(utc)
 
 const today = Date.UTC(2025, 2, 24, 18, 0, 0)
 
@@ -301,10 +297,10 @@ describe('GitLog', () => {
       })
 
       expect(handleSelectCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
-        authorDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        authorDate: '2025-03-24T18:00:00.000Z',
         branch: 'refs/remotes/origin/release',
         children: [],
-        committerDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        committerDate: '2025-03-24T18:00:00.000Z',
         hash: 'index',
         isBranchTip: false,
         message: '// WIP',
@@ -373,10 +369,10 @@ describe('GitLog', () => {
       })
 
       expect(handleSelectCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
-        authorDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        authorDate: '2025-03-24T18:00:00.000Z',
         branch: 'refs/remotes/origin/release',
         children: [],
-        committerDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        committerDate: '2025-03-24T18:00:00.000Z',
         hash: 'index',
         isBranchTip: false,
         message: '// WIP',
@@ -445,10 +441,10 @@ describe('GitLog', () => {
       fireEvent.mouseOver(graphColumn.at({ row: 0, column: columnIndex }))
 
       expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
-        authorDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        authorDate: '2025-03-24T18:00:00.000Z',
         branch: 'refs/remotes/origin/release',
         children: [],
-        committerDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        committerDate: '2025-03-24T18:00:00.000Z',
         hash: 'index',
         isBranchTip: false,
         message: '// WIP',
@@ -517,10 +513,10 @@ describe('GitLog', () => {
       })
 
       expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit[]>({
-        authorDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        authorDate: '2025-03-24T18:00:00.000Z',
         branch: 'refs/remotes/origin/release',
         children: [],
-        committerDate: 'Mon Mar 24 2025 18:00:00 GMT+0000 (Greenwich Mean Time)',
+        committerDate: '2025-03-24T18:00:00.000Z',
         hash: 'index',
         isBranchTip: false,
         message: '// WIP',

@@ -9,6 +9,10 @@ import { Layout } from 'components/Layout'
 import { Commit } from 'types/Commit'
 import { DEFAULT_NODE_SIZE, NODE_BORDER_WIDTH } from 'constants/constants'
 import { ThemeContextProvider } from 'context/ThemeContext'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+
+dayjs.extend(utc)
 
 export const GitLogCore = ({
   children,
@@ -123,14 +127,16 @@ export const GitLogCore = ({
       return undefined
     }
 
+    const today = dayjs.utc().toISOString()
+
     return {
       hash: 'index',
       branch: headCommit.branch,
       parents: [headCommit.hash],
       children: [],
-      authorDate: new Date().toString(),
+      authorDate: today,
       message: '// WIP',
-      committerDate: new Date().toString(),
+      committerDate: today,
       isBranchTip: false
     } as Commit
   }, [headCommit])

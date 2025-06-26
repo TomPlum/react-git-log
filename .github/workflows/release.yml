@@ -93,6 +93,11 @@ jobs:
     needs: [unit-tests-library, integration-tests, unit-tests-demo]
     steps:
       - uses: actions/checkout@v4
+      - name: Download LCOV Info Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: line-coverage-info
+          path: packages/library/coverage
       - name: SonarCloud Analysis
         uses: SonarSource/sonarqube-scan-action@v5.2.0
         env:
@@ -125,6 +130,11 @@ jobs:
     needs: [sonarcloud, snyk]
     steps:
       - uses: actions/checkout@v4
+      - name: Download Statics
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-static
+          path: ./packages/demo
       - uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/demo/storybook-static

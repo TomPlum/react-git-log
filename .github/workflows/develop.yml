@@ -57,10 +57,17 @@ jobs:
         run: npm run test:integration:ci --workspace=@tomplum/react-git-log
         working-directory: packages/library
 
-      - name: Upload SonarCloud analysis
+      - name: SonarCloud Analysis
         uses: SonarSource/sonarqube-scan-action@v5.2.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Snyk
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: monitor --severity-threshold=high
 
       - name: Store Coverage Report
         uses: actions/upload-artifact@v4

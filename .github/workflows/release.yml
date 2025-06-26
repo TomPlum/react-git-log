@@ -25,9 +25,13 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-
       - run: npm install
       - run: npm run build-storybook --workspace=@tomplum/react-git-log-demo
+      - name: Store Storybook Statics
+        uses: actions/upload-artifact@v3
+        with:
+          name: storybook-static
+          path: ./packages/demo/storybook-static
 
   lint:
     runs-on: ubuntu-latest
@@ -52,6 +56,11 @@ jobs:
       - run: npm install
       - run: npm run test:unit:ci --workspace=@tomplum/react-git-log
         working-directory: packages/library
+      - name: Store LCOV Info
+        uses: actions/upload-artifact@v3
+        with:
+          name: storybook-static
+          path: packages/library/coverage/lcov.info
 
   unit-tests-demo:
     runs-on: ubuntu-latest

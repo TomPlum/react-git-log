@@ -2,13 +2,7 @@ name: Development
 run-name: Compilation & Quality Checks
 
 on:
-  push:
-    branches: [develop]
   pull_request:
-    types: [opened]
-    branches:
-      - '*'
-      - '!develop'
 
 jobs:
   build-library:
@@ -112,7 +106,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          command: 'monitor'
+          command: 'test'
           json: true
           args: --severity-threshold=high --all-projects
 

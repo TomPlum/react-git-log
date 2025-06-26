@@ -28,7 +28,7 @@ jobs:
       - run: npm install
       - run: npm run build-storybook --workspace=@tomplum/react-git-log-demo
       - name: Store Storybook Statics
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: storybook-static
           path: ./packages/demo/storybook-static
@@ -57,7 +57,7 @@ jobs:
       - run: npm run test:unit:ci --workspace=@tomplum/react-git-log
         working-directory: packages/library
       - name: Store LCOV Info
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: storybook-static
           path: packages/library/coverage/lcov.info

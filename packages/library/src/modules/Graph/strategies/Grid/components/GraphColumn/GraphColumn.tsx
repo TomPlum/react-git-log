@@ -105,15 +105,30 @@ export const GraphColumn = ({
     colour: isRowCommitIndexNode ? shiftAlphaChannel(columnColour, 0.5) : columnColour,
   })
 
+  const handleMouseOut = () => {
+    selectCommitHandler.onMouseOut()
+  }
+
+  const handleClick = () => {
+    selectCommitHandler.onClick(commit)
+  }
+
+  const handleMouseOver = () => {
+    selectCommitHandler.onMouseOver(commit)
+  }
+
   return (
-    <div
+    <button
       style={style}
+      tabIndex={rowIndex}
+      onClick={handleClick}
+      onBlur={handleMouseOut}
+      onFocus={handleMouseOver}
       className={styles.column}
+      onMouseOut={handleMouseOut}
+      onMouseOver={handleMouseOver}
       id={`graph-column-row-${rowIndex}-col-${index}`}
-      onMouseOut={() => selectCommitHandler.onMouseOut()}
-      onClick={() => selectCommitHandler.onClick(commit)}
       data-testid={`graph-column-row-${rowIndex}-col-${index}`}
-      onMouseOver={() => selectCommitHandler.onMouseOver(commit)}
     >
       {/* This column contains a node (and it's not the git index pseudo-node) */}
       {state.isNode && !isRowCommitIndexNode && (
@@ -203,6 +218,6 @@ export const GraphColumn = ({
           isPlaceholder={state.isPlaceholderSkeleton}
         />
       )}
-    </div>
+    </button>
   )
 }

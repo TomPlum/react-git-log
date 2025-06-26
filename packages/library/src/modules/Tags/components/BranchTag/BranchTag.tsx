@@ -75,35 +75,39 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
     )
   }, [commit])
 
+  const getTooltipContent = useCallback(({ position, childRect, popoverRect }: PopoverState) => (
+    <ArrowContainer
+      arrowSize={6}
+      position={position}
+      childRect={childRect}
+      arrowColor={colour}
+      popoverRect={popoverRect}
+    >
+      <BranchTagTooltip
+        id={id}
+        commit={commit}
+      />
+    </ArrowContainer>
+  ), [colour, commit, id])
+
   return (
     <Popover
       positions='right'
       isOpen={showTooltip}
+      content={getTooltipContent}
       containerStyle={{ zIndex: '20' }}
-      content={({ position, childRect, popoverRect }: PopoverState) => (
-        <ArrowContainer
-          arrowSize={6}
-          position={position}
-          childRect={childRect}
-          arrowColor={colour}
-          popoverRect={popoverRect}
-        >
-          <BranchTagTooltip
-            id={id}
-            commit={commit}
-          />
-        </ArrowContainer>
-      )}
     >
-      <div
+      <button
         id={`tag-${id}`}
         style={{ height }}
         data-testid={`tag-${id}`}
+        onBlur={handleMouseOut}
+        onFocus={handleMouseOver}
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
         className={styles.tagContainer}
       >
-        <div
+        <span
           id={`tag-label-${id}`}
           key={`tag-label-${id}`}
           className={styles.tag}
@@ -111,16 +115,16 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
           style={tagLabelContainerStyles}
         >
           {label}
-        </div>
+        </span>
 
-        <div
+        <span
           style={tagLineStyles}
           id={`tag-line-${id}`}
           className={styles.tagLine}
           data-testid={`tag-line-${id}`}
           key={`tag-line-${commit.branch}`}
         />
-      </div>
+      </button>
     </Popover>
   )
 }

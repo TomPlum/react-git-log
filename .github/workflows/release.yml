@@ -25,9 +25,13 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-
       - run: npm install
       - run: npm run build-storybook --workspace=@tomplum/react-git-log-demo
+      - name: Upload Storybook build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: storybook-static
+          path: ./packages/demo/storybook-static
 
   lint:
     runs-on: ubuntu-latest

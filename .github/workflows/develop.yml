@@ -114,11 +114,7 @@ jobs:
         with:
           command: 'monitor'
           json: true
-          args: --severity-threshold=high --sarif-file-output=snyk.sarif
-      - name: Upload to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: snyk.sarif
+          args: --severity-threshold=high
 
   upload-coverage:
     runs-on: ubuntu-latest

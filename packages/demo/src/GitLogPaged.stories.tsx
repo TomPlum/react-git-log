@@ -161,6 +161,12 @@ const meta: Meta<GitLogPagedStoryProps> = {
         category: 'Callback Functions'
       }
     },
+    onPreviewCommit: {
+      name: 'onPreviewCommit',
+      table: {
+        category: 'Callback Functions'
+      }
+    },
 
     // Hiding defaults that have custom props to drive them
     theme: {

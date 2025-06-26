@@ -205,6 +205,12 @@ const meta: Meta<GitLogStoryProps> = {
         category: 'Callback Functions'
       }
     },
+    onPreviewCommit: {
+      name: 'onPreviewCommit',
+      table: {
+        category: 'Callback Functions'
+      }
+    },
 
     // Index Status
     indexStatusFilesModified: {

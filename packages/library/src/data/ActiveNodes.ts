@@ -1,8 +1,8 @@
 import FastPriorityQueue from 'fastpriorityqueue'
 
 export class ActiveNodes {
-  private activeNodes = new Map<string, Set<number>>()
-  private activeNodesQueue = new FastPriorityQueue<[number, string]>((lhs, rhs) => lhs[0] < rhs[0])
+  private readonly activeNodes = new Map<string, Set<number>>()
+  private readonly activeNodesQueue = new FastPriorityQueue<[number, string]>((lhs, rhs) => lhs[0] < rhs[0])
 
   constructor() {
     this.activeNodes.set('index', new Set<number>())

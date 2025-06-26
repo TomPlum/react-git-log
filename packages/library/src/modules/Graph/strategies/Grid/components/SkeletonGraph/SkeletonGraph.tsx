@@ -11,7 +11,7 @@ export const SkeletonGraph = () => {
           id={i}
           commit={commit}
           columns={columns}
-          key={`skeleton_row_${i}`}
+          key={`skeleton-row_${commit.hash}`}
         />
       ))}
     </>

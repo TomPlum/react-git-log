@@ -16,8 +16,8 @@ interface Background<T> extends ShouldExist<T> {
 
 class GraphColumnElement {
   private getElement<T extends boolean>(testId: string, shouldExist: T = true as T): T extends true ? HTMLElement : HTMLElement | null {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (shouldExist ? screen.getByTestId(testId) : screen.queryByTestId(testId)) as any
+    // @ts-expect-error It's okay for testing.
+    return (shouldExist ? screen.getByTestId(testId) : screen.queryByTestId(testId))
   }
 
   public id({ row, column }: At<true>) {

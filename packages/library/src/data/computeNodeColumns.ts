@@ -5,7 +5,7 @@ import { ActiveBranches } from './ActiveBranches'
 import { ActiveNodes } from './ActiveNodes'
 
 /**
- * Computes the visual positions of commits in a Git log visualization.
+ * Computes the visual positions of commits in a Git log visualisation.
  *
  * @param commits - List of commit objects
  * @param currentBranch - The currently active branch
@@ -52,7 +52,7 @@ export const computeNodePositions = (
         highestChild = childSha
       }
     }
-    const invalidIndices = highestChild ? activeNodes.get(highestChild)! : new Set<number>()
+    const invalidIndices = highestChild ? activeNodes.get(highestChild) : new Set<number>()
 
     // Find a commit to replace as the active one
     let commitToReplaceHash: string | null = null
@@ -76,14 +76,12 @@ export const computeNodePositions = (
     if (commitToReplaceHash) {
       columnIndex = commitToReplaceColumn
       activeBranches.setHash(columnIndex, commitHash)
+    } else if (childHashes.length > 0) {
+      const childHash = childHashes[0]
+      const childColumn = positions.get(childHash)![1]
+      columnIndex = activeBranches.insertCommit(commitHash, childColumn, invalidIndices)
     } else {
-      if (childHashes.length > 0) {
-        const childHash = childHashes[0]
-        const childColumn = positions.get(childHash)![1]
-        columnIndex = activeBranches.insertCommit(commitHash, childColumn, invalidIndices)
-      } else {
-        columnIndex = activeBranches.insertCommit(commitHash, 0, new Set())
-      }
+      columnIndex = activeBranches.insertCommit(commitHash, 0, new Set())
     }
 
     // Remove outdated active nodes

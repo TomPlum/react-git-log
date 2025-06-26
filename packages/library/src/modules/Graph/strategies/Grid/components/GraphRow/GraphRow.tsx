@@ -18,7 +18,7 @@ export const GraphRow = ({ id, commit, columns }: GraphRowProps) => {
             rowIndex={id}
             commit={commit}
             index={normalisedIndex}
-            commitNodeIndex={columns.findIndex(col => col.isNode)!}
+            commitNodeIndex={columns.findIndex(col => col.isNode)}
             key={`row_${commit ? commit.hash : 'index'}_column_${normalisedIndex}}`}
             // If there is no state for the given index, then we're in a virtual column, so use an empty state
             state={columns[normalisedIndex] ?? getEmptyColumnState({ columns: graphWidth })}

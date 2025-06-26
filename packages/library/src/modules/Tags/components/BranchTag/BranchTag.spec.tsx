@@ -155,6 +155,43 @@ describe('BranchTag', () => {
     expect(style.animationDuration).toBe('0.3s')
   })
 
+  it('should not render any different styling for the selected commit if enableSelectedCommitStyling is false', () => {
+    const expectedCommitColour = 'rgb(234, 156, 78)'
+    const getCommitColour = vi.fn().mockReturnValue(expectedCommitColour)
+    vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
+      getCommitColour
+    }))
+
+    const branchTagCommit = commit()
+    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+      enableSelectedCommitStyling: false,
+      selectedCommit: branchTagCommit
+    }))
+
+    render(
+      <BranchTag
+        id='0'
+        height={25}
+        lineWidth={100}
+        lineRight={180}
+        commit={branchTagCommit}
+      />
+    )
+
+    expect(getCommitColour).toHaveBeenCalledExactlyOnceWith(branchTagCommit)
+
+    const tagLineElement = tag.line({ row: 0 })
+    const style = getComputedStyle(tagLineElement)
+
+    expect(style.opacity).toBe('0.4')
+    expect(style.right).toBe('180px')
+    expect(style.width).toBe('100px')
+    expect(style.borderTopWidth).toBe('2px')
+    expect(style.borderTopStyle).toBe('dotted')
+    expect(style.borderTopColor).toBe(expectedCommitColour)
+    expect(style.animationDuration).toBe('0.3s')
+  })
+
   it('should render a tag line with the correct styles for the previewed commit', () => {
     const expectedCommitColour = 'rgb(234, 156, 78)'
     const getCommitColour = vi.fn().mockReturnValue(expectedCommitColour)
@@ -189,6 +226,43 @@ describe('BranchTag', () => {
     expect(style.borderTopStyle).toBe('dotted')
     expect(style.borderTopColor).toBe(expectedCommitColour)
     expect(style.animationDuration).toBe('0s')
+  })
+
+  it('should not render any different styling for the previewed commit if enablePreviewCommitStyling is false', () => {
+    const expectedCommitColour = 'rgb(234, 156, 78)'
+    const getCommitColour = vi.fn().mockReturnValue(expectedCommitColour)
+    vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
+      getCommitColour
+    }))
+
+    const branchTagCommit = commit()
+    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+      enablePreviewedCommitStyling: false,
+      previewedCommit: branchTagCommit
+    }))
+
+    render(
+      <BranchTag
+        id='0'
+        height={25}
+        lineWidth={100}
+        lineRight={180}
+        commit={branchTagCommit}
+      />
+    )
+
+    expect(getCommitColour).toHaveBeenCalledExactlyOnceWith(branchTagCommit)
+
+    const tagLineElement = tag.line({ row: 0 })
+    const style = getComputedStyle(tagLineElement)
+
+    expect(style.opacity).toBe('0.4')
+    expect(style.right).toBe('180px')
+    expect(style.width).toBe('100px')
+    expect(style.borderTopWidth).toBe('2px')
+    expect(style.borderTopStyle).toBe('dotted')
+    expect(style.borderTopColor).toBe(expectedCommitColour)
+    expect(style.animationDuration).toBe('0.3s')
   })
 
   it('should render the tag label with the correct styles', () => {

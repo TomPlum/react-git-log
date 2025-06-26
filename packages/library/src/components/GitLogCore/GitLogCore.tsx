@@ -32,7 +32,9 @@ export const GitLogCore = ({
   componentName,
   indexStatus,
   isServerSidePaginated = false,
-  showGitIndex = true
+  showGitIndex = true,
+  enableSelectedCommitStyling = true,
+  enablePreviewedCommitStyling = true
 }: PropsWithChildren<GitLogCoreProps>) => {
   const { tags, graph, table } = useMemo(() => {
     let tags: ReactElement | undefined = undefined
@@ -201,7 +203,9 @@ export const GitLogCore = ({
     setNodeSize,
     graphOrientation,
     setGraphOrientation,
-    indexStatus
+    indexStatus,
+    enablePreviewedCommitStyling,
+    enableSelectedCommitStyling
   }), [
     classes,
     selectedCommit,
@@ -225,7 +229,9 @@ export const GitLogCore = ({
     isIndexVisible,
     nodeSize,
     graphOrientation,
-    indexStatus
+    indexStatus,
+    enablePreviewedCommitStyling,
+    enableSelectedCommitStyling
   ])
 
   return (

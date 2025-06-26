@@ -77,6 +77,23 @@ export interface GitContextBag {
   setPreviewedCommit: (commit?: Commit) => void
 
   /**
+   * Enables the row styling across the log
+   * elements when a commit is selected.
+   *
+   * @default true
+   */
+  enableSelectedCommitStyling?: boolean
+
+
+  /**
+   * Enables the row styling across the log
+   * elements when a commit is being previewed.
+   *
+   * @default true
+   */
+  enablePreviewedCommitStyling?: boolean
+
+  /**
    * Whether to show labels for the nodes
    * that are the tips of branches or
    * tags with the graph.
@@ -104,8 +121,8 @@ export interface GitContextBag {
 
   /**
    * The spacing between the rows of the log.
-   * Effects all elements across the branches,
-   * graph and table.
+   * Affects all elements across the branches,
+   *  graph, and table.
    *
    * @default 0
    */
@@ -121,7 +138,7 @@ export interface GitContextBag {
    * The orientation of the graph.
    *
    * Normal mode draws the graph from
-   * left to right so the checked-out
+   * left to right, so the checked-out
    * branch is on the left-hand side.
    *
    * Flipped mode inverts the graph

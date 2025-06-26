@@ -23,8 +23,16 @@ export const GraphColumn = ({
 }: GraphColumnProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { nodeSize, orientation, node } = useGraphContext()
-  const { headCommit, selectedCommit, previewedCommit, showTable } = useGitContext()
   const { getGraphColumnColour, shiftAlphaChannel, textColour, hoverColour, getGraphColumnSelectedBackgroundColour } = useTheme()
+
+  const {
+    showTable,
+    headCommit,
+    selectedCommit,
+    previewedCommit,
+    enableSelectedCommitStyling,
+    enablePreviewedCommitStyling
+  } = useGitContext()
 
   const columnColour = state.isPlaceholderSkeleton
     ? shiftAlphaChannel(textColour, 0.8)
@@ -37,6 +45,10 @@ export const GraphColumn = ({
   const rowsCommitIsHead = commit.hash === headCommit?.hash && state.isNode
   
   const showPreviewBackground = useMemo(() => {
+    if (!enablePreviewedCommitStyling) {
+      return false
+    }
+
     const selectedCommitIsNotPreviewed = selectedCommit?.hash != previewedCommit?.hash
     const shouldPreview = rowsCommitMatchesPreviewed && selectedCommitIsNotPreviewed
 
@@ -50,9 +62,13 @@ export const GraphColumn = ({
     // If the table is not rendered on the right, only
     // show the preview background for the node column
     return shouldPreview && commitNodeIndex === index
-  }, [commitNodeIndex, index, previewedCommit?.hash, rowsCommitMatchesPreviewed, selectedCommit?.hash, showTable])
+  }, [commitNodeIndex, enablePreviewedCommitStyling, index, previewedCommit?.hash, rowsCommitMatchesPreviewed, selectedCommit?.hash, showTable])
 
   const showSelectedBackground = useMemo(() => {
+    if (!enableSelectedCommitStyling) {
+      return false
+    }
+
     // If we're rendering the table on the right, then we
     // want all columns in this row to render a background
     // so that it lines up with the table row.
@@ -63,7 +79,7 @@ export const GraphColumn = ({
     // If the table is not rendered on the right, only
     // show the selected background for the node column
     return rowsCommitMatchesSelected && commitNodeIndex === index
-  }, [commitNodeIndex, index, rowsCommitMatchesSelected, showTable])
+  }, [commitNodeIndex, enableSelectedCommitStyling, index, rowsCommitMatchesSelected, showTable])
 
   const style = useMemo<CSSProperties>(() => {
     const isCurve = state.isLeftDownCurve || state.isLeftUpCurve

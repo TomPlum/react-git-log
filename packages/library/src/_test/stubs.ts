@@ -56,6 +56,8 @@ export const gitContextBag = (bag?: Partial<GitContextBag>): GitContextBag => ({
   nodeSize: 20,
   setNodeSize: vi.fn(),
   headCommitHash: '123',
+  enableSelectedCommitStyling: true,
+  enablePreviewedCommitStyling: true,
   indexStatus: {
     deleted: 0,
     modified: 0,

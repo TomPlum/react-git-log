@@ -10,8 +10,8 @@ import { BranchTagProps } from './types'
 import { useGitContext } from 'context/GitContext'
 
 export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTagProps) => {
-  const { selectedCommit, previewedCommit } = useGitContext()
   const { textColour, shiftAlphaChannel, getCommitColour } = useTheme()
+  const { selectedCommit, previewedCommit, enablePreviewedCommitStyling, enableSelectedCommitStyling } = useGitContext()
 
   const colour = getCommitColour(commit)
 
@@ -26,13 +26,11 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
   }, [])
 
   const tagLineStyles = useMemo<CSSProperties>(() => {
-    const isPreviewCommit = commit.hash === previewedCommit?.hash
+    const isPreviewCommit = commit.hash === previewedCommit?.hash && enablePreviewedCommitStyling
+    const isSelectedCommit = commit.hash === selectedCommit?.hash && enableSelectedCommitStyling
 
-    const opacity = commit.hash === selectedCommit?.hash
-      ? 1
-      : isPreviewCommit
-      ? 0.8
-      : 0.4
+    const previewOrDefaultOpacity = isPreviewCommit ? 0.8 : 0.4
+    const opacity: number = isSelectedCommit ? 1 : previewOrDefaultOpacity
     
     return {
       opacity,
@@ -41,7 +39,7 @@ export const BranchTag = ({ id, commit, height, lineRight, lineWidth }: BranchTa
       borderTop: `2px dotted ${colour}`,
       animationDuration: isPreviewCommit ? '0s' : '0.3s'
     }
-  }, [colour, commit.hash, lineRight, lineWidth, previewedCommit?.hash, selectedCommit?.hash])
+  }, [colour, commit.hash, enablePreviewedCommitStyling, enableSelectedCommitStyling, lineRight, lineWidth, previewedCommit?.hash, selectedCommit?.hash])
 
   const tagLabelContainerStyles = useMemo<CSSProperties>(() => {
     if (commit.hash === 'index') {

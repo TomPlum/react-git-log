@@ -367,6 +367,37 @@ describe('GraphColumn', () => {
       expect(graphColumn.withPreviewedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
     })
 
+    it('should not render a column background if the selected commits hash matches that of the columns rows, but enableSelectedCommitStyle is false', () => {
+      const selectedCommit = commit({ hash: 'selected-commit' })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        selectedCommit,
+        enableSelectedCommitStyling: false, // <-- selected commit styling is off
+        showTable: true // <-- the table is shown
+      }))
+
+      const getGraphColumnSelectedBackgroundColour = vi.fn()
+
+      vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions({
+        getGraphColumnSelectedBackgroundColour
+      }))
+
+      render(
+        <GraphColumn
+          index={5}
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={3}
+          commit={selectedCommit}
+        />
+      )
+
+      expect(getGraphColumnSelectedBackgroundColour).not.toHaveBeenCalled()
+
+      expect(graphColumn.withSelectedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
+      expect(graphColumn.withPreviewedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
+    })
+
     it('should render a different coloured background for the selected rows column if its a placeholder', () => {
       const selectedCommit = commit({ hash: 'selected-commit' })
 
@@ -485,6 +516,29 @@ describe('GraphColumn', () => {
       )
 
       expect(graphColumn.withPreviewedBackground({ column: 5 })).toBeInTheDocument()
+      expect(graphColumn.withSelectedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
+    })
+
+    it('should not render a column background if the previewed commits hash matches that of the columns rows, but enablePreviewCommitStyle is false', () => {
+      const previewedCommit = commit({ hash: 'previewed-commit' })
+
+      vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+        previewedCommit,
+        enablePreviewedCommitStyling: false, // <-- preview styling is disabled
+        showTable: true // <-- the table is shown
+      }))
+
+      render(
+        <GraphColumn
+          index={5}
+          state={{}}
+          rowIndex={0}
+          commitNodeIndex={0}
+          commit={previewedCommit}
+        />
+      )
+
+      expect(graphColumn.withPreviewedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
       expect(graphColumn.withSelectedBackground({ column: 5, shouldExist: false })).not.toBeInTheDocument()
     })
 

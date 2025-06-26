@@ -18,7 +18,7 @@ interface GitLogCommonProps {
 
   /**
    * An array of colours used to colour the
-   * logs elements such as the graph.
+   * log elements such as the graph.
    *
    * One colour will be used for each column
    * in the graph. The number of columns is
@@ -104,6 +104,23 @@ interface GitLogCommonProps {
    * @param commit Details of the previewed commit.
    */
   onPreviewCommit?: (commit?: Commit) => void
+
+  /**
+   * Enables the row styling across the log
+   * elements when a commit is selected.
+   *
+   * @default true
+   */
+  enableSelectedCommitStyling?: boolean
+
+
+  /**
+   * Enables the row styling across the log
+   * elements when a commit is being previewed.
+   *
+   * @default true
+   */
+  enablePreviewedCommitStyling?: boolean
 
   /**
    * CSS Classes to pass to various underlying

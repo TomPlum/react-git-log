@@ -16,6 +16,8 @@ const meta: Meta<GitLogPagedStoryProps> = {
     showCommitNodeHashes: false,
     showHeaders: true,
     enableResize: false,
+    enablePreviewedCommitStyling: true,
+    enableSelectedCommitStyling: true,
     nodeTheme: 'default',
     showGitIndex: true,
     renderStrategy: 'html-grid',
@@ -86,6 +88,20 @@ const meta: Meta<GitLogPagedStoryProps> = {
       options: {
         'HTML Grid': 'html-grid',
         Canvas2D: 'canvas'
+      }
+    },
+    enableSelectedCommitStyling: {
+      name: 'Enable Selection Styling',
+      type: 'boolean',
+      table: {
+        category: 'Visibility'
+      }
+    },
+    enablePreviewedCommitStyling: {
+      name: 'Enable Preview Styling',
+      type: 'boolean',
+      table: {
+        category: 'Visibility'
       }
     },
     enableResize: {

@@ -84,7 +84,7 @@ export const Tags = () => {
             <BranchTag
               commit={commit}
               id={i.toString()}
-              key={`tag_${commit.hash}`}
+              key={`tag-${commit.hash}`}
               height={ROW_HEIGHT + rowSpacing}
               lineWidth={tagLineWidth(commit)}
               lineRight={-tagLineWidth(commit)}
@@ -93,10 +93,10 @@ export const Tags = () => {
         } else {
           return (
             <div
-              id={`empty-tag-${i}`}
-              key={`empty-tag-${i}`}
               className={styles.tag}
               data-testid={`empty-tag-${i}`}
+              id={`empty-tag-${commit.hash}`}
+              key={`empty-tag-${commit.hash}`}
               style={{ height: ROW_HEIGHT + rowSpacing }}
             />
           )

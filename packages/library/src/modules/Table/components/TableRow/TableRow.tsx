@@ -27,33 +27,28 @@ export const TableRow = ({
   } = useTheme()
 
   const { selectCommitHandler } = useSelectCommit()
-  const { selectedCommit, previewedCommit, nodeSize } = useGitContext()
+  const { selectedCommit, previewedCommit, nodeSize, enableSelectedCommitStyling, enablePreviewedCommitStyling } = useGitContext()
 
   const isRowSelected = selectedCommit?.hash === commit.hash
   const isRowPreviewed = previewedCommit?.hash === commit.hash
   const isMergeCommit = commit.parents.length > 1
 
   const backgroundColour = useMemo(() => {
-    const colour = getCommitColour(commit)
-
-    if (isRowSelected) {
+    if (isRowSelected && enableSelectedCommitStyling) {
       if (isPlaceholder) {
         return hoverColour
       }
 
+      const colour = getCommitColour(commit)
       return reduceOpacity(colour, 0.15)
     }
 
-    if (isRowPreviewed) {
-      if (isPlaceholder) {
-        return hoverColour
-      }
-
+    if (isRowPreviewed && enablePreviewedCommitStyling) {
       return hoverColour
     }
 
     return 'transparent'
-  }, [getCommitColour, commit, isRowSelected, isRowPreviewed, isPlaceholder, reduceOpacity, hoverColour])
+  }, [getCommitColour, commit, isRowSelected, enableSelectedCommitStyling, isRowPreviewed, enablePreviewedCommitStyling, isPlaceholder, reduceOpacity, hoverColour])
 
   const backgroundStyles = useMemo(() => {
     const height = nodeSize + BACKGROUND_HEIGHT_OFFSET

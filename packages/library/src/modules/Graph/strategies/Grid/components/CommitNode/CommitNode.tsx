@@ -61,30 +61,36 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
     }
   }, [commit, commitUrl, selectCommitHandler])
 
+  const getTooltipContent = useCallback(({ position, childRect, popoverRect }: PopoverState) => (
+    <ArrowContainer
+      arrowSize={10}
+      arrowColor={borderColour}
+      position={position}
+      childRect={childRect}
+      popoverRect={popoverRect}
+    >
+      <CommitNodeTooltip
+        commit={commit}
+        color={borderColour}
+      />
+    </ArrowContainer>
+  ), [borderColour, commit])
+
   return (
     <Popover
       padding={0}
+      content={getTooltipContent}
       positions={['top', 'bottom']}
       containerStyle={{ zIndex: '20' }}
       isOpen={showCommitNodeTooltips ? showTooltip : false}
-      content={({ position, childRect, popoverRect }: PopoverState) => (
-        <ArrowContainer
-          arrowSize={10}
-          arrowColor={borderColour}
-          position={position}
-          childRect={childRect}
-          popoverRect={popoverRect}
-        >
-          <CommitNodeTooltip
-            commit={commit}
-            color={borderColour}
-          />
-        </ArrowContainer>
-      )}
     >
       <div
+        role='button'
+        tabIndex={0}
         key={commit.hash}
         style={nodeStyles}
+        onBlur={handleMouseOut}
+        onFocus={handleMouseOver}
         onClick={handleClickNode}
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
@@ -92,6 +98,12 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
         id={`commit-node-${commit.hash}`}
         data-testid={`commit-node-${commit.hash}`}
         title={commitUrl ? 'View Commit' : undefined}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault()
+           handleClickNode()
+          }
+        }}
       >
         {isMergeCommit && (
           <div

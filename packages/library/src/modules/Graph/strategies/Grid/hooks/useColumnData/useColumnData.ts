@@ -82,52 +82,48 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
                 isLeftDownCurve: true
               }
             }
-          } else {
-            // If we're on rows beyond the first one where the start node is
-
-            if (edgeDownToLeft) {
-              // Vertical straight lines down up until
-              // before we reach the target row since we'll
-              // have a curved line their around the corner.
-              if (targetRow !== rowStart && targetRow != rowEnd) {
-                columnState[colStart] = {
-                  ...columnState[colStart],
-                  isVerticalLine: true
-                }
-              }
-
-              if (targetRow === rowEnd) {
-                // Add the curved line into the column that we're starting
-                // from (the commit nodes), and draw to the left towards our
-                // target node.
-                columnState[colStart] = {
-                  ...columnState[colStart],
-                  isLeftUpCurve: true
-                }
-
-                // For the remaining columns in this final row, draw
-                // horizontal lines towards the target commit node.
-                for (let columnIndex = colStart - 1; columnIndex >= colEnd; columnIndex--) {
-                  columnState[columnIndex] = {
-                    ...columnState[columnIndex],
-                    isHorizontalLine: true,
-                    mergeSourceColumns: [
-                      ...(columnState[columnIndex]?.mergeSourceColumns ?? []),
-                      colStart
-                    ]
-                  }
-                }
-
-                columnState[colEnd] = {
-                  ...columnState[colEnd]
-                }
-              }
-            } else {
-              // Else we're drawing a vertical line
-              columnState[colEnd] = {
-                ...columnState[colEnd],
+          } else if (edgeDownToLeft) {
+            // Vertical straight lines down up until
+            // before we reach the target row since we'll
+            // have a curved line their around the corner.
+            if (targetRow !== rowStart && targetRow != rowEnd) {
+              columnState[colStart] = {
+                ...columnState[colStart],
                 isVerticalLine: true
               }
+            }
+
+            if (targetRow === rowEnd) {
+              // Add the curved line into the column that we're starting
+              // from (the commit nodes), and draw to the left towards our
+              // target node.
+              columnState[colStart] = {
+                ...columnState[colStart],
+                isLeftUpCurve: true
+              }
+
+              // For the remaining columns in this final row, draw
+              // horizontal lines towards the target commit node.
+              for (let columnIndex = colStart - 1; columnIndex >= colEnd; columnIndex--) {
+                columnState[columnIndex] = {
+                  ...columnState[columnIndex],
+                  isHorizontalLine: true,
+                  mergeSourceColumns: [
+                    ...(columnState[columnIndex]?.mergeSourceColumns ?? []),
+                    colStart
+                  ]
+                }
+              }
+
+              columnState[colEnd] = {
+                ...columnState[colEnd]
+              }
+            }
+          } else {
+            // Else we're drawing a vertical line
+            columnState[colEnd] = {
+              ...columnState[colEnd],
+              isVerticalLine: true
             }
           }
 

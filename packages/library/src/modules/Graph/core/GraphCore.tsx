@@ -65,7 +65,7 @@ export const GraphCore = ({
         {children}
 
         {enableResize && (
-          <div
+          <button
             onMouseDown={startResizing}
             className={styles.dragHandle}
           />

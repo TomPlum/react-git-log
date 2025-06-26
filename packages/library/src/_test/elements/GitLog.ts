@@ -3,8 +3,8 @@ import { ShouldExist } from './types'
 
 export class GitLogElement {
   private getElement<T extends boolean>(testId: string, shouldExist: T = true as T): T extends true ? HTMLElement : HTMLElement | null {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (shouldExist ? screen.getByTestId(testId) : screen.queryByTestId(testId)) as any
+    // @ts-expect-error It's okay for testing.
+    return (shouldExist ? screen.getByTestId(testId) : screen.queryByTestId(testId))
   }
 
   public container<T extends boolean = true>({ shouldExist }: ShouldExist<T> = {} as ShouldExist<T>) {

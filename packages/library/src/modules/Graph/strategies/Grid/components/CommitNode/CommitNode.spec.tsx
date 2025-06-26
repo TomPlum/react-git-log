@@ -3,7 +3,7 @@ import * as gitContext from 'context/GitContext'
 import * as selectCommit from 'hooks/useSelectCommit'
 import * as themeHook from 'hooks/useTheme'
 import { commit, gitContextBag, graphContextBag, themeFunctions } from 'test/stubs'
-import { render, screen, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { CommitNode } from 'modules/Graph/strategies/Grid/components/CommitNode/CommitNode'
 import { commitNode } from 'test/elements/CommitNode'
@@ -193,6 +193,38 @@ describe('CommitNode', () => {
     expect(commitNodeElement).toBeInTheDocument()
 
     await userEvent.click(commitNodeElement)
+    expect(onClickHandler).toHaveBeenCalledExactlyOnceWith(commitObject)
+  })
+
+  it('should invoke the onClick event handler from the select commit handler hook when pressing the enter key on the node', async () => {
+    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag())
+
+    const onClickHandler = vi.fn()
+    vi.spyOn(selectCommit, 'useSelectCommit').mockReturnValue({
+      selectCommitHandler: {
+        onMouseOut: vi.fn(),
+        onClick: onClickHandler,
+        onMouseOver: vi.fn()
+      }
+    })
+
+    vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions())
+
+    const commitObject = commit({
+      hash: 'commit-to-click'
+    })
+
+    render(
+      <CommitNode
+        colour='white'
+        commit={commitObject}
+      />
+    )
+
+    const commitNodeElement = commitNode.withHash({ hash: 'commit-to-click' })
+    expect(commitNodeElement).toBeInTheDocument()
+
+    fireEvent.keyDown(commitNodeElement, { key: 'Enter', code: 'Enter', keyCode: 13 })
     expect(onClickHandler).toHaveBeenCalledExactlyOnceWith(commitObject)
   })
 

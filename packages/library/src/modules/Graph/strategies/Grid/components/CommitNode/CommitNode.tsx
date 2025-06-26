@@ -101,7 +101,7 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             e.preventDefault()
-           handleClickNode()
+            handleClickNode()
           }
         }}
       >

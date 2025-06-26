@@ -114,7 +114,7 @@ jobs:
         with:
           command: 'monitor'
           json: true
-          args: --severity-threshold=high
+          args: --severity-threshold=high --all-projects
 
   upload-coverage:
     runs-on: ubuntu-latest

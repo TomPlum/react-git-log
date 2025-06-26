@@ -134,7 +134,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: storybook-static
-          path: ./packages/demo
+          path: ./packages/demo/storybook-static
       - uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/demo/storybook-static

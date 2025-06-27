@@ -16,6 +16,11 @@ jobs:
           cache: 'npm'
       - run: npm install
       - run: npm run build --workspace=@tomplum/react-git-log
+      - name: Store Built Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: ./packages/library/dist
 
   build-storybook:
     runs-on: ubuntu-latest
@@ -162,6 +167,12 @@ jobs:
           else
             echo "VERSION_EXISTS=false" >> $GITHUB_ENV
           fi
+
+      - name: Download Production Build
+        uses: actions/download-artifact@v4
+        with:
+          name: production-build
+          path: ./packages/library/dist
 
       - name: Publish to NPM
         if: env.VERSION_EXISTS == 'false'

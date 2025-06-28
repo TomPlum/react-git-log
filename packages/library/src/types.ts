@@ -11,6 +11,19 @@ interface GitLogCommonProps {
   entries: GitLogEntry[]
 
   /**
+   * A list of SHA1 commit hashes that belong
+   * to commits that would normally be present
+   * on in the log but have been filtered out
+   * due to something like a search.
+   *
+   * The log, and any relevant subcomponents,
+   * will filter these commits out, so they no
+   * longer render, but will change their styling
+   * to make it clear that commits are missing.
+   */
+  filteredCommits?: string[]
+
+  /**
    * The variant of the default colour
    * theme to apply to the log.
    */

@@ -44,6 +44,7 @@ A flexible and interactive React component for visualising Git commit history. D
 * [Development](#development)
 * [References](#references)
 * [Roadmap](#roadmap)
+* [Known Bugs](#known-bugs)
 <!-- TOC -->
 
 # Features
@@ -474,21 +475,26 @@ The following properties are injected into the functions `props` argument:
 - And Iain Ballard for his experimental GUI [SnivellingGit](https://github.com/i-e-b/SnivellingGit/tree/master)
 
 # Roadmap
+
+Storybook Demo
 - Show code in stories
-- Expose custom theme object off the Theme type
-- Can Zustand help us here to reduce re-renders with GitContext Provider?
-- Expose component override props for things like CommitNode, CommitMessage etc.
-- Straight line prop to turn curves into right angles?
-- Line curve radius prop?
-- Fix React docgen in Storybook controls as its not showing the JSDoc from the interface props
-- Mobile responsiveness for the demo site
+- Fix React docgen in Storybook controls as it's not showing the JSDoc from the interface props
+- Mobile responsiveness
+
+Graphs
+- Straight line prop to turn curves into right angles
+- Line curve radius prop
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
+- Support filtering so that the graph skips nodes
 
 Canvas2D
-- Fade out of line at bottom
-- Tooltips?
+- Custom prop for BG colour because of how canvas alpha channel works
+- Tooltip support
 - Row spacing support
-- First col background cut off by canvas
-- Branch/tag lines to lining up with nodes.
-- Selected node BG colour still isn't right.
+
+# Known Bugs
+- The `GraphCanvas2D` component has the preview/select background cut off by canvases left-edge.
+- The `GraphCanvas2D` component does not set the correct selected node BG colour, it's slightly off from the table row.
+- The `GraphHTMLGrid` component renders the node-edge gradient to last node, but should be solid.
+- The `GraphHTMLGrid` component is missing node edges from some commit nodes that are present in the canvas variant.

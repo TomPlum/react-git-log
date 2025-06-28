@@ -11,5 +11,6 @@
   "plugin": ["typedoc-plugin-markdown"],
   "preserveWatchOutput": true,
   "sort": ["source-order"],
-  "logLevel": "Info"
+  "logLevel": "Info",
+  "treatWarningsAsErrors": true
 }

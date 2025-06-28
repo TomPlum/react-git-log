@@ -5,12 +5,9 @@ import { GraphCanvas2D, GraphHTMLGrid } from './modules/Graph'
 import { Table } from './modules/Table'
 import { GitLogCore } from './components/GitLogCore'
 
-export const GitLog = ({ children, ...props }: PropsWithChildren<GitLogProps>) => {
+export const GitLog = <T,>({ children, ...props }: PropsWithChildren<GitLogProps<T>>) => {
   return (
-    <GitLogCore
-      {...props}
-      componentName="GitLog"
-    >
+    <GitLogCore<T> {...props} componentName="GitLog">
       {children}
     </GitLogCore>
   )

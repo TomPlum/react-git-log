@@ -1,9 +1,6 @@
 import { CommitAuthor } from './Commit'
 
-/**
- * Represents a single entry in the git log.
- */
-export interface GitLogEntry {
+export interface GitLogEntryBase {
   /**
    * The unique hash identifier of the commit.
    */
@@ -36,7 +33,7 @@ export interface GitLogEntry {
   /**
    * The date and time when the commit was applied by the committer.
    *
-   * This is typically the timestamp when the commit was finalized.
+   * This is typically the timestamp when the commit was finalised.
    */
   committerDate: string
 
@@ -47,3 +44,12 @@ export interface GitLogEntry {
    */
   authorDate?: string
 }
+
+/**
+ * Represents a single entry in the git log.
+ *
+ * You can pass extra information in the generic
+ * type, and it will be passed back to you in any
+ * relevant callback functions.
+ */
+export type GitLogEntry<T = object> = GitLogEntryBase & T

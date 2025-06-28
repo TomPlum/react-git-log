@@ -5,14 +5,14 @@ import { Commit } from 'types/Commit'
  * A function that returns a custom implementation
  * for the commit node in the graph.
  */
-export type CustomCommitNode = (props: CustomCommitNodeProps) => ReactElement
+export type CustomCommitNode<T> = (props: CustomCommitNodeProps<T>) => ReactElement
 
-export interface CustomCommitNodeProps {
+export interface CustomCommitNodeProps<T> {
   /**
    * Details of the commit that this node
    * represents.
    */
-  commit: Commit
+  commit: Commit<T>
 
   /**
    * The colour of the node based on the

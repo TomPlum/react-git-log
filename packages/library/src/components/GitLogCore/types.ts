@@ -1,6 +1,6 @@
 import { GitLogPagedProps, GitLogProps } from '../../types'
 
-export interface GitLogCoreProps extends GitLogProps, Omit<GitLogPagedProps, 'headCommitHash' | 'branchName'> {
+export interface GitLogCoreProps<T> extends GitLogProps<T>, Omit<GitLogPagedProps<T>, 'headCommitHash' | 'branchName'> {
   componentName: string
   headCommitHash?: string
   isServerSidePaginated?: boolean

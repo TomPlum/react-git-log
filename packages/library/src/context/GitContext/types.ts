@@ -3,7 +3,7 @@ import { GraphData } from 'data'
 import { GitLogIndexStatus, GitLogStylingProps, GitLogUrlBuilder } from '../../types'
 import { GraphOrientation } from 'modules/Graph'
 
-export interface GitContextBag {
+export interface GitContextBag<T = unknown> {
   /**
    * The name of the branch that is
    * currently checked out.
@@ -19,7 +19,7 @@ export interface GitContextBag {
    * commit (probably due to server-side
    * pagination being used)
    */
-  headCommit?: Commit
+  headCommit?: Commit<T>
 
   /**
    * The SHA1 hash of the HEAD commit of
@@ -27,7 +27,7 @@ export interface GitContextBag {
    * out in the repository.
    *
    * Only needs to be passed in if you are
-   * passing in a sub-set of the Git log
+   * passing in a subset of the Git log
    * {@link entries} due to managing your
    * own pagination.
    *
@@ -50,7 +50,7 @@ export interface GitContextBag {
    * The currently selected commit that
    * is highlighted in the log.
    */
-  selectedCommit?: Commit
+  selectedCommit?: Commit<T>
 
   /**
    * Sets the selected commit. Can be
@@ -58,7 +58,7 @@ export interface GitContextBag {
    *
    * @param commit Details of the selected commit.
    */
-  setSelectedCommit: (commit?: Commit) => void
+  setSelectedCommit: (commit?: Commit<T>) => void
 
   /**
    * The currently previewed commit that
@@ -66,7 +66,7 @@ export interface GitContextBag {
    * while the user is hovering their cursor
    * over it.
    */
-  previewedCommit?: Commit
+  previewedCommit?: Commit<T>
 
   /**
    * Sets the previewed commit. Can be
@@ -74,7 +74,7 @@ export interface GitContextBag {
    *
    * @param commit Details of the selected commit.
    */
-  setPreviewedCommit: (commit?: Commit) => void
+  setPreviewedCommit: (commit?: Commit<T>) => void
 
   /**
    * Enables the row styling across the log
@@ -182,7 +182,7 @@ export interface GitContextBag {
    * components such as the graph, table
    * and tag/branch labels.
    */
-  graphData: GraphData
+  graphData: GraphData<T>
 
   /**
    * CSS Classes to pass to various underlying

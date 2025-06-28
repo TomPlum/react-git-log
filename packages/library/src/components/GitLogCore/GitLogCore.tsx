@@ -15,7 +15,7 @@ import { useCoreComponents } from 'components/GitLogCore/useCoreComponents'
 
 dayjs.extend(utc)
 
-export const GitLogCore = ({
+export const GitLogCore = <T,>({
   children,
   entries,
   showHeaders = false,
@@ -36,13 +36,13 @@ export const GitLogCore = ({
   showGitIndex = true,
   enableSelectedCommitStyling = true,
   enablePreviewedCommitStyling = true
-}: PropsWithChildren<GitLogCoreProps>) => {
+}: PropsWithChildren<GitLogCoreProps<T>>) => {
   const { tags, graph, table } = useCoreComponents({
     children,
     componentName
   })
 
-  const graphData = useMemo<GraphData>(() => {
+  const graphData = useMemo<GraphData<T>>(() => {
     const { children, parents, hashToCommit } = computeRelationships(entries, headCommitHash)
     const sortedCommits = temporalTopologicalSort([...hashToCommit.values()], children, hashToCommit)
     const { graphWidth, positions, edges } = computeNodePositions(sortedCommits, currentBranch, children, parents)
@@ -60,25 +60,25 @@ export const GitLogCore = ({
 
   const [nodeSize, setNodeSize] = useState(DEFAULT_NODE_SIZE)
   const [graphOrientation, setGraphOrientation] = useState<GraphOrientation>('normal')
-  const [selectedCommit, setSelectedCommit] = useState<Commit>()
-  const [previewedCommit, setPreviewedCommit] = useState<Commit>()
+  const [selectedCommit, setSelectedCommit] = useState<Commit<T>>()
+  const [previewedCommit, setPreviewedCommit] = useState<Commit<T>>()
 
   const smallestAvailableGraphWidth = graphData.graphWidth * (nodeSize + (NODE_BORDER_WIDTH * 2))
 
   // TODO: Are we using graphWidth here or just ditching enableResize?
   const [, setGraphWidth] = useState(defaultGraphWidth ?? smallestAvailableGraphWidth)
 
-  const handleSelectCommit = useCallback((commit?: Commit) => {
+  const handleSelectCommit = useCallback((commit?: Commit<T>) => {
     setSelectedCommit(commit)
     onSelectCommit?.(commit)
   }, [onSelectCommit])
 
-  const handlePreviewCommit = useCallback((commit?: Commit) => {
+  const handlePreviewCommit = useCallback((commit?: Commit<T>) => {
     setPreviewedCommit(commit)
     onPreviewCommit?.(commit)
   }, [onPreviewCommit])
 
-  const headCommit = useMemo<Commit | undefined>(() => {
+  const headCommit = useMemo<Commit<T> | undefined>(() => {
     if (isServerSidePaginated) {
       return graphData.commits.find(it => it.hash === headCommitHash)
     }
@@ -140,7 +140,7 @@ export const GitLogCore = ({
   }, [defaultGraphWidth, smallestAvailableGraphWidth])
 
 
-  const value = useMemo<GitContextBag>(() => ({
+  const value = useMemo<GitContextBag<T>>(() => ({
     showTable: Boolean(table),
     showBranchesTags: Boolean(tags),
     classes,
@@ -197,7 +197,7 @@ export const GitLogCore = ({
   ])
 
   return (
-    <GitContext.Provider value={value}>
+    <GitContext.Provider value={value as GitContextBag}>
       <ThemeContextProvider theme={theme} colours={colours} graphWidth={graphData.graphWidth}>
         <Layout tags={tags} graph={graph} table={table} />
       </ThemeContextProvider>

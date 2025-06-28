@@ -13,8 +13,8 @@ import { ActiveNodes } from './ActiveNodes'
  * @param parents - A map of commit hashes to their parent commits
  * @returns An object containing commit positions, graph width, and edge connections
  */
-export const computeNodePositions = (
-  commits: Commit[],
+export const computeNodePositions = <T>(
+  commits: Commit<T>[],
   currentBranch: string,
   children: Map<string, string[]>,
   parents: Map<string, string[]>

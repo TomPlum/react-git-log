@@ -1,5 +1,5 @@
 import { NodeTheme } from '../../hooks/useTheme'
-import { CustomCommitNode } from '../Graph/strategies/Grid'
+import { CustomCommitNode } from './strategies/Grid/types'
 
 export type GraphOrientation = 'normal' | 'flipped'
 
@@ -37,7 +37,7 @@ export interface HTMLGridGraphProps extends GraphPropsCommon {
   highlightedBackgroundHeight?: number
 }
 
-interface GraphPropsCommon {
+export interface GraphPropsCommon {
   /**
    * The theme to apply the commit node
    * elements in the graph.
@@ -63,7 +63,7 @@ interface GraphPropsCommon {
    * The orientation of the graph.
    *
    * Normal mode draws the graph from
-   * left to right so the checked-out
+   * left to right, so the checked-out
    * branch is on the left-hand side.
    *
    * Flipped mode inverts the graph

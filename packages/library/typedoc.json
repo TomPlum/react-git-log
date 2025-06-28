@@ -1,0 +1,16 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "docs",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "excludeExternals": false,
+  "exclude": ["**/*.spec.ts", "**/*.spec.tsx", "**/__tests__/**","**/_test/**", "**/*.stories.tsx"],
+  "tsconfig": "tsconfig.build.json",
+  "plugin": ["typedoc-plugin-markdown"],
+  "preserveWatchOutput": true,
+  "sort": ["source-order"],
+  "logLevel": "Info",
+  "treatWarningsAsErrors": true
+}

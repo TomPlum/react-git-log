@@ -11,6 +11,19 @@ interface GitLogCommonProps {
   entries: GitLogEntry[]
 
   /**
+   * A list of SHA1 commit hashes that belong
+   * to commits that would normally be present
+   * on in the log but have been filtered out
+   * due to something like a search.
+   *
+   * The log, and any relevant subcomponents,
+   * will filter these commits out, so they no
+   * longer render, but will change their styling
+   * to make it clear that commits are missing.
+   */
+  filteredCommits?: string[]
+
+  /**
    * The variant of the default colour
    * theme to apply to the log.
    */
@@ -57,7 +70,7 @@ interface GitLogCommonProps {
   /**
    * The default width of the graph in pixels.
    *
-   * Can be changed dynamically if {@link enableResize}
+   * Can be changed dynamically if {@link GraphPropsCommon.enableResize enableResize}
    * is true.
    *
    * @default 300
@@ -164,11 +177,11 @@ export interface GitLogPagedProps extends GitLogCommonProps {
 
   /**
    * The SHA1 hash of the HEAD commit of
-   * the {@link currentBranch} that is checked
+   * the {@link GitLogProps.currentBranch currentBranch} that is checked
    * out in the repository.
    *
    * Only needs to be passed in if you are
-   * passing in a sub-set of the Git log
+   * passing in a subset of the Git log
    * {@link entries} due to managing your
    * own pagination.
    *

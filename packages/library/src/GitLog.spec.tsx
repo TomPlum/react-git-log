@@ -12,6 +12,7 @@ import { act } from 'react'
 import { Commit } from 'types/Commit'
 import { table } from 'test/elements/Table'
 import { createCanvas } from 'canvas'
+import { GitLogEntry } from 'types/GitLogEntry'
 
 const today = Date.UTC(2025, 2, 24, 18, 0, 0)
 
@@ -22,7 +23,7 @@ const urlBuilderFunction: GitLogUrlBuilder = ({ commit }) => ({
 
 const sleepRepositoryLogEntries = parseGitLogOutput(sleepRepositoryData)
 
-const getSleepRepositoriesLogEntries = (quantity: number) => {
+const getSleepRepositoriesLogEntries = (quantity: number): GitLogEntry[] => {
   const entries = sleepRepositoryLogEntries.slice(0, quantity + 1)
   entries[quantity - 1].parents = []
   return entries
@@ -345,6 +346,56 @@ describe('GitLog', () => {
       })
     })
 
+    it('should call onSelectCommit with custom data passed into the log entries', () => {
+      const handleSelectCommit = vi.fn()
+
+      interface CustomCommit {
+        customField: string,
+        moreMetaData: number[]
+      }
+
+      render(
+        <GitLog<CustomCommit>
+          showGitIndex
+          currentBranch='release'
+          onSelectCommit={handleSelectCommit}
+          entries={getSleepRepositoriesLogEntries(6).map(entry => ({
+            ...entry,
+            customField: 'testing',
+            moreMetaData: [678]
+          }))}
+        >
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handleSelectCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        graphColumn.at({ row: 1, column: 0 })?.click()
+      })
+
+      expect(handleSelectCommit).toHaveBeenCalledExactlyOnceWith<Commit<CustomCommit>[]>({
+        authorDate: '2025-03-24 17:03:58 +0000',
+        branch: 'refs/remotes/origin/renovate/all-minor-patch',
+        children: [],
+        committerDate: '2025-03-24 17:03:58 +0000',
+        author: {
+          email: '29139614+renovate[bot]@users.noreply.github.com',
+          name: 'renovate[bot]',
+        },
+        hash: '2079fb6',
+        isBranchTip: true,
+        message: 'fix(deps): update all non-major dependencies',
+        parents: [
+          '1352f4c',
+        ],
+        customField: 'testing',
+        moreMetaData: [678]
+      })
+    })
+
     it.each([0, 1, 2])('should call onSelectCommit with the commit details when clicking on column index [%s] in a commits row', (columnIndex: number) => {
       const handleSelectCommit = vi.fn()
 
@@ -523,6 +574,53 @@ describe('GitLog', () => {
         isBranchTip: true,
         message: 'fix(deps): update all non-major dependencies',
         parents: ['1352f4c']
+      })
+    })
+
+    it('should call onPreviewCommit with the custom data passed into the log', () => {
+      const handlePreviewCommit = vi.fn()
+
+      interface CustomCommit {
+        test: string
+        anotherTest: number
+      }
+
+      render(
+        <GitLog<CustomCommit>
+          currentBranch='release'
+          onPreviewCommit={handlePreviewCommit}
+          entries={getSleepRepositoriesLogEntries(3).map(entry => ({
+            ...entry,
+            test: 'hello',
+            anotherTest: 5
+          }))}
+        >
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(handlePreviewCommit).not.toHaveBeenCalled()
+
+      act(() => {
+        fireEvent.mouseOver(graphColumn.at({ row: 1, column: 0 }))
+      })
+
+      expect(handlePreviewCommit).toHaveBeenCalledExactlyOnceWith<Commit<CustomCommit>[]>({
+        authorDate: '2025-03-24 17:03:58 +0000',
+        branch: 'refs/remotes/origin/renovate/all-minor-patch',
+        author: {
+          name: 'renovate[bot]',
+          email: '29139614+renovate[bot]@users.noreply.github.com',
+        },
+        children: [],
+        committerDate: '2025-03-24 17:03:58 +0000',
+        hash: '2079fb6',
+        isBranchTip: true,
+        message: 'fix(deps): update all non-major dependencies',
+        parents: ['1352f4c'],
+        test: 'hello',
+        anotherTest: 5
       })
     })
 

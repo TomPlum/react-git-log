@@ -5,9 +5,9 @@ import { GraphCanvas2D, GraphHTMLGrid } from './modules/Graph'
 import { Table } from './modules/Table'
 import { GitLogCore } from './components/GitLogCore'
 
-export const GitLogPaged = ({ children, branchName, ...props }: PropsWithChildren<GitLogPagedProps>) => {
+export const GitLogPaged = <T,>({ children, branchName, ...props }: PropsWithChildren<GitLogPagedProps<T>>) => {
   return (
-    <GitLogCore
+    <GitLogCore<T>
       {...props}
       isServerSidePaginated
       currentBranch={branchName}

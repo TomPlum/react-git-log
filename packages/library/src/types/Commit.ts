@@ -1,7 +1,4 @@
-/**
- * Represents a commit in the Git history.
- */
-export interface Commit {
+export interface CommitBase {
   /**
    * The unique hash (SHA) identifying the commit.
    */
@@ -55,7 +52,7 @@ export interface Commit {
 
   /**
    * Indicates whether this commit is the
-   * tip (latest commit) of its branch.
+   * tip (the latest commit) of its branch.
    */
   isBranchTip: boolean
 }
@@ -74,3 +71,8 @@ export interface CommitAuthor {
    */
   email?: string;
 }
+
+/**
+ * Represents a commit in the Git history.
+ */
+export type Commit<T = object> = CommitBase & T

@@ -4,8 +4,21 @@ import { table } from 'test/elements/Table'
 import { Table } from 'modules/Table/Table'
 import * as gitContext from 'context/GitContext'
 import { commit, gitContextBag, graphData } from 'test/stubs'
+import { afterEach, beforeEach } from 'vitest'
+import { Commit } from 'types/Commit'
+
+const today = Date.UTC(2025, 2, 24, 18, 0, 0)
 
 describe('Table', () => {
+  beforeEach(() => {
+    vi.useFakeTimers()
+    vi.setSystemTime(today)
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+  
   it('should pass the given table class to the git log table element', () => {
     render(
       <Table
@@ -153,5 +166,68 @@ describe('Table', () => {
     expect(screen.getByTestId('custom-bg-colour-2')).toHaveTextContent('rgba(231, 231, 231, 0.5)')
 
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should inject custom commit fields into the row function', () => {
+    const customRowFunction = vi.fn()
+
+    interface CustomCommit {
+      customField: string
+    }
+
+    const selectedCommit = commit<CustomCommit>({
+      hash: '1',
+      customField: 'test'
+    })
+
+    const previewedCommit = commit({
+      hash: '2',
+      parents: ['1']
+    })
+
+    vi.spyOn(gitContext, 'useGitContext').mockReturnValue(gitContextBag({
+      isIndexVisible: false,
+      paging: {
+        startIndex: 0,
+        endIndex: 2,
+      },
+      selectedCommit,
+      previewedCommit,
+      graphData: graphData({
+        positions: new Map([
+          ['1', [0, 1]],
+          ['2', [1, 1]],
+        ]),
+        commits: [
+          selectedCommit,
+          previewedCommit
+        ]
+      })
+    }))
+
+    render(
+      <Table
+        row={({ commit }) => {
+          customRowFunction(commit)
+          return <div />
+        }}
+      />
+    )
+
+    expect(customRowFunction).toHaveBeenCalledWith<Commit<CustomCommit>[]>({
+      authorDate: '2025-02-22 22:06:22 +0000',
+      branch: 'refs/remotes/origin/gh-pages',
+      children: [
+        '30ee0ba',
+      ],
+      committerDate: '2025-02-24T22:06:22+00:00',
+      customField: 'test',
+      hash: '1',
+      isBranchTip: false,
+      message: 'feat(graph): example commit message',
+      parents: [
+        'afdb263',
+      ]
+    })
   })
 })

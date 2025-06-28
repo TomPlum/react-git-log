@@ -3,12 +3,12 @@ import { ThemeColours, ThemeMode } from './hooks/useTheme/types'
 import { GitLogEntry } from './types/GitLogEntry'
 import { Commit } from './types/Commit'
 
-interface GitLogCommonProps {
+interface GitLogCommonProps<T> {
   /**
    * The git log entries to visualise
    * on the graph.
    */
-  entries: GitLogEntry[]
+  entries: GitLogEntry<T>[]
 
   /**
    * A list of SHA1 commit hashes that belong
@@ -104,7 +104,7 @@ interface GitLogCommonProps {
    *
    * @param commit Details of the selected commit.
    */
-  onSelectCommit?: (commit?: Commit) => void
+  onSelectCommit?: (commit?: Commit<T>) => void
 
   /**
    * A callback function invoked when a commit
@@ -116,7 +116,7 @@ interface GitLogCommonProps {
    *
    * @param commit Details of the previewed commit.
    */
-  onPreviewCommit?: (commit?: Commit) => void
+  onPreviewCommit?: (commit?: Commit<T>) => void
 
   /**
    * Enables the row styling across the log
@@ -142,7 +142,7 @@ interface GitLogCommonProps {
   classes?: GitLogStylingProps
 }
 
-export interface GitLogProps extends GitLogCommonProps {
+export interface GitLogProps<T> extends GitLogCommonProps<T> {
   /**
    * The name of the branch that is
    * currently checked out.
@@ -168,7 +168,7 @@ export interface GitLogProps extends GitLogCommonProps {
   paging?: GitLogPaging
 }
 
-export interface GitLogPagedProps extends GitLogCommonProps {
+export interface GitLogPagedProps<T> extends GitLogCommonProps<T> {
   /**
    * The name of the branch in which the Git log
    * entries belong to.

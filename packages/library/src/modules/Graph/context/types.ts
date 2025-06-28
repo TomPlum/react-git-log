@@ -20,7 +20,7 @@ export interface GraphContextBag {
   /**
    * A custom commit node implementation.
    */
-  node?: CustomCommitNode
+  node?: CustomCommitNode<unknown>
 
   /**
    * The height, in pixels, of the background
@@ -69,7 +69,7 @@ export interface GraphContextBag {
    * rendered on the graph relative to the
    * pagination configuration.
    */
-  visibleCommits: Commit[]
+  visibleCommits: Commit<unknown>[]
 
   /**
    * A map of row indices to their

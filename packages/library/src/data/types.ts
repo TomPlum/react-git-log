@@ -1,7 +1,7 @@
 import { Commit } from 'types/Commit'
 import DataIntervalTree from 'node-interval-tree'
 
-export interface GraphData {
+export interface GraphData<T = unknown> {
   /**
    * A map of the SHA1 commit hash
    * to an array of commit hashes
@@ -22,7 +22,7 @@ export interface GraphData {
    * A map of the SHA1 commit hash
    * to the details of that commit.
    */
-  hashToCommit: Map<string, Commit>
+  hashToCommit: Map<string, Commit<T>>
 
   /**
    * The width of the graph. A number
@@ -52,7 +52,7 @@ export interface GraphData {
    * An array of commit details that have been
    * sorted temporally by committer date.
    */
-  commits: Commit[]
+  commits: Commit<T>[]
 }
 
 /**

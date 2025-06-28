@@ -202,7 +202,7 @@ describe.skip('GitLog Integration', () => {
         if (columnState.isNode) {
           const missingNodeMsg = `Expected commit node element in row ${rowIndex}, column ${columnIndex} with hash ${commit.hash}, but it was not found in the graph`
           const commitNodeTestId = graphColumn.commitNodeId({ hash: commit.hash })
-          expect(insideCurrentColumn.getByTestId(commitNodeTestId), missingNodeMsg)
+          expect(insideCurrentColumn.getByTestId(commitNodeTestId), missingNodeMsg).toBeInTheDocument()
           debugMetrics['commit-nodes'] = (debugMetrics['commit-nodes'] ?? 0) + 1
 
           // If the commit is a merge commit
@@ -238,7 +238,6 @@ describe.skip('GitLog Integration', () => {
             const isHeadCommit = commit.hash === headCommit?.hash
 
             if (!headCommit && (columnState.isColumnAboveEmpty || commit.isBranchTip)) {
-              console.log(commit.hash, columnState)
               expect(insideCurrentColumn.getByTestId(graphColumn.bottomHalfVerticalLineId)).toBeInTheDocument()
             }
 

@@ -6,8 +6,9 @@ import { useResize } from 'hooks/useResize'
 import { DEFAULT_NODE_SIZE } from 'constants/constants'
 import { GraphContext, GraphContextBag } from '../context'
 import { GraphCoreProps } from 'modules/Graph/core/types'
+import { CustomCommitNode } from 'modules/Graph'
 
-export const GraphCore = ({
+export const GraphCore = <T,>({
   node,
   children,
   nodeSize = DEFAULT_NODE_SIZE,
@@ -17,7 +18,7 @@ export const GraphCore = ({
   showCommitNodeHashes = false,
   showCommitNodeTooltips = false,
   highlightedBackgroundHeight
-}: PropsWithChildren<GraphCoreProps>) => {
+}: PropsWithChildren<GraphCoreProps<T>>) => {
   const {
     paging,
     setNodeSize,
@@ -47,7 +48,7 @@ export const GraphCore = ({
   })
 
   const contextValue = useMemo<GraphContextBag>(() => ({
-    node,
+    node: node as CustomCommitNode<unknown>,
     showCommitNodeTooltips,
     showCommitNodeHashes,
     nodeTheme,
@@ -60,7 +61,7 @@ export const GraphCore = ({
   }), [node, showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
 
   return (
-    <GraphContext value={contextValue}>
+    <GraphContext.Provider value={contextValue}>
       <div className={styles.container} style={{ width }} ref={ref}>
         {children}
 
@@ -71,6 +72,6 @@ export const GraphCore = ({
           />
         )}
       </div>
-    </GraphContext>
+    </GraphContext.Provider>
   )
 }

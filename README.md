@@ -203,7 +203,7 @@ This strategy can be used by rendering the `<GitLog.GraphCanvas2D />` subcompone
 
 # Git Log Data
 
-The array of `GitLogEntry` objects is the source of data used by the `GitLog` component. It has the following properties:
+The array of `GitLogEntry` objects is the source of data used by the core `GitLog` components. It has the following properties:
 
 | Property        | Type            | Description                                                                                                                                   |
 |-----------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -211,9 +211,37 @@ The array of `GitLogEntry` objects is the source of data used by the `GitLog` co
 | `branch`        | `string`        | The name of the branch this commit belongs to.                                                                                                |
 | `parents`       | `string[]`      | An array of parent commit hashes. If this is a merge commit, it will have multiple parents. If it's an initial commit, it will have none.     |
 | `message`       | `string`        | The commit message describing the changes made in this commit.                                                                                |
-| `author`        | `CommitAuthor?` | Details of the user who authored the commit.                                                                                                  |
 | `committerDate` | `string`        | The date and time when the commit was applied by the committer. Typically the timestamp when the commit was finalized.                        |
+| `author`        | `CommitAuthor?` | *(Optional)* Details of the user who authored the commit.                                                                                     |
 | `authorDate`    | `string?`       | *(Optional)* The date and time when the commit was originally authored. May differ from `committerDate` if the commit was rebased or amended. |
+
+You can pass a generic type to the `GitLog` or `GitLogPaged` components to augment the `GitLogEntry` data so that any `Commit` instances surfaced by callback functions will have your custom metadata passed back to you for convenience. For example:
+
+```typescript jsx
+import { GitLog } from "@tomplum/react-git-log"
+
+interface MyCustomCommit {
+  myCustomField: string
+}
+
+const YourConsumer = () => {
+  const { entries, currentBranch } = useYourDataSource()
+  
+  return (
+    <GitLog 
+      entries={entries}
+      currentBranch={currentBranch}
+      onSelectCommit={({ commit }) => {
+        console.log(commit.myCustomField)
+      }}
+    >
+      <GitLog.Tags />
+      <GitLog.GraphHTMLGrid />
+      <GitLog.Table />
+    </GitLog>
+  )
+}
+```
 
 > [!TIP]
 > Usually you'd be sourcing this data from a backend service like a web-api, but you can extract it from the command line with the following command.

@@ -8,7 +8,7 @@ import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/Graph
 import { GraphContextBag } from 'modules/Graph/context'
 import { ThemeContextBag } from 'context/ThemeContext'
 
-export const commit = (commit?: Partial<Commit>): Commit => ({
+export const commit = <T = unknown>(commit?: Partial<Commit<T>>): Commit<T> => ({
   hash: 'aa2c148',
   committerDate: '2025-02-24T22:06:22+00:00',
   authorDate: '2025-02-22 22:06:22 +0000',
@@ -22,7 +22,7 @@ export const commit = (commit?: Partial<Commit>): Commit => ({
   ],
   isBranchTip: false,
   ...commit
-})
+}) as Commit<T>
 
 export const entry = (entry?: Partial<GitLogEntry>): GitLogEntry => ({
   hash: 'aa2c148',

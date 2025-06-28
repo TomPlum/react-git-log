@@ -12,6 +12,8 @@ const spyTheme = (stubs: Partial<ThemeFunctions>) => {
     hoverColour: 'hoverColour',
     theme: 'dark',
     textColour: 'textColour',
+    getCommitNodeColours: vi.fn(),
+    getGraphColumnSelectedBackgroundColour: vi.fn(),
     reduceOpacity: vi.fn(),
     getCommitColour: vi.fn(),
     getTooltipBackground: vi.fn(),

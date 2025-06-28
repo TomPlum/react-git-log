@@ -26,5 +26,5 @@ packages/library/tomplum-react-git-log-*
 
 *storybook.log
 packages/demo/storybook-static
-
 packages/library/coverage
+packages/library/docs

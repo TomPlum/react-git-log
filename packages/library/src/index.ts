@@ -6,6 +6,7 @@ export * from './GitLogPaged'
 // Core Types
 export * from './types/Commit'
 export * from './types/GitLogEntry'
+export * from './hooks/useTheme/types'
 
 // Sub-components
 export * from './modules/Tags'

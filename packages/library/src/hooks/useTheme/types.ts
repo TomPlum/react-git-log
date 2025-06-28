@@ -3,7 +3,7 @@ import { Commit } from 'types/Commit'
 export interface ThemeFunctions {
   /**
    * The current active theme mode.
-   * @xample light, dark
+   * @example light, dark
    */
   theme: ThemeMode
 

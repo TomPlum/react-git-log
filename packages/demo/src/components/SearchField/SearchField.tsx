@@ -9,9 +9,13 @@ export const SearchField = () => {
     setSearch(e.target.value)
   }
 
+  const textColour = theme === 'dark' ? 'rgb(239,239,239)' : 'rgb(0,0,0)'
+  const backgroundColour = theme === 'dark' ? 'rgb(68,68,68)' : 'rgb(218,218,218)'
+
   const style = useMemo<CSSProperties>(() => ({
-    background: theme === 'dark' ? '' : ''
-  }), [theme])
+    background: backgroundColour,
+    color: textColour
+  }), [backgroundColour, textColour])
 
   return (
     <input
@@ -19,6 +23,7 @@ export const SearchField = () => {
       value={search ?? ''}
       onChange={handleChange}
       className={styles.SearchField}
+      placeholder='Search to filter commits...'
     />
   )
 }

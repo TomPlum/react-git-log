@@ -1,3 +1,10 @@
 .SearchField {
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  font-family: 'JetBrains Mono', system-ui, Avenir, Helvetica, Arial, sans-serif;
 
+  &:focus {
+    outline: none;
+  }
 }

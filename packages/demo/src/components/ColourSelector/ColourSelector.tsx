@@ -4,6 +4,7 @@ import { cyberpunkNeon, natureEssence, neonAurora, rainbow, retroPop, solarFlare
 import { CustomSelect } from '@components/CustomSelect'
 import { ColourItem } from '@components/ColourItem'
 import styles from './ColourSelector.module.scss'
+import { useDemoContext } from '@context'
 
 const getTheme = (name: string) => {
   switch (name) {
@@ -31,7 +32,9 @@ const getTheme = (name: string) => {
   }
 }
 
-export const ColourSelector = ({ selected, onChange, theme }: ThemeSelectorProps) => {
+export const ColourSelector = ({ selected, onChange }: ThemeSelectorProps) => {
+  const { theme } = useDemoContext()
+
   const handleChange = useCallback((id: string) => {
     onChange({
       id,

@@ -1,20 +1,24 @@
 import styles from './SearchField.module.scss'
-import { SearchFieldProps } from './types'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, CSSProperties, useMemo } from 'react'
 import { useDemoContext } from '@context'
 
-export const SearchField = ({ theme }: SearchFieldProps) => {
-  const { search, setSearch } = useDemoContext()
+export const SearchField = () => {
+  const { search, setSearch, theme } = useDemoContext()
 
   const handleChange= (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
   }
 
+  const style = useMemo<CSSProperties>(() => ({
+    background: theme === 'dark' ? '' : ''
+  }), [theme])
+
   return (
     <input
+      style={style}
       value={search ?? ''}
-      className={styles.input}
       onChange={handleChange}
+      className={styles.SearchField}
     />
   )
 }

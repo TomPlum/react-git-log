@@ -6,8 +6,11 @@ import { PackageInfo } from '@components/PackageInfo'
 import { StoryHeaderProps } from '@components/StoryHeader/types'
 import { PropsWithChildren } from 'react'
 import { SearchField } from '@components/SearchField'
+import { useDemoContext } from '@context'
 
-export const StoryHeader = ({ children, theme, repository, colours, onChangeColours, onChangeRepository, onChangeTheme }: PropsWithChildren<StoryHeaderProps>) => {
+export const StoryHeader = ({ children, repository, colours, onChangeColours, onChangeRepository }: PropsWithChildren<StoryHeaderProps>) => {
+  const { theme } = useDemoContext()
+  
   return (
     <div
       className={styles.header}
@@ -19,26 +22,19 @@ export const StoryHeader = ({ children, theme, repository, colours, onChangeColo
         <div className={styles.controls}>
           <div className={styles.controlsTop}>
             <RepositorySelector
-              theme={theme}
               selected={repository}
               onSelect={onChangeRepository}
             />
 
             <ColourSelector
-              theme={theme}
               selected={colours.id}
               onChange={onChangeColours}
             />
 
-            <ThemeToggle
-              theme={theme}
-              onChange={onChangeTheme}
-            />
+            <ThemeToggle />
           </div>
 
-          <SearchField
-            theme={theme}
-          />
+          <SearchField />
         </div>
 
         <PackageInfo theme={theme} />

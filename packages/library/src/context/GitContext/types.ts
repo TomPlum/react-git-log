@@ -117,7 +117,7 @@ export interface GitContextBag<T = unknown> {
    * A function that builds links to the remote
    * repository on the external Git provider.
    */
-  remoteProviderUrlBuilder?: GitLogUrlBuilder
+  remoteProviderUrlBuilder?: GitLogUrlBuilder<T>
 
   /**
    * The spacing between the rows of the log.

@@ -8,7 +8,6 @@ import { useDemoContext } from '@context'
 
 export const GitLogDemo = (args: GitLogStoryProps) => {
   const {
-    theme,
     loading,
     colours,
     entries,
@@ -16,27 +15,24 @@ export const GitLogDemo = (args: GitLogStoryProps) => {
     buildUrls,
     repository,
     backgroundColour,
-    handleChangeTheme,
     handleChangeColors,
     handleChangeRepository
   } = useStoryState()
 
-  const { search } = useDemoContext()
+  const { search, theme } = useDemoContext()
 
   return (
     <div style={{ background: backgroundColour }} className={styles.container}>
       <StoryHeader
-        theme={theme}
         colours={colours}
         repository={repository}
-        onChangeTheme={handleChangeTheme}
         onChangeColours={handleChangeColors}
         onChangeRepository={handleChangeRepository}
       />
 
       {loading && (
         <div className={styles.loading}>
-          <Loading theme={theme} />
+          <Loading />
         </div>
       )}
 

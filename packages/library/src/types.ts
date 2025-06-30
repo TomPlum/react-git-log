@@ -259,7 +259,7 @@ export interface GitLogUrls {
   branch?: string
 }
 
-export interface GitLogUrlBuilderArgs<T> {
+export interface GitLogUrlBuilderArgs<T = unknown> {
   /**
    * Details of the given commit in context
    * of a URL. E.g. the one you clicked on
@@ -275,6 +275,6 @@ export interface GitLogUrlBuilderArgs<T> {
  *
  * @param args Contextual commit information to help build the URLs.
  */
-export type GitLogUrlBuilder<T> = (args: GitLogUrlBuilderArgs<T>) => GitLogUrls
+export type GitLogUrlBuilder<T = unknown> = (args: GitLogUrlBuilderArgs<T>) => GitLogUrls
 
 export type CommitFilter<T> = (entries: Commit<T>[]) => Commit<T>[]

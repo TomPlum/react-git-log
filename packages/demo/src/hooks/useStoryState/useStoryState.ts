@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import type { ThemeMode, GitLogUrlBuilder, GitLogUrlBuilderArgs } from '@tomplum/react-git-log'
+import type { GitLogUrlBuilder, GitLogUrlBuilderArgs } from '@tomplum/react-git-log'
 import { ColourSelection } from '@components/ColourSelector'
 import { rainbow } from 'themes'
 import { StoryStateProps } from './types'
 import { useGitLogEntries } from '@hooks/useGitLogEntries'
+import { useDemoContext } from '@context'
 
 const getRepositoryConfig = (name: string) => {
   switch (name) {
@@ -46,6 +47,8 @@ const getRepositoryConfig = (name: string) => {
 export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: StoryStateProps = {}) => {
   const [repository, setRepository] = useState('TomPlum/sleep')
 
+  const { theme } = useDemoContext()
+
   const {
     branchName,
     fileNameEntireHistory,
@@ -59,7 +62,6 @@ export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: Sto
     fileName: isServerSidePaginated ? fileNameCheckedOutBranch : fileNameEntireHistory
   })
 
-  const [theme, setTheme] = useState<ThemeMode>('dark')
   const [colours, setColours] = useState<ColourSelection>({ id: 'rainbow', colors: rainbow })
 
   const handleChangeColors = useCallback((selected: ColourSelection) => {
@@ -67,10 +69,6 @@ export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: Sto
   }, [])
 
   const backgroundColour = theme === 'dark' ? '#1a1a1a' : 'white'
-
-  const handleChangeTheme = useCallback((newTheme: ThemeMode) => {
-    setTheme(newTheme)
-  }, [])
 
   const buildUrls = useMemo<GitLogUrlBuilder>(() => {
     return ({ commit }: GitLogUrlBuilderArgs) => {
@@ -98,12 +96,10 @@ export const useStoryState = ({ isServerSidePaginated, onChangeRepository }: Sto
     branch: branchName,
     headCommitHash: isServerSidePaginated ? headCommitCheckoutOutBranch : headCommitHash,
     entries: data,
-    theme,
     colours,
     repository,
     backgroundColour,
     handleChangeColors,
-    handleChangeTheme,
     handleChangeRepository: setRepository,
     buildUrls
   }

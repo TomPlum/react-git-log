@@ -5,8 +5,11 @@ import JapaneseLantern from '@assets/lantern.svg?react'
 import SleepIcon from '@assets/sleep.svg?react'
 import StarIcon from '@assets/star.svg?react'
 import styles from './RepositorySelector.module.scss'
+import { useDemoContext } from '@context'
 
-export const RepositorySelector = ({ selected, onSelect, theme }: RepositorySelectorProps) => {
+export const RepositorySelector = ({ selected, onSelect }: RepositorySelectorProps) => {
+  const { theme } = useDemoContext()
+
   return (
     <CustomSelect
       width={300}

@@ -1,15 +1,16 @@
-import { ThemeToggleProps } from './types'
 import { useCallback } from 'react'
 import { Within } from '@theme-toggles/react'
+import { useDemoContext } from '@context'
 
 /**
  * From https://toggles.dev/within
  */
-export const ThemeToggle = ({ theme, onChange }: ThemeToggleProps) => {
+export const ThemeToggle = () => {
+  const { theme, setTheme } = useDemoContext()
 
   const handleChange = useCallback(() => {
-    onChange(theme === 'dark' ? 'light' : 'dark')
-  }, [onChange, theme])
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }, [setTheme, theme])
 
   return (
     // @ts-expect-error Bad typing in library

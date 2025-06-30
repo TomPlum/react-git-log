@@ -100,7 +100,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
       }
     }
 
-    // If none of the above conditions are met then
+    // If none of the above conditions are met, then
     // we must be in a column with no commit node, and
     // so we draw a line the full height of the column.
     return {

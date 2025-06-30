@@ -5,6 +5,7 @@ import { Loading } from '@components/Loading'
 import { useStoryState } from '@hooks/useStoryState'
 import { StoryHeader } from '@components/StoryHeader'
 import { GitLogDemo, GitLogStoryProps } from '@components/GitLogDemo'
+import { useDemoContext } from '@context'
 
 const meta: Meta<GitLogStoryProps> = {
   title: 'GitLog',
@@ -284,7 +285,6 @@ export const Demo: Story = {
 
 export const CustomTableRow = () => {
   const {
-    theme,
     loading,
     colours,
     entries,
@@ -292,25 +292,24 @@ export const CustomTableRow = () => {
     buildUrls,
     repository,
     backgroundColour,
-    handleChangeTheme,
     handleChangeColors,
     handleChangeRepository
   } = useStoryState()
 
+  const { theme } = useDemoContext()
+
   return (
     <div style={{ background: backgroundColour }} className={styles.container}>
       <StoryHeader
-        theme={theme}
         colours={colours}
         repository={repository}
-        onChangeTheme={handleChangeTheme}
         onChangeColours={handleChangeColors}
         onChangeRepository={handleChangeRepository}
       />
 
       {loading && (
         <div className={styles.loading}>
-          <Loading theme={theme} />
+          <Loading />
         </div>
       )}
 
@@ -388,7 +387,6 @@ const nodeImages = ['millie', 'neo', 'millie_neo', 'neo_banana', 'neo_2', 'bella
 
 export const CustomCommitNode = () => {
   const {
-    theme,
     loading,
     colours,
     entries,
@@ -396,25 +394,24 @@ export const CustomCommitNode = () => {
     buildUrls,
     repository,
     backgroundColour,
-    handleChangeTheme,
     handleChangeColors,
     handleChangeRepository
   } = useStoryState()
 
+  const { theme } = useDemoContext()
+
   return (
     <div style={{ background: backgroundColour }} className={styles.container}>
       <StoryHeader
-        theme={theme}
         colours={colours}
         repository={repository}
-        onChangeTheme={handleChangeTheme}
         onChangeColours={handleChangeColors}
         onChangeRepository={handleChangeRepository}
       />
 
       {loading && (
         <div className={styles.loading}>
-          <Loading theme={theme} />
+          <Loading />
         </div>
       )}
 

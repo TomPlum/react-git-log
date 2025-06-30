@@ -12,6 +12,7 @@ import { ThemeContextProvider } from 'context/ThemeContext'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import { useCoreComponents } from 'components/GitLogCore/useCoreComponents'
+import { computeFilteredNodePositions } from '../../data/computeFilteredNodeColumns'
 
 dayjs.extend(utc)
 
@@ -22,6 +23,7 @@ export const GitLogCore = <T,>({
   rowSpacing = 0,
   theme = 'light',
   colours = 'rainbow-light',
+  filter,
   classes,
   defaultGraphWidth,
   onSelectCommit,
@@ -47,6 +49,9 @@ export const GitLogCore = <T,>({
     const sortedCommits = temporalTopologicalSort([...hashToCommit.values()], children, hashToCommit)
     const { graphWidth, positions, edges } = computeNodePositions(sortedCommits, currentBranch, children, parents)
 
+    const filteredCommits = filter?.(sortedCommits) ?? []
+    const filteredData = computeFilteredNodePositions(sortedCommits, currentBranch, children, parents, filteredCommits)
+
     return {
       children,
       parents,
@@ -54,9 +59,11 @@ export const GitLogCore = <T,>({
       graphWidth,
       positions,
       edges,
+      filteredData,
+      filteredCommits,
       commits: sortedCommits
     }
-  }, [currentBranch, entries, headCommitHash])
+  }, [currentBranch, entries, filter, headCommitHash])
 
   const [nodeSize, setNodeSize] = useState(DEFAULT_NODE_SIZE)
   const [graphOrientation, setGraphOrientation] = useState<GraphOrientation>('normal')
@@ -144,6 +151,7 @@ export const GitLogCore = <T,>({
     showTable: Boolean(table),
     showBranchesTags: Boolean(tags),
     classes,
+    filter,
     selectedCommit,
     setSelectedCommit: handleSelectCommit,
     previewedCommit,
@@ -175,6 +183,7 @@ export const GitLogCore = <T,>({
     handleSelectCommit,
     handlePreviewCommit,
     urls,
+    filter,
     showHeaders,
     headCommit,
     currentBranch,

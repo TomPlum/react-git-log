@@ -53,6 +53,38 @@ export interface GraphData<T = unknown> {
    * sorted temporally by committer date.
    */
   commits: Commit<T>[]
+
+  filteredCommits: Commit<T>[]
+
+  filteredData: {
+    /**
+     * The width of the graph. A number
+     * that is the maximum concurrent active
+     * branches at any one time from all
+     * git log entries passed the log.
+     */
+    graphWidth: number
+
+    /**
+     * A map of the SHA1 hash of a commit
+     * and a {@link CommitNodeLocation} tuple that contains
+     * data about the row and column in which
+     * the node for that commit will be
+     * rendered in the graph.
+     */
+    positions: Map<string, CommitNodeLocation>
+
+    /**
+     * An interval tree containing all the edges
+     * for relationships between commit nodes in
+     * the graph.
+     */
+    edges: {
+      from: CommitNodeLocation
+      to: CommitNodeLocation
+      rerouted?: boolean
+    }[]
+  }
 }
 
 /**

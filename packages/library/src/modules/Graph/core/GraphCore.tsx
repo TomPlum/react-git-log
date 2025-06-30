@@ -21,6 +21,7 @@ export const GraphCore = <T,>({
 }: PropsWithChildren<GraphCoreProps<T>>) => {
   const {
     paging,
+    filter,
     setNodeSize,
     setGraphOrientation,
     graphData: { graphWidth, commits }
@@ -36,12 +37,14 @@ export const GraphCore = <T,>({
   const { width, ref, startResizing } = useResize()
 
   const visibleCommits = useMemo(() => {
+    const filteredCommits = filter?.(commits) ?? commits
+
     if (paging) {
-      return commits.slice(paging.startIndex, paging.endIndex)
+      return filteredCommits.slice(paging.startIndex, paging.endIndex)
     }
 
-    return commits
-  }, [commits, paging])
+    return filteredCommits
+  }, [commits, filter, paging])
 
   const { columnData, virtualColumns } = useColumnData({
     visibleCommits: visibleCommits.length

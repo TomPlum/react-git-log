@@ -4,6 +4,7 @@ import { StoryHeader } from '@components/StoryHeader'
 import { Loading } from '@components/Loading'
 import { GitLog } from '@tomplum/react-git-log'
 import { GitLogStoryProps } from './types'
+import { useDemoContext } from '@context'
 
 export const GitLogDemo = (args: GitLogStoryProps) => {
   const {
@@ -19,6 +20,8 @@ export const GitLogDemo = (args: GitLogStoryProps) => {
     handleChangeColors,
     handleChangeRepository
   } = useStoryState()
+
+  const { search } = useDemoContext()
 
   return (
     <div style={{ background: backgroundColour }} className={styles.container}>
@@ -44,6 +47,11 @@ export const GitLogDemo = (args: GitLogStoryProps) => {
           entries={entries}
           theme={theme}
           currentBranch={branch}
+          filter={search ? entries => {
+            return entries.filter(commit => {
+              return commit.message.includes(search)
+            })
+          } : undefined}
           paging={{
             page: args.page ?? 0,
             size: args.pageSize ?? entries.length

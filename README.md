@@ -516,6 +516,11 @@ Graphs
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
 - Support filtering so that the graph skips nodes
+  - Can we use one compute function now? Have a boolean to optionally do the find closest ancestor
+  - Can we use one set of graphData too and remove the filteredData
+  - Add styling to the broken edges to indicate its not the true parent
+  - Make index commit find the nearest HEAD ancestor, or go off the graph otherwise
+  - Does this work with GitLogPaged?
 
 Canvas2D
 - Custom prop for BG colour because of how canvas alpha channel works

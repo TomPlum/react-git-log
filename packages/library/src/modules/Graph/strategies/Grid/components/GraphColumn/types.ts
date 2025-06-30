@@ -98,7 +98,7 @@ export interface GraphColumnState {
   /**
    * Indicates that the column in the row above
    * the one that this column resides in is empty.
-   * Which it to say it contains now graphical elements
+   * Which is to say, it contains now graphical elements
    * such as nodes or lines.
    *
    * This indicates that the commit node in this column
@@ -109,7 +109,7 @@ export interface GraphColumnState {
   /**
    * Indicates that the column in the row below
    * the one that this column resides in is empty.
-   * Which it to say it contains now graphical elements
+   * Which is to say, it contains now graphical elements
    * such as nodes or lines.
    *
    * This indicates that the commit node in this column
@@ -144,4 +144,8 @@ export interface GraphColumnState {
    * filtering.
    */
   isPlaceholderSkeleton?: boolean
+
+  isTopBreakPoint?: boolean
+
+  isBottomBreakPoint?: boolean
 }

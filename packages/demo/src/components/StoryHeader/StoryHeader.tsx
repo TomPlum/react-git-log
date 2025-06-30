@@ -5,6 +5,7 @@ import { ThemeToggle } from '@components/ThemeToggle'
 import { PackageInfo } from '@components/PackageInfo'
 import { StoryHeaderProps } from '@components/StoryHeader/types'
 import { PropsWithChildren } from 'react'
+import { SearchField } from '@components/SearchField'
 
 export const StoryHeader = ({ children, theme, repository, colours, onChangeColours, onChangeRepository, onChangeTheme }: PropsWithChildren<StoryHeaderProps>) => {
   return (
@@ -16,21 +17,27 @@ export const StoryHeader = ({ children, theme, repository, colours, onChangeColo
     >
       <div className={styles.top}>
         <div className={styles.controls}>
-          <RepositorySelector
-            theme={theme}
-            selected={repository}
-            onSelect={onChangeRepository}
-          />
+          <div className={styles.controlsTop}>
+            <RepositorySelector
+              theme={theme}
+              selected={repository}
+              onSelect={onChangeRepository}
+            />
 
-          <ColourSelector
-            theme={theme}
-            selected={colours.id}
-            onChange={onChangeColours}
-          />
+            <ColourSelector
+              theme={theme}
+              selected={colours.id}
+              onChange={onChangeColours}
+            />
 
-          <ThemeToggle
+            <ThemeToggle
+              theme={theme}
+              onChange={onChangeTheme}
+            />
+          </div>
+
+          <SearchField
             theme={theme}
-            onChange={onChangeTheme}
           />
         </div>
 

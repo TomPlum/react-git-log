@@ -8,7 +8,7 @@ import { GitLogDemo, GitLogStoryProps } from '@components/GitLogDemo'
 
 const meta: Meta<GitLogStoryProps> = {
   title: 'GitLog',
-  component: GitLog,
+  component: GitLog<unknown>,
   parameters: {
     layout: 'fullscreen'
   },

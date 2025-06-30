@@ -6,12 +6,12 @@ import { GraphRow } from 'modules/Graph/strategies/Grid/components/GraphRow'
 import { useGraphContext } from 'modules/Graph/context'
 import { useGitContext } from 'context/GitContext'
 import { getEmptyColumnState } from 'modules/Graph/strategies/Grid/utility/getEmptyColumnState'
-import { useMemo } from 'react'
+import { CSSProperties, useMemo } from 'react'
 import { placeholderCommits } from 'modules/Graph/strategies/Grid/hooks/usePlaceholderData/data'
 
 export const HTMLGridGraph = () => {
-  const { isIndexVisible, rowSpacing, paging } = useGitContext()
   const { graphWidth, visibleCommits, columnData } = useGraphContext()
+  const { isIndexVisible, rowSpacing, paging } = useGitContext()
 
   const commitQuantity = useMemo(() => {
     // If there is no data being shown, then we'll
@@ -32,14 +32,13 @@ export const HTMLGridGraph = () => {
     return visibleCommits.length
   }, [isIndexVisible, visibleCommits.length])
 
+  const wrapperStyles: CSSProperties = {
+    gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
+    gridTemplateRows: `repeat(${commitQuantity}, ${ROW_HEIGHT + rowSpacing}px)`
+  }
+
   return (
-    <div
-      className={styles.graph}
-      style={{
-        gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
-        gridTemplateRows: `repeat(${commitQuantity}, ${ROW_HEIGHT + rowSpacing}px)`
-      }}
-    >
+    <div className={styles.graph} style={wrapperStyles}>
       {visibleCommits.length === 0 && (
         <SkeletonGraph />
       )}

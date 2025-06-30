@@ -5,7 +5,7 @@ export type GraphOrientation = 'normal' | 'flipped'
 
 export type Canvas2DGraphProps = GraphPropsCommon
 
-export interface HTMLGridGraphProps<T> extends GraphPropsCommon {
+export interface HTMLGridGraphProps<T = unknown> extends GraphPropsCommon {
   /**
    * Whether to show the commit hash
    * to the side of the node in the graph.

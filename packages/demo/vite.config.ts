@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => ({
       '@assets': resolve(__dirname, '/src/assets'),
       '@hooks': resolve(__dirname, '/src/hooks'),
       '@utils': resolve(__dirname, '/src/utils'),
+      '@context': resolve(__dirname, '/src/context/index.ts'),
 
       // The Library Root
       '@tomplum/react-git-log': resolve(__dirname, '../library/src'),

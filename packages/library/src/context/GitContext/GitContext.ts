@@ -41,7 +41,13 @@ export const GitContext = createContext<GitContextBag>({
     commits: [],
     positions: new Map(),
     parents: new Map(),
-    hashToCommit: new Map()
+    hashToCommit: new Map(),
+    filteredData: {
+      graphWidth: 0,
+      edges: [],
+      positions: new Map()
+    },
+    filteredCommits: []
   },
   rowSpacing: 0,
   graphWidth: 300,

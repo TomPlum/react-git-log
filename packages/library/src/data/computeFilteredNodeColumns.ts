@@ -137,7 +137,7 @@ export const computeFilteredNodePositions = <T>(
 
   const filteredEdges = filteredCommits ?? commits
   const edges = filteredEdges.flatMap(source => {
-    const output: { from: CommitNodeLocation; to: CommitNodeLocation; rerouted?: boolean }[] = []
+    const output: { from: CommitNodeLocation; to: CommitNodeLocation; rerouted: boolean }[] = []
 
     for (const parentHash of source.parents) {
       const fromPos = rowMap.get(source.hash)

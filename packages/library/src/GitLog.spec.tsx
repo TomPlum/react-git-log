@@ -137,6 +137,28 @@ describe('GitLog', () => {
       expect(asFragment()).toMatchSnapshot()
     })
 
+    it('should render correctly and match the snapshot of the GitLog component that has been filtered', { timeout: 1000 * 10 } ,() => {
+      const { asFragment } = render(
+        <GitLog
+          showHeaders
+          currentBranch='release'
+          entries={sleepRepositoryLogEntries}
+          defaultGraphWidth={100}
+          filter={commits => {
+            return commits.filter(({ message }) => {
+              return message.includes('deps')
+            })
+          }}
+        >
+          <GitLog.Tags />
+          <GitLog.GraphHTMLGrid />
+          <GitLog.Table />
+        </GitLog>
+      )
+
+      expect(asFragment()).toMatchSnapshot()
+    })
+
     it('should render correctly and match the snapshot of the GitLog component when there is no data', { timeout: 1000 * 10 } ,() => {
       const { asFragment } = render(
         <GitLog

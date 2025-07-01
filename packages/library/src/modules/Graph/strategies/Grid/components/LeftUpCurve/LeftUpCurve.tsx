@@ -3,14 +3,22 @@ import { CURVE_SIZE, ROW_HEIGHT } from 'constants/constants'
 import { CurvedEdge } from 'modules/Graph/strategies/Grid/components/CurvedEdge'
 import { useGitContext } from 'context/GitContext'
 import { LeftUpCurveProps } from './types'
+import { CSSProperties } from 'react'
 
-export const LeftUpCurve = ({ color, isPlaceholder }: LeftUpCurveProps) => {
+export const LeftUpCurve = ({ color, isPlaceholder, showTopBreakPoint }: LeftUpCurveProps) => {
   const { rowSpacing } = useGitContext()
 
   const borderStyle = isPlaceholder ? 'dotted' : 'solid'
   
   return (
     <div id='left-up-curve' data-testid='left-up-curve' className={styles.container}>
+      {showTopBreakPoint && (
+        <div
+          className={styles.topBreakPoint}
+          style={{ '--breakpoint-colour': color } as CSSProperties}
+        />
+      )}
+
       <div
         id='left-up-curve-top-line'
         data-testid='left-up-curve-top-line'

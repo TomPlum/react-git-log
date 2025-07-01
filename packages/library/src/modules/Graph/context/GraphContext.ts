@@ -9,5 +9,6 @@ export const GraphContext = createContext<GraphContextBag>({
   graphWidth: 0,
   orientation: 'normal',
   visibleCommits: [],
-  columnData: new Map()
+  columnData: new Map(),
+  isHeadCommitVisible: false
 })

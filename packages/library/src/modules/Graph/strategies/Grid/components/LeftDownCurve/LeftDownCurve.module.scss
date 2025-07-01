@@ -5,3 +5,18 @@
 .curve, .line  {
   position: absolute;
 }
+
+.breakPoint {
+  position: absolute;
+
+  $size: 14px;
+  content: '';
+  left: 50%;
+  top: 0;
+  width: $size;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--breakpoint-colour);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transform-origin: center;
+}

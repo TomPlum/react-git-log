@@ -82,7 +82,7 @@ export interface GraphData<T = unknown> {
     edges: {
       from: CommitNodeLocation
       to: CommitNodeLocation
-      rerouted?: boolean
+      rerouted: boolean
     }[]
   }
 }

@@ -521,6 +521,11 @@ Graphs
   - Add styling to the broken edges to indicate its not the true parent
   - Make index commit find the nearest HEAD ancestor, or go off the graph otherwise
   - Does this work with GitLogPaged?
+  - Rework CommitNodeLocation from a tuple into an object
+  - Hover effect on lines to show missing commits?
+  - Break point themes? Slash, dot, zig-zag etc
+  - Make storybook radios into dropdowns
+  - Prop to override graph fallback? No search results yields the placeholder nodes
 
 Canvas2D
 - Custom prop for BG colour because of how canvas alpha channel works

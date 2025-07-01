@@ -32,8 +32,25 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
     // in the graph.
     let virtualColumns = 0
 
-    const drawEdges = (edgeData: [CommitNodeLocation, CommitNodeLocation][]) => {
-      edgeData.forEach(([[rowStart, colStart], [rowEnd, colEnd]]) => {
+    const isColumnAboveEmpty = (row: number, column: number) => {
+      return rowToColumnState.has(row - 1)
+        ? isColumnEmpty(rowToColumnState.get(row - 1)![column])
+        : false
+    }
+
+    const columnContainsCommitNode = (row: number, column: number) => {
+      return rowToColumnState.has(row)
+        ? rowToColumnState.get(row)![column].isNode
+        : false
+    }
+
+    const drawEdges = (edgeData: { from: CommitNodeLocation, to: CommitNodeLocation, rerouted: boolean }[]) => {
+      const columnBreakPointChecks: { location: CommitNodeLocation, check: () => boolean, breakPoint: 'top' | 'bottom' }[] = []
+
+      edgeData.forEach(({ from, to, rerouted }) => {
+        const [rowStart, colStart] = from
+        const [rowEnd, colEnd] = to
+
         // Are we connecting to nodes in the same column?
         // I.e. drawing a straight merge line between them.
         if (colStart === colEnd) {
@@ -42,7 +59,8 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
 
             columnState[colStart] = {
               ...columnState[colStart],
-              isVerticalLine: true
+              isVerticalLine: true,
+              isBottomBreakPoint: targetRow === rowEnd - 1 && rerouted
             }
 
             rowToColumnState.set(targetRow, columnState)
@@ -84,7 +102,8 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
                 // Add in the curved line in the target column where the end node is
                 columnState[colEnd] = {
                   ...columnState[colEnd],
-                  isLeftDownCurve: true
+                  isLeftDownCurve: true,
+                  isBottomBreakPoint: rerouted && targetRow === rowEnd && !columnContainsCommitNode(targetRow + 1, colStart)
                 }
               }
             } else if (edgeDownToLeft) {
@@ -94,7 +113,8 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
               if (targetRow !== rowStart && targetRow != rowEnd) {
                 columnState[colStart] = {
                   ...columnState[colStart],
-                  isVerticalLine: true
+                  isVerticalLine: true,
+                  isBottomBreakPoint: rerouted && targetRow === rowEnd - 1
                 }
               }
 
@@ -105,6 +125,18 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
                 columnState[colStart] = {
                   ...columnState[colStart],
                   isLeftUpCurve: true
+                }
+
+                // Since we draw the edges first, we can't check if
+                // the column above has a node or not. We can't tell if we
+                // need a top break-point yet, so we'll add it to the list
+                // to check afterwards.
+                if (rerouted) {
+                  columnBreakPointChecks.push({
+                    location: [targetRow, colStart],
+                    breakPoint: 'top',
+                    check: () => !columnContainsCommitNode(targetRow - 1, colStart)
+                  })
                 }
 
                 // For the remaining columns in this final row, draw
@@ -128,7 +160,8 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
               // Else we're drawing a vertical line
               columnState[colEnd] = {
                 ...columnState[colEnd],
-                isVerticalLine: true
+                isVerticalLine: true,
+                isBottomBreakPoint: rerouted && targetRow === rowEnd - 1
               }
             }
 
@@ -136,43 +169,67 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
           }
         }
       })
+
+      return { columnBreakPointChecks }
     }
 
     const drawNode = (position: CommitNodeLocation) => {
       const [row, column] = position
       const columnState = rowToColumnState.get(row) ?? getEmptyColumnState()
 
-      const isColumnAboveEmpty = rowToColumnState.has(row - 1)
-        ? isColumnEmpty(rowToColumnState.get(row - 1)![column])
-        : false
-
       const isColumnBelowEmpty = rowToColumnState.has(row + 1)
         ? isColumnEmpty(rowToColumnState.get(row + 1)![column])
+        : false
+
+      const isColumnAboveBreakPoint = rowToColumnState.has(row - 1)
+        ? rowToColumnState.get(row - 1)![column].isBottomBreakPoint
         : false
 
       columnState[column] = {
         ...columnState[column],
         isNode: true,
-        isColumnAboveEmpty,
-        isColumnBelowEmpty
+        isColumnAboveEmpty: isColumnAboveEmpty(row, column),
+        isColumnBelowEmpty,
+        isTopBreakPoint: isColumnAboveBreakPoint
       }
 
       rowToColumnState.set(row, columnState)
     }
 
     if (filter) {
+      const { columnBreakPointChecks } = drawEdges(filteredData.edges)
+
       filteredData.positions.forEach((position) => {
         drawNode(position)
       })
 
-      drawEdges(filteredData.edges.map(({ from, to }) => [from, to] ))
+      columnBreakPointChecks.forEach(({ check, breakPoint, location }) => {
+        if (breakPoint === 'top') {
+          const shouldApplyBreakPoint = check()
+          const rowIndex = location[0]
+
+          if (shouldApplyBreakPoint && rowToColumnState.has(rowIndex)) {
+            const columnState = rowToColumnState.get(rowIndex)!
+            const columnIndex = location[1]
+
+            columnState[columnIndex] = {
+              ...columnState[columnIndex],
+              isTopBreakPoint: true
+            }
+          }
+        }
+      })
     } else {
       // An iterable array of tuples containing commit node row and column indices
       const commitNodePositions = Array.from(positions.values())
 
       // Iterate over all the edges update the graph column state
       // for each of the respective branch/merge line segments.
-      drawEdges(edges.search(0, commits.length).map(([from, to]) => [from, to] ))
+      drawEdges(edges.search(0, commits.length).map(([from, to]) => ({
+        from,
+        to,
+        rerouted: false
+      })))
 
       // Add the commit nodes into their respective rows and columns
       commitNodePositions.forEach((position) => {

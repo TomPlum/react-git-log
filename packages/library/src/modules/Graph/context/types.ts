@@ -72,6 +72,13 @@ export interface GraphContextBag {
   visibleCommits: Commit<unknown>[]
 
   /**
+   * True if the HEAD commit is visible
+   * based on the current pagination
+   * and any filtering.
+   */
+  isHeadCommitVisible: boolean
+
+  /**
    * A map of row indices to their
    * respective column states.
    */

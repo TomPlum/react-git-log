@@ -7,3 +7,50 @@
   width: 2px;
   z-index: 10;
 }
+
+.bottomBreakPoint {
+  &::before {
+    $size: 14px;
+    content: '';
+    position: absolute;
+    left: calc(50% + 2px);
+    top: 100%;
+    width: $size;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--breakpoint-colour);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: center;
+  }
+}
+
+.topBreakPoint {
+  &::before {
+    $size: 14px;
+    content: '';
+    position: absolute;
+    left: calc(50% + 2px);
+    top: 0;
+    width: $size;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--breakpoint-colour);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: center;
+  }
+}
+
+.bottomBreakPointIndexCommit {
+  &::before {
+    $size: 20px;
+    content: '';
+    position: absolute;
+    left: calc(50% + 1px);
+    top: 100%;
+    width: $size;
+    height: 3px;
+    border-bottom: 3px dotted var(--breakpoint-colour);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: center;
+  }
+}

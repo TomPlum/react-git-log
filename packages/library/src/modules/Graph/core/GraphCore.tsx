@@ -23,6 +23,7 @@ export const GraphCore = <T,>({
     paging,
     filter,
     setNodeSize,
+    headCommit,
     setGraphOrientation,
     graphData: { graphWidth, commits }
   } = useGitContext()
@@ -46,6 +47,10 @@ export const GraphCore = <T,>({
     return filteredCommits
   }, [commits, filter, paging])
 
+  const isHeadCommitVisible = useMemo<boolean>(() => {
+    return visibleCommits.find(commit => commit.hash === headCommit?.hash) !== undefined
+  }, [headCommit, visibleCommits])
+
   const { columnData, virtualColumns } = useColumnData({
     visibleCommits: visibleCommits.length
   })
@@ -60,8 +65,9 @@ export const GraphCore = <T,>({
     orientation,
     visibleCommits,
     columnData,
+    isHeadCommitVisible,
     highlightedBackgroundHeight
-  }), [node, showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
+  }), [node, showCommitNodeTooltips, isHeadCommitVisible, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
 
   return (
     <GraphContext.Provider value={contextValue}>

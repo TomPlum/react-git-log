@@ -19,6 +19,7 @@ const meta: Meta<GitLogPagedStoryProps> = {
     enablePreviewedCommitStyling: true,
     enableSelectedCommitStyling: true,
     nodeTheme: 'default',
+    breakPointTheme: 'slash',
     showGitIndex: true,
     renderStrategy: 'html-grid',
     nodeSize: 20,
@@ -74,6 +75,21 @@ const meta: Meta<GitLogPagedStoryProps> = {
         },
       },
       options: ['default', 'plain']
+    },
+    breakPointTheme: {
+      name: 'Break Point Style',
+      table: {
+        category: 'Visibility'
+      },
+      control: {
+        type: 'select',
+        labels: {
+          slash: 'Slash',
+          dot: 'Dot',
+          'zig-zag': 'Zig-Zag'
+        },
+      },
+      options: ['slash', 'dot', 'zig-zag']
     },
     showGitIndex: {
       name: 'Show Git Index',

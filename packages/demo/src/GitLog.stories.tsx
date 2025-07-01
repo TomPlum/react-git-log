@@ -26,6 +26,7 @@ const meta: Meta<GitLogStoryProps> = {
     showGitIndex: true,
     enableResize: false,
     nodeTheme: 'default',
+    breakPointTheme: 'slash',
     renderStrategy: 'html-grid',
     nodeSize: 20,
     orientation: 'normal',
@@ -97,6 +98,21 @@ const meta: Meta<GitLogStoryProps> = {
         },
       },
       options: ['default', 'plain']
+    },
+    breakPointTheme: {
+      name: 'Break Point Style',
+      table: {
+        category: 'Visibility'
+      },
+      control: {
+        type: 'select',
+        labels: {
+          slash: 'Slash',
+          dot: 'Dot',
+          'zig-zag': 'Zig-Zag'
+        },
+      },
+      options: ['slash', 'dot', 'zig-zag']
     },
     showGitIndex: {
       name: 'Show Git Index',

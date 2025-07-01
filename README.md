@@ -524,6 +524,7 @@ Graphs
   - Break point themes? Slash, dot, zig-zag etc
   - Prop to override graph fallback? No search results yields the placeholder nodes
   - Split useColumnData. class maybe to manage rowToColumn map?
+  - Add README docs for new props (filter and breakPointTheme)
 
 Canvas2D
 - Custom prop for BG colour because of how canvas alpha channel works

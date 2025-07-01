@@ -75,6 +75,7 @@ export const GitLogDemo = (args: GitLogStoryProps) => {
               nodeTheme={args.nodeTheme}
               orientation={args.orientation}
               enableResize={args.enableResize}
+              breakPointTheme={args.breakPointTheme}
               showCommitNodeHashes={args.showCommitNodeHashes}
               showCommitNodeTooltips={args.showCommitNodeTooltips}
             />

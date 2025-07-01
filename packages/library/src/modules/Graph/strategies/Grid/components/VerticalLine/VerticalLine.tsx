@@ -184,11 +184,13 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
         <BreakPoint
           position='bottom'
           style={{
-            left: 'calc(50% + 1px)',
-            width: '20px',
-            background: 'none',
-            borderRadius: 'unset',
-            borderBottom: `3px dotted ${indexCommitNodeBorder}`
+            slash: {
+              left: 'calc(50% + 1px)',
+              width: '20px',
+              background: 'none',
+              borderRadius: 'unset',
+              borderBottom: `3px dotted ${indexCommitNodeBorder}`
+            }
           }}
           color={indexCommitNodeBorder}
         />

@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Filtered Graph Break Point > should render a [bottom] break point correctly when the theme is [dot] 1`] = `
+<DocumentFragment>
+  <div
+    class="Dot Dot--bottom"
+    data-testid="graph-break-point-dot-bottom"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
+exports[`Filtered Graph Break Point > should render a [bottom] break point correctly when the theme is [slash] 1`] = `
+<DocumentFragment>
+  <div
+    class="Slash Slash--bottom"
+    data-testid="graph-break-point-slash-bottom"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
+exports[`Filtered Graph Break Point > should render a [bottom] break point correctly when the theme is [zig-zag] 1`] = `
+<DocumentFragment>
+  <div
+    class="ZigZag ZigZag--bottom"
+    data-testid="graph-break-point-zig-zag-bottom"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
+exports[`Filtered Graph Break Point > should render a [top] break point correctly when the theme is [dot] 1`] = `
+<DocumentFragment>
+  <div
+    class="Dot Dot--top"
+    data-testid="graph-break-point-dot-top"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
+exports[`Filtered Graph Break Point > should render a [top] break point correctly when the theme is [slash] 1`] = `
+<DocumentFragment>
+  <div
+    class="Slash Slash--top"
+    data-testid="graph-break-point-slash-top"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
+exports[`Filtered Graph Break Point > should render a [top] break point correctly when the theme is [zig-zag] 1`] = `
+<DocumentFragment>
+  <div
+    class="ZigZag ZigZag--top"
+    data-testid="graph-break-point-zig-zag-top"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;

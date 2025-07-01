@@ -16,7 +16,10 @@ export const LeftDownCurve = ({ color, isPlaceholder, showBottomBreakPoint }: Le
         <BreakPoint
           color={color}
           position='bottom'
-          style={{ left: '50%' }}
+          style={{
+            slash: { left: '50%' },
+            dot: { left: '50%' }
+          }}
         />
       )}
 

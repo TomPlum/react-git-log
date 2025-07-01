@@ -277,4 +277,10 @@ export interface GitLogUrlBuilderArgs<T = unknown> {
  */
 export type GitLogUrlBuilder<T = unknown> = (args: GitLogUrlBuilderArgs<T>) => GitLogUrls
 
-export type CommitFilter<T> = (entries: Commit<T>[]) => Commit<T>[]
+/**
+ * A function that filters the list of commits
+ * displayed in the log.
+ *
+ * @param commits An array of commits currently displayed in the log.
+ */
+export type CommitFilter<T> = (commits: Commit<T>[]) => Commit<T>[]

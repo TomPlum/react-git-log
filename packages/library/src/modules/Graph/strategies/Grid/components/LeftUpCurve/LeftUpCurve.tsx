@@ -16,7 +16,11 @@ export const LeftUpCurve = ({ color, isPlaceholder, showTopBreakPoint }: LeftUpC
         <BreakPoint
           position='top'
           color={color}
-          style={{ left: '50%' }}
+          style={{
+            slash: { left: '50%' },
+            dot: { left: '50%' },
+            'zig-zag': { left: 'calc(50% - 2px)' },
+          }}
         />
       )}
 

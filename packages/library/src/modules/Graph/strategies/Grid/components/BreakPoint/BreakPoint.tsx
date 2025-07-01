@@ -7,16 +7,15 @@ import { CSSProperties, useMemo } from 'react'
 export const BreakPoint = ({ position, className, color, style }: BreakPointProps) => {
   const { breakPointTheme } = useGraphContext()
 
-  const styles = useMemo<CSSProperties>(() => ({
-    '--breakpoint-colour': color,
-    ...style
-  } as CSSProperties), [color, style])
+  const commonStyles = useMemo<CSSProperties>(() => ({
+    '--breakpoint-colour': color
+  } as CSSProperties), [color])
 
   switch (breakPointTheme) {
     case 'slash': {
       return (
         <div
-          style={styles}
+          style={{ ...commonStyles, ...style?.slash }}
           data-testid={`graph-break-point-slash-${position}`}
           className={classNames(
             classes.Slash,
@@ -29,10 +28,10 @@ export const BreakPoint = ({ position, className, color, style }: BreakPointProp
     case 'dot': {
       return (
         <div
-          style={styles}
+          style={{ ...commonStyles, ...style?.dot }}
           data-testid={`graph-break-point-dot-${position}`}
           className={classNames(
-            classes.Slash,
+            classes.Dot,
             classes[`Dot--${position}`],
             className
           )}
@@ -42,10 +41,10 @@ export const BreakPoint = ({ position, className, color, style }: BreakPointProp
     case 'zig-zag': {
       return (
         <div
-          style={styles}
+          style={{ ...commonStyles, ...style?.['zig-zag'] }}
           data-testid={`graph-break-point-zig-zag-${position}`}
           className={classNames(
-            classes.Slash,
+            classes.ZigZag,
             classes[`ZigZag--${position}`],
             className
           )}

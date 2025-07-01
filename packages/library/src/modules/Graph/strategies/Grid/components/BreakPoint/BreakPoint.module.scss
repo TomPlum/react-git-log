@@ -16,3 +16,81 @@
     top: 100%;
   }
 }
+
+.Dot {
+  position: absolute;
+  $diameter: 7px;
+  width: $diameter;
+  height: $diameter;
+  border-radius: 50%;
+  background: var(--breakpoint-colour);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transform-origin: center;
+  left: calc(50% + 2px);
+
+  &--top {
+    top: 0;
+  }
+
+  &--bottom {
+    top: 100%;
+  }
+}
+
+.ZigZag {
+  position: absolute;
+
+  // The first diagonal line closest to the node
+  &::before {
+    position: absolute;
+    content: '';
+    width: 5px;
+    height: 2px;
+    background: var(--breakpoint-colour);
+    transform: translate(-50%, -50%) rotate(-50deg);
+    transform-origin: center;
+  }
+
+  // The second diagonal line farthest away from the node
+  &::after {
+    position: absolute;
+    content: '';
+    width: 5px;
+    height: 2px;
+    background: var(--breakpoint-colour);
+    transform: translate(-50%, -50%) rotate(50deg);
+    transform-origin: center;
+  }
+
+  &--top {
+    top: 0;
+
+    // The first diagonal line closest to the node
+    &::before {
+      top: -1px;
+      left: calc(50% + 4px);
+    }
+
+    // The second diagonal line farthest away from the node
+    &::after {
+      top: -5px;
+      left: calc(50% + 5px);
+    }
+  }
+
+  &--bottom {
+    top: 100%;
+
+    // The first diagonal line closest to the node
+    &::before {
+      top: 2px;
+      left: calc(50% + 2px);
+    }
+
+    // The second diagonal line farthest away from the node
+    &::after {
+      top: 6px;
+      left: 50%;
+    }
+  }
+}

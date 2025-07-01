@@ -1,8 +1,11 @@
 import { CSSProperties } from 'react'
+import { BreakPointTheme } from 'hooks/useTheme'
 
 export interface BreakPointProps {
-  position: 'top' | 'bottom'
+  position: BreakPointPosition
   className?: string
   color: string
-  style?: CSSProperties
+  style?: Partial<Record<BreakPointTheme, CSSProperties>>
 }
+
+export type BreakPointPosition = 'top' | 'bottom'

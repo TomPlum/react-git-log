@@ -13,7 +13,7 @@ export const GraphCore = <T,>({
   children,
   nodeSize = DEFAULT_NODE_SIZE,
   nodeTheme = 'default',
-  breakPointTheme = 'slash',
+  breakPointTheme = 'dot',
   orientation = 'normal',
   enableResize = false,
   showCommitNodeHashes = false,

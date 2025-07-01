@@ -5,7 +5,7 @@ export const GraphContext = createContext<GraphContextBag>({
   showCommitNodeHashes: false,
   showCommitNodeTooltips: false,
   nodeTheme: 'default',
-  breakPointTheme: 'slash',
+  breakPointTheme: 'dot',
   nodeSize: 24,
   graphWidth: 0,
   orientation: 'normal',

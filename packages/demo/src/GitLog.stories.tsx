@@ -26,7 +26,7 @@ const meta: Meta<GitLogStoryProps> = {
     showGitIndex: true,
     enableResize: false,
     nodeTheme: 'default',
-    breakPointTheme: 'slash',
+    breakPointTheme: 'dot',
     renderStrategy: 'html-grid',
     nodeSize: 20,
     orientation: 'normal',

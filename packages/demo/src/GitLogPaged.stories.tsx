@@ -19,7 +19,7 @@ const meta: Meta<GitLogPagedStoryProps> = {
     enablePreviewedCommitStyling: true,
     enableSelectedCommitStyling: true,
     nodeTheme: 'default',
-    breakPointTheme: 'slash',
+    breakPointTheme: 'dot',
     showGitIndex: true,
     renderStrategy: 'html-grid',
     nodeSize: 20,

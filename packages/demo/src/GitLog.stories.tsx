@@ -89,11 +89,14 @@ const meta: Meta<GitLogStoryProps> = {
       table: {
         category: 'Visibility'
       },
-      control: 'radio',
-      options: {
-        Default: 'default',
-        Plain: 'plain'
-      }
+      control: {
+        type: 'select',
+        labels: {
+          default: 'Default',
+          plain: 'Plain'
+        },
+      },
+      options: ['default', 'plain']
     },
     showGitIndex: {
       name: 'Show Git Index',
@@ -107,11 +110,14 @@ const meta: Meta<GitLogStoryProps> = {
       table: {
         category: 'Visibility'
       },
-      control: 'radio',
-      options: {
-        'HTML Grid': 'html-grid',
-        Canvas2D: 'canvas'
-      }
+      control: {
+        type: 'select',
+        labels: {
+          'html-grid': 'HTML Grid',
+          canvas: 'Canvas2D'
+        }
+      },
+      options: ['html-grid', 'canvas'],
     },
     enableSelectedCommitStyling: {
       name: 'Enable Selection Styling',
@@ -194,11 +200,14 @@ const meta: Meta<GitLogStoryProps> = {
       table: {
         category: 'Dimensions'
       },
-      control: 'radio',
-      options: {
-        Normal: 'normal',
-        Flipped: 'flipped'
-      }
+      control: {
+        type: 'select',
+        labels: {
+          normal: 'Normal',
+          flipped: 'Flipped'
+        }
+      },
+      options: ['normal', 'flipped'],
     },
     onSelectCommit: {
       name: 'onSelectCommit',

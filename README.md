@@ -518,14 +518,13 @@ Graphs
 - Support filtering so that the graph skips nodes
   - Can we use one compute function now? Have a boolean to optionally do the find closest ancestor
   - Can we use one set of graphData too and remove the filteredData
-  - Add styling to the broken edges to indicate its not the true parent
-  - Make index commit find the nearest HEAD ancestor, or go off the graph otherwise
   - Does this work with GitLogPaged?
   - Rework CommitNodeLocation from a tuple into an object
   - Hover effect on lines to show missing commits?
   - Break point themes? Slash, dot, zig-zag etc
   - Make storybook radios into dropdowns
   - Prop to override graph fallback? No search results yields the placeholder nodes
+  - Split useColumnData. class maybe to manage rowToColumn map?
 
 Canvas2D
 - Custom prop for BG colour because of how canvas alpha channel works

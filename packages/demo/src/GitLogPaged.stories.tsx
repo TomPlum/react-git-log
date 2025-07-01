@@ -5,7 +5,7 @@ import { GitLogPagedDemo, GitLogPagedStoryProps } from '@components/GitLogPagedD
 
 const meta: Meta<GitLogPagedStoryProps> = {
   title: 'GitLogPaged',
-  component: GitLogPaged,
+  component: GitLogPaged<unknown>,
   parameters: {
     layout: 'fullscreen'
   },
@@ -66,11 +66,14 @@ const meta: Meta<GitLogPagedStoryProps> = {
       table: {
         category: 'Visibility'
       },
-      control: 'radio',
-      options: {
-        Default: 'default',
-        Plain: 'plain'
-      }
+      control: {
+        type: 'select',
+        labels: {
+          default: 'Default',
+          plain: 'Plain'
+        },
+      },
+      options: ['default', 'plain']
     },
     showGitIndex: {
       name: 'Show Git Index',
@@ -84,11 +87,14 @@ const meta: Meta<GitLogPagedStoryProps> = {
       table: {
         category: 'Visibility'
       },
-      control: 'radio',
-      options: {
-        'HTML Grid': 'html-grid',
-        Canvas2D: 'canvas'
-      }
+      control: {
+        type: 'select',
+        labels: {
+          'html-grid': 'HTML Grid',
+          canvas: 'Canvas2D'
+        }
+      },
+      options: ['html-grid', 'canvas'],
     },
     enableSelectedCommitStyling: {
       name: 'Enable Selection Styling',
@@ -149,11 +155,14 @@ const meta: Meta<GitLogPagedStoryProps> = {
       table: {
         category: 'Dimensions'
       },
-      control: 'radio',
-      options: {
-        Normal: 'normal',
-        Flipped: 'flipped'
-      }
+      control: {
+        type: 'select',
+        labels: {
+          normal: 'Normal',
+          flipped: 'Flipped'
+        }
+      },
+      options: ['normal', 'flipped'],
     },
     onSelectCommit: {
       name: 'onSelectCommit',

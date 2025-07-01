@@ -119,6 +119,13 @@ export type ThemeMode = 'light' | 'dark'
  */
 export type NodeTheme = 'default' | 'plain'
 
+/**
+ * Determines how the breakpoints (the styling of
+ * the node edges in the graph if a filter is active
+ * and is causing breaks in the graph) are rendered.
+ */
+export type BreakPointTheme = 'slash' | 'dot' | 'zig-zag'
+
 export type ThemeColours =
   'rainbow-dark' |
   'rainbow-light' |

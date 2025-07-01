@@ -3,6 +3,7 @@ import styles from './VerticalLine.module.scss'
 import { CSSProperties, useMemo } from 'react'
 import { VerticalLineProps } from './types'
 import { useGitContext } from 'context/GitContext'
+import { BreakPoint } from 'modules/Graph/strategies/Grid/components/BreakPoint'
 
 export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCommitNodeBorder, isIndex }: VerticalLineProps) => {
   const { headCommit, isServerSidePaginated, headCommitHash, isIndexVisible } = useGitContext()
@@ -46,7 +47,6 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
             top: '50%',
             height: '70%',
             zIndex: columnIndex + 1,
-            '--breakpoint-colour': indexCommitNodeBorder,
             borderRight: `2px dotted ${indexCommitNodeBorder}`
           }
         }
@@ -89,8 +89,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
             top: 0,
             height: '50%',
             zIndex: columnIndex + 1,
-            ...border,
-            '--breakpoint-colour': lineColour
+            ...border
           }
         }
       }
@@ -133,8 +132,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
           top: 0,
           height: '50%',
           zIndex: columnIndex + 1,
-          ...border,
-          '--breakpoint-colour': lineColour
+          ...border
         }
       }
     }
@@ -146,8 +144,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
           top: 0,
           height: '100%',
           zIndex: columnIndex + 1,
-          ...border,
-          '--breakpoint-colour': lineColour
+          ...border
         }
       }
     }
@@ -164,7 +161,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
         ...border
       }
     }
-  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, state.isBottomBreakPoint, state.isTopBreakPoint, isRowCommitIndexNode, isIndexVisible, isServerSidePaginated, headCommitHash, columnIndex, border, indexCommitNodeBorder, lineColour])
+  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, state.isBottomBreakPoint, state.isTopBreakPoint, isRowCommitIndexNode, isIndexVisible, isServerSidePaginated, headCommitHash, columnIndex, border, indexCommitNodeBorder])
 
   return (
     <div
@@ -173,11 +170,36 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
       data-testid={`vertical-line-${variant}`}
       className={classNames(
         styles.line,
-        styles.vertical,
-        { [styles.bottomBreakPoint]: state.isBottomBreakPoint && !isRowCommitIndexNode },
-        { [styles.topBreakPoint]: state.isTopBreakPoint },
-        { [styles.bottomBreakPointIndexCommit]: isRowCommitIndexNode && state.isBottomBreakPoint },
+        styles.vertical
       )}
-    />
+    >
+      {state.isBottomBreakPoint && !isRowCommitIndexNode && (
+        <BreakPoint
+          position='bottom'
+          color={lineColour}
+        />
+      )}
+
+      {state.isBottomBreakPoint && isRowCommitIndexNode && (
+        <BreakPoint
+          position='bottom'
+          style={{
+            left: 'calc(50% + 1px)',
+            width: '20px',
+            background: 'none',
+            borderRadius: 'unset',
+            borderBottom: `3px dotted ${indexCommitNodeBorder}`
+          }}
+          color={indexCommitNodeBorder}
+        />
+      )}
+
+      {state.isTopBreakPoint && (
+        <BreakPoint
+          position='top'
+          color={lineColour}
+        />
+      )}
+    </div>
   )
 }

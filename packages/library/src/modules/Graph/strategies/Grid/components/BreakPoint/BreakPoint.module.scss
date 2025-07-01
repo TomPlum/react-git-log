@@ -1,0 +1,18 @@
+.Slash {
+  position: absolute;
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--breakpoint-colour);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transform-origin: center;
+  left: calc(50% + 2px);
+
+  &--top {
+    top: 0;
+  }
+
+  &--bottom {
+    top: 100%;
+  }
+}

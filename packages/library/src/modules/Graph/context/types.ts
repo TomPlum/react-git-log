@@ -1,4 +1,4 @@
-import { NodeTheme } from 'hooks/useTheme'
+import { BreakPointTheme, NodeTheme } from 'hooks/useTheme'
 import { GraphOrientation } from 'modules/Graph'
 import { Commit } from 'types/Commit'
 import { RowIndexToColumnStates } from 'modules/Graph/strategies/Grid/hooks/useColumnData'
@@ -34,6 +34,12 @@ export interface GraphContextBag {
    * elements in the graph.
    */
   nodeTheme: NodeTheme
+
+  /**
+   * The theme to apply the break point
+   * elements in a filtered graph.
+   */
+  breakPointTheme: BreakPointTheme
 
   /**
    * The diameter, in pixels, of the

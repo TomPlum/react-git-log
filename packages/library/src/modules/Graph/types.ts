@@ -1,4 +1,4 @@
-import { NodeTheme } from '../../hooks/useTheme'
+import { BreakPointTheme, NodeTheme } from '../../hooks/useTheme'
 import { CustomCommitNode } from './strategies/Grid/types'
 
 export type GraphOrientation = 'normal' | 'flipped'
@@ -43,6 +43,13 @@ export interface GraphPropsCommon {
    * elements in the graph.
    */
   nodeTheme?: NodeTheme
+
+  /**
+   * Determines how the breakpoints (the styling of
+   * the node edges in the graph if a filter is active
+   * and is causing breaks in the graph) are rendered.
+   */
+  breakPointTheme?: BreakPointTheme
 
   /**
    * Enables the graphs horizontal width

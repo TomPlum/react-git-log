@@ -13,6 +13,7 @@ export const GraphCore = <T,>({
   children,
   nodeSize = DEFAULT_NODE_SIZE,
   nodeTheme = 'default',
+  breakPointTheme = 'slash',
   orientation = 'normal',
   enableResize = false,
   showCommitNodeHashes = false,
@@ -60,6 +61,7 @@ export const GraphCore = <T,>({
     showCommitNodeTooltips,
     showCommitNodeHashes,
     nodeTheme,
+    breakPointTheme,
     nodeSize,
     graphWidth: graphWidth + virtualColumns,
     orientation,
@@ -67,7 +69,7 @@ export const GraphCore = <T,>({
     columnData,
     isHeadCommitVisible,
     highlightedBackgroundHeight
-  }), [node, showCommitNodeTooltips, isHeadCommitVisible, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
+  }), [node, showCommitNodeTooltips, breakPointTheme, isHeadCommitVisible, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
 
   return (
     <GraphContext.Provider value={contextValue}>

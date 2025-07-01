@@ -522,7 +522,6 @@ Graphs
   - Rework CommitNodeLocation from a tuple into an object
   - Hover effect on lines to show missing commits?
   - Break point themes? Slash, dot, zig-zag etc
-  - Make storybook radios into dropdowns
   - Prop to override graph fallback? No search results yields the placeholder nodes
   - Split useColumnData. class maybe to manage rowToColumn map?
 

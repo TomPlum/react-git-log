@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { BreakPoint } from './BreakPoint'
 import * as graphContext from 'modules/Graph/context'
 import { graphContextBag } from 'test/stubs'
@@ -63,6 +63,32 @@ describe('Filtered Graph Break Point', () => {
       )
 
       expect(asFragment()).toMatchSnapshot()
+    })
+  })
+
+  describe('Style Overriding', () => {
+    variations.forEach(({ position, theme }) => {
+      it('should spread styles props into the underlying element wrapper for the matching theme', () => {
+        vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
+          breakPointTheme: theme
+        }))
+
+        render(
+          <BreakPoint
+            color='green'
+            position={position}
+            style={{
+              [theme]: {
+                borderColor: 'antiquewhite'
+              }
+            }}
+          />
+        )
+
+        expect(screen.getByTestId(`graph-break-point-${theme}-${position}`)).toHaveStyle({
+          borderColor: 'antiquewhite'
+        })
+      })
     })
   })
 })

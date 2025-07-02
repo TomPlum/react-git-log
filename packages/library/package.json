@@ -22,6 +22,7 @@
   "scripts": {
     "dev": "vite",
     "dev:watch": "vite build --watch",
+    "bundle:analyse": "VITE_BUNDLE_ANALYSIS=true vite build",
     "build": "tsc --project tsconfig.build.json && vite build",
     "build:watch": "tsc --project tsconfig.build.json --watch",
     "preview": "vite preview",

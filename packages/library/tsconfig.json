@@ -43,12 +43,12 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/types/svg.d.ts"
+    "src/types/svg.d.ts",
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
-    "vite.config.ts",
     "tsconfig.json"
   ]
 }

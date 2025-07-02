@@ -1,7 +1,6 @@
 import { Commit } from 'types/Commit'
 import { GitLogEntry } from 'types/GitLogEntry'
 import { GitContextBag } from 'context/GitContext'
-import DataIntervalTree from 'node-interval-tree'
 import { ThemeFunctions } from 'hooks/useTheme'
 import { GraphData } from 'data'
 import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/GraphColumn'
@@ -81,6 +80,8 @@ export const graphContextBag = (bag?: Partial<GraphContextBag>): GraphContextBag
   orientation: 'normal',
   visibleCommits: [],
   columnData: new Map(),
+  breakPointTheme: 'dot',
+  isHeadCommitVisible: true,
   ...bag
 })
 
@@ -108,7 +109,7 @@ export const graphData = (data?: Partial<GraphData>): GraphData => ({
   commits: [],
   hashToCommit: new Map(),
   parents: new Map(),
-  edges: new DataIntervalTree(),
+  edges: [],
   children: new Map(),
   ...data
 })

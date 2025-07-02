@@ -534,5 +534,6 @@ Canvas2D
 # Known Bugs
 - The `GraphCanvas2D` component has the preview/select background cut off by canvases left-edge.
 - The `GraphCanvas2D` component does not set the correct selected node BG colour, it's slightly off from the table row.
+- The `GraphCanvas2D` component assumes dark theme is enabled and uses a dark background colour to emulate transparency in its gradients.
 - The `GraphHTMLGrid` component renders the node-edge gradient to last node, but should be solid.
 - The `GraphHTMLGrid` component is missing node edges from some commit nodes that are present in the canvas variant.

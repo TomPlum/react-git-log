@@ -1,7 +1,7 @@
 import { GitLogCoreProps } from './types'
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context/GitContext'
-import { computeNodePositions, computeRelationships, GraphData, temporalTopologicalSort } from 'data'
+import { computeRelationships, GraphData, temporalTopologicalSort, buildGraphData } from 'data'
 import { Tags } from 'modules/Tags'
 import { GraphCanvas2D, GraphHTMLGrid, GraphOrientation } from 'modules/Graph'
 import { Table } from 'modules/Table'
@@ -12,7 +12,6 @@ import { ThemeContextProvider } from 'context/ThemeContext'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import { useCoreComponents } from 'components/GitLogCore/useCoreComponents'
-import { computeFilteredNodePositions } from '../../data/computeFilteredNodeColumns'
 
 dayjs.extend(utc)
 
@@ -44,24 +43,23 @@ export const GitLogCore = <T,>({
     componentName
   })
 
-  const graphData = useMemo<GraphData<T>>(() => {
+  const { graphData, allCommits } = useMemo<{ graphData: GraphData<T>, allCommits: Commit<T>[] }>(() => {
     const { children, parents, hashToCommit } = computeRelationships(entries, headCommitHash)
     const sortedCommits = temporalTopologicalSort([...hashToCommit.values()], children, hashToCommit)
-    const { graphWidth, positions, edges } = computeNodePositions(sortedCommits, currentBranch, children, parents)
-
-    const filteredCommits = filter?.(sortedCommits) ?? []
-    const filteredData = computeFilteredNodePositions(sortedCommits, currentBranch, children, parents, filteredCommits)
+    const filteredCommits = filter?.(sortedCommits) ?? sortedCommits
+    const { graphWidth, positions, edges } = buildGraphData(sortedCommits, currentBranch, children, parents, filteredCommits)
 
     return {
-      children,
-      parents,
-      hashToCommit,
-      graphWidth,
-      positions,
-      edges,
-      filteredData,
-      filteredCommits,
-      commits: sortedCommits
+      allCommits: sortedCommits,
+      graphData: {
+        children,
+        parents,
+        hashToCommit,
+        graphWidth,
+        positions,
+        edges,
+        commits: filteredCommits
+      }
     }
   }, [currentBranch, entries, filter, headCommitHash])
 
@@ -87,11 +85,15 @@ export const GitLogCore = <T,>({
 
   const headCommit = useMemo<Commit<T> | undefined>(() => {
     if (isServerSidePaginated) {
-      return graphData.commits.find(it => it.hash === headCommitHash)
+      return allCommits.find(({ hash }) => {
+        return hash === headCommitHash
+      })
     }
 
-    return graphData.commits.find(it => it.branch.includes(currentBranch))
-  }, [currentBranch, graphData.commits, headCommitHash, isServerSidePaginated])
+    return allCommits.find(({ branch }) => {
+      return branch.includes(currentBranch)
+    })
+  }, [allCommits, currentBranch, headCommitHash, isServerSidePaginated])
 
   const indexCommit = useMemo<Commit | undefined>(() => {
     if (!headCommit) {

@@ -23,23 +23,17 @@ export const Table = ({
 }: TableProps) => {
   const { textColour, } = useTheme()
   const { placeholderData } = usePlaceholderData()
-  const { showHeaders, graphData, paging, indexCommit, isIndexVisible, filter } = useGitContext()
+  const { showHeaders, graphData, paging, indexCommit, isIndexVisible } = useGitContext()
 
   const tableData = useMemo<Commit[]>(() => {
-    let data = graphData.commits
-
-    if (filter) {
-      data = graphData.filteredCommits
-    }
-
-    data = data.slice(paging?.startIndex, paging?.endIndex)
+    const data = graphData.commits.slice(paging?.startIndex, paging?.endIndex)
 
     if (isIndexVisible && indexCommit) {
       data.unshift(indexCommit)
     }
 
     return data
-  }, [graphData.commits, graphData.filteredCommits, paging?.startIndex, paging?.endIndex, filter, isIndexVisible, indexCommit])
+  }, [graphData.commits, paging?.startIndex, paging?.endIndex, isIndexVisible, indexCommit])
 
   const tableContextValue = useMemo<TableContextBag>(() => ({
     timestampFormat

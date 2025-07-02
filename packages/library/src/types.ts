@@ -88,7 +88,7 @@ interface GitLogCommonProps<T> {
    * Represents the local working directory
    * and Git index of the currently checked-out
    * branch. Can optionally show metadata of
-   * file statuses via {@link indexStatus}
+   * file statuses via {@link indexStatus}.
    */
   showGitIndex?: boolean
 
@@ -176,11 +176,6 @@ export interface GitLogPagedProps<T> extends GitLogCommonProps<T> {
    * The SHA1 hash of the HEAD commit of
    * the {@link GitLogProps.currentBranch currentBranch} that is checked
    * out in the repository.
-   *
-   * Only needs to be passed in if you are
-   * passing in a subset of the Git log
-   * {@link entries} due to managing your
-   * own pagination.
    *
    * @see {paging} for more info.
    */

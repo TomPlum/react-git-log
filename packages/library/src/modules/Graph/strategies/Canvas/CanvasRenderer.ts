@@ -215,12 +215,9 @@ export class CanvasRenderer {
   }
 
   private drawEdges() {
-    this.graphData
-      .edges
-      .search(0, this.commits.length)
-      .forEach(([[rowStart, colStart], [rowEnd, colEnd], edgeType]) => {
-        this.drawEdgeBetweenNodes(rowStart, colStart, rowEnd, colEnd, edgeType)
-      })
+    this.graphData.edges.forEach(({ from: [rowStart, colStart], to: [rowEnd, colEnd], type }) => {
+      this.drawEdgeBetweenNodes(rowStart, colStart, rowEnd, colEnd, type)
+    })
   }
 
   private drawVirtualNodeEdges() {
@@ -297,7 +294,7 @@ export class CanvasRenderer {
 
     this.ctx.moveTo(x0, y0)
 
-    const strokeColumn = colStart != colEnd && edgeType === 'Merge' ? colEnd : colStart
+    const strokeColumn = colStart !== colEnd && edgeType === 'Merge' ? colEnd : colStart
     const strokeColour = this.getColours(strokeColumn).commitNode.borderColour
 
     const edgeRunsOffTheBottom = rowEnd > this.commits.length

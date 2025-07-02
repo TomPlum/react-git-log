@@ -26,7 +26,7 @@ export class ActiveBranches {
   }
 
   /**
-   * Inserts a commit into the nearest available column in the visualization.
+   * Inserts a commit into the nearest available column in the visualisation.
    *
    * @param hash The SHA1 hash of the commit we're inserting.
    * @param columnIndex The initial index of the column where we want to place the commit.

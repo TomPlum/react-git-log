@@ -299,6 +299,11 @@ const meta: Meta<GitLogStoryProps> = {
       table: {
         disable: true
       }
+    },
+    filter: {
+      table: {
+        disable: true
+      }
     }
   }
 } satisfies Meta<GitLogStoryProps>

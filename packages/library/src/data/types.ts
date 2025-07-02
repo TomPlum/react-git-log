@@ -1,5 +1,4 @@
 import { Commit } from 'types/Commit'
-import DataIntervalTree from 'node-interval-tree'
 
 export interface GraphData<T = unknown> {
   /**
@@ -42,49 +41,51 @@ export interface GraphData<T = unknown> {
   positions: Map<string, CommitNodeLocation>
 
   /**
-   * An interval tree containing all the edges
-   * for relationships between commit nodes in
+   * An array containing all the edges
+   * for relationships between commits nodes in
    * the graph.
    */
-  edges: DataIntervalTree<GraphEdge, number>
+  edges: GraphEdge[]
 
   /**
    * An array of commit details that have been
    * sorted temporally by committer date.
    */
   commits: Commit<T>[]
+}
 
-  filteredCommits: Commit<T>[]
+/**
+ * Represents a single edge in the git
+ * log graph connecting two commit nodes.
+ */
+export interface GraphEdge {
+  /**
+   * The location in the graph of
+   * the source node that the edge
+   * is to be drawn from.
+   */
+  from: CommitNodeLocation
 
-  filteredData: {
-    /**
-     * The width of the graph. A number
-     * that is the maximum concurrent active
-     * branches at any one time from all
-     * git log entries passed the log.
-     */
-    graphWidth: number
+  /**
+   * The location in the graph of
+   * the target node that the edge
+   * is to be drawn to.
+   */
+  to: CommitNodeLocation
 
-    /**
-     * A map of the SHA1 hash of a commit
-     * and a {@link CommitNodeLocation} tuple that contains
-     * data about the row and column in which
-     * the node for that commit will be
-     * rendered in the graph.
-     */
-    positions: Map<string, CommitNodeLocation>
+  /**
+   * The type of edge.
+   */
+  type: EdgeType
 
-    /**
-     * An interval tree containing all the edges
-     * for relationships between commit nodes in
-     * the graph.
-     */
-    edges: {
-      from: CommitNodeLocation
-      to: CommitNodeLocation
-      rerouted: boolean
-    }[]
-  }
+  /**
+   * Denotes whether this edge has
+   * been rerouted from its actual
+   * target node to its nearest ancestor
+   * based on commits being filtered
+   * from the graph.
+   */
+  rerouted: boolean
 }
 
 /**
@@ -104,14 +105,3 @@ export enum EdgeType {
   Normal = 'Normal',
   Merge = 'Merge'
 }
-
-/**
- * A tuple containing coordinates and other
- * metadata for a connecting branch or merge
- * line on the commit {@link Graph}.
- *
- *   1. The source nodes location.
- *   2. The target nodes location.
- *   3. The type of edge.
- */
-export type GraphEdge = [CommitNodeLocation, CommitNodeLocation, EdgeType]

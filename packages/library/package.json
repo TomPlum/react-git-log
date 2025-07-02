@@ -43,7 +43,6 @@
     "classnames": "^2.5.1",
     "dayjs": "^1.11.13",
     "fastpriorityqueue": "^0.7.5",
-    "node-interval-tree": "^2.1.2",
     "react": ">=19.0.0",
     "react-dom": ">=19.0.0",
     "react-tiny-popover": "^8.1.6"

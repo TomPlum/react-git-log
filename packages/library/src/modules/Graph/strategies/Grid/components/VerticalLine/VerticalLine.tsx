@@ -16,10 +16,10 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
     // and the skeleton placeholder elements.
     const borderStyle = isIndex || state.isPlaceholderSkeleton ? 'dotted' : 'solid'
 
-    // If we're on the first or last row of a page of data,
+    // If we're on the first or last row of a page,
     // use the border-image trick to render a linear-gradient
     // of the border colour so it fades out.
-    if ((state.isLastRow || state.isFirstRow) && !state.isVerticalIndexLine) {
+    if ((state.isLastRow ||  state.isFirstRow) && !state.isVerticalIndexLine && !commit.isBranchTip) {
       const direction = state.isLastRow ? 'bottom' : 'top'
       return {
         borderRight: '2px solid transparent',
@@ -27,11 +27,11 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
       }
     }
 
-    // Otherwise it's just a normal border
+    // Otherwise it's just a normal, solid border
     return {
       borderRight: `2px ${borderStyle} ${lineColour}`
     }
-  }, [isIndex, lineColour, state.isFirstRow, state.isLastRow, state.isPlaceholderSkeleton, state.isVerticalIndexLine])
+  }, [commit.isBranchTip, isIndex, lineColour, state.isFirstRow, state.isLastRow, state.isPlaceholderSkeleton, state.isVerticalIndexLine])
   
   const { style, variant } = useMemo<{ style: CSSProperties, variant: string }>(() => {
     const rowsCommitIsHead = commit.hash === headCommit?.hash && state.isNode

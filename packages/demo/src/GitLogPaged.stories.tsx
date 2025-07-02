@@ -14,6 +14,7 @@ const meta: Meta<GitLogPagedStoryProps> = {
     showTable: true,
     branchName: 'release',
     showCommitNodeHashes: false,
+    showCommitNodeTooltips: false,
     showHeaders: true,
     enableResize: false,
     enablePreviewedCommitStyling: true,
@@ -45,6 +46,12 @@ const meta: Meta<GitLogPagedStoryProps> = {
     },
     showCommitNodeHashes: {
       name: 'Show Commit Hashes',
+      table: {
+        category: 'Visibility'
+      }
+    },
+    showCommitNodeTooltips: {
+      name: 'Show Commit Tooltips',
       table: {
         category: 'Visibility'
       }
@@ -222,6 +229,11 @@ const meta: Meta<GitLogPagedStoryProps> = {
       }
     },
     headCommitHash: {
+      table: {
+        disable: true
+      }
+    },
+    filter: {
       table: {
         disable: true
       }

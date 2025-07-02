@@ -1,9 +1,20 @@
 import { Commit } from 'types/Commit'
 import { ActiveBranches } from './ActiveBranches'
-import { CommitNodeLocation } from './types'
+import { CommitNodeLocation, EdgeType, GraphEdge } from './types'
 import { ActiveNodes } from './ActiveNodes'
 
-export const computeFilteredNodePositions = <T>(
+/**
+ * Computes the visual positions of commits in a Git log visualisation.
+ *
+ * @param commits - List of commit objects
+ * @param currentBranch - The currently active branch
+ * @param children - A map of commit hashes to their child commits
+ * @param parents - A map of commit hashes to their parent commits
+ * @param filteredCommits A list of commit objects after running them through the filter
+ *
+ * @returns An object containing commit positions, graph width, and edge connections
+ */
+export const buildGraphData = <T>(
   commits: Commit<T>[],
   currentBranch: string,
   children: Map<string, string[]>,
@@ -99,7 +110,9 @@ export const computeFilteredNodePositions = <T>(
     .filter(([, pos]) => !!pos) as [string, CommitNodeLocation][]
 
   const rowMap = new Map(
-    filteredRows.map(([hash, [, col]], i) => [hash, [i + 1, col] as CommitNodeLocation])
+    filteredRows.map(([hash, [, col]], i) => {
+      return [hash, [i + 1, col] as CommitNodeLocation]
+    })
   )
 
   const findClosestVisibleAncestor = (() => {
@@ -137,7 +150,7 @@ export const computeFilteredNodePositions = <T>(
 
   const filteredEdges = filteredCommits ?? commits
   const edges = filteredEdges.flatMap(source => {
-    const output: { from: CommitNodeLocation; to: CommitNodeLocation; rerouted: boolean }[] = []
+    const output: GraphEdge[] = []
 
     for (const parentHash of source.parents) {
       const fromPos = rowMap.get(source.hash)
@@ -152,6 +165,7 @@ export const computeFilteredNodePositions = <T>(
           from: fromPos,
           to: toPos,
           rerouted: toHash !== parentHash,
+          type: source.parents.length > 1 ? EdgeType.Merge : EdgeType.Normal
         })
       }
     }

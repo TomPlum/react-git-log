@@ -86,10 +86,12 @@ const meta: Meta<GitLogPagedStoryProps> = {
         labels: {
           slash: 'Slash',
           dot: 'Dot',
-          'zig-zag': 'Zig-Zag'
+          'zig-zag': 'Zig-Zag',
+          line: 'Line',
+          'double-line': 'Double Line'
         },
       },
-      options: ['slash', 'dot', 'zig-zag']
+      options: ['slash', 'dot', 'zig-zag', 'line', 'double-line']
     },
     showGitIndex: {
       name: 'Show Git Index',

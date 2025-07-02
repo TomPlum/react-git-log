@@ -94,3 +94,60 @@
     }
   }
 }
+
+.Line {
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  border-radius: 10px;
+  background: var(--breakpoint-colour);
+  left: calc(50% - 4px);
+
+  &--top {
+    top: 0;
+  }
+
+  &--bottom {
+    top: 100%;
+  }
+}
+
+.DoubleLine {
+  position: absolute;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 2px;
+    border-radius: 10px;
+    background: var(--breakpoint-colour);
+    left: calc(50% - 4px);
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 1px;
+    border-radius: 10px;
+    background: var(--breakpoint-colour);
+    left: calc(50% - 1px);
+  }
+
+  &--top {
+    top: 0;
+
+    &::after {
+      top: -4px;
+    }
+  }
+
+  &--bottom {
+    top: 100%;
+
+    &::after {
+      top: 4px;
+    }
+  }
+}

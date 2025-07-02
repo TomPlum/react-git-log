@@ -51,5 +51,31 @@ export const BreakPoint = ({ position, className, color, style }: BreakPointProp
         />
       )
     }
+    case 'line': {
+      return (
+        <div
+          style={{ ...commonStyles, ...style?.['line'] }}
+          data-testid={`graph-break-point-line-${position}`}
+          className={classNames(
+            classes.Line,
+            classes[`Line--${position}`],
+            className
+          )}
+        />
+      )
+    }
+    case 'double-line': {
+      return (
+        <div
+          style={{ ...commonStyles, ...style?.['double-line'] }}
+          data-testid={`graph-break-point-double-line-${position}`}
+          className={classNames(
+            classes.DoubleLine,
+            classes[`DoubleLine--${position}`],
+            className
+          )}
+        />
+      )
+    }
   }
 }

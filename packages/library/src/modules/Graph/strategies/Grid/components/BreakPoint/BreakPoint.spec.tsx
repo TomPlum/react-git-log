@@ -30,6 +30,22 @@ describe('Filtered Graph Break Point', () => {
     {
       theme: 'zig-zag',
       position: 'bottom'
+    },
+    {
+      theme: 'line',
+      position: 'top'
+    },
+    {
+      theme: 'line',
+      position: 'bottom'
+    },
+    {
+      theme: 'double-line',
+      position: 'top'
+    },
+    {
+      theme: 'double-line',
+      position: 'bottom'
     }
   ]
 

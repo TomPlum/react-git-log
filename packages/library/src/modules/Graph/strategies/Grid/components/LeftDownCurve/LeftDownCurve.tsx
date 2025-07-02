@@ -18,7 +18,10 @@ export const LeftDownCurve = ({ color, isPlaceholder, showBottomBreakPoint }: Le
           position='bottom'
           style={{
             slash: { left: '50%' },
-            dot: { left: '50%' }
+            dot: { left: '50%' },
+            line: { left: 'calc(50% - 6px)' },
+            'zig-zag': { left: 'calc(50% - 2px)' },
+            'double-line': { left: 'calc(50% - 3px)' }
           }}
         />
       )}

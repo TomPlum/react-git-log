@@ -124,7 +124,7 @@ export type NodeTheme = 'default' | 'plain'
  * the node edges in the graph if a filter is active
  * and is causing breaks in the graph) are rendered.
  */
-export type BreakPointTheme = 'slash' | 'dot' | 'zig-zag'
+export type BreakPointTheme = 'slash' | 'dot' | 'zig-zag' | 'line' | 'double-line'
 
 export type ThemeColours =
   'rainbow-dark' |

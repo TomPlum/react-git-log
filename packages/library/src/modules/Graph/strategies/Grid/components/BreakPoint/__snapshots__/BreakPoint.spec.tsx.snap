@@ -10,6 +10,26 @@ exports[`Filtered Graph Break Point > should render a [bottom] break point corre
 </DocumentFragment>
 `;
 
+exports[`Filtered Graph Break Point > should render a [bottom] break point correctly when the theme is [double-line] 1`] = `
+<DocumentFragment>
+  <div
+    class="DoubleLine DoubleLine--bottom"
+    data-testid="graph-break-point-double-line-bottom"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
+exports[`Filtered Graph Break Point > should render a [bottom] break point correctly when the theme is [line] 1`] = `
+<DocumentFragment>
+  <div
+    class="Line Line--bottom"
+    data-testid="graph-break-point-line-bottom"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
 exports[`Filtered Graph Break Point > should render a [bottom] break point correctly when the theme is [slash] 1`] = `
 <DocumentFragment>
   <div
@@ -35,6 +55,26 @@ exports[`Filtered Graph Break Point > should render a [top] break point correctl
   <div
     class="Dot Dot--top"
     data-testid="graph-break-point-dot-top"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
+exports[`Filtered Graph Break Point > should render a [top] break point correctly when the theme is [double-line] 1`] = `
+<DocumentFragment>
+  <div
+    class="DoubleLine DoubleLine--top"
+    data-testid="graph-break-point-double-line-top"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
+exports[`Filtered Graph Break Point > should render a [top] break point correctly when the theme is [line] 1`] = `
+<DocumentFragment>
+  <div
+    class="Line Line--top"
+    data-testid="graph-break-point-line-top"
     style="--breakpoint-colour: rbg(125, 67, 100);"
   />
 </DocumentFragment>

@@ -4,8 +4,10 @@ import { CSSProperties, useMemo } from 'react'
 import { VerticalLineProps } from './types'
 import { useGitContext } from 'context/GitContext'
 import { BreakPoint } from 'modules/Graph/strategies/Grid/components/BreakPoint'
+import { useGraphContext } from 'modules/Graph/context'
 
 export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCommitNodeBorder, isIndex }: VerticalLineProps) => {
+  const { breakPointTheme } = useGraphContext()
   const { headCommit, isServerSidePaginated, headCommitHash, isIndexVisible } = useGitContext()
 
   const lineColour = isIndex ? indexCommitNodeBorder : columnColour
@@ -130,7 +132,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
         variant: 'bottom-break-point',
         style: {
           top: 0,
-          height: '50%',
+          height: breakPointTheme === 'ring' ? '30%' : '50%',
           zIndex: columnIndex + 1,
           ...border
         }
@@ -161,7 +163,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
         ...border
       }
     }
-  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, state.isBottomBreakPoint, state.isTopBreakPoint, isRowCommitIndexNode, isIndexVisible, isServerSidePaginated, headCommitHash, columnIndex, border, indexCommitNodeBorder])
+  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, state.isBottomBreakPoint, state.isTopBreakPoint, isRowCommitIndexNode, isIndexVisible, isServerSidePaginated, headCommitHash, columnIndex, border, indexCommitNodeBorder, breakPointTheme])
 
   return (
     <div
@@ -190,6 +192,9 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
               background: 'none',
               borderRadius: 'unset',
               borderBottom: `3px dotted ${indexCommitNodeBorder}`
+            },
+            ring: {
+              borderStyle: 'dotted'
             }
           }}
           color={indexCommitNodeBorder}

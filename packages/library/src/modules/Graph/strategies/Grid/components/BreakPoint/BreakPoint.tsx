@@ -38,6 +38,19 @@ export const BreakPoint = ({ position, className, color, style }: BreakPointProp
         />
       )
     }
+    case 'ring': {
+      return (
+        <div
+          style={{ ...commonStyles, ...style?.ring }}
+          data-testid={`graph-break-point-ring-${position}`}
+          className={classNames(
+            classes.Ring,
+            classes[`Ring--${position}`],
+            className
+          )}
+        />
+      )
+    }
     case 'zig-zag': {
       return (
         <div

@@ -19,13 +19,12 @@
 
 .Dot {
   position: absolute;
-  $diameter: 7px;
+  $diameter: 8px;
   width: $diameter;
   height: $diameter;
   border-radius: 50%;
   background: var(--breakpoint-colour);
-  transform: translate(-50%, -50%) rotate(-45deg);
-  transform-origin: center;
+  transform: translate(-50%, -50%);
   left: calc(50% + 2px);
 
   &--top {
@@ -34,6 +33,26 @@
 
   &--bottom {
     top: 100%;
+  }
+}
+
+.Ring {
+  position: absolute;
+  $diameter: 6px;
+  width: $diameter;
+  height: $diameter;
+  border-radius: 50%;
+  border: 2px solid var(--breakpoint-colour);
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  left: calc(50% + 2px);
+
+  &--top {
+    top: -4px;
+  }
+
+  &--bottom {
+    top: calc(100% + 4px);
   }
 }
 

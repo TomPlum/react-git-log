@@ -1,6 +1,6 @@
 import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/GraphColumn'
 import { isColumnEmpty } from 'modules/Graph/strategies/Grid/utility/isColumnEmpty'
-import { CommitNodeLocation } from 'data'
+import { CommitNodeLocation, GraphEdge } from 'data'
 import { getEmptyColumnState } from 'modules/Graph/strategies/Grid/utility/getEmptyColumnState'
 import { Commit } from 'types/Commit'
 import { GraphMatrixBuilderProps, GraphBreakPointCheck } from './types'
@@ -36,7 +36,7 @@ export class GraphMatrixBuilder {
     this.isIndexVisible = props.isIndexVisible
   }
 
-  public drawEdges(edgeData: { from: CommitNodeLocation, to: CommitNodeLocation, rerouted: boolean }[]) {
+  public drawEdges(edgeData: GraphEdge[]) {
     const columnBreakPointChecks: GraphBreakPointCheck[] = []
 
     edgeData.forEach(({ from, to, rerouted }) => {

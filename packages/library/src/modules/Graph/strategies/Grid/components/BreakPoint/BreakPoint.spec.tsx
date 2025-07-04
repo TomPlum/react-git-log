@@ -54,6 +54,14 @@ describe('Filtered Graph Break Point', () => {
     {
       theme: 'ring',
       position: 'bottom'
+    },
+    {
+      theme: 'arrow',
+      position: 'top'
+    },
+    {
+      theme: 'arrow',
+      position: 'bottom'
     }
   ]
 

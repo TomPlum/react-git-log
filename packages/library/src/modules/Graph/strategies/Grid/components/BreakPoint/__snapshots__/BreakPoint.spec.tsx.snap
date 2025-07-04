@@ -1,5 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Filtered Graph Break Point > should render a [bottom] break point correctly when the theme is [arrow] 1`] = `
+<DocumentFragment>
+  <div
+    class="Arrow Arrow--bottom"
+    data-testid="graph-break-point-arrow-bottom"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
 exports[`Filtered Graph Break Point > should render a [bottom] break point correctly when the theme is [dot] 1`] = `
 <DocumentFragment>
   <div
@@ -55,6 +65,16 @@ exports[`Filtered Graph Break Point > should render a [bottom] break point corre
   <div
     class="ZigZag ZigZag--bottom"
     data-testid="graph-break-point-zig-zag-bottom"
+    style="--breakpoint-colour: rbg(125, 67, 100);"
+  />
+</DocumentFragment>
+`;
+
+exports[`Filtered Graph Break Point > should render a [top] break point correctly when the theme is [arrow] 1`] = `
+<DocumentFragment>
+  <div
+    class="Arrow Arrow--top"
+    data-testid="graph-break-point-arrow-top"
     style="--breakpoint-colour: rbg(125, 67, 100);"
   />
 </DocumentFragment>

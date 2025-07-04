@@ -18,6 +18,7 @@ export const LeftUpCurve = ({ color, isPlaceholder, showTopBreakPoint }: LeftUpC
           color={color}
           style={{
             slash: { left: '50%' },
+            arrow: { left: 'calc(50% - 3px)' },
             dot: { left: '50%' },
             ring: { left: '50%' },
             line: { left: 'calc(50% - 6px)' },

@@ -112,10 +112,11 @@ const meta: Meta<GitLogStoryProps> = {
           ring: 'Ring',
           'zig-zag': 'Zig-Zag',
           line: 'Line',
-          'double-line': 'Double Line'
+          'double-line': 'Double Line',
+          arrow: 'Arrow'
         },
       },
-      options: ['slash', 'dot', 'ring', 'zig-zag', 'line', 'double-line']
+      options: ['slash', 'dot', 'ring', 'zig-zag', 'line', 'double-line', 'arrow']
     },
     showGitIndex: {
       name: 'Show Git Index',

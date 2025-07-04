@@ -90,5 +90,18 @@ export const BreakPoint = ({ position, className, color, style }: BreakPointProp
         />
       )
     }
+    case 'arrow': {
+      return (
+        <div
+          style={{ ...commonStyles, ...style?.arrow }}
+          data-testid={`graph-break-point-arrow-${position}`}
+          className={classNames(
+            classes.Arrow,
+            classes[`Arrow--${position}`],
+            className
+          )}
+        />
+      )
+    }
   }
 }

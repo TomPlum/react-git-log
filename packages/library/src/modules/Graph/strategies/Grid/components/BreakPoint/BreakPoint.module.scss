@@ -170,3 +170,66 @@
     }
   }
 }
+
+.Arrow {
+  position: absolute;
+
+  $width: 8px;
+  $height: 3px;
+
+  // The left line
+  &::before {
+    position: absolute;
+    content: '';
+    width: $width;
+    height: $height;
+    background: var(--breakpoint-colour);
+    border-radius: $height;
+  }
+
+  // The right line
+  &::after {
+    position: absolute;
+    content: '';
+    width: $width;
+    height: $height;
+    background: var(--breakpoint-colour);
+    border-radius: $height;
+  }
+
+  &--top {
+    top: -5px;
+
+    // The left line
+    &::before {
+      top: 5px;
+      left: calc(50% - 3px);
+      transform: rotate(-45deg);
+    }
+
+    // The right line
+    &::after {
+      top: 5px;
+      left: calc(50% + 1px);
+      transform: rotate(45deg);
+    }
+  }
+
+  &--bottom {
+    top: 90%;
+
+    // The left line
+    &::before {
+      top: -3px;
+      left: calc(50% - 3px);
+      transform: rotate(45deg);
+    }
+
+    // The right line
+    &::after {
+      top: -3px;
+      left: calc(50% + 1px);
+      transform: rotate(-45deg);
+    }
+  }
+}

@@ -1,13 +1,13 @@
-import { GraphColumnState } from 'modules/Graph/strategies/Grid/components/GraphColumn'
 import { isColumnEmpty } from 'modules/Graph/strategies/Grid/utility/isColumnEmpty'
 import { CommitNodeLocation, GraphEdge } from 'data'
-import { getEmptyColumnState } from 'modules/Graph/strategies/Grid/utility/getEmptyColumnState'
 import { Commit } from 'types/Commit'
 import { GraphMatrixBuilderProps, GraphBreakPointCheck } from './types'
+import { GraphEdgeRenderer } from 'modules/Graph/strategies/Grid/GraphMatrixBuilder/GraphEdgeRenderer'
+import { GraphMatrix } from 'modules/Graph/strategies/Grid/GraphMatrixBuilder/GraphMatrix'
 
 export class GraphMatrixBuilder {
   // Maps the one-based row index to an array of column state data
-  private readonly _matrix = new Map<number, GraphColumnState[]>()
+  private readonly _matrix: GraphMatrix
 
   // If, while server-side paginated, we find commits that need to draw
   // lines to nodes that lie outside of this page of data, and those lines
@@ -15,6 +15,7 @@ export class GraphMatrixBuilder {
   // then we track the number of new "virtual" columns here that will be injected
   // in the graph.
   private _virtualColumns = 0
+
 
   private readonly graphWidth: number
   private readonly commits: Commit[]
@@ -24,7 +25,9 @@ export class GraphMatrixBuilder {
   private readonly headCommitHash: string | undefined
   private readonly isIndexVisible: boolean
 
-  private columnBreakPointChecks: GraphBreakPointCheck[] | undefined
+  private readonly graphEdgeRenderer: GraphEdgeRenderer
+
+  private columnBreakPointChecks: GraphBreakPointCheck[] = []
 
   constructor(props: GraphMatrixBuilderProps) {
     this.graphWidth = props.graphWidth
@@ -34,158 +37,34 @@ export class GraphMatrixBuilder {
     this.headCommit = props.headCommit
     this.headCommitHash = props.headCommitHash
     this.isIndexVisible = props.isIndexVisible
+    this._matrix = new GraphMatrix(props.graphWidth)
+    this.graphEdgeRenderer = new GraphEdgeRenderer(this._matrix)
   }
 
   public drawEdges(edgeData: GraphEdge[]) {
-    const columnBreakPointChecks: GraphBreakPointCheck[] = []
-
     edgeData.forEach(({ from, to, rerouted }) => {
-      const [rowStart, colStart] = from
-      const [rowEnd, colEnd] = to
-
-      // Are we connecting to nodes in the same column?
-      // I.e. drawing a straight merge line between them.
-      if (colStart === colEnd) {
-        for (let targetRow = rowStart; targetRow <= rowEnd; targetRow++) {
-          const columnState = this._matrix.get(targetRow) ?? this.emptyColumnState()
-
-          columnState[colStart] = {
-            ...columnState[colStart],
-            isVerticalLine: true,
-            isBottomBreakPoint: targetRow === rowEnd - 1 && rerouted
-          }
-
-          this._matrix.set(targetRow, columnState)
-        }
-      } else {
-        // Are we connecting nodes in different columns?
-        // I.e. drawing a line that ultimately curves into another column
-        // to represent a new branch being created or a branch being merged.
-        for (let targetRow = rowStart; targetRow <= rowEnd; targetRow++) {
-          const columnState = this._matrix.get(targetRow) ?? this.emptyColumnState()
-
-          // We're drawing a merge line from the bottom of
-          // a commit node, down, then to the left.
-          const edgeDownToLeft = rowEnd > rowStart && colEnd < colStart
-
-          // If we're on the first row (the one with the start node)
-          if (targetRow === rowStart) {
-            if (edgeDownToLeft) {
-              // For the first row, just add a vertical merge line
-              // out the bottom of the commit node.
-              columnState[colStart] = {
-                ...columnState[colStart],
-                isVerticalLine: true
-              }
-            } else {
-              // Horizontal straight lines in all but the target column
-              // since that one will be a curved line.
-              for (let columnIndex = colStart; columnIndex < colEnd; columnIndex++) {
-                columnState[columnIndex] = {
-                  ...columnState[columnIndex],
-                  isHorizontalLine: true,
-                  mergeSourceColumns: [
-                    ...(columnState[columnIndex]?.mergeSourceColumns ?? []),
-                    colEnd
-                  ]
-                }
-              }
-
-              // Add in the curved line in the target column where the end node is
-              columnState[colEnd] = {
-                ...columnState[colEnd],
-                isLeftDownCurve: true,
-                isBottomBreakPoint: rerouted && targetRow === rowEnd && !this.columnContainsCommitNode(targetRow + 1, colStart)
-              }
-            }
-          } else if (edgeDownToLeft) {
-            // Vertical straight lines down up until
-            // before we reach the target row since we'll
-            // have a curved line their around the corner.
-            if (targetRow !== rowStart && targetRow != rowEnd) {
-              columnState[colStart] = {
-                ...columnState[colStart],
-                isVerticalLine: true,
-                isBottomBreakPoint: rerouted && targetRow === rowEnd - 1
-              }
-            }
-
-            if (targetRow === rowEnd) {
-              // Add the curved line into the column that we're starting
-              // from (the commit nodes), and draw to the left towards our
-              // target node.
-              columnState[colStart] = {
-                ...columnState[colStart],
-                isLeftUpCurve: true
-              }
-
-              // Since we draw the edges first, we can't check if
-              // the column above has a node or not. We can't tell if we
-              // need a top break-point yet, so we'll add it to the list
-              // to check afterwards.
-              if (rerouted) {
-                columnBreakPointChecks.push({
-                  location: [targetRow, colStart],
-                  position: 'top',
-                  check: () => !this.columnContainsCommitNode(targetRow - 1, colStart)
-                })
-              }
-
-              // For the remaining columns in this final row, draw
-              // horizontal lines towards the target commit node.
-              for (let columnIndex = colStart - 1; columnIndex >= colEnd; columnIndex--) {
-                columnState[columnIndex] = {
-                  ...columnState[columnIndex],
-                  isHorizontalLine: true,
-                  mergeSourceColumns: [
-                    ...(columnState[columnIndex]?.mergeSourceColumns ?? []),
-                    colStart
-                  ]
-                }
-              }
-
-              columnState[colEnd] = {
-                ...columnState[colEnd]
-              }
-            }
-          } else {
-            // Else we're drawing a vertical line
-            columnState[colEnd] = {
-              ...columnState[colEnd],
-              isVerticalLine: true,
-              isBottomBreakPoint: rerouted && targetRow === rowEnd - 1
-            }
-          }
-
-          this._matrix.set(targetRow, columnState)
-        }
-      }
+      this.graphEdgeRenderer.drawEdge(from, to ,rerouted)
     })
 
-    this.columnBreakPointChecks = columnBreakPointChecks
+    this.columnBreakPointChecks = this.graphEdgeRenderer.columnBreakPointChecks
   }
 
   public drawNode(position: CommitNodeLocation) {
     const [row, column] = position
-    const columnState = this._matrix.get(row) ?? this.emptyColumnState()
+    const columnState = this._matrix.getColumns(row)
 
-    const isColumnBelowEmpty = this._matrix.has(row + 1)
-      ? isColumnEmpty(this._matrix.get(row + 1)![column])
-      : false
-
-    const isColumnAboveBreakPoint = this._matrix.has(row - 1)
-      ? this._matrix.get(row - 1)![column].isBottomBreakPoint
-      : false
+    const isColumnBelowEmpty = this._matrix.isColumnBelowEmpty(row, column)
+    const isColumnAboveBreakPoint = this._matrix.isColumnAboveBreakPoint(row, column)
 
     columnState[column] = {
       ...columnState[column],
       isNode: true,
-      isColumnAboveEmpty: this.isColumnAboveEmpty(row, column),
+      isColumnAboveEmpty: this._matrix.isColumnAboveEmpty(row, column),
       isColumnBelowEmpty,
       isTopBreakPoint: isColumnAboveBreakPoint
     }
 
-    this._matrix.set(row, columnState)
+    this._matrix.setColumns(row, columnState)
   }
 
   /**
@@ -197,13 +76,13 @@ export class GraphMatrixBuilder {
    * and their edges after applying pagination and filtering.
    */
   public checkPostRenderBreakPoints() {
-    this.columnBreakPointChecks?.forEach(({ check, position, location }) => {
+    this.columnBreakPointChecks.forEach(({ check, position, location }) => {
       if (position === 'top') {
         const shouldApplyBreakPoint = check()
         const rowIndex = location[0]
 
-        if (shouldApplyBreakPoint && this._matrix.has(rowIndex)) {
-          const columnState = this._matrix.get(rowIndex)!
+        if (shouldApplyBreakPoint && this._matrix.hasRowColumns(rowIndex)) {
+          const columnState = this._matrix.getColumns(rowIndex)
           const columnIndex = location[1]
 
           columnState[columnIndex] = {
@@ -224,7 +103,7 @@ export class GraphMatrixBuilder {
       const headCommitRowIndex = this.positions.get(this.headCommit.hash)![0]
 
       for (let rowIndex = 0; rowIndex <= headCommitRowIndex; rowIndex++) {
-        const columnState = this._matrix.get(rowIndex) ?? this.emptyColumnState()
+        const columnState = this._matrix.getColumns(rowIndex)
 
         columnState[0] = {
           ...columnState[0],
@@ -250,7 +129,7 @@ export class GraphMatrixBuilder {
     const drawVerticalLineToBottom = (fromCommitHash: string) => {
       const [rowIndex, columnIndex] = this.positions.get(fromCommitHash)!
       for (let targetRowIndex = rowIndex; targetRowIndex <= this.visibleCommits; targetRowIndex++) {
-        const columnState = this._matrix.get(targetRowIndex) ?? this.emptyColumnState()
+        const columnState = this._matrix.getColumns(targetRowIndex)
 
         columnState[columnIndex] = {
           ...columnState[columnIndex],
@@ -258,7 +137,7 @@ export class GraphMatrixBuilder {
           isColumnBelowEmpty: false
         }
 
-        this._matrix.set(targetRowIndex, columnState)
+        this._matrix.setColumns(targetRowIndex, columnState)
       }
     }
 
@@ -274,13 +153,13 @@ export class GraphMatrixBuilder {
       .sort((a, b) => this.positions.get(a.hash)![0] < this.positions.get(b.hash)![0] ? -1 : 1)
       .forEach(orphan => {
         const [rowIndex, columnIndex] = this.positions.get(orphan.hash)!
-        const columnStates = this._matrix.get(rowIndex) ?? this.emptyColumnState()
+        const columnStates = this._matrix.getColumns(rowIndex)
 
         // Can we just draw straight down in the current column?
         let columnsBelowContainNode = false
         let targetRowIndex = rowIndex + 1
         while(targetRowIndex <= this.visibleCommits) {
-          if (this._matrix.get(targetRowIndex)![columnIndex].isNode) {
+          if (this._matrix.getColumns(targetRowIndex)[columnIndex].isNode) {
             columnsBelowContainNode = true
           }
           targetRowIndex++
@@ -316,7 +195,7 @@ export class GraphMatrixBuilder {
           // Finally, add vertical lines from below the curve to the bottom of the graph
           if (rowIndex < this.visibleCommits) {
             for (let targetRowIndex = rowIndex + 1; targetRowIndex <= this.visibleCommits; targetRowIndex++) {
-              const targetRowColumnStates = this._matrix.get(targetRowIndex) ?? this.emptyColumnState()
+              const targetRowColumnStates = this._matrix.getColumns(targetRowIndex)
 
               targetRowColumnStates[targetColumnIndex] = {
                 ...targetRowColumnStates[targetColumnIndex],
@@ -324,7 +203,7 @@ export class GraphMatrixBuilder {
                 mergeSourceColumns: [targetColumnIndex]
               }
 
-              this._matrix.set(targetRowIndex, targetRowColumnStates)
+              this._matrix.setColumns(targetRowIndex, targetRowColumnStates)
             }
           }
 
@@ -338,7 +217,7 @@ export class GraphMatrixBuilder {
           }
         }
 
-        this._matrix.set(rowIndex, columnStates)
+        this._matrix.setColumns(rowIndex, columnStates)
       })
 
     // Any commits who have child hashes that are not present in the graph and
@@ -349,7 +228,7 @@ export class GraphMatrixBuilder {
     }).forEach(commitWithNoChildren => {
       const [rowIndex, columnIndex] = this.positions.get(commitWithNoChildren.hash)!
       for (let targetRowIndex = rowIndex; targetRowIndex >= 1; targetRowIndex--) {
-        const columnState = this._matrix.get(targetRowIndex) ?? this.emptyColumnState()
+        const columnState = this._matrix.getColumns(targetRowIndex)
 
         columnState[columnIndex] = {
           ...columnState[columnIndex],
@@ -357,7 +236,7 @@ export class GraphMatrixBuilder {
           isColumnAboveEmpty: false
         }
 
-        this._matrix.set(targetRowIndex, columnState)
+        this._matrix.setColumns(targetRowIndex, columnState)
       }
     })
   }
@@ -366,7 +245,7 @@ export class GraphMatrixBuilder {
    * Marks the first row so it can render with a gradient.
    */
   public markFirstRow(firstVisibleRowIndex: number) {
-    const firstRow = this._matrix.get(firstVisibleRowIndex) ?? this.emptyColumnState()
+    const firstRow = this._matrix.getColumns(firstVisibleRowIndex)
 
     for(let firstRowColumn = 0; firstRowColumn < firstRow.length; firstRowColumn++) {
       firstRow[firstRowColumn] = {
@@ -375,14 +254,14 @@ export class GraphMatrixBuilder {
       }
     }
 
-    this._matrix.set(firstVisibleRowIndex, firstRow)
+    this._matrix.setColumns(firstVisibleRowIndex, firstRow)
   }
 
   /**
    * Marks the last row so it can render with a gradient.
    */
   public markLastRow(lastVisibleRowIndex: number) {
-    const lastRow = this._matrix.get(lastVisibleRowIndex) ?? this.emptyColumnState()
+    const lastRow = this._matrix.getColumns(lastVisibleRowIndex)
     for(let lastRowColumn = 0; lastRowColumn < lastRow.length; lastRowColumn++) {
       lastRow[lastRowColumn] = {
         ...lastRow[lastRowColumn],
@@ -390,7 +269,7 @@ export class GraphMatrixBuilder {
       }
     }
 
-    this._matrix.set(lastVisibleRowIndex, lastRow)
+    this._matrix.setColumns(lastVisibleRowIndex, lastRow)
   }
 
   public get matrix() {
@@ -399,23 +278,5 @@ export class GraphMatrixBuilder {
 
   public get virtualColumns() {
     return this._virtualColumns
-  }
-
-  private emptyColumnState() {
-    return getEmptyColumnState({
-      columns: this.graphWidth
-    })
-  }
-
-  private isColumnAboveEmpty(row: number, column: number) {
-    return this._matrix.has(row - 1)
-      ? isColumnEmpty(this._matrix.get(row - 1)![column])
-      : false
-  }
-
-  private columnContainsCommitNode(row: number, column: number) {
-    return this._matrix.has(row)
-      ? this._matrix.get(row)![column].isNode
-      : false
   }
 }

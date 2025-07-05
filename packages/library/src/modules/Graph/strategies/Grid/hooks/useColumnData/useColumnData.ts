@@ -42,7 +42,7 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
     matrixBuilder.markLastRow(paging ? paging.endIndex : visibleCommits)
 
     return {
-      rowToColumnState: matrixBuilder.matrix,
+      rowToColumnState: matrixBuilder.matrix.value,
       virtualColumns: matrixBuilder.virtualColumns
     }
   }, [positions, edges, commits, headCommit, isIndexVisible, isServerSidePaginated, paging, visibleCommits, graphWidth, headCommitHash])

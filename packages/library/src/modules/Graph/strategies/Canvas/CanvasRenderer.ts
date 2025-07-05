@@ -144,17 +144,19 @@ export class CanvasRenderer {
     const { x: xStart, y: yStart } = this.getNodeCoordinates(x, y)
     this.ctx.moveTo(xStart, yStart)
 
-    const [headRow, headCol] = this.graphData.positions.get(this.headCommit!.hash)!
-    const { x: xHead, y: yHead } = this.getNodeCoordinates(headRow, headCol)
+    if (this.headCommit && this.graphData.positions.has(this.headCommit.hash)) {
+      const [headRow, headCol] = this.graphData.positions.get(this.headCommit.hash)!
+      const { x: xHead, y: yHead } = this.getNodeCoordinates(headRow, headCol)
 
-    this.ctx.lineTo(xHead, yHead)
-    this.ctx.strokeStyle = this.getColours(y).indexCommitColour
-    this.ctx.setLineDash(lineDash)
-    this.ctx.stroke()
+      this.ctx.lineTo(xHead, yHead)
+      this.ctx.strokeStyle = this.getColours(y).indexCommitColour
+      this.ctx.setLineDash(lineDash)
+      this.ctx.stroke()
 
-    this.ctx.beginPath()
-    this.drawCommitNode(x, y, lineDash, true)
-    this.ctx.fill()
+      this.ctx.beginPath()
+      this.drawCommitNode(x, y, lineDash, true)
+      this.ctx.fill()
+    }
   }
 
   private drawColumnBackground(commitHash: string, colour: string) {

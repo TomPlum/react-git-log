@@ -50,19 +50,19 @@ export class GraphMatrixBuilder {
 
   public drawNode(position: CommitNodeLocation) {
     const [row, column] = position
-    const columnState = this._matrix.getColumns(row)
+    const columns = this._matrix.getColumns(row)
 
     const isColumnBelowEmpty = this._matrix.isColumnBelowEmpty(row, column)
     const isColumnAboveBreakPoint = this._matrix.isColumnAboveBreakPoint(row, column)
 
-    columnState.update(column, {
+    columns.update(column, {
       isNode: true,
       isColumnAboveEmpty: this._matrix.isColumnAboveEmpty(row, column),
       isColumnBelowEmpty,
       isTopBreakPoint: isColumnAboveBreakPoint
     })
 
-    this._matrix.setColumns(row, columnState)
+    this._matrix.setColumns(row, columns)
   }
 
   /**
@@ -76,9 +76,6 @@ export class GraphMatrixBuilder {
   public checkPostRenderBreakPoints() {
     this.columnBreakPointChecks.forEach(({ check, position, location: [rowIndex, columnIndex] }) => {
       const shouldApplyBreakPoint = check(this._matrix)
-      if (position === 'bottom') {
-        console.log('APPLY BOTTOM CHECK: ', shouldApplyBreakPoint)
-      }
 
       if (shouldApplyBreakPoint && this._matrix.hasRowColumns(rowIndex)) {
         this._matrix.getColumns(rowIndex).update(columnIndex, {
@@ -114,6 +111,7 @@ export class GraphMatrixBuilder {
    * that the parent commit node lies beyond the rows currently shown.
    */
   public drawOffPageVirtualEdges() {
+    // TODO: Extract virtual edges renderer class
     const commitsWithUntrackedParents = this.commits.filter(({ parents }) => {
       return parents.some(parentHash => {
         return !this.positions.has(parentHash)

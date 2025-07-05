@@ -57,43 +57,40 @@ export class GraphEdgeRenderer {
         sourceColumn: colStart,
       })
 
+      const isTargetNodeBelowSource = rowEnd > rowStart
+      const isTargetNodeLeftOfSource = colEnd < colStart
+      const isDrawingDownLeft = isTargetNodeBelowSource && isTargetNodeLeftOfSource
+
       // We're drawing a merge line from the bottom of
       // a commit node, down, then to the left.
-      const edgeDownToLeft = rowEnd > rowStart && colEnd < colStart
-
-      // If we're on the first row (the one with the start node)
-      if (currentRow === rowStart) {
-        if (edgeDownToLeft) {
+      if (isDrawingDownLeft) {
+        if (currentRow === rowStart) {
           // For the first row, add a vertical merge line
           // out the bottom of the commit node.
           columns.update(colStart, {
             isVerticalLine: true
           })
-        } else {
-          // Since we're not going down and to the left, we must be going right, then down.
-          // So draw horizontal straight lines in all but the target column
-          // since that one will be a curved line.
-          branchingEdge.drawRightHorizontalLineAndCurve()
-        }
-      } else if (edgeDownToLeft) {
-        // We're past the first row now, so draw
-        // vertical straight lines down up until
-        // before we reach the target row since we'll
-        // have a curved line their around the corner.
-        if (currentRow !== rowStart && currentRow != rowEnd) {
-          columns.update(colStart, {
-            isVerticalLine: true,
-            isBottomBreakPoint: rerouted && currentRow === rowEnd - 1
-          })
-        }
-
-        if (currentRow === rowEnd) {
+        } else if (currentRow === rowEnd) {
           // Add the curved line into the column that we're starting
           // from (the commit nodes), and draw to the left towards our
           // target node.
           const { breakPointChecks } = branchingEdge.drawLeftHorizontalLineAndCurve()
           this._columnBreakPointChecks.push(...breakPointChecks)
+        } else {
+          // We're past the first row now, so draw
+          // vertical straight lines down up until
+          // before we reach the target row since we'll
+          // have a curved line their around the corner.
+          columns.update(colStart, {
+            isVerticalLine: true,
+            isBottomBreakPoint: rerouted && currentRow === rowEnd - 1
+          })
         }
+      } else if (currentRow === rowStart) {
+        // Since we're not going down and to the left, we must be going right, then down.
+        // So draw horizontal straight lines in all but the target column
+        // since that one will be a curved line.
+        branchingEdge.drawRightHorizontalLineAndCurve()
       } else {
         // We're drawing an edge right from the source node,
         // then down to the target node. We've already drawn the

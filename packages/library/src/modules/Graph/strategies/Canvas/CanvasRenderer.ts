@@ -1,40 +1,11 @@
 import { Commit } from 'types/Commit'
 import { CommitNodeLocation, EdgeType, GraphData } from 'data'
-import { CommitNodeColours, NodeTheme } from 'hooks/useTheme'
+import { NodeTheme } from 'hooks/useTheme'
 import { NODE_BORDER_WIDTH, ROW_HEIGHT } from 'constants/constants'
 import { getMergeNodeInnerSize } from 'modules/Graph/utils/getMergeNodeInnerSize'
 import { GraphOrientation } from 'modules/Graph'
 import { getColumnBackgroundSize } from 'modules/Graph/utils/getColumnBackgroundSize'
-import { MousePosition } from 'modules/Graph/strategies/Canvas/types'
-
-export interface CanvasRendererProps {
-  ctx: CanvasRenderingContext2D
-  commits: Commit[]
-  rowSpacing: number
-  graphData: GraphData
-  nodeSize: number
-  nodeTheme: NodeTheme
-  canvasHeight: number
-  canvasWidth: number
-  showTable: boolean
-  selectedCommitHash?: string
-  previewedCommitHash?: string
-  previewBackgroundColour: string
-  orientation: GraphOrientation
-  isIndexVisible: boolean
-  isServerSidePaginated: boolean
-  indexCommit?: Commit
-  headCommit?: Commit
-  getColours: GetCanvasRendererColoursFunction
-}
-
-export type GetCanvasRendererColoursFunction = (columnIndex: number) => CanvasRenderersColours
-
-export interface CanvasRenderersColours {
-  commitNode: CommitNodeColours
-  selectedColumnBackgroundColour: string
-  indexCommitColour: string
-}
+import { CanvasRendererProps, GetCanvasRendererColoursFunction, MousePosition } from './types'
 
 export class CanvasRenderer {
   private readonly ctx: CanvasRenderingContext2D

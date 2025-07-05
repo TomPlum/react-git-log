@@ -50,7 +50,7 @@ export const HTMLGridGraph = () => {
       {visibleCommits.map((commit, index) => {
         const empty = getEmptyColumnState({ columns: graphWidth })
         const rowIndex = paging ? index + paging?.startIndex + 1 : index
-        const columns = columnData.get(rowIndex) ?? empty
+        const columns = columnData.get(rowIndex)?.columns ?? empty
 
         return (
           <GraphRow

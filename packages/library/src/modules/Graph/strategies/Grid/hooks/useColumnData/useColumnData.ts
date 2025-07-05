@@ -1,7 +1,6 @@
-import { useCallback, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useGitContext } from 'context/GitContext'
 import { GraphColumnData, GraphColumnDataProps } from './types'
-import { getEmptyColumnState as createEmptyColumn } from 'modules/Graph/strategies/Grid/utility/getEmptyColumnState'
 import { GraphMatrixBuilder } from 'modules/Graph/strategies/Grid/GraphMatrixBuilder'
 
 export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphColumnData => {
@@ -13,10 +12,6 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
     isServerSidePaginated,
     graphData: { graphWidth, positions, edges, commits }
   } = useGitContext()
-
-  const getEmptyColumnState = useCallback(() => {
-    return createEmptyColumn({ columns: graphWidth })
-  }, [graphWidth])
 
   const { rowToColumnState, virtualColumns } = useMemo(() => {
     const matrixBuilder = new GraphMatrixBuilder({
@@ -48,7 +43,6 @@ export const useColumnData = ({ visibleCommits }: GraphColumnDataProps): GraphCo
   }, [positions, edges, commits, headCommit, isIndexVisible, isServerSidePaginated, paging, visibleCommits, graphWidth, headCommitHash])
 
   return {
-    getEmptyColumnState,
     columnData: rowToColumnState,
     virtualColumns
   }

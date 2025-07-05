@@ -16,7 +16,6 @@ export class GraphMatrixBuilder {
   // in the graph.
   private _virtualColumns = 0
 
-
   private readonly graphWidth: number
   private readonly commits: Commit[]
   private readonly positions: Map<string, CommitNodeLocation>
@@ -43,7 +42,7 @@ export class GraphMatrixBuilder {
 
   public drawEdges(edgeData: GraphEdge[]) {
     edgeData.forEach(({ from, to, rerouted }) => {
-      this.graphEdgeRenderer.drawEdge(from, to ,rerouted)
+      this.graphEdgeRenderer.drawEdge(from, to, rerouted)
     })
 
     this.columnBreakPointChecks = this.graphEdgeRenderer.columnBreakPointChecks
@@ -56,13 +55,12 @@ export class GraphMatrixBuilder {
     const isColumnBelowEmpty = this._matrix.isColumnBelowEmpty(row, column)
     const isColumnAboveBreakPoint = this._matrix.isColumnAboveBreakPoint(row, column)
 
-    columnState[column] = {
-      ...columnState[column],
+    columnState.update(column, {
       isNode: true,
       isColumnAboveEmpty: this._matrix.isColumnAboveEmpty(row, column),
       isColumnBelowEmpty,
       isTopBreakPoint: isColumnAboveBreakPoint
-    }
+    })
 
     this._matrix.setColumns(row, columnState)
   }
@@ -76,20 +74,17 @@ export class GraphMatrixBuilder {
    * and their edges after applying pagination and filtering.
    */
   public checkPostRenderBreakPoints() {
-    this.columnBreakPointChecks.forEach(({ check, position, location }) => {
-      if (position === 'top') {
-        const shouldApplyBreakPoint = check()
-        const rowIndex = location[0]
+    this.columnBreakPointChecks.forEach(({ check, position, location: [rowIndex, columnIndex] }) => {
+      const shouldApplyBreakPoint = check(this._matrix)
+      if (position === 'bottom') {
+        console.log('APPLY BOTTOM CHECK: ', shouldApplyBreakPoint)
+      }
 
-        if (shouldApplyBreakPoint && this._matrix.hasRowColumns(rowIndex)) {
-          const columnState = this._matrix.getColumns(rowIndex)
-          const columnIndex = location[1]
-
-          columnState[columnIndex] = {
-            ...columnState[columnIndex],
-            isTopBreakPoint: true
-          }
-        }
+      if (shouldApplyBreakPoint && this._matrix.hasRowColumns(rowIndex)) {
+        this._matrix.getColumns(rowIndex).update(columnIndex, {
+          isTopBreakPoint: position === 'top',
+          isBottomBreakPoint: position === 'bottom'
+        })
       }
     })
   }
@@ -105,11 +100,10 @@ export class GraphMatrixBuilder {
       for (let rowIndex = 0; rowIndex <= headCommitRowIndex; rowIndex++) {
         const columnState = this._matrix.getColumns(rowIndex)
 
-        columnState[0] = {
-          ...columnState[0],
+        columnState.update(0, {
           isVerticalLine: true,
           isVerticalIndexLine: true
-        }
+        })
       }
     }
   }
@@ -131,11 +125,10 @@ export class GraphMatrixBuilder {
       for (let targetRowIndex = rowIndex; targetRowIndex <= this.visibleCommits; targetRowIndex++) {
         const columnState = this._matrix.getColumns(targetRowIndex)
 
-        columnState[columnIndex] = {
-          ...columnState[columnIndex],
+        columnState.update(columnIndex, {
           isVerticalLine: true,
           isColumnBelowEmpty: false
-        }
+        })
 
         this._matrix.setColumns(targetRowIndex, columnState)
       }
@@ -159,7 +152,7 @@ export class GraphMatrixBuilder {
         let columnsBelowContainNode = false
         let targetRowIndex = rowIndex + 1
         while(targetRowIndex <= this.visibleCommits) {
-          if (this._matrix.getColumns(targetRowIndex)[columnIndex].isNode) {
+          if (this._matrix.getColumns(targetRowIndex).columns[columnIndex].isNode) {
             columnsBelowContainNode = true
           }
           targetRowIndex++
@@ -172,36 +165,33 @@ export class GraphMatrixBuilder {
           let targetColumnIndex = columnIndex
 
           // Find the nearest column to the right that is empty
-          while(!isColumnEmpty(columnStates[targetColumnIndex])) {
+          while(!isColumnEmpty(columnStates.columns[targetColumnIndex])) {
             targetColumnIndex++
           }
 
           // For all columns in this row up until the target, draw a horizontal line
           for (let colIndex = columnIndex; colIndex < targetColumnIndex; colIndex++) {
-            columnStates[colIndex] = {
-              ...columnStates[colIndex],
+            columnStates.update(colIndex, {
               isHorizontalLine: true,
               mergeSourceColumns: [targetColumnIndex]
-            }
+            })
           }
 
           // Add the curve at the target index
-          columnStates[targetColumnIndex] = {
-            ...columnStates[targetColumnIndex],
+          columnStates.update(targetColumnIndex, {
             isLeftDownCurve: true,
             mergeSourceColumns: [targetColumnIndex]
-          }
+          })
 
           // Finally, add vertical lines from below the curve to the bottom of the graph
           if (rowIndex < this.visibleCommits) {
             for (let targetRowIndex = rowIndex + 1; targetRowIndex <= this.visibleCommits; targetRowIndex++) {
               const targetRowColumnStates = this._matrix.getColumns(targetRowIndex)
 
-              targetRowColumnStates[targetColumnIndex] = {
-                ...targetRowColumnStates[targetColumnIndex],
+              targetRowColumnStates.update(targetColumnIndex, {
                 isVerticalLine: true,
                 mergeSourceColumns: [targetColumnIndex]
-              }
+              })
 
               this._matrix.setColumns(targetRowIndex, targetRowColumnStates)
             }
@@ -230,11 +220,10 @@ export class GraphMatrixBuilder {
       for (let targetRowIndex = rowIndex; targetRowIndex >= 1; targetRowIndex--) {
         const columnState = this._matrix.getColumns(targetRowIndex)
 
-        columnState[columnIndex] = {
-          ...columnState[columnIndex],
+        columnState.update(columnIndex, {
           isVerticalLine: true,
           isColumnAboveEmpty: false
-        }
+        })
 
         this._matrix.setColumns(targetRowIndex, columnState)
       }
@@ -248,10 +237,9 @@ export class GraphMatrixBuilder {
     const firstRow = this._matrix.getColumns(firstVisibleRowIndex)
 
     for(let firstRowColumn = 0; firstRowColumn < firstRow.length; firstRowColumn++) {
-      firstRow[firstRowColumn] = {
-        ...firstRow[firstRowColumn],
-        isFirstRow: true,
-      }
+      firstRow.update(firstRowColumn, {
+        isFirstRow: true
+      })
     }
 
     this._matrix.setColumns(firstVisibleRowIndex, firstRow)
@@ -263,10 +251,9 @@ export class GraphMatrixBuilder {
   public markLastRow(lastVisibleRowIndex: number) {
     const lastRow = this._matrix.getColumns(lastVisibleRowIndex)
     for(let lastRowColumn = 0; lastRowColumn < lastRow.length; lastRowColumn++) {
-      lastRow[lastRowColumn] = {
-        ...lastRow[lastRowColumn],
-        isLastRow: true,
-      }
+      lastRow.update(lastRowColumn, {
+        isLastRow: true
+      })
     }
 
     this._matrix.setColumns(lastVisibleRowIndex, lastRow)

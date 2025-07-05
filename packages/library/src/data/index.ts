@@ -1,4 +1,4 @@
 export * from './temporalTopologicalSort'
 export * from './computeRelationships'
-export * from './buildGraphData'
+export * from './GraphDataBuilder'
 export * from './types'

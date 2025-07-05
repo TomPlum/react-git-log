@@ -1,7 +1,7 @@
 import { GitLogCoreProps } from './types'
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react'
 import { GitContext, GitContextBag } from 'context/GitContext'
-import { computeRelationships, GraphData, temporalTopologicalSort, buildGraphData } from 'data'
+import { computeRelationships, GraphData, temporalTopologicalSort, GraphDataBuilder } from 'data'
 import { Tags } from 'modules/Tags'
 import { GraphCanvas2D, GraphHTMLGrid, GraphOrientation } from 'modules/Graph'
 import { Table } from 'modules/Table'
@@ -47,7 +47,16 @@ export const GitLogCore = <T,>({
     const { children, parents, hashToCommit } = computeRelationships(entries, headCommitHash)
     const sortedCommits = temporalTopologicalSort([...hashToCommit.values()], children, hashToCommit)
     const filteredCommits = filter?.(sortedCommits) ?? sortedCommits
-    const { graphWidth, positions, edges } = buildGraphData(sortedCommits, currentBranch, children, parents, filteredCommits)
+
+    const graphDataBuilder = new GraphDataBuilder<T>({
+      commits: sortedCommits,
+      filteredCommits,
+      children,
+      parents,
+      currentBranch
+    })
+
+    const { graphWidth, positions, edges } = graphDataBuilder.build()
 
     return {
       allCommits: sortedCommits,

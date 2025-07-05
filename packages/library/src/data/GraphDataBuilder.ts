@@ -109,7 +109,7 @@ export class GraphDataBuilder<T> {
       this._activeNodes.initialiseNewColumn(commitHash)
 
       const parentIndices = commit.parents.map(parent => {
-        return this._hashToIndex.get(parent)!
+        return this._hashToIndex.get(parent)
       }).filter(i => i !== undefined)
 
       const highestParentIndex: [number, string] = [Math.max(...parentIndices), commitHash]

@@ -35,6 +35,7 @@ A flexible and interactive React component for visualising Git commit history. D
       * [GitLogPaging](#gitlogpaging)
       * [GitLogIndexStatus](#gitlogindexstatus)
       * [GitLogUrlBuilder](#gitlogurlbuilder)
+      * [CommitFilter](#commitfilter)
     * [GraphHTMLGrid](#graphhtmlgrid)
     * [GraphCanvas2D](#graphcanvas2d)
       * [NodeTheme](#nodetheme)
@@ -42,6 +43,7 @@ A flexible and interactive React component for visualising Git commit history. D
       * [GitLogTableStylingProps](#gitlogtablestylingprops)
       * [CustomTableRow](#customtablerow)
       * [CustomCommitNode](#customcommitnode)
+      * [BreakPointTheme](#breakpointtheme)
 * [Development](#development)
 * [References](#references)
 * [Roadmap](#roadmap)
@@ -299,22 +301,26 @@ All components have optional props to further configure the log.
 | `paging`                       | [`GitLogPaging`](#gitlogpaging)             | Optional paging settings for displaying a subset of log entries.                                            |
 | `indexStatus`                  | [`GitLogIndexStatus`](#gitlogindexstatus)   | Renders information about added, deleted and modified files to the index pseudo-commit entry.               |
 | `showGitIndex`                 | `boolean`                                   | Enables the Git index "pseudo-commit' entry above the HEAD commit.                                          |
+| `filter`                       | [`CommitFilter<T>`](#commitfilter)          | Filters the commits in the log based on the response from the function.                                     |
 
 ### GitLogPaged
 
-| Property            | Type                                        | Description                                                                                                 |
-|---------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| `theme`             | `ThemeMode`                                 | The variant of the default color theme to apply to the log.                                                 |
-| `colours`           | `ThemeColours \| string[]`                  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.       |
-| `showHeaders`       | `boolean`                                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.                 |
-| `rowSpacing`        | `number`                                    | The spacing between log rows, affecting branches, graph, and table. Default: `0`.                           |
-| `urls`              | [`GitLogUrlBuilder`](#gitlogurlbuilder)     | A function that returns built URLs to the remote Git provider. Enables links for commits, tags, and PRs.    |
-| `defaultGraphWidth` | `number`                                    | Default width of the graph in pixels. Can be changed dynamically if resizing is enabled. Default: `300`.    |
-| `onSelectCommit`    | `(commit?: Commit) => void`                 | Callback function when a commit is selected (clicked). `commit` is `undefined` if unselected.               |
-| `onPreviewCommit`   | `(commit?: Commit) => void`                 | Callback function when a commit is previewed (hovered). `commit` is `undefined` if stopped being previewed. |
-| `classes`           | [`GitLogStylingProps`](#gitlogstylingprops) | CSS classes for various elements to enable custom styling.                                                  |
-| `indexStatus`       | [`GitLogIndexStatus`](#gitlogindexstatus)   | Renders information about added, deleted and modified files to the index pseudo-commit entry.               |
-| `showGitIndex`      | `boolean`                                   | Enables the Git index "pseudo-commit' entry above the HEAD commit.                                          |
+| Property                       | Type                                        | Description                                                                                                 |
+|--------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| `theme`                        | `ThemeMode`                                 | The variant of the default color theme to apply to the log.                                                 |
+| `colours`                      | `ThemeColours \| string[]`                  | Array of colors used for graph elements. One per column, looping if insufficient colors are provided.       |
+| `showHeaders`                  | `boolean`                                   | Whether to show element names like "Graph" or "Commit message" at the top of the component.                 |
+| `rowSpacing`                   | `number`                                    | The spacing between log rows, affecting branches, graph, and table. Default: `0`.                           |
+| `urls`                         | [`GitLogUrlBuilder`](#gitlogurlbuilder)     | A function that returns built URLs to the remote Git provider. Enables links for commits, tags, and PRs.    |
+| `defaultGraphWidth`            | `number`                                    | Default width of the graph in pixels. Can be changed dynamically if resizing is enabled. Default: `300`.    |
+| `onSelectCommit`               | `(commit?: Commit) => void`                 | Callback function when a commit is selected (clicked). `commit` is `undefined` if unselected.               |
+| `onPreviewCommit`              | `(commit?: Commit) => void`                 | Callback function when a commit is previewed (hovered). `commit` is `undefined` if stopped being previewed. |
+| `enableSelectedCommitStyling`  | `boolean`                                   | Enables the row styling across the log elements when a commit is selected (i.e. has been clicked on).       |
+| `enablePreviewedCommitStyling` | `boolean`                                   | Enables the row styling across the log elements when a commit is previewed (i.e. is hovered over).          |
+| `classes`                      | [`GitLogStylingProps`](#gitlogstylingprops) | CSS classes for various elements to enable custom styling.                                                  |
+| `indexStatus`                  | [`GitLogIndexStatus`](#gitlogindexstatus)   | Renders information about added, deleted and modified files to the index pseudo-commit entry.               |
+| `showGitIndex`                 | `boolean`                                   | Enables the Git index "pseudo-commit' entry above the HEAD commit.                                          |
+| `filter`                       | [`CommitFilter<T>`](#commitfilter)          | Filters the commits in the log based on the response from the function.                                     |
 
 
 #### GitLogStylingProps
@@ -351,6 +357,17 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `commit`   | `string` | A resolved URL to a particular commit hash on the external Git providers remote website. |
 | `branch`   | `string` | A resolved URL to a branch on the external Git providers remote website.                 |
 
+#### CommitFilter
+
+A function with the following signature
+```typescript
+type CommitFilter<T> = (commits: Commit<T>[]) => Commit<T>[]
+```
+
+Is passed the array of `Commit<T>` objects from the log based on the current pagination configuration and must return the filtered array based on your own domain-specific behaviour.
+
+The logs' subcomponents will respond accordingly based on the filtered list of commits.
+
 ### GraphHTMLGrid
 
 | Property                      | Type                                    | Description                                                                                                    |
@@ -363,15 +380,17 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `enableResize`                | `boolean`                               | Enables horizontal resizing of the graph. Default: `false`.                                                    |
 | `highlightedBackgroundHeight` | `number`                                | The height, in pixels, of the background colour of a row that is being previewed or has been selected.         |
 | `node`                        | [`CustomCommitNode`](#customcommitnode) | A function that returns a custom commit node implementation used by the graph.                                 |
+| `breakPointTheme`             | [`BreakPointTheme`](#breakpointtheme)   | Changes how the break-points between rows render when the log is being filtered.                               |
 
 ### GraphCanvas2D
 
-| Property                 | Type                      | Description                                                                                                    |
-|--------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------|
-| `nodeTheme`              | [`NodeTheme`](#nodetheme) | Theme applied to commit node elements in the graph.                                                            |
-| `nodeSize`               | `number`                  | The diameter, in pixels, of the commits nodes. Should be divisible by 2 and between 8 and 30 to render nicely. |
-| `orientation`            | `normal \| flipped`       | The orientation of the graph. Normal renders the checked-out branch on the left, flipped on the right.         |
-| `enableResize`           | `boolean`                 | Enables horizontal resizing of the graph. Default: `false`.                                                    |
+| Property          | Type                                  | Description                                                                                                    |
+|-------------------|---------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| `nodeTheme`       | [`NodeTheme`](#nodetheme)             | Theme applied to commit node elements in the graph.                                                            |
+| `nodeSize`        | `number`                              | The diameter, in pixels, of the commits nodes. Should be divisible by 2 and between 8 and 30 to render nicely. |
+| `orientation`     | `normal \| flipped`                   | The orientation of the graph. Normal renders the checked-out branch on the left, flipped on the right.         |
+| `enableResize`    | `boolean`                             | Enables horizontal resizing of the graph. Default: `false`.                                                    |
+| `breakPointTheme` | [`BreakPointTheme`](#breakpointtheme) | Changes how the break-points between rows render when the log is being filtered.                               |
 
 #### NodeTheme
 
@@ -477,6 +496,18 @@ The following properties are injected into the functions `props` argument:
 | `nodeSize`          | `number`  | The diameter (in pixels) of the node. This defaults but can be changed in the graph props.              |
 | `isIndexPseudoNode` | `boolean` | Denotes whether the node is the "pseudo node" added above the head to represent the working tree index. |
 
+#### BreakPointTheme
+
+The following themes are available:
+
+- slash
+- dot
+- ring
+- zig-zag
+- line
+- double-line
+- arrow
+
 # Development
 
 1. Clone the repository from GitHub
@@ -520,7 +551,6 @@ Graphs
   - Rework CommitNodeLocation from a tuple into an object
   - Hover effect on lines to show missing commits?
   - Prop to override graph fallback? No search results yields the placeholder nodes
-  - Add README docs for new props (filter and breakPointTheme)
 
 Canvas2D
 - Custom prop for BG colour because of how canvas alpha channel works

@@ -516,14 +516,10 @@ Graphs
 - Tags should be independent. Add a new optional field to the log entry / commit objects.
 - Branch / Tags column is fixed. Dynamically floor it to match the max tag size currently being rendered?
 - Support filtering so that the graph skips nodes
-  - Can we use one compute function now? Have a boolean to optionally do the find closest ancestor
-  - Can we use one set of graphData too and remove the filteredData
   - Does this work with GitLogPaged?
   - Rework CommitNodeLocation from a tuple into an object
   - Hover effect on lines to show missing commits?
-  - Break point themes? Slash, dot, zig-zag etc
   - Prop to override graph fallback? No search results yields the placeholder nodes
-  - Split useColumnData. class maybe to manage rowToColumn map?
   - Add README docs for new props (filter and breakPointTheme)
 
 Canvas2D

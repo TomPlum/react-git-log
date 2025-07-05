@@ -12,6 +12,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
 
   const lineColour = isIndex ? indexCommitNodeBorder : columnColour
   const isRowCommitIndexNode = commit.hash === 'index'
+  const rowsCommitIsHead = commit.hash === headCommit?.hash && state.isNode
 
   const border = useMemo<CSSProperties>(() => {
     // Border is dotted for the index pseudo-node
@@ -34,35 +35,37 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
       borderRight: `2px ${borderStyle} ${lineColour}`
     }
   }, [commit.isBranchTip, isIndex, lineColour, state.isFirstRow, state.isLastRow, state.isPlaceholderSkeleton, state.isVerticalIndexLine])
-  
-  const { style, variant } = useMemo<{ style: CSSProperties, variant: string }>(() => {
-    const rowsCommitIsHead = commit.hash === headCommit?.hash && state.isNode
 
-    // If the current column is the index pseudo-node,
-    // then draw a dotted line underneath it that will
-    // eventually meet with the HEAD commit of the current branch.
-    if (isRowCommitIndexNode) {
-      if (state.isBottomBreakPoint) {
-        return {
-          variant: 'bottom-half-dotted-with-break-point',
-          style: {
-            top: '50%',
-            height: '70%',
-            zIndex: columnIndex + 1,
-            borderRight: `2px dotted ${indexCommitNodeBorder}`
-          }
-        }
-      }
-
+  const indexPseudoNodeLine = useMemo(() => {
+    if (state.isBottomBreakPoint) {
       return {
-        variant: 'bottom-half-dotted',
+        variant: 'bottom-half-dotted-with-break-point',
         style: {
           top: '50%',
-          height: '50%',
+          height: '70%',
           zIndex: columnIndex + 1,
           borderRight: `2px dotted ${indexCommitNodeBorder}`
         }
       }
+    }
+
+    return {
+      variant: 'bottom-half-dotted',
+      style: {
+        top: '50%',
+        height: '50%',
+        zIndex: columnIndex + 1,
+        borderRight: `2px dotted ${indexCommitNodeBorder}`
+      }
+    }
+  }, [columnIndex, indexCommitNodeBorder, state.isBottomBreakPoint])
+  
+  const { style, variant } = useMemo<{ style: CSSProperties, variant: string }>(() => {
+    // If the current column is the index pseudo-node,
+    // then draw a dotted line underneath it that will
+    // eventually meet with the HEAD commit of the current branch.
+    if (isRowCommitIndexNode) {
+      return indexPseudoNodeLine
     }
 
     // If this column has the HEAD commit node in it,
@@ -163,7 +166,7 @@ export const VerticalLine = ({ state, columnIndex, columnColour, commit, indexCo
         ...border
       }
     }
-  }, [commit.hash, commit.parents.length, commit.isBranchTip, headCommit?.hash, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, state.isBottomBreakPoint, state.isTopBreakPoint, isRowCommitIndexNode, isIndexVisible, isServerSidePaginated, headCommitHash, columnIndex, border, indexCommitNodeBorder, breakPointTheme])
+  }, [isRowCommitIndexNode, rowsCommitIsHead, isIndexVisible, state.isNode, state.isColumnBelowEmpty, state.isColumnAboveEmpty, state.isBottomBreakPoint, state.isTopBreakPoint, commit.parents.length, commit.hash, commit.isBranchTip, isServerSidePaginated, headCommitHash, columnIndex, border, indexPseudoNodeLine, indexCommitNodeBorder, breakPointTheme])
 
   return (
     <div

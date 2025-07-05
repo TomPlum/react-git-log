@@ -62,7 +62,7 @@ export class GraphMatrixBuilder {
   }
 
   /**
-   * Updates the matrix to mark certain columns has having
+   * Updates the matrix to mark certain columns as having
    * break-points after the first node and edge render phases.
    *
    * Such checks are only possible after the initial phases

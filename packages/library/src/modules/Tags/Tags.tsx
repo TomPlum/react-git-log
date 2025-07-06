@@ -34,18 +34,23 @@ export const Tags = () => {
     graphWidth,
     rowSpacing,
     isIndexVisible,
-    graphOrientation
+    graphOrientation,
+    filter
   } = useGitContext()
 
   const preparedCommits = useMemo(() => {
-    const data = graphData.commits.slice(paging?.startIndex, paging?.endIndex)
+    let data = graphData.commits.slice(paging?.startIndex, paging?.endIndex)
+
+    if (filter) {
+      data = filter(data)
+    }
 
     if (isIndexVisible && indexCommit) {
       data.unshift(indexCommit)
     }
 
     return prepareCommits(data)
-  }, [graphData.commits, indexCommit, paging?.endIndex, isIndexVisible, paging?.startIndex])
+  }, [graphData.commits, paging?.startIndex, paging?.endIndex, filter, isIndexVisible, indexCommit])
 
   const tagLineWidth = useCallback((commit: Commit) => {
     const isNormalOrientation = graphOrientation === 'normal'

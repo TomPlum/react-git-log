@@ -6,18 +6,19 @@ import { useGraphContext } from 'modules/Graph/context'
 
 export const IndexPseudoRow = () => {
   const { indexCommit } = useGitContext()
-  const { graphWidth } = useGraphContext()
+  const { graphWidth, isHeadCommitVisible } = useGraphContext()
 
   const indexColumns = useMemo(() => {
     const columns = new Array<GraphColumnState>(graphWidth).fill({})
 
     columns[0] = {
       isNode: true,
-      isVerticalLine: true
+      isVerticalLine: true,
+      isBottomBreakPoint: !isHeadCommitVisible
     }
 
     return columns
-  }, [graphWidth])
+  }, [graphWidth, isHeadCommitVisible])
 
   if (indexCommit) {
     return (

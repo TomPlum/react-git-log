@@ -208,6 +208,7 @@ export const GraphColumn = ({
         <LeftDownCurve
           color={columnColour}
           isPlaceholder={state.isPlaceholderSkeleton}
+          showBottomBreakPoint={state.isBottomBreakPoint}
         />
       )}
 
@@ -215,6 +216,7 @@ export const GraphColumn = ({
       {state.isLeftUpCurve && (
         <LeftUpCurve
           color={columnColour}
+          showTopBreakPoint={state.isTopBreakPoint}
           isPlaceholder={state.isPlaceholderSkeleton}
         />
       )}

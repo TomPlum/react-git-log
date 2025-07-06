@@ -1,11 +1,11 @@
-import { NodeTheme } from '../../hooks/useTheme'
+import { BreakPointTheme, NodeTheme } from '../../hooks/useTheme'
 import { CustomCommitNode } from './strategies/Grid/types'
 
 export type GraphOrientation = 'normal' | 'flipped'
 
 export type Canvas2DGraphProps = GraphPropsCommon
 
-export interface HTMLGridGraphProps<T> extends GraphPropsCommon {
+export interface HTMLGridGraphProps<T = unknown> extends GraphPropsCommon {
   /**
    * Whether to show the commit hash
    * to the side of the node in the graph.
@@ -43,6 +43,13 @@ export interface GraphPropsCommon {
    * elements in the graph.
    */
   nodeTheme?: NodeTheme
+
+  /**
+   * Determines how the breakpoints (the styling of
+   * the node edges in the graph if a filter is active
+   * and is causing breaks in the graph) are rendered.
+   */
+  breakPointTheme?: BreakPointTheme
 
   /**
    * Enables the graphs horizontal width

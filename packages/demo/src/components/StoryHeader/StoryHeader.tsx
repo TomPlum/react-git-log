@@ -5,8 +5,12 @@ import { ThemeToggle } from '@components/ThemeToggle'
 import { PackageInfo } from '@components/PackageInfo'
 import { StoryHeaderProps } from '@components/StoryHeader/types'
 import { PropsWithChildren } from 'react'
+import { SearchField } from '@components/SearchField'
+import { useDemoContext } from '@context'
 
-export const StoryHeader = ({ children, theme, repository, colours, onChangeColours, onChangeRepository, onChangeTheme }: PropsWithChildren<StoryHeaderProps>) => {
+export const StoryHeader = ({ children, repository, colours, onChangeColours, onChangeRepository }: PropsWithChildren<StoryHeaderProps>) => {
+  const { theme } = useDemoContext()
+  
   return (
     <div
       className={styles.header}
@@ -16,22 +20,21 @@ export const StoryHeader = ({ children, theme, repository, colours, onChangeColo
     >
       <div className={styles.top}>
         <div className={styles.controls}>
-          <RepositorySelector
-            theme={theme}
-            selected={repository}
-            onSelect={onChangeRepository}
-          />
+          <div className={styles.controlsTop}>
+            <RepositorySelector
+              selected={repository}
+              onSelect={onChangeRepository}
+            />
 
-          <ColourSelector
-            theme={theme}
-            selected={colours.id}
-            onChange={onChangeColours}
-          />
+            <ColourSelector
+              selected={colours.id}
+              onChange={onChangeColours}
+            />
 
-          <ThemeToggle
-            theme={theme}
-            onChange={onChangeTheme}
-          />
+            <ThemeToggle />
+          </div>
+
+          <SearchField />
         </div>
 
         <PackageInfo theme={theme} />

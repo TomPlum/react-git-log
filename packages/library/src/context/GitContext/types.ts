@@ -1,6 +1,6 @@
 import { Commit } from 'types/Commit'
 import { GraphData } from 'data'
-import { GitLogIndexStatus, GitLogStylingProps, GitLogUrlBuilder } from '../../types'
+import { CommitFilter, GitLogIndexStatus, GitLogStylingProps, GitLogUrlBuilder } from '../../types'
 import { GraphOrientation } from 'modules/Graph'
 
 export interface GitContextBag<T = unknown> {
@@ -117,7 +117,7 @@ export interface GitContextBag<T = unknown> {
    * A function that builds links to the remote
    * repository on the external Git provider.
    */
-  remoteProviderUrlBuilder?: GitLogUrlBuilder
+  remoteProviderUrlBuilder?: GitLogUrlBuilder<T>
 
   /**
    * The spacing between the rows of the log.
@@ -216,6 +216,11 @@ export interface GitContextBag<T = unknown> {
    * pagination config.
    */
   isIndexVisible: boolean
+
+  /**
+   * Filters which entries show in the log.
+   */
+  filter?: CommitFilter<T>
 }
 
 export interface GraphPaging {

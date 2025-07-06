@@ -33,7 +33,7 @@ export const Table = ({
     }
 
     return data
-  }, [graphData.commits, indexCommit, paging?.endIndex, isIndexVisible, paging?.startIndex])
+  }, [graphData.commits, paging?.startIndex, paging?.endIndex, isIndexVisible, indexCommit])
 
   const tableContextValue = useMemo<TableContextBag>(() => ({
     timestampFormat

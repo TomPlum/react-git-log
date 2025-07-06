@@ -5,10 +5,11 @@ import { Loading } from '@components/Loading'
 import { useStoryState } from '@hooks/useStoryState'
 import { StoryHeader } from '@components/StoryHeader'
 import { GitLogDemo, GitLogStoryProps } from '@components/GitLogDemo'
+import { useDemoContext } from '@context'
 
 const meta: Meta<GitLogStoryProps> = {
   title: 'GitLog',
-  component: GitLog,
+  component: GitLog<unknown>,
   parameters: {
     layout: 'fullscreen'
   },
@@ -25,6 +26,7 @@ const meta: Meta<GitLogStoryProps> = {
     showGitIndex: true,
     enableResize: false,
     nodeTheme: 'default',
+    breakPointTheme: 'dot',
     renderStrategy: 'html-grid',
     nodeSize: 20,
     orientation: 'normal',
@@ -88,11 +90,33 @@ const meta: Meta<GitLogStoryProps> = {
       table: {
         category: 'Visibility'
       },
-      control: 'radio',
-      options: {
-        Default: 'default',
-        Plain: 'plain'
-      }
+      control: {
+        type: 'select',
+        labels: {
+          default: 'Default',
+          plain: 'Plain'
+        },
+      },
+      options: ['default', 'plain']
+    },
+    breakPointTheme: {
+      name: 'Break Point Style',
+      table: {
+        category: 'Visibility'
+      },
+      control: {
+        type: 'select',
+        labels: {
+          slash: 'Slash',
+          dot: 'Dot',
+          ring: 'Ring',
+          'zig-zag': 'Zig-Zag',
+          line: 'Line',
+          'double-line': 'Double Line',
+          arrow: 'Arrow'
+        },
+      },
+      options: ['slash', 'dot', 'ring', 'zig-zag', 'line', 'double-line', 'arrow']
     },
     showGitIndex: {
       name: 'Show Git Index',
@@ -106,11 +130,14 @@ const meta: Meta<GitLogStoryProps> = {
       table: {
         category: 'Visibility'
       },
-      control: 'radio',
-      options: {
-        'HTML Grid': 'html-grid',
-        Canvas2D: 'canvas'
-      }
+      control: {
+        type: 'select',
+        labels: {
+          'html-grid': 'HTML Grid',
+          canvas: 'Canvas2D'
+        }
+      },
+      options: ['html-grid', 'canvas'],
     },
     enableSelectedCommitStyling: {
       name: 'Enable Selection Styling',
@@ -193,11 +220,14 @@ const meta: Meta<GitLogStoryProps> = {
       table: {
         category: 'Dimensions'
       },
-      control: 'radio',
-      options: {
-        Normal: 'normal',
-        Flipped: 'flipped'
-      }
+      control: {
+        type: 'select',
+        labels: {
+          normal: 'Normal',
+          flipped: 'Flipped'
+        }
+      },
+      options: ['normal', 'flipped'],
     },
     onSelectCommit: {
       name: 'onSelectCommit',
@@ -271,6 +301,11 @@ const meta: Meta<GitLogStoryProps> = {
       table: {
         disable: true
       }
+    },
+    filter: {
+      table: {
+        disable: true
+      }
     }
   }
 } satisfies Meta<GitLogStoryProps>
@@ -284,7 +319,6 @@ export const Demo: Story = {
 
 export const CustomTableRow = () => {
   const {
-    theme,
     loading,
     colours,
     entries,
@@ -292,25 +326,24 @@ export const CustomTableRow = () => {
     buildUrls,
     repository,
     backgroundColour,
-    handleChangeTheme,
     handleChangeColors,
     handleChangeRepository
   } = useStoryState()
 
+  const { theme } = useDemoContext()
+
   return (
     <div style={{ background: backgroundColour }} className={styles.container}>
       <StoryHeader
-        theme={theme}
         colours={colours}
         repository={repository}
-        onChangeTheme={handleChangeTheme}
         onChangeColours={handleChangeColors}
         onChangeRepository={handleChangeRepository}
       />
 
       {loading && (
         <div className={styles.loading}>
-          <Loading theme={theme} />
+          <Loading />
         </div>
       )}
 
@@ -388,7 +421,6 @@ const nodeImages = ['millie', 'neo', 'millie_neo', 'neo_banana', 'neo_2', 'bella
 
 export const CustomCommitNode = () => {
   const {
-    theme,
     loading,
     colours,
     entries,
@@ -396,25 +428,24 @@ export const CustomCommitNode = () => {
     buildUrls,
     repository,
     backgroundColour,
-    handleChangeTheme,
     handleChangeColors,
     handleChangeRepository
   } = useStoryState()
 
+  const { theme } = useDemoContext()
+
   return (
     <div style={{ background: backgroundColour }} className={styles.container}>
       <StoryHeader
-        theme={theme}
         colours={colours}
         repository={repository}
-        onChangeTheme={handleChangeTheme}
         onChangeColours={handleChangeColors}
         onChangeRepository={handleChangeRepository}
       />
 
       {loading && (
         <div className={styles.loading}>
-          <Loading theme={theme} />
+          <Loading />
         </div>
       )}
 

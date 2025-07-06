@@ -4,10 +4,10 @@ import { StoryHeader } from '@components/StoryHeader'
 import { Loading } from '@components/Loading'
 import { GitLog } from '@tomplum/react-git-log'
 import { GitLogStoryProps } from './types'
+import { useDemoContext } from '@context'
 
 export const GitLogDemo = (args: GitLogStoryProps) => {
   const {
-    theme,
     loading,
     colours,
     entries,
@@ -15,25 +15,24 @@ export const GitLogDemo = (args: GitLogStoryProps) => {
     buildUrls,
     repository,
     backgroundColour,
-    handleChangeTheme,
     handleChangeColors,
     handleChangeRepository
   } = useStoryState()
 
+  const { search, theme } = useDemoContext()
+
   return (
     <div style={{ background: backgroundColour }} className={styles.container}>
       <StoryHeader
-        theme={theme}
         colours={colours}
         repository={repository}
-        onChangeTheme={handleChangeTheme}
         onChangeColours={handleChangeColors}
         onChangeRepository={handleChangeRepository}
       />
 
       {loading && (
         <div className={styles.loading}>
-          <Loading theme={theme} />
+          <Loading />
         </div>
       )}
 
@@ -44,6 +43,11 @@ export const GitLogDemo = (args: GitLogStoryProps) => {
           entries={entries}
           theme={theme}
           currentBranch={branch}
+          filter={search ? entries => {
+            return entries.filter(commit => {
+              return commit.message.includes(search)
+            })
+          } : undefined}
           paging={{
             page: args.page ?? 0,
             size: args.pageSize ?? entries.length
@@ -71,6 +75,7 @@ export const GitLogDemo = (args: GitLogStoryProps) => {
               nodeTheme={args.nodeTheme}
               orientation={args.orientation}
               enableResize={args.enableResize}
+              breakPointTheme={args.breakPointTheme}
               showCommitNodeHashes={args.showCommitNodeHashes}
               showCommitNodeTooltips={args.showCommitNodeTooltips}
             />

@@ -5,9 +5,11 @@ export const GraphContext = createContext<GraphContextBag>({
   showCommitNodeHashes: false,
   showCommitNodeTooltips: false,
   nodeTheme: 'default',
+  breakPointTheme: 'dot',
   nodeSize: 24,
   graphWidth: 0,
   orientation: 'normal',
   visibleCommits: [],
-  columnData: new Map()
+  columnData: new Map(),
+  isHeadCommitVisible: false
 })

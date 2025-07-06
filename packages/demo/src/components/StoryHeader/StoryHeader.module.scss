@@ -14,8 +14,14 @@
 
     .controls {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 10px;
+
+      .controlsTop {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
     }
   }
 }

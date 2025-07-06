@@ -1,7 +1,6 @@
 import { createContext } from 'react'
 import { GitContextBag } from './types'
 import { Commit } from 'types/Commit'
-import DataIntervalTree from 'node-interval-tree'
 import { DEFAULT_NODE_SIZE } from 'constants/constants'
 import { GraphOrientation } from 'modules/Graph'
 
@@ -36,12 +35,12 @@ export const GitContext = createContext<GitContextBag>({
   },
   graphData: {
     children: new Map(),
-    edges: new DataIntervalTree(),
+    edges: [],
     graphWidth: 0,
     commits: [],
     positions: new Map(),
     parents: new Map(),
-    hashToCommit: new Map()
+    hashToCommit: new Map(),
   },
   rowSpacing: 0,
   graphWidth: 300,

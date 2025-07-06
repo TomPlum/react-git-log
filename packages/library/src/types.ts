@@ -11,17 +11,14 @@ interface GitLogCommonProps<T> {
   entries: GitLogEntry<T>[]
 
   /**
-   * A list of SHA1 commit hashes that belong
-   * to commits that would normally be present
-   * on in the log but have been filtered out
-   * due to something like a search.
+   * Filters out entries from the log.
    *
    * The log, and any relevant subcomponents,
    * will filter these commits out, so they no
    * longer render, but will change their styling
    * to make it clear that commits are missing.
    */
-  filteredCommits?: string[]
+  filter?: CommitFilter<T>
 
   /**
    * The variant of the default colour
@@ -65,7 +62,7 @@ interface GitLogCommonProps<T> {
    * to link out to the remote repository on
    * the external Git provider.
    */
-  urls?: GitLogUrlBuilder
+  urls?: GitLogUrlBuilder<T>
 
   /**
    * The default width of the graph in pixels.
@@ -91,7 +88,7 @@ interface GitLogCommonProps<T> {
    * Represents the local working directory
    * and Git index of the currently checked-out
    * branch. Can optionally show metadata of
-   * file statuses via {@link indexStatus}
+   * file statuses via {@link indexStatus}.
    */
   showGitIndex?: boolean
 
@@ -142,7 +139,7 @@ interface GitLogCommonProps<T> {
   classes?: GitLogStylingProps
 }
 
-export interface GitLogProps<T> extends GitLogCommonProps<T> {
+export interface GitLogProps<T = unknown> extends GitLogCommonProps<T> {
   /**
    * The name of the branch that is
    * currently checked out.
@@ -179,11 +176,6 @@ export interface GitLogPagedProps<T> extends GitLogCommonProps<T> {
    * The SHA1 hash of the HEAD commit of
    * the {@link GitLogProps.currentBranch currentBranch} that is checked
    * out in the repository.
-   *
-   * Only needs to be passed in if you are
-   * passing in a subset of the Git log
-   * {@link entries} due to managing your
-   * own pagination.
    *
    * @see {paging} for more info.
    */
@@ -262,13 +254,13 @@ export interface GitLogUrls {
   branch?: string
 }
 
-export interface GitLogUrlBuilderArgs {
+export interface GitLogUrlBuilderArgs<T = unknown> {
   /**
    * Details of the given commit in context
    * of a URL. E.g. the one you clicked on
    * to link out to the external provider.
    */
-  commit: Commit
+  commit: Commit<T>
 }
 
 /**
@@ -278,4 +270,12 @@ export interface GitLogUrlBuilderArgs {
  *
  * @param args Contextual commit information to help build the URLs.
  */
-export type GitLogUrlBuilder = (args: GitLogUrlBuilderArgs) => GitLogUrls
+export type GitLogUrlBuilder<T = unknown> = (args: GitLogUrlBuilderArgs<T>) => GitLogUrls
+
+/**
+ * A function that filters the list of commits
+ * displayed in the log.
+ *
+ * @param commits An array of commits currently displayed in the log.
+ */
+export type CommitFilter<T> = (commits: Commit<T>[]) => Commit<T>[]

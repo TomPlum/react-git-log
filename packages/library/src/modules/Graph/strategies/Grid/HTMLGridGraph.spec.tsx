@@ -22,6 +22,7 @@ describe('HTML Grid Graph', () => {
 
     vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
       nodeSize: 21,
+      isHeadCommitVisible: true,
       node: ({ commit, nodeSize, isIndexPseudoNode, rowIndex, columnIndex, colour }) => {
         const id = `custom-commit-node-${rowIndex}`
 

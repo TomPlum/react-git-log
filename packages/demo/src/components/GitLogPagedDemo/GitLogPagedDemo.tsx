@@ -6,13 +6,13 @@ import { Pagination } from '@components/Pagination'
 import { Loading } from '@components/Loading'
 import { GitLog, GitLogPaged } from '@tomplum/react-git-log'
 import { GitLogPagedStoryProps } from './types'
+import { useDemoContext } from '@context'
 
 export const GitLogPagedDemo = (args: GitLogPagedStoryProps) => {
   const [pageNumber, setPageNumber] = useState(1)
   const [pageSize, setPageSize] = useState(20)
 
   const {
-    theme,
     loading,
     colours,
     entries,
@@ -21,20 +21,19 @@ export const GitLogPagedDemo = (args: GitLogPagedStoryProps) => {
     repository,
     headCommitHash,
     backgroundColour,
-    handleChangeTheme,
     handleChangeColors,
     handleChangeRepository
   } = useStoryState({
     isServerSidePaginated: true
   })
 
+  const { theme } = useDemoContext()
+
   return (
     <div style={{ background: backgroundColour }} className={styles.container}>
       <StoryHeader
-        theme={theme}
         colours={colours}
         repository={repository}
-        onChangeTheme={handleChangeTheme}
         onChangeColours={handleChangeColors}
         onChangeRepository={handleChangeRepository}
       >
@@ -52,7 +51,7 @@ export const GitLogPagedDemo = (args: GitLogPagedStoryProps) => {
 
       {loading && (
         <div className={styles.loading}>
-          <Loading theme={theme} />
+          <Loading />
         </div>
       )}
 
@@ -69,11 +68,6 @@ export const GitLogPagedDemo = (args: GitLogPagedStoryProps) => {
               background: backgroundColour
             },
             containerClass: styles.gitLogContainer
-          }}
-          indexStatus={{
-            added: args.indexStatusFilesAdded,
-            modified: args.indexStatusFilesModified,
-            deleted: args.indexStatusFilesDeleted
           }}
           urls={buildUrls}
         >

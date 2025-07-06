@@ -1,4 +1,4 @@
-import { NodeTheme } from 'hooks/useTheme'
+import { BreakPointTheme, NodeTheme } from 'hooks/useTheme'
 import { GraphOrientation } from 'modules/Graph'
 import { Commit } from 'types/Commit'
 import { RowIndexToColumnStates } from 'modules/Graph/strategies/Grid/hooks/useColumnData'
@@ -36,6 +36,12 @@ export interface GraphContextBag {
   nodeTheme: NodeTheme
 
   /**
+   * The theme to apply the break point
+   * elements in a filtered graph.
+   */
+  breakPointTheme: BreakPointTheme
+
+  /**
    * The diameter, in pixels, of the
    * commit node elements rendered on
    * the graph.
@@ -70,6 +76,13 @@ export interface GraphContextBag {
    * pagination configuration.
    */
   visibleCommits: Commit<unknown>[]
+
+  /**
+   * True if the HEAD commit is visible
+   * based on the current pagination
+   * and any filtering.
+   */
+  isHeadCommitVisible: boolean
 
   /**
    * A map of row indices to their

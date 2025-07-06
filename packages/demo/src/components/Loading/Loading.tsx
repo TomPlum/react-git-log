@@ -1,7 +1,8 @@
 import styles from './Loading.module.scss'
-import { LoadingProps } from './types'
+import { useDemoContext } from '@context'
 
-export const Loading = ({ theme }: LoadingProps) => {
+export const Loading = () => {
+  const { theme } = useDemoContext()
   const lineColour = theme === 'dark' ? ['#f8f8f8', '#0000'] : ['#524656', '#0000']
 
   return (

@@ -12,6 +12,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@components/*": ["./src/components/*"],
       "@assets/*": ["./src/assets/*"],
+      "@context": ["./src/context/index.ts"],
       "@utils/*": ["./src/utils/*"],
       "@tomplum/react-git-log": ["../library/src"]
     },

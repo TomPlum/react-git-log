@@ -13,6 +13,7 @@ export const GraphCore = <T,>({
   children,
   nodeSize = DEFAULT_NODE_SIZE,
   nodeTheme = 'default',
+  breakPointTheme = 'dot',
   orientation = 'normal',
   enableResize = false,
   showCommitNodeHashes = false,
@@ -21,7 +22,9 @@ export const GraphCore = <T,>({
 }: PropsWithChildren<GraphCoreProps<T>>) => {
   const {
     paging,
+    filter,
     setNodeSize,
+    headCommit,
     setGraphOrientation,
     graphData: { graphWidth, commits }
   } = useGitContext()
@@ -36,12 +39,18 @@ export const GraphCore = <T,>({
   const { width, ref, startResizing } = useResize()
 
   const visibleCommits = useMemo(() => {
+    const filteredCommits = filter?.(commits) ?? commits
+
     if (paging) {
-      return commits.slice(paging.startIndex, paging.endIndex)
+      return filteredCommits.slice(paging.startIndex, paging.endIndex)
     }
 
-    return commits
-  }, [commits, paging])
+    return filteredCommits
+  }, [commits, filter, paging])
+
+  const isHeadCommitVisible = useMemo<boolean>(() => {
+    return visibleCommits.find(commit => commit.hash === headCommit?.hash) !== undefined
+  }, [headCommit, visibleCommits])
 
   const { columnData, virtualColumns } = useColumnData({
     visibleCommits: visibleCommits.length
@@ -52,13 +61,15 @@ export const GraphCore = <T,>({
     showCommitNodeTooltips,
     showCommitNodeHashes,
     nodeTheme,
+    breakPointTheme,
     nodeSize,
     graphWidth: graphWidth + virtualColumns,
     orientation,
     visibleCommits,
     columnData,
+    isHeadCommitVisible,
     highlightedBackgroundHeight
-  }), [node, showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
+  }), [node, showCommitNodeTooltips, breakPointTheme, isHeadCommitVisible, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
 
   return (
     <GraphContext.Provider value={contextValue}>

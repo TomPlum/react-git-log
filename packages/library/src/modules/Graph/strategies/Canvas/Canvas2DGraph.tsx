@@ -6,7 +6,7 @@ import { useTheme } from 'hooks/useTheme'
 import {
   CanvasRenderer,
   GetCanvasRendererColoursFunction
-} from 'modules/Graph/strategies/Canvas/CanvasRenderer'
+} from 'modules/Graph/strategies/Canvas'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import styles from './Canvas2DGraph.module.scss'
 

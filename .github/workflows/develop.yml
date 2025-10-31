@@ -108,7 +108,7 @@ jobs:
           name: line-coverage-info
           path: packages/library/coverage
       - name: SonarCloud Analysis
-        uses: SonarSource/sonarqube-scan-action@v5.2.0
+        uses: SonarSource/sonarqube-scan-action@v6.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 

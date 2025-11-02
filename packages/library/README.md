@@ -260,6 +260,7 @@ All components have optional props to further configure the log.
 | `highlightedBackgroundHeight` | `number`                                | The height, in pixels, of the background colour of a row that is being previewed or has been selected.         |
 | `node`                        | [`CustomCommitNode`](#customcommitnode) | A function that returns a custom commit node implementation used by the graph.                                 |
 | `breakPointTheme`             | [`BreakPointTheme`](#breakpointtheme)   | Changes how the break-points between rows render when the log is being filtered.                               |
+| `tooltip`                     | [`CustomTooltip`](#customtooltip)       | Overrides the graph node tooltip with a custom implementation. Commit metadata is injected.                    |
 
 #### CustomCommitNode
 
@@ -296,6 +297,43 @@ The following properties are injected into the functions `props` argument:
 | `columnIndex`       | `number`  | The (zero-based) index of the column that the node is in.                                               |
 | `nodeSize`          | `number`  | The diameter (in pixels) of the node. This defaults but can be changed in the graph props.              |
 | `isIndexPseudoNode` | `boolean` | Denotes whether the node is the "pseudo node" added above the head to represent the working tree index. |
+
+#### CustomTooltip
+
+A function with the following signature:
+```typescript
+type CustomTooltip = (props: CustomTooltipProps) => ReactElement<HTMLElement>
+```
+
+For example:
+```typescript jsx
+<GitLog.GraphHTMLGrid
+  showCommitNodeTooltips
+  tooltip={({ commit, backgroundColour, borderColour }) => (
+    <div
+      data-testid='my-custom-tooltip'
+      style={{
+        border: `2px solid ${borderColour}`,
+        backgroundColor: backgroundColour,
+        color: 'white',
+        padding: '20px 10px',
+        borderRadius: '5px'
+      }}
+    >
+      <p>My Custom Tooltip</p>
+      <p>{commit.message}</p>
+    </div>
+  )}
+/>
+```
+
+The following properties are injected into the functions `props` argument:
+
+| Property           | Type     | Description                                                                   |
+|--------------------|----------|-------------------------------------------------------------------------------|
+| `commit`           | `Commit` | Details of the commit that the tooltip is being rendered for.                 |
+| `borderColour`     | `string` | The border colour of the commit based on the column in its and the theme.     |
+| `backgroundColour` | `number` | The background colour of the commit based on the column in its and the theme. |
 
 ### GraphCanvas2D
 

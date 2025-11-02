@@ -14,7 +14,7 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
   const { selectCommitHandler } = useSelectCommit()
   const { remoteProviderUrlBuilder } = useGitContext()
   const { textColour, theme, getCommitNodeColours } = useTheme()
-  const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize } = useGraphContext()
+  const { showCommitNodeTooltips, showCommitNodeHashes, nodeTheme, nodeSize, tooltip } = useGraphContext()
 
   const commitHashLabelHeight = 20
   const isMergeCommit = nodeTheme === 'default' && commit.parents.length > 1
@@ -69,12 +69,21 @@ export const CommitNode = ({ commit, colour }: CommitNodeProps) => {
       childRect={childRect}
       popoverRect={popoverRect}
     >
-      <CommitNodeTooltip
-        commit={commit}
-        color={borderColour}
-      />
+      {
+        tooltip
+          ? tooltip({
+            commit,
+            borderColour,
+            backgroundColour
+          }) : (
+            <CommitNodeTooltip
+              commit={commit}
+              color={borderColour}
+            />
+          )
+      }
     </ArrowContainer>
-  ), [borderColour, commit])
+  ), [backgroundColour, borderColour, commit, tooltip])
 
   return (
     <Popover

@@ -1,5 +1,5 @@
 import { BreakPointTheme, NodeTheme } from 'hooks/useTheme'
-import { GraphOrientation } from 'modules/Graph'
+import { CustomTooltip, GraphOrientation } from 'modules/Graph'
 import { Commit } from 'types/Commit'
 import { RowIndexToColumnStates } from 'modules/Graph/strategies/Grid/hooks/useColumnData'
 import { CustomCommitNode } from 'modules/Graph/strategies/Grid'
@@ -89,4 +89,10 @@ export interface GraphContextBag {
    * respective column states.
    */
   columnData: RowIndexToColumnStates
+
+  /**
+   * An optional custom tooltip implementation
+   * passed in by the user.
+   */
+  tooltip?: CustomTooltip
 }

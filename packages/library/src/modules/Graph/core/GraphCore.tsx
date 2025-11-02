@@ -18,7 +18,8 @@ export const GraphCore = <T,>({
   enableResize = false,
   showCommitNodeHashes = false,
   showCommitNodeTooltips = false,
-  highlightedBackgroundHeight
+  highlightedBackgroundHeight,
+  tooltip
 }: PropsWithChildren<GraphCoreProps<T>>) => {
   const {
     paging,
@@ -68,8 +69,9 @@ export const GraphCore = <T,>({
     visibleCommits,
     columnData,
     isHeadCommitVisible,
-    highlightedBackgroundHeight
-  }), [node, showCommitNodeTooltips, breakPointTheme, isHeadCommitVisible, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight])
+    highlightedBackgroundHeight,
+    tooltip
+  }), [node, showCommitNodeTooltips, breakPointTheme, isHeadCommitVisible, showCommitNodeHashes, nodeTheme, nodeSize, graphWidth, virtualColumns, orientation, visibleCommits, columnData, highlightedBackgroundHeight, tooltip])
 
   return (
     <GraphContext.Provider value={contextValue}>

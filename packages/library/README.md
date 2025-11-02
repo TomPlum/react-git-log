@@ -19,20 +19,21 @@ A flexible and interactive React component for visualising Git commit history. D
       * [GitLogPaged](#gitlogpaged)
   * [Optional](#optional)
     * [GitLog](#gitlog-1)
-    * [GitLogPaged](#gitlogpaged-1)
-      * [GitLogStylingProps](#gitlogstylingprops)
-      * [CommitFilter](#commitfilter)
       * [GitLogPaging](#gitlogpaging)
-      * [GitLogIndexStatus](#gitlogindexstatus)
-      * [GitLogUrlBuilder](#gitlogurlbuilder)
+    * [GitLogPaged](#gitlogpaged-1)
     * [GraphHTMLGrid](#graphhtmlgrid)
+      * [CustomCommitNode](#customcommitnode)
     * [GraphCanvas2D](#graphcanvas2d)
-      * [NodeTheme](#nodetheme)
     * [Table](#table)
       * [GitLogTableStylingProps](#gitlogtablestylingprops)
       * [CustomTableRow](#customtablerow)
-      * [CustomCommitNode](#customcommitnode)
-      * [BreakPointTheme](#breakpointtheme)
+  * [Common Types](#common-types)
+    * [GitLogStylingProps](#gitlogstylingprops)
+    * [GitLogIndexStatus](#gitlogindexstatus)
+    * [GitLogUrlBuilder](#gitlogurlbuilder)
+    * [CommitFilter](#commitfilter)
+    * [NodeTheme](#nodetheme)
+    * [BreakPointTheme](#breakpointtheme)
 <!-- TOC -->
 
 # Features
@@ -220,6 +221,13 @@ All components have optional props to further configure the log.
 | `showGitIndex`                 | `boolean`                                   | Enables the Git index "pseudo-commit' entry above the HEAD commit.                                          |
 | `filter`                       | [`CommitFilter<T>`](#commitfilter)          | Filters the commits in the log based on the response from the function.                                     |
 
+#### GitLogPaging
+
+| Prop   | Type     | Description                                     |
+|--------|----------|-------------------------------------------------|
+| `size` | `number` | The number of rows to show per page.            |
+| `page` | `number` | The page number to display (first page is `0`). |
+
 ### GitLogPaged
 
 | Property                       | Type                                        | Description                                                                                                 |
@@ -239,53 +247,6 @@ All components have optional props to further configure the log.
 | `showGitIndex`                 | `boolean`                                   | Enables the Git index "pseudo-commit' entry above the HEAD commit.                                          |
 | `filter`                       | [`CommitFilter<T>`](#commitfilter)          | Filters the commits in the log based on the response from the function.                                     |
 
-
-#### GitLogStylingProps
-
-| Property          | Type            | Description                                                                    |
-|-------------------|-----------------|--------------------------------------------------------------------------------|
-| `containerClass`  | `string`        | Class name for the wrapping `<div>` containing branches, graph, and log table. |
-| `containerStyles` | `CSSProperties` | React CSS styling object for the wrapping container `<div>`.                   |
-
-#### CommitFilter
-
-A function with the following signature
-```typescript
-type CommitFilter<T> = (commits: Commit<T>[]) => Commit<T>[]
-```
-
-Is passed the array of `Commit<T>` objects from the log based on the current pagination configuration and must return the filtered array based on your own domain-specific behaviour.
-
-The logs' subcomponents will respond accordingly based on the filtered list of commits.
-
-#### GitLogPaging
-
-| Prop   | Type     | Description                                     |
-|--------|----------|-------------------------------------------------|
-| `size` | `number` | The number of rows to show per page.            |
-| `page` | `number` | The page number to display (first page is `0`). |
-
-#### GitLogIndexStatus
-
-| Prop       | Type     | Description                                                               |
-|------------|----------|---------------------------------------------------------------------------|
-| `added`    | `number` | The number of added files in the git index for the checked-out branch.    |
-| `deleted`  | `number` | The number of deleted files in the git index for the checked-out branch.  |
-| `modified` | `number` | The number of modified files in the git index for the checked-out branch. |
-
-#### GitLogUrlBuilder
-
-A function with the following signature
-```typescript
-type GitLogUrlBuilder = (args: GitLogUrlBuilderArgs) => GitLogUrls
-```
-Returns an object of type `GitLogUrls` with the following fields.
-
-| Prop       | Type     | Description                                                                              |
-|------------|----------|------------------------------------------------------------------------------------------|
-| `commit`   | `string` | A resolved URL to a particular commit hash on the external Git providers remote website. |
-| `branch`   | `string` | A resolved URL to a branch on the external Git providers remote website.                 |
-
 ### GraphHTMLGrid
 
 | Property                      | Type                                    | Description                                                                                                    |
@@ -299,6 +260,80 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `highlightedBackgroundHeight` | `number`                                | The height, in pixels, of the background colour of a row that is being previewed or has been selected.         |
 | `node`                        | [`CustomCommitNode`](#customcommitnode) | A function that returns a custom commit node implementation used by the graph.                                 |
 | `breakPointTheme`             | [`BreakPointTheme`](#breakpointtheme)   | Changes how the break-points between rows render when the log is being filtered.                               |
+| `tooltip`                     | [`CustomTooltip`](#customtooltip)       | Overrides the graph node tooltip with a custom implementation. Commit metadata is injected.                    |
+
+#### CustomCommitNode
+
+A function with the following signature:
+```typescript
+type CustomCommitNode = (props: CustomCommitNodeProps) => ReactElement
+```
+
+For example:
+```typescript jsx
+ <GitLog.GraphHTMLGrid
+  nodeSize={25}
+  node={({ nodeSize, colour, isIndexPseudoNode, rowIndex }) => (
+    <div
+      className={styles.Node}
+      style={{
+        width: nodeSize,
+        height: nodeSize,
+        background: `url('https://placecats.com/${images[rowIndex % images.length]}/50/50?fit=contain&position=top') 50% 50%`,
+        border: `2px ${isIndexPseudoNode ? 'dotted' : 'solid'} ${colour}`
+      }}
+    />
+  )}
+/>
+```
+
+The following properties are injected into the functions `props` argument:
+
+| Property            | Type      | Description                                                                                             |
+|---------------------|-----------|---------------------------------------------------------------------------------------------------------|
+| `commit`            | `Commit`  | Details of the commit that the node is being rendered for.                                              |
+| `colour`            | `string`  | The colour of the commit based on the column in its and the theme.                                      |
+| `rowIndex`          | `number`  | The (zero-based) index of the row that the node is in.                                                  |
+| `columnIndex`       | `number`  | The (zero-based) index of the column that the node is in.                                               |
+| `nodeSize`          | `number`  | The diameter (in pixels) of the node. This defaults but can be changed in the graph props.              |
+| `isIndexPseudoNode` | `boolean` | Denotes whether the node is the "pseudo node" added above the head to represent the working tree index. |
+
+#### CustomTooltip
+
+A function with the following signature:
+```typescript
+type CustomTooltip = (props: CustomTooltipProps) => ReactElement<HTMLElement>
+```
+
+For example:
+```typescript jsx
+<GitLog.GraphHTMLGrid
+  showCommitNodeTooltips
+  tooltip={({ commit, backgroundColour, borderColour }) => (
+    <div
+      data-testid='my-custom-tooltip'
+      style={{
+        border: `2px solid ${borderColour}`,
+        backgroundColor: backgroundColour,
+        color: 'white',
+        padding: '20px 10px',
+        borderRadius: '5px'
+      }}
+    >
+      <p>My Custom Tooltip</p>
+      <p>{commit.message}</p>
+    </div>
+  )}
+/>
+```
+
+The following properties are injected into the functions `props` argument:
+
+| Property           | Type     | Description                                                                   |
+|--------------------|----------|-------------------------------------------------------------------------------|
+| `commit`           | `Commit` | Details of the commit that the tooltip is being rendered for.                 |
+| `borderColour`     | `string` | The border colour of the commit based on the column in its and the theme.     |
+| `backgroundColour` | `number` | The background colour of the commit based on the column in its and the theme. |
 
 ### GraphCanvas2D
 
@@ -309,13 +344,6 @@ Returns an object of type `GitLogUrls` with the following fields.
 | `orientation`     | `normal \| flipped`                   | The orientation of the graph. Normal renders the checked-out branch on the left, flipped on the right.         |
 | `enableResize`    | `boolean`                             | Enables horizontal resizing of the graph. Default: `false`.                                                    |
 | `breakPointTheme` | [`BreakPointTheme`](#breakpointtheme) | Changes how the break-points between rows render when the log is being filtered.                               |
-
-#### NodeTheme
-
-| Prop      | Type     | Description                                                           |
-|-----------|----------|-----------------------------------------------------------------------|
-| `default` | `string` | The default theme where nodes change their style based on their type. |
-| `plain`   | `string` | All nodes look the same, except for their colours.                    |
 
 ### Table
 
@@ -378,43 +406,55 @@ The following properties are injected into the functions `props` argument:
 | `previewed`        | `boolean` | Whether the row is previewed (is being hovered over).                 |
 | `backgroundColour` | `string`  | The colour of the background as is normally applied to the table row. |
 
-#### CustomCommitNode
+## Common Types
 
-A function with the following signature:
+### GitLogStylingProps
+| Property          | Type            | Description                                                                    |
+|-------------------|-----------------|--------------------------------------------------------------------------------|
+| `containerClass`  | `string`        | Class name for the wrapping `<div>` containing branches, graph, and log table. |
+| `containerStyles` | `CSSProperties` | React CSS styling object for the wrapping container `<div>`.                   |
+
+
+### GitLogIndexStatus
+
+| Prop       | Type     | Description                                                               |
+|------------|----------|---------------------------------------------------------------------------|
+| `added`    | `number` | The number of added files in the git index for the checked-out branch.    |
+| `deleted`  | `number` | The number of deleted files in the git index for the checked-out branch.  |
+| `modified` | `number` | The number of modified files in the git index for the checked-out branch. |
+
+### GitLogUrlBuilder
+
+A function with the following signature
 ```typescript
-type CustomCommitNode = (props: CustomCommitNodeProps) => ReactElement
+type GitLogUrlBuilder = (args: GitLogUrlBuilderArgs) => GitLogUrls
+```
+Returns an object of type `GitLogUrls` with the following fields.
+
+| Prop       | Type     | Description                                                                              |
+|------------|----------|------------------------------------------------------------------------------------------|
+| `commit`   | `string` | A resolved URL to a particular commit hash on the external Git providers remote website. |
+| `branch`   | `string` | A resolved URL to a branch on the external Git providers remote website.                 |
+
+### CommitFilter
+
+A function with the following signature
+```typescript
+type CommitFilter<T> = (commits: Commit<T>[]) => Commit<T>[]
 ```
 
-For example:
-```typescript jsx
- <GitLog.GraphHTMLGrid
-  nodeSize={25}
-  node={({ nodeSize, colour, isIndexPseudoNode, rowIndex }) => (
-    <div
-      className={styles.Node}
-      style={{
-        width: nodeSize,
-        height: nodeSize,
-        background: `url('https://placecats.com/${images[rowIndex % images.length]}/50/50?fit=contain&position=top') 50% 50%`,
-        border: `2px ${isIndexPseudoNode ? 'dotted' : 'solid'} ${colour}`
-      }}
-    />
-  )}
-/>
-```
+Is passed the array of `Commit<T>` objects from the log based on the current pagination configuration and must return the filtered array based on your own domain-specific behaviour.
 
-The following properties are injected into the functions `props` argument:
+The logs' subcomponents will respond accordingly based on the filtered list of commits.
 
-| Property            | Type      | Description                                                                                             |
-|---------------------|-----------|---------------------------------------------------------------------------------------------------------|
-| `commit`            | `Commit`  | Details of the commit that the node is being rendered for.                                              |
-| `colour`            | `string`  | The colour of the commit based on the column in its and the theme.                                      |
-| `rowIndex`          | `number`  | The (zero-based) index of the row that the node is in.                                                  |
-| `columnIndex`       | `number`  | The (zero-based) index of the column that the node is in.                                               |
-| `nodeSize`          | `number`  | The diameter (in pixels) of the node. This defaults but can be changed in the graph props.              |
-| `isIndexPseudoNode` | `boolean` | Denotes whether the node is the "pseudo node" added above the head to represent the working tree index. |
+### NodeTheme
 
-#### BreakPointTheme
+| Prop      | Type     | Description                                                           |
+|-----------|----------|-----------------------------------------------------------------------|
+| `default` | `string` | The default theme where nodes change their style based on their type. |
+| `plain`   | `string` | All nodes look the same, except for their colours.                    |
+
+### BreakPointTheme
 
 The following themes are available:
 

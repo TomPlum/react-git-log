@@ -491,3 +491,79 @@ export const CustomCommitNode = () => {
     </div>
   )
 }
+
+export const CustomCommitTooltip = () => {
+  const {
+    loading,
+    colours,
+    entries,
+    branch,
+    buildUrls,
+    repository,
+    backgroundColour,
+    handleChangeColors,
+    handleChangeRepository
+  } = useStoryState()
+
+  const { theme } = useDemoContext()
+
+  return (
+    <div style={{ background: backgroundColour }} className={styles.container}>
+      <StoryHeader
+        colours={colours}
+        repository={repository}
+        onChangeColours={handleChangeColors}
+        onChangeRepository={handleChangeRepository}
+      />
+
+      {loading && (
+        <div className={styles.loading}>
+          <Loading />
+        </div>
+      )}
+
+      {!loading && entries && (
+        <GitLog
+          colours={colours.colors}
+          entries={entries}
+          theme={theme}
+          currentBranch={branch}
+          classes={{
+            containerStyles: {
+              background: backgroundColour
+            },
+            containerClass: styles.gitLogContainer
+          }}
+          indexStatus={{
+            added: 2,
+            modified: 5,
+            deleted: 1
+          }}
+          urls={buildUrls}
+        >
+          <GitLog.GraphHTMLGrid
+            showCommitNodeTooltips
+            tooltip={({ commit, backgroundColour, borderColour }) => (
+              <div
+                style={{
+                  border: `2px solid ${borderColour}`,
+                  backgroundColor: backgroundColour,
+                  color: 'white',
+                  padding: 20,
+                  borderRadius: 5
+                }}
+              >
+                <p>My Custom Tooltip</p>
+                <p>{commit.message.slice(0, 25)}</p>
+              </div>
+            )}
+          />
+
+          <GitLog.Table
+            className={styles.table}
+          />
+        </GitLog>
+      )}
+    </div>
+  )
+}

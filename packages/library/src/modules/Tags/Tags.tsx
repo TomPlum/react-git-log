@@ -78,13 +78,13 @@ export const Tags = () => {
         const selectedIsNotTip = selectedCommit && commit.hash === selectedCommit.hash
         const isIndexCommit = commit.hash === indexCommit?.hash
 
-        const showRenderBranchTag = commit.isBranchTip
+        const shouldRenderBranchTag = commit.isBranchTip
           || shouldPreviewBranch
           || selectedIsNotTip
           || commit.isMostRecentTagInstance
           || isIndexCommit
 
-        if (showRenderBranchTag) {
+        if (shouldRenderBranchTag) {
           return (
             <BranchTag
               commit={commit}

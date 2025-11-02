@@ -1,7 +1,49 @@
 import { BreakPointTheme, NodeTheme } from '../../hooks/useTheme'
 import { CustomCommitNode } from './strategies/Grid/types'
+import { ReactElement } from 'react'
+import { Commit } from '../../types/Commit'
 
+/**
+ * The orientation of the graph.
+ *
+ * Normal mode draws the graph from
+ * left to right, so the checked-out
+ * branch is on the left-hand side.
+ *
+ * Flipped mode inverts the graph
+ * in the y-axios so it's drawn from
+ * right to left with the checked-out
+ * branch on the right-hand side.
+ */
 export type GraphOrientation = 'normal' | 'flipped'
+
+export interface CustomTooltipProps {
+  /**
+   * Details of the commit that is
+   * being hovered over.
+   */
+  commit: Commit
+
+  /**
+   * The brighter, border colour of the commit based on
+   * the current theme that is applied.
+   */
+  borderColour: string
+
+  /**
+   * The darker, background colour of the commit based on
+   * the current theme that is applied.
+   */
+  backgroundColour: string
+}
+
+/**
+ * Overrides the graph node tooltip with
+ * a custom implementation. Commit metadata
+ * is injected into the function for you to
+ * render.
+ */
+export type CustomTooltip = (props: CustomTooltipProps) => ReactElement<HTMLElement>
 
 export type Canvas2DGraphProps = GraphPropsCommon
 
@@ -35,6 +77,14 @@ export interface HTMLGridGraphProps<T = unknown> extends GraphPropsCommon {
    * height from the default.
    */
   highlightedBackgroundHeight?: number
+
+  /**
+   * Overrides the graph node tooltip with
+   * a custom implementation. Commit metadata
+   * is injected into the function for you to
+   * render.
+   */
+  tooltip?: CustomTooltip
 }
 
 export interface GraphPropsCommon {

@@ -49,6 +49,53 @@ describe('CommitNode', () => {
     expect(commitElement).toBeInTheDocument()
   })
 
+  it('should render a custom tooltip on hover of the node if the custom tooltip prop is passed', async () => {
+    vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
+      showCommitNodeTooltips: true,
+      tooltip: () => (
+        <div data-testid='custom-tooltip'>
+          Custom Tooltip
+        </div>
+      )
+    }))
+
+    vi.spyOn(selectCommit, 'useSelectCommit').mockReturnValue({
+      selectCommitHandler: {
+        onMouseOut: vi.fn(),
+        onClick: vi.fn(),
+        onMouseOver: vi.fn()
+      }
+    })
+
+    vi.spyOn(themeHook, 'useTheme').mockReturnValue(themeFunctions())
+
+    render(
+      <CommitNode
+        colour='white'
+        commit={commit({
+          hash: 'commit-to-hover'
+        })}
+      />
+    )
+
+    const commitElement = commitNode.withHash({
+      hash: 'commit-to-hover'
+    })
+
+    await userEvent.hover(commitElement)
+    expect(commitElement).toBeInTheDocument()
+
+    const tooltip = screen.getByTestId('custom-tooltip')
+    expect(tooltip).toBeInTheDocument()
+    expect(tooltip).toHaveTextContent('Custom Tooltip')
+
+    await userEvent.unhover(commitElement)
+    await waitFor(() => {
+      expect(tooltip).not.toBeInTheDocument()
+    })
+    expect(commitElement).toBeInTheDocument()
+  })
+
   it('should not render a tooltip on hover of the node if the prop is disabled', async () => {
     vi.spyOn(graphContext, 'useGraphContext').mockReturnValue(graphContextBag({
       showCommitNodeTooltips: false

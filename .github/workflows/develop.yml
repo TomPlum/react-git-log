@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
       - run: npm install
       - run: npm run build --workspace=@tomplum/react-git-log
@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
       - run: npm install
       - run: npm run build-storybook --workspace=@tomplum/react-git-log-demo
@@ -33,7 +33,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
       - run: npm install
       - run: npm run lint
@@ -45,7 +45,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
       - run: npm install
       - run: npm run docs --workspace=@tomplum/react-git-log
@@ -58,7 +58,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
       - run: npm install
       - run: npm run test:unit:ci --workspace=@tomplum/react-git-log
@@ -76,7 +76,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
       - run: npm install
       - run: npm run test --workspace=@tomplum/react-git-log-demo
@@ -89,7 +89,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
       - run: npm install
       - run: npm run test:integration:ci --workspace=@tomplum/react-git-log
@@ -122,7 +122,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
       - run: npm install
       - uses: snyk/actions/node@master

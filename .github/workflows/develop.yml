@@ -64,7 +64,7 @@ jobs:
       - run: npm run test:unit:ci --workspace=@tomplum/react-git-log
         working-directory: packages/library
       - name: Store LCOV Info
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: line-coverage-info
           path: packages/library/coverage/lcov.info
@@ -103,7 +103,7 @@ jobs:
         with:
           fetch-depth: '0'
       - name: Download LCOV Info Artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: line-coverage-info
           path: packages/library/coverage

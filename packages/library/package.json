@@ -74,7 +74,7 @@
     "@vitest/ui": "^4.0.0",
     "canvas": "^3.1.1",
     "estree-walker": "^3.0.3",
-    "globals": "^16.0.0",
+    "globals": "^17.0.0",
     "jsdom": "^26.0.0",
     "sass": "^1.85.1",
     "typedoc": "^0.28.6",

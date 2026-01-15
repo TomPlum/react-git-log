@@ -9,7 +9,7 @@ jobs:
   build-library:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -25,7 +25,7 @@ jobs:
   build-storybook:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -41,7 +41,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-library, lint]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -66,7 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-library, lint]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-storybook, lint]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -97,7 +97,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-library, build-storybook, lint]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -110,7 +110,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [unit-tests-library, integration-tests, unit-tests-demo]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: '0'
       - name: Download LCOV Info Artifact
@@ -130,7 +130,7 @@ jobs:
         working-directory: packages/library
     needs: build-library
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -149,7 +149,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [sonarcloud, snyk]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Download Statics
         uses: actions/download-artifact@v7
         with:
@@ -163,7 +163,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [sonarcloud, snyk]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Authenticate with NPM
         run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc

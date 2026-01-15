@@ -10,8 +10,11 @@
   "module": "dist/react-git-log.js",
   "types": "dist/index.d.ts",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/react-git-log.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/react-git-log.js"
+    },
+    "./dist/index.css": "./dist/index.css"
   },
   "files": [
     "dist/",

@@ -40,7 +40,7 @@ export const Table = ({
   }), [timestampFormat])
 
   return (
-    <TableContext value={tableContextValue}>
+    <TableContext.Provider value={tableContextValue}>
       <TableContainer
         row={row}
         className={className}
@@ -107,6 +107,6 @@ export const Table = ({
           />
         ))}
       </TableContainer>
-    </TableContext>
+    </TableContext.Provider>
   )
 }

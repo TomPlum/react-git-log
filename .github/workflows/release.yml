@@ -169,11 +169,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Authenticate with NPM
-        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Get package version
         id: package_version
         run: echo "VERSION=$(jq -r .version packages/library/package.json)" >> $GITHUB_ENV
@@ -196,5 +191,3 @@ jobs:
       - name: Publish to NPM
         if: env.VERSION_EXISTS == 'false'
         run: npm publish --workspace=@tomplum/react-git-log --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

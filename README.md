@@ -117,6 +117,9 @@ This strategy can be used by rendering the `<GitLog.GraphHTMLGrid />` subcompone
 
 ### Canvas 2D
 
+> [!WARNING]
+> This Canvas2D variant of the graph is in-complete and may have rendering bugs. It's also not as feature-rich as the HTML variant due to canvas API limitations and unfinished work.
+
 This implementation uses a standard HTML `canvas` element with a `2d` rendering context.
 
 This strategy can be used by rendering the `<GitLog.GraphCanvas2D />` subcomponent under the `<GitLog />`.

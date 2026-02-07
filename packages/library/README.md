@@ -337,6 +337,10 @@ The following properties are injected into the functions `props` argument:
 
 ### GraphCanvas2D
 
+> [!WARNING]
+> This Canvas2D variant of the graph is in-complete and may have rendering bugs. It's also not as feature-rich as the HTML variant due to canvas API limitations and unfinished work.
+
+
 | Property          | Type                                  | Description                                                                                                    |
 |-------------------|---------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `nodeTheme`       | [`NodeTheme`](#nodetheme)             | Theme applied to commit node elements in the graph.                                                            |

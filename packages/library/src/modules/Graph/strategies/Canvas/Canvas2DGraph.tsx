@@ -9,10 +9,10 @@ import {
 } from 'modules/Graph/strategies/Canvas'
 import { useSelectCommit } from 'hooks/useSelectCommit'
 import styles from './Canvas2DGraph.module.scss'
+import { GRAPH_MARGIN_TOP } from 'modules/Graph/constants'
 
 export const Canvas2DGraph = () => {
   const { selectCommitHandler } = useSelectCommit()
-  const { isServerSidePaginated } = useGitContext()
   const { graphWidth, visibleCommits, nodeSize, nodeTheme, orientation } = useGraphContext()
 
   const {
@@ -31,7 +31,9 @@ export const Canvas2DGraph = () => {
     indexCommit,
     isIndexVisible,
     selectedCommit,
-    previewedCommit
+    previewedCommit,
+    isServerSidePaginated,
+    showHeaders
   } = useGitContext()
 
   const getNodeColours = useCallback<GetCanvasRendererColoursFunction>((columnIndex: number) => {
@@ -168,6 +170,10 @@ export const Canvas2DGraph = () => {
       width={canvasWidth}
       height={canvasHeight}
       className={styles.canvas}
+      data-testid='graph-2d-canvas'
+      style={{
+        marginTop: showHeaders ? undefined : GRAPH_MARGIN_TOP
+      }}
     />
   )
 }

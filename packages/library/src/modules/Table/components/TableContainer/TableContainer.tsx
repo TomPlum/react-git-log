@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import styles from "./TableContainer.module.scss";
-import { PropsWithChildren, useMemo } from "react";
-import { useGitContext } from "context/GitContext";
-import { placeholderCommits } from "modules/Graph/strategies/Grid/hooks/usePlaceholderData/data";
-import { ROW_HEIGHT } from "constants/constants";
-import { HEADER_ROW_HEIGHT } from "modules/Table/constants";
-import { TableContainerProps } from "modules/Table/components/TableContainer/types";
+import classNames from 'classnames'
+import styles from './TableContainer.module.scss'
+import { PropsWithChildren, useMemo } from 'react'
+import { useGitContext } from 'context/GitContext'
+import { placeholderCommits } from 'modules/Graph/strategies/Grid/hooks/usePlaceholderData/data'
+import { ROW_HEIGHT } from 'constants/constants'
+import { HEADER_ROW_HEIGHT } from 'modules/Table/constants'
+import { TableContainerProps } from 'modules/Table/components/TableContainer/types'
 
 export const TableContainer = ({
   row,
@@ -14,19 +14,19 @@ export const TableContainer = ({
   className,
   styleOverrides,
 }: PropsWithChildren<TableContainerProps>) => {
-  const { rowSpacing, showHeaders } = useGitContext();
+  const { rowSpacing, showHeaders } = useGitContext()
 
   const gridTemplateRows = useMemo(() => {
     // If no commits are visible as we're showing
     // the placeholder data for the skeleton view,
     // then use that size, else just use the log data length.
     const commitsVisible =
-      rowQuantity > 0 ? rowQuantity : placeholderCommits.length;
+      rowQuantity > 0 ? rowQuantity : placeholderCommits.length
 
     // If the table headers are turned off, then we simply
     // repeat the same row height for all rows.
     if (!showHeaders) {
-      return `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`;
+      return `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
     }
 
     // With no row spacing, the header row height lines
@@ -34,13 +34,13 @@ export const TableContainer = ({
     // spacing is increased, we must subtract half of it
     // from the height of the first header row to counteract
     // the gap between the header and the first data row.
-    const headerRowHeight = HEADER_ROW_HEIGHT - rowSpacing / 2;
+    const headerRowHeight = HEADER_ROW_HEIGHT - rowSpacing / 2
 
     // All other rows (with data) get a fixed height.
-    const remainingRowsHeight = `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`;
+    const remainingRowsHeight = `repeat(${commitsVisible}, ${ROW_HEIGHT}px)`
 
-    return `${headerRowHeight}px ${remainingRowsHeight}`;
-  }, [rowQuantity, rowSpacing, showHeaders]);
+    return `${headerRowHeight}px ${remainingRowsHeight}`
+  }, [rowQuantity, rowSpacing, showHeaders])
 
   if (row) {
     return (
@@ -53,7 +53,7 @@ export const TableContainer = ({
       >
         {children}
       </div>
-    );
+    )
   }
 
   return (
@@ -69,5 +69,5 @@ export const TableContainer = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}

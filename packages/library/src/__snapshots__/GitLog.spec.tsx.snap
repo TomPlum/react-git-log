@@ -3691,6 +3691,7 @@ exports[`GitLog > Canvas2D Graph > should render correctly and match the snapsho
       >
         <canvas
           class="canvas"
+          data-testid="graph-2d-canvas"
           height="18960"
           style="width: 168px; height: 18960px;"
           width="168"

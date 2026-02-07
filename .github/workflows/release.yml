@@ -7,7 +7,7 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
 
 jobs:
   build-library:
@@ -169,6 +169,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Node & NPM versions
+        run: |
+          node --version
+          npm --version
+
       - name: Get package version
         id: package_version
         run: echo "VERSION=$(jq -r .version packages/library/package.json)" >> $GITHUB_ENV
@@ -190,4 +195,4 @@ jobs:
 
       - name: Publish to NPM
         if: env.VERSION_EXISTS == 'false'
-        run: npm publish --workspace=@tomplum/react-git-log --access public
+        run: npm publish --workspace=@tomplum/react-git-log --provenance

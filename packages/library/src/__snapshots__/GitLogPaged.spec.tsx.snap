@@ -1763,7 +1763,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
       >
         <div
           class="graph"
-          style="grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(20, 40px);"
+          style="grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(20, 40px); margin-top: 12px;"
         >
           <button
             class="column"
@@ -3912,7 +3912,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
       >
         <div
           class="graph"
-          style="grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(20, 40px);"
+          style="grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(20, 40px); margin-top: 12px;"
         >
           <button
             class="column"
@@ -6854,7 +6854,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
       >
         <div
           class="graph"
-          style="grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(40, 40px);"
+          style="grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(40, 40px); margin-top: 12px;"
         >
           <button
             class="column"

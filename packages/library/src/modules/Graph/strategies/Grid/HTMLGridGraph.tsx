@@ -8,6 +8,7 @@ import { useGitContext } from 'context/GitContext'
 import { getEmptyColumnState } from 'modules/Graph/strategies/Grid/utility/getEmptyColumnState'
 import { CSSProperties, useMemo } from 'react'
 import { placeholderCommits } from 'modules/Graph/strategies/Grid/hooks/usePlaceholderData/data'
+import { GRAPH_MARGIN_TOP } from 'modules/Graph/constants'
 
 export const HTMLGridGraph = () => {
   const { graphWidth, visibleCommits, columnData } = useGraphContext()
@@ -34,7 +35,8 @@ export const HTMLGridGraph = () => {
 
   const wrapperStyles: CSSProperties = {
     gridTemplateColumns: `repeat(${graphWidth}, 1fr)`,
-    gridTemplateRows: `repeat(${commitQuantity}, ${ROW_HEIGHT + rowSpacing}px)`
+    gridTemplateRows: `repeat(${commitQuantity}, ${ROW_HEIGHT + rowSpacing}px)`,
+    marginTop: GRAPH_MARGIN_TOP
   }
 
   return (

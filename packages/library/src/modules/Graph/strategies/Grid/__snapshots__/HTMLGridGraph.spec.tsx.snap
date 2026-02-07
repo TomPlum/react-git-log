@@ -4,7 +4,7 @@ exports[`HTML Grid Graph > should render the graph with the custom commit node i
 <DocumentFragment>
   <div
     class="graph"
-    style="grid-template-columns: repeat(200, 1fr); grid-template-rows: repeat(10, 40px);"
+    style="grid-template-columns: repeat(200, 1fr); grid-template-rows: repeat(10, 40px); margin-top: 12px;"
   >
     <button
       class="column"

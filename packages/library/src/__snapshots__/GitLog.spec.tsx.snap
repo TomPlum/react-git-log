@@ -22732,7 +22732,7 @@ exports[`GitLog > HTML Grid Graph > should render correctly and match the snapsh
       >
         <div
           class="graph"
-          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(474, 40px);"
+          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(474, 40px); margin-top: 12px;"
         >
           <button
             class="column"
@@ -85368,7 +85368,7 @@ exports[`GitLog > HTML Grid Graph > should render correctly and match the snapsh
       >
         <div
           class="graph"
-          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(474, 40px);"
+          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(474, 40px); margin-top: 12px;"
         >
           <button
             class="column"
@@ -144982,7 +144982,7 @@ exports[`GitLog > HTML Grid Graph > should render correctly and match the snapsh
       >
         <div
           class="graph"
-          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(30, 40px);"
+          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(30, 40px); margin-top: 12px;"
         >
           <button
             class="column"
@@ -152750,7 +152750,7 @@ exports[`GitLog > HTML Grid Graph > should render correctly and match the snapsh
       >
         <div
           class="graph"
-          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(473, 40px);"
+          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(473, 40px); margin-top: 12px;"
         >
           <button
             class="column"
@@ -211463,7 +211463,7 @@ exports[`GitLog > HTML Grid Graph > should render correctly and match the snapsh
       >
         <div
           class="graph"
-          style="grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(10, 40px);"
+          style="grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(10, 40px); margin-top: 12px;"
         >
           <button
             class="column"
@@ -215695,7 +215695,7 @@ exports[`GitLog > HTML Grid Graph > should render correctly and match the snapsh
       >
         <div
           class="graph"
-          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(474, 40px);"
+          style="grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(474, 40px); margin-top: 12px;"
         >
           <button
             class="column"

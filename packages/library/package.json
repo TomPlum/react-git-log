@@ -1,7 +1,10 @@
 {
   "name": "@tomplum/react-git-log",
   "author": "Thomas Plumpton",
-  "repository": "https://github.com/TomPlum/react-git-log",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomPlum/react-git-log.git"
+  },
   "description": "A flexible, themable, React component for visualising Git commit history, branch and tag metadata.",
   "version": "3.5.1",
   "license": "Apache-2.0",

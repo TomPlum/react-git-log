@@ -276,6 +276,7 @@ exports[`GitLogPaged > should render correctly and match the snapshot the pagina
       >
         <canvas
           class="canvas"
+          data-testid="graph-2d-canvas"
           height="1600"
           style="width: 120px; height: 1600px;"
           width="120"

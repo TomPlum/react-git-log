@@ -21,7 +21,7 @@ jobs:
       - run: npm install
       - run: npm run build --workspace=@tomplum/react-git-log
       - name: Store Built Artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: production-build
           path: ./packages/library/dist
@@ -37,7 +37,7 @@ jobs:
       - run: npm install
       - run: npm run build-storybook --workspace=@tomplum/react-git-log-demo
       - name: Store Storybook Statics
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: storybook-static
           path: ./packages/demo/storybook-static
@@ -79,7 +79,7 @@ jobs:
       - run: npm run test:unit:ci --workspace=@tomplum/react-git-log
         working-directory: packages/library
       - name: Store LCOV Info
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: line-coverage-info
           path: packages/library/coverage/lcov.info
@@ -118,7 +118,7 @@ jobs:
         with:
           fetch-depth: '0'
       - name: Download LCOV Info Artifact
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: line-coverage-info
           path: packages/library/coverage
@@ -155,7 +155,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Download Statics
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: storybook-static
           path: ./packages/demo/storybook-static
@@ -192,7 +192,7 @@ jobs:
           fi
 
       - name: Download Production Build
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: production-build
           path: ./packages/library/dist

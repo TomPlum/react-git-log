@@ -87,7 +87,7 @@
     "vite-bundle-analyzer": "^1.0.0",
     "vite-plugin-dts": "^5.0.0",
     "vite-plugin-lib-inject-css": "^2.2.1",
-    "vite-plugin-svgr": "^4.3.0",
+    "vite-plugin-svgr": "^5.0.0",
     "vite-tsconfig-paths": "^6.0.0",
     "vitest": "^4.0.0"
   },

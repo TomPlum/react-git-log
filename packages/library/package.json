@@ -46,7 +46,7 @@
     "@uidotdev/usehooks": "^2.4.1",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.13",
-    "fastpriorityqueue": "^0.7.5",
+    "fastpriorityqueue": "^0.8.0",
     "react": ">=19.0.0",
     "react-dom": ">=19.0.0",
     "react-tiny-popover": "^8.1.6"
